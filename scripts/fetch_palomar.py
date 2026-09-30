@@ -51,10 +51,7 @@ def thumbnail(path, title, subtitle, remote=None):
                 # Always create a local SVG fallback; browsers can switch to it
                 # when a remote/social preview asset is missing or invalid.
         except Exception: pass
-    safe = lambda s: html.escape(str(s)[:72])
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#173d35"/><stop offset="1" stop-color="#3a9275"/></linearGradient></defs><rect width="640" height="360" rx="18" fill="url(#g)"/><circle cx="540" cy="70" r="140" fill="#fff" opacity=".08"/><text x="38" y="54" fill="#b9e8d2" font-family="Arial" font-size="14" letter-spacing="3">PALOMAR / LEAN VERIFIED</text><text x="38" y="170" fill="white" font-family="Arial" font-size="25" font-weight="700">{safe(title)}</text><text x="38" y="214" fill="#d6f4e6" font-family="Arial" font-size="16">{safe(subtitle)}</text><text x="38" y="320" fill="#b9e8d2" font-family="Arial" font-size="13">FORMAL MATHEMATICS ARCHIVE</text></svg>'''
-    path.write_text(svg, encoding='utf-8')
-    return path
+    return None
 
 def make_thumbnails(rows):
     repos = set()
