@@ -11,8 +11,12 @@ def request(method, path, payload=None):
     req = urllib.request.Request(BASE + path, data=body, method=method, headers={
         'Authorization': f'Bearer {TOKEN}', 'Notion-Version': '2022-06-28',
         'Content-Type': 'application/json', 'User-Agent': 'palomar-registry-daily/1.0'})
-    with urllib.request.urlopen(req, timeout=60) as response:
-        return json.load(response)
+    try:
+        with urllib.request.urlopen(req, timeout=60) as response:
+            return json.load(response)
+    except urllib.error.HTTPError as error:
+        detail = error.read().decode('utf-8', 'replace')
+        raise RuntimeError(f'Notion API {error.code} {method} {path}: {detail[:2000]}') from error
 
 def rich(value): return [{'type':'text','text':{'content':str(value)[:2000]}}]
 def props(row, day):
