@@ -1,0 +1,459 @@
+{
+  "abstract": "A Lean 4 / Mathlib development of a paper on the emptiness theory of the sets Z_{p/q}(s, s+t) = {ξ > 0 : {ξ(p/q)ⁿ} ∈ [s, s+t) for all n ≥ 0}, the generalized Z-numbers of Flatto, Lagarias and Pollington, at and beyond the window length 1/p. The paper introduces block certificates --- finite integer witnesses, rechecked from scratch by the Lean proof kernel, whose soundness rests on the aperiodicity lemma alone --- and uses them to pass the length-$1/p$ line: $\\Zset_{3/2}(1/6,13/24)=\\emptyset$ (window length $3/8>1/3$), $\\Zset_{3/2}(961/3600,2427/3600)=\\emptyset$ (length $733/1800$), and explicit unions of total length up to $17/24$, against $20/39$ in print. The closed-interval union statement of Dubickas is replicated exactly as printed; no $\\xi\\ne0$ keeps $\\|\\xi(3/2)^{n}\\|<1/5$ for every $n$, with $\\|\\cdot\\|$ the distance to the nearest integer; and thirty windows of length $1/p$ are certified at five bases in the regime $p>q^{2}$ that Dubickas leaves open. There is no sorry anywhere outside the deliberate placeholders in Challenge.lean, no project-defined axiom, and no native_decide: every block certificate is discharged by `c.ok = true := by decide`, i.e. by kernel reduction of integer arithmetic on the certificate's raw data.",
+  "authors": [
+    {
+      "name": "Ralf Stephan (direction, review, paper author)"
+    },
+    {
+      "name": "Claude Code, claude-fable-5 (mathematical discovery, paper drafting)"
+    },
+    {
+      "name": "Claude Code, claude-opus-4-8 (formalization)"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-24-000002-v1/b32293f8472d590d34724db5640a704e7c2a1ec1450e35da21c122a3d9c25e26/",
+    "artifact_tree_sha256": "b32293f8472d590d34724db5640a704e7c2a1ec1450e35da21c122a3d9c25e26",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-24T16:22:52Z",
+    "renderer_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "verso_commit": "755ccbe968ad1b0255bee8b46d9cb2306486d6d8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.DS"
+    ],
+    "msc2020": [
+      "11J71",
+      "11K06",
+      "37B10"
+    ]
+  },
+  "first_registered_on": "2026-08-24",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.33.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "comparator",
+        "repository": "leanprover/comparator",
+        "revision": "c3903e1ed0148a32cd39510707c632dc4d265514"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "87adeaebd370a3b6a41ac4f044fddd4bf81803ad"
+      },
+      {
+        "name": "lean4export",
+        "repository": "leanprover/lean4export",
+        "revision": "af5aa64bb914c3c2c781f378088dbd38acf4f804"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "123d15766ba49356c02ebad2a4462dfe12d79899"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "f5c090429dff3cf66cb65562526c9ea6e8edfbcb"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "bb3469a87774349fe01898d8bf2fc6a1ce6411ca"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "222c58dad7706a6e7cae46c0edd65ea881d3ee27"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7db8190085343afde2f5d2cdcc9bac719b6ec02c"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ef42f8944eaf5b6cbfbe75d1917d824c7dd6cf33"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "76e1c118b0700b4ceafe99532e887d6431625e1a"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "1319485273bf87833fa472afbcefdedecb16b45f"
+      }
+    ],
+    "solution_path": "SolutionRecord.lean",
+    "theorem_names": [
+      "Z32.FLP_cor_one_four_a",
+      "Z32.dubickas_theorem_1",
+      "Z32.ZSet_eq_empty_of_lt_sq",
+      "Z32.ZSet_three_two_third_empty",
+      "Z32.residue_not_eventually_constant",
+      "Z32.exists_residue_change",
+      "Z32.residue_not_eventually_constant_one",
+      "Z32.ZSet_three_two_sixth_3_8",
+      "Z32.ZSet_three_two_frontier",
+      "Z32.not_eventually_mem_sixth_3_8",
+      "Z32.ZSet_four_three_beyond_line",
+      "Z32.dubickas_2008_cor_1_2",
+      "Z32.union_seven_twelfths_empty",
+      "Z32.union_two_thirds_empty",
+      "Z32.union_record_empty",
+      "Z32.union_record_7083_empty",
+      "Z32.two_cell_fifth_empty",
+      "Z32.not_forall_abs_sub_round_lt_fifth",
+      "Z32.ZSet_five_two_fifth",
+      "Z32.ZSet_five_two_grid",
+      "Z32.ZSet_seven_two_grid",
+      "Z32.ZSet_nine_two_grid",
+      "Z32.ZSet_ten_three_grid",
+      "Z32.ZSet_eleven_three_grid"
+    ]
+  },
+  "id": "PALOMAR-2026-08-24-000002",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-24T16:23:23Z",
+    "receipt_sha256": "5b70fde5a014cbc4416688dc4a8d2b633ab7e1b029e8cb0f7f58df53a0dffa2e",
+    "repositories": [
+      {
+        "commit": "7db8190085343afde2f5d2cdcc9bac719b6ec02c",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000002-v1/7db8190085343afde2f5d2cdcc9bac719b6ec02c",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "76e1c118b0700b4ceafe99532e887d6431625e1a",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000002-v1/76e1c118b0700b4ceafe99532e887d6431625e1a",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "bb3469a87774349fe01898d8bf2fc6a1ce6411ca",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000002-v1/bb3469a87774349fe01898d8bf2fc6a1ce6411ca",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "f5c090429dff3cf66cb65562526c9ea6e8edfbcb",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000002-v1/f5c090429dff3cf66cb65562526c9ea6e8edfbcb",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "87adeaebd370a3b6a41ac4f044fddd4bf81803ad",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000002-v1/87adeaebd370a3b6a41ac4f044fddd4bf81803ad",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "123d15766ba49356c02ebad2a4462dfe12d79899",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000002-v1/123d15766ba49356c02ebad2a4462dfe12d79899",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "222c58dad7706a6e7cae46c0edd65ea881d3ee27",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000002-v1/222c58dad7706a6e7cae46c0edd65ea881d3ee27",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ef42f8944eaf5b6cbfbe75d1917d824c7dd6cf33",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000002-v1/ef42f8944eaf5b6cbfbe75d1917d824c7dd6cf33",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c3903e1ed0148a32cd39510707c632dc4d265514",
+        "fork_repository": "PalomarArchive/leanprover--comparator--25495a50215b",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000002-v1/c3903e1ed0148a32cd39510707c632dc4d265514",
+        "source_repository": "leanprover/comparator"
+      },
+      {
+        "commit": "1319485273bf87833fa472afbcefdedecb16b45f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000002-v1/1319485273bf87833fa472afbcefdedecb16b45f",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "af5aa64bb914c3c2c781f378088dbd38acf4f804",
+        "fork_repository": "PalomarArchive/leanprover--lean4export--94a894d77e17",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000002-v1/af5aa64bb914c3c2c781f378088dbd38acf4f804",
+        "source_repository": "leanprover/lean4export"
+      },
+      {
+        "commit": "eb810d8f86e49b2b8e058d02a9edac9e5fedafc8",
+        "fork_repository": "PalomarArchive/rwst--Confinement-Certificates--8fe7a8378a8f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000002-v1/eb810d8f86e49b2b8e058d02a9edac9e5fedafc8",
+        "source_repository": "rwst/Confinement-Certificates"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Ralf Stephan"
+          }
+        ],
+        "identifier": "https://doi.org/10.13140/RG.2.2.36190.19520",
+        "location": "Theorems A, B, C, D; Theorems 4.2, 5.3, 6.8, 6.9, 7.8, 7.9, 7.11, 7.12, 7.14, 7.15, 7.16, 7.17",
+        "relationship": "formalizes",
+        "title": "Confinement certificates for powers of rational numbers modulo one",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Leopold Flatto"
+          },
+          {
+            "name": "Jeffrey C. Lagarias"
+          },
+          {
+            "name": "Andrew D. Pollington"
+          }
+        ],
+        "location": "Acta Arith. 70 (1995), 125–147; (1.4), Thm. 1.4, Cor. 1.4a, Thms. 3.2, 3.4",
+        "relationship": "background",
+        "title": "On the range of fractional parts {ξ(p/q)ⁿ}",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Arturas Dubickas"
+          }
+        ],
+        "location": "Acta Arith. 137 (2009), 233–239; Thms. 1 and 3, §2–§4",
+        "relationship": "background",
+        "title": "Powers of a rational number modulo 1 cannot lie in a small interval",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Arturas Dubickas"
+          },
+          {
+            "name": "Aivaras Novikas"
+          }
+        ],
+        "location": "Math. Z. 251 (2005), 635–648; Lem. 2",
+        "relationship": "background",
+        "title": "Integer parts of powers of rational numbers",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "M. Lothaire"
+          }
+        ],
+        "location": "Encyclopedia of Mathematics and its Applications 90, Cambridge University Press, 2002; Prop. 2.1.3, Thm. 2.1.5",
+        "relationship": "background",
+        "title": "Algebraic Combinatorics on Words",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Marston Morse"
+          },
+          {
+            "name": "Gustav A. Hedlund"
+          }
+        ],
+        "location": "Amer. J. Math. 60 (1938), 815–866",
+        "relationship": "background",
+        "title": "Symbolic dynamics",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Arturas Dubickas"
+          }
+        ],
+        "location": "Math. Nachr. 281 (2008), no. 7, 951–958; Cor. 1.2, Thm. 1.3",
+        "relationship": "background",
+        "title": "On the powers of 3/2 and other rational numbers",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jarkko Kari"
+          },
+          {
+            "name": "Johan Kopra"
+          }
+        ],
+        "location": "RAIRO Theor. Inform. Appl. 51 (2017), 191–204; Cor. 4.8, Thm. 5.9, Prob. 6.1",
+        "relationship": "background",
+        "title": "Cellular automata and powers of p/q",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Shigeki Akiyama"
+          }
+        ],
+        "location": "Unif. Distrib. Theory 3 (2008), no. 2, 91–99; Thms. 2.4, 2.5, Conj. 1.4",
+        "relationship": "background",
+        "title": "Mahler's Z-number and 3/2 number systems",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Yann Bugeaud"
+          }
+        ],
+        "location": "Acta Arith. 114 (2004), 301–311; Cor. 1",
+        "relationship": "background",
+        "title": "Linear mod one transformations and the distribution of fractional parts {ξ(p/q)ⁿ}",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Arturas Dubickas"
+          }
+        ],
+        "location": "Bull. Aust. Math. Soc. 82 (2010), 249–254",
+        "relationship": "background",
+        "title": "On the fractional parts of powers of rational numbers",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Kurt Mahler"
+          }
+        ],
+        "location": "J. Austral. Math. Soc. 8 (1968), 313–321",
+        "relationship": "background",
+        "title": "An unsolved problem on the powers of 3/2",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ralf Stephan"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-24T16:23:03Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "d5a647db3757303b1d928cfae4d3d232eed3e79e",
+    "report": {
+      "sha256": "2c936553dc7276a388d0dee420f6de5c628be6de0b2cc50caf87140cafadd6d6"
+    },
+    "reviewed_at": "2026-08-24T15:54:40Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": [
+      "The advertised thirty length-1/p windows include the base-5/2 case at s = 5/6. Although its Lean interval is syntactically [5/6, 5/6+1/5), fractional parts are always below 1, so its effective confinement interval is only [5/6,1), of length 1/6. Thus only twenty-nine entries test a full effective window of length 1/p. The prose should disclose the truncated boundary entry and adjust the count, or Lean should certify a genuine length-1/5 interval (or a clearly defined wraparound arc) there."
+    ]
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "eb810d8f86e49b2b8e058d02a9edac9e5fedafc8",
+    "license": {
+      "declared_identifier": "CC0-1.0",
+      "detected_identifier": "CC0-1.0",
+      "path": "LICENSE",
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    "repository": "rwst/Confinement-Certificates",
+    "repository_url": "https://github.com/rwst/Confinement-Certificates",
+    "tree_url": "https://github.com/rwst/Confinement-Certificates/tree/eb810d8f86e49b2b8e058d02a9edac9e5fedafc8"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "aluqevq6t4ey"
+  },
+  "title": "rwst/Confinement-Certificates",
+  "trust": {
+    "challenge_bytes": 12994,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+      "Mathlib.Algebra.Order.Round",
+      "Mathlib.Data.Nat.GCD.Basic",
+      "Mathlib.Data.Set.Basic",
+      "Mathlib.Order.Interval.Set.Basic"
+    ],
+    "challenge_lines": 235,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "d65452dc42ec27ab4a9b629730e76a87c8616c568d4fecb5523cab0e03136973",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-24-000002-v1/2a9ea1d76ef86cd302bb3e5d0dc0d52c733d7d410972396354e30d2b89378e4b/",
+    "evidence_tree_sha256": "2a9ea1d76ef86cd302bb3e5d0dc0d52c733d7d410972396354e30d2b89378e4b",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "9fb131bb100eb32ccf6836f14e4f8328d13b6792",
+    "mechanical_report_sha256": "349fb616acd8200f95a14e8fffd708911c16c0fafb5913d0c84bebebbb5ef039",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32742523227,
+    "solution_sha256": "bbb13fbd4c2f9aa169fe9c6867994d4b78a4fbaf7cb813756ef54452115a74e9",
+    "verified_at": "2026-08-24T15:16:01Z",
+    "workflow_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32742523227"
+  },
+  "version": 1
+}

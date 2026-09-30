@@ -1,0 +1,360 @@
+{
+  "abstract": "A Lean formalization of Sendov's conjecture, and of its Phelps-Rodriguez strengthening, in full generality: if every zero of a complex polynomial p of degree n >= 2 lies in the closed unit disk, then every zero a of p has a critical point of p within distance 1 of it, and within distance strictly less than 1 unless |a| = 1 and p is a scalar multiple of z^n - a^n. The proof is by contradiction. Degrees 2 to 4 fall to an elementary integral computation; degree 5 upward goes through two estimates on the same integral -- a polar channel and an origin channel -- which are shown to be incompatible, reducing the theorem to a single numerical inequality. That inequality is discharged by exact rational Bernstein certificates, generated outside Lean and re-verified inside it, in both of its ranges: per-degree certificates for 5 <= n <= 100, and, for n >= 101, a single degree-58 certificate closing the one-variable inequality that the analytic large-degree reduction leaves behind. The boundary case |a| = 1 is proved separately from a reciprocal identity, and it is there that the equality classification is extracted. Nothing here is claimed to be new: the informal proof being formalized is a digestion of Lech Mazur's proof, which had already been formalized in Lean, so this is a second and independently checkable machine-checked proof of Sendov's conjecture, whose additional content is the Phelps-Rodriguez equality case. The Lean source was written by an AI agent under the direction and review of the author. There is no sorry outside the two deliberate holes in Challenge.lean, no project-defined axiom, no native_decide, and no floating point in any statement or proof.",
+  "authors": [
+    {
+      "name": "Terence Tao"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-13-000001-v2/fa6d973700748580523de3ea28a394d21b8cd09f6f2a957ad936350723dd0684/",
+    "artifact_tree_sha256": "fa6d973700748580523de3ea28a394d21b8cd09f6f2a957ad936350723dd0684",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-20T00:29:07Z",
+    "renderer_commit": "a3fabf899f557cd03e81916d85887b2d8046206e",
+    "verso_commit": "74fc8d1b7bb781c3623a06ec6484f34d35eb5fba"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CV"
+    ],
+    "msc2020": [
+      "30C15",
+      "30C10",
+      "12D10"
+    ]
+  },
+  "first_registered_on": "2026-08-13",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.34.0-rc1",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "38e9c3ce15cbb63c92e90bb9a92e4eb82131f669"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "2bc7cf064315b26bc38dac2e9612fb581be9b75f"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "978b7ec9fbbf9a535114f1de8fe5b3778b358870"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "99e8adeea3c3cd86b6b79ba01a1383bf2d31d055"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "c1c4362a130f12e632d252180a6c2a31d8fd4726"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "3b55e9d00c6b0018e5d984eb011b6f93c09bd163"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "01bc479e7432594821ba3fb0ca465211941de86d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "af8bc067a4cc6c6df472a68909a3f40b1c76c43e"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "SendovConjecture.sendov",
+      "SendovConjecture.phelps_rodriguez"
+    ]
+  },
+  "id": "PALOMAR-2026-08-13-000001",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-20T00:23:54Z",
+    "receipt_sha256": "bbd0ad0e1d0ccbe4bd782d870abf431b813c7eab850f6acaccbc6f6ebe19369e",
+    "repositories": [
+      {
+        "commit": "c1c4362a130f12e632d252180a6c2a31d8fd4726",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-13-000001-v2/c1c4362a130f12e632d252180a6c2a31d8fd4726",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "01bc479e7432594821ba3fb0ca465211941de86d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-13-000001-v2/01bc479e7432594821ba3fb0ca465211941de86d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "978b7ec9fbbf9a535114f1de8fe5b3778b358870",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-13-000001-v2/978b7ec9fbbf9a535114f1de8fe5b3778b358870",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "2bc7cf064315b26bc38dac2e9612fb581be9b75f",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-13-000001-v2/2bc7cf064315b26bc38dac2e9612fb581be9b75f",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-13-000001-v2/de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "38e9c3ce15cbb63c92e90bb9a92e4eb82131f669",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-13-000001-v2/38e9c3ce15cbb63c92e90bb9a92e4eb82131f669",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "99e8adeea3c3cd86b6b79ba01a1383bf2d31d055",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-13-000001-v2/99e8adeea3c3cd86b6b79ba01a1383bf2d31d055",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "3b55e9d00c6b0018e5d984eb011b6f93c09bd163",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-13-000001-v2/3b55e9d00c6b0018e5d984eb011b6f93c09bd163",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "af8bc067a4cc6c6df472a68909a3f40b1c76c43e",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-13-000001-v2/af8bc067a4cc6c6df472a68909a3f40b1c76c43e",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "1ddea92d89f951a0a7cbbffa6c267cf7e6640b1d",
+        "fork_repository": "PalomarArchive/teorth--sendov--f83e016e02dc",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-13-000001-v2/1ddea92d89f951a0a7cbbffa6c267cf7e6640b1d",
+        "source_repository": "teorth/sendov"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Terence Tao"
+          }
+        ],
+        "identifier": "https://terrytao.wordpress.com/2026/08/12/a-digestion-of-the-proof-of-sendovs-conjecture/",
+        "relationship": "formalizes",
+        "title": "A digestion of the proof of Sendov's conjecture",
+        "type": "web post"
+      },
+      {
+        "authors": [
+          {
+            "name": "W. K. Hayman"
+          }
+        ],
+        "identifier": "https://zbmath.org/3254142",
+        "relationship": "background",
+        "title": "Research Problems in Function Theory (statement of Sendov's conjecture)",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "D. Phelps"
+          },
+          {
+            "name": "R. S. Rodriguez"
+          }
+        ],
+        "identifier": "https://zbmath.org/3386011",
+        "relationship": "formalizes",
+        "title": "Some properties of extremal polynomials for the Ilieff conjecture",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Z. Rubinstein"
+          }
+        ],
+        "location": "Pacific J. Math. 26 (1968), 159-161",
+        "relationship": "background",
+        "title": "On a problem of Ilyeff",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Quanyu Tang"
+          },
+          {
+            "name": "Teng Zhang"
+          }
+        ],
+        "identifier": "arXiv:2508.10341",
+        "location": "Equation (5.1) and Remark 5.1",
+        "relationship": "background",
+        "title": "Sharp Schoenberg type inequalities and the de Bruin-Sharma problem",
+        "type": "preprint"
+      },
+      {
+        "authors": [
+          {
+            "name": "D. A. Brannan"
+          }
+        ],
+        "location": "Proc. Cambridge Philos. Soc. 64 (1968), 83-85",
+        "relationship": "background",
+        "title": "On a conjecture of Ilieff",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. Meir"
+          },
+          {
+            "name": "A. Sharma"
+          }
+        ],
+        "location": "Pacific J. Math. 31 (1969), 459-467",
+        "relationship": "background",
+        "title": "On Ilyeff's conjecture",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Terence Tao"
+          }
+        ],
+        "identifier": "https://zbmath.org/7681950",
+        "relationship": "background",
+        "title": "Sendov's conjecture for sufficiently high degree polynomials",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Lech Mazur"
+          }
+        ],
+        "identifier": "https://www.proofatlas.ai/papers/sendov-conjecture/",
+        "relationship": "adapts",
+        "title": "Sendov conjecture proof (ProofAtlas manuscript)",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://www.proofatlas.ai/formalizations/sendov-conjecture/",
+        "note": "The earlier Lean formalization of Sendov's conjecture for all n >= 2, by Lech Mazur, reported there as 1160 files and 92816 lines with a single main theorem. Priority for the first machine-checked proof of Sendov's conjecture belongs to that work, and this repository is the second formalization of it. \"builds-on\" rather than \"independent\": no code is shared and that development was never read, but the informal proof formalized here is a digestion of its argument, so the mathematics descends from it. What is additional here is the Phelps-Rodriguez equality classification, which that formalization does not state; as far as we are aware this is its first formalization, but that is an observation about the one earlier formalization we know of and not the result of a search. The two developments are separately checkable evidence for the same theorem; no comparison of their internal arguments has been carried out.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Terence Tao"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-20T00:23:23Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "24494b2ffd60c3cd22d72fae0afaf1c6b2d0d679",
+    "report": {
+      "sha256": "9623dc4d2df1466e3afab6508659e80c41af7a5c3fe371d198db78af0828e512"
+    },
+    "reviewed_at": "2026-08-19T23:57:25Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": [
+      "The global priority attribution to the ProofAtlas work is not supported by the disclosed research process. Qualify it as the earliest or prior formalization known to the authors, or cite a credible search or literature source establishing the broader priority claim."
+    ]
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "1ddea92d89f951a0a7cbbffa6c267cf7e6640b1d",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "8e1cfec4fd0b77e0fa0f7f9b185a630e26afcf9d85ad949b0c6ef8ddc378254c"
+    },
+    "repository": "teorth/sendov",
+    "repository_url": "https://github.com/teorth/sendov",
+    "tree_url": "https://github.com/teorth/sendov/tree/1ddea92d89f951a0a7cbbffa6c267cf7e6640b1d"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "27mqe5ux2rx5"
+  },
+  "title": "teorth/sendov",
+  "trust": {
+    "challenge_bytes": 4428,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Polynomial.Derivative",
+      "Mathlib.Analysis.Complex.Basic"
+    ],
+    "challenge_lines": 87,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "ab63efbe6f32ea6e70a8009112d582108174cd9bebc8a5ef2c87ed816c39a998",
+    "comparator_commit": "68a064109f01c08f47c8edc9f51d6a2bbffaa188",
+    "evidence_path": "evidence/PALOMAR-2026-08-13-000001-v2/959805dca50f9f77b886cba0097d3c72c69abe89c2819921c0a752956bd85b3e/",
+    "evidence_tree_sha256": "959805dca50f9f77b886cba0097d3c72c69abe89c2819921c0a752956bd85b3e",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "b18d673bd29b476466a51a3be1012df2ed322b10",
+    "mechanical_report_sha256": "e953f54471d3739a138f0beedad23696103be92ce4a1c8368959600b7082bc07",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32310823540,
+    "solution_sha256": "bea235d32a6e29f078e72348671e40d7cdec39fc00667e00d5819b7cdfa30ce6",
+    "verified_at": "2026-08-19T23:48:46Z",
+    "workflow_commit": "a3fabf899f557cd03e81916d85887b2d8046206e",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32310823540"
+  },
+  "version": 2
+}

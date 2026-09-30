@@ -1,0 +1,374 @@
+{
+  "abstract": "A Lean+mathlib proof of Nivat's conjecture: Given a finite alphabet A, we consider configurations c: Z^2 -> A, which are arbitrary maps that can be thought of as colorings of the 2D lattice. Writing P_c(m, n) for the number of distinct m-by-n block patterns occurring in a configuration c, Nivat conjectured that if P_c(m, n) <= mn for some positive m and n, then c is periodic; that is, there exists nonzero h such that c(v+h) = c(v) for all v. The proof is due to GPT-6 Pro.",
+  "authors": [
+    {
+      "name": "Boon Suan Ho"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-14-000003-v1/8901ee040bc907a000b2a255104c0f74daa68514c669f4301e88ee959c5f52cd/",
+    "artifact_tree_sha256": "8901ee040bc907a000b2a255104c0f74daa68514c669f4301e88ee959c5f52cd",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-14T04:54:20Z",
+    "renderer_commit": "a013555a88a0fc9ec910a09ea833dc9cc338db35",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.DS",
+      "math.CO"
+    ],
+    "msc2020": [
+      "37B10",
+      "68R15"
+    ]
+  },
+  "first_registered_on": "2026-09-14",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "NivatSubmission.nivat"
+    ]
+  },
+  "id": "PALOMAR-2026-09-14-000003",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-14T04:54:56Z",
+    "receipt_sha256": "f78db283f9b4c4ce11894db2e0583e53a6cbfaef7e22c48309b45ae95f299a5f",
+    "repositories": [
+      {
+        "commit": "0d94547e934418c9d1b75fcbb7d6af493e86759d",
+        "fork_repository": "PalomarArchive/boonsuan--nivat--8f5b1fc73411",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000003-v1/0d94547e934418c9d1b75fcbb7d6af493e86759d",
+        "source_repository": "boonsuan/nivat"
+      },
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000003-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000003-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000003-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000003-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000003-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000003-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000003-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000003-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000003-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "GPT-6 Pro",
+            "role": "Proof generation and manuscript writing"
+          },
+          {
+            "name": "Boon Suan Ho",
+            "role": "Prompting and project direction; no human mathematical authorship claimed"
+          }
+        ],
+        "identifier": "paper/nivat.tex",
+        "license": "MIT",
+        "location": "Theorem 1.1 and its proof in Section 6; Sections 1–5 and Appendix A",
+        "relationship": "formalizes",
+        "title": "Pattern complexity and Nivat's conjecture",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jarkko Kari"
+          },
+          {
+            "name": "Michal Szabados"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1605.05929v1",
+        "location": "Lemmas 5–10 and 32; Theorem 11 and Corollary 12; manuscript Section 3 and Appendix A",
+        "relationship": "adapts",
+        "title": "An Algebraic Geometric Approach to Nivat's Conjecture",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Van Cyr"
+          },
+          {
+            "name": "Bryna Kra"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1208.4090v2",
+        "location": "Generating and balanced sets; manuscript Introduction and Section 5",
+        "relationship": "background",
+        "title": "Nonexpansive Z^2 subdynamics and Nivat's conjecture",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Michal Szabados"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1710.05360v1",
+        "location": "Two-periodic-summand argument; manuscript Section 5",
+        "relationship": "adapts",
+        "title": "Nivat's conjecture holds for sums of two periodic configurations",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Marston Morse"
+          },
+          {
+            "name": "Gustav A. Hedlund"
+          }
+        ],
+        "identifier": "https://doi.org/10.2307/2371264",
+        "location": "American Journal of Mathematics 60 (1938), 815–866",
+        "relationship": "background",
+        "title": "Symbolic dynamics",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jarkko Kari"
+          },
+          {
+            "name": "Etienne Moutot"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/s00224-021-10063-8",
+        "location": "Theory of Computing Systems 67 (2023), 125–148",
+        "relationship": "background",
+        "title": "Decidability and periodicity of low complexity tilings",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Mike Boyle"
+          },
+          {
+            "name": "Douglas Lind"
+          }
+        ],
+        "identifier": "https://doi.org/10.1090/S0002-9947-97-01634-6",
+        "location": "Transactions of the AMS 349 (1997), 55–102",
+        "relationship": "background",
+        "title": "Expansive subdynamics",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Manfred Einsiedler"
+          },
+          {
+            "name": "Douglas Lind"
+          },
+          {
+            "name": "Richard Miles"
+          },
+          {
+            "name": "Thomas Ward"
+          }
+        ],
+        "identifier": "https://doi.org/10.1017/S014338570100181X",
+        "location": "Ergodic Theory and Dynamical Systems 21 (2001), 1695–1729",
+        "relationship": "background",
+        "title": "Expansive subdynamics for algebraic Z^d-actions",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Boon Suan Ho"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-14T04:54:33Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "e9c8c238f5695b10f75db7175648a1d0195352c1",
+    "report": {
+      "sha256": "0dc4bd401fe87fc488cb72b38e2d81f9103cdf7de32596c49d89e4aa0ff1ba50"
+    },
+    "reviewed_at": "2026-09-14T04:31:37Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "0d94547e934418c9d1b75fcbb7d6af493e86759d",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "97182fa2b484a3bda028b0eef349d2b2a8e321a4b4234a4f63922546477bcea5"
+    },
+    "repository": "boonsuan/nivat",
+    "repository_url": "https://github.com/boonsuan/nivat",
+    "tree_url": "https://github.com/boonsuan/nivat/tree/0d94547e934418c9d1b75fcbb7d6af493e86759d"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "pl82qo90wiyy"
+  },
+  "title": "A proof of Nivat's conjecture",
+  "trust": {
+    "challenge_bytes": 1623,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Group.Prod",
+      "Mathlib.Data.Finset.Prod",
+      "Mathlib.Data.Int.ConditionallyCompleteOrder",
+      "Mathlib.Data.Int.Interval",
+      "Mathlib.Data.Set.Card"
+    ],
+    "challenge_lines": 40,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "71cdab884cf4a781808b05f381dae0023e1246239a2a74581fa11e4c7feb48c5",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-14-000003-v1/147c991264d62357e967ab1faf8dd4b154f612f917a517f68cff424129fd2582/",
+    "evidence_tree_sha256": "147c991264d62357e967ab1faf8dd4b154f612f917a517f68cff424129fd2582",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "d788f15192014d266f09a22a9a376574a13686f9946318f2c55c6c171f5c528e",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 34800364154,
+    "solution_sha256": "0e664b3ea2a2f748eb62825ac3b64924d2eb920d83da5a822b89b6127eecf609",
+    "verified_at": "2026-09-14T02:53:44Z",
+    "workflow_commit": "ef2fa1eadcb246c2346ddba39b52eaa53d4bb763",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/34800364154"
+  },
+  "version": 1
+}

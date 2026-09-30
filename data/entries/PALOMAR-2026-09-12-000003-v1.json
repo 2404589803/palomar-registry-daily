@@ -1,0 +1,505 @@
+{
+  "abstract": "A Lean 4 / Mathlib development of the second paper on the sets Z_{p/q}(s, s+t) = {ξ > 0 : {ξ(p/q)ⁿ} ∈ [s, s+t) for all n ≥ 0}, the generalized Z-numbers of Flatto, Lagarias and Pollington. The first paper built a corpus of block certificates for individual statements Z_{p/q}(U) = ∅. This paper replaces parts of that corpus by theorems, and then asks what the certificate format can and cannot reach. Thirty certificates in the regime p > q² collapse into one closed-form criterion on the single real parameter ε = {(p−q)s}, settling a set of positions of measure 1 − 2q²/(p(p+q)) at every base and for every real ξ ≠ 0; the criterion extends to a family indexed by a depth K, identified with the finiteness criterion of [FLP95] and with the parameter intervals J¹_b of [Bug04], the depth playing the role of the denominator of the rotation number. An explicit escape time for L ≤ ξ ≤ X is extracted from the soundness proof, and every unranked certificate of [Ste26] is made effective by it. A completeness theorem says the verdict is forced on the class where a certificate can exist — a finite hold set — and that an infinite hold set refuses every unranked certificate at every depth and over every denominator, which turns a bounded computer search into a theorem. A measure-theoretic depth–size bound 1 ≤ 2δ(K + 2 + log_{p/q} 2B) prices [KK17, Prob. 6.1] for this format. Finally a rank-stratified certificate gives ‖ξ(3/2)ⁿ‖ < 2/7 = 0.285714… infinitely often for every ξ ≠ 0, past the 31/81 = 0.38271… of [Dub19] as a window and past the corpus's own 1/3 as a nearest-integer constant.",
+  "authors": [
+    {
+      "name": "Ralf Stephan"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-12-000003-v1/d0ebb3ce316da37dcda2718116701b8cbdc1ca0ec6745514119942269e737f89/",
+    "artifact_tree_sha256": "d0ebb3ce316da37dcda2718116701b8cbdc1ca0ec6745514119942269e737f89",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-12T09:59:01Z",
+    "renderer_commit": "ef2fa1eadcb246c2346ddba39b52eaa53d4bb763",
+    "verso_commit": "90c688db9db7280364c8bd7f8264c82a01582fd4"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.DS"
+    ],
+    "msc2020": [
+      "11J71",
+      "11K06",
+      "37E05"
+    ]
+  },
+  "first_registered_on": "2026-09-12",
+  "formalization": {
+    "challenge_path": "Challenge2.lean",
+    "comparator_config_path": "comparator2.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.34.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "comparator",
+        "repository": "leanprover/comparator",
+        "revision": "c3903e1ed0148a32cd39510707c632dc4d265514"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c02174567c98cac8b9a8e2ee34ee8e2ffa98df94"
+      },
+      {
+        "name": "lean4export",
+        "repository": "leanprover/lean4export",
+        "revision": "af5aa64bb914c3c2c781f378088dbd38acf4f804"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "d9598f07b1bc701f1e3aae163d2681c1fd978793"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "ba67e212be1197b84c1f1f6299488a10a3002713"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "1681d78dd6e65e38b143f9740d829c826673807c"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "18889deb9e83ea7420ef51c160d6f88552e744e3"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4cac2177c37f5530c4da76aa8e4307f3fc9e4dcb"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "ab3a82db9fea14cf0fd7f5a2de650f4b534640af"
+      }
+    ],
+    "solution_path": "Solution2.lean",
+    "theorem_names": [
+      "Z32.ZSet_eq_empty_of_certifiedK",
+      "Z32.not_forall_fract_mem_Ico_of_certifiedK",
+      "Z32.ZSet_eq_empty_of_lowBand",
+      "Z32.not_forall_fract_mem_Ico_of_lowBand",
+      "Z32.ZSet_eq_empty_of_certified",
+      "Z32.not_forall_fract_mem_Ico_of_certified",
+      "Z32.exists_fract_notMem_le_of_certifiedK",
+      "Z32.holdSet_finite_imp",
+      "Z32.depth_size",
+      "Z32.depth_size_logb",
+      "Z32.ZSet_three_two_two_seven",
+      "Z32.two_seven_empty",
+      "Z32.not_eventually_two_seven",
+      "Z32.not_forall_two_seven_le_abs_sub_round"
+    ]
+  },
+  "id": "PALOMAR-2026-09-12-000003",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-12T09:59:34Z",
+    "receipt_sha256": "27379ffd218176a36fa843f8a185c3a944cebd29097a4fae2d2c3227c2fff85f",
+    "repositories": [
+      {
+        "commit": "18889deb9e83ea7420ef51c160d6f88552e744e3",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000003-v1/18889deb9e83ea7420ef51c160d6f88552e744e3",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4cac2177c37f5530c4da76aa8e4307f3fc9e4dcb",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000003-v1/4cac2177c37f5530c4da76aa8e4307f3fc9e4dcb",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "1681d78dd6e65e38b143f9740d829c826673807c",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000003-v1/1681d78dd6e65e38b143f9740d829c826673807c",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "ba67e212be1197b84c1f1f6299488a10a3002713",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000003-v1/ba67e212be1197b84c1f1f6299488a10a3002713",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c02174567c98cac8b9a8e2ee34ee8e2ffa98df94",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000003-v1/c02174567c98cac8b9a8e2ee34ee8e2ffa98df94",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "d9598f07b1bc701f1e3aae163d2681c1fd978793",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000003-v1/d9598f07b1bc701f1e3aae163d2681c1fd978793",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000003-v1/a8acbfd87375ff4abe14ce09db5b7664d383bc7f",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000003-v1/507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c3903e1ed0148a32cd39510707c632dc4d265514",
+        "fork_repository": "PalomarArchive/leanprover--comparator--25495a50215b",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000003-v1/c3903e1ed0148a32cd39510707c632dc4d265514",
+        "source_repository": "leanprover/comparator"
+      },
+      {
+        "commit": "ab3a82db9fea14cf0fd7f5a2de650f4b534640af",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000003-v1/ab3a82db9fea14cf0fd7f5a2de650f4b534640af",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "af5aa64bb914c3c2c781f378088dbd38acf4f804",
+        "fork_repository": "PalomarArchive/leanprover--lean4export--94a894d77e17",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000003-v1/af5aa64bb914c3c2c781f378088dbd38acf4f804",
+        "source_repository": "leanprover/lean4export"
+      },
+      {
+        "commit": "e773310aa60d010038c3b1a02ee09dcaacce064d",
+        "fork_repository": "PalomarArchive/rwst--Confinement-Certificates--8fe7a8378a8f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000003-v1/e773310aa60d010038c3b1a02ee09dcaacce064d",
+        "source_repository": "rwst/Confinement-Certificates"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Ralf Stephan"
+          }
+        ],
+        "location": "paper2.pdf in this repository; Theorems A, B, C, D, E; Theorems 3.5, 3.6, 4.4, 5.5, 5.7, 6.3, 7.1 and Corollaries 3.7, 3.9, 3.11, 4.5, 5.9, 6.4",
+        "relationship": "formalizes",
+        "title": "Confinement schemas and the reach of block certificates for powers of rational numbers modulo one",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Ralf Stephan"
+          }
+        ],
+        "identifier": "https://doi.org/10.13140/RG.2.2.36190.19520",
+        "location": "Thms. 7.2, 7.8, 7.9, 7.11, 7.12, 7.14, 7.17, §7.4; Tables 2 and 3",
+        "relationship": "background",
+        "title": "Confinement certificates for powers of rational numbers modulo one",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Leopold Flatto"
+          },
+          {
+            "name": "Jeffrey C. Lagarias"
+          },
+          {
+            "name": "Andrew D. Pollington"
+          }
+        ],
+        "location": "Acta Arith. 70 (1995), 125–147; (1.4), Thm. 3.4",
+        "relationship": "background",
+        "title": "On the range of fractional parts {ξ(p/q)ⁿ}",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Yann Bugeaud"
+          }
+        ],
+        "location": "Acta Arith. 114 (2004), 301–311; Thms. 1 and 3, Lems. 1–3, Prop. 1, §2–§3",
+        "relationship": "background",
+        "title": "Linear mod one transformations and the distribution of fractional parts {ξ(p/q)ⁿ}",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Arturas Dubickas"
+          }
+        ],
+        "location": "Acta Arith. 137 (2009), 233–239; Thms. 1 and 3, (2), (3), §2–§4",
+        "relationship": "background",
+        "title": "Powers of a rational number modulo 1 cannot lie in a small interval",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Arturas Dubickas"
+          },
+          {
+            "name": "Aivaras Novikas"
+          }
+        ],
+        "location": "Math. Z. 251 (2005), 635–648; Lem. 2",
+        "relationship": "background",
+        "title": "Integer parts of powers of rational numbers",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Arturas Dubickas"
+          }
+        ],
+        "location": "Math. Nachr. 281 (2008), no. 7, 951–958; Cor. 1.2",
+        "relationship": "background",
+        "title": "On the powers of 3/2 and other rational numbers",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jarkko Kari"
+          },
+          {
+            "name": "Johan Kopra"
+          }
+        ],
+        "location": "RAIRO Theor. Inform. Appl. 51 (2017), 191–204; Cor. 4.8, Thm. 5.9, Prob. 6.1",
+        "relationship": "background",
+        "title": "Cellular automata and powers of p/q",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jeffrey C. Lagarias"
+          }
+        ],
+        "location": "Acta Arith. 56 (1990), 33–53; Thm. 2.1",
+        "relationship": "background",
+        "title": "The set of rational cycles for the 3x + 1 problem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ulrich Kohlenbach"
+          }
+        ],
+        "location": "Springer Monographs in Mathematics, Springer, Berlin, 2008; §2",
+        "relationship": "background",
+        "title": "Applied Proof Theory: Proof Interpretations and their Use in Mathematics",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Arturas Dubickas"
+          }
+        ],
+        "location": "J. Number Theory 117 (2006), 222–239; Cor. 1, (1)",
+        "relationship": "background",
+        "title": "On the distance from a rational power to the nearest integer",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Arturas Dubickas"
+          }
+        ],
+        "location": "Discrete Math. 342 (2019), no. 7, 1949–1955; Thms. 1.1, 1.2",
+        "relationship": "background",
+        "title": "Fractional parts of powers of large rational numbers",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Andrew D. Pollington"
+          }
+        ],
+        "location": "C. R. Acad. Sci. Paris Sér. I 292 (1981), 383–384",
+        "relationship": "background",
+        "title": "Progressions arithmétiques généralisées et le problème des (3/2)ⁿ",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Shigeki Akiyama"
+          },
+          {
+            "name": "Christiane Frougny"
+          },
+          {
+            "name": "Jacques Sakarovitch"
+          }
+        ],
+        "location": "Israel J. Math. 168 (2008), 53–91",
+        "relationship": "background",
+        "title": "Powers of rationals modulo 1 and rational base number systems",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Yann Bugeaud"
+          },
+          {
+            "name": "Dong Han Kim"
+          },
+          {
+            "name": "Michel Laurent"
+          },
+          {
+            "name": "Arnaldo Nogueira"
+          }
+        ],
+        "location": "Ann. Sc. Norm. Super. Pisa Cl. Sci. (2021), arXiv:2001.00380; Def. 1",
+        "relationship": "background",
+        "title": "On the Diophantine nature of the elements of Cantor sets arising in the dynamics of contracted rotations",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Kurt Mahler"
+          }
+        ],
+        "location": "J. Austral. Math. Soc. 8 (1968), 313–321",
+        "relationship": "background",
+        "title": "An unsolved problem on the powers of 3/2",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ralf Stephan"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-12T09:59:14Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "e9c8c238f5695b10f75db7175648a1d0195352c1",
+    "report": {
+      "sha256": "21b9699d4200a6df4a0f65998a331aa780630e8b8573e9def6a407e2e2dee12d"
+    },
+    "reviewed_at": "2026-09-12T09:42:50Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "e773310aa60d010038c3b1a02ee09dcaacce064d",
+    "license": {
+      "declared_identifier": "CC0-1.0",
+      "detected_identifier": "CC0-1.0",
+      "path": "LICENSE",
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    "repository": "rwst/Confinement-Certificates",
+    "repository_url": "https://github.com/rwst/Confinement-Certificates",
+    "tree_url": "https://github.com/rwst/Confinement-Certificates/tree/e773310aa60d010038c3b1a02ee09dcaacce064d"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "j4thl04o27gp"
+  },
+  "title": "Confinement schemas and the reach of block certificates for powers of rational numbers modulo one",
+  "trust": {
+    "challenge_bytes": 27430,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+      "Mathlib.Algebra.Order.Round",
+      "Mathlib.Analysis.SpecialFunctions.Log.Base",
+      "Mathlib.Data.Nat.GCD.Basic",
+      "Mathlib.Data.Set.Basic",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+      "Mathlib.Order.Interval.Set.Basic"
+    ],
+    "challenge_lines": 520,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "2c56a21bb37134fccd2138262a04ac7f8c111a4b1644937ef7caf95ce3102ea8",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-12-000003-v1/8fdfc7f3bbcd66ce1aef7ad0f34191d12095328cc2af8969d037242cfad85fa3/",
+    "evidence_tree_sha256": "8fdfc7f3bbcd66ce1aef7ad0f34191d12095328cc2af8969d037242cfad85fa3",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "cacf989bd75f608700820f6afc595f32e7a99a4d",
+    "mechanical_report_sha256": "5402ac179858c00c1f7ab6dec4bb5c6b8a666c21664564908e1b42c3bd7ab90d",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 34685580719,
+    "solution_sha256": "8e644f5325d03ca7461a591672c36067c7299ea5c6f47831a39c89466591e86e",
+    "verified_at": "2026-09-12T09:29:19Z",
+    "workflow_commit": "ef2fa1eadcb246c2346ddba39b52eaa53d4bb763",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/34685580719"
+  },
+  "version": 1
+}

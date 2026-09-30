@@ -1,0 +1,300 @@
+{
+  "abstract": "This Lean 4 formalization of Kong and Zeng's To cover a permutohedron (arXiv:2509.13877v3, 9 April 2026) determines the minimum number of affine hyperplanes needed to cover the permutation vertices of (1,...,n), excluding the hyperplane containing every vertex. The exact answer is n for odd n at least 3, and n-1 for even n at least 4. It also proves that an arbitrary injective real tuple of length n at least 2 has the sharp hyperplane intersection bound (n-1)! when its n-1 signed critical values are distinct. Genuine polynomial-root path lifting establishes local transpositions and the cycle at infinity, with explicit corrections to the source's loop hypotheses. A symmetric polynomial norm replaces the paper's general Bezout step. One independent Challenge and one Comparator configuration cover all eighteen results, including sharp constructions, generic and four-element consequences, and the connection with convex vertices and arbitrary affine hyperplanes.",
+  "authors": [
+    {
+      "name": "Bochao Kong"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-14-000004-v1/d68ac4c4943ea3f1f343ace078846b56007bfed144a56d17c983f05bc3f72111/",
+    "artifact_tree_sha256": "d68ac4c4943ea3f1f343ace078846b56007bfed144a56d17c983f05bc3f72111",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-14T06:06:32Z",
+    "renderer_commit": "a013555a88a0fc9ec910a09ea833dc9cc338db35",
+    "verso_commit": "e09d21a5f7f66c9fc985b73197708298569bf583"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "52B05"
+    ]
+  },
+  "first_registered_on": "2026-09-14",
+  "formalization": {
+    "challenge_path": "PermutohedronChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.32.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "ClassicalComplexWPT",
+        "repository": "BochaoKong/classical-complex-wpt",
+        "revision": "b4a7273fe5c9752753c52e10494097569089642d"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "81a5d257c8e410db227a6665ed08f64fea08e997"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94"
+      }
+    ],
+    "solution_path": "PermutohedronSolution.lean",
+    "theorem_names": [
+      "PermutohedronCover.odd_hyperplane_vertex_bound",
+      "PermutohedronCover.odd_vertex_cover_lower_bound",
+      "PermutohedronCover.even_vertex_cover_lower_bound",
+      "PermutohedronCover.distinct_critical_values_hyperplane_bound",
+      "PermutohedronCover.distinct_critical_values_cover_lower_bound",
+      "PermutohedronCover.coordinate_vertex_cover_exists",
+      "PermutohedronCover.even_standard_vertex_cover_exists",
+      "PermutohedronCover.fiberPolynomial_at_product",
+      "PermutohedronCover.meridian_root_path_lifting_is_transposition",
+      "PermutohedronCover.large_circle_root_path_lifting_is_nCycle",
+      "PermutohedronCover.generic_vertex_cover_lower_bound",
+      "PermutohedronCover.four_element_three_cover_pair_sums",
+      "PermutohedronCover.extremePoints_convexHull_vertexSet",
+      "PermutohedronCover.coe_affineSpan_vertexSet",
+      "PermutohedronCover.exists_affineHyperplane_of_isCoatom",
+      "PermutohedronCover.AffineHyperplane.exists_isCoatom",
+      "PermutohedronCover.dimension_one_intersectionCount_eq_zero",
+      "PermutohedronCover.dimension_one_vertex_cover_impossible"
+    ]
+  },
+  "id": "PALOMAR-2026-09-14-000004",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-14T06:07:03Z",
+    "receipt_sha256": "caed235db5e727a8ba791892b11573b4ac5410a6d65b3ee859807b00112a73e6",
+    "repositories": [
+      {
+        "commit": "b4a7273fe5c9752753c52e10494097569089642d",
+        "fork_repository": "PalomarArchive/BochaoKong--classical-complex-wpt--4cd7e5b38132",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000004-v1/b4a7273fe5c9752753c52e10494097569089642d",
+        "source_repository": "BochaoKong/classical-complex-wpt"
+      },
+      {
+        "commit": "886b7364faa7ab6db7d9eb36cf5a0c26e37d388a",
+        "fork_repository": "PalomarArchive/BochaoKong--permutohedron--1d4400949e42",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000004-v1/886b7364faa7ab6db7d9eb36cf5a0c26e37d388a",
+        "source_repository": "BochaoKong/permutohedron"
+      },
+      {
+        "commit": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000004-v1/a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000004-v1/023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000004-v1/7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000004-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000004-v1/81a5d257c8e410db227a6665ed08f64fea08e997",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000004-v1/e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000004-v1/6e311e2a844da9b2cc3971187df2fe0066947b93",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000004-v1/38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000004-v1/88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Bochao Kong"
+          },
+          {
+            "name": "Ji Zeng"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2509.13877v3",
+        "license": "CC-BY-4.0",
+        "location": "arXiv:2509.13877v3, 9 April 2026; Theorem 1, Corollary 2, Theorem 3, Claims 4 and 5",
+        "relationship": "adapts",
+        "title": "To cover a permutohedron",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Gábor Hegedüs"
+          },
+          {
+            "name": "Gyula Károlyi"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2305.06202v3",
+        "location": "Reduction after Conjecture 6; Acta Mathematica Hungarica 174 (2024), 453–461",
+        "relationship": "adapts",
+        "title": "Covering the permutohedron by affine hyperplanes",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Bochao Kong"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-14T06:06:43Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "e9c8c238f5695b10f75db7175648a1d0195352c1",
+    "report": {
+      "sha256": "2c8c918d6b14befc2250a883c0bd7fc9c9e34d5f5864c0b0e3b6aaa2abf791da"
+    },
+    "reviewed_at": "2026-09-14T04:46:00Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": [
+      "The source-repair narrative incorrectly adds a distinct-coordinate hypothesis to both selected monodromy results. This obscures their formally stated stronger scope, especially the large-circle theorem for arbitrary real tuples. SOURCE_REPAIRS.md should distinguish the source paper's setup from the generalized Lean contracts and remove the claim that these theorems inherit tuple injectivity."
+    ]
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "886b7364faa7ab6db7d9eb36cf5a0c26e37d388a",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "BochaoKong/permutohedron",
+    "repository_url": "https://github.com/BochaoKong/permutohedron",
+    "tree_url": "https://github.com/BochaoKong/permutohedron/tree/886b7364faa7ab6db7d9eb36cf5a0c26e37d388a"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "oj2wgo1l4p0o"
+  },
+  "title": "To cover a permutohedron",
+  "trust": {
+    "challenge_bytes": 13252,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 261,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "ceb37083880b1fb8f5c9aaae6a6535db7881d3a39ea85436994944e5385622b4",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-14-000004-v1/b824a30e26853188dd57bba9dcb044bd5a2c0f4c2b06078de1543bdb2a7a4e8b/",
+    "evidence_tree_sha256": "b824a30e26853188dd57bba9dcb044bd5a2c0f4c2b06078de1543bdb2a7a4e8b",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "4e7915201d3f9f04470d9eae002fa695f7cdc589",
+    "mechanical_report_sha256": "b21cd4208c0d2ec825c893c2dbab1e8b7ef268deb968aeb114c08986fa10f623",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 34804157822,
+    "solution_sha256": "d925af9a740e5c7efe87ac752db3293d318825c0b6d6d0e6e0898a3c928d1c06",
+    "verified_at": "2026-09-14T04:10:58Z",
+    "workflow_commit": "a013555a88a0fc9ec910a09ea833dc9cc338db35",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/34804157822"
+  },
+  "version": 1
+}

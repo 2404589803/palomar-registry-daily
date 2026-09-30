@@ -1,0 +1,427 @@
+{
+  "abstract": "Kernel-checked classification of the morphic numbers — the reals p > 1 satisfying both of the golden ratio's defining scale closures: p + 1 = p^k (the sum of consecutive measures of the geometric system is again a measure) and p - 1 = p^(-l) (so is their difference; rendered zpow-free as p^l * (p - 1) = 1). These two equations are the arithmetic of self-similar proportion: a number satisfying both generates a measure system closed under the paper's superposition and juxtaposition, the property pair behind the divine proportion's standing as the plane's design constant. The theorem (Aarts-Fokkink-Kruijtzer 2001): there exist only two such numbers — the golden ratio, with (k, l) = (2, 1), and the plastic number, the real root of x^3 = x + 1, with (k, l) = (3, 4). Four compared statements carry the classification in full: existence of the cubic's root, the iff pinning every morphic number to the golden ratio or that root, and the two witnesses. The list of numbers with the golden ratio's defining property pair is thereby provably complete at two. The second member is a distinguished constant independently of this theorem: the plastic number is the smallest Pisot number (Siegel 1944); its minimal polynomial x^3 - x - 1 attains the minimal Mahler measure among monic irreducible integer cubics (kernel-certified in the registered entry PALOMAR-2026-08-31-000004), and by Smyth's theorem its measure — the number itself — is the global minimum of the Mahler measure over nonreciprocal integer polynomials; it is the growth rate of the Padovan and Perrin sequences, the cubic analogue of Fibonacci growth; and it is the threshold constant of the Blanc-Cantat classification of birational surface dynamical degrees, the spectral limit of the Bedford-Kim automorphism family (kernel-certified in the author's mahler-minimizer-compositum entry). It entered mathematics from architecture: Dom Hans van der Laan introduced it (Le Nombre Plastique, 1960) as the ideal ratio of three-dimensional proportion — the same discovery made independently by Cordonnier — and Kruijtzer conjectured, and Aarts-Fokkink-Kruijtzer proved, that van der Laan's number is the only companion the golden ratio has. What \"morphic\" adds to the plastic number's distinctions is finality: the golden ratio's arithmetic of self-similarity, taken as a definition, has exactly one more solution among the reals. The formalized proof consumes Selmer's trinomial irreducibility theorem from Mathlib, derives the needed Tverberg-type instance through a mirror-dichotomy argument carried out entirely in the integer polynomial ring (simplifying the paper's complex-root analysis; disclosed in the fidelity block), and closes with the factorization endgame forcing (n, m) = (3, 5). No formalization of the morphic classification, the plastic number, or the Padovan/Perrin constants exists in any surveyed prover as of the 2026-09-01 sweep; Mathlib's golden-ratio development supplies one witness's vocabulary. Axioms on every compared theorem: propext, Classical.choice, Quot.sound, audited in-build.",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-01-000008-v1/8f164d32c95e9ef596269730a5987385b9f37a5bf64474bf708b308c712da435/",
+    "artifact_tree_sha256": "8f164d32c95e9ef596269730a5987385b9f37a5bf64474bf708b308c712da435",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-01T15:53:00Z",
+    "renderer_commit": "15f394394d0c4c3d6cfe39d67675fc34bdd285db",
+    "verso_commit": "b677415e8a0becccc0b850137c2d8f6205132a91"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.HO"
+    ],
+    "msc2020": [
+      "11R09",
+      "11C08",
+      "00A67"
+    ]
+  },
+  "first_registered_on": "2026-09-01",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.31.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "63045536fe95024e6c18fc7b48e03f506701c5bc"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "5c7542ed018c78194f1e2b903eaf6a792b74c03d"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "24b0d9dc081c5423f8eec7e866c441e5184f29d9"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "e3cb2f741431ce31bf73549fb52316a57368b06f"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "f46324995fca5f0483b742e4eb4daec7f4ee50d2"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "fa08db58b30eb033edcdab331bba000827f9f785"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "MorphicNumbers.morphic_iff",
+      "MorphicNumbers.goldenRatio_morphic",
+      "MorphicNumbers.plasticNumber_morphic",
+      "MorphicNumbers.plastic_exists"
+    ]
+  },
+  "id": "PALOMAR-2026-09-01-000008",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-01T15:53:38Z",
+    "receipt_sha256": "a9a4026b30c771474533d5a625200f07a35a7658e5d10a6f9c293836c48ea939",
+    "repositories": [
+      {
+        "commit": "e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000008-v1/e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "fa08db58b30eb033edcdab331bba000827f9f785",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000008-v1/fa08db58b30eb033edcdab331bba000827f9f785",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000008-v1/5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000008-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000008-v1/fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000008-v1/63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000008-v1/24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000008-v1/f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000008-v1/92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "9d3664f4ad3abc3783a9296ad1207a1ef1fee41d",
+        "fork_repository": "PalomarArchive/stalex444--only-two-morphic-numbers--e5d806ec5637",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000008-v1/9d3664f4ad3abc3783a9296ad1207a1ef1fee41d",
+        "source_repository": "stalex444/only-two-morphic-numbers"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Jan Aarts"
+          },
+          {
+            "name": "Robbert Fokkink"
+          },
+          {
+            "name": "Godfried Kruijtzer"
+          }
+        ],
+        "identifier": "Nieuw Archief voor Wiskunde (5) 2 (2001), 56-58",
+        "license": "unknown",
+        "location": "https://www.nieuwarchief.nl/serie5/pdf/naw5-2001-02-1-056.pdf",
+        "relationship": "formalizes",
+        "title": "Morphic numbers",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Ernst S. Selmer"
+          }
+        ],
+        "identifier": "Mathematica Scandinavica 4 (1956), 287-302",
+        "license": "unknown",
+        "location": "https://doi.org/10.7146/math.scand.a-10478",
+        "relationship": "background",
+        "title": "On the irreducibility of certain trinomials",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Helge Tverberg"
+          }
+        ],
+        "identifier": "Mathematica Scandinavica 8 (1960), 121-126",
+        "license": "unknown",
+        "location": "https://doi.org/10.7146/math.scand.a-10599",
+        "relationship": "background",
+        "title": "On the irreducibility of the trinomials x^n +/- x^m +/- 1",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Wilhelm Ljunggren"
+          }
+        ],
+        "identifier": "Mathematica Scandinavica 8 (1960), 65-70",
+        "license": "unknown",
+        "location": "https://doi.org/10.7146/math.scand.a-10593",
+        "relationship": "background",
+        "title": "On the irreducibility of certain trinomials and quadrinomials",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Hans van der Laan"
+          }
+        ],
+        "identifier": "E. J. Brill, Leiden, 1960",
+        "license": "unknown",
+        "location": "https://openlibrary.org/search?q=Le+nombre+plastique+van+der+Laan",
+        "relationship": "background",
+        "title": "Le Nombre Plastique: quinze Lecons sur l'Ordonnance architectonique",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Richard Padovan"
+          }
+        ],
+        "identifier": "Architectura & Natura Press, Amsterdam, 1994",
+        "license": "unknown",
+        "location": "https://openlibrary.org/search?q=Padovan+Dom+Hans+van+der+Laan",
+        "relationship": "background",
+        "title": "Dom Hans van der Laan: Modern Primitive",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Godfried Kruijtzer"
+          }
+        ],
+        "identifier": "Architectura & Natura, Amsterdam, 1998",
+        "license": "unknown",
+        "location": "https://openlibrary.org/search?q=Kruijtzer+Ruimte+en+getal",
+        "relationship": "background",
+        "title": "Ruimte en Getal: Het plastische Getal en het gulden-Snedegetal",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Carl Ludwig Siegel"
+          }
+        ],
+        "identifier": "Duke Mathematical Journal 11 (1944), 597-602",
+        "license": "unknown",
+        "location": "https://doi.org/10.1215/S0012-7094-44-01152-X",
+        "relationship": "background",
+        "title": "Algebraic integers whose conjugates lie in the unit circle",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Christopher J. Smyth"
+          }
+        ],
+        "identifier": "Bulletin of the London Mathematical Society 3 (1971), 169-175",
+        "license": "unknown",
+        "location": "https://doi.org/10.1112/blms/3.2.169",
+        "relationship": "background",
+        "title": "On the product of the conjugates outside the unit circle of an algebraic integer",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Jeremy Blanc"
+          },
+          {
+            "name": "Serge Cantat"
+          }
+        ],
+        "identifier": "Journal of the American Mathematical Society 29 (2016), 415-471",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/jams831",
+        "relationship": "background",
+        "title": "Dynamical degrees of birational transformations of projective surfaces",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Eric Bedford"
+          },
+          {
+            "name": "Kyounghee Kim"
+          }
+        ],
+        "identifier": "Journal of Geometric Analysis 19 (2009), 553-583",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/s12220-009-9077-8",
+        "relationship": "background",
+        "title": "Dynamics of rational surface automorphisms: linear fractional recurrences",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4 (Mathlib/NumberTheory/Real/GoldenRatio.lean; Mathlib/RingTheory/Polynomial/Selmer.lean; Mathlib/Algebra/Polynomial/UnitTrinomial.lean)",
+        "note": "Honest accounting of what is consumed: Real.goldenRatio and goldenRatio_sq from the GoldenRatio file; SELMER'S THEOREM ITSELF (Polynomial.X_pow_sub_X_sub_one_irreducible, Thomas Browning) — the heavier of AFK's two literature inputs is Mathlib's, not this entry's; and the Ljunggren unit-trinomial machinery (trinomial, mirror, isUnitTrinomial_iff'', irreducible_aux3 — a public if aux-named lemma), from whose irreducible_of_coprime proof body the mirror dichotomy is extracted. Mathlib contains no morphic characterization, no plastic number, and no Padovan/Perrin material (checked at the pin fabf563a and at master); the definition, the plastic number with its uniqueness, the cofactor analysis, and the classification are this entry's contribution. The extracted dichotomy is a candidate contribution under that file's generic \"Develop more theory\" TODO.lean — a candidate upstream byproduct.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/stalex444/pdt-lean (parent development; pinned reference revision: commit d66ffbe813e48636aa636ffcd80070b81cbf10da)",
+        "note": "The broader public project this entry belongs to. This repository is the complete, self-contained proof development for the compared statements, not a wrapper: the proof module PdtMorphic builds here with the pinned toolchain and no imports from the parent, and it is NATIVE to this repository — it appears in no other development at the pinned revision. The parent development shares the plastic-number conventions (rho via rho^3 = rho + 1).",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-08-31-000004 (stalex444/mahler-measure-minima, registered revision ca3df22)",
+        "note": "The registered sibling entry, by the same author: for each degree d in {2, 3, 4}, x^d - x - 1 attains the minimal Mahler measure among monic irreducible integer polynomials of degree d with measure above one. Complementarity, not duplication: the sibling characterizes x^2 - x - 1 and x^3 - x - 1 by EXTREMALITY (the Smyth/Mossinghoff lineage); this entry characterizes their roots phi and rho by the FUNCTIONAL EQUATIONS p + 1 = p^k and p - 1 = p^(-l) (the van der Laan/AFK lineage). Different literature, different audiences, zero shared statements — two independent theorems landing on the same pair of numbers from opposite sides.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-01T15:53:14Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "4ed67de4fd69df383badb7857dff97e2fb734ab0",
+    "report": {
+      "sha256": "b55662c627716099dfc5eac59ea7363a4a053c0b19c23a8ee923cc48ccfec17f"
+    },
+    "reviewed_at": "2026-09-01T15:02:44Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "9d3664f4ad3abc3783a9296ad1207a1ef1fee41d",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/only-two-morphic-numbers",
+    "repository_url": "https://github.com/stalex444/only-two-morphic-numbers",
+    "tree_url": "https://github.com/stalex444/only-two-morphic-numbers/tree/9d3664f4ad3abc3783a9296ad1207a1ef1fee41d"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "g2qgps6nzydw"
+  },
+  "title": "Only two morphic numbers: the Aarts-Fokkink-Kruijtzer classification of the golden ratio and the plastic number",
+  "trust": {
+    "challenge_bytes": 8112,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 153,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "e423e302660df8f21e6aa09ec2c04031db2ed1c211febb0e64240091108d3658",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-01-000008-v1/a2d62fce458e7bbc07f1979d2dc351588dfa2b56b0e08f49aaa50f44179efb24/",
+    "evidence_tree_sha256": "a2d62fce458e7bbc07f1979d2dc351588dfa2b56b0e08f49aaa50f44179efb24",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "8554815c2dc6b7abe99ec1f08849c9759ba77947",
+    "mechanical_report_sha256": "97efcb9ecd01345b96d7968a3b50c3bc9d3699df8aaca53fb58a995841193df3",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33514118505,
+    "solution_sha256": "83d6389fcdc41ca7bc7f9c34b95274668a55160630956c92be8a936a8ed30ecb",
+    "verified_at": "2026-09-01T13:41:02Z",
+    "workflow_commit": "15f394394d0c4c3d6cfe39d67675fc34bdd285db",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33514118505"
+  },
+  "version": 1
+}

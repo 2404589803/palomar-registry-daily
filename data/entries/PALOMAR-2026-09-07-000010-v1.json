@@ -1,0 +1,286 @@
+{
+  "abstract": "For an odd positive squarefree integer n, let B(n) be the set of integer triples (x,y,z) with 2x^2 + y^2 + 8z^2 = n and let A(n) be the set of integer triples (u,v,w) with 2u^2 + v^2 + 32w^2 = n. Tunnell's theorem establishes the cardinality balance |B(n)| = 2|A(n)| for every odd positive squarefree congruent n. The registered Lean interface isolates that established result as an explicit hypothesis and constructs an ordinary computable total map Phi_n : B(n) -> A(n) - taking exactly those hypotheses, with no auxiliary default value and no inhabitance assumption on any auxiliary set, so that it is instantiable also when the residual sets are empty - and proves that every element of A(n) has exactly two distinct preimages and that the fibre description is exhaustive. The registered statements additionally pin the map branch by branch: the even branch (x,y,2w) |-> (x,y,w) and the three integral quarter-turn branches are given by explicit coordinate formulas, and a source in none of those classes is proved to be sent to a residual target. The residual theorem additionally fixes the family-level output: on canonical antipodal representatives the map is induced by the unique stable perfect matching for the primitive-midpoint projective edge ranking, and both signs obey the registered preferred-sign lift. Thus the registered statements exclude an arbitrary residual permutation. The repository's stateful arithmetic generator and source-proposing deferred-acceptance implementation are proved to compute such a matching. The registered residual forward map and inverse agree with the assembled map and satisfy both inverse identities. The submitted Solution computes the inverse by rerunning the machine; the registered laws determine it extensionally rather than recording that operational provenance. The short Challenge specifies the mathematical output, not every internal machine state. The balance hypothesis is the only input taken from Tunnell's theorem, whose modular-form proof is NOT formalized here. This is a formalization boundary, not a conjectural assumption; no new modular-form or elliptic-curve argument is used or claimed.",
+  "authors": [
+    {
+      "name": "Aakash Gurung"
+    },
+    {
+      "name": "Kyungyong Lee"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-07-000010-v1/f8ea764290ccf5dd0ae8e10954c3876996ce50b3250b1080ec6ea0a281547029/",
+    "artifact_tree_sha256": "f8ea764290ccf5dd0ae8e10954c3876996ce50b3250b1080ec6ea0a281547029",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-07T16:36:42Z",
+    "renderer_commit": "c605f23466450a52999fcfb3c6d68ed8febc56bf",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C70",
+      "11E25",
+      "11D85",
+      "68W40",
+      "03B35"
+    ]
+  },
+  "first_registered_on": "2026-09-07",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "TunnellChallenge.tunnellMap",
+      "TunnellChallenge.tunnellResidualMap",
+      "TunnellChallenge.tunnellResidualInverse"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "TunnellChallenge.tunnellMap_exactly_two",
+      "TunnellChallenge.tunnellMap_even",
+      "TunnellChallenge.tunnellMap_quarterTurn_one",
+      "TunnellChallenge.tunnellMap_quarterTurn_two",
+      "TunnellChallenge.tunnellMap_quarterTurn_three",
+      "TunnellChallenge.tunnellResidualMap_agrees",
+      "TunnellChallenge.tunnellResidualInverse_left",
+      "TunnellChallenge.tunnellResidualInverse_right",
+      "TunnellChallenge.tunnellMap_residual_target",
+      "TunnellChallenge.tunnellMap_residual_stable"
+    ]
+  },
+  "id": "PALOMAR-2026-09-07-000010",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-07T16:37:11Z",
+    "receipt_sha256": "62ccd87342b73be5b6fd4691303b499eb66604689aff9acd0ab93f965aebe5d4",
+    "repositories": [
+      {
+        "commit": "26b018d57c0cbb4e331f56a1f51821dcb15c27ef",
+        "fork_repository": "PalomarArchive/GrgAakash--tunnell-two-to-one-map--0e6bd8003436",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000010-v1/26b018d57c0cbb4e331f56a1f51821dcb15c27ef",
+        "source_repository": "GrgAakash/tunnell-two-to-one-map"
+      },
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000010-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000010-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000010-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000010-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000010-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000010-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000010-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000010-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000010-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Aakash Gurung"
+          },
+          {
+            "name": "Kyungyong Lee"
+          }
+        ],
+        "location": "Papers/v1/2_to_1.tex in the submitted repository",
+        "relationship": "formalizes",
+        "title": "Stable Matching and a Two-to-One Map for Tunnell's Ternary Forms",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "J. B. Tunnell"
+          }
+        ],
+        "location": "Inventiones Mathematicae 72 (1983), no. 2, 323-334; https://doi.org/10.1007/BF01389327",
+        "relationship": "background",
+        "title": "A classical Diophantine problem and modular forms of weight 3/2",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Aakash Gurung"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-07T16:36:57Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "42cc43f70b1b019d20d4b64e9016396e666a6bc7",
+    "report": {
+      "sha256": "c0b4f9ab886a82e3c82513dd69979ac1a8e0691013f31fa38fd9845d94f98907"
+    },
+    "reviewed_at": "2026-09-07T16:26:44Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "26b018d57c0cbb4e331f56a1f51821dcb15c27ef",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "GrgAakash/tunnell-two-to-one-map",
+    "repository_url": "https://github.com/GrgAakash/tunnell-two-to-one-map",
+    "tree_url": "https://github.com/GrgAakash/tunnell-two-to-one-map/tree/26b018d57c0cbb4e331f56a1f51821dcb15c27ef"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "gh4f0ms7462f"
+  },
+  "title": "A two-to-one executable map between Tunnell representation sets under the Tunnell balance",
+  "trust": {
+    "challenge_bytes": 13997,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 299,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "770588bf5caf501791c93ece8dd659a513780b5f533bf86fe6760f515ceff713",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-07-000010-v1/15b04f9267dccbee2742509a9b9297e6dd6b1e9aa3b826a1957345579312fbf6/",
+    "evidence_tree_sha256": "15b04f9267dccbee2742509a9b9297e6dd6b1e9aa3b826a1957345579312fbf6",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "5bd85429c40e04d10ba95022e4260fcd3a843bcfa59c2e4c44d9a80e8263e2b9",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 34140738658,
+    "solution_sha256": "5961124e727c3f0d702410c7332de934d205e643def40068764c06b27004d096",
+    "verified_at": "2026-09-07T16:03:45Z",
+    "workflow_commit": "c605f23466450a52999fcfb3c6d68ed8febc56bf",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/34140738658"
+  },
+  "version": 1
+}

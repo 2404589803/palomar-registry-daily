@@ -1,0 +1,319 @@
+{
+  "abstract": "A Lean 4 formalization of the periodic Cooper-Wallis construction and of Hadamard existence at eight orders: from kernel-checked periodic T-matrix quadruples of orders 103 and 163 and seven symmetric-circulant Williamson quadruples, the development proves that Hadamard matrices of orders 2884, 4532, 7004, 7172, 7828, 8476, 9476, and 11948 exist. Each of the eight orders lands on an entry of Table 4 of Cati and Pasechnik's maintained construction database (arXiv:2411.18897v2, 2025-08-30) recording no Hadamard matrix of that order as known, and the source repositories' firsthand audit of the construction literature (closed 2026-08-29) located no published route to the order-103 or order-163 T-objects the eight are built from. The development also proves the erratum core of the companion Hadamard-M note on Miyamoto's 1991 construction paper: the handshake parity obstruction, its empty-class corollary, and the nonexistence of the displayed C2-matrix ingredient of that paper's Corollary 4 at every positive block order not congruent to 1 mod 4 - covering the paper's printed list entries at orders 103, 127, and 151 under both printed readings of the corollary's output order, and leaving the order-515 list entry, the paper's claim of a Hadamard matrix of order 2060, unsupported by the paper's own machinery. Cati and Pasechnik, for want of details, record being unable to verify the constructions claimed in that paper's section 7, naming order 4*515 as their example; the obstruction supplies an independent mathematical reason the printed route cannot deliver that entry. Order 2060 itself is not open: a Hadamard matrix of that order was posted publicly on 2026-08-23, credited to Schneider, by other means.",
+  "authors": [
+    {
+      "name": "JD Jones"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-31-000001-v1/136427f86345bde763e3e241d21256e9553697e917e02e214166203eccfe8f6f/",
+    "artifact_tree_sha256": "136427f86345bde763e3e241d21256e9553697e917e02e214166203eccfe8f6f",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-31T00:24:22Z",
+    "renderer_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05B20"
+    ]
+  },
+  "first_registered_on": "2026-08-31",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "HadamardFormal.handshake_mod_four",
+      "HadamardFormal.no_handshake_matrix",
+      "HadamardFormal.no_c2_matrix",
+      "HadamardFormal.cooperWallis",
+      "HadamardFormal.hadamard_7172",
+      "HadamardFormal.hadamard_8476",
+      "HadamardFormal.hadamard_2884",
+      "HadamardFormal.hadamard_4532",
+      "HadamardFormal.hadamard_7004",
+      "HadamardFormal.hadamard_7828",
+      "HadamardFormal.hadamard_9476",
+      "HadamardFormal.hadamard_11948"
+    ]
+  },
+  "id": "PALOMAR-2026-08-31-000001",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-31T00:24:58Z",
+    "receipt_sha256": "fb157f7a1428ff39bbd82e5ccb8ed40350c6c0da11cac5fb41d07bd526306b27",
+    "repositories": [
+      {
+        "commit": "46544fab662e04db8b6fd18b47bd994585c4685c",
+        "fork_repository": "PalomarArchive/JD-Jones-ASES--Hadamard-formal--de9ae797e429",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000001-v1/46544fab662e04db8b6fd18b47bd994585c4685c",
+        "source_repository": "JD-Jones-ASES/Hadamard-formal"
+      },
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000001-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000001-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000001-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000001-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000001-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000001-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000001-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000001-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000001-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "JD Jones"
+          }
+        ],
+        "identifier": "https://github.com/JD-Jones-ASES/Hadamard-T/tree/eec1bed6216c44675d946fe80d47695a7ae2ab40",
+        "location": "note/NOTE.md sections 1, 2, 4, 5, 6.1 and 7; data/T103.json, data/T163.json, data/williamson-quadruples.json, data/williamson-13.json",
+        "relationship": "formalizes",
+        "title": "Hadamard-T: T-matrix witnesses and the Hadamard orders they close",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "JD Jones"
+          }
+        ],
+        "identifier": "https://github.com/JD-Jones-ASES/Hadamard-M/tree/0208cf661fcd6b1e7d69eb52078d873eefc4d7cf",
+        "location": "note/NOTE.md sections 2.1 and 2.3-2.7, Propositions 2-4",
+        "relationship": "formalizes",
+        "title": "Hadamard-M: an erratum at order 515, and an explicit Hadamard matrix of order 7796",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "M. Miyamoto"
+          }
+        ],
+        "identifier": "J. Combin. Theory Ser. A 57 (1991) 86-108",
+        "location": "https://doi.org/10.1016/0097-3165(91)90008-5",
+        "relationship": "background",
+        "title": "A construction of Hadamard matrices",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "M. Cati"
+          },
+          {
+            "name": "D. V. Pasechnik"
+          }
+        ],
+        "identifier": "arXiv:2411.18897",
+        "location": "Table 4; the section-6 note on the unverified Miyamoto section-7 claims",
+        "relationship": "background",
+        "title": "A database of constructions of Hadamard matrices",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/blob/v4.33.0/Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean",
+        "note": "Mathlib's Hadamard-matrix module (added 2026-06-16, mathlib4 PR #38582) supplies the Matrix.IsHadamard predicate the compared statements use, closure lemmas including the Kronecker product, and the 4-divides-n obstruction. It exhibits no Hadamard matrix of any order and contains no existence theorem, and Mathlib at this revision has no content on Williamson quadruples, T-matrices, or the Goethals-Seidel and Cooper-Wallis constructions.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/blob/abe6ef73129989fb8cf94edb72b1ac21d30a411b/FormalConjectures/Wikipedia/Hadamard.lean",
+        "note": "States the Hadamard conjecture and its known-for-4k-with-k-at-most-166 variant in Lean as unproved benchmark targets; as of that commit, every Hadamard statement there, including an explicit order-12 matrix, is left as sorry. No proved content overlaps this development.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Lu-Ming Zhang, Formal Verification of Constructions and Theorems on Hadamard Matrices, MSc dissertation, University of Oxford, 2021",
+        "note": "The one prior proof-assistant effort on Hadamard constructions our search located, known to us only through Cati and Pasechnik's citation describing it as work towards verifying constructions covering orders up to 112. We could not locate its text, artifact, or even the proof assistant used, so it cannot be independently confirmed; its stated order range is disjoint from the eight orders proved here, though it plausibly includes Williamson- and Goethals-Seidel-type constructions at small orders.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "JD Jones"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-31T00:24:36Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "d5a647db3757303b1d928cfae4d3d232eed3e79e",
+    "report": {
+      "sha256": "19f01687de5f7a636794587fb5e2b0e1f266cd736a538540c0c05c67fa7730da"
+    },
+    "reviewed_at": "2026-08-30T15:55:38Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "46544fab662e04db8b6fd18b47bd994585c4685c",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "8d464f723696204001f7ef63b6146ffc544aa6837aa74c53f6f9c53d8a18b0f0"
+    },
+    "repository": "JD-Jones-ASES/Hadamard-formal",
+    "repository_url": "https://github.com/JD-Jones-ASES/Hadamard-formal",
+    "tree_url": "https://github.com/JD-Jones-ASES/Hadamard-formal/tree/46544fab662e04db8b6fd18b47bd994585c4685c"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "ayferg6xctrv"
+  },
+  "title": "JD-Jones-ASES/Hadamard-formal",
+  "trust": {
+    "challenge_bytes": 7893,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 176,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "0532c459a8f20892af4d1f61c11f5ef8f202ca1ac55101e1d79c45cebe3ec5c0",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-31-000001-v1/703b937ea045bd9d21577734edceac6eefab6df4d9c05f85c3ceccbc803c5b78/",
+    "evidence_tree_sha256": "703b937ea045bd9d21577734edceac6eefab6df4d9c05f85c3ceccbc803c5b78",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "d2093727bf723c9ce494e79d983d61258dabde6e881d6f727f82887351e21b2d",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33315149601,
+    "solution_sha256": "f26e60b1e5e09e89457c15e6b01e14598447484b5ce5a1adbe98a7c258a0e7d2",
+    "verified_at": "2026-08-30T15:43:27Z",
+    "workflow_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33315149601"
+  },
+  "version": 1
+}

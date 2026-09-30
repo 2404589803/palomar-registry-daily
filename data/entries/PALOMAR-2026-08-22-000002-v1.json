@@ -1,0 +1,281 @@
+{
+  "abstract": "A Lean 4 proof of the sequence-level conditioning construction for Selberg divisor feedback. Two explicit perturbations of the von Mangoldt weight stay in the positive prime-power cone, approximate the divisor data to an arbitrary tolerance through twice the observation scale, separate their summatory outputs at a near-linear power scale, and retain one uniform linear Selberg bound.",
+  "authors": [
+    {
+      "name": "Mayk Loide Baccaro"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-22-000002-v1/3c3190417625349cee4a1acf9785003eabc06a0f477c5a8b0aca51e65849a6ba/",
+    "artifact_tree_sha256": "3c3190417625349cee4a1acf9785003eabc06a0f477c5a8b0aca51e65849a6ba",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-22T03:36:26Z",
+    "renderer_commit": "16038af22a929ae3714acf7d74219cfbe57acf2d",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11N05",
+      "11M26"
+    ]
+  },
+  "first_registered_on": "2026-08-22",
+  "formalization": {
+    "challenge_path": "MathematicalProofs/SelbergDivisorFeedback/Lean/Challenge.lean",
+    "comparator_config_path": "MathematicalProofs/SelbergDivisorFeedback/Lean/comparator.json",
+    "definition_names": [
+      "RiemannHypothesisProofFactory.SelbergConditioning.primeFactorResidual",
+      "RiemannHypothesisProofFactory.SelbergConditioning.orderedHyperbolaSum",
+      "RiemannHypothesisProofFactory.SelbergConditioning.logarithmicMoment",
+      "RiemannHypothesisProofFactory.SelbergConditioning.harmonicMass",
+      "RiemannHypothesisProofFactory.SelbergConditioning.oddPrimeCoefficient",
+      "RiemannHypothesisProofFactory.SelbergConditioning.oddCorrectionTerm",
+      "RiemannHypothesisProofFactory.SelbergConditioning.twoCoefficient",
+      "RiemannHypothesisProofFactory.SelbergConditioning.infinitePrimeCoefficient",
+      "RiemannHypothesisProofFactory.SelbergConditioning.infinitePrimePowerPerturbation",
+      "RiemannHypothesisProofFactory.SelbergConditioning.oddPrimePowerPart",
+      "RiemannHypothesisProofFactory.SelbergConditioning.twoPrimePowerIndicator",
+      "RiemannHypothesisProofFactory.SelbergConditioning.arithmeticPrefix",
+      "RiemannHypothesisProofFactory.SelbergConditioning.plusMangoldtWeight",
+      "RiemannHypothesisProofFactory.SelbergConditioning.minusMangoldtWeight",
+      "RiemannHypothesisProofFactory.SelbergConditioning.InPrimePowerCone",
+      "RiemannHypothesisProofFactory.SelbergConditioning.selbergStatistic",
+      "RiemannHypothesisProofFactory.SelbergConditioning.divisorFeedbackResidual",
+      "RiemannHypothesisProofFactory.SelbergConditioning.summatoryError",
+      "RiemannHypothesisProofFactory.SelbergConditioning.conditioningScale",
+      "RiemannHypothesisProofFactory.SelbergConditioning.conditioningScaleCap",
+      "RiemannHypothesisProofFactory.SelbergConditioning.conditioningSelbergConstant"
+    ],
+    "formalization_metadata_path": "MathematicalProofs/SelbergDivisorFeedback/Lean/formalization.yaml",
+    "lakefile_path": "MathematicalProofs/SelbergDivisorFeedback/Lean/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "MathematicalProofs/SelbergDivisorFeedback/Lean/Solution.lean",
+    "theorem_names": [
+      "RiemannHypothesisProofFactory.SelbergConditioning.near_linear_conditioning_witness"
+    ]
+  },
+  "id": "PALOMAR-2026-08-22-000002",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-22T03:30:19Z",
+    "receipt_sha256": "4e23ed14bfb6b99cffc9f8fadb54ae0d90788fa42ce655bb1d86a484849ec4d9",
+    "repositories": [
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000002-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000002-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000002-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000002-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000002-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000002-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000002-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000002-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000002-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "f0ccae19f2cb5afdca00c42694d677c74dc492f6",
+        "fork_repository": "PalomarArchive/mbaccaro-dev--mathematical-proofs--747a1597eb38",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000002-v1/f0ccae19f2cb5afdca00c42694d677c74dc492f6",
+        "source_repository": "mbaccaro-dev/mathematical-proofs"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Mayk Loide Baccaro"
+          }
+        ],
+        "identifier": "10.5281/zenodo.22005767",
+        "license": "unknown",
+        "location": "https://doi.org/10.5281/zenodo.22005767",
+        "relationship": "formalizes",
+        "title": "Selberg Feedback and Approximate Divisor Data Do Not Stably Determine Square-Root Prime Error",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Mayk Loide Baccaro"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-22T03:29:50Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "2d7c43b9c2d1dcc4e642c732091e4fea2569b81c",
+    "report": {
+      "sha256": "1de44cfd94f0ef5b45df48475a24d00c7751a6d60339dc2f60af9d704b280098"
+    },
+    "reviewed_at": "2026-08-22T03:21:40Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "f0ccae19f2cb5afdca00c42694d677c74dc492f6",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "MathematicalProofs/SelbergDivisorFeedback/Lean",
+    "repository": "mbaccaro-dev/mathematical-proofs",
+    "repository_url": "https://github.com/mbaccaro-dev/mathematical-proofs",
+    "tree_url": "https://github.com/mbaccaro-dev/mathematical-proofs/tree/f0ccae19f2cb5afdca00c42694d677c74dc492f6/MathematicalProofs/SelbergDivisorFeedback/Lean"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "vfcyqcott49r"
+  },
+  "title": "mbaccaro-dev/mathematical-proofs",
+  "trust": {
+    "challenge_bytes": 7201,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt",
+      "Mathlib.Tactic",
+      "Mathlib.Topology.Algebra.InfiniteSum.Basic"
+    ],
+    "challenge_lines": 168,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "e59b33c3fc5d3657ede773a476c077593319b17b3fe0dca9eda8d52d21fd7f75",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-22-000002-v1/e4fda9c3df421a8090c07a1e6172fe850b8fc080e22d26f4d9338d6b4d9a1254/",
+    "evidence_tree_sha256": "e4fda9c3df421a8090c07a1e6172fe850b8fc080e22d26f4d9338d6b4d9a1254",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "c9da6f1c5aa47e6498270443c28db884c00b5cd0b744ba09e2784e55ca228d48",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32548199335,
+    "solution_sha256": "e6f2885b2318997c6950c971b4c020c37dfe1c9d2468ad86e74857c9d4651941",
+    "verified_at": "2026-08-22T03:16:05Z",
+    "workflow_commit": "16038af22a929ae3714acf7d74219cfbe57acf2d",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32548199335"
+  },
+  "version": 1
+}

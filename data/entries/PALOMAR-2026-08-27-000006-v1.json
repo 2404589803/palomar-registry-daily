@@ -1,0 +1,414 @@
+{
+  "abstract": "Answer to Problem 10.32 of the Kourovka Notebook, posed by Yu. I. Merzlyakov in 1986 and still open in the Notebook's 21st edition (2026), in both directions. Positive direction: there are constants C and N0 such that for all nonzero integers r, s with r or s odd, the word x^r y^s is universal on the symmetric group S_n (every permutation is a value) whenever n >= N0 and n >= C * log m(r,s), where m(r,s) is the product of the distinct primes dividing rs. This is the S_n analogue of the logarithmic Brenner-Evans-Silberger bound for A_n; the best previous S_n bound (Droste, 1986) was linear in m. The constant C is effective (the paper gives 4.65 for its fully effective cases), while the threshold N0 is ineffective solely because the proof uses Vinogradov's three-primes theorem. Negative direction, unconditional: the logarithmic shape is optimal. For r = lcm(1..n) with s its odd part, no element of order 3 in S_n is a value of x^r y^s, while log m(r,s) equals theta(n), the full Chebyshev mass of the primes up to n. The proof is machine-checked in Lean 4 on top of Mathlib, with the complete prose write-up included in this repository. The principal theorem, UniversalWords.kourovka_10_32_conditional, is a fully proved implication from eight explicitly stated published theorems (Herzog-Kaplan-Lev, Boccara, three Rosser-Schoenfeld bounds, Montgomery-Vaughan's Brun-Titchmarsh inequality, Vinogradov's three-primes theorem, and the Halberstam-Richert sieve bound) and depends only on Lean's three standard axioms, as does the optimality theorem UniversalWords.not_universal. A quarantined module assumes the eight statements as axioms to recover the unconditional form.",
+  "authors": [
+    {
+      "name": "Avi Kondareddy"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-27-000006-v1/36e8341196a90571977c1281db9e3fe23686d09c91ec6b9dd3d94a95e49827ea/",
+    "artifact_tree_sha256": "36e8341196a90571977c1281db9e3fe23686d09c91ec6b9dd3d94a95e49827ea",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-27T01:47:16Z",
+    "renderer_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "verso_commit": "74fc8d1b7bb781c3623a06ec6484f34d35eb5fba"
+  },
+  "classification": {
+    "arxiv": [
+      "math.GR",
+      "math.NT"
+    ],
+    "msc2020": [
+      "20B30",
+      "20D60",
+      "11P32",
+      "05A05"
+    ]
+  },
+  "first_registered_on": "2026-08-27",
+  "formalization": {
+    "challenge_path": "lean/Challenge.lean",
+    "comparator_config_path": "lean/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "lean/formalization.yaml",
+    "lakefile_path": "lean/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.34.0-rc1",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "ae26804842dd341fb1c52e81d71f1a105ef4ca34"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "38e9c3ce15cbb63c92e90bb9a92e4eb82131f669"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "2bc7cf064315b26bc38dac2e9612fb581be9b75f"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "978b7ec9fbbf9a535114f1de8fe5b3778b358870"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "99e8adeea3c3cd86b6b79ba01a1383bf2d31d055"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "c1c4362a130f12e632d252180a6c2a31d8fd4726"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "3b55e9d00c6b0018e5d984eb011b6f93c09bd163"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "9a86b38593ce6411eb26cc53e512392e12cd8939"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "af8bc067a4cc6c6df472a68909a3f40b1c76c43e"
+      }
+    ],
+    "solution_path": "lean/Solution.lean",
+    "theorem_names": [
+      "Kourovka1032.kourovka_10_32_conditional",
+      "Kourovka1032.not_universal"
+    ]
+  },
+  "id": "PALOMAR-2026-08-27-000006",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-27T01:47:53Z",
+    "receipt_sha256": "d99d4e2c3d3d13673e95b7fd9fb0d28fc646b2a7b8e1d632dbeb76a172d8c4b3",
+    "repositories": [
+      {
+        "commit": "90e3cbf743db257ecc13639f024c52fb197d6a48",
+        "fork_repository": "PalomarArchive/AviKndr--universal-words--e0c5e5f4fcc9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000006-v1/90e3cbf743db257ecc13639f024c52fb197d6a48",
+        "source_repository": "AviKndr/universal-words"
+      },
+      {
+        "commit": "c1c4362a130f12e632d252180a6c2a31d8fd4726",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000006-v1/c1c4362a130f12e632d252180a6c2a31d8fd4726",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "9a86b38593ce6411eb26cc53e512392e12cd8939",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000006-v1/9a86b38593ce6411eb26cc53e512392e12cd8939",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "978b7ec9fbbf9a535114f1de8fe5b3778b358870",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000006-v1/978b7ec9fbbf9a535114f1de8fe5b3778b358870",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "2bc7cf064315b26bc38dac2e9612fb581be9b75f",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000006-v1/2bc7cf064315b26bc38dac2e9612fb581be9b75f",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "ae26804842dd341fb1c52e81d71f1a105ef4ca34",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000006-v1/ae26804842dd341fb1c52e81d71f1a105ef4ca34",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "38e9c3ce15cbb63c92e90bb9a92e4eb82131f669",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000006-v1/38e9c3ce15cbb63c92e90bb9a92e4eb82131f669",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "99e8adeea3c3cd86b6b79ba01a1383bf2d31d055",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000006-v1/99e8adeea3c3cd86b6b79ba01a1383bf2d31d055",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "3b55e9d00c6b0018e5d984eb011b6f93c09bd163",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000006-v1/3b55e9d00c6b0018e5d984eb011b6f93c09bd163",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "af8bc067a4cc6c6df472a68909a3f40b1c76c43e",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000006-v1/af8bc067a4cc6c6df472a68909a3f40b1c76c43e",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Avi Kondareddy"
+          }
+        ],
+        "location": "universal-words.tex / universal-words.pdf at the repository root",
+        "relationship": "other",
+        "title": "The universality of the words x^r y^s in symmetric groups: a logarithmic bound answering Kourovka Notebook Problem 10.32",
+        "type": "original-proof"
+      },
+      {
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Yu. I. Merzlyakov",
+            "role": "problem-proposer"
+          },
+          {
+            "name": "E. I. Khukhro",
+            "role": "editor"
+          },
+          {
+            "name": "V. D. Mazurov",
+            "role": "editor"
+          }
+        ],
+        "identifier": "arXiv:1401.0300",
+        "location": "Problem 10.32; posed in the tenth issue (1986), quoted from the 21st edition (2026)",
+        "relationship": "background",
+        "title": "Unsolved problems in group theory. The Kourovka Notebook, Problem 10.32",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "J. L. Brenner"
+          },
+          {
+            "name": "R. J. Evans"
+          },
+          {
+            "name": "D. M. Silberger"
+          }
+        ],
+        "identifier": "Proc. Amer. Math. Soc. 96 (1986), no. 1, 23-28",
+        "relationship": "background",
+        "title": "The universality of words x^r y^s in alternating groups",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "M. Droste"
+          }
+        ],
+        "identifier": "Proc. Amer. Math. Soc. 96 (1986), no. 1, 18-22",
+        "relationship": "background",
+        "title": "On the universality of words for the alternating groups",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "M. Herzog"
+          },
+          {
+            "name": "G. Kaplan"
+          },
+          {
+            "name": "A. Lev"
+          }
+        ],
+        "identifier": "Discrete Math. 285 (2004), 323-327",
+        "location": "Theorem 7 (sufficiency)",
+        "relationship": "background",
+        "title": "Representation of permutations as products of two cycles",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "G. Boccara"
+          }
+        ],
+        "identifier": "Discrete Math. 38 (1982), 129-142",
+        "relationship": "background",
+        "title": "Cycles comme produit de deux permutations de classes données",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "J. B. Rosser"
+          },
+          {
+            "name": "L. Schoenfeld"
+          }
+        ],
+        "identifier": "Illinois J. Math. 6 (1962), 64-94",
+        "location": "Theorem 9, eqs. (3.5) and (3.6)",
+        "relationship": "background",
+        "title": "Approximate formulas for some functions of prime numbers",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "J. B. Rosser"
+          },
+          {
+            "name": "L. Schoenfeld"
+          }
+        ],
+        "identifier": "Math. Comp. 29 (1975), 243-269",
+        "location": "Corollary to Theorem 6",
+        "relationship": "background",
+        "title": "Sharper bounds for the Chebyshev functions theta(x) and psi(x)",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "H. L. Montgomery"
+          },
+          {
+            "name": "R. C. Vaughan"
+          }
+        ],
+        "identifier": "Mathematika 20 (1973), 119-134",
+        "location": "Theorem 2 (Brun-Titchmarsh)",
+        "relationship": "background",
+        "title": "The large sieve",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "I. M. Vinogradov"
+          }
+        ],
+        "identifier": "C. R. (Dokl.) Acad. Sci. URSS 15 (1937), 169-172",
+        "relationship": "background",
+        "title": "Representation of an odd number as a sum of three primes",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "H. Halberstam"
+          },
+          {
+            "name": "H.-E. Richert"
+          }
+        ],
+        "identifier": "Academic Press, 1974",
+        "location": "Theorem 3.11",
+        "relationship": "background",
+        "title": "Sieve Methods",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Avi Kondareddy"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-08-27T01:47:29Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "d5a647db3757303b1d928cfae4d3d232eed3e79e",
+    "report": {
+      "sha256": "6a084ac654b50114b1ad03d13d80fd29cd782149d97ada6cea167b3144e8e8ae"
+    },
+    "reviewed_at": "2026-08-27T01:17:44Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "90e3cbf743db257ecc13639f024c52fb197d6a48",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d5c07a302d095199f1f8a4498d804819653893f31ba795b99e66ac2949c0d8bb"
+    },
+    "project_path": "lean",
+    "repository": "AviKndr/universal-words",
+    "repository_url": "https://github.com/AviKndr/universal-words",
+    "tree_url": "https://github.com/AviKndr/universal-words/tree/90e3cbf743db257ecc13639f024c52fb197d6a48/lean"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "nib81ezlh11s"
+  },
+  "title": "AviKndr/universal-words",
+  "trust": {
+    "challenge_bytes": 10970,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.GCDMonoid.Finset",
+      "Mathlib.Algebra.GCDMonoid.Multiset",
+      "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+      "Mathlib.Data.Int.GCD",
+      "Mathlib.Data.Nat.Factorial.Basic",
+      "Mathlib.Data.Nat.Factorization.Basic",
+      "Mathlib.GroupTheory.OrderOfElement",
+      "Mathlib.GroupTheory.Perm.Cycle.Type",
+      "Mathlib.Tactic"
+    ],
+    "challenge_lines": 214,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "643ad882f8a093ef658ef359e15315a8103669082072294238348ad360b2b63c",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-27-000006-v1/6c49647fbfab5d06e766106c6162f50bd15ab8714140a83d02e83b16e62c3364/",
+    "evidence_tree_sha256": "6c49647fbfab5d06e766106c6162f50bd15ab8714140a83d02e83b16e62c3364",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "b18d673bd29b476466a51a3be1012df2ed322b10",
+    "mechanical_report_sha256": "a6418d05917b7bdfe54774206c1f75c9ed722934eefb65ecd76314855d88505e",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33027416290,
+    "solution_sha256": "5d5589c5bbfdde1cf66fa0c6453f67ebf3504f89cd71ba1532239020a8941649",
+    "verified_at": "2026-08-27T00:44:26Z",
+    "workflow_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33027416290"
+  },
+  "version": 1
+}

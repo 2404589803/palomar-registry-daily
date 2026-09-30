@@ -1,0 +1,765 @@
+{
+  "abstract": "Kernel-checked certificates for the multiplicative compositum of the two registered Mahler minimizers — rho, the real root of x^3 = x + 1 (the plastic number: Smyth's nonreciprocal minimum, Siegel's smallest Pisot number) and Q, the real root > 1 of x^4 = x + 1 (the degree-4 entry of the minimal-measure tables) — together with the Bedford-Kim spectral family whose limit rho is. Seventeen compared theorems. The spectral half: (1) for n >= 7 the family chi_n(x) = x^(n+1)(x^3 - x - 1) + (x^3 + x^2 - 1) has a canonical root in [117/100, rho), largest below rho, strictly increasing, tending to rho; (2) every chi_n is strictly positive on [rho, infinity); (3) chi_7 = (x - 1) * L exactly, over any commutative ring, with L Lehmer's degree-10 polynomial; (4) L has a root in [117/100, rho). The compositum half, for the degree-12 minimal polynomial of rho * Q (written out in full in every compared statement): (5) an exclusion witness — a nonreal quartic root z with 1 < |rho * z| < rho * Q; (6) the twelve embedding products ARE the conjugates of rho * Q, both directions; (7) there are exactly twelve of them; (8) rho * Q is an algebraic unit, via an explicit degree-11 cofactor over any commutative ring — the (3, 4, 12) triple in the normal form alpha * beta * gamma = 1; (9) the degree-12 polynomial is not reciprocal (neither its reversal nor the reversal's negation), placing it in the regime of Smyth's theorem; (10) degree multiplicativity — deg minpoly(rho*Q) = deg minpoly(rho) * deg minpoly(Q) = 12; (11) the compositum in sup form Q(rho) join Q(Q) = Q(rho*Q), of degree 12, with the two simple extensions linearly disjoint; (12) the complete unit-circle census — EXACTLY 5 conjugates strictly outside, EXACTLY 7 strictly inside, NONE on the circle, so rho * Q is neither a Pisot nor a Salem number; (13) the house — every conjugate other than rho * Q has modulus strictly below rho * Q; (14) the exact Mahler measure M = rho^2 * Q^2 * psi, where psi is the real root > 1 of psi^4 = psi^3 + 1; (15) the registry bridge — M(X^4 - X - 1) = psi and M(rulerPoly) = (rho * Q)^2 * M(X^4 - X - 1), re-proving in-repo the quantity pinned in registered entry PALOMAR-2026-08-31-000004; (16) the order-12 Hadamard product recurrence — the termwise product of any solutions of the cubic and quartic shift recurrences satisfies the order-12 recurrence whose characteristic polynomial is exactly the degree-12 polynomial, in any Q-algebra; (17) the annihilator ideal of the product power sequence n |-> (rho * Q)^n is EXACTLY the principal ideal of the degree-12 polynomial — the classical order <= 3 * 4 bound is an equality, forced by the polynomial's kernel-held irreducibility. The results address three research audiences: the degree problem for products and composita of algebraic numbers (the certified (3,4,12) witness at a canonically distinguished pair, in the field's own unit-product normal form); the Mahler-measure tradition (the measure of the composed product of the two degree-minimal polynomials, in closed form in the second-smallest Pisot number); and composed products of polynomials (a certified rational instance where the finite-field coprimality criterion is unavailable and irreducibility is proved by elimination) — with the Lean audience served by concrete exercise of the Mahler-measure and linear-disjointness APIs. Like the golden ratio, rho * Q is an algebraic unit of norm -1; the compared cofactor identity is that norm computation, certified. No novelty claim is made for the measure identity (the entry is not aware of it in the literature; the claimed contribution is the kernel certificate), no \"first formalization\" claim is made anywhere, and whether rho is ATTAINED as a dynamical degree is open in the literature — no statement claims it. Hypotheses are inline: rho, Q, psi enter only through their defining equations plus root-selection inequalities, and the compared statements use only core Mathlib vocabulary (Filter.Tendsto, nhds, the complex norm, minpoly, Polynomial.rootSet, Set.ncard, Polynomial.mahlerMeasure, IntermediateField adjoin/sup, Module.finrank, Finset.range sums) — zero custom definitions. The name prefix \"ruler\" in statement names is the source project's term for the product rho * Q; nothing in any statement depends on it.",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-01-000005-v1/efceeb54af1e1ee19b6095c6a7788831defc1b0bc35e304ab28e8df11b7ff00a/",
+    "artifact_tree_sha256": "efceeb54af1e1ee19b6095c6a7788831defc1b0bc35e304ab28e8df11b7ff00a",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-01T11:04:05Z",
+    "renderer_commit": "15f394394d0c4c3d6cfe39d67675fc34bdd285db",
+    "verso_commit": "b677415e8a0becccc0b850137c2d8f6205132a91"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.DS"
+    ],
+    "msc2020": [
+      "11R06",
+      "11R04",
+      "11B37",
+      "14E07",
+      "37B40"
+    ]
+  },
+  "first_registered_on": "2026-09-01",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.31.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "63045536fe95024e6c18fc7b48e03f506701c5bc"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "5c7542ed018c78194f1e2b903eaf6a792b74c03d"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "24b0d9dc081c5423f8eec7e866c441e5184f29d9"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "e3cb2f741431ce31bf73549fb52316a57368b06f"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "f46324995fca5f0483b742e4eb4daec7f4ee50d2"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "fa08db58b30eb033edcdab331bba000827f9f785"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "PlasticThreshold.plastic_salem_family",
+      "PlasticThreshold.family_pos_of_rho_le",
+      "PlasticThreshold.lehmer_first_rung",
+      "PlasticThreshold.lehmer_root_below_plastic",
+      "PlasticThreshold.ruler_second_conjugate",
+      "PlasticThreshold.ruler_conjugates_eq_embedding_products",
+      "PlasticThreshold.ruler_conjugates_card",
+      "PlasticThreshold.ruler_unit",
+      "PlasticThreshold.rulerPoly_nonreciprocal",
+      "PlasticThreshold.ruler_degree_multiplicative",
+      "PlasticThreshold.ruler_linearDisjoint",
+      "PlasticThreshold.ruler_conjugate_census",
+      "PlasticThreshold.ruler_house",
+      "PlasticThreshold.ruler_mahler_measure",
+      "PlasticThreshold.ruler_mahler_eq_quartic_measure",
+      "PlasticThreshold.product_recurrence_charpoly",
+      "PlasticThreshold.product_annihilator_iff"
+    ]
+  },
+  "id": "PALOMAR-2026-09-01-000005",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-01T11:04:36Z",
+    "receipt_sha256": "e0d4474180feb6cdbe3c309e69c223021b4170691173d3598dee5fe682bdb876",
+    "repositories": [
+      {
+        "commit": "e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000005-v1/e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "fa08db58b30eb033edcdab331bba000827f9f785",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000005-v1/fa08db58b30eb033edcdab331bba000827f9f785",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000005-v1/5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000005-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000005-v1/fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000005-v1/63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000005-v1/24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000005-v1/f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000005-v1/92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "d78ce1610608cf4a90d5580c267110c96d2f9af5",
+        "fork_repository": "PalomarArchive/stalex444--mahler-minimizer-compositum--ca9ebf56e752",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000005-v1/d78ce1610608cf4a90d5580c267110c96d2f9af5",
+        "source_repository": "stalex444/mahler-minimizer-compositum"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Eric Bedford"
+          },
+          {
+            "name": "Kyounghee Kim"
+          }
+        ],
+        "identifier": "Journal of Geometric Analysis 19 (2009), 553-583",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/s12220-009-9077-8",
+        "relationship": "formalizes",
+        "title": "Dynamics of rational surface automorphisms: linear fractional recurrences",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Christopher J. Smyth"
+          }
+        ],
+        "identifier": "Bulletin of the London Mathematical Society 3 (1971), 169-175",
+        "license": "unknown",
+        "location": "https://doi.org/10.1112/blms/3.2.169",
+        "relationship": "background",
+        "title": "On the product of the conjugates outside the unit circle of an algebraic integer",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Carl Ludwig Siegel"
+          }
+        ],
+        "identifier": "Duke Mathematical Journal 11 (1944), 597-602",
+        "license": "unknown",
+        "location": "https://doi.org/10.1215/S0012-7094-44-01152-X",
+        "relationship": "background",
+        "title": "Algebraic integers whose conjugates lie in the unit circle",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Jacques Dufresnoy"
+          },
+          {
+            "name": "Charles Pisot"
+          }
+        ],
+        "identifier": "Annales scientifiques de l'Ecole Normale Superieure (3) 72 (1955), 69-92",
+        "license": "unknown",
+        "location": "http://www.numdam.org/item/ASENS_1955_3_72_1_69_0/",
+        "relationship": "background",
+        "title": "Etude de certaines fonctions meromorphes bornees sur le cercle unite. Application a un ensemble ferme d'entiers algebriques",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Derrick H. Lehmer"
+          }
+        ],
+        "identifier": "Annals of Mathematics 34 (1933), 461-479",
+        "license": "unknown",
+        "location": "https://doi.org/10.2307/1968172",
+        "relationship": "background",
+        "title": "Factorization of certain cyclotomic functions",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Michael J. Mossinghoff"
+          }
+        ],
+        "identifier": "Mathematics of Computation 67 (1998), 1697-1705",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/S0025-5718-98-01006-0",
+        "relationship": "background",
+        "title": "Polynomials with small Mahler measure",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Michael J. Mossinghoff"
+          },
+          {
+            "name": "Georges Rhin"
+          },
+          {
+            "name": "Qiang Wu"
+          }
+        ],
+        "identifier": "Experimental Mathematics 17 (2008), no. 4, 451-458",
+        "license": "unknown",
+        "location": "https://projecteuclid.org/euclid.em/1243429958",
+        "relationship": "background",
+        "title": "Minimal Mahler measures",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Christopher J. Smyth"
+          }
+        ],
+        "identifier": "Number Theory and Polynomials, LMS Lecture Note Series 352, Cambridge University Press, 2008, pp. 322-349",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/math/0701397",
+        "relationship": "background",
+        "title": "The Mahler measure of algebraic numbers: a survey",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Marie-Jose Bertin"
+          },
+          {
+            "name": "Annette Decomps-Guilloux"
+          },
+          {
+            "name": "Marthe Grandet-Hugot"
+          },
+          {
+            "name": "Martine Pathiaux-Delefosse"
+          },
+          {
+            "name": "Jean-Pierre Schreiber"
+          }
+        ],
+        "identifier": "Birkhauser Basel, 1992",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/978-3-0348-8632-1",
+        "relationship": "background",
+        "title": "Pisot and Salem Numbers",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "I. Martin Isaacs"
+          }
+        ],
+        "identifier": "Proceedings of the American Mathematical Society 25 (1970), 638-641",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/S0002-9939-1970-0258803-3",
+        "relationship": "background",
+        "title": "Degrees of sums in a separable field extension",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Paulius Drungilas"
+          },
+          {
+            "name": "Arturas Dubickas"
+          },
+          {
+            "name": "Christopher J. Smyth"
+          }
+        ],
+        "identifier": "Publicacions Matematiques 56 (2012), no. 2, 413-448",
+        "license": "unknown",
+        "location": "https://projecteuclid.org/euclid.pm/1340127812",
+        "relationship": "background",
+        "title": "A degree problem for two algebraic numbers and their sum",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Paulius Drungilas"
+          },
+          {
+            "name": "Arturas Dubickas"
+          },
+          {
+            "name": "Florian Luca"
+          }
+        ],
+        "identifier": "Mathematische Nachrichten 286 (2013), no. 2-3, 171-180",
+        "license": "unknown",
+        "location": "https://doi.org/10.1002/mana.201200124",
+        "relationship": "background",
+        "title": "On the degree of compositum of two number fields",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Paulius Drungilas"
+          },
+          {
+            "name": "Arturas Dubickas"
+          }
+        ],
+        "identifier": "Colloquium Mathematicum 143 (2016), no. 2, 159-167",
+        "license": "unknown",
+        "location": "https://eudml.org/doc/283561",
+        "relationship": "background",
+        "title": "On degrees of three algebraic numbers with zero sum or unit product",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Paulius Drungilas"
+          },
+          {
+            "name": "Lukas Maciulevicius"
+          }
+        ],
+        "identifier": "Lithuanian Mathematical Journal 59 (2019), 39-47",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/s10986-019-09428-x",
+        "relationship": "background",
+        "title": "A degree problem for the compositum of two number fields",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Paulius Virbalas"
+          }
+        ],
+        "identifier": "Mathematics 11 (2023), article 1485",
+        "license": "unknown",
+        "location": "https://doi.org/10.3390/math11061485",
+        "relationship": "background",
+        "title": "Degree of the product of two algebraic numbers one of which is of prime degree",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Paulius Virbalas"
+          }
+        ],
+        "identifier": "Lithuanian Mathematical Journal 65 (2025), 445-454",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/s10986-025-09683-1",
+        "relationship": "background",
+        "title": "Compositum of two number fields of prime power degree",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Arturas Dubickas"
+          },
+          {
+            "name": "Lukas Maciulevicius"
+          }
+        ],
+        "identifier": "Open Mathematics 22 (2024)",
+        "license": "unknown",
+        "location": "https://doi.org/10.1515/math-2023-0184",
+        "relationship": "background",
+        "title": "The product of a quartic and a sextic number cannot be octic",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Joel V. Brawley"
+          },
+          {
+            "name": "Leonard Carlitz"
+          }
+        ],
+        "identifier": "Discrete Mathematics 65 (1987), 115-139",
+        "license": "unknown",
+        "location": "https://doi.org/10.1016/0012-365X(87)90135-X",
+        "relationship": "background",
+        "title": "Irreducibles and the composed product for polynomials over a finite field",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Lukas Kolsch"
+          },
+          {
+            "name": "Lucas Krompholz"
+          },
+          {
+            "name": "Gohar Kyureghyan"
+          }
+        ],
+        "identifier": "Designs, Codes and Cryptography 93 (2025), no. 3, 591-614 (online 4 Dec 2024)",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/s10623-024-01529-0",
+        "relationship": "background",
+        "title": "Factorization and irreducibility of composed products",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Graham Everest"
+          },
+          {
+            "name": "Alf van der Poorten"
+          },
+          {
+            "name": "Igor Shparlinski"
+          },
+          {
+            "name": "Thomas Ward"
+          }
+        ],
+        "identifier": "Mathematical Surveys and Monographs 104, American Mathematical Society, 2003",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/surv/104",
+        "relationship": "background",
+        "title": "Recurrence Sequences",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Luigi Cerlienco"
+          },
+          {
+            "name": "Maurice Mignotte"
+          },
+          {
+            "name": "Francesco Piras"
+          }
+        ],
+        "identifier": "L'Enseignement Mathematique (2) 33 (1987), 67-108",
+        "license": "unknown",
+        "location": "https://www.e-periodica.ch/digbib/view?pid=ens-001:1987:33",
+        "relationship": "background",
+        "title": "Suites recurrentes lineaires: proprietes algebriques et arithmetiques",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "William Adams"
+          },
+          {
+            "name": "Daniel Shanks"
+          }
+        ],
+        "identifier": "Mathematics of Computation 39 (1982), 255-300",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/S0025-5718-1982-0658231-9",
+        "relationship": "background",
+        "title": "Strong primality tests that are not sufficient",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Joel Ouaknine"
+          },
+          {
+            "name": "James Worrell"
+          }
+        ],
+        "identifier": "Proceedings of the 25th Annual ACM-SIAM Symposium on Discrete Algorithms (SODA 2014), 366-379",
+        "license": "unknown",
+        "location": "https://doi.org/10.1137/1.9781611973402.27",
+        "relationship": "background",
+        "title": "Positivity problems for low-order linear recurrence sequences",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Joel Ouaknine"
+          },
+          {
+            "name": "James Worrell"
+          }
+        ],
+        "identifier": "ICALP 2014, Lecture Notes in Computer Science 8573, 330-341",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/978-3-662-43951-7_28",
+        "relationship": "background",
+        "title": "Ultimate positivity is decidable for simple linear recurrence sequences",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "OEIS Foundation"
+          }
+        ],
+        "identifier": "The On-Line Encyclopedia of Integer Sequences",
+        "license": "unknown",
+        "location": "https://oeis.org/A050443",
+        "relationship": "background",
+        "title": "OEIS A000931 (Padovan), A001608 (Perrin), A017817, A050443",
+        "type": "misc"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Richard P. Stanley"
+          }
+        ],
+        "identifier": "Cambridge Studies in Advanced Mathematics 49, Cambridge University Press",
+        "license": "unknown",
+        "location": "https://math.mit.edu/~rstan/ec/ec1.pdf",
+        "relationship": "background",
+        "title": "Enumerative Combinatorics, volume 1 (2nd ed.), Proposition 4.2.5",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Jeremy Blanc"
+          },
+          {
+            "name": "Serge Cantat"
+          }
+        ],
+        "identifier": "Journal of the American Mathematical Society 29 (2016), 415-471",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/jams831",
+        "relationship": "background",
+        "title": "Dynamical degrees of birational transformations of projective surfaces",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Curtis T. McMullen"
+          }
+        ],
+        "identifier": "Publications Mathematiques de l'IHES 105 (2007), 49-89",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/s10240-007-0004-x",
+        "relationship": "background",
+        "title": "Dynamics on blowups of the projective plane",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Kyounghee Kim"
+          }
+        ],
+        "identifier": "arXiv:2312.17729 (preprint; v2, 20 Jan 2025)",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2312.17729",
+        "relationship": "background",
+        "title": "Salem/Pisot Numbers in the Weyl Spectrum",
+        "type": "misc"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4 (intermediate value theorem, sSup/compactness, monotone convergence, Filter.Tendsto, complex norm, minpoly, rootSet, Set.ncard, Polynomial.mahlerMeasure, IntermediateField, LinearDisjoint)",
+        "note": "The compared statements use only core Mathlib vocabulary — zero custom definitions on the compared surface. Mathlib contains no Salem numbers, no Lehmer polynomial, no Pisot theory, and no Hadamard-product theory for linear recurrences (checked at the pin): the family, the compositum certificates, the census, the exact measure evaluations, and the minimal product recurrence are this entry's contribution. Mathlib's Polynomial.mahlerMeasure and IntermediateField.LinearDisjoint.of_finrank_coprime are consumed (the latter disclosed as near-automating the disjointness half of statement (11)).",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-08-31-000004 (stalex444/mahler-measure-minima, registered revision ca3df22)",
+        "note": "The registered sibling entry that kernel-certifies the pair's selection: for each degree d in {2, 3, 4}, x^d - x - 1 attains the minimal Mahler measure among monic irreducible integer polynomials of degree d with measure above one, with the minima pinned exactly (M^3 = M + 1 at degree 3; M^4 = M^3 + 1 at degree 4). Compared statement (15) re-proves that entry's degree-4 quantity in-repo as the left conjunct of (15); the values match: M(X^4 - X - 1) = psi and M(rulerPoly) = (rho * Q)^2 * M(X^4 - X - 1). The selection of the pair (rho, Q) is therefore the literature's and the registry's, not this entry's.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/stalex444/pdt-lean (parent development; pinned: commit d66ffbe813e48636aa636ffcd80070b81cbf10da)",
+        "note": "The broader public project this entry belongs to. This repository is the complete, self-contained proof development for the compared statements, not a wrapper: all six proof modules build here with the pinned toolchain and no imports from the parent. PdtIrreducible, PdtSalemFamily, and PdtRulerMinpoly descend from material in the parent development at the pinned revision; PdtRulerCensus, PdtRulerMeasure, and PdtRulerRecurrence (with the compositum extensions of PdtRulerMinpoly (unit, nonreciprocity, degree multiplicativity, sup form, linear disjointness): unit, nonreciprocity, degree multiplicativity, compositum sup form, linear disjointness) are native to this repository and appear in no other development.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-01T11:04:17Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "4ed67de4fd69df383badb7857dff97e2fb734ab0",
+    "report": {
+      "sha256": "fb31bc4049bfb1723a6a59c7edb3344bb610e3096b73f33e497d612ed68db1a3"
+    },
+    "reviewed_at": "2026-09-01T06:03:00Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "d78ce1610608cf4a90d5580c267110c96d2f9af5",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/mahler-minimizer-compositum",
+    "repository_url": "https://github.com/stalex444/mahler-minimizer-compositum",
+    "tree_url": "https://github.com/stalex444/mahler-minimizer-compositum/tree/d78ce1610608cf4a90d5580c267110c96d2f9af5"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "me1t3dly2gjn"
+  },
+  "title": "The compositum of the two Mahler minimizers: exact measure, conjugate census, house, and minimal product recurrence, with the Bedford-Kim plastic family and Lehmer's polynomial",
+  "trust": {
+    "challenge_bytes": 19435,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 347,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "800a26da7eabad2a28ba35fd3a5bec5f9b1fb43a2786d9352936634c03fade1e",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-01-000005-v1/a8439954065f91335e76d700b3f5339b4936caddaee7d5d44bdd4b2b36429bed/",
+    "evidence_tree_sha256": "a8439954065f91335e76d700b3f5339b4936caddaee7d5d44bdd4b2b36429bed",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "8554815c2dc6b7abe99ec1f08849c9759ba77947",
+    "mechanical_report_sha256": "d3ca9a83c2794549529614a6d2733011db0aa99fe14f4d6b6cfa006648985efc",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33465982918,
+    "solution_sha256": "a441d05704d252766b8cbdb443ddb5783f50c13f135147e45f848a8cad9d6526",
+    "verified_at": "2026-09-01T03:33:04Z",
+    "workflow_commit": "15f394394d0c4c3d6cfe39d67675fc34bdd285db",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33465982918"
+  },
+  "version": 1
+}

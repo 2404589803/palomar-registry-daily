@@ -1,0 +1,345 @@
+{
+  "abstract": "Erdős problem #1220 (erdosproblems.com/1220; Erdős–Hajnal 1971): let λ be a singular cardinal such that both λ and cf(λ) are ℵ₀-inaccessible (μ^ℵ₀ < κ for all μ < κ); does λ → (λ, ℵ₁)² hold?  This formalization settles the question as asked on erdosproblems.com in the negative sense \"not provable\": ZFC does not prove that every such λ satisfies λ → (λ, ℵ₁)² (erdos1220_not_provable : ¬ (ZFC ⊨ᵇ Erdos1220)), i.e. there is a model of ZFC with a singular λ, λ and cf(λ) ℵ₀-inaccessible, and λ ↛ (λ, ℵ₁)².  Shelah and Stanley (Sh:258, Ann. Pure Appl. Logic 36 (1987)) showed that a negative answer is consistent with ZFC.  This project formalizes that consistency result: the comparator target erdos1220_not_provable : ¬ (ZFC ⊨ᵇ Erdos1220) is stated for literally the same first-order theory ZFC, language and ZFSet interpretation as elliotglazer/erdos501's comparator challenge (imported from its statement module Erdos501.FOL.Statement), together with a faithfulness theorem erdos1220_sentence_faithful: in Mathlib's ZFSet the sentence Erdos1220 holds iff the Mathlib-level statement Erdos1220.Problem1220 holds.  The witness is the ground-model singular strong-limit cardinal λ = ℶ_{𝔠⁺} (cf λ = 𝔠⁺; λ and cf λ are ℵ₀-inaccessible without any deep cardinal-arithmetic input), not ℵ_{𝔠⁺}.  The forcing is the Shelah–Stanley §3 forcing, formalized as block-preserving, block-covering histories of basic conditions (weak extension order), with the μ⁺-strategic closure (hence μ-distributivity) and the (2^μ)⁺-chain condition proved in ZFC without GCH (Δ-system lemma for (2^μ)⁺ sets of size ≤ μ, blueprint counting (2^μ)^μ = 2^μ).  In the Boolean-valued model of its regular-open algebra (built with the Lean 4 port of Han–van Doorn's Flypitch vendored by erdos501) the hypotheses on λ are preserved, the generic colouring of [λ]² has neither a red homogeneous set of size λ nor a blue homogeneous set of size ℵ₁, and Flypitch's completeness theorem turns this into a two-valued model of ZFC satisfying ¬Erdos1220.  Both targets are proved from propext, Classical.choice and Quot.sound only and pass the Lean comparator.  Only the negative direction is claimed: independence (consistency of a positive answer) is NOT claimed.",
+  "authors": [
+    {
+      "name": "Ji Ho Bae (JRTI)"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-26-000001-v1/1395c21867e5400c205fefe2db9cf716601c2d0ea1cb76b80e7eb789de1ea24a/",
+    "artifact_tree_sha256": "1395c21867e5400c205fefe2db9cf716601c2d0ea1cb76b80e7eb789de1ea24a",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-09-26T02:04:43Z",
+    "renderer_commit": "a59f25bd8a66bf6faf3a4f4260d412989c0185ea",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.LO"
+    ],
+    "msc2020": [
+      "03E35",
+      "03E02",
+      "03E05",
+      "03E40",
+      "03E55"
+    ]
+  },
+  "first_registered_on": "2026-09-26",
+  "formalization": {
+    "challenge_path": "Erdos1220Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "erdos501",
+        "repository": "jbaelaw/flypitch4-lean",
+        "revision": "78e1fd03ac3795c79e115ab72e671e81b50eb25b"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Erdos1220Solution.lean",
+    "theorem_names": [
+      "erdos1220_not_provable",
+      "erdos1220_sentence_faithful"
+    ]
+  },
+  "id": "PALOMAR-2026-09-26-000001",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-26T02:05:12Z",
+    "receipt_sha256": "1385de7f7d84bcb35f275d95495736f7f0fd0dd7e703753e31a2d42ae75d49dd",
+    "repositories": [
+      {
+        "commit": "9cb81ffa48ffb766127c7e485ccef77bd4160868",
+        "fork_repository": "PalomarArchive/jbaelaw--erdos1220-lean--9ed9443659d9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000001-v1/9cb81ffa48ffb766127c7e485ccef77bd4160868",
+        "source_repository": "jbaelaw/erdos1220-lean"
+      },
+      {
+        "commit": "78e1fd03ac3795c79e115ab72e671e81b50eb25b",
+        "fork_repository": "PalomarArchive/elliotglazer--erdos501--a846048a857c",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000001-v1/78e1fd03ac3795c79e115ab72e671e81b50eb25b",
+        "source_repository": "jbaelaw/flypitch4-lean"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000001-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000001-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000001-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000001-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000001-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000001-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000001-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000001-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000001-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Paul Erdős"
+          },
+          {
+            "name": "András Hajnal"
+          }
+        ],
+        "identifier": "Proc. Sympos. Pure Math. XIII, Part I (Axiomatic Set Theory), AMS 1971, 17–48",
+        "relationship": "background",
+        "title": "Unsolved problems in set theory",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Thomas F. Bloom (ed.)"
+          }
+        ],
+        "identifier": "https://www.erdosproblems.com/1220",
+        "relationship": "background",
+        "title": "Erdős problem #1220 (erdosproblems.com)",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Saharon Shelah"
+          },
+          {
+            "name": "Lee J. Stanley"
+          }
+        ],
+        "identifier": "Ann. Pure Appl. Logic 36 (1987), 119–152 (Sh:258), doi:10.1016/0168-0072(87)90015-7",
+        "location": "§3 (the forcing: basic conditions, histories, amalgamation; §3.7–§3.9 chain condition and homogeneous sets)",
+        "relationship": "adapts",
+        "title": "A theorem and some consistency results in partition calculus",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/elliotglazer/erdos501",
+        "note": "dependency (Apache-2.0), pinned as the fork jbaelaw/flypitch4-lean at 78e1fd0 = upstream 218d1c1 plus a minimal port to Lean v4.35.0-rc3 (renamed/removed lemmas only): its statement module Erdos501.FOL.Statement (language L, theory ZFC, formula combinators, zfsetStructure) is copied verbatim into the Mathlib-only Challenge, so the target is stated for the same ZFC; its vendored Lean 4 Flypitch (Boolean-valued models, completeness theorem, regular-open algebras), its Mathlib-ModelTheory bridge and its Δ-system proof for 𝔠⁺ countable sets (generalized here to (2^μ)⁺ sets of size ≤ μ, Erdos1220/DeltaSystem.lean) are reused; its comparator tooling (scripts, pins) is adapted",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/flypitch/flypitch",
+        "note": "Han–van Doorn, \"A formal proof of the independence of the continuum hypothesis\" (CPP 2020); used through erdos501's vendored Lean 4 port (Flypitch4/, Ian Klatzco with Claude)",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4",
+        "note": "Mathlib.ModelTheory, ZFSet and cardinal arithmetic supply the trusted statements (pinned commit c55e6e786f49471c72fbddbec5415808896aec1e, tag v4.35.0-rc3)",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ji Ho Bae"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-26T02:04:54Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "792c7c0b9e798bd02719e795ef11fa2b5929e067",
+    "report": {
+      "sha256": "4dac3a3c5eff48ed5d7244dc013d35e94f57a7b19feaf9c1e2f9fd4d6faecbd3"
+    },
+    "reviewed_at": "2026-09-26T01:55:22Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "9cb81ffa48ffb766127c7e485ccef77bd4160868",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jbaelaw/erdos1220-lean",
+    "repository_url": "https://github.com/jbaelaw/erdos1220-lean",
+    "tree_url": "https://github.com/jbaelaw/erdos1220-lean/tree/9cb81ffa48ffb766127c7e485ccef77bd4160868"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "1oht1ibmyi82"
+  },
+  "title": "Erdős Problem #1220 in Lean 4: the affirmative statement is not provable in ZFC",
+  "trust": {
+    "challenge_bytes": 21866,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.Data.Set.Card",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+      "Mathlib.ModelTheory.Satisfiability",
+      "Mathlib.SetTheory.Cardinal.Aleph",
+      "Mathlib.SetTheory.Cardinal.Continuum",
+      "Mathlib.SetTheory.Cardinal.Regular",
+      "Mathlib.SetTheory.ZFC.Basic"
+    ],
+    "challenge_lines": 469,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "9515b04a1f852f330393b15a8edd65a744c7b091dcdfa03d5c8fcecfdd7b96fa",
+    "evidence_path": "evidence/PALOMAR-2026-09-26-000001-v1/21c5f60ef917945edd90839e6806042cb675f73141e82cfdfb1eb572daff2de0/",
+    "evidence_tree_sha256": "21c5f60ef917945edd90839e6806042cb675f73141e82cfdfb1eb572daff2de0",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/con-ron"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "78bc492c091fd52057659fa4b3d769a5c0fc48c61a67de7c9c658c5ebba2dbc6",
+    "protected_config_sha256": "47ae79e191ca813b93a045108ee5f3cb1585d60bf58a73a696bd19d38cb74a6b",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 36209199613,
+    "solution_sha256": "d478d3564963f7e036e7b97f741ec892a326b42511eb0b11e859a6727e11e989",
+    "tool_digests": {
+      "bwrap": "58f03e54dd4e5aa7e9c6ed41fe573f41231b29183d4417cbb7a70a11eff4570f",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-09-26T01:44:11Z",
+    "workflow_commit": "a59f25bd8a66bf6faf3a4f4260d412989c0185ea",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/36209199613"
+  },
+  "version": 1
+}

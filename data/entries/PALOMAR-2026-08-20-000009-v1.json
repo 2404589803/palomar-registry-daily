@@ -1,0 +1,544 @@
+{
+  "abstract": "Machine-checked proofs of three probabilistic convergence theorems for restarted Minimal Polynomial Extrapolation (MPE) applied to nonlinear fixed-point iterations.  Dithered restarts keep the error below the doubly exponential schedule delta^(theta^m), for any theta in (1,2), from every starting point -- the breakdown set included -- with an explicit failure-probability exponent over the dither; in the root sense the convergence order is at least theta.  Under simple spectrum, the error follows a quadratically shrinking dither schedule (root order at least 2) with failure probability linear in the initial radius up to a logarithmic factor, and MPE coincides with Reduced Rank Extrapolation at every cycle. With no dither at all, the restarted iteration from a single uniformly random starting point at worst squares the error at every cycle with high probability, under two checkable hypotheses on the Jacobian and the quadratic Taylor coefficients.  The registered statements are self-contained over mathlib: every object of the construction is introduced by an explicit defining equation among the hypotheses.",
+  "authors": [
+    {
+      "name": "Sébastien Loisel"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-20-000009-v1/a88b06b73200a45364614cb01f131569dbb5d4c63cdc2d3cf0e5da80d9bcfcd5/",
+    "artifact_tree_sha256": "a88b06b73200a45364614cb01f131569dbb5d4c63cdc2d3cf0e5da80d9bcfcd5",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-20T14:38:12Z",
+    "renderer_commit": "16038af22a929ae3714acf7d74219cfbe57acf2d",
+    "verso_commit": "e09d21a5f7f66c9fc985b73197708298569bf583"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NA"
+    ],
+    "msc2020": [
+      "65B05",
+      "65F10",
+      "65H10",
+      "41A17",
+      "60D05"
+    ]
+  },
+  "first_registered_on": "2026-08-20",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.32.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "3dffaf2f18b47d11948f6390838ea6f2ae662aaf"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "d662197a9ca6f411c5738c45ec0192c786462f5d"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "MPE.mpe_dithered",
+      "MPE.mpe_quadratic",
+      "MPE.mpe_undithered"
+    ]
+  },
+  "id": "PALOMAR-2026-08-20-000009",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-20T14:32:22Z",
+    "receipt_sha256": "5d405e231650924c0fa5155a37aec4278fdf0fda71752589e486ee4eeafea662",
+    "repositories": [
+      {
+        "commit": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000009-v1/a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000009-v1/023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000009-v1/7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000009-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "3dffaf2f18b47d11948f6390838ea6f2ae662aaf",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000009-v1/3dffaf2f18b47d11948f6390838ea6f2ae662aaf",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000009-v1/e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "d662197a9ca6f411c5738c45ec0192c786462f5d",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000009-v1/d662197a9ca6f411c5738c45ec0192c786462f5d",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000009-v1/38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000009-v1/88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "149d06281b1e5f2b2af85e03f8492e1b793ab4f9",
+        "fork_repository": "PalomarArchive/sloisel--MPE-Formal--357ef4ffc856",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000009-v1/149d06281b1e5f2b2af85e03f8492e1b793ab4f9",
+        "source_repository": "sloisel/MPE-Formal"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Sébastien Loisel"
+          }
+        ],
+        "identifier": "Submitted manuscript, July 2026; no public identifier yet",
+        "location": "Theorems 4.7, 4.9 and 5.5",
+        "relationship": "formalizes",
+        "title": "On the local convergence of minimal polynomial and reduced rank extrapolation for nonlinear fixed-point iterations",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "S. Cabay"
+          },
+          {
+            "name": "L. W. Jackson"
+          }
+        ],
+        "identifier": "SIAM J. Numer. Anal. 13 (1976) 734-752",
+        "relationship": "background",
+        "title": "A polynomial extrapolation method for finding limits and antilimits of vector sequences",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "D. A. Smith"
+          },
+          {
+            "name": "W. F. Ford"
+          },
+          {
+            "name": "A. Sidi"
+          }
+        ],
+        "identifier": "SIAM Rev. 29 (1987) 199-233",
+        "relationship": "background",
+        "title": "Extrapolation methods for vector sequences",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "K. Jbilou"
+          },
+          {
+            "name": "H. Sadok"
+          }
+        ],
+        "identifier": "J. Comput. Appl. Math. 36 (1991) 385-398",
+        "relationship": "background",
+        "title": "Some results about vector extrapolation methods and related fixed-point iterations",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. Sidi"
+          }
+        ],
+        "identifier": "J. Comput. Sci. 3 (2012) 92-101",
+        "relationship": "background",
+        "title": "Review of two vector extrapolation methods of polynomial type with applications to large-scale problems",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. Sidi"
+          }
+        ],
+        "identifier": "Adv. Comput. Math. 43 (2017) 151-170",
+        "relationship": "background",
+        "title": "Minimal polynomial and reduced rank extrapolation methods are related",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. Sidi"
+          }
+        ],
+        "identifier": "SIAM, Philadelphia, 2017",
+        "relationship": "background",
+        "title": "Vector Extrapolation Methods with Applications",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. Sidi"
+          }
+        ],
+        "identifier": "Numer. Algorithms 84 (2020) 957-982",
+        "relationship": "background",
+        "title": "A convergence study for reduced rank extrapolation on nonlinear systems",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Y. Saad"
+          }
+        ],
+        "identifier": "Acta Numer. 34 (2025) 805-890",
+        "relationship": "background",
+        "title": "Acceleration methods for fixed-point iterations",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "H. F. Walker"
+          },
+          {
+            "name": "P. Ni"
+          }
+        ],
+        "identifier": "SIAM J. Numer. Anal. 49 (2011) 1715-1735",
+        "relationship": "background",
+        "title": "Anderson acceleration for fixed-point iterations",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. Toth"
+          },
+          {
+            "name": "C. T. Kelley"
+          }
+        ],
+        "identifier": "SIAM J. Numer. Anal. 53 (2015) 805-819",
+        "relationship": "background",
+        "title": "Convergence analysis for Anderson acceleration",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "C. Evans"
+          },
+          {
+            "name": "S. Pollock"
+          },
+          {
+            "name": "L. Rebholz"
+          },
+          {
+            "name": "M. Xiao"
+          }
+        ],
+        "identifier": "SIAM J. Numer. Anal. 58 (2020) 788-810",
+        "relationship": "background",
+        "title": "A proof that Anderson acceleration improves the convergence rate in linearly converging fixed-point methods (but not in those converging quadratically)",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "D. Scieur"
+          },
+          {
+            "name": "A. d'Aspremont"
+          },
+          {
+            "name": "F. Bach"
+          }
+        ],
+        "identifier": "Math. Program. 179 (2020) 47-83",
+        "relationship": "background",
+        "title": "Regularized nonlinear acceleration",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "J. Kuczynski"
+          },
+          {
+            "name": "H. Wozniakowski"
+          }
+        ],
+        "identifier": "SIAM J. Matrix Anal. Appl. 13 (1992) 1094-1122",
+        "relationship": "background",
+        "title": "Estimating the largest eigenvalue by the power and Lanczos algorithms with a random start",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "C. Jin"
+          },
+          {
+            "name": "P. Netrapalli"
+          },
+          {
+            "name": "R. Ge"
+          },
+          {
+            "name": "S. M. Kakade"
+          },
+          {
+            "name": "M. I. Jordan"
+          }
+        ],
+        "identifier": "J. ACM 68 (2021) 1-29",
+        "relationship": "background",
+        "title": "On nonconvex optimization for machine learning: gradients, stochasticity, and saddle points",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "B. N. Parlett"
+          },
+          {
+            "name": "D. R. Taylor"
+          },
+          {
+            "name": "Z. A. Liu"
+          }
+        ],
+        "identifier": "Math. Comp. 44 (1985) 105-124",
+        "relationship": "background",
+        "title": "A look-ahead Lanczos algorithm for unsymmetric matrices",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. Charnes"
+          }
+        ],
+        "identifier": "Econometrica 20 (1952) 160-170",
+        "relationship": "background",
+        "title": "Optimality and degeneracy in linear programming",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "H. Edelsbrunner"
+          },
+          {
+            "name": "E. P. Mucke"
+          }
+        ],
+        "identifier": "ACM Trans. Graph. 9 (1990) 66-104",
+        "relationship": "background",
+        "title": "Simulation of simplicity: a technique to cope with degenerate cases in geometric algorithms",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "S. Batterson"
+          },
+          {
+            "name": "J. Smillie"
+          }
+        ],
+        "identifier": "SIAM J. Numer. Anal. 26 (1989) 624-636",
+        "relationship": "background",
+        "title": "The dynamics of Rayleigh quotient iteration",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "S. Batterson"
+          },
+          {
+            "name": "J. Smillie"
+          }
+        ],
+        "identifier": "Math. Comp. 55 (1990) 169-178",
+        "relationship": "background",
+        "title": "Rayleigh quotient iteration for nonsymmetric matrices",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Yu. A. Brudnyi"
+          },
+          {
+            "name": "M. I. Ganzburg"
+          }
+        ],
+        "identifier": "Math. USSR Izv. 7 (1973) 345-356",
+        "relationship": "background",
+        "title": "On an extremal problem for polynomials in n variables",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Sébastien Loisel"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-20T14:31:52Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "2d7c43b9c2d1dcc4e642c732091e4fea2569b81c",
+    "report": {
+      "sha256": "b8b50e0c32d76f99acd88549a695e2151e57303857af6d15cf43a723cab2f483"
+    },
+    "reviewed_at": "2026-08-20T14:23:48Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "149d06281b1e5f2b2af85e03f8492e1b793ab4f9",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "01942034c0f1de696c0cfd48b36e6520d1e7088682cb839d2d9116047f63e328"
+    },
+    "repository": "sloisel/MPE-Formal",
+    "repository_url": "https://github.com/sloisel/MPE-Formal",
+    "tree_url": "https://github.com/sloisel/MPE-Formal/tree/149d06281b1e5f2b2af85e03f8492e1b793ab4f9"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "tuygeddsjn5p"
+  },
+  "title": "sloisel/MPE-Formal",
+  "trust": {
+    "challenge_bytes": 12400,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 205,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "475215e593cad2fb3a026b8f965c49d509e0f891719efb2475a98a7e2e1723a2",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-20-000009-v1/3724c332171989e520ab593a1eccf4547d9d8cdb34e30e7d9961ccb58144b046/",
+    "evidence_tree_sha256": "3724c332171989e520ab593a1eccf4547d9d8cdb34e30e7d9961ccb58144b046",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "4e7915201d3f9f04470d9eae002fa695f7cdc589",
+    "mechanical_report_sha256": "34a269db34bf647f15db63abac0269798979114cb924b44591d0d069ead6ee11",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32377859021,
+    "solution_sha256": "cdc7931d4fc2f73b2d193a97958b2c14a509b77d97b8f02a317641bfa8a495d6",
+    "verified_at": "2026-08-20T14:18:41Z",
+    "workflow_commit": "16038af22a929ae3714acf7d74219cfbe57acf2d",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32377859021"
+  },
+  "version": 1
+}

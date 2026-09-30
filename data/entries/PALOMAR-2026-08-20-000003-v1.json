@@ -1,0 +1,307 @@
+{
+  "abstract": "A Lean formalization of an exact enumeration identity and two consequences: for a finite type α, the number of families B ⊆ Set α that are topological bases equals the sum, over all topologies τ on α, of 2^(|τ| − |M_τ|), where M_τ is the canonical minimal basis of minimal open neighbourhoods (Mathlib's nhdsKer {x} at each point). Kernel-reducible enumeration gives the exact table #(0)=2, #(1)=2, #(2)=10, #(3)=142. A quantitative sandwich then shows that the discrete fiber 2^(2^N − N) dominates: for N ≥ 2 the remaining fibers contribute at most 2^(N(N−1) + 3·2^(N−2)), the ratio to the discrete term tends to 1, and for N ≥ 10 the total is at most twice the discrete term. The argument is a fiber decomposition: every finite topology is Alexandrov-discrete, the minimal neighbourhoods generate it, and the bases generating τ are exactly the families B with M_τ ⊆ B ⊆ {U | τ.IsOpen U}. The informal account is the companion note CARDB.md in this repository. The Lean source was written by AI agents under the direction and review of the author. There is no sorry outside the deliberate holes in Challenge.lean, no project-defined axiom, and Mathlib is the only Lake dependency.",
+  "authors": [
+    {
+      "name": "Lars Warren Ericson"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-20-000003-v1/e1cca055387cc7b46dc73576802f6e944c8f63a6fe4683f5620bb78061a54c6c/",
+    "artifact_tree_sha256": "e1cca055387cc7b46dc73576802f6e944c8f63a6fe4683f5620bb78061a54c6c",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-20T01:34:00Z",
+    "renderer_commit": "08a23bacbc84c1d9dc35c0f335844f43f4addaa8",
+    "verso_commit": "8bcbd2b8723307c329c12997a0c16a6ac174d3e9"
+  },
+  "classification": {
+    "arxiv": [
+      "math.GN",
+      "math.CO"
+    ],
+    "msc2020": [
+      "54A05",
+      "05A15",
+      "54A10"
+    ]
+  },
+  "first_registered_on": "2026-08-20",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "IsBasis",
+      "ValidBasis",
+      "opensOf",
+      "minimalOpen",
+      "minimalBasis"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.30.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c5ea00351c28e24afc9f0f84379aa41082b1188f"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "a456461b368b71d2accd95234832cd9c174b5437"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "515cf9d0c00ece5e661f6de4326a53dedc1e8ea1"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "a84b3e2475d5c5ab979567b1ad8aea21b764bcf8"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "558915ae105bfd8074e22d597613d1961822adc2"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "a6e6c34c4ef182f83b219a3a5a385f51f44bdc4c"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "32dc18cde3684679f3c003de608743b57498c56f"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6b907cf12b2e445ccb7c24bc208ef04a1f39e84c"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "card_valid_bases",
+      "card_valid_bases_small",
+      "card_valid_bases_bounds",
+      "card_valid_bases_dominated",
+      "card_valid_bases_asymptotic"
+    ]
+  },
+  "id": "PALOMAR-2026-08-20-000003",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-20T01:24:29Z",
+    "receipt_sha256": "df28ff6a17bcd9b9b29fc17ae6cb187c5ae15f1906f8b4cc75d425a8e3c43106",
+    "repositories": [
+      {
+        "commit": "d8c1d63052a18db0c43d44c1c77fb10ca8902ed0",
+        "fork_repository": "PalomarArchive/catskillsresearch--cardb--9073a5b05dee",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000003-v1/d8c1d63052a18db0c43d44c1c77fb10ca8902ed0",
+        "source_repository": "catskillsresearch/cardb"
+      },
+      {
+        "commit": "558915ae105bfd8074e22d597613d1961822adc2",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000003-v1/558915ae105bfd8074e22d597613d1961822adc2",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "32dc18cde3684679f3c003de608743b57498c56f",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000003-v1/32dc18cde3684679f3c003de608743b57498c56f",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "515cf9d0c00ece5e661f6de4326a53dedc1e8ea1",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000003-v1/515cf9d0c00ece5e661f6de4326a53dedc1e8ea1",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000003-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000003-v1/c5ea00351c28e24afc9f0f84379aa41082b1188f",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "a456461b368b71d2accd95234832cd9c174b5437",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000003-v1/a456461b368b71d2accd95234832cd9c174b5437",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "a84b3e2475d5c5ab979567b1ad8aea21b764bcf8",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000003-v1/a84b3e2475d5c5ab979567b1ad8aea21b764bcf8",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "a6e6c34c4ef182f83b219a3a5a385f51f44bdc4c",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000003-v1/a6e6c34c4ef182f83b219a3a5a385f51f44bdc4c",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6b907cf12b2e445ccb7c24bc208ef04a1f39e84c",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000003-v1/6b907cf12b2e445ccb7c24bc208ef04a1f39e84c",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Lars Warren Ericson"
+          }
+        ],
+        "identifier": "https://github.com/catskillsresearch/cardb/blob/main/CARDB.md",
+        "relationship": "other",
+        "title": "On the Number of Distinct Topological Bases of a Finite Set of Size N",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "P. Alexandrov"
+          }
+        ],
+        "location": "Matematicheskii Sbornik 2(3) (1937), 501–519",
+        "relationship": "background",
+        "title": "Diskrete Räume",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "D. Stephen"
+          }
+        ],
+        "location": "The American Mathematical Monthly 75(7) (1968), 739–741",
+        "relationship": "background",
+        "title": "Topology on finite sets",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "M. Benoumhani"
+          }
+        ],
+        "identifier": "https://cs.uwaterloo.ca/journals/JIS/VOL9/Benoumhani/benoumhani6.pdf",
+        "location": "Journal of Integer Sequences 9(2) (2006), Article 06.2.6",
+        "relationship": "background",
+        "title": "The number of topologies on a finite set",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Lars Warren Ericson"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-08-20T01:23:54Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "12b65f560b791bb00686feb78036c18242e4a03f",
+    "report": {
+      "sha256": "b3838ce3e72cbe6c8048ed24d911e72a553d304142c3ad1050f24521a623e7a3"
+    },
+    "reviewed_at": "2026-08-20T01:20:36Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": [
+      "The structured related-formalization account omits the disclosed earlier repository location. Add it to related_formalizations and explain whether the present project migrates, reimplements, or otherwise relates to that development."
+    ]
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "d8c1d63052a18db0c43d44c1c77fb10ca8902ed0",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "61e80fafce27494bc84993a90c3a3b67bfe1912779d23d16d67dcc982eda550f"
+    },
+    "repository": "catskillsresearch/cardb",
+    "repository_url": "https://github.com/catskillsresearch/cardb",
+    "tree_url": "https://github.com/catskillsresearch/cardb/tree/d8c1d63052a18db0c43d44c1c77fb10ca8902ed0"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "59bv5b4ou9wc"
+  },
+  "title": "catskillsresearch/cardb",
+  "trust": {
+    "challenge_bytes": 6939,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.SpecificLimits.Basic",
+      "Mathlib.Data.Fintype.BigOperators",
+      "Mathlib.Data.Fintype.Powerset",
+      "Mathlib.Data.Real.Basic",
+      "Mathlib.Data.Set.Card",
+      "Mathlib.Data.Set.Finite.Basic",
+      "Mathlib.Logic.Equiv.Sum",
+      "Mathlib.Topology.AlexandrovDiscrete"
+    ],
+    "challenge_lines": 166,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "f44749fa18ac918c889ffdcb7b42be302172b39dd975bf66b8ac441a74789c42",
+    "comparator_commit": "68a064109f01c08f47c8edc9f51d6a2bbffaa188",
+    "evidence_path": "evidence/PALOMAR-2026-08-20-000003-v1/4f1a712c18b54e7395ffa458567b6542502c6196ec0d2c418580367365741d0a/",
+    "evidence_tree_sha256": "4f1a712c18b54e7395ffa458567b6542502c6196ec0d2c418580367365741d0a",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "a3e35a584f59b390667db7269cd37fca8575e4bf",
+    "mechanical_report_sha256": "8f9c7d5a735d5f624944ab0327fb2477d5b8a4467e67df901b1b4e957b668081",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32319798317,
+    "solution_sha256": "a427ca438a16636e1fd7bf0b62b09eb2af16e2c0a15b0b2a9f6bc1604a56c619",
+    "verified_at": "2026-08-20T01:13:12Z",
+    "workflow_commit": "3536e50535507596efe966a80423d050d80fb7c5",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32319798317"
+  },
+  "version": 1
+}

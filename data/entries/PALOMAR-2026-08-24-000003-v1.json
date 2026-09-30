@@ -1,0 +1,336 @@
+{
+  "abstract": "A Lean 4 / mathlib formalization of Dana Scott's 1972 paper *Continuous Lattices* (LNM 274), through the Milner correction (pp. 135–136). The Palomar compared result is Theorem 4.4 as worded in sources/ScottContinLatt1972.md: the inverse limit D_∞ of the recursively defined sequence ⟨D_n, j_n⟩ of function spaces is not only a continuous lattice, but it is also homeomorphic to its own function space [D_∞ → D_∞]. The compared Homeomorph explicitly uses the product/subspace topology on the inverse limit and the pointwise Pi topology on the function space. The full paper development (injectivity, Scott topology, way-below, function spaces, inverse limits) lives in Scott1972/ContinuousLattice/*. The informal account is arxiv.md and sources/ScottContinLatt1972.md in this repository. Lean was written by AI agents under the direction and review of the author. Dana Scott did not participate in or endorse this formalization. There is no sorry outside the deliberate holes in Challenge.lean, no project-defined axiom, and Mathlib is the only Lake dependency.",
+  "authors": [
+    {
+      "name": "Lars Warren Ericson"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-24-000003-v1/8e30732daf2c9b8addc0adf4e15a88ec8a8709c377b88d805fd90c0f5f34d9ce/",
+    "artifact_tree_sha256": "8e30732daf2c9b8addc0adf4e15a88ec8a8709c377b88d805fd90c0f5f34d9ce",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-24T17:09:09Z",
+    "renderer_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.LO",
+      "math.GN"
+    ],
+    "msc2020": [
+      "06B35",
+      "54H99",
+      "03B40"
+    ]
+  },
+  "first_registered_on": "2026-08-24",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "Scott1972.ContinuousLattice.ScottOpen",
+      "Scott1972.ContinuousLattice.WayBelow",
+      "Scott1972.ContinuousLattice.IsContinuousLattice",
+      "Scott1972.ContinuousLattice.scottTopologicalSpace",
+      "Scott1972.ContinuousLattice.ScottMap",
+      "Scott1972.ContinuousLattice.scottMapInducedPiTopology",
+      "Scott1972.ContinuousLattice.towerCLat",
+      "Scott1972.ContinuousLattice.towerType",
+      "Scott1972.ContinuousLattice.towerCompleteLattice",
+      "Scott1972.ContinuousLattice.Compatible",
+      "Scott1972.ContinuousLattice.InverseLimit",
+      "Scott1972.ContinuousLattice.inverseLimitTopology",
+      "Scott1972.ContinuousLattice.DInf",
+      "Scott1972.ContinuousLattice.DInfFn"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Scott1972.ContinuousLattice.theorem_4_4",
+      "Scott1972.ContinuousLattice.ScottMap.le_refl'",
+      "Scott1972.ContinuousLattice.ScottMap.le_trans'",
+      "Scott1972.ContinuousLattice.ScottMap.le_antisymm'",
+      "Scott1972.ContinuousLattice.ScottMap.lt_iff_le_not_ge'",
+      "Scott1972.ContinuousLattice.ScottMap.sSupMaps_continuous",
+      "Scott1972.ContinuousLattice.ScottMap.isLUB_sSup",
+      "Scott1972.ContinuousLattice.functionSpaceInclFun_continuous",
+      "Scott1972.ContinuousLattice.functionSpaceInclFun_outer_continuous",
+      "Scott1972.ContinuousLattice.functionSpaceRetrFun_continuous",
+      "Scott1972.ContinuousLattice.functionSpaceRetrFun_outer_continuous",
+      "Scott1972.ContinuousLattice.functionSpaceRetrIncl",
+      "Scott1972.ContinuousLattice.functionSpaceInclRetrLe",
+      "Scott1972.ContinuousLattice.inverseLimitLE_refl",
+      "Scott1972.ContinuousLattice.inverseLimitLE_trans",
+      "Scott1972.ContinuousLattice.inverseLimitLE_antisymm",
+      "Scott1972.ContinuousLattice.inverseLimitLT_iff_LE_not_GE",
+      "Scott1972.ContinuousLattice.compatible_sInf",
+      "Scott1972.ContinuousLattice.isGLB_sInf'"
+    ]
+  },
+  "id": "PALOMAR-2026-08-24-000003",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-24T17:09:44Z",
+    "receipt_sha256": "7d973be6840ee6afb017e7515de0bfe2d083a657359720e397bcb6222d6ef17a",
+    "repositories": [
+      {
+        "commit": "95f2a6a58d32ff64536e7fa134d280abe71b2138",
+        "fork_repository": "PalomarArchive/catskillsresearch--scott1972--3cc4355f1f46",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000003-v1/95f2a6a58d32ff64536e7fa134d280abe71b2138",
+        "source_repository": "catskillsresearch/scott1972"
+      },
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000003-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000003-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000003-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000003-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000003-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000003-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000003-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000003-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000003-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Dana S. Scott"
+          }
+        ],
+        "location": "In: Toposes, Algebraic Geometry and Logic, edited by F. W. Lawvere, LNM 274, Springer-Verlag, 1972, pp. 97–136. Theorem 4.4.",
+        "relationship": "formalizes",
+        "title": "Continuous Lattices",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Lars Warren Ericson"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2606.30782",
+        "relationship": "other",
+        "title": "A Lean 4 Formalization of Scott's Continuous Lattices (1972)",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Robin Milner"
+          }
+        ],
+        "location": "LNM 274, pp. 135–136 (March 1972 correction)",
+        "relationship": "background",
+        "title": "Continuous Lattices (Milner correction)",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/catskillsresearch/scott_models",
+        "note": "Same-author sibling with cross-presentation equivalence theorems for Scott 1972 / 1980 / 1982. That Palomar entry was withdrawn after a registration glitch; this repository is an independent submission for the 1972 paper alone. See PROVENANCE.md.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/catskillsresearch/scott1980",
+        "note": "Same-author formalization of Scott PRG-19 (1980); not imported here.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/catskillsresearch/scott1982",
+        "note": "Same-author formalization of Scott 1982 information systems; not imported here.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Lars Warren Ericson"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-24T17:09:24Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "d5a647db3757303b1d928cfae4d3d232eed3e79e",
+    "report": {
+      "sha256": "7696c116b587ea6c93c26ad8aa94c55701120f3fb3bcdaeb4857d4a3e56a3b97"
+    },
+    "reviewed_at": "2026-08-24T16:59:53Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": [
+      "The two outer-continuity docstrings say that continuity is in the pointwise function-space topology, but their Lean types use scottTopologicalSpace on both function spaces, not scottMapInducedPiTopology. No hypotheses or equality in these declarations identifies those topologies. Thus the selected Lean declarations establish continuity for a materially different topology from the one their prose names. Correct the docstrings to name the lattice Scott topologies, or change the Lean statements and supply whatever hypotheses are needed to express continuity in the pointwise topologies."
+    ]
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "95f2a6a58d32ff64536e7fa134d280abe71b2138",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "catskillsresearch/scott1972",
+    "repository_url": "https://github.com/catskillsresearch/scott1972",
+    "tree_url": "https://github.com/catskillsresearch/scott1972/tree/95f2a6a58d32ff64536e7fa134d280abe71b2138"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "9e4k1so1ovl4"
+  },
+  "title": "catskillsresearch/scott1972",
+  "trust": {
+    "challenge_bytes": 18154,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Order.BourbakiWitt",
+      "Mathlib.Order.CompleteLattice.Basic",
+      "Mathlib.Order.Directed",
+      "Mathlib.Order.UpperLower.Basic",
+      "Mathlib.Topology.Homeomorph.Defs",
+      "Mathlib.Topology.Order.ScottTopology"
+    ],
+    "challenge_lines": 411,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "c29f212af2459593e2708301d21700911c5e03f913b4e9f467dd0cbacb1914ee",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-24-000003-v1/978cc58125a3d5b90b817017cbe55fa65168edaf801c24a840885d0bf3358a5f/",
+    "evidence_tree_sha256": "978cc58125a3d5b90b817017cbe55fa65168edaf801c24a840885d0bf3358a5f",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "4fb016ce14d978630ae7059b36fa0be9e8f9697a80a5526aacd4f384625d3651",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32751899522,
+    "solution_sha256": "577e7e81fdde2ac883960b3325d5c13dce20b2a798ab1daedc2ddf54836e3aaf",
+    "verified_at": "2026-08-24T16:42:58Z",
+    "workflow_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32751899522"
+  },
+  "version": 1
+}

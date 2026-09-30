@@ -1,0 +1,402 @@
+{
+  "abstract": "Explicit zero-density results for the Riemann zeta function in short intervals, formalized in Lean 4 over Mathlib.  Count the nontrivial zeros whose imaginary part lies in a window (t-h, t+h], with multiplicity and with a zero on either horizontal edge counted for half.\nSeven statements are submitted, and all seven are mechanically checked.  Two are zero-density bounds for the edge strip Re s > 1-alpha, valid for 0 <= h <= t^(2/3), proved by two different mechanisms -- Jensen's formula and Littlewood's lemma, the source's Theorems 2 and 3.  Neither dominates the other over the whole parameter range.  Two turn those into bounds on the fraction of the window's zeros lying in that strip, and are antitone in both h0 and t0, so one evaluation bounds every larger window: Corollaries 4 and 5.  The remaining three are the headline corollary, Corollary 1 -- for every alpha in (0, 1/6) there are h0 and t0 beyond which a definite fraction of the window's zeros, bounded below by an explicit POSITIVE constant, have real part in the middle band [alpha, 1-alpha], away from both edges of the critical strip.  One states it with the constant named, one with the constant existentially quantified as the source phrases it, and one at the explicit parameters alpha = 1/16 with a sharper radius, where the limiting constant is 9/25.\nThe positivity is proved, not assumed, and needs no numerics: every term of the constant except the leading one carries a factor 1/h or 1/log t, so it tends to a limit fixed by one rational inequality, which the radius 1/2 discharges for every admissible alpha.  The factor of two relating the two edge strips is the reflection rho -> 1 - conj(rho), proved in the development to be a multiplicity-preserving involution of the zero set.\nThe results are conditional and their hypotheses are in the signature, not hidden.  They are of two kinds, kept apart in the development because a reader is entitled to weigh them differently.  Sixteen are published explicit bounds on zeta and Gamma transcribed from other authors; eleven are finite numerical certificates established outside Lean by arb ball arithmetic or mpmath on explicit compact boxes, which Mathlib cannot currently reproduce because it has no verified evaluation of zeta and the margins reach 9e-17.  The source's tables give the numerical values of the constant; they are not load-bearing for its sign.\n`comparator.json` names exactly those seven and is the authority on what is checked.  Beyond them, the wider development supplies what they rest on: the Littlewood short-interval theorem (Theorem 32), the argument-integral machinery (Theorem 31), the appendix of explicit zeta bounds, the Laurent expansion of zeta'/zeta, and the reflection step.",
+  "authors": [
+    {
+      "name": "Andrew Fiori"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-23-000001-v1/3554e66fde2d266b2f09b7b419381a035b07202fd724de96be5cb06e9adeb673/",
+    "artifact_tree_sha256": "3554e66fde2d266b2f09b7b419381a035b07202fd724de96be5cb06e9adeb673",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-23T04:27:16Z",
+    "renderer_commit": "f49b4f29aa458fc70c3a4c8cadca9312adbdc559",
+    "verso_commit": "74fc8d1b7bb781c3623a06ec6484f34d35eb5fba"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11M26",
+      "11M06",
+      "11Y35",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-09-23",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.34.0-rc1",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "38e9c3ce15cbb63c92e90bb9a92e4eb82131f669"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "2bc7cf064315b26bc38dac2e9612fb581be9b75f"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "978b7ec9fbbf9a535114f1de8fe5b3778b358870"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "99e8adeea3c3cd86b6b79ba01a1383bf2d31d055"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "c1c4362a130f12e632d252180a6c2a31d8fd4726"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "3b55e9d00c6b0018e5d984eb011b6f93c09bd163"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "01bc479e7432594821ba3fb0ca465211941de86d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "af8bc067a4cc6c6df472a68909a3f40b1c76c43e"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "ZeroDensityShortIntervals.zero_density_jensen",
+      "ZeroDensityShortIntervals.zero_density_littlewood",
+      "ZeroDensityShortIntervals.edge_proportion_jensen",
+      "ZeroDensityShortIntervals.edge_proportion_littlewood",
+      "ZeroDensityShortIntervals.positive_proportion_in_middle_band",
+      "ZeroDensityShortIntervals.positive_proportion",
+      "ZeroDensityShortIntervals.positive_proportion_sixteenth"
+    ]
+  },
+  "id": "PALOMAR-2026-09-23-000001",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-23T04:27:41Z",
+    "receipt_sha256": "cc3c49467fa318b0697ef105eb8bef30195b63bc89db797a4f0815a17b6a27ce",
+    "repositories": [
+      {
+        "commit": "97ee4b41d2d4a0680434282e09e688424b59922a",
+        "fork_repository": "PalomarArchive/andrewfiori--ZeroDensityInShortIntervals--f3653c9883c5",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-23-000001-v1/97ee4b41d2d4a0680434282e09e688424b59922a",
+        "source_repository": "andrewfiori/ZeroDensityInShortIntervals"
+      },
+      {
+        "commit": "c1c4362a130f12e632d252180a6c2a31d8fd4726",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-23-000001-v1/c1c4362a130f12e632d252180a6c2a31d8fd4726",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "01bc479e7432594821ba3fb0ca465211941de86d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-23-000001-v1/01bc479e7432594821ba3fb0ca465211941de86d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "978b7ec9fbbf9a535114f1de8fe5b3778b358870",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-23-000001-v1/978b7ec9fbbf9a535114f1de8fe5b3778b358870",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "2bc7cf064315b26bc38dac2e9612fb581be9b75f",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-23-000001-v1/2bc7cf064315b26bc38dac2e9612fb581be9b75f",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-23-000001-v1/de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "38e9c3ce15cbb63c92e90bb9a92e4eb82131f669",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-23-000001-v1/38e9c3ce15cbb63c92e90bb9a92e4eb82131f669",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "99e8adeea3c3cd86b6b79ba01a1383bf2d31d055",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-23-000001-v1/99e8adeea3c3cd86b6b79ba01a1383bf2d31d055",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "3b55e9d00c6b0018e5d984eb011b6f93c09bd163",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-23-000001-v1/3b55e9d00c6b0018e5d984eb011b6f93c09bd163",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "af8bc067a4cc6c6df472a68909a3f40b1c76c43e",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-23-000001-v1/af8bc067a4cc6c6df472a68909a3f40b1c76c43e",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Andrew Fiori"
+          }
+        ],
+        "identifier": "arXiv:2609.22624",
+        "license": "CC-BY-4.0",
+        "location": "arXiv:2609.22624, https://arxiv.org/abs/2609.22624, and as LaTeX source in this repository, ZerosInShortIntervals.tex.  The submitted statements formalize its Theorem 2, Theorem 3, Corollary 4, Corollary 5 and Corollary 1 (the last in three forms).",
+        "relationship": "formalizes",
+        "title": "Zero Density Theorems for Short Intervals",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Michael Revers"
+          }
+        ],
+        "relationship": "background",
+        "title": "New improved explicit estimates for zeta on the half line",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Andrew Yang"
+          }
+        ],
+        "relationship": "background",
+        "title": "Explicit bounds for zeta in the critical strip and a zero-free region",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Chiara Bellotti"
+          }
+        ],
+        "relationship": "background",
+        "title": "Explicit bounds for zeta and a new zero-free region",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Nicol Leong"
+          }
+        ],
+        "relationship": "background",
+        "title": "Explicit estimates for the logarithmic derivative of zeta",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Ghaith Hiary"
+          },
+          {
+            "name": "Nicol Patel"
+          },
+          {
+            "name": "Andrew Yang"
+          }
+        ],
+        "relationship": "background",
+        "title": "An improved explicit estimate for zeta on the half line",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Nicol Patel"
+          },
+          {
+            "name": "Andrew Yang"
+          }
+        ],
+        "relationship": "background",
+        "title": "An explicit sub-Weyl bound for zeta",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Richard P. Brent"
+          }
+        ],
+        "relationship": "background",
+        "title": "On the accuracy of asymptotic approximations to the log-Gamma and Riemann-Siegel theta functions",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Andrew Fiori"
+          }
+        ],
+        "identifier": "doi:10.1016/j.jmaa.2026.130404",
+        "relationship": "background",
+        "title": "A note on the Phragmen-Lindelof theorem",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "David J. Platt"
+          },
+          {
+            "name": "Timothy S. Trudgian"
+          }
+        ],
+        "relationship": "background",
+        "title": "The Riemann hypothesis is true up to 3 x 10^12",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Golnoush Farzanfard"
+          }
+        ],
+        "identifier": "https://hdl.handle.net/10133/7053",
+        "location": "MSc thesis, University of Lethbridge, 2024",
+        "relationship": "background",
+        "title": "Explicit zero density for the Riemann zeta function",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Chiara Bellotti"
+          },
+          {
+            "name": "Peng-Jie Wong"
+          }
+        ],
+        "relationship": "background",
+        "title": "Counting zeros of Artin L-functions",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "E. C. Titchmarsh"
+          }
+        ],
+        "relationship": "background",
+        "title": "The Theory of the Riemann Zeta-Function",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Andrew Fiori"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-23T01:19:36Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "792c7c0b9e798bd02719e795ef11fa2b5929e067",
+    "report": {
+      "sha256": "b332f2b600095b03aea03fa5f33a4b5219fe944a89f9dcfbff047b1d3b0686e2"
+    },
+    "reviewed_at": "2026-09-23T01:09:06Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "97ee4b41d2d4a0680434282e09e688424b59922a",
+    "license": {
+      "declared_identifier": "CC-BY-4.0",
+      "detected_identifier": "CC-BY-4.0",
+      "path": "LICENSE",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    "repository": "andrewfiori/ZeroDensityInShortIntervals",
+    "repository_url": "https://github.com/andrewfiori/ZeroDensityInShortIntervals",
+    "tree_url": "https://github.com/andrewfiori/ZeroDensityInShortIntervals/tree/97ee4b41d2d4a0680434282e09e688424b59922a"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "ffewnninflw0"
+  },
+  "title": "Zero density theorems for short intervals",
+  "trust": {
+    "challenge_bytes": 38999,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 680,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "58e733ecaf93e8760cbc45723c635f439b9c79b7fd9e3944cfc38a0d0bba1f0d",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-23-000001-v1/c43cfacc6c1bb3e1d7541366380c1c8b1e50becd19c6ec1039f5fddb89d8d1a0/",
+    "evidence_tree_sha256": "c43cfacc6c1bb3e1d7541366380c1c8b1e50becd19c6ec1039f5fddb89d8d1a0",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "b18d673bd29b476466a51a3be1012df2ed322b10",
+    "mechanical_report_sha256": "7790dce4ffcafe0bf1bffc974be1b19a255712ecac27a2c8aa2d171dfbd6f6c1",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 35803064106,
+    "solution_sha256": "5a57f780c459813b70dac5969112d6638d9664dddb6c1b0565494acc5a4e9a50",
+    "verified_at": "2026-09-23T00:53:22Z",
+    "workflow_commit": "f49b4f29aa458fc70c3a4c8cadca9312adbdc559",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/35803064106"
+  },
+  "version": 1
+}

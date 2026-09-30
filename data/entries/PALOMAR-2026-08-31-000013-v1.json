@@ -1,0 +1,466 @@
+{
+  "abstract": "A Lean 4 / Mathlib development of criteria for Bugeaud's Problem 10.61 ([Bug12, p. 222], due to Mendès France [MF67]): for a Pisot number α > 2 and the Cantor set C(α) = {(α−1) Σ_{k≥1} ε_k α^{−k} : ε_k ∈ {0,1}}, no ξ ∈ C(α) has (ξαⁿ)_{n≥1} uniformly distributed modulo one. The problem is open; what is proved here are criteria for it and two instances. Every compared statement that concludes Problem 10.61 does so for a *quadratic* setup — a real root α > 1 of X² − aX − b whose conjugate has modulus below one — and the two instances are quadratic; the arbitrary-degree material is conditional ingredients, from which no compared statement derives non-equidistribution. Seventeen statements are compared, in four groups. (A) The reduction to symbolic dynamics is an equivalence, and it is complete. (i) Some ξ ∈ C(α) is u.d. mod 1 iff the full two-shift {0,1}^ℤ carries a shift-invariant Borel probability measure whose push-forward under an explicit factor map F is Lebesgue measure on 𝕋. (ii) 10.61 holds at α iff a finite certificate witnesses it: a mean-zero real trigonometric polynomial G on 𝕋 and a c > 0 with ∫ G∘F dμ ≥ c for every invariant μ. (iii) The pressure bracket that makes such a search terminate, −c/β ≤ ∫ g dμ over every invariant μ whenever the pressure of −βg relative to a finite partition is at most c. (B) A pressure criterion. (ii) A bounded measurable potential annihilated by every counterexample measure, an entropy floor h_min for those measures, and a partition pressure below h_min together prove 10.61 at α; and its machine form, where the potential carries a finite-state transfer bound with an integer vector certificate, the hypothesis comparing the log of the certificate ratio, less the Lebesgue mean, against h_min. (iv) The budget identity A(α)·h_min(α) = log 2, tying the Route A exponent to the floor. (C) A covering criterion for quadratic setups, and arbitrary-degree ingredients. (i) Two real inequalities — the depth slope 1 + L/R − L is negative exactly when (L−1)(R−1) > 1, and at the balanced depth M′ = ⌈M·L/R⌉ the covering total obeys an explicit logarithmic bound linear in M with that slope — and then, for a quadratic setup, a numeric certificate at depths (M, M′) yielding one open interval J ⊆ (0,1), uniform in ξ and in n, that every orbit misses at every time, whence A(α) < 1 implies 10.61 at α. (ii) For a quadratic setup of norm −b, the criterion applies exactly when (log₂ α − 1)(log₂(α/|b|) − 1) > 1. This characterizes when A(α) < 1; it does not decide Problem 10.61 for quadratic α with A(α) ≥ 1, about which nothing is compared. (iii) Three ingredients about the family Xᵈ − aXᵈ⁻¹ − 1, valid at every degree d ≥ 2: for a ≥ 3 the real root exceeding a is a Pisot number; every other conjugate has modulus at most (2/a)^{1/(d−1)}; and the numerical inequality log 2/log α + log 2/log(1/ρ) < 1 holds whenever a ≥ 2^{d+1}, a < α, ρ > 0 and a·ρᵈ⁻¹ ≤ 2. These are ingredients, not a criterion: no compared statement carries them to Problem 10.61 above degree two, because (i) is proved only for quadratic setups. At degree two the family members are quadratic setups, and the first of them is α = 2+√5. (D) The two numbers at which the machinery is run to a conclusion, both quadratic: at α = 2+√5 the strong form — an explicit interval missed by every orbit at every time — and 10.61 itself; and at α = 2+√3, 10.61 by a confinement-gap certificate. The informal account is the repository's paper.pdf: machine-written notes documenting the Lean development, not a prior paper that the development formalizes. Credit in contributor terms rather than bibliographic ones: the mathematics and the Lean text are the agents' work, the Fable-5 agent having written the notes and the Opus-5 agent the formalization, each directed turn by turn by Ralf Stephan, who chose the targets, selected which outputs to keep, and releases the files. He does not endorse the informal arguments and has not independently verified informal-to-formal fidelity; where the prose disagrees with the challenge file, the challenge file wins. Every compared statement depends on propext, Classical.choice and Quot.sound and nothing else.",
+  "authors": [
+    {
+      "name": "Ralf Stephan"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-31-000013-v1/b67c47bf6a9264fff1f249f6ee7df08cf4fb0128c5fc4ead737fc59c8d14f9f2/",
+    "artifact_tree_sha256": "b67c47bf6a9264fff1f249f6ee7df08cf4fb0128c5fc4ead737fc59c8d14f9f2",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-31T14:41:18Z",
+    "renderer_commit": "704ece232c3b7845de2c14b8ecd9acd592d4654c",
+    "verso_commit": "90c688db9db7280364c8bd7f8264c82a01582fd4"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.DS"
+    ],
+    "msc2020": [
+      "11K06",
+      "11J71",
+      "11R06",
+      "37B10",
+      "28A80",
+      "37D35",
+      "37A35"
+    ]
+  },
+  "first_registered_on": "2026-08-31",
+  "formalization": {
+    "challenge_path": "ChallengeFlat.lean",
+    "comparator_config_path": "comparator/std3-flat.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.34.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "comparator",
+        "repository": "leanprover/comparator",
+        "revision": "19e111e2141cf333c7daff0f64c5f24acc91dd2e"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "6c8d0ef0f001bf22aba95f44a579ebe460c880bd"
+      },
+      {
+        "name": "lean4export",
+        "repository": "leanprover/lean4export",
+        "revision": "cacf989bd75f608700820f6afc595f32e7a99a4d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "d9598f07b1bc701f1e3aae163d2681c1fd978793"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "ba67e212be1197b84c1f1f6299488a10a3002713"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "d8823026ac7ef130c253089d95685f9877b95323"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "18889deb9e83ea7420ef51c160d6f88552e744e3"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "7e23602c91bc04586b2b06de2708a041853e4681"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "ab3a82db9fea14cf0fd7f5a2de650f4b534640af"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "BB61.QuadSetup.equidistributed_iff_exists_invariant_measure",
+      "BB61.QuadSetup.forall_not_equidistributed_iff_exists_trigCertificate",
+      "MeasureTheory.le_integral_of_partitionPressure_le",
+      "BB61.forall_not_equidistributed_of_partitionPressure_lt",
+      "BB61.forall_not_equidistributed_of_transferBound",
+      "BB61.QuadSetup.routeAExponent_mul_hMin",
+      "BB61.slope_neg_iff",
+      "BB61.logb_coverTotal_balancedDepth_le",
+      "BB61.QuadSetup.exists_avoided_interval",
+      "BB61.QuadSetup.not_equidistributed_of_routeAExponent_lt_one",
+      "BB61.QuadSetup.routeAExponent_lt_one_iff_quadratic",
+      "BB61.isPisot_family",
+      "BB61.norm_le_familyConjBound",
+      "BB61.routeA_family_lt_one",
+      "BB61.routeA_two_add_sqrt5",
+      "BB61.two_add_sqrt5_not_equidistributed",
+      "BB61.GapThree.problem_10_61_two_add_sqrt3_axiom_free"
+    ]
+  },
+  "id": "PALOMAR-2026-08-31-000013",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-31T14:41:53Z",
+    "receipt_sha256": "539a78693ed8dc2e3d95732fc3e8f81c57cb2f69826ebe0caf5c3d3f3c80a0cb",
+    "repositories": [
+      {
+        "commit": "18889deb9e83ea7420ef51c160d6f88552e744e3",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000013-v1/18889deb9e83ea7420ef51c160d6f88552e744e3",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "7e23602c91bc04586b2b06de2708a041853e4681",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000013-v1/7e23602c91bc04586b2b06de2708a041853e4681",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "d8823026ac7ef130c253089d95685f9877b95323",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000013-v1/d8823026ac7ef130c253089d95685f9877b95323",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "ba67e212be1197b84c1f1f6299488a10a3002713",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000013-v1/ba67e212be1197b84c1f1f6299488a10a3002713",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "6c8d0ef0f001bf22aba95f44a579ebe460c880bd",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000013-v1/6c8d0ef0f001bf22aba95f44a579ebe460c880bd",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "d9598f07b1bc701f1e3aae163d2681c1fd978793",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000013-v1/d9598f07b1bc701f1e3aae163d2681c1fd978793",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000013-v1/a8acbfd87375ff4abe14ce09db5b7664d383bc7f",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000013-v1/507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "19e111e2141cf333c7daff0f64c5f24acc91dd2e",
+        "fork_repository": "PalomarArchive/leanprover--comparator--25495a50215b",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000013-v1/19e111e2141cf333c7daff0f64c5f24acc91dd2e",
+        "source_repository": "leanprover/comparator"
+      },
+      {
+        "commit": "ab3a82db9fea14cf0fd7f5a2de650f4b534640af",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000013-v1/ab3a82db9fea14cf0fd7f5a2de650f4b534640af",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "cacf989bd75f608700820f6afc595f32e7a99a4d",
+        "fork_repository": "PalomarArchive/leanprover--lean4export--94a894d77e17",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000013-v1/cacf989bd75f608700820f6afc595f32e7a99a4d",
+        "source_repository": "leanprover/lean4export"
+      },
+      {
+        "commit": "d61132ffcdb748b641f9de59b7acfffc860796b2",
+        "fork_repository": "PalomarArchive/rwst--Pisot-Cantor-61--4e7f4f2cbab1",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000013-v1/d61132ffcdb748b641f9de59b7acfffc860796b2",
+        "source_repository": "rwst/Pisot-Cantor-61"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Ralf Stephan"
+          }
+        ],
+        "location": "paper.pdf in this repository; Theorems A, B, C, D and E",
+        "relationship": "other",
+        "title": "Machine-written notes on Bugeaud Problem 61",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Yann Bugeaud"
+          }
+        ],
+        "location": "Cambridge Tracts in Mathematics 193, CUP 2012; Problem 10.61, p. 222",
+        "relationship": "background",
+        "title": "Distribution Modulo One and Diophantine Approximation",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Michel Mendès France"
+          }
+        ],
+        "location": "J. Analyse Math. 20 (1967), 1-56; Problème 1, p. 41",
+        "relationship": "background",
+        "title": "Nombres normaux. Applications aux fonctions pseudo-aléatoires",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Lai-Sang Young"
+          }
+        ],
+        "location": "Ergodic Theory Dynam. Systems 2 (1982), 109-124; Thm 4.4",
+        "relationship": "background",
+        "title": "Dimension, entropy and Lyapunov exponents",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Peter Walters"
+          }
+        ],
+        "location": "GTM 79, Springer 1982; Theorem 9.10 and Chapter 4",
+        "relationship": "background",
+        "title": "An Introduction to Ergodic Theory",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Lauwerens Kuipers"
+          },
+          {
+            "name": "Harald Niederreiter"
+          }
+        ],
+        "location": "Wiley-Interscience 1974, Ch. 1",
+        "relationship": "background",
+        "title": "Uniform Distribution of Sequences",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Marie-José Bertin"
+          },
+          {
+            "name": "Annette Decomps-Guilloux"
+          },
+          {
+            "name": "Marthe Grandet-Hugot"
+          },
+          {
+            "name": "Martine Pathiaux-Delefosse"
+          },
+          {
+            "name": "Jean-Pierre Schreiber"
+          }
+        ],
+        "location": "Birkhäuser 1992, Def. 15.3.1",
+        "relationship": "background",
+        "title": "Pisot and Salem Numbers",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ralf Stephan"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-08-31T14:41:29Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "0f86ce126376c4a3af6a5a67364c0b3a492363ae",
+    "report": {
+      "sha256": "81ee12d47d3540534e97af7b029ee32e87975e1e63a42e9ce457c310950e998f"
+    },
+    "reviewed_at": "2026-08-31T14:25:09Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": [
+      "The literature account omits its own prior-art audit’s substantive identification of the selected Route A confinement method with Meyer’s Proposition 15.4.1. Amend the source entry and narrative comparison to cite that proposition and explain precisely whether the selected covering and avoided-interval results instantiate, adapt, or extend it."
+    ]
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "d61132ffcdb748b641f9de59b7acfffc860796b2",
+    "license": {
+      "declared_identifier": "CC0-1.0",
+      "detected_identifier": "CC0-1.0",
+      "path": "LICENSE",
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    "repository": "rwst/Pisot-Cantor-61",
+    "repository_url": "https://github.com/rwst/Pisot-Cantor-61",
+    "tree_url": "https://github.com/rwst/Pisot-Cantor-61/tree/d61132ffcdb748b641f9de59b7acfffc860796b2"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "qvbr5is22i9l"
+  },
+  "title": "rwst/Pisot-Cantor-61",
+  "trust": {
+    "challenge_bytes": 34241,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+      "Mathlib.Algebra.BigOperators.Ring.Finset",
+      "Mathlib.Algebra.Field.GeomSum",
+      "Mathlib.Algebra.GCDMonoid.IntegrallyClosed",
+      "Mathlib.Algebra.Group.Pointwise.Set.Basic",
+      "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+      "Mathlib.Algebra.Order.Chebyshev",
+      "Mathlib.Algebra.Order.Field.Basic",
+      "Mathlib.Algebra.Order.Floor.Ring",
+      "Mathlib.Algebra.Order.Ring.Star",
+      "Mathlib.Algebra.Order.Round",
+      "Mathlib.Algebra.Order.Star.Real",
+      "Mathlib.Algebra.Polynomial.Eval.Defs",
+      "Mathlib.Algebra.Polynomial.Roots",
+      "Mathlib.Analysis.Asymptotics.ExpGrowth",
+      "Mathlib.Analysis.Asymptotics.SpecificAsymptotics",
+      "Mathlib.Analysis.CStarAlgebra.Classes",
+      "Mathlib.Analysis.Complex.Basic",
+      "Mathlib.Analysis.Complex.Polynomial.Basic",
+      "Mathlib.Analysis.Fourier.AddCircle",
+      "Mathlib.Analysis.InnerProductSpace.Basic",
+      "Mathlib.Analysis.LocallyConvex.Separation",
+      "Mathlib.Analysis.Normed.Group.AddCircle",
+      "Mathlib.Analysis.Normed.Group.Uniform",
+      "Mathlib.Analysis.Real.Cardinality",
+      "Mathlib.Analysis.Real.Sqrt",
+      "Mathlib.Analysis.SpecialFunctions.Complex.Circle",
+      "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+      "Mathlib.Analysis.SpecialFunctions.Log.Base",
+      "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+      "Mathlib.Analysis.SpecialFunctions.Log.ENNRealLog",
+      "Mathlib.Analysis.SpecialFunctions.Log.NegMulLog",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.Analysis.SpecialFunctions.Trigonometric.Complex",
+      "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv",
+      "Mathlib.Analysis.SpecificLimits.Basic",
+      "Mathlib.Analysis.SpecificLimits.Normed",
+      "Mathlib.Analysis.Subadditive",
+      "Mathlib.Data.Fin.Tuple.Basic",
+      "Mathlib.Data.Finset.Union",
+      "Mathlib.Data.Fintype.Prod",
+      "Mathlib.Data.Int.Star",
+      "Mathlib.Data.List.Basic",
+      "Mathlib.Data.Nat.PrimeFin",
+      "Mathlib.Data.Real.Basic",
+      "Mathlib.Data.Set.Card",
+      "Mathlib.Dynamics.BirkhoffSum.Basic",
+      "Mathlib.Dynamics.Ergodic.MeasurePreserving",
+      "Mathlib.FieldTheory.Minpoly.Field",
+      "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed",
+      "Mathlib.GroupTheory.OrderOfElement",
+      "Mathlib.MeasureTheory.Function.Floor",
+      "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+      "Mathlib.MeasureTheory.Integral.Bochner.Set",
+      "Mathlib.MeasureTheory.Integral.BoundedContinuousFunction",
+      "Mathlib.MeasureTheory.Integral.DominatedConvergence",
+      "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+      "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus",
+      "Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+      "Mathlib.MeasureTheory.Measure.Prokhorov",
+      "Mathlib.MeasureTheory.Measure.Typeclasses.Probability",
+      "Mathlib.NumberTheory.Real.GoldenRatio",
+      "Mathlib.NumberTheory.Real.Irrational",
+      "Mathlib.Order.Filter.AtTopBot.Field",
+      "Mathlib.Tactic.ComputeDegree",
+      "Mathlib.Tactic.FieldSimp",
+      "Mathlib.Tactic.GCongr",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.LinearCombination",
+      "Mathlib.Tactic.Positivity",
+      "Mathlib.Tactic.Ring",
+      "Mathlib.Topology.ContinuousMap.Compact",
+      "Mathlib.Topology.ContinuousMap.SecondCountableSpace",
+      "Mathlib.Topology.Homeomorph.Lemmas",
+      "Mathlib.Topology.Instances.AddCircle.Defs",
+      "Mathlib.Topology.MetricSpace.CoveringNumbers",
+      "Mathlib.Topology.MetricSpace.HausdorffDimension",
+      "Mathlib.Topology.Order.IntermediateValue",
+      "Mathlib.Topology.UniformSpace.HeineCantor"
+    ],
+    "challenge_lines": 911,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "bb0669259304f95484cb12e37507acecb107321ab3e984b14a0f60b04c2171c0",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-31-000013-v1/f88e41873ccfff6357c103bc6e3bc4a11a7e5a1de6c0350069a27983eddddd46/",
+    "evidence_tree_sha256": "f88e41873ccfff6357c103bc6e3bc4a11a7e5a1de6c0350069a27983eddddd46",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "cacf989bd75f608700820f6afc595f32e7a99a4d",
+    "mechanical_report_sha256": "b8d8510352038e8fa2a08c3c177025315a1278a62c12cfec09d8b3faafc5adb9",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33398495934,
+    "solution_sha256": "8b4c1c7e4077cd71725164742f2990d5e8a6f6247c822edd4ba9c920c257c4a5",
+    "verified_at": "2026-08-31T13:51:56Z",
+    "workflow_commit": "704ece232c3b7845de2c14b8ecd9acd592d4654c",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33398495934"
+  },
+  "version": 1
+}

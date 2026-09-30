@@ -1,0 +1,257 @@
+{
+  "abstract": "The quality parameter t of a base-2 digital net with 2^m points measures exact equidistribution in dyadic boxes, and for Sobol' sequences used in quasi-Monte Carlo integration and computer graphics the quality of low-dimensional projections is a practical bottleneck. The OneTwo construction of Bonneel, Coeurjolly, Iehl, and Ostromoukhov (ACM Transactions on Graphics, 2025) releases a 692-dimension direction-number table whose protected pairs (2k-1, 2k) have the (1,2) property, with acceptance targets t <= 3 through m <= 10 and t <= 4 through m <= 15 for the pair-aligned four-dimensional blocks. Theorem 1.1 of the preprint determines the next depth exactly: at m = 16, a complete batch of 65,536 points, every one of the 345 pair-aligned windows of the released table has exact four-dimensional t-value 4 when its first dimension is one of 1, 7, 31, 49, 67, 195, 225, 243, 373 and t-value 5 otherwise, so the t <= 4 guarantee extends to m = 16 in exactly nine windows and fails in the other 336, each failure witnessed by an empty dyadic box of volume 2^-12 in that projection. The standard star-discrepancy bound for the projection is 299/4096 at t = 4 and 29/256 at t = 5. This Lean development proves the theorem in rank form with the released table embedded as one 256-bit literal per dimension: for every window, every four-part composition at the threshold total selects independent generator rows over F_2 and some composition one total higher does not, and the distribution is 9 windows at t = 4 and 336 at t = 5. The worked block, dimensions 25 to 28, keeps its separate explicit certificate (t = 5, with every smaller threshold refuted). All checks are 16-column XOR row reductions reduced by kernel decide with no native evaluation. The digital-net rank criterion, the discrepancy bound, and the authentication of the upstream table remain informal.",
+  "authors": [
+    {
+      "name": "Lennart Rudolph"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-05-000004-v1/7e0ee366790456c495d748260ef712aa74c66d5c9a9d7a0433268a2db8b12618/",
+    "artifact_tree_sha256": "7e0ee366790456c495d748260ef712aa74c66d5c9a9d7a0433268a2db8b12618",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-05T21:10:37Z",
+    "renderer_commit": "c605f23466450a52999fcfb3c6d68ed8febc56bf",
+    "verso_commit": "e09d21a5f7f66c9fc985b73197708298569bf583"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NA",
+      "cs.NA"
+    ],
+    "msc2020": [
+      "11K38",
+      "11K45",
+      "65C05",
+      "65D30"
+    ]
+  },
+  "first_registered_on": "2026-09-05",
+  "formalization": {
+    "challenge_path": "zenodo-21925582/palomar/Challenge.lean",
+    "comparator_config_path": "zenodo-21925582/palomar/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "zenodo-21925582/palomar/formalization.yaml",
+    "lakefile_path": "zenodo-21925582/palomar/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.32.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [],
+    "solution_path": "zenodo-21925582/palomar/Solution.lean",
+    "theorem_names": [
+      "OneTwoSobolT5.exact_t_five_certificate",
+      "OneTwoSobolT5.census_every_window",
+      "OneTwoSobolT5.census_distribution"
+    ]
+  },
+  "id": "PALOMAR-2026-09-05-000004",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-05T21:10:56Z",
+    "receipt_sha256": "0d57981d93020c3c2ca86e8ec21d9cec34bf9cc771308510d52a70fd9b175918",
+    "repositories": [
+      {
+        "commit": "cc754a3bd42b2c0be28ff0a9e87c6d71e2fbfd82",
+        "fork_repository": "PalomarArchive/lennrt--palomar-formalizations--21c40838d48e",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-05-000004-v1/cc754a3bd42b2c0be28ff0a9e87c6d71e2fbfd82",
+        "source_repository": "lennrt/palomar-formalizations"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Lennart Rudolph"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.21925582",
+        "license": "CC-BY-4.0",
+        "location": "https://doi.org/10.5281/zenodo.21925582",
+        "relationship": "formalizes",
+        "title": "Exact Projection Quality of OneTwo Sobol' Sequences at 65,536 Points",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Nicolas Bonneel"
+          },
+          {
+            "name": "David Coeurjolly"
+          },
+          {
+            "name": "Jean-Claude Iehl"
+          },
+          {
+            "name": "Victor Ostromoukhov"
+          }
+        ],
+        "license": "see repository",
+        "location": "https://github.com/liris-origami/OneTwoSobolSequences/tree/163127a0c1731ffe2d43cd685067795c2689a308",
+        "relationship": "background",
+        "title": "OneTwo direction-number table (sampler/onetwo_matrices.cpp)",
+        "type": "dataset"
+      },
+      {
+        "authors": [
+          {
+            "name": "Nicolas Bonneel"
+          },
+          {
+            "name": "David Coeurjolly"
+          },
+          {
+            "name": "Jean-Claude Iehl"
+          },
+          {
+            "name": "Victor Ostromoukhov"
+          }
+        ],
+        "identifier": "doi:10.1145/3730821",
+        "location": "https://doi.org/10.1145/3730821",
+        "relationship": "background",
+        "title": "Sobol' sequences with guaranteed-quality 2D projections",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Stephen Joe"
+          },
+          {
+            "name": "Frances Y. Kuo"
+          }
+        ],
+        "identifier": "doi:10.1137/070709359",
+        "location": "https://doi.org/10.1137/070709359",
+        "relationship": "background",
+        "title": "Constructing Sobol Sequences with Better Two-Dimensional Projections",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Pierre Marion"
+          },
+          {
+            "name": "Maxime Godin"
+          },
+          {
+            "name": "Pierre L'Ecuyer"
+          }
+        ],
+        "identifier": "doi:10.1016/j.cam.2019.112669",
+        "location": "https://doi.org/10.1016/j.cam.2019.112669",
+        "relationship": "background",
+        "title": "An algorithm to compute the t-value of a digital net and of its projections",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Harald Niederreiter"
+          }
+        ],
+        "identifier": "doi:10.1137/1.9781611970081",
+        "location": "https://doi.org/10.1137/1.9781611970081",
+        "relationship": "background",
+        "title": "Random Number Generation and Quasi-Monte Carlo Methods",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Josef Dick"
+          },
+          {
+            "name": "Friedrich Pillichshammer"
+          }
+        ],
+        "identifier": "doi:10.1017/CBO9780511761188",
+        "location": "https://doi.org/10.1017/CBO9780511761188",
+        "relationship": "background",
+        "title": "Digital Nets and Sequences: Discrepancy Theory and Quasi-Monte Carlo Integration",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Lennart Rudolph"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-05T21:10:48Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "4ed67de4fd69df383badb7857dff97e2fb734ab0",
+    "report": {
+      "sha256": "e993ad629d9a558365560db1c1ec5f2d8d209434294b972f643d8add95f533f5"
+    },
+    "reviewed_at": "2026-09-05T17:59:07Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "cc754a3bd42b2c0be28ff0a9e87c6d71e2fbfd82",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "b5060f3c4f90086ff1580b5226abd284b1a35acb7add29259ca3c6c622947dca"
+    },
+    "project_path": "zenodo-21925582/palomar",
+    "repository": "lennrt/palomar-formalizations",
+    "repository_url": "https://github.com/lennrt/palomar-formalizations",
+    "tree_url": "https://github.com/lennrt/palomar-formalizations/tree/cc754a3bd42b2c0be28ff0a9e87c6d71e2fbfd82/zenodo-21925582/palomar"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "szlnj92uccmz"
+  },
+  "title": "Exact four-dimensional projection quality of the OneTwo Sobol' table at 65,536 points",
+  "trust": {
+    "challenge_bytes": 59156,
+    "challenge_dependencies": [],
+    "challenge_imports": [],
+    "challenge_lines": 603,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "66bd699cdda8ecf23e123be234274641fceaa715d7d75d8dc91361d565bfa88f",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-05-000004-v1/bc47a6dc9e93234678a27e18d53d3058a9f010d1e66ad8efb3ce45ed21b819aa/",
+    "evidence_tree_sha256": "bc47a6dc9e93234678a27e18d53d3058a9f010d1e66ad8efb3ce45ed21b819aa",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "4e7915201d3f9f04470d9eae002fa695f7cdc589",
+    "mechanical_report_sha256": "b989899659a9d892e27a22d44a6e235c35f3544da4361d5e496698262cdf16e8",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33974176265,
+    "solution_sha256": "b46e9c5ae82b1e460fc77f9f942d7630a00a3fb6a0f7a69fa55a2cae68649066",
+    "verified_at": "2026-09-05T17:42:48Z",
+    "workflow_commit": "c605f23466450a52999fcfb3c6d68ed8febc56bf",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33974176265"
+  },
+  "version": 1
+}

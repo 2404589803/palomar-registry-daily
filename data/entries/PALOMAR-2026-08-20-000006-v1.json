@@ -1,0 +1,349 @@
+{
+  "abstract": "A Lean 4 / Mathlib development of a paper, which improves on a problem by Dubickas. Dubickas (Glasgow Math. J. 48 (2006), 331–336) splits the reals α > 1 in two: α lies in 𝒵 when some real ξ ≠ 0 makes every integral part ⌊ξαⁿ⌋, n ≥ 1, even, and in 𝒮 otherwise. At α = 3/2 this is Mahler's question, and open; his Problem 5 asks whether 𝒮 has an element greater than 2. This formalization decides 𝒮 versus 𝒵 for every quadratic Pisot number: the golden mean is the only one in 𝒮, so none greater than 2 lies there and Problem 5 loses its whole natural class of candidates, though the problem itself stays open. The case that had resisted the source paper's four constructions is α = 1 + √2, settled by an exact computation rather than an estimate: with ξ = (2−√2)/4 one has ⌊ξ(1+√2)^(n+1)⌋ = Pₙ − [n odd] for the Pell numbers P, so every integral part is even. The mechanism generalizes: for a real quadratic pair with second conjugate in (−1,0), the closed-form multiplier ξ = −β/(α−β) makes m divide ⌊ξαⁿ⌋ for every n ≥ 0 whenever m ∣ a and m ∣ b−1 — an exact congruence, not a confinement of fractional parts — and all but finitely many of those integral parts are then composite. The informal account is the companion paper doi:10.13140/RG.2.2.20582.79689. Credit divides as follows, in contributor terms rather than bibliographic ones: the mathematical discovery and the formalization are the AI agent's; the agent also drafted the prose of the companion paper, which the author revised; the direction and the review are the author's, who is responsible for the mathematical content. Bibliographic authorship of the paper is the author's alone — the agent is credited in its Acknowledgements, not in its byline, as is usual for an AI tool. There is no sorry outside the deliberate placeholders in Challenge.lean, no project-defined axiom, no native_decide, and Mathlib is the only Lake dependency.",
+  "authors": [
+    {
+      "name": "Ralf Stephan (direction, review, paper author)"
+    },
+    {
+      "name": "Claude Code, claude-opus-5 (mathematical discovery, formalization, paper drafting)"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-20-000006-v1/5ea09fcab0d13529aeab09178287924fc37f0f3ef144d61542facb69f9d7de90/",
+    "artifact_tree_sha256": "5ea09fcab0d13529aeab09178287924fc37f0f3ef144d61542facb69f9d7de90",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-20T11:05:39Z",
+    "renderer_commit": "16038af22a929ae3714acf7d74219cfbe57acf2d",
+    "verso_commit": "74fc8d1b7bb781c3623a06ec6484f34d35eb5fba"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.DS"
+    ],
+    "msc2020": [
+      "11J71",
+      "11K16",
+      "11R06",
+      "11B37",
+      "11B39",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-08-20",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.34.0-rc1",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "comparator",
+        "repository": "leanprover/comparator",
+        "revision": "c3903e1ed0148a32cd39510707c632dc4d265514"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "1fe0a51a5ecdee23c424b6e29ecb1d40eb35316d"
+      },
+      {
+        "name": "lean4export",
+        "repository": "leanprover/lean4export",
+        "revision": "af5aa64bb914c3c2c781f378088dbd38acf4f804"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "38e9c3ce15cbb63c92e90bb9a92e4eb82131f669"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "2bc7cf064315b26bc38dac2e9612fb581be9b75f"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "978b7ec9fbbf9a535114f1de8fe5b3778b358870"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "ebeca04ecd5ee2ba9740e13576d80d4ab6b5779c"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "c1c4362a130f12e632d252180a6c2a31d8fd4726"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "3b55e9d00c6b0018e5d984eb011b6f93c09bd163"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "36cc05ca2d0e469bfbeea9437f460e19238e885e"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "af8bc067a4cc6c6df472a68909a3f40b1c76c43e"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "SZ.quadPisot_notMem_S_of_two_lt",
+      "SZ.isQuadPisot_silver",
+      "SZ.quadPisot_mem_S_iff",
+      "SZ.quadPisot_mem_MahlerZ",
+      "SZ.isQuadPisot_golden",
+      "SZ.floor_silver_pell",
+      "SZ.even_floor_silver",
+      "SZ.silver_mem_MahlerZ",
+      "SZ.dvd_floor_of_neg",
+      "SZ.eventually_composite"
+    ]
+  },
+  "id": "PALOMAR-2026-08-20-000006",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-20T10:59:28Z",
+    "receipt_sha256": "69ef48f40b6c4cccf07d2840623d02a4ccc619680e093fb89060cee02a8b9d48",
+    "repositories": [
+      {
+        "commit": "c1c4362a130f12e632d252180a6c2a31d8fd4726",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000006-v1/c1c4362a130f12e632d252180a6c2a31d8fd4726",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "36cc05ca2d0e469bfbeea9437f460e19238e885e",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000006-v1/36cc05ca2d0e469bfbeea9437f460e19238e885e",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "978b7ec9fbbf9a535114f1de8fe5b3778b358870",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000006-v1/978b7ec9fbbf9a535114f1de8fe5b3778b358870",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "2bc7cf064315b26bc38dac2e9612fb581be9b75f",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000006-v1/2bc7cf064315b26bc38dac2e9612fb581be9b75f",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "1fe0a51a5ecdee23c424b6e29ecb1d40eb35316d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000006-v1/1fe0a51a5ecdee23c424b6e29ecb1d40eb35316d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "38e9c3ce15cbb63c92e90bb9a92e4eb82131f669",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000006-v1/38e9c3ce15cbb63c92e90bb9a92e4eb82131f669",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "ebeca04ecd5ee2ba9740e13576d80d4ab6b5779c",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000006-v1/ebeca04ecd5ee2ba9740e13576d80d4ab6b5779c",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "3b55e9d00c6b0018e5d984eb011b6f93c09bd163",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000006-v1/3b55e9d00c6b0018e5d984eb011b6f93c09bd163",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c3903e1ed0148a32cd39510707c632dc4d265514",
+        "fork_repository": "PalomarArchive/leanprover--comparator--25495a50215b",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000006-v1/c3903e1ed0148a32cd39510707c632dc4d265514",
+        "source_repository": "leanprover/comparator"
+      },
+      {
+        "commit": "af8bc067a4cc6c6df472a68909a3f40b1c76c43e",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000006-v1/af8bc067a4cc6c6df472a68909a3f40b1c76c43e",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "af5aa64bb914c3c2c781f378088dbd38acf4f804",
+        "fork_repository": "PalomarArchive/leanprover--lean4export--94a894d77e17",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000006-v1/af5aa64bb914c3c2c781f378088dbd38acf4f804",
+        "source_repository": "leanprover/lean4export"
+      },
+      {
+        "commit": "db8f6025df35517cb9552df04d18345c68d8ac11",
+        "fork_repository": "PalomarArchive/rwst--Even-Integral--d8277e09a8e7",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000006-v1/db8f6025df35517cb9552df04d18345c68d8ac11",
+        "source_repository": "rwst/Even-Integral"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Ralf Stephan"
+          }
+        ],
+        "identifier": "https://doi.org/10.13140/RG.2.2.20582.79689",
+        "location": "Theorems A, B, C, D",
+        "relationship": "formalizes",
+        "title": "Even integral parts of powers of quadratic Pisot numbers",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Arturas Dubickas"
+          }
+        ],
+        "identifier": "https://doi.org/10.1017/S0017089506003090",
+        "location": "Glasgow Math. J. 48 (2006), 331–336; Thm 1(i),(iii),(iv), Thm 2(ii), Thm 6, Problem 5",
+        "relationship": "background",
+        "title": "Even and odd integral parts of powers of a real number",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Arturas Dubickas"
+          }
+        ],
+        "location": "Arch. Math. (Brno) 42 (2006), no. 2, 151–158; Thm 2, and its proof, p. 155",
+        "relationship": "background",
+        "title": "On the limit points of the fractional parts of powers of Pisot numbers",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Kurt Mahler"
+          }
+        ],
+        "location": "J. Austral. Math. Soc. Ser. A 8 (1968), 313–321",
+        "relationship": "background",
+        "title": "An unsolved problem on the powers of 3/2",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Robert Tijdeman"
+          }
+        ],
+        "location": "K. Norske Vidensk. Selsk. Skr. 16 (1972), 1–4",
+        "relationship": "background",
+        "title": "Note on Mahler's 3/2-problem",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ralf Stephan"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-20T10:58:50Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "2d7c43b9c2d1dcc4e642c732091e4fea2569b81c",
+    "report": {
+      "sha256": "e7c1b5c15b65257ec25a3ace7b04cd2cda81f6fa4cb71440e93c2553005cba8e"
+    },
+    "reviewed_at": "2026-08-20T10:56:16Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": [
+      "The dependency claim is inaccurate and may mislead readers about the project’s tooling and trust surface. Qualify it to say that Mathlib is the only mathematical or Challenge dependency, while Comparator and its supporting packages are also Lake dependencies."
+    ]
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "db8f6025df35517cb9552df04d18345c68d8ac11",
+    "license": {
+      "declared_identifier": "CC0-1.0",
+      "detected_identifier": "CC0-1.0",
+      "path": "LICENSE",
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    "repository": "rwst/Even-Integral",
+    "repository_url": "https://github.com/rwst/Even-Integral",
+    "tree_url": "https://github.com/rwst/Even-Integral/tree/db8f6025df35517cb9552df04d18345c68d8ac11"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "cyj36b9h7u02"
+  },
+  "title": "rwst/Even-Integral",
+  "trust": {
+    "challenge_bytes": 11354,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+      "Mathlib.Algebra.Order.Floor.Ring",
+      "Mathlib.Algebra.Order.Ring.Abs",
+      "Mathlib.Algebra.Ring.Parity",
+      "Mathlib.Analysis.SpecialFunctions.Sqrt",
+      "Mathlib.Order.Filter.AtTopBot.Defs",
+      "Mathlib.RingTheory.Int.Basic"
+    ],
+    "challenge_lines": 208,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "31bb91a27770172a5f368413559a2015d96095fbbfca1c8aecad5cce77944493",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-20-000006-v1/f6d4f15b8e3483a2000aef67085c7be1f59ca329c68b0328e7f1056e02f3bc27/",
+    "evidence_tree_sha256": "f6d4f15b8e3483a2000aef67085c7be1f59ca329c68b0328e7f1056e02f3bc27",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "b18d673bd29b476466a51a3be1012df2ed322b10",
+    "mechanical_report_sha256": "a49966ba7ff65ee8e1abd5d82f051d016a26aa66fe65ba823fbeabdfe95b5d48",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32360531394,
+    "solution_sha256": "568d0bb39ee12e9c30c9acd5c58eafbe2787b7539e8b3e0054ba504e58f9621f",
+    "verified_at": "2026-08-20T10:51:34Z",
+    "workflow_commit": "16038af22a929ae3714acf7d74219cfbe57acf2d",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32360531394"
+  },
+  "version": 1
+}

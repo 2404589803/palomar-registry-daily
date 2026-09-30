@@ -1,0 +1,259 @@
+{
+  "abstract": "A Lean 4 formalization of Theorem 1 of arXiv:2608.22550: there is a family of lattice lines covering the integer plane whose set of realized directions is dense. Concretely, a family F of subsets of Z^2 is exhibited such that (i) every member is a genuine lattice line, the nonempty solution set of Px + Qy = c with P, Q coprime; (ii) the members cover Z^2; (iii) two members of different direction are disjoint, so no lattice point is covered twice in different directions; and (iv) the directions that occur are dense in the space RP^1 of line directions, that is, every angle in [0, pi) is approximated to within any epsilon by the direction of some member. The construction is recursive and works on nested regions: a chain of cosets Z^2 = R_0 > R_1 > R_2 > ... is built, and at stage k the region R_k is partitioned into sub-cosets of a new coprime direction, one of which is reserved to become R_{k+1} while lines of that direction claim all the others. Coverage is what the choice of reserved sub-coset is for: fix a surjective enumeration z_0, z_1, ... of Z^2 and reserve, at stage k, a sub-coset that does not contain z_k -- always possible, since the partition has at least four sub-cosets and only the one containing z_k must be avoided. Every point is then claimed: it is z_k for some k, and either it had already left the region at an earlier stage, in which case the coverage invariant Z^2 \\ R_k = union over i < k of (R_i \\ R_{i+1}) shows it was claimed there, or it is still in R_k and the reservation rule places it in a sub-coset claimed at stage k. Reserving an arbitrary sub-coset would not do: without that diagonal choice a point could survive in every R_k and never be claimed. Disjointness is a consequence of that partition rather than of any criterion for when two individual lines meet: distinct sub-cosets of a region are disjoint, each stage's lines stay inside the sub-cosets they claim, and the regions claimed at distinct stages are therefore disjoint. Earlier lines survive untouched because everything a later stage touches lies inside the reserved region. Only Theorem 1 is formalized; the paper's further remarks and discussion are not.",
+  "authors": [
+    {
+      "name": "Jan Snellman"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-26-000003-v1/dec340f662630a8e8e83c85bd81a9e3a86a5273c759e28c837c6d5c838a04206/",
+    "artifact_tree_sha256": "dec340f662630a8e8e83c85bd81a9e3a86a5273c759e28c837c6d5c838a04206",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-26T10:47:25Z",
+    "renderer_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "verso_commit": "6af30619664960f9c816b27157dff3ceb1500dcf"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.NT"
+    ],
+    "msc2020": [
+      "05B40",
+      "11H31",
+      "52C15",
+      "11B25",
+      "11B57"
+    ]
+  },
+  "first_registered_on": "2026-08-26",
+  "formalization": {
+    "challenge_path": "lean/Challenge.lean",
+    "comparator_config_path": "lean/config.json",
+    "definition_names": [],
+    "formalization_metadata_path": "lean/formalization.yaml",
+    "lakefile_path": "lean/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0-rc1",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "79d0395a1825a6264ad5d269e35e60537518955e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b1c4a69a7e247ab7df20460212001673d74f08c0"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "18a90119a5d316358fde6c86e0ca24e59212e32c"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "b1436dc749e722c9920036b52cdc43b3451d0b69"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "57d3325be72a842920813bcb40f96a6f7393c185"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ee41917ae11d38479fb8fb24745f7ca4bf0a784d"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "31a49105f960721073a9adfc82b261f5d0f2ce1e"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "da07ca808b6718cb2aed14dba154e5a08b8f8ecf"
+      }
+    ],
+    "solution_path": "lean/Solution.lean",
+    "theorem_names": [
+      "Palomar.main_theorem"
+    ]
+  },
+  "id": "PALOMAR-2026-08-26-000003",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-26T10:48:10Z",
+    "receipt_sha256": "c42cce43b1ee9e9b0bdf143bc24ba67388192ecf5f25bd984d8330b407c05189",
+    "repositories": [
+      {
+        "commit": "68f90ff9d90cb71af2c76eb1291a6ddf564cf4fb",
+        "fork_repository": "PalomarArchive/JaTaSn--lattice-line-covers--2c3ea32a3a37",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-26-000003-v1/68f90ff9d90cb71af2c76eb1291a6ddf564cf4fb",
+        "source_repository": "JaTaSn/lattice-line-covers"
+      },
+      {
+        "commit": "57d3325be72a842920813bcb40f96a6f7393c185",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-26-000003-v1/57d3325be72a842920813bcb40f96a6f7393c185",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "31a49105f960721073a9adfc82b261f5d0f2ce1e",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-26-000003-v1/31a49105f960721073a9adfc82b261f5d0f2ce1e",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "18a90119a5d316358fde6c86e0ca24e59212e32c",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-26-000003-v1/18a90119a5d316358fde6c86e0ca24e59212e32c",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-26-000003-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "79d0395a1825a6264ad5d269e35e60537518955e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-26-000003-v1/79d0395a1825a6264ad5d269e35e60537518955e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b1c4a69a7e247ab7df20460212001673d74f08c0",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-26-000003-v1/b1c4a69a7e247ab7df20460212001673d74f08c0",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "b1436dc749e722c9920036b52cdc43b3451d0b69",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-26-000003-v1/b1436dc749e722c9920036b52cdc43b3451d0b69",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ee41917ae11d38479fb8fb24745f7ca4bf0a784d",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-26-000003-v1/ee41917ae11d38479fb8fb24745f7ca4bf0a784d",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "da07ca808b6718cb2aed14dba154e5a08b8f8ecf",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-26-000003-v1/da07ca808b6718cb2aed14dba154e5a08b8f8ecf",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Jan Snellman"
+          }
+        ],
+        "identifier": "arXiv:2608.22550",
+        "license": "CC BY 4.0",
+        "location": "Theorem 1",
+        "relationship": "formalizes",
+        "title": "On the directions occurring in lattice-line coverings of the integer plane",
+        "type": "preprint"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Jan Snellman <https://orcid.org/0009-0002-6676-5068>"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-26T10:47:42Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "d5a647db3757303b1d928cfae4d3d232eed3e79e",
+    "report": {
+      "sha256": "83762476b6ddb8900b119b94aecfec59c8b1fc6799df15a3cd37a2ee1e9a9598"
+    },
+    "reviewed_at": "2026-08-26T09:48:03Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "68f90ff9d90cb71af2c76eb1291a6ddf564cf4fb",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "b4aecc4a55f6f80e154197008e1c000a6355eb3d0e7779902d14761310a022cf"
+    },
+    "project_path": "lean",
+    "repository": "JaTaSn/lattice-line-covers",
+    "repository_url": "https://github.com/JaTaSn/lattice-line-covers",
+    "tree_url": "https://github.com/JaTaSn/lattice-line-covers/tree/68f90ff9d90cb71af2c76eb1291a6ddf564cf4fb/lean"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "1fji25mgzy4p"
+  },
+  "title": "JaTaSn/lattice-line-covers",
+  "trust": {
+    "challenge_bytes": 3892,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 69,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "adbb69efc1fe50258d9f1e7ec768715bda88462d92dd8eab7e355de7a4545560",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-26-000003-v1/c5e86a9f2c984a2bfb6a9be81cc6a7a2c162babf114cf4c8a671726921d47760/",
+    "evidence_tree_sha256": "c5e86a9f2c984a2bfb6a9be81cc6a7a2c162babf114cf4c8a671726921d47760",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "af5aa64bb914c3c2c781f378088dbd38acf4f804",
+    "mechanical_report_sha256": "984b7518cfb485e7b910cd973d5aa216540e3076c734ea52ba525059c38bd840",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32952176427,
+    "solution_sha256": "87adfa3cf80b01f4116f399a0544de23c65ce649dae3c0ab253764816cf75282",
+    "verified_at": "2026-08-26T09:23:35Z",
+    "workflow_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32952176427"
+  },
+  "version": 1
+}

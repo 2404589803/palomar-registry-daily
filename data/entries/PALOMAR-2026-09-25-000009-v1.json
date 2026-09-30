@@ -1,0 +1,342 @@
+{
+  "abstract": "For an infinite set A of positive integers and an integer base b at least 2, consider the reciprocal Mersenne subseries X_A(b) = sum over a in A of 1/(b^a - 1). For a finite nonempty set P of primes, write h_P(a) for the P-part of a. The principal theorem proves irrationality when sum over a in A of h_P(a)/(a*(b^h_P(a) - 1)) converges. The base-two condition implies irrationality at every integer base at least 2 for every infinite subset of the host support. This is a sufficient support criterion, not a solution of the universal Erdős problem. It includes reciprocal-summable supports; the paper credits Erdős for that earlier stated all-base criterion and makes no identification with his suggested weakenings.\nThe five selected statements also give cofinally arbitrarily small positive weighted displacements, a strengthened positive divisor-cover criterion, and two common-average mixed-support extensions, one using an arbitrary positive weight budget. The proof averages displacements along multiples of a finite divisibility modulus, with another average controlling incomplete periods. Rationality would instead separate every positive displacement from zero. These extensions retain their explicit cover, summability, positivity and infinite-subset assumptions. Full support and all odd exponents are outside the weighted criterion; failure of the criterion is not a rationality assertion. The paper's achievement-set geometry, rational-membership tests and finite-denominator results are outside this registration. This entry supplies independently stated Challenge declarations and matching Lean proofs, with links to the complete paper and reasoning record; it makes no claim of independent human peer review or a novelty verdict.",
+  "authors": [
+    {
+      "name": "Will Cook"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-25-000009-v1/537321f0a12e778a8e82cbf467413ebed1f96514c86401edd3212eea3e5fffe9/",
+    "artifact_tree_sha256": "537321f0a12e778a8e82cbf467413ebed1f96514c86401edd3212eea3e5fffe9",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-09-25T07:59:04Z",
+    "renderer_commit": "a59f25bd8a66bf6faf3a4f4260d412989c0185ea",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11J72",
+      "11B83"
+    ]
+  },
+  "first_registered_on": "2026-09-25",
+  "formalization": {
+    "challenge_path": "PalomarCorpus/E257_01/Challenge.lean",
+    "comparator_config_path": "PalomarCorpus/E257_01/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "PalomarCorpus/E257_01/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solutions/PalomarCorpus/E257_01.lean",
+    "theorem_names": [
+      "PalomarCorpus.E257.DivisibilityWeightedSupport.divisibilityWeightedClaim",
+      "PalomarCorpus.E257.MixedWeightedCover.mixedSupportClaim",
+      "PalomarCorpus.E257.PaperStructuresBO.arbitraryWeightMixedSupport_allBase_hereditary",
+      "PalomarCorpus.E257.VariableExponentCover.strengthenedPositiveCoverClaim",
+      "PalomarCorpus.E257.WeightedCloseReturn.weighted_displacement_cofinal_close_return"
+    ]
+  },
+  "id": "PALOMAR-2026-09-25-000009",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-25T07:59:35Z",
+    "receipt_sha256": "671c9f1c681db9847b3fefed89ede0571066fe2133ec62afaebe644f6a0cec1e",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000009-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000009-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000009-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000009-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000009-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000009-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000009-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000009-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000009-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "b85ed30805188eb4390a686b111294b24363418e",
+        "fork_repository": "PalomarArchive/wcook04--plectis-erdos-lean--26c7e2ff36da",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000009-v1/b85ed30805188eb4390a686b111294b24363418e",
+        "source_repository": "wcook04/plectis-erdos-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Will Cook"
+          }
+        ],
+        "license": "Apache-2.0",
+        "relationship": "other",
+        "title": "Formal reductions, obstruction theorems, and verified subfamilies for eight Erdős problems",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Will Cook"
+          }
+        ],
+        "identifier": "https://github.com/wcook04/plectis-erdos/blob/147f3f1da400a84dcb3013ea6cef75dc8f382b09/paper/257/erdos-257-mersenne-support-subseries.pdf",
+        "license": "CC-BY-4.0",
+        "relationship": "background",
+        "title": "Weighted Support Criteria for Reciprocal Mersenne Subseries",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Will Cook"
+          }
+        ],
+        "identifier": "https://github.com/wcook04/plectis-erdos/blob/147f3f1da400a84dcb3013ea6cef75dc8f382b09/paper/257/erdos257-mersenne-reasoning-surface.pdf",
+        "license": "CC-BY-4.0",
+        "relationship": "background",
+        "title": "Reciprocal Mersenne Subseries — complete reasoning record",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Paul Erdős"
+          }
+        ],
+        "identifier": "https://users.renyi.hu/~p_erdos/1969-09.pdf",
+        "license": "unknown",
+        "relationship": "background",
+        "title": "On the irrationality of certain series",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Thomas F. Bloom"
+          }
+        ],
+        "identifier": "https://www.erdosproblems.com",
+        "license": "unknown",
+        "relationship": "background",
+        "title": "Erdős Problems catalogue",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "The mathlib contributors"
+          }
+        ],
+        "identifier": "https://github.com/leanprover-community/mathlib4",
+        "license": "Apache-2.0",
+        "relationship": "background",
+        "title": "Mathlib"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Will Cook"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-09-25T07:59:15Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "792c7c0b9e798bd02719e795ef11fa2b5929e067",
+    "report": {
+      "sha256": "6281266c7dc61e21fe6a376a53c5d1d7aab40607f27536529a18aad6ea31bb96"
+    },
+    "reviewed_at": "2026-09-24T16:07:33Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "b85ed30805188eb4390a686b111294b24363418e",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "5f73f0aafc768cc7c7f5da786dc7614296ee891a456faf175ab07456d3c35046"
+    },
+    "repository": "wcook04/plectis-erdos-lean",
+    "repository_url": "https://github.com/wcook04/plectis-erdos-lean",
+    "tree_url": "https://github.com/wcook04/plectis-erdos-lean/tree/b85ed30805188eb4390a686b111294b24363418e"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "gid0ym5uu910"
+  },
+  "title": "Weighted support criteria for reciprocal Mersenne subseries",
+  "trust": {
+    "challenge_bytes": 11934,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 165,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "6ba709d258b2c4f881285cc430b6f21b8b5cb3a4662616ee37517b1ca7c1de62",
+    "evidence_path": "evidence/PALOMAR-2026-09-25-000009-v1/89dea9cc30498083319a7a97d83324aab1a729ac57dce6d5cd7620dd36ba0249/",
+    "evidence_tree_sha256": "89dea9cc30498083319a7a97d83324aab1a729ac57dce6d5cd7620dd36ba0249",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "024c0c969da14d470584d237cb196f145762ae529ea38a4bd7e2b22f8fab7b4e",
+    "protected_config_sha256": "9cab6aac372eec880ab5630c3ae142af84b41e3bc2ec758c02ae8c291854db9d",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 36009433226,
+    "solution_sha256": "d1dee62774443d1c658247061028b2df8498d7f88221e6b2031f536ed8a4501b",
+    "tool_digests": {
+      "bwrap": "5112ed291e43d76394eeaddc17c161aa515b60327804da7eb0486d05999d23d1",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-09-24T14:08:10Z",
+    "workflow_commit": "1703d7babd984ccc3831cdf89c28221abe34808f",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/36009433226"
+  },
+  "version": 1
+}

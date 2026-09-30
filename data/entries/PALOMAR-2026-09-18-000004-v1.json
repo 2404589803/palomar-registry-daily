@@ -1,0 +1,303 @@
+{
+  "abstract": "A Lean 4 classification of the number of good partitions of an initial interval, where a good partition of {1, ..., n} is a set of pairwise disjoint nonempty blocks of at most three integers covering {1, ..., n}, each block summing to a power of three, and count n is the number of them. With N_u = {1, 2, 3, 4} union {3^t - 4, 3^t - 2, 3^t - 1, 3^t, 3^t + 1, 3^t + 2, 3^t + 3, 3^t + 5 : t >= 2} and E_2 = {13} union {3^t - 3 : t >= 2} union {3^t - 6 : t >= 3}, the four compared theorems say that for n >= 1 the count is 1 exactly on N_u, is 2 exactly on E_2, and is at least 3 elsewhere, and that the count is 2 at every 3^t - 6 with t >= 3. The source proves uniqueness for every n in N_u, records exactly two partitions at 3^t - 3 and at 13, and conjectures, immediately after that theorem, more than two at every other n, reporting a computer check up to n = 844; the family 3^t - 6 (first member 21) refutes that conjecture as printed, and the converse of the uniqueness statement is proved here. The lower bounds are three explicit partitions transported by four constructions each of which keeps a recoverable component; the exact values are exhaustive enumerations at twenty values n <= 86, kernel-checked and complete by a theorem about the search, carried to every power of three by stabilization above a threshold.",
+  "authors": [
+    {
+      "name": "JD Jones"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-18-000004-v1/6aed68fbced2984344b69a87a43114b636e15ab42f9fcf1c2bc31e5b3bcd68e0/",
+    "artifact_tree_sha256": "6aed68fbced2984344b69a87a43114b636e15ab42f9fcf1c2bc31e5b3bcd68e0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-18T10:25:56Z",
+    "renderer_commit": "3561d237dcc4b28482558ad28a64d767d7cc8615",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.NT"
+    ],
+    "msc2020": [
+      "05A17",
+      "11B75"
+    ]
+  },
+  "first_registered_on": "2026-09-18",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "GNM.IsGoodPartition",
+      "GNM.count",
+      "GNM.Nu",
+      "GNM.E2"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "GNM.count_eq_one_iff",
+      "GNM.count_eq_two_iff",
+      "GNM.three_le_count_iff",
+      "GNM.count_eq_two_of_add_six"
+    ]
+  },
+  "id": "PALOMAR-2026-09-18-000004",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-18T10:26:26Z",
+    "receipt_sha256": "f03e57a30555ae299bf2d1ad29acee5d813a38195bd0222b99c2cc31b9fec90b",
+    "repositories": [
+      {
+        "commit": "c9a75e1c81e5b7231a5a720ab544dd33f6a52ca1",
+        "fork_repository": "PalomarArchive/JD-Jones-ASES--gnm-lean--6052181cda29",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000004-v1/c9a75e1c81e5b7231a5a720ab544dd33f6a52ca1",
+        "source_repository": "JD-Jones-ASES/gnm-lean"
+      },
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000004-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000004-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000004-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000004-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000004-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000004-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000004-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000004-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000004-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Vladimir Gurvich"
+          },
+          {
+            "name": "Mariya Naumova"
+          }
+        ],
+        "identifier": "arXiv:2508.00946v3",
+        "location": "https://arxiv.org/abs/2508.00946v3",
+        "relationship": "adapts",
+        "title": "Partitioning set [n]={1,...,n} into subsets of size at most m such that all sums are powers of m",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "S. Mor"
+          },
+          {
+            "name": "V. Linek"
+          }
+        ],
+        "identifier": "doi:10.2478/s12175-014-0242-6",
+        "location": "https://doi.org/10.2478/s12175-014-0242-6",
+        "relationship": "adapts",
+        "title": "Hooked extended Langford sequences of small and large defects",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Diane M. Donovan"
+          },
+          {
+            "name": "Michael J. Grannell"
+          }
+        ],
+        "identifier": "doi:10.26493/1855-3974.1098.ca0",
+        "location": "https://doi.org/10.26493/1855-3974.1098.ca0",
+        "relationship": "background",
+        "title": "On the number of additive permutations and Skolem-type sequences",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-09-07-000013",
+        "note": "gn-lean, by the same author: every {1, ..., n} has a good partition. The directory GN/ of this repository is an unchanged copy of that development at commit 73bb87b16da8c053fd07e0d4dc43732b74335a3b, MIT, and the counting layer in GNM/ uses its objects and theorems.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "JD Jones"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-18T10:26:09Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "792c7c0b9e798bd02719e795ef11fa2b5929e067",
+    "report": {
+      "sha256": "493b94c3bd7d0db7d63dfa20270db4396e9d61599062178848d0a0de134a1520"
+    },
+    "reviewed_at": "2026-09-18T10:17:47Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "c9a75e1c81e5b7231a5a720ab544dd33f6a52ca1",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "8d464f723696204001f7ef63b6146ffc544aa6837aa74c53f6f9c53d8a18b0f0"
+    },
+    "repository": "JD-Jones-ASES/gnm-lean",
+    "repository_url": "https://github.com/JD-Jones-ASES/gnm-lean",
+    "tree_url": "https://github.com/JD-Jones-ASES/gnm-lean/tree/c9a75e1c81e5b7231a5a720ab544dd33f6a52ca1"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "t2a2plc2sdef"
+  },
+  "title": "gnm-lean: the number of partitions of {1, ..., n} into sets of at most three elements with power-of-three sums",
+  "trust": {
+    "challenge_bytes": 3896,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 72,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "3fd3c1d99c7928eccd1da02cdfad2b58885108ea04d3aaf07cdc21096e9763ae",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-18-000004-v1/5fbc55efd6ece94f7a0a8c14de28739505012fff71076f19ab3a7d5f0ab58dc4/",
+    "evidence_tree_sha256": "5fbc55efd6ece94f7a0a8c14de28739505012fff71076f19ab3a7d5f0ab58dc4",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "7777ac9afb35625da1e29b56e4f61ab1e9ac3795a1289a3f4265baf027466c03",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 35329937472,
+    "solution_sha256": "12dfc01cde591a4216dadaa404bf9b59cb0401a4b4537310fee62aaf133127e8",
+    "verified_at": "2026-09-18T10:03:34Z",
+    "workflow_commit": "3561d237dcc4b28482558ad28a64d767d7cc8615",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/35329937472"
+  },
+  "version": 1
+}

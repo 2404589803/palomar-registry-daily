@@ -1,0 +1,391 @@
+{
+  "abstract": "A Lean 4 proof of Krachun's directed (acyclic-block) lower-bound construction for sets of integers with no k-th-power difference, stated and proved for every exponent k >= 2. Let D_k(N) be the largest size of a subset of {1,...,N} no two of whose elements differ by a nonzero perfect k-th power. A pool for k is a nonempty list of blocks (m, sup, H) with pairwise coprime square-free moduli m >= 2, heights H >= 2, and sup a nonempty list of (vertex, rank) pairs with distinct vertices below m, ranks below H, and a strict rank drop along every ordered pair of vertices whose difference is a nonzero k-th-power residue mod m (so the induced digraph is acyclic). For every such pool, alpha k P <= liminf log D_k(N)/log N, where alpha k P = (sum ((k-1) log m + log t)/log H) / (1 + k sum log m / log H) and t >= 1 is the number of vertices of a block; and N^rho <= D_k(N) for all large N whenever rho < alpha k P. The theorem is instantiated at k = 4 with nine blocks, eight on the primes 5, 13, 29, 37, 53, 61, 101, 109 and one at the composite square-free modulus 51 = 3 * 17, and at k = 6 with nine blocks on the primes 7, 19, 31, 43, 67, 79, 103, 127, 139, giving the exponents 0.912145042700... and 0.950825559086..., each proved to exceed the corresponding Ruzsa transfer value ((3 + log 6/log 17)/4 = 0.908103119289... and (5 + log 6/log 13)/6 = 0.949759249243..., the latter being Ruzsa's own published Corollary at k = 6) and the decimal bounds 0.9121 and 0.9508, by exact comparisons of natural powers.",
+  "authors": [
+    {
+      "name": "JD Jones"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-12-000004-v1/4419f2b99355911c6480d04d2043360e4fb61db394785ee71a28e5e3e32ddd99/",
+    "artifact_tree_sha256": "4419f2b99355911c6480d04d2043360e4fb61db394785ee71a28e5e3e32ddd99",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-12T18:36:27Z",
+    "renderer_commit": "ef2fa1eadcb246c2346ddba39b52eaa53d4bb763",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.CO"
+    ],
+    "msc2020": [
+      "11B30",
+      "11B75",
+      "05C20"
+    ]
+  },
+  "first_registered_on": "2026-09-12",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "KthPower.IsNonzeroPowerMod",
+      "KthPower.diffMod",
+      "KthPower.ValidRankedSupport",
+      "KthPower.ValidPool",
+      "KthPower.alpha",
+      "KthPower.PowerDifferenceFree",
+      "KthPower.D",
+      "KthPower.pool4",
+      "KthPower.pool6"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "KthPower.directed_liminf",
+      "KthPower.directed_pointwise",
+      "KthPower.pool4_valid",
+      "KthPower.pool6_valid",
+      "KthPower.alpha4_gt_transfer",
+      "KthPower.alpha4_gt",
+      "KthPower.alpha6_gt_transfer",
+      "KthPower.alpha6_gt",
+      "KthPower.fourth_power_liminf",
+      "KthPower.sixth_power_liminf"
+    ]
+  },
+  "id": "PALOMAR-2026-09-12-000004",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-12T18:36:57Z",
+    "receipt_sha256": "fe393122e3637daaeb5bcdc7e9b7f049036c3bd413aa1b7f1b96b67d9ac39856",
+    "repositories": [
+      {
+        "commit": "4bf2e3a56b6a522764a4d03e5dc606c12376185e",
+        "fork_repository": "PalomarArchive/JD-Jones-ASES--rk-lean--656735e0c066",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000004-v1/4bf2e3a56b6a522764a4d03e5dc606c12376185e",
+        "source_repository": "JD-Jones-ASES/rk-lean"
+      },
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000004-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000004-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000004-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000004-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000004-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000004-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000004-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000004-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000004-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Dmitry Krachun"
+          }
+        ],
+        "identifier": "arXiv:2608.01325",
+        "location": "https://arxiv.org/abs/2608.01325",
+        "relationship": "adapts",
+        "title": "Square-Difference-Free Sets beyond the Three-Quarter Barrier",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Imre Z. Ruzsa"
+          }
+        ],
+        "identifier": "doi:10.1007/BF02454169",
+        "location": "https://doi.org/10.1007/BF02454169",
+        "relationship": "background",
+        "title": "Difference sets without squares",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Khalid Younis"
+          }
+        ],
+        "identifier": "arXiv:1908.06058",
+        "location": "https://arxiv.org/abs/1908.06058",
+        "relationship": "background",
+        "title": "Lower bounds in the polynomial Szemerédi theorem",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Mark Lewko"
+          }
+        ],
+        "identifier": "doi:10.37236/4656",
+        "location": "https://doi.org/10.37236/4656",
+        "relationship": "background",
+        "title": "An improved lower bound related to the Furstenberg–Sárközy theorem",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Richard Beigel"
+          },
+          {
+            "name": "William Gasarch"
+          }
+        ],
+        "identifier": "arXiv:0804.4892",
+        "location": "https://arxiv.org/abs/0804.4892",
+        "relationship": "background",
+        "title": "Square-Difference-Free Sets of Size Ω(n^0.7334...)",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "László Lovász"
+          }
+        ],
+        "identifier": "doi:10.1109/TIT.1979.1055985",
+        "location": "https://doi.org/10.1109/TIT.1979.1055985",
+        "relationship": "background",
+        "title": "On the Shannon capacity of a graph",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Antal Balog"
+          },
+          {
+            "name": "József Pelikán"
+          },
+          {
+            "name": "János Pintz"
+          },
+          {
+            "name": "Endre Szemerédi"
+          }
+        ],
+        "identifier": "doi:10.1007/BF01874311",
+        "location": "https://doi.org/10.1007/BF01874311",
+        "relationship": "background",
+        "title": "Difference sets without κ-th powers",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ben Green"
+          },
+          {
+            "name": "Mehtaab Sawhney"
+          }
+        ],
+        "identifier": "arXiv:2411.17448",
+        "location": "https://arxiv.org/abs/2411.17448",
+        "relationship": "background",
+        "title": "New bounds for the Furstenberg–Sárközy theorem",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-08-26-000004",
+        "note": "fs-formal (JD Jones, registered 2026-08-26): the k = 2 case of the same construction, an eleven-block pool and the exponent 0.7537415..., proved to exceed Krachun's 0.752796455875.... This repository is the general-k development on that architecture (the digit lift, the word construction, the CRT glue, the allocation and the numeric layer, each with the digit stride 2 replaced by k); the eleven-block pool of that entry satisfies the pool conditions of the theorem proved here at k = 2 (not re-verified in this repository), and no k = 2 statement is re-derived.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-09-11-000003",
+        "note": "ry-lean (JD Jones, registered 2026-09-11): a different configuration (nonlinear Roth {x, x+y, x+y^2}, not k-th-power differences); cited as prior art in this problem area and as the pattern for the one-repository registry layout, the axiom audit and the source guard used here. No mathematics is shared.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "JD Jones"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-12T18:36:37Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "e9c8c238f5695b10f75db7175648a1d0195352c1",
+    "report": {
+      "sha256": "31d60e4a0ed94a56e8c214645fb799854633bd517c36d5a8dd76d999432adb8a"
+    },
+    "reviewed_at": "2026-09-12T18:20:30Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "4bf2e3a56b6a522764a4d03e5dc606c12376185e",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "8d464f723696204001f7ef63b6146ffc544aa6837aa74c53f6f9c53d8a18b0f0"
+    },
+    "repository": "JD-Jones-ASES/rk-lean",
+    "repository_url": "https://github.com/JD-Jones-ASES/rk-lean",
+    "tree_url": "https://github.com/JD-Jones-ASES/rk-lean/tree/4bf2e3a56b6a522764a4d03e5dc606c12376185e"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "mnzka0x1umbw"
+  },
+  "title": "rk-lean: the directed construction for k-th-power-difference-free sets at every k, with the exponents 0.912145 (k = 4) and 0.950826 (k = 6)",
+  "trust": {
+    "challenge_bytes": 12550,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 212,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "bde8ddf505d923dcfe25cb7fac5f91aa6b28cf5ef3f5070499733053324cd0f5",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-12-000004-v1/44e4ee7e7e3dcdce335d429723ecb53eab2864d777c0db38d20988a6714f2084/",
+    "evidence_tree_sha256": "44e4ee7e7e3dcdce335d429723ecb53eab2864d777c0db38d20988a6714f2084",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "82afdf18d0bca70cdcc240cacaf7671ba5a53935f708920458180eb8fddee6d3",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 34709856848,
+    "solution_sha256": "976fe06a0fc69103dc27de83a5793ca58c753471f91f28faddff9f2f94c41ac7",
+    "verified_at": "2026-09-12T18:07:55Z",
+    "workflow_commit": "ef2fa1eadcb246c2346ddba39b52eaa53d4bb763",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/34709856848"
+  },
+  "version": 1
+}

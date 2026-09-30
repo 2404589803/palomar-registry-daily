@@ -1,0 +1,309 @@
+{
+  "abstract": "A complete Lean 4 proof of the negative answer to Erdős problem 973: power sums of complex numbers on or outside the unit circle cannot all be exponentially small. For each fixed C > 1 and all sufficiently large n, any n such numbers have some order 2 ≤ k ≤ n+1 with |∑_i z_i^k| > C^(-n), even without the original condition z₁ = 1. The proof follows the residual-polynomial method in Tan, Wang, Huang, and Chen’s August 2026 paper “Residual bounds for Schur-stable polynomials,” using a fixed-degree polynomial test. This submission provides a complete machine-checked proof of the negative answer previously obtained by Luo, Yang, and Zhu.",
+  "authors": [
+    {
+      "name": "Linmiao Xu"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-20-000008-v1/6e440e3421baff6a44d1b8722deb3426e96e25662dd7133fbb01c417f827fdbf/",
+    "artifact_tree_sha256": "6e440e3421baff6a44d1b8722deb3426e96e25662dd7133fbb01c417f827fdbf",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-20T17:20:57Z",
+    "renderer_commit": "3561d237dcc4b28482558ad28a64d767d7cc8615",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CV",
+      "math.NT"
+    ],
+    "msc2020": []
+  },
+  "first_registered_on": "2026-09-20",
+  "formalization": {
+    "challenge_path": "erdos-973/Challenge.lean",
+    "comparator_config_path": "erdos-973/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "erdos-973/formalization.yaml",
+    "lakefile_path": "erdos-973/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.1",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "0df444a360eaa60ab8c11dca51a86af692955474"
+      }
+    ],
+    "solution_path": "erdos-973/Solution.lean",
+    "theorem_names": [
+      "Erdos973.Palomar.not_erdos_973",
+      "Erdos973.Palomar.eventually_exterior_power_sum_strict_lower_bound"
+    ]
+  },
+  "id": "PALOMAR-2026-09-20-000008",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-20T17:21:31Z",
+    "receipt_sha256": "79f88381901213cb7d94cb1e34e5986f2442d6dab890a21d3bfe857628c63e1e",
+    "repositories": [
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-20-000008-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-20-000008-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-20-000008-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-20-000008-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-20-000008-v1/0df444a360eaa60ab8c11dca51a86af692955474",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-20-000008-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-20-000008-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-20-000008-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-20-000008-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "1571a487465fb6a87f92dcc46f1bd71b0846c413",
+        "fork_repository": "PalomarArchive/linrock--math-proofs--14cf37780a40",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-20-000008-v1/1571a487465fb6a87f92dcc46f1bd71b0846c413",
+        "source_repository": "linrock/math-proofs"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Xiaojun Tan"
+          },
+          {
+            "name": "Qihang Wang"
+          },
+          {
+            "name": "Wei Huang"
+          },
+          {
+            "name": "Kun Chen"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2608.02043v3",
+        "location": "Corollary 1.2 and Sections 2–3",
+        "relationship": "formalizes",
+        "title": "Residual bounds for Schur-stable polynomials",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Yanping Luo"
+          },
+          {
+            "name": "Ruiyi Yang"
+          },
+          {
+            "name": "Keheng Zhu"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2607.22017v1",
+        "location": "Theorem 1.1",
+        "relationship": "independently-proves",
+        "title": "Exterior power sums",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "identifier": "https://www.erdosproblems.com/973",
+        "relationship": "background",
+        "title": "Erdős Problem 973: exterior power sums",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "P. Erdős"
+          }
+        ],
+        "identifier": "https://www.renyi.hu/~p_erdos/1965-17.pdf",
+        "location": "p. 213",
+        "relationship": "background",
+        "title": "Some recent advances and current problems in number theory (1965)",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/blob/5d65ac9b140a00051fe2827fb10911beb2201b3b/FormalConjectures/ErdosProblems/973.lean",
+        "note": "Pinned original conjecture adapted in a Mathlib-only Challenge. The upstream declaration ends in sorry, and no source is imported.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/miracleqihe/Erdos-973_solution_check-by-Lean",
+        "note": "The Luo–Yang–Zhu companion checks components but leaves the full uniform theorem unformalized. No source is imported.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Linmiao Xu"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-20T17:21:11Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "792c7c0b9e798bd02719e795ef11fa2b5929e067",
+    "report": {
+      "sha256": "e2c51e82b3c45d5263c0ae57957b7654647bf7bf352af40d026f6380a249702d"
+    },
+    "reviewed_at": "2026-09-20T16:38:05Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "1571a487465fb6a87f92dcc46f1bd71b0846c413",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "c79bfb397f7c2b17f1d45dc97bb224e01773dba31da0fb8c47ca55bf92b64697"
+    },
+    "project_path": "erdos-973",
+    "repository": "linrock/math-proofs",
+    "repository_url": "https://github.com/linrock/math-proofs",
+    "tree_url": "https://github.com/linrock/math-proofs/tree/1571a487465fb6a87f92dcc46f1bd71b0846c413/erdos-973"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "cg8oorjy7kqo"
+  },
+  "title": "Erdős 973: power sums cannot all be exponentially small",
+  "trust": {
+    "challenge_bytes": 2362,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 63,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "16546b17f2fec61068dce064f150a4b96dbd614a3b2f400da517d75dde986b8e",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-20-000008-v1/f697928b67060a3df21b18703ea861f4c1e158fa3b2543abe79faef6512b87a2/",
+    "evidence_tree_sha256": "f697928b67060a3df21b18703ea861f4c1e158fa3b2543abe79faef6512b87a2",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "5e638d75dab46f49e6857bead2cf55f6e65f8c4f6e1a7b7fe87e1fdd713ead2d",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 35521573970,
+    "solution_sha256": "b33081ac75d0e866bdd09b7aa597191f811cd941931155926f666994e0164fec",
+    "verified_at": "2026-09-20T16:13:27Z",
+    "workflow_commit": "3561d237dcc4b28482558ad28a64d767d7cc8615",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/35521573970"
+  },
+  "version": 1
+}

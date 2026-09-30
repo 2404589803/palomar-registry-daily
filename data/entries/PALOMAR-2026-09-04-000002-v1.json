@@ -1,0 +1,326 @@
+{
+  "abstract": "Alexa's three-dimensional Tutte embedding theorem (Discrete & Computational Geometry, 2025) requires the graph of a tetrahedral mesh to have neither a K₆ nor a K₃,₃,₁ minor and asks whether the second exclusion is necessary. The paper proves that it is redundant for finite simplicial complexes whose realization is a closed topological 3-ball and which satisfy the boundary-triangle condition (BT): if the 1-skeleton G has no K₆ minor, then G is linklessly embeddable and hence has no K₃,₃,₁ minor (Theorem 1.1). This Lean development proves the paper's new combinatorial mathematics over mathlib simple graphs and finite simplicial complexes and composes it into Theorem 1.1 with the cited theorems as explicit hypotheses. Proved: for every four-clique of a (BT) pair the induced relative F₂ chain complex has homology of dimension at most one (Lemma 4.3, with the soundness of its Boolean coordinate model, Lemma 7.1); a K₄-attachment never merges components of the old part (Lemma 5.2); every MP₁-cockade whose four-clique deletions leave at most two components is linklessly embeddable, given the four-clique Holst–Lovász–Schrijver criterion and linkless atoms (Proposition 5.3); and the joined statement structural_theorem, in which the skeleton of the complex is a mathlib SimpleGraph, every skeleton four-clique is a labelled four-clique of the pair, and the hypotheses are Corollary 3.6 (rigidity, Mader, Jørgensen), the relative ball duality of Section 4, Corollary 2.5, and Lemma 5.1. Generic rigidity, the extremal-minor classification, PL duality, the Holst–Lovász–Schrijver theorem, apex linklessness, and Alexa's theorem are not formalized and enter only as named hypotheses.",
+  "authors": [
+    {
+      "name": "Lennart Rudolph"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-04-000002-v1/20c0b4c1340b3e5564c9ff84b31e178301a258cc687e19079528150edb67b3cd/",
+    "artifact_tree_sha256": "20c0b4c1340b3e5564c9ff84b31e178301a258cc687e19079528150edb67b3cd",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-04T05:46:12Z",
+    "renderer_commit": "c605f23466450a52999fcfb3c6d68ed8febc56bf",
+    "verso_commit": "e09d21a5f7f66c9fc985b73197708298569bf583"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "cs.CG"
+    ],
+    "msc2020": [
+      "05C10",
+      "05C40",
+      "05C83",
+      "55N10",
+      "57Q15",
+      "68U05"
+    ]
+  },
+  "first_registered_on": "2026-09-04",
+  "formalization": {
+    "challenge_path": "zenodo-21925574/palomar/Challenge.lean",
+    "comparator_config_path": "zenodo-21925574/palomar/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "zenodo-21925574/palomar/formalization.yaml",
+    "lakefile_path": "zenodo-21925574/palomar/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.32.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "81a5d257c8e410db227a6665ed08f64fea08e997"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94"
+      }
+    ],
+    "solution_path": "zenodo-21925574/palomar/Solution.lean",
+    "theorem_names": [
+      "K331Tutte.Bridge.structural_theorem",
+      "K331Tutte.Cockades.safe_cockade_linkless",
+      "K331Tutte.Cockades.attachment_reachable_transfer",
+      "K331Tutte.FiniteHomology.Ambient.encoded_induced_four_pair_admissible",
+      "K331Tutte.FiniteHomology.Ambient.induced_four_coordinate_chain_identification",
+      "K331Tutte.FiniteHomology.Ambient.induced_four_clique_relative_homology_bound"
+    ]
+  },
+  "id": "PALOMAR-2026-09-04-000002",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-04T05:46:38Z",
+    "receipt_sha256": "44841c86295ed19ee2c39a7d8dc31c7d1c6f04618b59f232825903d8ab0f1969",
+    "repositories": [
+      {
+        "commit": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-04-000002-v1/a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-04-000002-v1/023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-04-000002-v1/7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-04-000002-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-04-000002-v1/81a5d257c8e410db227a6665ed08f64fea08e997",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-04-000002-v1/e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-04-000002-v1/6e311e2a844da9b2cc3971187df2fe0066947b93",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-04-000002-v1/38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-04-000002-v1/88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "debbfca8601d34a975a54d327f8dcba7ec6289df",
+        "fork_repository": "PalomarArchive/lennrt--palomar-formalizations--21c40838d48e",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-04-000002-v1/debbfca8601d34a975a54d327f8dcba7ec6289df",
+        "source_repository": "lennrt/palomar-formalizations"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Lennart Rudolph"
+          }
+        ],
+        "identifier": "10.5281/zenodo.21925574",
+        "license": "CC-BY-4.0",
+        "location": "https://doi.org/10.5281/zenodo.21925574",
+        "relationship": "formalizes",
+        "title": "Simpler Graph Conditions for Embedding Tetrahedral Meshes",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Marc Alexa"
+          }
+        ],
+        "identifier": "10.1007/s00454-023-00494-0",
+        "location": "https://doi.org/10.1007/s00454-023-00494-0",
+        "relationship": "background",
+        "title": "Tutte Embeddings of Tetrahedral Meshes",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Hein van der Holst"
+          },
+          {
+            "name": "László Lovász"
+          },
+          {
+            "name": "Alexander Schrijver"
+          }
+        ],
+        "location": "Graph Theory and Combinatorial Biology, Bolyai Society Mathematical Studies 7, pages 29–85, 1999",
+        "relationship": "background",
+        "title": "The Colin de Verdière graph parameter",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Ramin Naimi"
+          },
+          {
+            "name": "Andrei Pavelescu"
+          },
+          {
+            "name": "Elena Pavelescu"
+          }
+        ],
+        "identifier": "10.2140/agt.2023.23.2545",
+        "location": "https://doi.org/10.2140/agt.2023.23.2545",
+        "relationship": "background",
+        "title": "New bounds on maximal linkless graphs",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "L. K. Jørgensen"
+          }
+        ],
+        "location": "Ars Combinatoria 25C, pages 133–148, 1988",
+        "relationship": "background",
+        "title": "Extremal graphs for contractions to K₇",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Lennart Rudolph"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-04T05:46:22Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "4ed67de4fd69df383badb7857dff97e2fb734ab0",
+    "report": {
+      "sha256": "6917eb875eee273b7543c157634216cd53855ced087d851f1ecb9994aaeb092c"
+    },
+    "reviewed_at": "2026-09-04T05:26:08Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "debbfca8601d34a975a54d327f8dcba7ec6289df",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "b5060f3c4f90086ff1580b5226abd284b1a35acb7add29259ca3c6c622947dca"
+    },
+    "project_path": "zenodo-21925574/palomar",
+    "repository": "lennrt/palomar-formalizations",
+    "repository_url": "https://github.com/lennrt/palomar-formalizations",
+    "tree_url": "https://github.com/lennrt/palomar-formalizations/tree/debbfca8601d34a975a54d327f8dcba7ec6289df/zenodo-21925574/palomar"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "wpl94hi1823g"
+  },
+  "title": "Combinatorial core of the K₃,₃,₁-redundancy theorem for tetrahedral balls",
+  "trust": {
+    "challenge_bytes": 22804,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Combinatorics.SimpleGraph.Clique",
+      "Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected"
+    ],
+    "challenge_lines": 499,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "db287280ca400a27d8b82687d611774b8c2121ba5b611f305a973d749b2ef426",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-04-000002-v1/478c31996d21951e5662594c1ee63804d7373b8892b8b06aae0f0be51dd9dc1c/",
+    "evidence_tree_sha256": "478c31996d21951e5662594c1ee63804d7373b8892b8b06aae0f0be51dd9dc1c",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "4e7915201d3f9f04470d9eae002fa695f7cdc589",
+    "mechanical_report_sha256": "88ce1e5d7777f03a023e1dc91411256ecf3af5dd8e7c226ba12ee73474db665d",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33839140138,
+    "solution_sha256": "99d071fee2c84e437462a1fe0734c8be26ef3c7bc21053cdc07e84aefb54dad4",
+    "verified_at": "2026-09-04T05:10:33Z",
+    "workflow_commit": "c605f23466450a52999fcfb3c6d68ed8febc56bf",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33839140138"
+  },
+  "version": 1
+}

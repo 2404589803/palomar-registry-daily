@@ -1,0 +1,429 @@
+{
+  "abstract": "A Lean 4 / Mathlib development of Schmidt's Subspace Theorem and the theory beneath it, following Bombieri–Gubler, Heights in Diophantine Geometry (Chapters 1–7), and Schmidt's route in general. Two libraries, sorry-free and within Lean's three standard axioms. ArithmeticHeights builds heights of points, polynomials, matrices and linear subspaces, Northcott and Kronecker, Minkowski's second theorem, Siegel's lemma and the Bombieri–Vaaler theorems. DiophantineApproximation builds on it Roth's theorem over a number field with several places (and Ridout, the p-adic form, targets at infinity, moving targets), the geometry of numbers of approximation domains, and the Subspace Theorem: parametric, with coefficients in K, with algebraic coefficients, for S-integral points, and in Vojta's general-position form. It then proves the applications — Schmidt's simultaneous approximation, a transcendence criterion, unit equations, decomposable-form, Thue–Mahler, hyperelliptic and norm-form equations, the Corvaja–Zannier gcd bound — and Evertse's quantitative steps: systems of inequalities, the gap principles, the count of small solutions, and the passage from height intervals to subspaces. Twenty-six headline statements are compared: seven forms of Siegel's lemma and Bombieri–Vaaler, seven of Roth's theorem, seven of the Subspace Theorem, and five of Evertse's counting of the subspaces.",
+  "authors": [
+    {
+      "name": "Ralf Stephan"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-25-000022-v1/e07aa65b5e1bbd7ce057b88126880a7af3664646a3932767a27552a989e211d0/",
+    "artifact_tree_sha256": "e07aa65b5e1bbd7ce057b88126880a7af3664646a3932767a27552a989e211d0",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-09-25T16:31:19Z",
+    "renderer_commit": "a59f25bd8a66bf6faf3a4f4260d412989c0185ea",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11J87",
+      "11J68",
+      "11G50",
+      "11J25",
+      "11H06",
+      "11D61",
+      "11D57",
+      "11D59"
+    ]
+  },
+  "first_registered_on": "2026-09-25",
+  "formalization": {
+    "challenge_path": "ChallengeFlat.lean",
+    "comparator_config_path": "comparator/std3-flat.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "comparator",
+        "repository": "leanprover/comparator",
+        "revision": "fd5d5bcf14177b187f66d4502071268d877887c3"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "5e0c4e5239cb0a2d86d68a884bf52cfd963fce22"
+      },
+      {
+        "name": "lean4export",
+        "repository": "leanprover/lean4export",
+        "revision": "66f1fb4bc256072069767fce52d39480e4524869"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "33131f4fb10067cb3009bf4db615d9680c1ccd6b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Int.Matrix.exists_ne_zero_mulVec_eq_zero_iSup_abs_le",
+      "NumberField.exists_forall_exists_ne_zero_mulVec_eq_zero_absMulHeight_le",
+      "Int.Matrix.exists_linearIndependent_mulVec_eq_zero_prod_iSup_abs_le",
+      "Int.Matrix.exists_ne_zero_mulVec_eq_zero_iSup_abs_le_det_rpow",
+      "NumberField.exists_ne_zero_mem_ker_absMulHeight_le",
+      "NumberField.exists_linearIndependent_mem_ker_prod_absMulHeight_le",
+      "MvPolynomial.exists_ne_zero_mem_ker_mulHeight_rpow_le",
+      "NumberField.finite_setOf_prod_min_one_le",
+      "Real.irrationalityExponent_eq_two",
+      "Rat.finite_setOf_ridout",
+      "Rat.finite_setOf_apply_intCast_sub_le",
+      "NumberField.finite_setOf_prod_onePointApprox_le",
+      "NumberField.finite_setOf_prod_min_one_le_card_two",
+      "NumberField.finite_setOf_prod_min_one_le_of_isLittleO",
+      "NumberField.exists_finset_submodule_of_approxProd_le_card_two",
+      "NumberField.exists_finset_submodule_forall_approxDomain_subset",
+      "NumberField.exists_finset_submodule_of_approxProd_le",
+      "NumberField.exists_finset_submodule_of_approxProd_le_extension",
+      "NumberField.exists_finset_submodule_of_integer_of_affineProd_le",
+      "NumberField.exists_finset_submodule_of_generalProd_le",
+      "NumberField.exists_finset_submodule_of_approxProd_le_card_two_of_extension",
+      "NumberField.exists_finset_submodule_of_systemWeight_neg",
+      "NumberField.exists_finset_submodule_of_not_isLargeSolution",
+      "Rat.exists_finset_submodule_of_not_isLargeSolution",
+      "NumberField.exists_finset_submodule_of_forall_mem_interval",
+      "NumberField.exists_finset_submodule_of_card_eq_two"
+    ]
+  },
+  "id": "PALOMAR-2026-09-25-000022",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-25T16:31:58Z",
+    "receipt_sha256": "35a3405d62b74b8ccb1412afd29a031a92255adeb1d5b937fa2779cdd8009da7",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000022-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "33131f4fb10067cb3009bf4db615d9680c1ccd6b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000022-v1/33131f4fb10067cb3009bf4db615d9680c1ccd6b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000022-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000022-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "5e0c4e5239cb0a2d86d68a884bf52cfd963fce22",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000022-v1/5e0c4e5239cb0a2d86d68a884bf52cfd963fce22",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000022-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000022-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000022-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "fd5d5bcf14177b187f66d4502071268d877887c3",
+        "fork_repository": "PalomarArchive/leanprover--comparator--25495a50215b",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000022-v1/fd5d5bcf14177b187f66d4502071268d877887c3",
+        "source_repository": "leanprover/comparator"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000022-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "66f1fb4bc256072069767fce52d39480e4524869",
+        "fork_repository": "PalomarArchive/leanprover--lean4export--94a894d77e17",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000022-v1/66f1fb4bc256072069767fce52d39480e4524869",
+        "source_repository": "leanprover/lean4export"
+      },
+      {
+        "commit": "d12aa25a9725e8d28c1bfc018c664b7ceb8d35c5",
+        "fork_repository": "PalomarArchive/rwst--Subspace-Theorems--9bd9bba330e8",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000022-v1/d12aa25a9725e8d28c1bfc018c664b7ceb8d35c5",
+        "source_repository": "rwst/Subspace-Theorems"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Enrico Bombieri"
+          },
+          {
+            "name": "Walter Gubler"
+          }
+        ],
+        "location": "New Mathematical Monographs 4, Cambridge University Press 2006; Chapters 1–2 (heights, Siegel's lemma), 6 (Roth's theorem) and 7 (the Subspace Theorem and its applications), Appendix C (geometry of numbers)",
+        "relationship": "formalizes",
+        "title": "Heights in Diophantine Geometry",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Wolfgang M. Schmidt"
+          }
+        ],
+        "location": "Lecture Notes in Mathematics 785, Springer 1980",
+        "relationship": "adapts",
+        "title": "Diophantine Approximation",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Enrico Bombieri"
+          },
+          {
+            "name": "Jeffrey D. Vaaler"
+          }
+        ],
+        "location": "Invent. Math. 73 (1983), 11–32; Theorems 1 and 2",
+        "relationship": "formalizes",
+        "title": "On Siegel's lemma",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jan-Hendrik Evertse"
+          }
+        ],
+        "location": "Zap. Nauchn. Sem. POMI 377 (2010), 217–240; J. Math. Sci. 171 (2010), 824–837; arXiv:1008.2268. §2, Theorem A, Propositions 4.1–4.2, Lemmas 4.3–4.5, Theorem 2.2 and the proof of Theorem 2.1",
+        "relationship": "formalizes",
+        "title": "On the Quantitative Subspace Theorem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Ralf Stephan"
+          }
+        ],
+        "location": "ArithmeticHeights/README.md and DiophantineApproximation/README.md in this repository",
+        "relationship": "other",
+        "title": "The ArithmeticHeights and DiophantineApproximation roadmaps",
+        "type": "blueprint"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ralf Stephan"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-25T16:31:31Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "792c7c0b9e798bd02719e795ef11fa2b5929e067",
+    "report": {
+      "sha256": "e5fb0fa04a2a5dbc5d78f82a17260b549c0578c77b29e1b9b24f7e29ca2d186c"
+    },
+    "reviewed_at": "2026-09-25T16:22:32Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "d12aa25a9725e8d28c1bfc018c664b7ceb8d35c5",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "rwst/Subspace-Theorems",
+    "repository_url": "https://github.com/rwst/Subspace-Theorems",
+    "tree_url": "https://github.com/rwst/Subspace-Theorems/tree/d12aa25a9725e8d28c1bfc018c664b7ceb8d35c5"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "1c31jv3p5i3m"
+  },
+  "title": "Heights, Siegel's lemma, Roth's theorem and the Subspace Theorems in Lean",
+  "trust": {
+    "challenge_bytes": 41085,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.FiniteSupport.Basic",
+      "Mathlib.Algebra.Module.LinearMap.Rat",
+      "Mathlib.Algebra.Module.ZLattice.Basic",
+      "Mathlib.Algebra.Module.ZLattice.Covolume",
+      "Mathlib.Algebra.MvPolynomial.Coeff",
+      "Mathlib.Algebra.MvPolynomial.Funext",
+      "Mathlib.Algebra.MvPolynomial.NoZeroDivisors",
+      "Mathlib.Algebra.Order.Antidiag.FinsuppEquiv",
+      "Mathlib.Analysis.Complex.ExponentialBounds",
+      "Mathlib.Analysis.InnerProductSpace.Adjoint",
+      "Mathlib.Analysis.Matrix.LDL",
+      "Mathlib.Analysis.Normed.Algebra.GelfandMazur",
+      "Mathlib.Analysis.Normed.Field.Instances",
+      "Mathlib.Analysis.Polynomial.MahlerMeasure",
+      "Mathlib.Analysis.SpecialFunctions.Log.PosLog",
+      "Mathlib.Data.Finsupp.Interval",
+      "Mathlib.Data.Finsupp.MonomialOrder",
+      "Mathlib.Data.Matrix.ColumnRowPartitioned",
+      "Mathlib.LinearAlgebra.ExteriorPower.Basis",
+      "Mathlib.LinearAlgebra.LinearIndependent.BaseChange",
+      "Mathlib.LinearAlgebra.Matrix.Rank",
+      "Mathlib.MeasureTheory.Group.GeometryOfNumbers",
+      "Mathlib.MeasureTheory.Measure.Haar.Disintegration",
+      "Mathlib.MeasureTheory.Measure.Haar.Unique",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls",
+      "Mathlib.NumberTheory.DiophantineApproximation.Basic",
+      "Mathlib.NumberTheory.Height.MvPolynomial",
+      "Mathlib.NumberTheory.Height.NumberField",
+      "Mathlib.NumberTheory.Height.Projectivization",
+      "Mathlib.NumberTheory.NumberField.CanonicalEmbedding.Basic",
+      "Mathlib.NumberTheory.NumberField.ClassNumber",
+      "Mathlib.NumberTheory.NumberField.Completion.InfinitePlace",
+      "Mathlib.NumberTheory.NumberField.Completion.Ramification",
+      "Mathlib.NumberTheory.NumberField.Discriminant.Basic",
+      "Mathlib.NumberTheory.NumberField.House",
+      "Mathlib.NumberTheory.NumberField.Units.DirichletTheorem",
+      "Mathlib.NumberTheory.NumberField.Units.Regulator",
+      "Mathlib.NumberTheory.Ostrowski",
+      "Mathlib.NumberTheory.Transcendental.Liouville.LiouvilleNumber",
+      "Mathlib.NumberTheory.Transcendental.Liouville.LiouvilleWith",
+      "Mathlib.RingTheory.Complex",
+      "Mathlib.RingTheory.DedekindDomain.SInteger",
+      "Mathlib.RingTheory.DedekindDomain.SelmerGroup",
+      "Mathlib.RingTheory.Ideal.Norm.RelNorm",
+      "Mathlib.RingTheory.Polynomial.GaussNorm",
+      "Mathlib.RingTheory.Polynomial.Wronskian",
+      "Mathlib.Topology.Compactification.OnePoint.Basic"
+    ],
+    "challenge_lines": 823,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "b775f319ddcf72fa9905c709b5adc9b448893d8f7d9a3e9934c5cacddbf2de59",
+    "evidence_path": "evidence/PALOMAR-2026-09-25-000022-v1/b6830c1a576e17412c94715fcb5ad9c611851595bcb54e4c86e157eb7f0a8ec9/",
+    "evidence_tree_sha256": "b6830c1a576e17412c94715fcb5ad9c611851595bcb54e4c86e157eb7f0a8ec9",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/con-ron"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "d7ac5c6caa98a91437072d19f3ac2779860d1d171a36a738d82c0ae79cf86cac",
+    "protected_config_sha256": "38b16260b01e65a646ade1fc3f0f8fa76c41410c01344e24e999661211822149",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 36157233821,
+    "solution_sha256": "4e3232dde61d0516f24e03f34be7b234ca3e471f038a8b71446511bd17be9c12",
+    "tool_digests": {
+      "bwrap": "018dc133fdc22dcbd7dabbe00e77cec84c1aebac03f42007ddbfdf42858ed796",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-09-25T16:06:47Z",
+    "workflow_commit": "a59f25bd8a66bf6faf3a4f4260d412989c0185ea",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/36157233821"
+  },
+  "version": 1
+}

@@ -1,0 +1,267 @@
+{
+  "abstract": "There are `m` labeled supplies in `[0,1]`. In each period, an independent uniform demand arrives; an online policy selects one live supply, pays the distance between them, and replaces that supply by an independent uniform point. This is the one-dimensional fully dynamic model studied in Kanoria's [*Dynamic spatial matching*](https://doi.org/10.1214/25-AAP2154). That paper established a lower bound of order `log(m)/m` and an upper bound of order `log(m)^2/m`, and posed closing this logarithmic gap as an open problem.\n\nWe construct a policy and show that its performance matches the prior known lower bound up to a universal constant factor. Specifically, for every `m >= 2`, from every fixed initial inventory, its root-mean-square one-period cost has limsup at most `C log(m+1)/m`, with `C = 72000/log(2)`. With a scheduled `m`-period replacement phase, its expected average cost, including that phase, has the same bound for every total horizon `N >= 2m^2`. The policy assigns deletion probabilities recursively on a dyadic tree and implements them by quantile transport. Its analysis combines a harmonic inventory potential with a quadratic Bellman inequality. Tree symmetry cancels interactions between spatial scales, while the Bellman inequality controls both transport discrepancy and the curvature loss in the potential drift.",
+  "authors": [
+    {
+      "name": "Yash Kanoria"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-12-000002-v2/859a621a5944938d0967e70a085b1f5281cc2e18146caa43eea04b7e3ae50caf/",
+    "artifact_tree_sha256": "859a621a5944938d0967e70a085b1f5281cc2e18146caa43eea04b7e3ae50caf",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-14T21:01:41Z",
+    "renderer_commit": "a013555a88a0fc9ec910a09ea833dc9cc338db35",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.OC",
+      "math.PR"
+    ],
+    "msc2020": [
+      "68W27",
+      "90C40",
+      "60J20"
+    ]
+  },
+  "first_registered_on": "2026-09-12",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "FD1D.V5.Palomar.optimalDynamicMatchingUpperBound"
+    ]
+  },
+  "id": "PALOMAR-2026-09-12-000002",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-14T21:02:18Z",
+    "receipt_sha256": "39b0181c0a5ede7ace98ed179556ff01adf685c1495141955d724cff07ecdbf1",
+    "repositories": [
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000002-v2/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000002-v2/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000002-v2/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000002-v2/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000002-v2/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000002-v2/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000002-v2/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000002-v2/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000002-v2/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "26a5b4e2fd83fa86053239e09e92af370c62f18c",
+        "fork_repository": "PalomarArchive/ykanoria--FD1d-Lean--8f90e399686d",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-12-000002-v2/26a5b4e2fd83fa86053239e09e92af370c62f18c",
+        "source_repository": "ykanoria/FD1d-Lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Yash Kanoria"
+          }
+        ],
+        "location": "manuscript/optimal_dynamic_matching.tex in this repository, bundle v5 dated 2026-09-10",
+        "relationship": "formalizes",
+        "title": "Optimal fully dynamic matching on the line",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Yash Kanoria"
+          }
+        ],
+        "identifier": "https://doi.org/10.1214/25-AAP2154",
+        "location": "The Annals of Applied Probability 35(5) (2025)",
+        "relationship": "background",
+        "title": "Dynamic spatial matching",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Yash Kanoria"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-14T21:01:55Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "e9c8c238f5695b10f75db7175648a1d0195352c1",
+    "report": {
+      "sha256": "fa55ca227ce6d8383cef7a7770588064928fc72f05f8d7d922db215278700314"
+    },
+    "reviewed_at": "2026-09-14T18:56:24Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "26a5b4e2fd83fa86053239e09e92af370c62f18c",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "ykanoria/FD1d-Lean",
+    "repository_url": "https://github.com/ykanoria/FD1d-Lean",
+    "tree_url": "https://github.com/ykanoria/FD1d-Lean/tree/26a5b4e2fd83fa86053239e09e92af370c62f18c"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "9aa3hj4uk8st"
+  },
+  "title": "A Tight Upper Bound for Fully Dynamic Matching on the Line",
+  "trust": {
+    "challenge_bytes": 7478,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 196,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "950d74f4234175264924acc1cf1daf8bb19d5fc4c11c2556d34066a54c955e83",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-12-000002-v2/1c4b31309262329b9d79b0159254cb72c68f2430334de6630cd112d5aa1253c9/",
+    "evidence_tree_sha256": "1c4b31309262329b9d79b0159254cb72c68f2430334de6630cd112d5aa1253c9",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "adbed7a5d2aaef1ca545fbe9e473be5be4bb6a5e302b6d74c61f19241e3d1cff",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 34881238072,
+    "solution_sha256": "afa6c65091ca36de83ac939beb90234806ebd48f4a1a490e42563c1c03e84290",
+    "verified_at": "2026-09-14T18:43:30Z",
+    "workflow_commit": "a013555a88a0fc9ec910a09ea833dc9cc338db35",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/34881238072"
+  },
+  "version": 2
+}

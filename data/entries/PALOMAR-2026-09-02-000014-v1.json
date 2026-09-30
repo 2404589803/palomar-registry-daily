@@ -1,0 +1,486 @@
+{
+  "abstract": "GENERAL THEOREMS FIRST. For finite free algebras A, B over a commutative ring R, the trace form of the tensor product A ⊗_R B is the tensor product of the trace forms, and over a linearly ordered field the Sylvester signature of a tensor product of quadratic forms obeys a product rule. Seven compared general statements: (1) the trace of a pure tensor is the product of the traces, Tr_{A⊗B}(a ⊗ b) = Tr_A(a)·Tr_B(b); (2) the trace form on pure tensors is the product of the trace forms; (3) the Gram matrix of a tensor basis bA ⊗ bB (Mathlib's Basis.tensorProduct) is the Kronecker product of the two Gram matrices; (4) the discriminant product formula WITH SIGN, disc(bA ⊗ bB) = disc(bA)^|kappa| · disc(bB)^|iota| for bases indexed by finite types iota, kappa; (5) when 2 is invertible in R, the trace quadratic form of A ⊗ B is the tensor product (Mathlib's QuadraticForm.tmul) of the trace quadratic forms; (6)-(7) THE SIGNATURE PRODUCT RULE: over a linearly ordered field with 2 invertible, for quadratic forms Q1, Q2 on finite-dimensional spaces, sigPos(Q1 ⊗ Q2) = p1 p2 + n1 n2 and sigNeg(Q1 ⊗ Q2) = p1 n2 + n1 p2, with sigPos/sigNeg Mathlib's basis-free invariants (maximal dimension of a positive- resp. negative-definite subspace). (6)-(7) are the (p, n)-refinement of the multiplicativity of the signature homomorphism on the Witt ring of an ordered field (Lam 2005, Chapter VIII), stated for arbitrary (possibly degenerate) forms and proved by orthogonal bases and the uniqueness half of Sylvester's law. The Witt-ring statement gives only the difference p - n; recovering p and n separately for a possibly degenerate tensor product would in addition need the dimension of the radical of a tensor product, which Mathlib does not have either; the entry proves the two counts directly, without the Witt ring, which is not formalized. None of (1)-(7) was in Mathlib at the pin; Mathlib's nearest results are the trace of a tensor product of endomorphisms (LinearMap.trace_tensorProduct'), the determinant of a Kronecker product, the tensor product of quadratic forms and its polar form, orthogonal bases, and sigPos/sigNeg with Sylvester uniqueness — the infrastructure from which (1)-(7) are built. PRIOR ART on (4): Mathlib at the pin has NumberField.natAbs_discr_eq_natAbs_discr_pow_mul_natAbs_discr_pow — for two linearly disjoint number fields with coprime different ideals the ABSOLUTE VALUE of the discriminant of their compositum is |d1|^[K2:Q]·|d2|^[K1:Q] (via the different; the classical statement is in Khanduja 2019). Statement (4) is the elementary basis-level version: any finite free algebras over any commutative ring, the exact signed discriminant of the tensor basis, with no number-field, integrality or coprimality hypothesis; it neither implies nor is implied by the Mathlib theorem, and is cited beside it. THE INSTANCES (8)-(23), at the two fields cut out by the trinomials x^3 - x - 1 and x^4 - x - 1 — the cubic and quartic members of the family x^n - x - 1, irreducible over the rationals for every n >= 2 by Selmer's theorem (Mathlib), whose real roots above 1 are the plastic number and the quartic root of x^4 = x + 1 — and their compositum. The trace form of a number field K of degree n is (x, y) -> Tr(xy); in the power basis 1, x, ..., x^(n-1) its Gram matrix is the Hankel matrix (Tr x^(i+j)) of the power sums of the roots. (8)-(9) The Gram matrices, entrywise: Algebra.traceMatrix of the power family equals the explicit integer Hankel matrix — power sums 3, 0, 2, 3, 2 for the cubic and 4, 0, 0, 3, 4, 0, 3 for the quartic, from Newton's identities on the coefficients. (10)-(11) The discriminants of the power bases, Algebra.discr of the same families: -23 and -283, both prime. (12)-(13) Explicit diagonalisations: the trace form, as a quadratic form, is equivalent to the weighted sum of squares with weights 3, 2, -23/6 resp. 4, 4, -9/4, 283/36 — one congruence among many, exhibited with its rational change of basis. (14)-(17) The Sylvester signatures as basis-free invariants: sigPos and sigNeg are 2 and 1 for the cubic trace form and 3 and 1 for the quartic, read off from (12)-(13) through Sylvester uniqueness. (18)-(23) THE COMPOSITUM: the tensor product L = K_3 ⊗_Q K_4 is their compositum Q(rho, Q) — the degrees 3 and 4 are coprime, so the fields are linearly disjoint and L is a field, statement (23), from Mathlib's coprime-degree linear-disjointness criterion — and (18)-(22) are the general theorems at this pair: Tr(x ⊗ y) = Tr(x)·Tr(y); the Gram matrix of the tensor power family x^i ⊗ y^j (Fin 3 × Fin 4) is the Kronecker product of the two Gram matrices; the discriminant of that family is (-23)^4·(-283)^3 by (4); the Sylvester signature is (7, 5) by (6)-(7) applied to (2, 1) and (3, 1) — agreeing with the classical (r_1 + r_2, r_2) for the compositum's two real and five complex places (context, not compared). The registered compositum entry PALOMAR-2026-09-01-000005 treats the same field as Q(rho·Q), through the degree-12 minimal polynomial of the product; that Q(rho, Q) = Q(rho·Q) follows by degree count and is context here, never compared. THE CLASSICAL SETTING of the instances: the trace form of a number field with r_1 real and r_2 pairs of complex embeddings has signature (r_1 + r_2, r_2) — for the Hankel form of a polynomial this is Hermite's 1856 theorem (the signature difference counts the distinct real roots), and for the discriminant matrix of a number field it is Taussky's 1968 note; Conner and Perlis's 1984 survey is the standard reference. Here (r_1, r_2) = (1, 1), (2, 1) and (2, 5), so the classical theorem predicts exactly (2, 1), (3, 1) and (7, 5), and the Hermite counts 2 - 1 = 1 and 3 - 1 = 2 match the real-root counts of the two trinomials. That general theorem is NOT formalized: the two-field instances are proved directly by explicit congruence, the compositum instance by the general theorems (1)-(7); the embedding counts r_1, r_2 appear in no compared statement. WHY THESE FIELDS, for the instances: the cubic field is the signature-[1, 1] cubic field of smallest absolute discriminant (LMFDB, sorted by |disc|: 3.1.23.1 first, then 3.1.31.1); its Galois closure is the Artin field of the weight-one newform 23.1.b.a = eta(z) eta(23z), the classical Hecke example with Artin image S_3, whose analytic conductor the LMFDB records as minimal among all classical newforms and whose Stark unit is the root of x^3 - x - 1 itself; its integral trace form — which the compared Gram matrix (8) is, the power basis being an integral basis — is the object of Mantilla-Soler's study of integral trace forms of cubic fields (Algebra & Number Theory 2010). The quartic field is the degree-4 member of the same trinomial family, registered as the degree-4 Mahler-measure minimizer (PALOMAR-2026-08-31-000004), with the same profile: prime discriminant, monogenic. The field discriminants: the LMFDB records 4.2.283.1 (defining polynomial x^4 - x - 1, signature [2, 1], discriminant -283, monogenic, index 1) and 3.1.23.1 (reduced defining polynomial x^3 - x^2 + 1, the field generated by -1/rho, signature [1, 1], discriminant -23, monogenic, index 1) list -283 and -23 as the field discriminants; that the power bases are integral bases, so that the compared power-basis discriminants ARE the field discriminants, is cited from those records and not formalized; likewise the tensor power family is an integral basis of the compositum because the two discriminants are coprime (the standard integral-basis theorem for linearly disjoint fields; context only). PRIOR ART on the instances, as of the 2026-09-02 sweep: Mathlib contains no trace-form or discriminant computation for either field. The nearest prior work is the Lean 4 certification framework of Baanen, Chavarri Villarello and Dahmen (CPP 2025) and its 2026 sequel (Chavarri Villarello and Dahmen): they certify rings of integers, FIELD discriminants (as the determinant of the trace matrix of a certified integral basis) and, in the sequel, the signature (r_1, r_2) by real-root counting, for LMFDB entries at large; neither treats the trace form's Sylvester signature, and their published example sets (seven non-monogenic cubic fields unramified outside 2, 3, 5 in the first; the v1 example directory of the second) contain neither of the two fields here (checked 2026-09-02). Relative to that work, the compared discriminants (10)-(11) are the power-basis discriminants derived from the explicit Gram matrices — a weaker notion than the certified field discriminant, which coincides with it here because both fields are monogenic (LMFDB, cited) — and the Sylvester signatures have no counterpart there. The entry is not aware of a formalization, in any surveyed prover ecosystem, of the trace form of a tensor product of algebras, of the signature product rule, or of a number field's trace-form Sylvester signature. The proof modules descend from the author's public pdt-lean development (pinned below), where none of these statements was ever a compared statement. Axioms on every compared theorem: propext, Classical.choice, Quot.sound, audited in-build.",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-02-000014-v1/ae4bc75825c8639109f38bd8e4dd3570135c7593e368438f1d6c944f26c2b6df/",
+    "artifact_tree_sha256": "ae4bc75825c8639109f38bd8e4dd3570135c7593e368438f1d6c944f26c2b6df",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-02T23:59:11Z",
+    "renderer_commit": "5f26d4a0a40351530ce578a7dd4d6fc2a469fc28",
+    "verso_commit": "b677415e8a0becccc0b850137c2d8f6205132a91"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11E04",
+      "11E12",
+      "15A63",
+      "11R04",
+      "11R16",
+      "11R29"
+    ]
+  },
+  "first_registered_on": "2026-09-02",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.31.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "63045536fe95024e6c18fc7b48e03f506701c5bc"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "5c7542ed018c78194f1e2b903eaf6a792b74c03d"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "24b0d9dc081c5423f8eec7e866c441e5184f29d9"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "e3cb2f741431ce31bf73549fb52316a57368b06f"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "f46324995fca5f0483b742e4eb4daec7f4ee50d2"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "fa08db58b30eb033edcdab331bba000827f9f785"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "TraceForms.trace_tmul",
+      "TraceForms.traceForm_tmul",
+      "TraceForms.traceMatrix_tensorProduct",
+      "TraceForms.discr_tensorProduct",
+      "TraceForms.traceForm_toQuadraticMap_tensor",
+      "TraceForms.sigPos_tmul",
+      "TraceForms.sigNeg_tmul",
+      "TraceForms.traceMatrix_cubic",
+      "TraceForms.traceMatrix_quartic",
+      "TraceForms.discr_cubic",
+      "TraceForms.discr_quartic",
+      "TraceForms.traceForm_cubic_equiv",
+      "TraceForms.traceForm_quartic_equiv",
+      "TraceForms.sigPos_cubic",
+      "TraceForms.sigNeg_cubic",
+      "TraceForms.sigPos_quartic",
+      "TraceForms.sigNeg_quartic",
+      "TraceForms.trace_tmul_compositum",
+      "TraceForms.traceMatrix_compositum",
+      "TraceForms.discr_compositum",
+      "TraceForms.sigPos_compositum",
+      "TraceForms.sigNeg_compositum",
+      "TraceForms.isField_compositum"
+    ]
+  },
+  "id": "PALOMAR-2026-09-02-000014",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-02T23:59:50Z",
+    "receipt_sha256": "15c4fbb3a6a6be525861f1aa2d709fe72cdf58fc90ac018cd29fb0a8ed209585",
+    "repositories": [
+      {
+        "commit": "e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000014-v1/e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "fa08db58b30eb033edcdab331bba000827f9f785",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000014-v1/fa08db58b30eb033edcdab331bba000827f9f785",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000014-v1/5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000014-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000014-v1/fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000014-v1/63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000014-v1/24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000014-v1/f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000014-v1/92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "9528df064df58318213b541048e05ff4c0d9cb67",
+        "fork_repository": "PalomarArchive/stalex444--golden-family-trace-forms--52ae5edbb27e",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000014-v1/9528df064df58318213b541048e05ff4c0d9cb67",
+        "source_repository": "stalex444/golden-family-trace-forms"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Charles Hermite"
+          }
+        ],
+        "identifier": "Journal für die reine und angewandte Mathematik 52 (1856), 39-51",
+        "license": "unknown",
+        "location": "https://doi.org/10.1515/crll.1856.52.39",
+        "relationship": "independently-proves",
+        "title": "Extrait d'une lettre de Mr. Ch. Hermite de Paris à Mr. Borchardt de Berlin sur le nombre des racines d'une équation algébrique comprises entre des limites données",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Olga Taussky"
+          }
+        ],
+        "identifier": "Journal of the London Mathematical Society s1-43 (1968), no. 1, 152-154",
+        "license": "unknown",
+        "location": "https://doi.org/10.1112/jlms/s1-43.1.152",
+        "relationship": "independently-proves",
+        "title": "The Discriminant Matrices of an Algebraic Number Field",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Pierre E. Conner"
+          },
+          {
+            "name": "Robert Perlis"
+          }
+        ],
+        "identifier": "Series in Pure Mathematics 2, World Scientific, Singapore, 1984",
+        "license": "unknown",
+        "location": "https://doi.org/10.1142/0066",
+        "relationship": "background",
+        "title": "A Survey of Trace Forms of Algebraic Number Fields",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "James Joseph Sylvester"
+          }
+        ],
+        "identifier": "The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science 4 (1852), 138-142",
+        "license": "unknown",
+        "location": "https://doi.org/10.1080/14786445208647087",
+        "relationship": "background",
+        "title": "A demonstration of the theorem that every homogeneous quadratic polynomial is reducible by real orthogonal substitutions to the form of a sum of positive and negative squares",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Guillermo Mantilla-Soler"
+          }
+        ],
+        "identifier": "Algebra & Number Theory 4 (2010), no. 6, 681-699",
+        "license": "unknown",
+        "location": "https://doi.org/10.2140/ant.2010.4.681",
+        "relationship": "background",
+        "title": "Integral trace forms associated to cubic extensions",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "The LMFDB Collaboration"
+          }
+        ],
+        "identifier": "The L-functions and Modular Forms Database, classical newform 23.1.b.a (weight 1, level 23, character 23.b)",
+        "license": "unknown",
+        "location": "https://www.lmfdb.org/ModularForm/GL2/Q/holomorphic/23/1/b/a/",
+        "relationship": "background",
+        "title": "Newform 23.1.b.a",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "T. Y. Lam"
+          }
+        ],
+        "identifier": "Graduate Studies in Mathematics 67, American Mathematical Society, Providence, RI, 2005; ISBN 0-8218-1095-2",
+        "license": "unknown",
+        "location": "https://bookstore.ams.org/gsm-67",
+        "relationship": "background",
+        "title": "Introduction to Quadratic Forms over Fields",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Sudesh K. Khanduja"
+          }
+        ],
+        "identifier": "International Journal of Number Theory 15 (2019), no. 2, 353-360",
+        "license": "unknown",
+        "location": "https://doi.org/10.1142/S1793042119500167",
+        "relationship": "background",
+        "title": "The discriminant of compositum of algebraic number fields",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Anne Baanen"
+          },
+          {
+            "name": "Alain Chavarri Villarello"
+          },
+          {
+            "name": "Sander R. Dahmen"
+          }
+        ],
+        "identifier": "Proceedings of the 14th ACM SIGPLAN International Conference on Certified Programs and Proofs (CPP 2025), ACM, 50-66",
+        "license": "unknown",
+        "location": "https://doi.org/10.1145/3703595.3705874",
+        "relationship": "background",
+        "title": "Certifying Rings of Integers in Number Fields",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Alain Chavarri Villarello"
+          },
+          {
+            "name": "Sander R. Dahmen"
+          }
+        ],
+        "identifier": "arXiv:2607.26230 (submitted 2026-07-28)",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2607.26230",
+        "relationship": "background",
+        "title": "Formally certifying number field invariants",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Ernst S. Selmer"
+          }
+        ],
+        "identifier": "Mathematica Scandinavica 4 (1956), 287-302",
+        "license": "unknown",
+        "location": "https://doi.org/10.7146/math.scand.a-10478",
+        "relationship": "background",
+        "title": "On the irreducibility of certain trinomials",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "The LMFDB Collaboration"
+          }
+        ],
+        "identifier": "The L-functions and Modular Forms Database, number field 4.2.283.1 (x^4 - x - 1)",
+        "license": "unknown",
+        "location": "https://www.lmfdb.org/NumberField/4.2.283.1",
+        "relationship": "background",
+        "title": "Number field 4.2.283.1",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "The LMFDB Collaboration"
+          }
+        ],
+        "identifier": "The L-functions and Modular Forms Database, number field 3.1.23.1 (reduced defining polynomial x^3 - x^2 + 1)",
+        "license": "unknown",
+        "location": "https://www.lmfdb.org/NumberField/3.1.23.1",
+        "relationship": "background",
+        "title": "Number field 3.1.23.1",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4 (Mathlib/RingTheory/Trace/Defs.lean, Mathlib/RingTheory/Trace/Basic.lean, Mathlib/RingTheory/Discriminant.lean, Mathlib/LinearAlgebra/QuadraticForm/Signature.lean, Mathlib/RingTheory/AdjoinRoot.lean, Mathlib/RingTheory/Polynomial/Selmer.lean, Mathlib/LinearAlgebra/Trace.lean, Mathlib/LinearAlgebra/Matrix/Kronecker.lean, Mathlib/FieldTheory/LinearDisjoint.lean, Mathlib/LinearAlgebra/QuadraticForm/TensorProduct.lean, Mathlib/NumberTheory/NumberField/Discriminant/Different.lean)",
+        "note": "Honest accounting of what is consumed, at the pin fabf563a: the Selmer irreducibility theorem (Polynomial.X_pow_sub_X_sub_one_irreducible_rat, Thomas Browning), in the prose only; Newton's identities exist in Mathlib (Mathlib/RingTheory/MvPolynomial/NewtonIdentities.lean) but are NOT used — every trace is computed from the left-multiplication matrix and the relation r^n = r + 1; the trace-form infrastructure (Algebra.trace, Algebra.traceForm, Algebra.traceMatrix with traceMatrix_apply, trace_eq_matrix_trace, leftMulMatrix_eq_repr_mul), the discriminant as the determinant of the trace matrix (Algebra.discr, discr_def), the power basis of a quotient by a monic polynomial (AdjoinRoot.powerBasis'), and the signature invariants with the uniqueness half of Sylvester's law of inertia (sigPos, sigNeg, QuadraticForm.sigPos_of_equiv_weightedSumSquares, sigNeg_of_equiv_weightedSumSquares, QuadraticMap.Equivalent, QuadraticMap.basisRepr, QuadraticMap.weightedSumSquares); and, for the compositum, the trace of a tensor product of endomorphisms (LinearMap.trace_tensorProduct'), tensor-product bases (Module.Basis.tensorProduct), the determinant of a Kronecker product (Matrix.det_kronecker), the orthogonal-basis representation (QuadraticMap.basisRepr_eq_of_iIsOrtho), and the coprime-degree linear-disjointness criterion (IntermediateField.LinearDisjoint.of_finrank_coprime with LinearDisjoint.isField_of_forall). Also consumed for the general theorems: the tensor product of quadratic forms QuadraticForm.tmul / tensorDistrib with tensorDistrib_tmul and associated_tmul, and orthogonal bases (LinearMap.BilinForm.exists_orthogonal_basis). PRIOR ART DISCLOSED: Mathlib/NumberTheory/NumberField/Discriminant/Different.lean holds NumberField.natAbs_discr_eq_natAbs_discr_pow_mul_natAbs_discr_pow — for linearly disjoint number fields K1, K2 with coprime different ideals, |disc(K1 K2)| = |disc K1|^[K2:Q] · |disc K2|^[K1:Q] — the field-level, absolute-value form of the discriminant product formula, proved through the different. Statement (4) here is the basis-level signed formula for arbitrary finite free algebras over any commutative ring; the two are different statements and neither is derived from the other. Mathlib contains no statement that the trace form of a tensor product of algebras is the tensor product of the trace forms (statements (1)-(3), (5)), no signature product rule for tensor products of quadratic forms ((6)-(7)), no statement of the (r_1 + r_2, r_2) signature theorem for number fields and no trace-form or discriminant computation for either field here (checked at the pin, 2026-09-02); the sixteen instance theorems (8)-(23) compared here are this entry's contribution.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/alainchmt/RingOfIntegersProject and https://github.com/alainchmt/CertifyingInvariantsNF (tag v1) — the Baanen-Chavarri Villarello-Dahmen certification framework",
+        "note": "PRIOR ART, NOT CONSUMED. The Lean 4 + Mathlib framework behind the two disclosed papers: certified rings of integers and field discriminants (CPP 2025), then signatures (r_1, r_2) by real-root counting, unit groups modulo p-th powers, and class groups (2026), for LMFDB entries at large. Nothing from it is imported here; its published examples contain neither of this entry's fields (checked 2026-09-02); and its notion of signature is the embedding count, not the trace form's inertia indices compared here. Cited so that the discriminant statements (10)-(11) are placed honestly: that framework certifies the stronger ring-of-integers discriminant, this entry derives the power-basis discriminant from the explicit Gram matrix.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/stalex444/pdt-lean (parent development; pinned reference revision: commit add583f3a7fc465a7fa78e2a236fe728ea9ec850)",
+        "note": "The broader public project this entry belongs to, and the provenance of the proof modules. The seven proof modules of this repository — PdtSignature and PdtSignatureRho (the explicit Gram matrices and their rational congruences to diagonal form), PdtIrreducible (irreducibility of the two trinomials over Q, by reduction modulo 2, consumed only by the field statement (16)), PdtTraceLink (the identification of those matrices with Algebra.traceMatrix of the power families, and the discriminants), PdtTraceSignature (the isometries and the sigPos/sigNeg invariants) and PdtTraceCompositum (the tensor-product trace form, its Kronecker Gram matrix, discriminant and signature, and the field property of the compositum) and PdtTraceTensor (the general theorems (1)-(7) and the compositum instance as their corollary) — are copied here byte-for-byte from the pinned revision. Chronology: PdtSignature, PdtSignatureRho and PdtIrreducible predate this entry in the parent (June 2026); PdtTraceLink, PdtTraceSignature, PdtTraceCompositum and PdtTraceTensor were written for this entry on 2026-09-02, developed and committed in the parent at the pinned revision, then copied here. This repository is a complete, self-contained proof development for the compared statements, not a wrapper: the seven modules, the Challenge and the Solution build here with the pinned toolchain and no import from the parent. The parent's registered entry PALOMAR-2026-08-19-000007 compared none of the statements compared here.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-09-01-000005 (stalex444/mahler-minimizer-compositum @ d78ce1610608cf4a90d5580c267110c96d2f9af5)",
+        "note": "CONTEXT, NOT COMPARED CONTENT. The registered sibling treats the compositum of the same two fields as Q(rho·Q) (its degree-12 minimal polynomial, conjugate census, and unit-ness of the product of the two roots). Nothing about trace forms, discriminants, or signatures is registered there, and nothing from it is re-compared here. The compositum statements (18)-(23) of this entry are about the tensor product K_3 ⊗_Q K_4, proved a field in (16); its identification with the sibling's Q(rho·Q) is a degree count (both have degree 12 and one contains the other) and is context, never compared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-09-01-000012 (stalex444/golden-family-boundary @ fc43a62561b4d7846ca25273229a4f964dff7ae5)",
+        "note": "CONTEXT, NOT COMPARED CONTENT. The registered sibling holds the family x^n - x - 1 at general n (root ladder, morphic boundary, the n = 4 root not Pisot). It supplies the real-root picture that the Hermite reading of the compared signatures matches (one real root of the cubic; two of the quartic), as context only; no root count appears in any compared statement here.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-02T23:59:26Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "4ed67de4fd69df383badb7857dff97e2fb734ab0",
+    "report": {
+      "sha256": "cede953e9faf3f095e9a2310438e7210510db4abf596320c98244c176c7dd126"
+    },
+    "reviewed_at": "2026-09-02T19:11:01Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "9528df064df58318213b541048e05ff4c0d9cb67",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/golden-family-trace-forms",
+    "repository_url": "https://github.com/stalex444/golden-family-trace-forms",
+    "tree_url": "https://github.com/stalex444/golden-family-trace-forms/tree/9528df064df58318213b541048e05ff4c0d9cb67"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "lqrl7ok6rgqf"
+  },
+  "title": "The trace form of a tensor product of algebras and the signature product rule, with the trace forms of Q[x]/(x^3 - x - 1), Q[x]/(x^4 - x - 1) and their compositum as instances",
+  "trust": {
+    "challenge_bytes": 13438,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 286,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "66648455608f0d7e8cb3a6d87768c6616c33ad2b27070ea621843b678a8e0bac",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-02-000014-v1/c6aac452dfb9bc041bc3f0edeea632164d1a495355142d2193b8805590d3d824/",
+    "evidence_tree_sha256": "c6aac452dfb9bc041bc3f0edeea632164d1a495355142d2193b8805590d3d824",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "8554815c2dc6b7abe99ec1f08849c9759ba77947",
+    "mechanical_report_sha256": "3c570f724a82728f908e0323b70f7b8bff9515475ecbafeaf70df67258c80a1b",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33669293925,
+    "solution_sha256": "8f043d63ca21176a46f983f25032895d1032e156f9fadbe2e3656e5b45ebaad6",
+    "verified_at": "2026-09-02T18:53:56Z",
+    "workflow_commit": "5f26d4a0a40351530ce578a7dd4d6fc2a469fc28",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33669293925"
+  },
+  "version": 1
+}

@@ -1,0 +1,439 @@
+{
+  "abstract": "A Lean 4 formalization of grammar and automaton presentations of the extended Chomsky hierarchy. Starting from unrestricted-grammar rewriting, it defines regular, linear, context-free, context-sensitive, indexed, deterministic context-free, recursive, and recursively enumerable language classes; relates finite, pushdown, linearly bounded, and Mathlib TM0 automata to the corresponding grammar classes; proves strict hierarchy inclusions; and establishes closure or non-closure under thirteen operations for seven major classes.",
+  "authors": [
+    {
+      "name": "Niels Mündler"
+    },
+    {
+      "name": "Martin Dvořák"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-27-000011-v1/99e53bd4e93575ce6850ea06c811f4ce1ef5a334749c6c6cff4f0eb8ee289d59/",
+    "artifact_tree_sha256": "99e53bd4e93575ce6850ea06c811f4ce1ef5a334749c6c6cff4f0eb8ee289d59",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-27T11:33:15Z",
+    "renderer_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.FL"
+    ],
+    "msc2020": [
+      "68Q42",
+      "68Q45",
+      "68Q04"
+    ]
+  },
+  "first_registered_on": "2026-08-27",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "is_RG_iff_isRegular",
+      "RG_eq_DFA",
+      "is_NFA_iff_is_DFA",
+      "NFA_eq_DFA",
+      "is_CF_iff_isContextFree",
+      "CF_eq_PDA_Class",
+      "is_PDA_finalState_iff_is_PDA_emptyStack",
+      "PDA_FinalStateClass_eq_Class",
+      "is_LR_iff_is_DPDA",
+      "is_LR_iff_is_DCF",
+      "CS_eq_LBA",
+      "TM_eq_RE",
+      "ChomskyHierarchy.RG_strict_subclass_Linear_of_card",
+      "ChomskyHierarchy.Linear_strict_subclass_CF_of_card",
+      "ChomskyHierarchy.RG_strict_subclass_DCF_of_card",
+      "ChomskyHierarchy.DCF_strict_subclass_CF_of_card",
+      "ChomskyHierarchy.CF_strict_subclass_Indexed",
+      "ChomskyHierarchy.Indexed_strict_subclass_CS",
+      "ChomskyHierarchy.CS_strict_subclass_Recursive_of_card",
+      "ChomskyHierarchy.Recursive_strict_subclass_RE_of_card",
+      "Linear_not_closedUnderConcatenation",
+      "RG_closedUnderUnion",
+      "RG_closedUnderIntersection",
+      "RG_closedUnderComplement",
+      "RG_closedUnderConcatenation",
+      "RG_closedUnderKleeneStar",
+      "Language.RG_closedUnderHomomorphism",
+      "Language.RG_closedUnderEpsFreeHomomorphism",
+      "RG_closedUnderSubstitution",
+      "RG_closedUnderInverseHomomorphism",
+      "RG_closedUnderReverse",
+      "RG_closedUnderIntersectionWithRegular",
+      "RG_closedUnderRightQuotient",
+      "RG_closedUnderRightQuotientWithRegular",
+      "DCF_notClosedUnderUnion",
+      "DCF_notClosedUnderIntersection",
+      "DCF_closedUnderComplement",
+      "DCFConcatenation.DCF_notClosedUnderConcatenation",
+      "DCFStar.DCF_notClosedUnderKleeneStar",
+      "DCFHomomorphism.DCF_notClosedUnderHomomorphism",
+      "DCFHomomorphism.DCF_notClosedUnderEpsFreeHomomorphism",
+      "DCF_notClosedUnderSubstitution",
+      "DCF_closedUnderInverseHomomorphism",
+      "DCF_notClosedUnderReverse",
+      "DCF_closedUnderIntersectionWithRegular",
+      "DCF_notClosedUnderRightQuotient",
+      "DCF_closedUnderRightQuotientWithRegular",
+      "CF_closedUnderUnion",
+      "CF_notClosedUnderIntersection",
+      "CF_notClosedUnderComplement",
+      "CF_closedUnderConcatenation",
+      "CF_closedUnderKleeneStar",
+      "CF_closedUnderHomomorphism",
+      "CF_closedUnderEpsFreeHomomorphism",
+      "CF_closedUnderSubstitution",
+      "CF_closedUnderInverseHomomorphism",
+      "CF_closedUnderReverse",
+      "CF_closedUnderIntersectionWithRegular",
+      "CF_notClosedUnderRightQuotient",
+      "CF_closedUnderRightQuotientWithRegular",
+      "Indexed_closedUnderUnion",
+      "IndexedIntersectionNonclosure.Indexed_notClosedUnderIntersection",
+      "IndexedComplementNonclosure.Indexed_notClosedUnderComplement",
+      "Indexed_closedUnderConcatenation",
+      "Indexed_closedUnderKleeneStar",
+      "Indexed_closedUnderHomomorphism",
+      "Indexed_closedUnderEpsFreeHomomorphism",
+      "Indexed_closedUnderSubstitution",
+      "Indexed_closedUnderInverseHomomorphism",
+      "Indexed_closedUnderReverse",
+      "Indexed_closedUnderIntersectionWithRegular",
+      "Indexed_notClosedUnderRightQuotient",
+      "Indexed_closedUnderRightQuotientWithRegular",
+      "CS_closedUnderUnion",
+      "CS_closedUnderIntersection",
+      "CS_closedUnderComplement",
+      "CS_closedUnderConcatenation",
+      "CS_closedUnderKleeneStar",
+      "CS_notClosedUnderHomomorphism",
+      "CS_closedUnderEpsFreeHomomorphism",
+      "CS_notClosedUnderSubstitution",
+      "CS_closedUnderInverseHomomorphism",
+      "CS_closedUnderReverse",
+      "CS_closedUnderIntersectionWithRegular",
+      "CS_notClosedUnderRightQuotient",
+      "CS_notClosedUnderRightQuotientWithRegular",
+      "Recursive_closedUnderUnion",
+      "Recursive_closedUnderIntersection",
+      "Recursive_closedUnderComplement",
+      "Recursive_closedUnderConcatenation",
+      "Recursive_closedUnderKleeneStar",
+      "Recursive_notClosedUnderHomomorphism",
+      "Recursive_closedUnderEpsFreeHomomorphism",
+      "Recursive_notClosedUnderSubstitution",
+      "Recursive_closedUnderInverseHomomorphism",
+      "RecursiveReverse.Recursive_closedUnderReverse",
+      "Recursive_closedUnderIntersectionWithRegular",
+      "Recursive_notClosedUnderRightQuotient",
+      "Recursive_notClosedUnderRightQuotientWithRegular",
+      "RE_closedUnderUnion",
+      "RE_closedUnderIntersection",
+      "RE_notClosedUnderComplement",
+      "RE_closedUnderConcatenation",
+      "RE_closedUnderKleeneStar",
+      "RE_closedUnderHomomorphism",
+      "RE_closedUnderEpsFreeHomomorphism",
+      "RE_closedUnderSubstitution",
+      "RE_closedUnderInverseHomomorphism",
+      "RE_closedUnderReverse",
+      "RE_closedUnderIntersectionWithRegular",
+      "RE_closedUnderRightQuotient",
+      "RE_closedUnderRightQuotientWithRegular"
+    ]
+  },
+  "id": "PALOMAR-2026-08-27-000011",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-27T11:33:55Z",
+    "receipt_sha256": "03714162027aef236b6dddeeddf5281278f74030f67d65375c1c1bd4a3999325",
+    "repositories": [
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000011-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000011-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000011-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000011-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000011-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000011-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000011-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000011-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000011-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "42cfdc35e1229a2c75bb3e710dce9a96ca38c6f7",
+        "fork_repository": "PalomarArchive/nielstron--langlib--8ece816bcb95",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000011-v1/42cfdc35e1229a2c75bb3e710dce9a96ca38c6f7",
+        "source_repository": "nielstron/langlib"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "John E. Hopcroft"
+          },
+          {
+            "name": "Rajeev Motwani"
+          },
+          {
+            "name": "Jeffrey D. Ullman"
+          }
+        ],
+        "identifier": "ISBN 978-0321455369",
+        "location": "Chapters 2-9",
+        "relationship": "formalizes",
+        "title": "Introduction to Automata Theory, Languages, and Computation, 3rd edition",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Alfred V. Aho"
+          }
+        ],
+        "identifier": "doi:10.1145/321479.321488",
+        "location": "Journal of the ACM 15(4), 647-671 (1968)",
+        "relationship": "formalizes",
+        "title": "Indexed Grammars—An Extension of Context-Free Grammars",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Sige-Yuki Kuroda"
+          }
+        ],
+        "identifier": "doi:10.1016/S0019-9958(64)90120-2",
+        "location": "Information and Control 7(2), 207-223 (1964)",
+        "relationship": "formalizes",
+        "title": "Classes of Languages and Linear-Bounded Automata",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "John Myhill"
+          }
+        ],
+        "identifier": "WADD Technical Note 60-165",
+        "location": "Wright Air Development Division (1960)",
+        "relationship": "formalizes",
+        "title": "Linear Bounded Automata",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Donald E. Knuth"
+          }
+        ],
+        "identifier": "doi:10.1016/S0019-9958(65)90426-2",
+        "location": "Information and Control 8(6), 607-639 (1965)",
+        "relationship": "formalizes",
+        "title": "On the Translation of Languages from Left to Right",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/madvorak/grammars",
+        "note": "Langlib began as a Lean 4 port of this earlier Lean formalization and has since substantially extended and reorganized it.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/AlexLoitzl/pumping_cfg",
+        "note": "Langlib ports its context-free pumping-lemma proof; pumping results are background to parts of the hierarchy development but are not selected in this Comparator configuration.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/shetzl/autth",
+        "note": "The CFG/PDA equivalence development includes a port and adaptation of the PDA branch of this earlier Lean work.",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Niels Mündler"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-27T11:33:29Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "d5a647db3757303b1d928cfae4d3d232eed3e79e",
+    "report": {
+      "sha256": "a60c47d0335b60420651cfdb4f737f42e21e49ef4383021b323e1f220690f79d"
+    },
+    "reviewed_at": "2026-08-27T10:20:36Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "42cfdc35e1229a2c75bb3e710dce9a96ca38c6f7",
+    "license": {
+      "declared_identifier": "BSD-2-Clause",
+      "detected_identifier": "BSD-2-Clause",
+      "path": "LICENSE.md",
+      "sha256": "a9c907c5eed9d38df4360c57c766994e4460eca4dd17a0da146ebf4393212cc5"
+    },
+    "repository": "nielstron/langlib",
+    "repository_url": "https://github.com/nielstron/langlib",
+    "tree_url": "https://github.com/nielstron/langlib/tree/42cfdc35e1229a2c75bb3e710dce9a96ca38c6f7"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "13wjot0evzcb"
+  },
+  "title": "nielstron/langlib",
+  "trust": {
+    "challenge_bytes": 44353,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 945,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "672c5e054cbe346e0b06865f3caa8f98f4283f9fdbf3ef6fa824f15326d8e2d2",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-27-000011-v1/74d922799491482520197b1cc01950847f8bef632bd7c0c176259306c2059c99/",
+    "evidence_tree_sha256": "74d922799491482520197b1cc01950847f8bef632bd7c0c176259306c2059c99",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "7325f383510caa6a396ec2ec1fd0d94b89b5fcfb3ef7b9f0a90b5e9a6b04e4f3",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33059019219,
+    "solution_sha256": "83f9c77656cc809c258923af47a91b654d02726e6390061b5732614fa0f61ece",
+    "verified_at": "2026-08-27T10:00:52Z",
+    "workflow_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33059019219"
+  },
+  "version": 1
+}

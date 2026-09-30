@@ -1,0 +1,304 @@
+{
+  "abstract": "Let N(T,2T) count the nontrivial zeros of the Riemann zeta function with ordinate in (T,2T], with multiplicity, and N_0^s(T,2T) the simple zeros among them on the critical line. The Lean development accompanying arXiv:2608.13637 (anthropics/zeta-23-lean) proves, for Mathlib's riemannZeta and unconditionally, that for every eps > 0 and all large T, (H - eps) N(T,2T) <= N_0^s(T,2T), with H = 3/2 - (1/sqrt 2) cot(1/sqrt 2) = 0.67250070367941164573... (its Theorem D). Ainta (github.com/ainta/zeta-simple-zeros) refines H by carrying the spectral defect of the Gram matrix of the simple-zero vectors through that argument and bounding it block by block through a local inequality on seven points. Advertised here: that refinement carried out for n points at once, and three instances. Parametrically, for n >= 2, c > 0, m >= n, p > 0 with c(m-(n-1)) <= 1, if c <= F(n,p,g) for every nonnegative vector g of n-1 gaps (the hypothesis hCert), then for every eps > 0 and all large T, (Phi_n(n,c,m,p) - eps) N(T,2T) <= N_0^s(T,2T), where Phi_n(n,c,m,p) = (H - (n-1)(m-1)/(pm)) / (1 - c(m-(n-1))/m). At n = 7 this is Ainta's theorem. THE THREE-POINT INSTANCE IS UNCONDITIONAL. At (n,c,p) = (3, 1345/10^6, 3000) the hypothesis is proved, not assumed: the overlap weight w = k^2 is enclosed from a twelve-term Taylor bound on cos and sin and the closed form of the kernel, and 368 interval cell lemmas over rationals, applied 1515 times over 487 leaves, cover the quarter-plane of the two gaps. No external interval-arithmetic certificate is assumed for the three-point theorem, and no floating point appears. The cap gives m = 745 and the constant (149000000 H - 99200)/148800133 = 0.67273733450380945875..., exceeding H by 2.3663e-4: for Mathlib's riemannZeta, an unconditional improvement of the dependency's Theorem D. THE FOUR-POINT INSTANCE IS ALSO UNCONDITIONAL. At (n,c,p) = (4, 2310/10^6, 2500), the finite inequality at every triple of nonnegative gaps is proved inside Lean. The cap gives m = 435 and the resulting constant is (906250 H - 1085)/904171 = 0.67284701976668870316.... The bound and ratio carry no certificate hypothesis and use exactly the same three permitted axioms. The eight-point instance stays conditional. Our n-point generalisation of Ainta's interval verifier accepts c = 41763/10^7 at p = 3200, giving m = 246 and 0.67305298298962888...; interval-arithmetic acceptance is not a Lean proof, so hCert remains explicit. The contrast is explicit in the statements: the parametric and eight-point theorems retain a named certificate hypothesis, while the three- and four-point theorems prove their certificates inside Lean.",
+  "authors": [
+    {
+      "name": "Thomas Lince"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-25-000005-v1/c584089963aa4b5fd9d9bffdad5aaebb296882910c5f0078fe4abc37b0a95c82/",
+    "artifact_tree_sha256": "c584089963aa4b5fd9d9bffdad5aaebb296882910c5f0078fe4abc37b0a95c82",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-25T23:50:33Z",
+    "renderer_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "verso_commit": "755ccbe968ad1b0255bee8b46d9cb2306486d6d8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11M26",
+      "15A42"
+    ]
+  },
+  "first_registered_on": "2026-08-25",
+  "formalization": {
+    "challenge_path": "lean/bridge/V2Challenge.lean",
+    "comparator_config_path": "lean/bridge/comparator-v2.json",
+    "definition_names": [],
+    "formalization_metadata_path": "lean/bridge/palomar-v2/formalization.yaml",
+    "lakefile_path": "lean/bridge/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "Zeta23",
+        "repository": "anthropics/zeta-23-lean",
+        "revision": "3635e74826a4c1fcece7d1cd2b6fa75e43a00510"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "51e6992efd06126df61a496bebf8f49482a4e129"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "123d15766ba49356c02ebad2a4462dfe12d79899"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "f5c090429dff3cf66cb65562526c9ea6e8edfbcb"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "bb3469a87774349fe01898d8bf2fc6a1ce6411ca"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "222c58dad7706a6e7cae46c0edd65ea881d3ee27"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7db8190085343afde2f5d2cdcc9bac719b6ec02c"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ef42f8944eaf5b6cbfbe75d1917d824c7dd6cf33"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "76e1c118b0700b4ceafe99532e887d6431625e1a"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "1319485273bf87833fa472afbcefdedecb16b45f"
+      }
+    ],
+    "solution_path": "lean/bridge/V2Solution.lean",
+    "theorem_names": [
+      "Zeta23Ext.PalomarV2.n_point_bound",
+      "Zeta23Ext.PalomarV2.eight_point_bound",
+      "Zeta23Ext.PalomarV2.eight_point_bound_ratio",
+      "Zeta23Ext.PalomarV2.three_point_bound",
+      "Zeta23Ext.PalomarV2.three_point_bound_ratio",
+      "Zeta23Ext.PalomarV2.four_point_bound",
+      "Zeta23Ext.PalomarV2.four_point_bound_ratio"
+    ]
+  },
+  "id": "PALOMAR-2026-08-25-000005",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-25T23:51:13Z",
+    "receipt_sha256": "f223dff0f5993b7d8ba9845be9c3d4d437ae37cab4a488349ba9cf31277f4b1c",
+    "repositories": [
+      {
+        "commit": "3635e74826a4c1fcece7d1cd2b6fa75e43a00510",
+        "fork_repository": "PalomarArchive/anthropics--zeta-23-lean--94784dd69547",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-25-000005-v1/3635e74826a4c1fcece7d1cd2b6fa75e43a00510",
+        "source_repository": "anthropics/zeta-23-lean"
+      },
+      {
+        "commit": "7db8190085343afde2f5d2cdcc9bac719b6ec02c",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-25-000005-v1/7db8190085343afde2f5d2cdcc9bac719b6ec02c",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "76e1c118b0700b4ceafe99532e887d6431625e1a",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-25-000005-v1/76e1c118b0700b4ceafe99532e887d6431625e1a",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "bb3469a87774349fe01898d8bf2fc6a1ce6411ca",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-25-000005-v1/bb3469a87774349fe01898d8bf2fc6a1ce6411ca",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "f5c090429dff3cf66cb65562526c9ea6e8edfbcb",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-25-000005-v1/f5c090429dff3cf66cb65562526c9ea6e8edfbcb",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "51e6992efd06126df61a496bebf8f49482a4e129",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-25-000005-v1/51e6992efd06126df61a496bebf8f49482a4e129",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "123d15766ba49356c02ebad2a4462dfe12d79899",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-25-000005-v1/123d15766ba49356c02ebad2a4462dfe12d79899",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "222c58dad7706a6e7cae46c0edd65ea881d3ee27",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-25-000005-v1/222c58dad7706a6e7cae46c0edd65ea881d3ee27",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ef42f8944eaf5b6cbfbe75d1917d824c7dd6cf33",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-25-000005-v1/ef42f8944eaf5b6cbfbe75d1917d824c7dd6cf33",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "1319485273bf87833fa472afbcefdedecb16b45f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-25-000005-v1/1319485273bf87833fa472afbcefdedecb16b45f",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "84312e4477dfeb7e0d8a91c38897f225f5a52f19",
+        "fork_repository": "PalomarArchive/teal-sea--zeta-lab--3c21e0f57be6",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-25-000005-v1/84312e4477dfeb7e0d8a91c38897f225f5a52f19",
+        "source_repository": "teal-sea/zeta-lab"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ainta"
+          }
+        ],
+        "license": "unknown",
+        "location": "https://github.com/ainta/zeta-simple-zeros",
+        "relationship": "adapts",
+        "title": "More than 67.3% of the zeros of the Riemann zeta function are simple and lie on the critical line",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "L. Alpoge"
+          },
+          {
+            "name": "R. Furman"
+          }
+        ],
+        "contributors": [
+          {
+            "name": "Claude (Anthropic)",
+            "role": "the official record for arXiv:2608.13637 states that the proof was discovered autonomously by Claude (Anthropic) and verified and communicated by the listed authors"
+          }
+        ],
+        "identifier": "arXiv:2608.13637",
+        "license": "unknown",
+        "location": "https://www-cdn.anthropic.com/95c246936988e43127bc6b2ceb7077c1dad2d68e.pdf",
+        "relationship": "background",
+        "title": "More than two thirds of the zeta zeros are simple and on the critical line",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/anthropics/zeta-23-lean",
+        "note": "Pinned at commit 3635e74826a4c1fcece7d1cd2b6fa75e43a00510 as a Lake dependency of the selected project. It supplies Ncount and N0simple for Mathlib's riemannZeta, the analytic inputs discharged for riemannZeta, the constant HD 1 = H, the Montgomery-Taylor window and its endgame, and the linear algebra. The advertised theorem is its thmD_0_simple_mult with HD 1 replaced by Phi_n n c m p. Nothing in it was modified, and three_point_bound and four_point_bound improve its Theorem D under the same axioms and with no certificate hypothesis.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Thomas Lince"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-25T23:50:51Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "d5a647db3757303b1d928cfae4d3d232eed3e79e",
+    "report": {
+      "sha256": "70eeb8d2578a1a9697aa6dd1a0665319d9b788924b110fabe0e158c622d39a6c"
+    },
+    "reviewed_at": "2026-08-25T22:56:23Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": [
+      "The literature account omits a substantial body of directly competing public work already documented in the submitted repository. That audit does not establish every competing claim as a theorem, but its omission prevents readers from assessing how the selected generalization and unconditional instances relate to the known public field and possible related formalization. Cite the material competitors and explain the precise distinction between their reported stronger constants and this submission's kernel-checked analytic bridge and internally proved certificates."
+    ]
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "84312e4477dfeb7e0d8a91c38897f225f5a52f19",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "fd0274e92564494901ccaf2ff75d99547568261ebe70c3271e559f6892baadee"
+    },
+    "project_path": "lean/bridge",
+    "repository": "teal-sea/zeta-lab",
+    "repository_url": "https://github.com/teal-sea/zeta-lab",
+    "tree_url": "https://github.com/teal-sea/zeta-lab/tree/84312e4477dfeb7e0d8a91c38897f225f5a52f19/lean/bridge"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "gfyk289f9xkr"
+  },
+  "title": "teal-sea/zeta-lab",
+  "trust": {
+    "challenge_bytes": 14007,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 311,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "9d8494e82be2d3ebef07e2084da164f41ced8757daf49174c91e28ee3167949c",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-25-000005-v1/c31be505198e83362141e8428fc06c8febc79aa9a9c0b51044296bc01add0c2c/",
+    "evidence_tree_sha256": "c31be505198e83362141e8428fc06c8febc79aa9a9c0b51044296bc01add0c2c",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "9fb131bb100eb32ccf6836f14e4f8328d13b6792",
+    "mechanical_report_sha256": "09d142b059aa5e2953a1eadfdfb2137243fc829ba22a20114882c0fc387c7319",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32883916252,
+    "solution_sha256": "a3951ae4ae6089e497bf72a235d2e09743b03a7bd3074619ae916f6080859cc2",
+    "verified_at": "2026-08-25T22:42:06Z",
+    "workflow_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32883916252"
+  },
+  "version": 1
+}

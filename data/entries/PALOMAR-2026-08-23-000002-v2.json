@@ -1,0 +1,385 @@
+{
+  "abstract": "A Lean 4 / Mathlib development of a paper, which answers a problem by Dubickas. Dubickas (Glasgow Math. J. 48 (2006), 331–336) splits the reals α > 1 in two: α lies in 𝒵 when some real ξ ≠ 0 makes every integral part ⌊ξαⁿ⌋, n ≥ 1, even, and in 𝒮 otherwise. At α = 3/2 this is Mahler's question, and open; his Problem 3 asks whether √3 lies in 𝒮 or in 𝒵. This formalization settles that question and the whole square-root slice: √3 ∈ 𝒵 by an explicit ξ = 1.34160899796…, and for an integer m ≥ 2 one has √m ∈ 𝒮 exactly when m = 2. The cells √5, √6, √7, √8 put four explicit points of 𝒵 in the interval (2,3), the only interval where an answer to Dubickas's Problem 5 could live; they are formalized (SZ.exists_mem_MahlerZ_Ioo_two_three) but are not separately compared, being subsumed by the compared Theorem B. The mechanism is not Diophantine approximation but the arithmetic of Cantor sets, and rests on the triviality that √m² = m is an integer: splitting n into even and odd values turns the one orbit into two base-m orbits coupled by x + √m y = σ, and a covering induction — Utz's 1951 theorem on the distance set of the Cantor discontinuum at m = 3, proved here for every base and every modulus — solves that equation inside the restricted-digit set. The same machinery at a general modulus gives, for p ≥ 2 and non-square m ≥ 3 in either of two explicit ranges, a real ξ ≠ 0 with p ∣ ⌊ξ√mⁿ⌋ for every n ≥ 1, hence integral parts that are composite from some point on; and the greedy's branching shows the witnesses for √3 have cardinality 2^ℵ₀, so all but countably many of them are transcendental. The informal account is the companion paper doi:10.13140/RG.2.2.32215.43682. Credit divides as follows, in contributor terms rather than bibliographic ones: the mathematical discovery is the Fable-5 agent's; the formalization is the Fable-5 and Opus-5 agents'; the agents also drafted the prose of the companion paper, which the author revised; the direction and the review are the author's, who is responsible for the mathematical content. Bibliographic authorship of the paper is the author's alone — the collaboration is credited in its Acknowledgements, not in its byline, as is usual for an AI tool. There is no sorry outside the deliberate placeholders in Challenge.lean, no project-defined axiom, no native_decide, and Mathlib is the only Lake dependency of the development itself.",
+  "authors": [
+    {
+      "name": "Ralf Stephan (direction, review, paper author)"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-23-000002-v1/89440ff5f672610a78815ecb20dbcba520731a51a531493cd8247aadab23bd3e/",
+    "artifact_tree_sha256": "89440ff5f672610a78815ecb20dbcba520731a51a531493cd8247aadab23bd3e",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-23T10:10:53Z",
+    "renderer_commit": "6aacf313b4b845f23b929d4642375479b7790e4e",
+    "verso_commit": "90c688db9db7280364c8bd7f8264c82a01582fd4"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.DS"
+    ],
+    "msc2020": [
+      "11J71",
+      "11K16",
+      "11A63",
+      "28A80",
+      "11B83"
+    ]
+  },
+  "first_registered_on": "2026-08-23",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.34.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "comparator",
+        "repository": "leanprover/comparator",
+        "revision": "c3903e1ed0148a32cd39510707c632dc4d265514"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "169f50d4fb7ca23e1c486157044cd42fdf839361"
+      },
+      {
+        "name": "lean4export",
+        "repository": "leanprover/lean4export",
+        "revision": "af5aa64bb914c3c2c781f378088dbd38acf4f804"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "d9598f07b1bc701f1e3aae163d2681c1fd978793"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "ba67e212be1197b84c1f1f6299488a10a3002713"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "d8823026ac7ef130c253089d95685f9877b95323"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "18889deb9e83ea7420ef51c160d6f88552e744e3"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "d54dddc581e08be364c278052863524bff7a99a9"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "ab3a82db9fea14cf0fd7f5a2de650f4b534640af"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "SZ.sqrtTwo_mem_S",
+      "SZ.sqrtThree_mem_MahlerZ",
+      "SZ.sqrtThree_notMem_S",
+      "SZ.sqrt_natCast_mem_S_iff",
+      "SZ.mem_MahlerZ_of_three_le",
+      "SZ.sqrt_mem_MahlerZ_of_four_le",
+      "SZ.exists_dvd_floor_sqrt",
+      "SZ.exists_eventually_composite_sqrt",
+      "SZ.continuum_le_mk_witnesses_sqrtThree",
+      "SZ.exists_transcendental_witness_sqrtThree"
+    ]
+  },
+  "id": "PALOMAR-2026-08-23-000002",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-23T10:11:37Z",
+    "receipt_sha256": "dad532066ade887a3a846764213d4c35c09a6613853665367edd8541bd134855",
+    "repositories": [
+      {
+        "commit": "18889deb9e83ea7420ef51c160d6f88552e744e3",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-23-000002-v1/18889deb9e83ea7420ef51c160d6f88552e744e3",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "d54dddc581e08be364c278052863524bff7a99a9",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-23-000002-v1/d54dddc581e08be364c278052863524bff7a99a9",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "d8823026ac7ef130c253089d95685f9877b95323",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-23-000002-v1/d8823026ac7ef130c253089d95685f9877b95323",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "ba67e212be1197b84c1f1f6299488a10a3002713",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-23-000002-v1/ba67e212be1197b84c1f1f6299488a10a3002713",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "169f50d4fb7ca23e1c486157044cd42fdf839361",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-23-000002-v1/169f50d4fb7ca23e1c486157044cd42fdf839361",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "d9598f07b1bc701f1e3aae163d2681c1fd978793",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-23-000002-v1/d9598f07b1bc701f1e3aae163d2681c1fd978793",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-23-000002-v1/a8acbfd87375ff4abe14ce09db5b7664d383bc7f",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-23-000002-v1/507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c3903e1ed0148a32cd39510707c632dc4d265514",
+        "fork_repository": "PalomarArchive/leanprover--comparator--25495a50215b",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-23-000002-v1/c3903e1ed0148a32cd39510707c632dc4d265514",
+        "source_repository": "leanprover/comparator"
+      },
+      {
+        "commit": "ab3a82db9fea14cf0fd7f5a2de650f4b534640af",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-23-000002-v1/ab3a82db9fea14cf0fd7f5a2de650f4b534640af",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "af5aa64bb914c3c2c781f378088dbd38acf4f804",
+        "fork_repository": "PalomarArchive/leanprover--lean4export--94a894d77e17",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-23-000002-v1/af5aa64bb914c3c2c781f378088dbd38acf4f804",
+        "source_repository": "leanprover/lean4export"
+      },
+      {
+        "commit": "e3184902f13967b9f20f37244b3d1c30610ca846",
+        "fork_repository": "PalomarArchive/rwst--Square-Roots--3c293e4b711d",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-23-000002-v1/e3184902f13967b9f20f37244b3d1c30610ca846",
+        "source_repository": "rwst/Square-Roots"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Ralf Stephan"
+          }
+        ],
+        "identifier": "https://doi.org/10.13140/RG.2.2.32215.43682",
+        "location": "Theorems A, B, C and Theorem 9.1",
+        "relationship": "formalizes",
+        "title": "Even integral parts of powers of square roots",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Arturas Dubickas"
+          }
+        ],
+        "identifier": "https://doi.org/10.1017/S0017089506003090",
+        "location": "Glasgow Math. J. 48 (2006), 331–336; Problem 3 (p. 332), p. 333, Thm 1(i), Thm 2(i)",
+        "relationship": "background",
+        "title": "Even and odd integral parts of powers of a real number",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "W. R. Utz"
+          }
+        ],
+        "location": "Amer. Math. Monthly 58 (1951), no. 6, 407–408",
+        "relationship": "background",
+        "title": "The distance set for the Cantor discontinuum",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Kurt Mahler"
+          }
+        ],
+        "location": "J. Austral. Math. Soc. Ser. A 8 (1968), 313–321",
+        "relationship": "background",
+        "title": "An unsolved problem on the powers of 3/2",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Robert Tijdeman"
+          }
+        ],
+        "location": "K. Norske Vidensk. Selsk. Skr. 16 (1972), 1–4",
+        "relationship": "background",
+        "title": "Note on Mahler's 3/2-problem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Seungki Hahn"
+          },
+          {
+            "name": "Dan Ismailescu"
+          },
+          {
+            "name": "Gyumin Kim"
+          },
+          {
+            "name": "Minjae Kim"
+          }
+        ],
+        "identifier": "arXiv:2608.05309",
+        "location": "preprint (2026)",
+        "relationship": "background",
+        "title": "Explicit algebraic numbers all whose integer parts of powers are composite",
+        "type": "preprint"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://doi.org/10.13140/RG.2.2.20582.79689",
+        "note": "The Lean development accompanying the companion paper \"Even integral parts of powers of quadratic Pisot numbers\" (repository directory Even-Integral), which classifies 𝒮 versus 𝒵 for the quadratic Pisot numbers. Same author, same collaboration, same namespace SZ, and two modules shared byte for byte: SZ/Defs.lean (the sets 𝒵 and 𝒮, tail closure, the perfect-square cell) and SZ/Tijdeman.lean (the even greedy giving [3,∞) ⊆ 𝒵, which is the m ≥ 9 cell here and one of five cells there). Beyond that common base the two developments are disjoint: neither one's theorems are used by the other, the classes they treat do not overlap (√m is neither Pisot nor Salem), and the methods differ — trace recurrences there, restricted-digit Cantor arithmetic here.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ralf Stephan"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-06T02:02:50Z",
+  "registry_correction": {
+    "based_on": {
+      "path": "entries/PALOMAR-2026-08-23-000002-v1.json",
+      "sha256": "e8c661bea13a1c623b7dad3a98e3adced6a108385f78cbb514811d5f1a33b56a",
+      "version": 1
+    },
+    "changed_fields": [
+      "authors"
+    ],
+    "evidence_path": "evidence/PALOMAR-2026-08-23-000002-v2/75046446f1cb4e4c48106a5283f3957687bfe793fe3fad549926a8b77a9ef8e9/",
+    "evidence_tree_sha256": "75046446f1cb4e4c48106a5283f3957687bfe793fe3fad549926a8b77a9ef8e9",
+    "explanation": "Corrects the project authorship metadata by removing “Claude Code, claude-fable-5 (mathematical discovery, formalization, paper drafting)” and “Claude Code, claude-opus-5 (formalization, paper drafting)”, which identify automated systems rather than human authors. Their contributions remain disclosed in the source metadata and narrative production account. The human author and responsible maintainer, source, mathematical content, and verification evidence are unchanged.",
+    "generated_by": "Palomar / Registry correction",
+    "kind": "registry-metadata-correction"
+  },
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "4ed67de4fd69df383badb7857dff97e2fb734ab0",
+    "report": {
+      "sha256": "61f9cdc94bf565935734e28542c7639ede1b847d808bb66166399979625f72cd"
+    },
+    "reviewed_at": "2026-09-06T01:41:33Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 4,
+  "source": {
+    "commit": "e3184902f13967b9f20f37244b3d1c30610ca846",
+    "license": {
+      "declared_identifier": "CC0-1.0",
+      "detected_identifier": "CC0-1.0",
+      "path": "LICENSE",
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    "repository": "rwst/Square-Roots",
+    "repository_url": "https://github.com/rwst/Square-Roots",
+    "tree_url": "https://github.com/rwst/Square-Roots/tree/e3184902f13967b9f20f37244b3d1c30610ca846"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "palomar-maintainer"
+    },
+    "submission_id": "gizckipv0p1o"
+  },
+  "title": "rwst/Square-Roots",
+  "trust": {
+    "challenge_bytes": 7247,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.AlgebraicCard",
+      "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+      "Mathlib.Algebra.Order.Floor.Ring",
+      "Mathlib.Algebra.Ring.Parity",
+      "Mathlib.Analysis.Real.Sqrt",
+      "Mathlib.SetTheory.Cardinal.Continuum"
+    ],
+    "challenge_lines": 136,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "c53b6046ce185124043002c79d9d980b95bf34812ed3aa4ba359a81ff429ef27",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-23-000002-v1/2e285d899537f70ffb72d4d82c62efe66319b7790485ed062d6b0a772a70366a/",
+    "evidence_tree_sha256": "2e285d899537f70ffb72d4d82c62efe66319b7790485ed062d6b0a772a70366a",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "cacf989bd75f608700820f6afc595f32e7a99a4d",
+    "mechanical_report_sha256": "634f97646efecb9b0bc4a9cb171fb612a83abc6fd6f15054b03306e472dc7a24",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32631634017,
+    "solution_sha256": "fc2c4a22d004d211b6b5808b791c512e46cdaa50453bea38fd078bdd457a60cb",
+    "verified_at": "2026-08-23T09:46:59Z",
+    "workflow_commit": "6aacf313b4b845f23b929d4642375479b7790e4e",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32631634017"
+  },
+  "version": 2
+}

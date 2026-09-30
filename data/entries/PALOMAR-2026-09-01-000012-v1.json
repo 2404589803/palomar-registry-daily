@@ -1,0 +1,448 @@
+{
+  "abstract": "Kernel-checked general-n theorems for the golden family — the ladder of trinomials x^n - x - 1, whose unique real root r_n > 1 descends from the golden ratio (n = 2) through the plastic number (n = 3) toward 1. The family's structural boundary falls at n = 3; this entry proves the morphic half unconditionally at general n and holds the Pisot half as the measure⟺Pisot equivalence, the unconditional n = 4 non-Pisot statement, and the Siegel-conditional strict excess for n >= 4, from the family's own arithmetic, with no per-degree case check above the boundary. Eleven compared statements carry the surface. (1) The root ladder: for every n >= 2 the root exists, is unique above 1, and strictly decreases in n. (2) The morphic boundary, UNCONDITIONAL: r_n satisfies the golden ratio's two scale closures p + 1 = p^k and p - 1 = p^(-l) (Aarts-Fokkink-Kruijtzer 2001, spelled inline) if and only if n <= 3 — the classification pins morphic numbers to the golden ratio and the plastic number, and descent puts r_n below 1.23, hence below both, for n >= 4. (3) Circle exclusion: x^n - x - 1 has no complex root of modulus 1, for any n (|z| = |z + 1| = 1 forces z^2 + z + 1 = 0, so z^3 = 1, and every residue of n mod 3 is impossible). (4) The Jensen lower bound r_n <= M(x^n - x - 1), by the monic root-product form of the Mahler measure. (5) The equivalence M(x^n - x - 1) = r_n iff every other complex root lies strictly inside the unit circle — the honest form of \"the family's Mahler-measure boundary IS its Pisot boundary\": the equivalence is itself the kernel theorem (exact because the family never has unimodular roots, and its trinomials are separable by Selmer irreducibility), stated once and never counted as a pair of separate boundaries. (6) The Siegel-conditional closure: IF the plastic number is the smallest Pisot number — Siegel 1944, entering ONLY as an explicit named hypothesis, with \"Pisot\" unfolded in the statement — THEN r_n < M(x^n - x - 1) for every n >= 4. Siegel's minimality is the single classical input anywhere in the entry; every other statement is kernel-checked unconditionally, and Siegel's theorem itself is not proved here. (7) Q < psi: the quartic root (q^4 = q + 1) lies strictly below psi (psi^4 = psi^3 + 1), the Mahler measure of the n = 4 member. (8) THE SHARED LEMMA, at general n: no root of x^n - x - 1 satisfies z^2 + z + 1 = 0 (z^3 = 1 and every residue of n mod 3 is impossible). It supplies the obstruction in the circle exclusion (3), which is re-derived from it as an explicit corollary (the circle geometry supplies the reduction), and up to the substitution z^n = z + 1 (under which z^n + z^2 = 0 iff z^2 + z + 1 = 0) it is Mathlib's public Polynomial.X_pow_sub_X_sub_one_irreducible_aux — the first step of Mathlib's Selmer proof, hence of the morphic classification behind (2) — restated in the family's own vocabulary; compared as the named shared core, not as new mathematics. (9) Witness b_3 (b^3 = b^2 + 1): every other complex root of x^3 = x^2 + 1 has modulus < 1, and b_3 is not morphic. (10) Witness psi (psi^4 = psi^3 + 1): every other complex root of x^4 = x^3 + 1 has modulus < 1, and psi is not morphic. (11) The golden quartic root is NOT Pisot: for q^4 = q + 1, some complex root of x^4 = x + 1 other than q has modulus > 1 (every nonreal root does — quartic_conj_norm_gt_one in the proof module, not compared) — with (10) and (7) the degree-4 separation: Q and psi are both algebraic units with constant term of modulus one (unit-ness is elementary and not compared: Q^-1 = Q^3 - 1, psi^-1 = psi^3 - psi^2), yet Q is not Pisot and psi is, so the unit condition alone does not locate the Pisot boundary. (10) and (11) are not independent evidence: x^4 - x^3 - 1 is the image of x^4 - x - 1 under x -> -1/x, so the Pisot half of (10) says x^4 - x - 1 has one root inside the unit circle and three outside, and (11) follows; they are compared separately for the two families' sakes. THE STORY: one shared lemma beneath both boundaries (naming the family-specific arithmetic core, not the whole proof graph: (2) and (6) also share the elementary descent r_n < 1.23 < rho, and the kernel-held Pisot side is localized by Siegel plus descent, the angle route being context); the boundaries localize by different routes — an angle for Pisot (the escape arc between the primitive cube roots of unity, giving the outside-root count 1 + 2*floor((2n - 1)/6), Howell-Kyle 2018 Theorem 3 via the reciprocal trinomial; context, NOT formalized), a degree for morphic (the cofactor x^2 - x + 1 forcing k = 3; formalized) — and the classes are in fact separable: (9)-(11) hold the witnesses and the degree-4 separation in the kernel, with no Siegel input, showing the classes coming apart inside the sister trinomial family itself (Pisot units below phi that are not morphic). The entry never claims the two boundaries are independent (they share the lemma) and never claims a common cause for their location. Two spellings of \"Pisot\" appear: the trinomial-roots form of (5), (9), (10), (11) and the minimal-polynomial form of the siegel hypothesis; they coincide exactly when the defining trinomial is irreducible (Selmer for (5), (11); x^3 - x^2 - 1 and x^4 - x^3 - 1 have no rational root and no integer quadratic factorization, for (9), (10)). On the sister family x^m - x^(m-1) - 1 the classes come apart: b_2 = phi and b_5 = rho exactly, so morphic only for m = 2, 5 (AFK, kernel-held, plus strict decrease); Pisot at m = 2, 5 is elementary, though at m = 5 the quintic is reducible with two roots ON the unit circle, so b_5 is Pisot in the minimal-polynomial sense only; the m = 3, 4 members are the kernel-held witnesses; not Pisot for 6 <= m <= 30 numerically and for all m >= 6 Siegel-conditionally (b_6 < rho). The n <= 4 instances of this boundary are registered content of the author's sibling entries (PALOMAR-2026-08-31-000004, PALOMAR-2026-09-01-000005, and PALOMAR-2026-09-01-000008) and are cited as context imports, never re-compared. The classical route to the n >= 4 strict excess (Smyth 1971), the limit behavior of the family measures (Lawton 1983, Smyth 1981, Verger-Gaugry 2016, Stankov 2014), and the outside-root count (Howell-Kyle 2018, with Brilleslyper-Schaubroeck 2014 for the unimodular criterion and Stankov 2014 for the asymptotic density) are cited context, not formalized — see the labeled context block in the sources. As of the 2026-09-01 sweep the entry is not aware of a prior formalization of the general-n family boundary, of Siegel minimality, of Smyth's nonreciprocal bound, or of Pisot-number theory in any surveyed prover ecosystem; Mathlib supplies Selmer irreducibility and the Mahler-measure development as infrastructure. Axioms on every compared theorem: propext, Classical.choice, Quot.sound, audited in-build.",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-01-000012-v1/fecc01899c2e80c215ed66b0f1e8aede816a1e43239db564d2f650fabd6026e1/",
+    "artifact_tree_sha256": "fecc01899c2e80c215ed66b0f1e8aede816a1e43239db564d2f650fabd6026e1",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-01T22:45:26Z",
+    "renderer_commit": "15f394394d0c4c3d6cfe39d67675fc34bdd285db",
+    "verso_commit": "b677415e8a0becccc0b850137c2d8f6205132a91"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11R06",
+      "11R09",
+      "11C08"
+    ]
+  },
+  "first_registered_on": "2026-09-01",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.31.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "63045536fe95024e6c18fc7b48e03f506701c5bc"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "5c7542ed018c78194f1e2b903eaf6a792b74c03d"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "24b0d9dc081c5423f8eec7e866c441e5184f29d9"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "e3cb2f741431ce31bf73549fb52316a57368b06f"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "f46324995fca5f0483b742e4eb4daec7f4ee50d2"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "fa08db58b30eb033edcdab331bba000827f9f785"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "FamilyBoundary.family_root_exists_unique",
+      "FamilyBoundary.family_morphic_boundary",
+      "FamilyBoundary.no_unit_circle_root",
+      "FamilyBoundary.family_le_mahlerMeasure",
+      "FamilyBoundary.family_measure_eq_iff_pisot",
+      "FamilyBoundary.siegel_conditional_closure",
+      "FamilyBoundary.Q_lt_psi",
+      "FamilyBoundary.no_primitive_cube_root",
+      "FamilyBoundary.b3_pisot_not_morphic",
+      "FamilyBoundary.psi_pisot_not_morphic",
+      "FamilyBoundary.Q_not_pisot"
+    ]
+  },
+  "id": "PALOMAR-2026-09-01-000012",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-01T22:46:01Z",
+    "receipt_sha256": "6d7906deaa7fbafe795e96daeb1fc3fc20f8b805a59fd0e536c8b3e2ee710030",
+    "repositories": [
+      {
+        "commit": "e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000012-v1/e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "fa08db58b30eb033edcdab331bba000827f9f785",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000012-v1/fa08db58b30eb033edcdab331bba000827f9f785",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000012-v1/5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000012-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000012-v1/fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000012-v1/63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000012-v1/24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000012-v1/f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000012-v1/92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "fc43a62561b4d7846ca25273229a4f964dff7ae5",
+        "fork_repository": "PalomarArchive/stalex444--golden-family-boundary--78da6483f173",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000012-v1/fc43a62561b4d7846ca25273229a4f964dff7ae5",
+        "source_repository": "stalex444/golden-family-boundary"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Ernst S. Selmer"
+          }
+        ],
+        "identifier": "Mathematica Scandinavica 4 (1956), 287-302",
+        "license": "unknown",
+        "location": "https://doi.org/10.7146/math.scand.a-10478",
+        "relationship": "background",
+        "title": "On the irreducibility of certain trinomials",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Jan Aarts"
+          },
+          {
+            "name": "Robbert Fokkink"
+          },
+          {
+            "name": "Godfried Kruijtzer"
+          }
+        ],
+        "identifier": "Nieuw Archief voor Wiskunde (5) 2 (2001), 56-58",
+        "license": "unknown",
+        "location": "https://www.nieuwarchief.nl/serie5/pdf/naw5-2001-02-1-056.pdf",
+        "relationship": "formalizes",
+        "title": "Morphic numbers",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Carl Ludwig Siegel"
+          }
+        ],
+        "identifier": "Duke Mathematical Journal 11 (1944), 597-602",
+        "license": "unknown",
+        "location": "https://doi.org/10.1215/S0012-7094-44-01152-X",
+        "relationship": "background",
+        "title": "Algebraic integers whose conjugates lie in the unit circle",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Christopher J. Smyth"
+          }
+        ],
+        "identifier": "Bulletin of the London Mathematical Society 3 (1971), 169-175",
+        "license": "unknown",
+        "location": "https://doi.org/10.1112/blms/3.2.169",
+        "relationship": "background",
+        "title": "On the product of the conjugates outside the unit circle of an algebraic integer",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "J. Dufresnoy"
+          },
+          {
+            "name": "Ch. Pisot"
+          }
+        ],
+        "identifier": "Annales scientifiques de l'École normale supérieure (3) 72 (1955), no. 1, 69-92",
+        "license": "unknown",
+        "location": "https://doi.org/10.24033/asens.1030",
+        "relationship": "background",
+        "title": "Étude de certaines fonctions méromorphes bornées sur le cercle unité. Application à un ensemble fermé d'entiers algébriques",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Wayne M. Lawton"
+          }
+        ],
+        "identifier": "Journal of Number Theory 16 (1983), 356-362",
+        "license": "unknown",
+        "location": "https://doi.org/10.1016/0022-314X(83)90063-X",
+        "relationship": "background",
+        "title": "A problem of Boyd concerning geometric means of polynomials",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Christopher J. Smyth"
+          }
+        ],
+        "identifier": "Bulletin of the Australian Mathematical Society 23 (1981), 49-63",
+        "license": "unknown",
+        "location": "https://doi.org/10.1017/S0004972700006894",
+        "relationship": "background",
+        "title": "On measures of polynomials in several variables",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Jean-Louis Verger-Gaugry"
+          }
+        ],
+        "identifier": "Uniform Distribution Theory 11 (2016), no. 1, 79-139",
+        "license": "unknown",
+        "location": "https://doi.org/10.1515/udt-2016-0006",
+        "relationship": "background",
+        "title": "On the Conjecture of Lehmer, limit Mahler measure of trinomials and asymptotic expansions",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Russell Howell"
+          },
+          {
+            "name": "David Kyle"
+          }
+        ],
+        "identifier": "Involve, a Journal of Mathematics 11 (2018), no. 4, 711-720",
+        "license": "unknown",
+        "location": "https://doi.org/10.2140/involve.2018.11.711",
+        "relationship": "background",
+        "title": "Locating trinomial zeros",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Dragan Stankov"
+          }
+        ],
+        "identifier": "arXiv:1401.1688 [math.NT] (2014), v2, 11 March 2014, 19 pp. (preprint; no journal version found on Crossref as of 2026-09-01)",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/1401.1688",
+        "relationship": "background",
+        "title": "Boyd's conjecture",
+        "type": "preprint"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Michael Brilleslyper"
+          },
+          {
+            "name": "Beth Schaubroeck"
+          }
+        ],
+        "identifier": "The College Mathematics Journal 45 (2014), no. 3, 162-168",
+        "license": "unknown",
+        "location": "https://doi.org/10.4169/college.math.j.45.3.162",
+        "relationship": "background",
+        "title": "Locating Unimodular Roots",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4 (Mathlib/RingTheory/Polynomial/Selmer.lean; Mathlib/Analysis/Polynomial/MahlerMeasure.lean; Mathlib/NumberTheory/Real/GoldenRatio.lean; Mathlib/Algebra/Polynomial/UnitTrinomial.lean)",
+        "note": "Honest accounting of what is consumed, at the pin fabf563a: Selmer's irreducibility theorem (Polynomial.X_pow_sub_X_sub_one_irreducible_rat, Thomas Browning); the Mahler-measure development (Barroero-Wilson: mahlerMeasure with its monic root-product form, mahlerMeasure_eq_leadingCoeff_mul_prod_roots); Real.goldenRatio for the n = 2 witness inside the proof modules; and the Ljunggren unit-trinomial machinery inside the morphic classification's proof. Mathlib contains no Pisot theory, no Siegel minimality, no Smyth bound, and no family-boundary statements (checked at the pin and at master, 2026-09-01); the general-n theorems compared here are this entry's contribution.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/stalex444/pdt-lean (parent development; pinned reference revision: commit d66ffbe813e48636aa636ffcd80070b81cbf10da)",
+        "note": "The broader public project this entry belongs to. This repository is the complete, self-contained proof development for the compared statements, not a wrapper: the proof modules PdtMorphic and PdtFamilyBoundaries build here with the pinned toolchain and no imports from the parent. The family-boundary module was developed for this entry; the parent development shares the plastic-number conventions (rho via rho^3 = rho + 1) and is pinned for provenance.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-08-31-000004 (stalex444/mahler-measure-minima, registered revision ca3df22)",
+        "note": "CONTEXT IMPORT, NOT COMPARED CONTENT. The registered sibling certifies the n <= 4 degree-wise minimality instances: x^d - x - 1 attains the minimal Mahler measure above one among monic irreducible integer polynomials at each degree d in {2, 3, 4}, with the exact identities M^2 = M + 1, M^3 = M + 1, M^4 = M^3 + 1. None of those instances is re-compared here; of this entry's eleven compared statements, six are general-n theorems, the shared lemma is at general n, and four are fixed-degree placements (Q < psi, the two witnesses b_3 and psi, and Q not Pisot), with the degree-wise registered instances cited as the context they are.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-09-01-000005 (stalex444/mahler-minimizer-compositum @ d78ce1610608cf4a90d5580c267110c96d2f9af5)",
+        "note": "CONTEXT IMPORT, NOT COMPARED CONTENT. The registered compositum entry carries psi = M(x^4 - x - 1) among its registered statements (ruler_mahler_eq_quartic_measure). This entry's Q_lt_psi places the quartic family root strictly below psi via real-arithmetic brackets — a general-family fact about the n = 4 rung, with psi entering hypothesis-style (psi^4 = psi^3 + 1), not a restatement of the registered measure identity.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-09-01-000008 (stalex444/only-two-morphic-numbers @ 9d3664f4ad3abc3783a9296ad1207a1ef1fee41d)",
+        "note": "CONTEXT IMPORT AND PROOF-MODULE REUSE. That entry's compared surface is the Aarts-Fokkink-Kruijtzer classification itself (the iff and its witnesses). This repository reuses its proof module PdtMorphic as machinery: the family morphic boundary compared here consumes the classification and adds the general-n descent argument. The classification is not re-compared; the boundary corollary at general n is new compared content.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-01T22:45:39Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "4ed67de4fd69df383badb7857dff97e2fb734ab0",
+    "report": {
+      "sha256": "38b9f924f9379c2353f0c2f1411120229b99295b405c4c22fb2a35a6ae7520cf"
+    },
+    "reviewed_at": "2026-09-01T21:20:19Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "fc43a62561b4d7846ca25273229a4f964dff7ae5",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/golden-family-boundary",
+    "repository_url": "https://github.com/stalex444/golden-family-boundary",
+    "tree_url": "https://github.com/stalex444/golden-family-boundary/tree/fc43a62561b4d7846ca25273229a4f964dff7ae5"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "8d7us1r66q3y"
+  },
+  "title": "The golden family's boundary at n = 3: general-n theorems for x^n = x + 1",
+  "trust": {
+    "challenge_bytes": 20220,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 347,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "e4064b8ed9de50867a784e3db4f9d92a24d97d13a5f839b937e570801d4c922a",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-01-000012-v1/1b559543b188d1337ed8b46208b1057a4db6dd299535565ff29ada1ecd953d7f/",
+    "evidence_tree_sha256": "1b559543b188d1337ed8b46208b1057a4db6dd299535565ff29ada1ecd953d7f",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "8554815c2dc6b7abe99ec1f08849c9759ba77947",
+    "mechanical_report_sha256": "664c0ad30f326716a40dffbf91047f4ca080b1af7bf48c453a5b9d7680bbb9d4",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33557238058,
+    "solution_sha256": "5b61bd14de853c9c7bb1225b5588de6cc26db0e092000fd4d5b2ce074cc26b2d",
+    "verified_at": "2026-09-01T20:55:42Z",
+    "workflow_commit": "15f394394d0c4c3d6cfe39d67675fc34bdd285db",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33557238058"
+  },
+  "version": 1
+}

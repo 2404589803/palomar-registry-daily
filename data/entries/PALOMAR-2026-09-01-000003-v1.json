@@ -1,0 +1,388 @@
+{
+  "abstract": "Kernel-checked entanglement package on the bipartite matrix algebra (2x2 tensor 2x2, native product index): (1) the separable-state CHSH bound 2 for the real-Pauli tuple, proved through the Bloch-disk constraint with no spectral theory; (2) an entanglement witness — a bipartite state, positive semidefinite with unit trace, that is NOT separable, with Born CHSH expectation equal to the Tsirelson value 2*sqrt(2) (the Bell state, exhibited explicitly in the Solution); (3) spectral projections without spectral theory — (1+W)/2 is an effect for every Hermitian involution W, any finite dimension; (4) the two-party correlation law forced, not postulated: for any state representing a generalized probability measure on effects (Busch's theorem vocabulary; no continuity assumed), the correlation at any pair of binary-observable settings is an explicit difference of the measure's values at two effects; (5) the assembly — a state that is not separable, is the UNIQUE state reproducing its own effect statistics (Born-rule uniqueness on the composite algebra), attains the Tsirelson value, and carries the witness correlation table XX = ZZ = 1, XZ = ZX = 0. Extended (second session, 2026-08-31) by five further compared theorems — the general bounds and the quantitative Werner-family layer: (6) the separable bound 2 at ARBITRARY finite local dimensions and arbitrary Hermitian-involution settings; (7) the state-level Tsirelson bound 2*sqrt(2) at the same generality; (8) the Werner family W_p = p|Phi+><Phi+| + ((1-p)/4)1, spelled inline from the explicit Bell projector, has CHSH expectation at most 2*sqrt(2)*p at any Hermitian-involution settings with traceless party-1 observables (p >= 0) — the Werner line of the Horodecki 1995 criterion; (9) the violation threshold: for p >= 0, W_p violates CHSH at some such settings iff p > 1/sqrt(2); (10) the separability endpoint (Werner 1989): W_p is separable for 0 <= p <= 1/3. All hypotheses are inline; the compared statements use only Mathlib vocabulary (Matrix.PosSemidef, Matrix.IsHermitian, Matrix.trace, the Kronecker product, Real.sqrt, Matrix.vecMulVec) with no custom definitions.",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-01-000003-v1/03cb86883235a39fc6c597087888e5f9b77b779272d63751e14777e3202c2463/",
+    "artifact_tree_sha256": "03cb86883235a39fc6c597087888e5f9b77b779272d63751e14777e3202c2463",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-01T03:13:13Z",
+    "renderer_commit": "15f394394d0c4c3d6cfe39d67675fc34bdd285db",
+    "verso_commit": "b677415e8a0becccc0b850137c2d8f6205132a91"
+  },
+  "classification": {
+    "arxiv": [
+      "quant-ph",
+      "math-ph"
+    ],
+    "msc2020": [
+      "81P40",
+      "81P15",
+      "81P16"
+    ]
+  },
+  "first_registered_on": "2026-09-01",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.31.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "63045536fe95024e6c18fc7b48e03f506701c5bc"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "5c7542ed018c78194f1e2b903eaf6a792b74c03d"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "24b0d9dc081c5423f8eec7e866c441e5184f29d9"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "e3cb2f741431ce31bf73549fb52316a57368b06f"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "f46324995fca5f0483b742e4eb4daec7f4ee50d2"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "fa08db58b30eb033edcdab331bba000827f9f785"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "EntangledBorn.separable_chsh_le",
+      "EntangledBorn.entanglement_exists",
+      "EntangledBorn.effect_of_involution",
+      "EntangledBorn.born_correlation_forced",
+      "EntangledBorn.entangled_born_correlations",
+      "EntangledBorn.separable_chsh_le_general",
+      "EntangledBorn.state_chsh_le_general",
+      "EntangledBorn.werner_chsh_max",
+      "EntangledBorn.werner_violation_iff",
+      "EntangledBorn.werner_separable_third"
+    ]
+  },
+  "id": "PALOMAR-2026-09-01-000003",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-01T03:13:42Z",
+    "receipt_sha256": "10420b00e78ac4fd9d0037d0c2ed2e3789072c1163409ffb9ab60e1000befd4c",
+    "repositories": [
+      {
+        "commit": "e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000003-v1/e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "fa08db58b30eb033edcdab331bba000827f9f785",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000003-v1/fa08db58b30eb033edcdab331bba000827f9f785",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000003-v1/5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000003-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000003-v1/fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000003-v1/63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000003-v1/24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000003-v1/f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000003-v1/92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "81c70fe45f81da86c25254f3eb52123d504b452c",
+        "fork_repository": "PalomarArchive/stalex444--werner-window--b27a0d75c51f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000003-v1/81c70fe45f81da86c25254f3eb52123d504b452c",
+        "source_repository": "stalex444/werner-window"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Barbara M. Terhal"
+          }
+        ],
+        "identifier": "Physics Letters A 271 (2000) 319-326",
+        "license": "unknown",
+        "location": "https://doi.org/10.1016/S0375-9601(00)00401-1",
+        "relationship": "formalizes",
+        "title": "Bell inequalities and the separability criterion",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "John F. Clauser"
+          },
+          {
+            "name": "Michael A. Horne"
+          },
+          {
+            "name": "Abner Shimony"
+          },
+          {
+            "name": "Richard A. Holt"
+          }
+        ],
+        "identifier": "Physical Review Letters 23 (1969) 880-884",
+        "license": "unknown",
+        "location": "https://doi.org/10.1103/PhysRevLett.23.880",
+        "relationship": "background",
+        "title": "Proposed Experiment to Test Local Hidden-Variable Theories",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Boris S. Cirel'son"
+          }
+        ],
+        "identifier": "Letters in Mathematical Physics 4 (1980) 93-100",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/BF00417500",
+        "relationship": "background",
+        "title": "Quantum generalizations of Bell's inequality",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Reinhard F. Werner"
+          }
+        ],
+        "identifier": "Physical Review A 40 (1989) 4277-4281",
+        "license": "unknown",
+        "location": "https://doi.org/10.1103/PhysRevA.40.4277",
+        "relationship": "formalizes",
+        "title": "Quantum states with Einstein-Podolsky-Rosen correlations admitting a hidden-variable model",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "R. Horodecki"
+          },
+          {
+            "name": "P. Horodecki"
+          },
+          {
+            "name": "M. Horodecki"
+          }
+        ],
+        "identifier": "Physics Letters A 200 (1995) 340-344",
+        "license": "unknown",
+        "location": "https://doi.org/10.1016/0375-9601(95)00214-N",
+        "relationship": "formalizes",
+        "title": "Violating Bell inequality by mixed states: necessary and sufficient condition",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Paul Busch"
+          }
+        ],
+        "identifier": "Physical Review Letters 91, 120403 (2003)",
+        "license": "unknown",
+        "location": "https://doi.org/10.1103/PhysRevLett.91.120403",
+        "relationship": "background",
+        "title": "Quantum states and generalized observables: a simple proof of Gleason's theorem",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://www.isa-afp.org/entries/TsirelsonBound.html (Echenim, Mhalla & Mori, \"The CHSH inequality: Tsirelson's upper-bound and other results\", AFP 2023-04-18; companion arXiv:2306.12535)",
+        "note": "THE CLOSEST PRIOR FORMALIZATION, stated honestly: the AFP 2023 entry machine-checks, in Isabelle/HOL, the LHV bound 2, the separable-state CHSH bound (CHSH_expect_separable_leq, at ARBITRARY local dimensions and for arbitrary Hermitian-involution settings tuples), the state-level Tsirelson bound 2*sqrt(2) in any finite dimension, and Bell-state attainment (CHSH_expect_limit). Statement 1 here is, per the 2026-08-26 sweep (re-run 2026-08-31 at submission), its first Lean counterpart at the fixed real-Pauli tuple; statements 6 and 7 (separable_chsh_le_general, state_chsh_le_general, added in the 2026-08-31 extension) MATCH the AFP entry's generality — arbitrary finite local dimensions, arbitrary Hermitian-involution settings — in Lean, so the general bounds are no longer an asymmetry between the two developments, with two candor notes kept: the AFP separable bound is stated in absolute-value form, and the AFP state-level bound is stated in the wider commuting-tuple form (CHSH_expect_gen_leq, any finite dimension), of which statement 7's bipartite Kronecker form is the tensor instance, this entry's in the one-sided form (the direction the witness requires; see fidelity). The AFP entry does NOT state non-separability of any concrete state (its own two lemmas put the corollary one line away, unstated), contains no partial trace, has no Born-uniqueness layer, and has no Werner-family layer — the content of statements 2, 4, 5, 8, 9, 10. Sweep re-run 2026-08-31: no AFP entry added or updated after 2026-08-26 on any relevant surface (newest archive-wide entry 2026-08-22, non-quantum; this entry's release history unchanged since Isabelle2025-2).",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4 (Algebra/Star/CHSH.lean: tsirelson_inequality, Kim Morrison 2020; Kronecker product; Matrix.PosSemidef API)",
+        "note": "Mathlib's tsirelson_inequality proves the operator-level ceiling 2^(3/2) in any ordered star-algebra — no states, no matrices — and its file declares state-level tightness (a 4x4 CHSH tuple with eigenvalue 2*sqrt(2)) as future work. The source modules behind this entry realize exactly that declared future work at matrix Born-expectation level (in-repo, not in Mathlib), and are built on Mathlib's Kronecker-product and positive-semidefinite APIs. The compared statements use only Mathlib vocabulary — zero custom definitions on the compared surface.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://arxiv.org/abs/2604.03884 (Zhao & Yu, \"Formalizing CHSH Rigidity in Lean 4\", 2026-04-04; repo github.com/trzstony/RigidityTheorem)",
+        "note": "The only other Lean 4 CHSH development found by the sweeps (baseline and 2026-08-31 re-run): formalizes the CHSH RIGIDITY theorem — the Tsirelson-attainment side. It states no separable-state bound, no mixed-state separability notion, and no Born/effect layer, so it does not touch the compared statements; disclosed here as the nearest Lean 4 neighbor.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/physlib (QuantumInfo: MState.IsSeparable, Ket.MES_isEntangled, Matrix.traceLeft/traceRight, trace_mul_kron_one_right)",
+        "note": "Physlib's separability DEFINITION for mixed states, its pure-level entanglement of the maximally entangled state (Ket.MES_isEntangled), and the partial-trace adjunction trace_mul_kron_one_right ALL PREDATE this entry (present in the ancestor Lean-QuantumInfo by 2026-05-05); no definitional novelty is claimed for any of them, and the no-signalling / partial-trace layer of the source modules is deliberately NOT part of the compared surface here. What physlib does not contain (checked at HEAD 4a4de62, 2026-08-24 sweep; re-checked at HEAD 686d93d2, 2026-08-30; re-checked at HEAD 12e16cf, 2026-08-31, submission day — QuantumInfo/ untouched since 2026-08-22, one README-only commit since the prior pin): any stated mixed-state non-separability theorem for a concrete state, any CHSH/Bell inequality, any Tsirelson bound, any Busch/Gleason/frame-function layer, any no-signalling statement.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://www.isa-afp.org/entries/Isabelle_Marries_Dirac.html (Bordg, Lachnitt & He, AFP 2020-11-22)",
+        "note": "Proves the four Bell states entangled at PURE-state/vector level (bell00_is_entangled2: the Bell kets are not tensor products of one-qubit kets) — the earliest machine-checked Bell-state entanglement found by the sweeps. Mixed-state separability and the density-matrix witness of statement 2 are outside its scope.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/coq-quantum/CoqQ (Zhou, Barthe, Strub, Liu & Ying, POPL 2023, DOI 10.1145/3571222)",
+        "note": "Holds the classical CHSH bound over finite distributions, the singlet's PURE-state expectation attaining 2*sqrt(2) (CHSH_violation), and the partial-trace adjunction at matrix level. No separability notion (zero hits), no separable bound, no mixed-state non-separability, no Born-uniqueness layer (checked at HEAD b169ea4, 2026-08-26 sweep; re-checked 2026-08-31: zero commits on any branch since — the repository's last push is 2024-12-29).",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/stalex444/pdt-lean (parent development; pinned: commit d66ffbe813e48636aa636ffcd80070b81cbf10da)",
+        "note": "The parent project this entry was developed in. This repository is the complete, self-contained proof development, not a wrapper: the five proof modules (PdtTsirelson, PdtBusch, PdtEntangled, PdtBornComposite, PdtWerner), the compared surface, and the pinned toolchain build here with no imports from the parent. At the pinned revision the parent holds the PdtTsirelson and PdtBusch modules of its registered Tsirelson and Busch entries, on which this entry's modules build; PdtWerner (2026-08-31) is native to this repository.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-01T03:13:25Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "4ed67de4fd69df383badb7857dff97e2fb734ab0",
+    "report": {
+      "sha256": "7cbf386af224c4398c8897b6d1ddbbf41a766993a85bbf441a15de72604f819a"
+    },
+    "reviewed_at": "2026-09-01T02:51:21Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "81c70fe45f81da86c25254f3eb52123d504b452c",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/werner-window",
+    "repository_url": "https://github.com/stalex444/werner-window",
+    "tree_url": "https://github.com/stalex444/werner-window/tree/81c70fe45f81da86c25254f3eb52123d504b452c"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "bg4yqan3uvn2"
+  },
+  "title": "The entangled Born correlations: a mixed-state entanglement witness through the Born rule forced on the composite algebra",
+  "trust": {
+    "challenge_bytes": 16919,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 302,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "2270310259a15865eaee837666988a28af013bb4a0dec94916915d477d2c7ea2",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-01-000003-v1/7729167061e60b439c6d4e50150deaf3259ef6879935aeee500130c953fc7dd6/",
+    "evidence_tree_sha256": "7729167061e60b439c6d4e50150deaf3259ef6879935aeee500130c953fc7dd6",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "8554815c2dc6b7abe99ec1f08849c9759ba77947",
+    "mechanical_report_sha256": "b1f84ea831cd39004a691047d63347a8a62d1fdcd4f2f530800127da2b6c21fa",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33453158602,
+    "solution_sha256": "e5934e22a6529ca9c5ec81dbea23eee0551da2751cc0faa5ee53719665c228c0",
+    "verified_at": "2026-09-01T00:10:23Z",
+    "workflow_commit": "bd1798e1f528706e9776a6ad382b6ff38bb890f3",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33453158602"
+  },
+  "version": 1
+}

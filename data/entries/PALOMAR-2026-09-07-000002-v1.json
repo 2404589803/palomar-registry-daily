@@ -1,0 +1,452 @@
+{
+  "abstract": "A complete Lean 4 / Mathlib formalization of the Bollobás–Nikiforov conjecture (2007) and of the matrix theorems that prove it. Let G be a finite simple graph with adjacency eigenvalues lambda_1 >= lambda_2 >= ..., m edges and clique number omega(G). The conjecture states that every noncomplete graph on at least two vertices satisfies lambda_1^2 + lambda_2^2 <= 2 (1 - 1/omega(G)) m. The formalization proves it (BN.lambda1_sq_add_lambda2_sq_le) as a consequence of a weighted spectral inequality: for every symmetric entrywise nonnegative matrix B with zero diagonal supported on the edges of G, the sum F(B) of the squares of the two largest positive eigenvalues of B is at most (1 - 1/omega(G)) ||B||_F^2 (BN.weighted). The weighted inequality rests on a complete-positivity theorem for planar Gram matrices: if z_1, ..., z_n in R^2 lie in a closed half-plane through the origin and X is their Gram matrix, then M(X) = X o X + sum over i < j with X_ij < 0 of X_ij^2 (e_i - e_j)(e_i - e_j)^T is completely positive (BN.matrix_theorem), proved by an ordered elimination, a Schur complement identified as a weighted Laplacian plus a matrix with an explicit three-column nonnegative factorization, and total nonnegativity of two rectangular kernels. A variational argument then removes the half-plane hypothesis from the scalar inequality: for every real positive semidefinite X of rank at most two, sum_{i,j} (A_G)_ij (X_ij)_+^2 <= (1 - 1/omega(G)) ||X||_F^2 (BN.gram_le), which also identifies the rank-two conic parameter chi''_{vec,3}(G) of Coutinho, Spier and Zhang with omega(G) (BN.chiVec3_eq_cliqueNum), settling their Conjectures 2 and 3 without a lower bound on the clique number. Previously the conjecture was known for weakly perfect graphs (Ando–Lin), triangle-free graphs (Lin–Ning–Wu), regular graphs (Zhang), graphs with few triangles (Kumar–Pragada, Zeng–Zhang), asymptotically almost surely for random graphs (Liu–Bu), and with weaker constants for all graphs (Coutinho–Spier–Zhang). All five headline theorems are proved with no sorry and depend only on propext, Classical.choice and Quot.sound.",
+  "authors": [
+    {
+      "name": "Gabriel Coutinho"
+    },
+    {
+      "name": "Yinchen Liu"
+    },
+    {
+      "name": "Thomás Jung Spier"
+    },
+    {
+      "name": "Quanyu Tang"
+    },
+    {
+      "name": "Shengtong Zhang"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-07-000002-v1/e4cd75421bbb96cd9ec29a397e433dac823d66be5740f0c6cde8228cb03d31ee/",
+    "artifact_tree_sha256": "e4cd75421bbb96cd9ec29a397e433dac823d66be5740f0c6cde8228cb03d31ee",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-07T02:02:40Z",
+    "renderer_commit": "c605f23466450a52999fcfb3c6d68ed8febc56bf",
+    "verso_commit": "6af30619664960f9c816b27157dff3ceb1500dcf"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C50",
+      "05C35",
+      "15B48",
+      "15A18"
+    ]
+  },
+  "first_registered_on": "2026-09-07",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0-rc1",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "79d0395a1825a6264ad5d269e35e60537518955e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b1c4a69a7e247ab7df20460212001673d74f08c0"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "18a90119a5d316358fde6c86e0ca24e59212e32c"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "b1436dc749e722c9920036b52cdc43b3451d0b69"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "57d3325be72a842920813bcb40f96a6f7393c185"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ee41917ae11d38479fb8fb24745f7ca4bf0a784d"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "31a49105f960721073a9adfc82b261f5d0f2ce1e"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "da07ca808b6718cb2aed14dba154e5a08b8f8ecf"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "BN.lambda1_sq_add_lambda2_sq_le",
+      "BN.weighted",
+      "BN.matrix_theorem",
+      "BN.gram_le",
+      "BN.chiVec3_eq_cliqueNum"
+    ]
+  },
+  "id": "PALOMAR-2026-09-07-000002",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-07T02:03:16Z",
+    "receipt_sha256": "bdaef0fb55f7ac9844d7d60e6105d295fdb24c4c9474f240a4b818c64ab0be65",
+    "repositories": [
+      {
+        "commit": "57d3325be72a842920813bcb40f96a6f7393c185",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000002-v1/57d3325be72a842920813bcb40f96a6f7393c185",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "31a49105f960721073a9adfc82b261f5d0f2ce1e",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000002-v1/31a49105f960721073a9adfc82b261f5d0f2ce1e",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "18a90119a5d316358fde6c86e0ca24e59212e32c",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000002-v1/18a90119a5d316358fde6c86e0ca24e59212e32c",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000002-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "79d0395a1825a6264ad5d269e35e60537518955e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000002-v1/79d0395a1825a6264ad5d269e35e60537518955e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b1c4a69a7e247ab7df20460212001673d74f08c0",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000002-v1/b1c4a69a7e247ab7df20460212001673d74f08c0",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "b1436dc749e722c9920036b52cdc43b3451d0b69",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000002-v1/b1436dc749e722c9920036b52cdc43b3451d0b69",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ee41917ae11d38479fb8fb24745f7ca4bf0a784d",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000002-v1/ee41917ae11d38479fb8fb24745f7ca4bf0a784d",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "da07ca808b6718cb2aed14dba154e5a08b8f8ecf",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000002-v1/da07ca808b6718cb2aed14dba154e5a08b8f8ecf",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "4625b2daaa48a5d1781315e78d933cc78ea6e0fb",
+        "fork_repository": "PalomarArchive/ShengtongZhang-alt--BN--c59ee485ca26",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000002-v1/4625b2daaa48a5d1781315e78d933cc78ea6e0fb",
+        "source_repository": "ShengtongZhang-alt/BN"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Gabriel Coutinho"
+          },
+          {
+            "name": "Yinchen Liu"
+          },
+          {
+            "name": "Thomás Jung Spier"
+          },
+          {
+            "name": "Quanyu Tang"
+          },
+          {
+            "name": "Shengtong Zhang"
+          }
+        ],
+        "identifier": "docs/sol.tex (this repository, at the submitted commit)",
+        "license": "unknown",
+        "location": "https://github.com/ShengtongZhang-alt/BN/blob/main/docs/sol.tex",
+        "relationship": "formalizes",
+        "title": "The Bollobás–Nikiforov inequality for nonnegative edge weights",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Béla Bollobás"
+          },
+          {
+            "name": "Vladimir Nikiforov"
+          }
+        ],
+        "identifier": "doi:10.1016/j.jctb.2006.12.002",
+        "location": "https://doi.org/10.1016/j.jctb.2006.12.002",
+        "relationship": "background",
+        "title": "Cliques and the spectral radius",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Gabriel Coutinho"
+          },
+          {
+            "name": "Thomás Jung Spier"
+          },
+          {
+            "name": "Shengtong Zhang"
+          }
+        ],
+        "identifier": "arXiv:2411.08184",
+        "location": "https://arxiv.org/abs/2411.08184",
+        "relationship": "background",
+        "title": "Conic programming to understand sums of squares of eigenvalues of graphs",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Theodore S. Motzkin"
+          },
+          {
+            "name": "Ernst G. Straus"
+          }
+        ],
+        "identifier": "doi:10.4153/CJM-1965-053-6",
+        "location": "https://doi.org/10.4153/CJM-1965-053-6",
+        "relationship": "background",
+        "title": "Maxima for graphs and a new proof of a theorem of Turán",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Vladimir Nikiforov"
+          }
+        ],
+        "identifier": "doi:10.1017/S0963548301004928",
+        "location": "https://doi.org/10.1017/S0963548301004928",
+        "relationship": "background",
+        "title": "Some inequalities for the largest eigenvalue of a graph",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Tsuyoshi Ando"
+          },
+          {
+            "name": "Minghua Lin"
+          }
+        ],
+        "identifier": "doi:10.1016/j.laa.2015.08.007",
+        "location": "https://doi.org/10.1016/j.laa.2015.08.007",
+        "relationship": "background",
+        "title": "Proof of a conjectured lower bound on the chromatic number of a graph",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Huiqiu Lin"
+          },
+          {
+            "name": "Bo Ning"
+          },
+          {
+            "name": "Baoyindureng Wu"
+          }
+        ],
+        "identifier": "doi:10.1017/S0963548320000462",
+        "location": "https://doi.org/10.1017/S0963548320000462",
+        "relationship": "background",
+        "title": "Eigenvalues and triangles in graphs",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Shengtong Zhang"
+          }
+        ],
+        "identifier": "doi:10.1016/j.laa.2024.01.002",
+        "location": "https://doi.org/10.1016/j.laa.2024.01.002",
+        "relationship": "background",
+        "title": "On the first two eigenvalues of regular graphs",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Hitesh Kumar"
+          },
+          {
+            "name": "Shivaramakrishna Pragada"
+          }
+        ],
+        "identifier": "arXiv:2407.19341",
+        "location": "https://arxiv.org/abs/2407.19341",
+        "relationship": "background",
+        "title": "Bollobás–Nikiforov conjecture for graphs with not so many triangles",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Chunmeng Liu"
+          },
+          {
+            "name": "Changjiang Bu"
+          }
+        ],
+        "identifier": "arXiv:2501.07137",
+        "location": "https://arxiv.org/abs/2501.07137",
+        "relationship": "background",
+        "title": "Bollobás–Nikiforov conjecture holds asymptotically almost surely",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jiasheng Zeng"
+          },
+          {
+            "name": "Xiao-Dong Zhang"
+          }
+        ],
+        "identifier": "doi:10.1016/j.laa.2025.01.037",
+        "location": "https://doi.org/10.1016/j.laa.2025.01.037",
+        "relationship": "background",
+        "title": "A note on the Bollobás–Nikiforov conjecture",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Piero Giacomelli"
+          }
+        ],
+        "identifier": "arXiv:2603.26379",
+        "location": "https://arxiv.org/abs/2603.26379",
+        "relationship": "background",
+        "title": "The Bollobás–Nikiforov conjecture for complete multipartite graphs and dense K_4-free graphs",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/ShengtongZhang-alt/SqOmega/tree/e988319dceceb94ae956890a3547af0062465e3e",
+        "note": "Lean 4 / Mathlib formalization (Liu, Tang, Zhang; public since July 2026) of the square-energy strengthening of Turán's theorem sqrt(s^+(G)), sqrt(s^-(G)) <= (1 - 1/omega(G)) n. It contains a doubly-nonnegative Motzkin–Straus inequality (SqOmega/DNN/MotzkinStraus.lean, dnnMotzkinStraus_*) proved via the Caro–Wei random partition, with vertex-count normalization. Code reuse: BN/Basic/Graph.lean (turanFactor and the elementary clique-number lemmas one_le_cliqueNum, two_le_cliqueNum_of_adj, cliqueNum_eq_one_iff_eq_bot, turanFactor_nonneg, turanFactor_pos) is copied from SqOmega/Graph.lean with a namespace change. The rest of the development is independent of SqOmega: Motzkin–Straus is used here in completely positive form with nonnegative edge weights (BN/MS/), which is what the edge-count bound 2 (1 - 1/omega) |E| requires, and none of the DNN or Caro–Wei material is reused.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Shengtong Zhang"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-07T02:02:54Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "42cc43f70b1b019d20d4b64e9016396e666a6bc7",
+    "report": {
+      "sha256": "9aec9677a5ac097185e7800de34e51e06299058a0feccb385006aff34b09cfec"
+    },
+    "reviewed_at": "2026-09-07T01:54:44Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "4625b2daaa48a5d1781315e78d933cc78ea6e0fb",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "ShengtongZhang-alt/BN",
+    "repository_url": "https://github.com/ShengtongZhang-alt/BN",
+    "tree_url": "https://github.com/ShengtongZhang-alt/BN/tree/4625b2daaa48a5d1781315e78d933cc78ea6e0fb"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "sgjialvnrztt"
+  },
+  "title": "A proof of the Bollobás–Nikiforov conjecture in Lean",
+  "trust": {
+    "challenge_bytes": 11069,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 291,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "9cdde98b6431d07eab9e1e859fb855442b49185918a0eb9e627cdd1ec83f8520",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-07-000002-v1/6aaab7750074e9f35412f3a2130138fab211cfae2430dd7c6fbc4c56227d031a/",
+    "evidence_tree_sha256": "6aaab7750074e9f35412f3a2130138fab211cfae2430dd7c6fbc4c56227d031a",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "af5aa64bb914c3c2c781f378088dbd38acf4f804",
+    "mechanical_report_sha256": "f4c7889ed53b1215e49b312f01e62992230fdf321dacfd5bd119862e83eaf713",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 34073242656,
+    "solution_sha256": "24b6d9eeae9b3b90ddf23b8b29af99ec2a9f99fbb8bdab3c7251a200d17c7d6c",
+    "verified_at": "2026-09-07T01:39:32Z",
+    "workflow_commit": "c605f23466450a52999fcfb3c6d68ed8febc56bf",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/34073242656"
+  },
+  "version": 1
+}

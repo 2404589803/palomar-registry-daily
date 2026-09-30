@@ -1,0 +1,430 @@
+{
+  "abstract": "Kernel-checked Salem's theorem — every Pisot number is a limit point of Salem numbers from both sides (R. Salem, Algebraic Numbers and Fourier Analysis, D. C. Heath, 1963, Ch. III, Theorem IV, p. 30; origin R. Salem, Duke Math. J. 12 (1945)) — with both of Salem's constructions, each stated as a construction. Three compared statements carry the surface. (1) salem_theorem — the theorem for Pisot numbers: a real algebraic integer alpha > 1 every other complex root of whose minimal polynomial has modulus < 1 (spelled as 1 < alpha, IsIntegral Z alpha, and every z in (minpoly Q alpha).aroots C other than alpha has norm < 1 — the spelling of the Pisot predicate in google-deepmind/formal-conjectures, inlined) has, for every eps > 0, a Salem number in (alpha - eps, alpha) and one in (alpha, alpha + eps). (2) salem_construction_two_sided — Salem's main construction z^m P(z) ± z^p P(1/z) with its family root in the conclusion: for the pattern data of a monic integer polynomial P (one real root alpha > 1, every other complex root strictly inside the unit circle, conjugation-closed) under the nondegeneracy P(1/alpha) != 0 — a proviso that on the pattern domain is strictly STRONGER than Boyd's — coinciding, when P is the minimal polynomial, with Boyd's \"provided P is not a reciprocal quadratic\" (Math. Comp. 32 (1978), p. 1252, eq. (26)) and with the reason clause of Salem's, \"so that Q and P will not be identical\" (Salem's stated hypothesis, \"theta not a quadratic unit\", is stronger; fidelity (g)) — there is a sign e = ±1, the sign of P(1/alpha), such that for every eps > 0 some X^m P + e P.reverse with m >= 2 has a Salem root in (alpha - eps, alpha) and some X^m P - e P.reverse with m >= 2 has a Salem root in (alpha, alpha + eps); P.reverse is z^p P(1/z), p = deg P. (3) salem_quadratic_unit — the excluded case, Salem's second construction (1963, p. 31) with its family root in the conclusion: for the reciprocal quadratic Pisot units alpha^2 = r alpha - 1, r >= 3 an integer, and every eps > 0, some (X^2 - rX + 1)(X^{2m} + 1) + X^{m+1} with m >= 1 has a Salem root in (alpha - eps, alpha) and some (X^2 - rX + 1)(X^{2m} + 1) - X^{m+1} with m >= 1 has a Salem root in (alpha, alpha + eps) — the Chebyshev family (x - r) T_m(x) ∓ 1 pulled back through x = y + 1/y. Statement (1) is the theorem; (2) and (3) each carry their construction and neither follows from (1), their conclusions naming a root of a specific polynomial; Boyd's \"for all sufficiently large m\" is NOT stated — (2) and (3) assert, per eps, the existence of some index m. A Salem number is spelled by Salem's definition of the class T (1963, p. 26): a real algebraic integer tau > 1 all of whose other conjugates lie in the closed unit disk, at least one on the unit circle — with the clause that 1/tau is a conjugate stated explicitly. Classically that clause and \"degree at least 4\" are consequences (Salem 1963, p. 26; Smyth 2015, Lemma 1); the equivalence is NOT formalized here, and the formal predicate is the stronger conjunction, which is the CONCLUSION of every compared statement — nothing is assumed of it. THE ROUTE: (1) is transported from a pattern-form theorem in the proof modules (salem_theorem_full), stated for any monic integer polynomial with the pattern data — a larger index set than the Pisot numbers (X^k times a minimal polynomial has the pattern) but equivalent in content, since the large root of any pattern polynomial is itself a Pisot number — through the bridge that the minimal polynomial over Z of a Pisot number carries the pattern data (the Gauss step: the minimal polynomial over Q is the rational image of the one over Z, since Z is integrally closed; separability of the irreducible minimal polynomial in characteristic zero; conjugation-invariance of integer coefficients). The pattern-form theorem splits on P(1/alpha) = 0: the nonzero branch is the assembly PdtSalemEndgame.salem_two_sided; the zero branch reduces to PdtSalemQuadUnit.salem_two_sided_quad_unit by a supporting lemma (reciprocal_quadratic_of_inv_root: a pattern polynomial vanishing at 1/alpha forces alpha^2 = r alpha - 1 with r >= 3 — the elementary \"reciprocal Pisot implies quadratic\", McKee–Smyth 2012, Lemma 6.2). Those two assemblies discard the index and the family; (2) and (3) are the same assemblies re-run in the bridge module SalemPisot with both kept. The book runs Case 1 under the proviso and handles the quadratic units in Case 2; the kernel unifies both cases in a single statement with no nondegeneracy hypothesis — a presentational unification of Salem's own two cases, not a mathematical strengthening of the theorem, which has no gap. The proofs use no argument principle and no Rouché theorem: the circle counts (m + p - 2 unimodular roots for the plus family z^m P + z^p P(1/z) with p = deg P, m + p - 3 plus the root z = 1 for the minus family, 2m for the quadratic-unit family) are intermediate-value arguments on explicit real phases; the trichotomy (every root unimodular or in {tau, 1/tau}) is a multiset squeeze against the degree; Salem-ness is an arithmetic certificate (the minimal polynomial divides the family; the Gauss step excludes degrees 1 and 2 and forces 1/tau a conjugate), with the integer degeneracies tau in Z and tau + 1/tau in Z discharged by finiteness along the ladders, or directly for the quadratic-unit family. NOT formalized: the equivalence of the Salem-number definitions (above); Boyd's converse (Boyd 1977: every Salem number arises from the construction); Salem 1944 (the Pisot numbers form a closed set); any rate of approach; Boyd's \"for all sufficiently large m\". As of the 2026-09-01 sweep (Mathlib at the pin and at master, Loogle, the Isabelle AFP at title/abstract/filename level, Coq, HOL Light, Metamath, arXiv; GitHub native code search and Mizar not run) the entry is not aware of a prior formalization of Salem's theorem or of Salem numbers in any surveyed prover ecosystem; the one adjacent hit is the IsPisot definition in google-deepmind/formal-conjectures (the definition and the golden-ratio instance; no Salem numbers), whose spelling the compared statement adopts. Axioms on every compared theorem: propext, Classical.choice, Quot.sound, audited in-build.",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-02-000003-v1/0a369af721d85cc70f7a35f670433e9e2d9db9cb65deaf44594e7f242ae11f17/",
+    "artifact_tree_sha256": "0a369af721d85cc70f7a35f670433e9e2d9db9cb65deaf44594e7f242ae11f17",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-02T10:12:04Z",
+    "renderer_commit": "5f26d4a0a40351530ce578a7dd4d6fc2a469fc28",
+    "verso_commit": "b677415e8a0becccc0b850137c2d8f6205132a91"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11R06",
+      "11R04"
+    ]
+  },
+  "first_registered_on": "2026-09-02",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.31.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "63045536fe95024e6c18fc7b48e03f506701c5bc"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "5c7542ed018c78194f1e2b903eaf6a792b74c03d"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "24b0d9dc081c5423f8eec7e866c441e5184f29d9"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "e3cb2f741431ce31bf73549fb52316a57368b06f"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "f46324995fca5f0483b742e4eb4daec7f4ee50d2"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "fa08db58b30eb033edcdab331bba000827f9f785"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "SalemTheorem.salem_theorem",
+      "SalemTheorem.salem_construction_two_sided",
+      "SalemTheorem.salem_quadratic_unit"
+    ]
+  },
+  "id": "PALOMAR-2026-09-02-000003",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-02T10:12:42Z",
+    "receipt_sha256": "f4c2af0119bc1d32a2df5c4373554c95200677a32d07c40f2d0abb3ed1f0d24b",
+    "repositories": [
+      {
+        "commit": "e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000003-v1/e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "fa08db58b30eb033edcdab331bba000827f9f785",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000003-v1/fa08db58b30eb033edcdab331bba000827f9f785",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000003-v1/5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000003-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000003-v1/fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000003-v1/63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000003-v1/24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000003-v1/f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000003-v1/92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "887be765bf24c6a645600dfc7bd0a1055a1761dd",
+        "fork_repository": "PalomarArchive/stalex444--salem-theorem--0dba1667eca0",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000003-v1/887be765bf24c6a645600dfc7bd0a1055a1761dd",
+        "source_repository": "stalex444/salem-theorem"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Raphaël Salem"
+          }
+        ],
+        "identifier": "Heath Mathematical Monographs, D. C. Heath and Company, Boston, 1963, x+68 pp. (reprinted Wadsworth, Belmont, 1983); Ch. III, Theorem IV, p. 30, proof pp. 30-31; the definition of the class T and its reciprocity consequence, p. 26 (cited by page; numbered Lemma 1 in Smyth 2015)",
+        "license": "unknown",
+        "location": "https://zbmath.org/3204804",
+        "relationship": "formalizes",
+        "title": "Algebraic Numbers and Fourier Analysis",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Raphaël Salem"
+          }
+        ],
+        "identifier": "Duke Mathematical Journal 12 (1945), no. 1, 153-172",
+        "license": "unknown",
+        "location": "https://doi.org/10.1215/S0012-7094-45-01213-0",
+        "relationship": "formalizes",
+        "title": "Power series with integral coefficients",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "David W. Boyd"
+          }
+        ],
+        "identifier": "Mathematics of Computation 32 (1978), no. 144, 1244-1260; Section 4, eq. (26), p. 1252",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/S0025-5718-1978-0491587-8",
+        "relationship": "adapts",
+        "title": "Pisot and Salem numbers in intervals of the real line",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Christopher J. Smyth"
+          }
+        ],
+        "identifier": "Bulletin of the London Mathematical Society 47 (2015), no. 3, 379-395; Section 3.1; Lemma 1",
+        "license": "unknown",
+        "location": "https://doi.org/10.1112/blms/bdv027",
+        "relationship": "background",
+        "title": "Seventy years of Salem numbers",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Marie-José Bertin"
+          },
+          {
+            "name": "Annette Decomps-Guilloux"
+          },
+          {
+            "name": "Marthe Grandet-Hugot"
+          },
+          {
+            "name": "Martine Pathiaux-Delefosse"
+          },
+          {
+            "name": "Jean-Pierre Schreiber"
+          }
+        ],
+        "identifier": "Birkhäuser, Basel, 1992, xiv+291 pp.; Chapter 6, Limit Points of Pisot and Salem Sets, pp. 101-117",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/978-3-0348-8632-1",
+        "relationship": "background",
+        "title": "Pisot and Salem Numbers",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "David W. Boyd"
+          }
+        ],
+        "identifier": "Duke Mathematical Journal 44 (1977), no. 2, 315-328",
+        "license": "unknown",
+        "location": "https://doi.org/10.1215/S0012-7094-77-04413-1",
+        "relationship": "background",
+        "title": "Small Salem numbers",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Raphaël Salem"
+          }
+        ],
+        "identifier": "Duke Mathematical Journal 11 (1944), no. 1, 103-108",
+        "license": "unknown",
+        "location": "https://doi.org/10.1215/S0012-7094-44-01111-7",
+        "relationship": "background",
+        "title": "A remarkable class of algebraic integers. Proof of a conjecture of Vijayaraghavan",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Charles Pisot"
+          }
+        ],
+        "identifier": "Annali della Scuola Normale Superiore di Pisa, Classe di Scienze (2) 7 (1938), no. 3-4, 205-248",
+        "license": "unknown",
+        "location": "https://www.numdam.org/item/ASNSP_1938_2_7_3-4_205_0/",
+        "relationship": "background",
+        "title": "La répartition modulo 1 et les nombres algébriques",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Christelle Guichard"
+          },
+          {
+            "name": "Jean-Louis Verger-Gaugry"
+          }
+        ],
+        "identifier": "Journal de Théorie des Nombres de Bordeaux 27 (2015), no. 3, 769-804",
+        "license": "unknown",
+        "location": "https://doi.org/10.5802/jtnb.923",
+        "relationship": "background",
+        "title": "On Salem numbers, expansive polynomials and Stieltjes continued fractions",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Tirukkannapuram Vijayaraghavan"
+          }
+        ],
+        "identifier": "(I) Journal of the London Mathematical Society 15 (1940), 159-160; (II) Proceedings of the Cambridge Philosophical Society 37 (1941), 349-357; (III) Journal of the London Mathematical Society 17 (1942), 137-138",
+        "license": "unknown",
+        "location": "https://doi.org/10.1112/jlms/s1-15.2.159",
+        "relationship": "background",
+        "title": "On the fractional parts of the powers of a number (I), (II), (III)",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "James McKee"
+          },
+          {
+            "name": "Christopher J. Smyth"
+          }
+        ],
+        "identifier": "Canadian Journal of Mathematics 64 (2012), no. 2, 345-367; Lemma 6.2",
+        "license": "unknown",
+        "location": "https://doi.org/10.4153/CJM-2011-051-2",
+        "relationship": "background",
+        "title": "Salem numbers and Pisot numbers via interlacing",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4 (Mathlib/FieldTheory/Minpoly/IsIntegrallyClosed.lean; Mathlib/FieldTheory/Separable.lean; Mathlib/Algebra/Polynomial/Splits.lean; Mathlib/Analysis/SpecialFunctions/Complex/Arg.lean; Mathlib/Topology/Order/IntermediateValue.lean)",
+        "note": "An accounting of what is consumed, at the pin fabf563a: the minimal-polynomial API (minpoly.dvd, minpoly.irreducible, and the Gauss step minpoly.isIntegrallyClosed_eq_field_fractions'), separability and nodup roots in characteristic zero, the splitting API over the algebraically closed complex numbers (Splits.eq_prod_roots_of_monic, Splits.roots_map), Vieta-type coefficient/root identities, the continuity of Complex.arg off the negative real axis, the intermediate value theorem, and the multiset order (the multiset squeeze Multiset.eq_of_le_of_card_le). Mathlib contains no Pisot numbers, no Salem numbers, and no statement of Salem's theorem (checked at the pin and at master cf0e3d85, 2026-09-01; the only \"Salem\" in Mathlib is Salem–Spencer sets); the theorem and both constructions are this entry's contribution.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures (FormalConjecturesForMathlib/NumberTheory/PisotNumber.lean, added in commit c48b4c2d58, 2026-05-31; main at 7d1a8c9912747679d0093f6d1216420c33ee5ffa on 2026-09-01)",
+        "note": "ADJACENT PRIOR ART, DEFINITION ONLY: that repository defines IsPisot (1 < theta, IsIntegral Z theta, every z in (minpoly Q theta).aroots C other than theta has norm < 1) and proves the golden ratio is Pisot; it contains no Salem numbers and no Salem theorem (its Lehmer-problem file states the problem as open). The compared salem_theorem adopts that spelling of the Pisot hypothesis, inlined, so that the statement is recognizable to that community; no code is shared, and this entry's declarations live in their own namespaces.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "This repository — the complete, self-contained development",
+        "note": "This repository is the complete, self-contained proof development for the compared statements: the six proof modules (PdtPisotLadder, PdtSalemCircle, PdtSalemArith, PdtSalemMinus, PdtSalemEndgame, PdtSalemQuadUnit) and the bridge module SalemPisot build here with the pinned toolchain and import nothing but Mathlib and each other. The Pdt file prefix and the PDT namespace are the naming conventions of the author's larger Lean development; no external module is imported and no result depends on anything outside this repository.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-02T10:12:18Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "4ed67de4fd69df383badb7857dff97e2fb734ab0",
+    "report": {
+      "sha256": "945cebf1d5f258d043db3cf41ddaad4235e90f4ed95d7cba4261e1833060339e"
+    },
+    "reviewed_at": "2026-09-02T01:43:05Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "887be765bf24c6a645600dfc7bd0a1055a1761dd",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/salem-theorem",
+    "repository_url": "https://github.com/stalex444/salem-theorem",
+    "tree_url": "https://github.com/stalex444/salem-theorem/tree/887be765bf24c6a645600dfc7bd0a1055a1761dd"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "o7gticsgk91t"
+  },
+  "title": "Salem's theorem: every Pisot number is a two-sided limit of Salem numbers",
+  "trust": {
+    "challenge_bytes": 10230,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 174,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "d7f73ebc52e364e11a62cff87147ecec36f46c3a86bfba6c34bbc9385ed97188",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-02-000003-v1/909bcf6ec4cb8ad5db009fc2e4ff386ca21c51c7922be3fb5943bbcd43025e55/",
+    "evidence_tree_sha256": "909bcf6ec4cb8ad5db009fc2e4ff386ca21c51c7922be3fb5943bbcd43025e55",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "8554815c2dc6b7abe99ec1f08849c9759ba77947",
+    "mechanical_report_sha256": "3cc1af011adb1ca6a6ebb28a7721f727252c27836e217c38b8d7da34ba3c7c4f",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33578743102,
+    "solution_sha256": "75d3db2e1a022580ed04cb887d4c7afd7f7ad3e0f1a23162f82d86e0658fc717",
+    "verified_at": "2026-09-02T01:25:22Z",
+    "workflow_commit": "5f26d4a0a40351530ce578a7dd4d6fc2a469fc28",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33578743102"
+  },
+  "version": 1
+}

@@ -1,0 +1,287 @@
+{
+  "abstract": "A variational identity for the Fredholm operator A = I + T on the interval I = [-1/2, 1/2], where T is convolution against the Farmer-Gonek-Lee pair-correlation form factor F1(x) = |x| - 4x^2 + sum_k a_k |x|^(2k+3) with a_k = 2^(2k+3) k! / (2k+2)!. Let w = A^(-1)1 and c* = <1, A^(-1)1>. Over the source-admissible class of scalar profiles v(s) = phi(Ls)^2 induced by even, radially nonincreasing C^2 windows supported exactly on [-L/2, L/2] with 0 <= phi <= 1 and uniform L^1 bounds on phi'' and (phi^2)'', the supremum of <1,v>^2 / <Av,v> equals c*, and the infimum of the reciprocal quotient <Av,v> / <1,v>^2 equals 1/c*. The upper bound <1,v>^2 <= c* <Av,v> is energy Cauchy-Schwarz. It holds for every v, it is classical, and it is not the content of this result. The content is the reverse inequality over the constrained class: c* is the value of the unconstrained variational problem, and the identity says that imposing evenness, radial monotonicity, an exact compact support, the amplitude ceiling 0 <= phi <= 1 and uniform L^1 bounds on the second derivatives does not lower the supremum. That direction is proved by exhibiting an explicit endpoint-tapered family inside the class, indexed by the scale L, whose quotient converges to c*. Both orientations are advertised because the orientation is load-bearing: it is the quotient with <1,v>^2 in the numerator whose supremum is c*, and the supporting development also proves that the two are not interchangeable. The advertised statement is existential in the profile and in the two uniform constants, so it carries its own non-vacuity: an IsLUB or IsGLB assertion over the image of an empty class is unsatisfiable in the reals, so the theorem cannot hold unless the class is populated by the constants for which it is stated. Audience. The kernel F1 is the pair-correlation form factor and the window class is the generalized, load-bearing class of Section 7.1 of the cited paper rather than a convenient flat-topped realization, so the constrained supremum settled here is the quantity that a critical-line proportion argument built on that framework optimizes; analytic number theorists working on the proportion of zeros of the Riemann zeta function on the critical line, and on pair correlation of its zeros, are the audience for which the exact value of that supremum over the admissible class, rather than a bound on it, is the relevant fact. The statement is also a closure result for a constrained admissible class in the variational theory of Fredholm integral operators (MSC 45B05, 49R05) and can be read there without reference to its origin. What the theorem itself asserts is bounded by the scope field below: it is a statement about a Fredholm operator on an interval and a class of test profiles, and it is evidence for nothing beyond that.",
+  "authors": [
+    {
+      "name": "Thomas Lince"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-21-000004-v1/93bddca01f129e504c80e6ff137c12635d7232e9b47805cd58581bd95320f67b/",
+    "artifact_tree_sha256": "93bddca01f129e504c80e6ff137c12635d7232e9b47805cd58581bd95320f67b",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-21T05:42:27Z",
+    "renderer_commit": "16038af22a929ae3714acf7d74219cfbe57acf2d",
+    "verso_commit": "755ccbe968ad1b0255bee8b46d9cb2306486d6d8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.CA"
+    ],
+    "msc2020": [
+      "45B05",
+      "49R05",
+      "11M26"
+    ]
+  },
+  "first_registered_on": "2026-08-21",
+  "formalization": {
+    "challenge_path": "lean/Challenge.lean",
+    "comparator_config_path": "lean/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "lean/formalization.yaml",
+    "lakefile_path": "lean/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "51e6992efd06126df61a496bebf8f49482a4e129"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "123d15766ba49356c02ebad2a4462dfe12d79899"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "f5c090429dff3cf66cb65562526c9ea6e8edfbcb"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "bb3469a87774349fe01898d8bf2fc6a1ce6411ca"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "222c58dad7706a6e7cae46c0edd65ea881d3ee27"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7db8190085343afde2f5d2cdcc9bac719b6ec02c"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ef42f8944eaf5b6cbfbe75d1917d824c7dd6cf33"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "76e1c118b0700b4ceafe99532e887d6431625e1a"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "1319485273bf87833fa472afbcefdedecb16b45f"
+      }
+    ],
+    "solution_path": "lean/Solution.lean",
+    "theorem_names": [
+      "ZetaLean.Palomar.pub1_strong_closure",
+      "ZetaLean.Palomar.pub1_strong_closure_reciprocal",
+      "ZetaLean.Palomar.pub1_strong_closure_exists"
+    ]
+  },
+  "id": "PALOMAR-2026-08-21-000004",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-21T05:38:02Z",
+    "receipt_sha256": "159833bd588355416a1b13197a09421e217e5bb9874996667bdabadd28b024bb",
+    "repositories": [
+      {
+        "commit": "7db8190085343afde2f5d2cdcc9bac719b6ec02c",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000004-v1/7db8190085343afde2f5d2cdcc9bac719b6ec02c",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "76e1c118b0700b4ceafe99532e887d6431625e1a",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000004-v1/76e1c118b0700b4ceafe99532e887d6431625e1a",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "bb3469a87774349fe01898d8bf2fc6a1ce6411ca",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000004-v1/bb3469a87774349fe01898d8bf2fc6a1ce6411ca",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "f5c090429dff3cf66cb65562526c9ea6e8edfbcb",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000004-v1/f5c090429dff3cf66cb65562526c9ea6e8edfbcb",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "51e6992efd06126df61a496bebf8f49482a4e129",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000004-v1/51e6992efd06126df61a496bebf8f49482a4e129",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "123d15766ba49356c02ebad2a4462dfe12d79899",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000004-v1/123d15766ba49356c02ebad2a4462dfe12d79899",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "222c58dad7706a6e7cae46c0edd65ea881d3ee27",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000004-v1/222c58dad7706a6e7cae46c0edd65ea881d3ee27",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ef42f8944eaf5b6cbfbe75d1917d824c7dd6cf33",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000004-v1/ef42f8944eaf5b6cbfbe75d1917d824c7dd6cf33",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "1319485273bf87833fa472afbcefdedecb16b45f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000004-v1/1319485273bf87833fa472afbcefdedecb16b45f",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "8a28a4faa3fb0fe68649f4f22faba7efe4bc3406",
+        "fork_repository": "PalomarArchive/teal-sea--zeta-lab--3c21e0f57be6",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000004-v1/8a28a4faa3fb0fe68649f4f22faba7efe4bc3406",
+        "source_repository": "teal-sea/zeta-lab"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "relationship": "other",
+        "title": "Source-admissible strong closure for the Farmer-Gonek-Lee window functional: the supremum of <1,v>^2/<Av,v> over the compactly supported monotone admissible class is exactly <1, A^(-1)1>",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "L. Alpoge"
+          },
+          {
+            "name": "R. Furman"
+          }
+        ],
+        "contributors": [
+          {
+            "name": "Claude (Anthropic)",
+            "role": "the official record for arXiv:2608.13637 states that the proof was discovered autonomously by Claude (Anthropic) and verified and communicated by the listed authors"
+          }
+        ],
+        "identifier": "arXiv:2608.13637",
+        "license": "unknown",
+        "location": "https://www-cdn.anthropic.com/95c246936988e43127bc6b2ceb7077c1dad2d68e.pdf",
+        "relationship": "background",
+        "title": "More than two thirds of the zeta zeros are simple and on the critical line",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "location": "hunts/wide_search/RESULTS-xiprime-admissible-closure.md",
+        "relationship": "background",
+        "title": "Pub 1 source-admissible strong closure: exact-rational evidence package (in-repository working document)",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/anthropics/zeta-23-lean",
+        "note": "The Lean development accompanying the cited paper, at commit ce196b66685e96f874850a2836e183feccebef2a. It formalizes generic xi-prime window-functional and trace-assembly machinery over its own WindowProfile class and verifies the displayed flat and quartic instances. It does not contain the supremum identity proved here, and this submission neither imports from it nor depends on it.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Thomas Lince"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-08-21T05:37:39Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "2d7c43b9c2d1dcc4e642c732091e4fea2569b81c",
+    "report": {
+      "sha256": "2e4ac4d21eb362cc89d62cee9634e0e5c9355c698451a66d7bf94c26f101fec8"
+    },
+    "reviewed_at": "2026-08-21T05:31:45Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "8a28a4faa3fb0fe68649f4f22faba7efe4bc3406",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "fd0274e92564494901ccaf2ff75d99547568261ebe70c3271e559f6892baadee"
+    },
+    "project_path": "lean",
+    "repository": "teal-sea/zeta-lab",
+    "repository_url": "https://github.com/teal-sea/zeta-lab",
+    "tree_url": "https://github.com/teal-sea/zeta-lab/tree/8a28a4faa3fb0fe68649f4f22faba7efe4bc3406/lean"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "hk51kehsl2b0"
+  },
+  "title": "teal-sea/zeta-lab",
+  "trust": {
+    "challenge_bytes": 8153,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 188,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "bf20d0c90daf8540a1771827f990c7fd3fe39487dfd76191f5f5e8d58109f26d",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-21-000004-v1/f18d4fa0f9f2e6d0ec98c80f8aaf3135d608b2f5aa041071a5c5efb9a0e89d4d/",
+    "evidence_tree_sha256": "f18d4fa0f9f2e6d0ec98c80f8aaf3135d608b2f5aa041071a5c5efb9a0e89d4d",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "9fb131bb100eb32ccf6836f14e4f8328d13b6792",
+    "mechanical_report_sha256": "0c188a0826b5a3c2dac7c46a3e901e9620bc230c4f2be5be8208d6d3451b4321",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32448082170,
+    "solution_sha256": "7aa170abe5354c430665c69423450f0fe76b1bac2fdf074b19b093348c2057b8",
+    "verified_at": "2026-08-21T05:13:04Z",
+    "workflow_commit": "16038af22a929ae3714acf7d74219cfbe57acf2d",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32448082170"
+  },
+  "version": 1
+}

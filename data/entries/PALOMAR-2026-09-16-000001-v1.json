@@ -1,0 +1,306 @@
+{
+  "abstract": "In 1926, Fatou conjectured that the Julia set of the complex exponential map is the entire complex plane; in other words, the dynamical system described by the map is unstable under perturbation at every point in the plane.  Misiurewicz proved this conjecture in 1981. In 2015, Shen and Rempe published \"The Exponential Map Is Chaotic: An Invitation to Transcendental Dynamics\", giving an elementary and conceptual proof of Misiurewicz's theorem and deriving its dynamical consequences, without requiring advanced results  from complex analysis or dynamics.\nThis project formalises these results in Lean 4: density of escaping points, points with dense orbits, and repelling periodic points; eventual covering of compact subsets of the punctured plane; Devaney chaos; spherical non-equicontinuity; and the fact that the Julia set is the whole complex plane.",
+  "authors": [
+    {
+      "name": "Lasse Rempe"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-16-000001-v1/fbedcb2a21928d8831c5666a7cd29740004cdb5c8c288af30648f4a83fb8d48c/",
+    "artifact_tree_sha256": "fbedcb2a21928d8831c5666a7cd29740004cdb5c8c288af30648f4a83fb8d48c",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-16T00:00:14Z",
+    "renderer_commit": "a013555a88a0fc9ec910a09ea833dc9cc338db35",
+    "verso_commit": "cad4b633e75ea769b851f12f9ca3b4f0dfcc625f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.DS",
+      "math.CV"
+    ],
+    "msc2020": [
+      "37F10",
+      "30D05"
+    ]
+  },
+  "first_registered_on": "2026-09-16",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "ExpChaotic.expIterate",
+      "ExpChaotic.EscapesToInfinity",
+      "ExpChaotic.escapingSet",
+      "ExpChaotic.denseOrbitSet",
+      "ExpChaotic.repellingPeriodicSet",
+      "ExpChaotic.IsNormalSequenceOn",
+      "ExpChaotic.fatouSet",
+      "ExpChaotic.juliaSet",
+      "ExpChaotic.IsDevaneyChaotic",
+      "ExpChaotic.RiemannSphere",
+      "ExpChaotic.riemannSphereUniformSpace",
+      "ExpChaotic.sphericalExpIterate"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.34.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "7801e8406155c31b340d28e2762f754d02b5e9b0"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "118aa17ee84656b8bd727fef7c458ee8c833385c"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "ddf04cf3949fa556442341e87d47f9f6e6074707"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "e928b72544873815af278d38681b31c0293588e3"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "355695d523e41d0554926416cba2a2b3544fbbc9"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "ExpChaotic.eventually_covers_compact",
+      "ExpChaotic.dense_iteratedPreimages_nonzero",
+      "ExpChaotic.dense_iteratedPreimages_realAxis",
+      "ExpChaotic.dense_escapingSet",
+      "ExpChaotic.dense_denseOrbitSet",
+      "ExpChaotic.not_countable_denseOrbitSet",
+      "ExpChaotic.dense_repellingPeriodicSet",
+      "ExpChaotic.topologically_transitive",
+      "ExpChaotic.devaney_chaotic",
+      "ExpChaotic.not_equicontinuousAt_sphericalExpIterate",
+      "ExpChaotic.infinitely_often_hits_negative_realAxis",
+      "ExpChaotic.spherical_sensitive_dependence_paper",
+      "ExpChaotic.expansion_along_escaping_orbits",
+      "ExpChaotic.not_tendstoLocallyUniformly_sphericalExpIterate",
+      "ExpChaotic.juliaSet_exp"
+    ]
+  },
+  "id": "PALOMAR-2026-09-16-000001",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-16T00:00:55Z",
+    "receipt_sha256": "8bcacdf18f7151d36255b528458e9617d6f610b876be42a32decd414827aa5c8",
+    "repositories": [
+      {
+        "commit": "355695d523e41d0554926416cba2a2b3544fbbc9",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-16-000001-v1/355695d523e41d0554926416cba2a2b3544fbbc9",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-16-000001-v1/f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "e928b72544873815af278d38681b31c0293588e3",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-16-000001-v1/e928b72544873815af278d38681b31c0293588e3",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-16-000001-v1/ddf04cf3949fa556442341e87d47f9f6e6074707",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "7801e8406155c31b340d28e2762f754d02b5e9b0",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-16-000001-v1/7801e8406155c31b340d28e2762f754d02b5e9b0",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-16-000001-v1/118aa17ee84656b8bd727fef7c458ee8c833385c",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-16-000001-v1/106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-16-000001-v1/6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-16-000001-v1/e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "303b2d3d1121ebc3a86399de8f1e71c17a8b6dd8",
+        "fork_repository": "PalomarArchive/LR-UK--exp-chaotic--81fc3bb18771",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-16-000001-v1/303b2d3d1121ebc3a86399de8f1e71c17a8b6dd8",
+        "source_repository": "LR-UK/exp-chaotic"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Zhaiming Shen"
+          },
+          {
+            "name": "Lasse Rempe-Gillen"
+          }
+        ],
+        "identifier": "arXiv:1408.1129",
+        "license": "unknown",
+        "location": "https://doi.org/10.4169/amer.math.monthly.122.10.919",
+        "relationship": "formalizes",
+        "title": "The Exponential Map Is Chaotic: An Invitation to Transcendental Dynamics",
+        "type": "journal article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Michał Misiurewicz"
+          }
+        ],
+        "license": "unknown",
+        "location": "Ergodic Theory and Dynamical Systems 1 (1981), 103–106",
+        "relationship": "formalizes",
+        "title": "On iterates of e^z",
+        "type": "journal article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/jrh13/hol-light/blob/master/Examples/misiurewicz.ml",
+        "note": "John Harrison's BSD-2-Clause HOL Light formalisation supplied the six-lemma architecture and mathematical interface for the initial proof stage.",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Lasse Rempe"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-16T00:00:32Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "e9c8c238f5695b10f75db7175648a1d0195352c1",
+    "report": {
+      "sha256": "071b9347d6e1cc4461f03addfc17eb5517db563b55fb6091fb29ababe9375973"
+    },
+    "reviewed_at": "2026-09-15T23:43:33Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": [
+      "The production account materially misidentifies the analytic mechanism in the decisive real-axis proof. Replace “Schwarz-lemma arguments” with an account of the Cayley-transform, Cauchy-estimate/equicontinuity, compactness, and strip-geometry argument actually imported by the Solution."
+    ]
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "303b2d3d1121ebc3a86399de8f1e71c17a8b6dd8",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "LR-UK/exp-chaotic",
+    "repository_url": "https://github.com/LR-UK/exp-chaotic",
+    "tree_url": "https://github.com/LR-UK/exp-chaotic/tree/303b2d3d1121ebc3a86399de8f1e71c17a8b6dd8"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "3inegniqww53"
+  },
+  "title": "The exponential map is chaotic",
+  "trust": {
+    "challenge_bytes": 8946,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 198,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "f61266831709f926557c67c2601fb16706caea5398f93adf0c23b4e431e2493c",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-16-000001-v1/edffcc96a69d2a8bf194b7c67a8945650dd94a1b85d27edc1c3738b192ad71a0/",
+    "evidence_tree_sha256": "edffcc96a69d2a8bf194b7c67a8945650dd94a1b85d27edc1c3738b192ad71a0",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "076e8e57707e813375e8f9da8bf989799ace9680",
+    "mechanical_report_sha256": "bfc60bc8e5e26e11c91714a55f3540b3e5c815de7e616261cf57a79584f7adf2",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 35035246246,
+    "solution_sha256": "cbac3682cf88805dfb69e34a55fce35ea1a41cc0dc214e10b3b5b4ab4b10e83b",
+    "verified_at": "2026-09-15T23:27:08Z",
+    "workflow_commit": "a013555a88a0fc9ec910a09ea833dc9cc338db35",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/35035246246"
+  },
+  "version": 1
+}

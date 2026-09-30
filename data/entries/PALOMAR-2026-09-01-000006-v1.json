@@ -1,0 +1,421 @@
+{
+  "abstract": "A Lean 4 and Mathlib formalization of part of the theorem layer of the Hadamard-B note on bordered Goethals-Seidel arrays: twenty-six compared theorems over fifty-eight compared definitions. Theorem A characterises, by an if-and-only-if, when a Goethals-Seidel array of four sign-valued sequences over a finite abelian group extends to a Hadamard matrix through a border of width 4s whose strips are constant on the cosets of a subgroup. Theorem B is its house form, whose hypothesis is exactly a two-tier periodic-autocorrelation profile, and carries two classical degenerations at an arbitrary reflection shift: the Goethals-Seidel theorem over an arbitrary finite abelian group, and the Wallis-Whiteman/Spence bordered construction. Of Theorem C only the row-sum rows D5 and D6 are formalized; clauses D1-D4 and the classification corollary are not. The character-twist layer is Lemma T, the s = 1 profile bijection, and the theorem that a twist fixing the reflection shift is a diagonal conjugation. Theorem D is covered at clauses (D-a) through (D-e): the forced Gram and border tables, the collapse of (H4) to a single 4x4 equation, the integer Parseval identity, both directions of the transport across the doubling, and clause (D-a'), which identifies the degenerate branch with the index-one construction entry for entry, again in both directions. The index-two collapse corollary is represented by its seed-problem bijection clause alone; its characteristic-subgroup and equivariance clauses are not formalized, nor is the 768-squared census behind (D-e). Two witness records are imported under SHA-256 pins, cross-checked against the source's canonical matrix digests, and checked by kernel reduction against Theorem A's hypotheses, giving Hadamard matrices of orders 52 and 20 through the theorem rather than by matrix multiplication; no novelty of existence is claimed at either order.",
+  "authors": [
+    {
+      "name": "JD Jones"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-01-000006-v1/02c3288f1a24fdcdeadba3b53b60dc45ec2258b09c88e6d1ca47ba50d3646896/",
+    "artifact_tree_sha256": "02c3288f1a24fdcdeadba3b53b60dc45ec2258b09c88e6d1ca47ba50d3646896",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-01T12:02:54Z",
+    "renderer_commit": "15f394394d0c4c3d6cfe39d67675fc34bdd285db",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05B20"
+    ]
+  },
+  "first_registered_on": "2026-09-01",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "HadamardBFormal.IsSign",
+      "HadamardBFormal.HadamardExists",
+      "HadamardBFormal.dev",
+      "HadamardBFormal.reflect",
+      "HadamardBFormal.revCols",
+      "HadamardBFormal.paf",
+      "HadamardBFormal.sumPaf",
+      "HadamardBFormal.cosetSum",
+      "HadamardBFormal.gsBlock",
+      "HadamardBFormal.gs",
+      "HadamardBFormal.core",
+      "HadamardBFormal.rowStrip",
+      "HadamardBFormal.colStrip",
+      "HadamardBFormal.chat",
+      "HadamardBFormal.border",
+      "HadamardBFormal.H1",
+      "HadamardBFormal.H2",
+      "HadamardBFormal.H3",
+      "HadamardBFormal.H4",
+      "HadamardBFormal.houseM",
+      "HadamardBFormal.twistDiagBar",
+      "HadamardBFormal.twistConj",
+      "HadamardBFormal.Lam",
+      "HadamardBFormal.eps",
+      "HadamardBFormal.delta",
+      "HadamardBFormal.dvec",
+      "HadamardBFormal.psi2",
+      "HadamardBFormal.rvec",
+      "HadamardBFormal.seedTwist",
+      "HadamardBFormal.doubleRow",
+      "HadamardBFormal.doubleCol",
+      "HadamardBFormal.collapseRow",
+      "HadamardBFormal.collapseCol",
+      "HadamardBFormal.G52",
+      "HadamardBFormal.gidx52",
+      "HadamardBFormal.pairIdx",
+      "HadamardBFormal.kappa52",
+      "HadamardBFormal.rho52",
+      "HadamardBFormal.seed52Data",
+      "HadamardBFormal.seed52",
+      "HadamardBFormal.corner52Data",
+      "HadamardBFormal.E52",
+      "HadamardBFormal.rowTable52Data",
+      "HadamardBFormal.P52",
+      "HadamardBFormal.colTable52Data",
+      "HadamardBFormal.Q52",
+      "HadamardBFormal.G20",
+      "HadamardBFormal.gidx20",
+      "HadamardBFormal.kappa20",
+      "HadamardBFormal.rho20",
+      "HadamardBFormal.seed20Data",
+      "HadamardBFormal.seed20",
+      "HadamardBFormal.corner20Data",
+      "HadamardBFormal.E20",
+      "HadamardBFormal.rowTable20Data",
+      "HadamardBFormal.P20",
+      "HadamardBFormal.colRows20Data",
+      "HadamardBFormal.Q20"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "HadamardBFormal.theoremA",
+      "HadamardBFormal.theoremA_sufficiency",
+      "HadamardBFormal.theoremB_profile",
+      "HadamardBFormal.D5",
+      "HadamardBFormal.D6",
+      "HadamardBFormal.goethalsSeidel_abelian",
+      "HadamardBFormal.borderedGS_index_one",
+      "HadamardBFormal.lemmaT",
+      "HadamardBFormal.twist_profile_iff",
+      "HadamardBFormal.twist_isConjugation",
+      "HadamardBFormal.twist_isHadamard_iff",
+      "HadamardBFormal.theoremD_tables",
+      "HadamardBFormal.theoremD_rowTable",
+      "HadamardBFormal.theoremD_border",
+      "HadamardBFormal.deltaSqSum_eq_four",
+      "HadamardBFormal.theoremD_transport",
+      "HadamardBFormal.theoremD_transport_converse",
+      "HadamardBFormal.theoremD_transport_iff",
+      "HadamardBFormal.theoremD_degenerate_collapse",
+      "HadamardBFormal.theoremD_degenerate_converse",
+      "HadamardBFormal.collapse_seedProblem_bijection",
+      "HadamardBFormal.hadamard_52_bordered",
+      "HadamardBFormal.hadamardExists_52",
+      "HadamardBFormal.hadamard_20_bordered",
+      "HadamardBFormal.hadamardExists_20",
+      "HadamardBFormal.gate52_columnTable"
+    ]
+  },
+  "id": "PALOMAR-2026-09-01-000006",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-01T12:03:23Z",
+    "receipt_sha256": "b085b619fc418495ea2c523366707d3faa540bbce0a8ab01c999f3599730e654",
+    "repositories": [
+      {
+        "commit": "d99c0180872e4213e54272f9699d28f28032a2a3",
+        "fork_repository": "PalomarArchive/JD-Jones-ASES--Hadamard-B-Formal--531cc34ea6ea",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000006-v1/d99c0180872e4213e54272f9699d28f28032a2a3",
+        "source_repository": "JD-Jones-ASES/Hadamard-B-Formal"
+      },
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000006-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000006-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000006-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000006-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000006-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000006-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000006-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000006-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-01-000006-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "JD Jones"
+          }
+        ],
+        "identifier": "https://github.com/JD-Jones-ASES/Hadamard-B/tree/01a7f0614208ca68d69e64a7cd5b560aadafbb8a",
+        "location": "note/NOTE-B.md sections 1.0-1.6 and 2.2; data/h52-gate.json (SHA-256 ef60c4ff9f245eec5ba7f035e5968152836207fcd9235a0b1851150d2fb1d170) and data/h20-boundary.json (SHA-256 716610543b79ab9e1c9f1adb142c114544e70e58d370500130b83c17a18cf254)",
+        "relationship": "formalizes",
+        "title": "Hadamard-B: bordered Goethals-Seidel arrays - characterisation, classification, and three equivalence classes at order 668",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "J. M. Goethals"
+          },
+          {
+            "name": "J. J. Seidel"
+          }
+        ],
+        "identifier": "J. Austral. Math. Soc. 11 (1970) 343-344",
+        "location": "the four-block array",
+        "relationship": "background",
+        "title": "A skew Hadamard matrix of order 36",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "J. Wallis"
+          },
+          {
+            "name": "A. L. Whiteman"
+          }
+        ],
+        "identifier": "Bull. Austral. Math. Soc. 7 (1972) 233-249",
+        "location": "Theorem 11 (p. 242) and Theorem 12 (p. 243)",
+        "relationship": "background",
+        "title": "Some classes of Hadamard matrices with constant diagonal",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "E. Spence"
+          }
+        ],
+        "identifier": "J. Combin. Theory Ser. A 19 (1975) 287-300",
+        "location": "Theorem 2.1 (p. 289)",
+        "relationship": "background",
+        "title": "Hadamard matrices from relative difference sets",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "D. Z. Dokovic"
+          },
+          {
+            "name": "I. S. Kotsireas"
+          }
+        ],
+        "identifier": "arXiv:1302.0571 and arXiv:1801.07627",
+        "location": "arXiv:1302.0571 Def. 3 and Thm 3 (cyclic); arXiv:1801.07627 section 7, Lemma 3 and Thm 4 (general abelian)",
+        "relationship": "background",
+        "title": "The Dokovic-Kotsireas compression device (two papers)",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/LinearAlgebra/Matrix/HadamardMatrix.lean",
+        "note": "At the exact Mathlib commit pinned by lake-manifest.json, which is the commit the tag v4.33.0 named when this package was built. Mathlib's Hadamard-matrix module supplies the Matrix.IsHadamard predicate that every compared conclusion is stated in, together with Matrix.IsHadamard.of_mul_conjTranspose and the transpose-side conjTranspose_mul field that the Theorem-D argument uses. It exhibits no Hadamard matrix of any order and contains no existence theorem, and Mathlib at this revision has no content on Goethals-Seidel arrays, group-developed blocks, coset borders, or the autocorrelation profiles studied here.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/LinearAlgebra/Matrix/Circulant.lean",
+        "note": "At the same pinned Mathlib commit. Mathlib's circulant module is the nearest existing object to the development's type-1 development dev x, which is the transpose of Matrix.circulant x. The module carries circulant multiplication and commutation over an additive commutative group but no development over a general abelian group indexed by a quotient, and nothing on the block array; the proofs here use the direct convolution route rather than Matrix.circulant_mul.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://palomar-registry.org/entry.html?id=PALOMAR-2026-08-31-000001&version=1",
+        "note": "The sibling Lean repository Hadamard-formal from the same laboratory, https://github.com/JD-Jones-ASES/Hadamard-formal, registered 2026-08-31 as PALOMAR-2026-08-31-000001. Its developed-matrix algebra and its sixteen-block Goethals-Seidel Gram lemma are the ancestors of the corresponding lemmas here, ported with two changes: the six transposed blocks are negated, because that repository uses the SageMath orientation while this one uses the note's standard orientation, and the reflection is an arbitrary shift R_rho rather than the group inversion. The sign layer (IsSign) and the reindexing helpers match it on the nose.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://palomar-registry.org/entry.html?id=PALOMAR-2026-08-17-000002&version=1",
+        "note": "Paul-Lez/hadamard-668-comparator on GitHub, created 2026-08-14 and registered 2026-08-17 as PALOMAR-2026-08-17-000002. A Lean formalization that verifies a single Hadamard matrix of order 668 built from the publicly posted data of 2026-08-12; its Challenge.lean independently exhibits the bordered structure at that order - circulants on Fin 166, a width-4 border, per-block-constant strips, and the same 4x4 corner. It states no general construction theorem, so it does not overlap the compared surface here; the source note records the independent exhibition of the border shape (NOTE-B section 4.3).",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://palomar-registry.org/entry.html?id=PALOMAR-2026-08-29-000009&version=1",
+        "note": "Arthur742Ramos/hadamard-668-lean on GitHub, created 2026-08-28 and registered 2026-08-29 as PALOMAR-2026-08-29-000009. A Lean formalization (Ramos-Hulak-de Queiroz) that verifies one supplied Hadamard matrix of order 668 from the same public data. It states no general construction theorem. As the source note puts it, neither of the two public order-668 formalizations states the general construction theorem or the classification, so a formalised Theorem A/B is a distinct object (NOTE-B section 4.3).",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "JD Jones"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-01T12:03:05Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "4ed67de4fd69df383badb7857dff97e2fb734ab0",
+    "report": {
+      "sha256": "3f0595a973a5e87b7ae768f06edf0f27bd290ac4b5855711ba20e92838fe8929"
+    },
+    "reviewed_at": "2026-09-01T11:54:36Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "d99c0180872e4213e54272f9699d28f28032a2a3",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "8d464f723696204001f7ef63b6146ffc544aa6837aa74c53f6f9c53d8a18b0f0"
+    },
+    "repository": "JD-Jones-ASES/Hadamard-B-Formal",
+    "repository_url": "https://github.com/JD-Jones-ASES/Hadamard-B-Formal",
+    "tree_url": "https://github.com/JD-Jones-ASES/Hadamard-B-Formal/tree/d99c0180872e4213e54272f9699d28f28032a2a3"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "uwfktca1r3kq"
+  },
+  "title": "hadamard-b-formal: the bordered Goethals-Seidel characterisation, the s=1 layer, and Theorem D",
+  "trust": {
+    "challenge_bytes": 44185,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 946,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "115edcc26e3a1b2b8b2923c64a9472ac5555036dc05edffb3894bfe832cb719a",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-01-000006-v1/53e12888598a01f7ec03f9771bd590732da2c5c0942090a06b711f38fc409574/",
+    "evidence_tree_sha256": "53e12888598a01f7ec03f9771bd590732da2c5c0942090a06b711f38fc409574",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "0804808224270ceef651171f9158314cd24d5eb99b7687eb65c43e17bb684dd8",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33502957777,
+    "solution_sha256": "32a5bb16c567f1e68fdbe779b10b891c00cfc288ebb531c4acc8683a564793b2",
+    "verified_at": "2026-09-01T11:38:15Z",
+    "workflow_commit": "15f394394d0c4c3d6cfe39d67675fc34bdd285db",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33502957777"
+  },
+  "version": 1
+}

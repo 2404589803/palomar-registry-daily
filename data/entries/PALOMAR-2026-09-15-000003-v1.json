@@ -1,0 +1,357 @@
+{
+  "abstract": "A Lean 4 formalization, against Mathlib, of the qualitative statement of J. H. Bae, \"A resolution of Erdős Problem #190: the canonical van der Waerden number satisfies H(k)^{1/k}/k → ∞\" (arXiv:2604.20588, v2), Corollary 1.2, via the elementary argument of its Section 4.3.  Let H(k) be the least N such that every finite colouring of {1,…,N} contains a monochromatic or a rainbow k-term arithmetic progression; Erdős and Graham (1979) asked whether H(k)^{1/k}/k → ∞ (Problem 190 in Bloom's database).  The compared theorems state that for every C there is K such that for all k ≥ K every N for which [N] is canonical for k satisfies (Ck)^k < N (divergence, and its Filter.Eventually form); this is a statement about canonical N only and by itself says nothing about H(k) (it holds vacuously for a k with no canonical N, where H(k) = sInf ∅ = 0).  Combined with the existence of a canonical N for every k — the Erdős–Graham theorem, via Szemerédi's theorem, which is not formalized — it gives H(k) > (Ck)^k for all large k, i.e. H(k)^{1/k}/k → ∞; that conditional conclusion is stated as H_divergence, with the existence as an explicit hypothesis on H(k) = sInf {N | canonical}.  The fourth compared theorem is the explicit bound behind the argument: for k ≥ 12 there is a prime p with (k−1)/2 < p ≤ k−1 such that every canonical N exceeds p^(p − ⌊k/3⌋)·⌊⌊k/3⌋^(k−1)/(16k²)⌋ (integer divisions, as in the Lean statement).  The proof composes the Erdős–Lovász lower bound W(r,k) − 1 ≥ r^(k−1)/(16k²) for van der Waerden numbers (obtained from the symmetric Lovász local lemma, applied with a number of colours r₀ = ⌊k/3⌋ growing with k), the restricted Blankenship–Cummings–Taranchuk recurrence W(r,k) − 1 ≥ p·(W(r−1,k) − 1) for primes r ≤ p ≤ k, Bertrand's postulate, and elementary asymptotics.  The paper's main theorem, the explicit rate H(k)^{1/k}/k ≥ (1/e − ε(k))·k/log k obtained with the Baker–Harman–Pintz prime-gap theorem, is not formalized (that theorem is not available in Mathlib); the formalized argument gives the weaker rate k^{1/6−o(1)}, which suffices for the qualitative statement.  The compared theorems depend only on propext, Classical.choice and Quot.sound.",
+  "authors": [
+    {
+      "name": "Ji Ho Bae"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-15-000003-v1/77c9004cc027f7ce84e8ee676bc78ef8629be80920339339ffdf5cd0521dcc83/",
+    "artifact_tree_sha256": "77c9004cc027f7ce84e8ee676bc78ef8629be80920339339ffdf5cd0521dcc83",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-15T10:31:11Z",
+    "renderer_commit": "a013555a88a0fc9ec910a09ea833dc9cc338db35",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.NT"
+    ],
+    "msc2020": [
+      "05D10",
+      "11B25",
+      "05C65"
+    ]
+  },
+  "first_registered_on": "2026-09-15",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "ProbMethodCombinatorics",
+        "repository": "yidiq7/ProbMethodCombinatorics",
+        "revision": "10f2997bf965df06cfbb0129651a1af6c7367618"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Erdos190.Palomar.divergence",
+      "Erdos190.Palomar.divergence_eventually",
+      "Erdos190.Palomar.H_divergence",
+      "Erdos190.Palomar.explicit_bound"
+    ]
+  },
+  "id": "PALOMAR-2026-09-15-000003",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-15T10:31:47Z",
+    "receipt_sha256": "4844cf59ed8ff077e2d3256bf092d61d547221b77228c5664b499bf9b3c46731",
+    "repositories": [
+      {
+        "commit": "be43a3ead08a9d9af352cf296d284dd3468ca805",
+        "fork_repository": "PalomarArchive/jbaelaw--erdos190-lean--ffa29cd1b3a4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-15-000003-v1/be43a3ead08a9d9af352cf296d284dd3468ca805",
+        "source_repository": "jbaelaw/erdos190-lean"
+      },
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-15-000003-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-15-000003-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-15-000003-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-15-000003-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-15-000003-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-15-000003-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-15-000003-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-15-000003-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-15-000003-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "10f2997bf965df06cfbb0129651a1af6c7367618",
+        "fork_repository": "PalomarArchive/yidiq7--ProbMethodCombinatorics--3f8577b0e097",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-15-000003-v1/10f2997bf965df06cfbb0129651a1af6c7367618",
+        "source_repository": "yidiq7/ProbMethodCombinatorics"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Ji Ho Bae"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2604.20588",
+        "location": "Corollary 1.2 and Section 4.3 (Proposition 4.1); v2",
+        "relationship": "formalizes",
+        "title": "A resolution of Erdős Problem #190: the canonical van der Waerden number satisfies H(k)^{1/k}/k → ∞",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Thomas F. Bloom (site)"
+          }
+        ],
+        "contributors": [
+          {
+            "name": "Paul Erdős",
+            "role": "problem-proposer"
+          },
+          {
+            "name": "Ronald L. Graham",
+            "role": "problem-proposer"
+          }
+        ],
+        "identifier": "https://www.erdosproblems.com/190",
+        "relationship": "background",
+        "title": "Erdős Problem #190 (erdosproblems.com)",
+        "type": "web discussion"
+      },
+      {
+        "authors": [
+          {
+            "name": "Paul Erdős"
+          },
+          {
+            "name": "Ronald L. Graham"
+          }
+        ],
+        "identifier": "Enseign. Math. (2) 25 (1979), 325–344",
+        "location": "p. 333",
+        "relationship": "background",
+        "title": "Old and new problems and results in combinatorial number theory: van der Waerden's theorem and related topics",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jacob Fox"
+          },
+          {
+            "name": "Zach Hunter"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2606.02541",
+        "location": "Theorem 3; Sections 1.1 and 6",
+        "relationship": "background",
+        "title": "Three-color van der Waerden numbers grow super-exponentially",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Thomas Blankenship"
+          },
+          {
+            "name": "Jay Cummings"
+          },
+          {
+            "name": "Vladislav Taranchuk"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/j.ejc.2017.10.007",
+        "relationship": "adapts",
+        "title": "A new lower bound for van der Waerden numbers",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Paul Erdős"
+          },
+          {
+            "name": "László Lovász"
+          }
+        ],
+        "identifier": "Colloq. Math. Soc. János Bolyai 10 (1975), 609–627",
+        "relationship": "adapts",
+        "title": "Problems and results on 3-chromatic hypergraphs and some related questions",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/yidiq7/ProbMethodCombinatorics",
+        "note": "Lean dependency, pinned at commit 10f2997bf965df06cfbb0129651a1af6c7367618.  Its theorem lovasz_local_lemma_symmetric (the symmetric Lovász local lemma, standard axioms only) is used in Erdos190/EL.lean.  It is a dependency of the Solution only; the Challenge imports Mathlib alone.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ji Ho Bae"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-15T10:31:24Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "e9c8c238f5695b10f75db7175648a1d0195352c1",
+    "report": {
+      "sha256": "0a31a85c4b03080a0986490835b156e2155e5d7b7e1ca784660147cde6091f5f"
+    },
+    "reviewed_at": "2026-09-15T00:51:20Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "be43a3ead08a9d9af352cf296d284dd3468ca805",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "jbaelaw/erdos190-lean",
+    "repository_url": "https://github.com/jbaelaw/erdos190-lean",
+    "tree_url": "https://github.com/jbaelaw/erdos190-lean/tree/be43a3ead08a9d9af352cf296d284dd3468ca805"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "54eogiqxdra9"
+  },
+  "title": "Erdős Problem 190: every canonical N exceeds (Ck)^k for large k, and H(k)^{1/k}/k → ∞ under the existence hypothesis — a Lean 4 formalization of the qualitative statement of arXiv:2604.20588",
+  "trust": {
+    "challenge_bytes": 7137,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 129,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "e9888f9d93e12611facfb379221c26812dcc4de7c9de5b9e4bc33cf4927eed71",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-15-000003-v1/67fff169329682bdf044197f0792e5b1f3ec00c08fe522b96e9680eec45408d3/",
+    "evidence_tree_sha256": "67fff169329682bdf044197f0792e5b1f3ec00c08fe522b96e9680eec45408d3",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "d92d5123bb43d0d532944f173920c709be7e9fd1f875a5aadf07f8e402b12555",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 34913320361,
+    "solution_sha256": "1e3fc842a4fdb697797fc6ca13b767bef71b51e076cfab9913d48b05e93b3e15",
+    "verified_at": "2026-09-15T00:34:38Z",
+    "workflow_commit": "a013555a88a0fc9ec910a09ea833dc9cc338db35",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/34913320361"
+  },
+  "version": 1
+}

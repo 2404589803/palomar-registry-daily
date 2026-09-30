@@ -1,0 +1,358 @@
+{
+  "abstract": "This project formalizes in Lean 4 a counterexample to a log-concavity conjecture of Coffey and Csordas (Math. Comp. 82 (2013) 2265-2272, Conjecture 2.5, where the quantity below is written S_n), later restated as Open Problem 4.13 of Csordas (Comput. Methods Funct. Theory 15 (2015) 373-391). Let Phi be the kernel of Riemann's integral representation, Phi(u) = sum_{n>=1} (4 pi^2 n^4 e^{9u/2} - 6 pi n^2 e^{5u/2}) e^{-pi n^2 e^{2u}}, and set J_n(t) = (Phi^(n)(t))^2 - Phi^(n-1)(t) Phi^(n+1)(t), the n-th Laguerre expression of Phi. The conjecture asserts J_n(t) > 0 for every real t and every n >= 1. The compared theorem proves J_9(0) < 0, refuting it. The mechanism is a single sign anomaly: Phi is even, so Phi^(9)(0) = 0 and J_9(0) = -Phi^(8)(0) Phi^(10)(0); the expected sign alternation of the even-order derivatives at the origin breaks at order ten, with Phi^(8)(0) and Phi^(10)(0) both positive. The formalization defines Phi through its convergent theta series, uses iterated derivatives, and derives evenness from Mathlib's Gaussian Poisson summation. The audience is the study of Laguerre expressions and Turan-type inequalities for the Riemann kernel: the Csordas school and its successors, who posed the conjecture and restated it as an open problem. The result is a counterexample, checkable directly by anyone with the definition of Phi in hand. This entry makes no claim concerning the Riemann hypothesis and no priority claim for the counterexample. Contemporaneous LLM-assisted exact-certificate proofs of the same sign failure are cited in the source metadata; neither is a proof-assistant formalization. The contribution recorded here is the Lean 4 formalization and its auditable dependency chain. As an aside: the supporting library pinned by this entry also contains machine-checked refutations, on the same axiom set, of conjectures of X.-J. Yang (Fractals 32 (2024) 2340116) asserting that the zeros of the tempered xi function -- the odd channel of this same kernel -- are confined to a single line; those theorems are not compared by this configuration and are mentioned only as context for the library.",
+  "authors": [
+    {
+      "name": "Brandon Yates"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-27-000002-v1/dcf18ebc8087e8cfd834e2e02612b09859b8883ad1d7c066e4d175fa337754aa/",
+    "artifact_tree_sha256": "dcf18ebc8087e8cfd834e2e02612b09859b8883ad1d7c066e4d175fa337754aa",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-27T00:39:59Z",
+    "renderer_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "verso_commit": "e09d21a5f7f66c9fc985b73197708298569bf583"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CA",
+      "math.CV",
+      "math.NT"
+    ],
+    "msc2020": [
+      "30D15",
+      "26A51",
+      "30D10",
+      "11M06"
+    ]
+  },
+  "first_registered_on": "2026-08-27",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.32.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "XiLab",
+        "repository": "BrandonMYates/xilab",
+        "revision": "4d24c74c3834b3f47a84110d8b864e3e50eacd7f"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "81a5d257c8e410db227a6665ed08f64fea08e997"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "CsordasCounterexample.J_nine_neg"
+    ]
+  },
+  "id": "PALOMAR-2026-08-27-000002",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-27T00:40:34Z",
+    "receipt_sha256": "6b03f0104203ae64ea4626ba47d9f687bd0729dd0244bdeac1de67d8c52892f7",
+    "repositories": [
+      {
+        "commit": "2b23c32b841044581b7fc7a2dca0df86255d490d",
+        "fork_repository": "PalomarArchive/BrandonMYates--csordas-comparator--af50d54b96fc",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000002-v1/2b23c32b841044581b7fc7a2dca0df86255d490d",
+        "source_repository": "BrandonMYates/csordas-comparator"
+      },
+      {
+        "commit": "4d24c74c3834b3f47a84110d8b864e3e50eacd7f",
+        "fork_repository": "PalomarArchive/BrandonMYates--xilab--7375489b8662",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000002-v1/4d24c74c3834b3f47a84110d8b864e3e50eacd7f",
+        "source_repository": "BrandonMYates/xilab"
+      },
+      {
+        "commit": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000002-v1/a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000002-v1/023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000002-v1/7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000002-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000002-v1/81a5d257c8e410db227a6665ed08f64fea08e997",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000002-v1/e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000002-v1/6e311e2a844da9b2cc3971187df2fe0066947b93",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000002-v1/38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000002-v1/88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Brandon Yates"
+          }
+        ],
+        "relationship": "formalizes",
+        "title": "Two concavity problems for the Riemann kernel",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Mark W. Coffey"
+          },
+          {
+            "name": "George Csordas"
+          }
+        ],
+        "identifier": "https://doi.org/10.1090/S0025-5718-2013-02681-6",
+        "location": "Math. Comp. 82 (2013), 2265-2272, Conjecture 2.5",
+        "relationship": "background",
+        "title": "On the log-concavity of a Jacobi theta function",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "George Csordas"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/s40315-014-0105-8",
+        "location": "Comput. Methods Funct. Theory 15 (2015), 373-391, Open Problem 4.13",
+        "relationship": "background",
+        "title": "Fourier transforms of positive definite kernels and the Riemann xi-function",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "George Csordas"
+          },
+          {
+            "name": "Dimitar K. Dimitrov"
+          }
+        ],
+        "location": "Numer. Algorithms 25 (2000), 109-122",
+        "relationship": "background",
+        "title": "Conjectures and theorems in the theory of entire functions",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ryan Kielhorn"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.21894000",
+        "relationship": "independently-proves",
+        "title": "An Exact Level-Nine Counterexample to a Theta-Derivative Turan Conjecture",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Akihiro Koide"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.21941139",
+        "relationship": "independently-proves",
+        "title": "A Counterexample to Csordas' Open Problem 4.13 for the Riemann Xi Kernel",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Xiao-Jun Yang"
+          }
+        ],
+        "identifier": "https://doi.org/10.1142/S0218348X23401163",
+        "location": "Fractals 32 (2024) 2340116",
+        "relationship": "background",
+        "title": "On a tempered xi function associated with the Riemann xi function",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4",
+        "note": "Mathlib has no Riemann kernel Phi. The kernel, its evenness (proved from Mathlib's Gaussian Poisson summation), and the derivatives at the origin are all built in the supporting library.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "thin-wrapper",
+    "responsible_maintainers": [
+      {
+        "name": "Brandon Yates"
+      }
+    ],
+    "result_origin": "source-based",
+    "substantive_formalization": {
+      "commit": "4d24c74c3834b3f47a84110d8b864e3e50eacd7f",
+      "repository": "BrandonMYates/xilab",
+      "repository_url": "https://github.com/BrandonMYates/xilab",
+      "tree_url": "https://github.com/BrandonMYates/xilab/tree/4d24c74c3834b3f47a84110d8b864e3e50eacd7f"
+    }
+  },
+  "registered_at": "2026-08-27T00:40:11Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "d5a647db3757303b1d928cfae4d3d232eed3e79e",
+    "report": {
+      "sha256": "c48741e84465fa787dcc29f49947a37b10446ba2870a674647f342aa8c8a7d62"
+    },
+    "reviewed_at": "2026-08-26T23:08:26Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "2b23c32b841044581b7fc7a2dca0df86255d490d",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "BrandonMYates/csordas-comparator",
+    "repository_url": "https://github.com/BrandonMYates/csordas-comparator",
+    "tree_url": "https://github.com/BrandonMYates/csordas-comparator/tree/2b23c32b841044581b7fc7a2dca0df86255d490d"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "50haj243cw91"
+  },
+  "title": "BrandonMYates/csordas-comparator",
+  "trust": {
+    "challenge_bytes": 3009,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 68,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "f8b95a69997119fb1adc70f70ed1bad3937424c40944f08db8cbb4ef257c34e4",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-27-000002-v1/5b30764e30cbbb07bfa679e155128fc4991ab7b2ee600bd072c6b9bd69d60213/",
+    "evidence_tree_sha256": "5b30764e30cbbb07bfa679e155128fc4991ab7b2ee600bd072c6b9bd69d60213",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "4e7915201d3f9f04470d9eae002fa695f7cdc589",
+    "mechanical_report_sha256": "26dabe16e0410c18e3d368ceeceec78b35163bde7d1501a3bae5a5d0f14b406b",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33020553814,
+    "solution_sha256": "3262535cf9558da5052542f851dd6b8dd7055f1a291a52a7dfb426bd9b2d241a",
+    "verified_at": "2026-08-26T22:52:14Z",
+    "workflow_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33020553814"
+  },
+  "version": 1
+}

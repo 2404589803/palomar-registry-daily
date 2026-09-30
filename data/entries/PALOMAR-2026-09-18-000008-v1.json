@@ -1,0 +1,473 @@
+{
+  "abstract": "A Lean 4 formalization, on top of Mathlib, of the classical function theory of several complex variables on open subsets of finite-dimensional complex normed spaces, with values in complex Banach spaces wherever the statements allow. The compared statements cover: Cauchy's integral formula on polydiscs, Osgood's lemma, the equivalence of holomorphy and analyticity, the Cauchy-Riemann equations, Cauchy estimates, the identity theorem, the maximum modulus principle, holomorphic dependence of integrals and the Cauchy-Pompeiu identity; the theorems of Weierstrass, Montel and Vitali and an estimate for holomorphic L^p classes; the holomorphic inverse and implicit mapping theorems; Reinhardt domains, logarithmic convexity, the characterization of convergence domains of power series, Laurent expansion, and continuation from Reinhardt and circular domains; Hartogs-Taylor expansion, Hartogs' continuity theorem, Hartogs' theorem on separate analyticity, removability of isolated singularities, the two Riemann extension theorems and Hartogs' extension theorem for compact holes; elementary analytic sets and their regular points; the local ring of analytic germs, Weierstrass division and preparation, and the Noetherian and unique factorization properties of the germ ring; injective holomorphic maps, Cartan's uniqueness theorem, linearity of biholomorphisms of circular domains, transitivity of the automorphisms of the ball and the inequivalence of ball and polydisc; holomorphic hulls, domains of holomorphy, Thullen's lemma, the Cartan-Thullen theorem and Bochner's tube theorem; subharmonic and plurisubharmonic functions, the Levi form, pseudoconvexity of domains of holomorphy, Levi's theorem and local peak functions; Runge domains and polynomial hulls. All results are classical; none is claimed to be new.",
+  "authors": [
+    {
+      "name": "Bastiaan J Braams"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-18-000008-v1/0bbe1ead4c6d3fd51edf326ff030c4fe4d6b84be3ef3f4841f1a2181ccabf4a4/",
+    "artifact_tree_sha256": "0bbe1ead4c6d3fd51edf326ff030c4fe4d6b84be3ef3f4841f1a2181ccabf4a4",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-18T19:52:32Z",
+    "renderer_commit": "3561d237dcc4b28482558ad28a64d767d7cc8615",
+    "verso_commit": "cad4b633e75ea769b851f12f9ca3b4f0dfcc625f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CV"
+    ],
+    "msc2020": [
+      "32A10",
+      "32A05",
+      "32D05",
+      "32D15",
+      "32D20",
+      "32B05",
+      "32U05",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-09-18",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.34.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "5ed2965256430c3649e86755f9576b54eca72435"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "118aa17ee84656b8bd727fef7c458ee8c833385c"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "ddf04cf3949fa556442341e87d47f9f6e6074707"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "e928b72544873815af278d38681b31c0293588e3"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "355695d523e41d0554926416cba2a2b3544fbbc9"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "SCV.cauchy_formula_polydisc",
+      "SCV.osgood",
+      "SCV.differentiableOn_iff_analyticOnNhd",
+      "SCV.analyticOnNhd_iff_cauchyRiemann",
+      "SCV.identity_theorem",
+      "SCV.maximum_modulus",
+      "SCV.cauchy_pompeiu",
+      "SCV.cauchy_estimates",
+      "SCV.analyticOnNhd_integral",
+      "SCV.weierstrass_convergence",
+      "SCV.isClosed_holomorphicMaps",
+      "SCV.montel",
+      "SCV.vitali",
+      "SCV.holomorphic_Lp_bound",
+      "SCV.inverse_mapping",
+      "SCV.implicit_mapping",
+      "SCV.IsCompleteReinhardt.isReinhardt_and_isPathConnected",
+      "SCV.isLogarithmicallyConvex_iff_geometric",
+      "SCV.convergenceDomain_properties",
+      "SCV.exists_powerSeries_eqOn_of_isCompleteReinhardt",
+      "SCV.exists_convergenceDomain_eq",
+      "SCV.existsUnique_laurent_expansion",
+      "SCV.exists_extension_completeReinhardtHull",
+      "SCV.exists_extension_balancedHull",
+      "SCV.hartogs_taylor_expansion",
+      "SCV.hartogs_cylinder_extension",
+      "SCV.hartogs_separate_analyticity",
+      "SCV.exists_extension_diff_singleton",
+      "SCV.frequently_zero_punctured",
+      "SCV.riemann_extension_first",
+      "SCV.hartogs_compact_hole",
+      "SCV.IsAnalyticSet.interior_eq_empty_and_isConnected_sdiff",
+      "SCV.isRegularAnalyticSetAt_iff_exists_equations",
+      "SCV.exists_extension_across_coordinatePlane",
+      "SCV.riemann_extension_second",
+      "SCV.analyticGermRing_isDomain_isLocalRing",
+      "SCV.exists_regular_coordinate_change",
+      "SCV.taylorSeries_mul_and_eq_zero_iff",
+      "SCV.coordinatePower_division",
+      "SCV.weierstrass_division",
+      "SCV.weierstrass_preparation",
+      "SCV.analyticGermRing_isNoetherianRing_ufd",
+      "SCV.isOpen_isRelPrime_locus",
+      "SCV.exists_regularPoint_zeroSet",
+      "SCV.injOn_biholomorphic",
+      "SCV.cartan_uniqueness",
+      "SCV.biholomorphic_circular_linear",
+      "SCV.exists_ball_automorphism",
+      "SCV.not_biholomorphic_polydisc_ball",
+      "SCV.common_extension",
+      "SCV.holomorphicHull_idem_and_isBounded",
+      "SCV.isHolomorphicallyConvex_of_completeReinhardt",
+      "SCV.isDomainOfHolomorphy_of_convex_and_pi",
+      "SCV.isHolomorphicallyConvex_iff_escaping",
+      "SCV.isDomainOfHolomorphy_iff_hull_radius",
+      "SCV.cartan_thullen",
+      "SCV.bochner_tube",
+      "SCV.SubharmonicOn.eqOn_const_of_isMaxOn",
+      "SCV.subharmonicOn_iff_laplacian_nonneg",
+      "SCV.plurisubharmonicOn_iff_leviForm_nonneg",
+      "SCV.IsDomainOfHolomorphy.isPseudoconvex",
+      "SCV.IsPseudoconvex.continuity_principle",
+      "SCV.IsDomainOfHolomorphy.isLeviPseudoconvexAt",
+      "SCV.leviForm_comp_analytic",
+      "SCV.isLeviPseudoconvexAt_iff_of_defining",
+      "SCV.exists_local_peak_function",
+      "SCV.runge_domains"
+    ]
+  },
+  "id": "PALOMAR-2026-09-18-000008",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-18T19:53:02Z",
+    "receipt_sha256": "5b21d69b1fb8a4caed5021e50af10348aa27fe8445bcf3c54ed295cbdca674f7",
+    "repositories": [
+      {
+        "commit": "336759b3964011aa0d6e1111e32276b1476fb7f0",
+        "fork_repository": "PalomarArchive/bjbraams--lean-SCV--b48fcc83349f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000008-v1/336759b3964011aa0d6e1111e32276b1476fb7f0",
+        "source_repository": "bjbraams/lean-SCV"
+      },
+      {
+        "commit": "355695d523e41d0554926416cba2a2b3544fbbc9",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000008-v1/355695d523e41d0554926416cba2a2b3544fbbc9",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000008-v1/f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "e928b72544873815af278d38681b31c0293588e3",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000008-v1/e928b72544873815af278d38681b31c0293588e3",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000008-v1/ddf04cf3949fa556442341e87d47f9f6e6074707",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "5ed2965256430c3649e86755f9576b54eca72435",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000008-v1/5ed2965256430c3649e86755f9576b54eca72435",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000008-v1/118aa17ee84656b8bd727fef7c458ee8c833385c",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000008-v1/106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000008-v1/6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-18-000008-v1/e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "R. Michael Range"
+          }
+        ],
+        "identifier": "Graduate Texts in Mathematics 108, Springer, 1986",
+        "location": "Chapters I and II; II.2 for the Levi form, Levi's theorem (Theorem 2.11) and the Levi polynomial (Proposition 2.16); II.3.6 for Cartan-Thullen; I.2.3-2.4 for the implicit and inverse mapping theorems",
+        "relationship": "adapts",
+        "title": "Holomorphic Functions and Integral Representations in Several Complex Variables",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Lars Hörmander"
+          }
+        ],
+        "identifier": "2nd edition, North-Holland Mathematical Library 7, North-Holland, 1973",
+        "location": "Chapter II: Section 2.3 (Ehrenpreis' proof of Hartogs' extension theorem), Section 2.5 (Thullen's lemma, Cartan-Thullen, Bochner's tube theorem 2.5.10), Theorem 2.6.5, Section 2.7 (Runge domains); Theorem 1.2.1 (Cauchy-Pompeiu)",
+        "relationship": "adapts",
+        "title": "An Introduction to Complex Analysis in Several Variables",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Klaus Fritzsche"
+          },
+          {
+            "name": "Hans Grauert"
+          }
+        ],
+        "identifier": "Graduate Texts in Mathematics 213, Springer, 2002",
+        "location": "Chapter I (identity theorem I.4.10, maximum principle I.4.11, injective maps I.8.5-8.6); Chapter II, Sections 1-6; Chapter III, Sections 1-3",
+        "relationship": "adapts",
+        "title": "From Holomorphic Functions to Complex Manifolds",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Piotr Jakóbczak"
+          },
+          {
+            "name": "Marek Jarnicki"
+          }
+        ],
+        "identifier": "Jagiellonian University manuscript, 1997-2021",
+        "location": "Chapters 1 and 2 (Weierstrass division Theorem 1.7.3, germs Section 1.8, Cartan-Thullen Section 2.7); Sections 4.2-4.3 (Hartogs' extension theorem, Runge domains)",
+        "relationship": "adapts",
+        "title": "Lectures on Holomorphic Functions of Several Complex Variables",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Volker Scheidemann"
+          }
+        ],
+        "identifier": "Birkhäuser, 2005",
+        "location": "Chapters 1-7 and Sections 8.1-8.3; Chapter 6 for tube domains; Section 7.3 for Cartan-Thullen",
+        "relationship": "adapts",
+        "title": "Introduction to Complex Analysis in Several Variables",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jaap Korevaar"
+          },
+          {
+            "name": "Jan Wiegerinck"
+          }
+        ],
+        "identifier": "University of Amsterdam lecture notes, version of 23 August 2017",
+        "location": "Chapters 1-6, selectively; Section 1.7 (Runge theory), Theorem 2.6.1 (Hartogs' continuity theorem), Exercise 6.28 (prism lemma)",
+        "relationship": "adapts",
+        "title": "Several Complex Variables",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Harold P. Boas"
+          }
+        ],
+        "identifier": "Draft of 3 December 2013",
+        "location": "Chapters 1-3 and Sections 4.1-4.2; Section 2.4 for Hartogs' extension theorem",
+        "relationship": "adapts",
+        "title": "Lecture Notes on Several Complex Variables",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Tatsuo Suwa"
+          }
+        ],
+        "identifier": "World Scientific, 2024",
+        "location": "Chapter 1; Section 1.4, Propositions 1.5-1.7, for the ring of analytic germs",
+        "relationship": "adapts",
+        "title": "Complex Analytic Geometry: From the Localization Viewpoint",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Boris V. Shabat"
+          }
+        ],
+        "identifier": "Translations of Mathematical Monographs 110, American Mathematical Society, 1991",
+        "location": "Chapter I, Section 1.2 (Hartogs domains)",
+        "relationship": "background",
+        "title": "Introduction to Complex Analysis, Part II: Functions of Several Variables",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jiří Lebl"
+          }
+        ],
+        "identifier": "Version 4.4, 31 May 2026",
+        "location": "Chapters 1 and 2",
+        "relationship": "background",
+        "title": "Tasty Bits of Several Complex Variables: A Whirlwind Tour of the Subject",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Thomas Ransford"
+          }
+        ],
+        "identifier": "London Mathematical Society Student Texts 28, Cambridge University Press, 1995",
+        "location": "Definition of subharmonic functions by upper semicontinuity and the local submean inequality",
+        "relationship": "background",
+        "title": "Potential Theory in the Complex Plane",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4",
+        "note": "The development uses Mathlib throughout, in particular its one-variable Cauchy theory, torus integrals, analytic functions, the analytic identity principle, the local maximum modulus principle, circle averages and the Laplacian. Mathlib's formal Weierstrass preparation theorem for power series over complete local rings is not used; the analytic division and preparation theorems here are proved for convergent germs.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://palomar-registry.org/entry?id=PALOMAR-2026-08-29-000010&version=1",
+        "note": "Bochao Kong, classical-complex-wpt (repository BochaoKong/classical-complex-wpt, commit b4a7273fe5c9752753c52e10494097569089642d, registered 29 August 2026): the complex-analytic Weierstrass preparation theorem at the origin of C^n, with uniqueness of the factors as germs. It overlaps with item 41 here (SCV.weierstrass_preparation). The present development was carried out independently of it and does not use it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://palomar-registry.org/entry?id=PALOMAR-2026-08-30-000001&version=1",
+        "note": "Bochao Kong, nullstellensatz (repository BochaoKong/nullstellensatz, commit 029697242294aea7989bf5d391199696a43490df, registered 30 August 2026), built on the entry above: Rückert's basis theorem for the ring of analytic germs, finite projection for analytic hypersurface germs, the holomorphic constant-rank normal form, and Rückert's local analytic Nullstellensatz. Its basis theorem overlaps with item 44 here (the Noetherian part of SCV.analyticGermRing_isNoetherianRing_ufd), which was proved independently and without using it. The other three results are not part of the present project, where the Nullstellensatz is a deferred target; conversely that entry does not cover unique factorization of germs or the function theory of the remaining items.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Bastiaan J Braams"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-18T19:52:45Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "792c7c0b9e798bd02719e795ef11fa2b5929e067",
+    "report": {
+      "sha256": "28f138d1fcc50db9a6bc47c75a725d28b9f76aec96a28b33097c6dafde3cbd5f"
+    },
+    "reviewed_at": "2026-09-18T19:40:52Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": [
+      "MSC2020 68V20 classifies theorem-prover formalization rather than mathematics in the stated results or a plausible mathematical proof. Remove this code unless the submission includes a substantive mathematical result about formalization or theorem proving."
+    ]
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "336759b3964011aa0d6e1111e32276b1476fb7f0",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "bjbraams/lean-SCV",
+    "repository_url": "https://github.com/bjbraams/lean-SCV",
+    "tree_url": "https://github.com/bjbraams/lean-SCV/tree/336759b3964011aa0d6e1111e32276b1476fb7f0"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "9sjaqmhq4qar"
+  },
+  "title": "Several complex variables: local theory, Hartogs phenomena, Weierstrass theory, domains of holomorphy and pseudoconvexity",
+  "trust": {
+    "challenge_bytes": 45152,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 771,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "e6aef2fa110e8cc6e3e457e9526550d2ab458bd83a59da1f1e3ed8cc5498575a",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-18-000008-v1/6b3ebdcc25cd5159707c16bfb464b51b02450c1ec5849356a723248d769e365b/",
+    "evidence_tree_sha256": "6b3ebdcc25cd5159707c16bfb464b51b02450c1ec5849356a723248d769e365b",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "076e8e57707e813375e8f9da8bf989799ace9680",
+    "mechanical_report_sha256": "3193e1b4881595583c575f489ba24388987ecea94361afde8fd0db755c248850",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 35384502158,
+    "solution_sha256": "671863a630ddfc05bb6d5a8b2db62d3db540efce39fffacd6984f6d880ed51b1",
+    "verified_at": "2026-09-18T19:24:58Z",
+    "workflow_commit": "3561d237dcc4b28482558ad28a64d767d7cc8615",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/35384502158"
+  },
+  "version": 1
+}

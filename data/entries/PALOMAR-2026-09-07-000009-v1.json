@@ -1,0 +1,441 @@
+{
+  "abstract": "Formalizes finite strategic-form games with player-specific finite move sets, pure profiles, unilateral deviations, best responses, dominant strategies, and two distinct potential notions. Pure Nash equilibrium is defined over utility preorders by the absence of a strict improvement; weak-inequality characterizations are restricted to linear orders. The library names the one-way improvement condition a generalized ordinal potential and reserves ordinal potential for the standard bidirectional strict-sign condition. It proves a global potential-maximizer certificate for pure Nash equilibrium, the standard Nash/local-potential-maximum equivalence, and acyclicity of the better-response relation for the generalized class. The development also gives checked counterexamples and Prisoner's-Dilemma/coordination/matching-pennies/rock-paper-scissors examples. Its native mixed layer proves support equalization, Dirac transport, the normalized excess-map reduction, and the closed/compact/ convex/continuous finite mixed-profile geometry. It also proves general finite mixed-Nash existence on a common nonempty move type by connecting the native excess map to an attributed, kernel-checked product-of-simplices Brouwer theorem. This is a reusable formalization artifact, not a claim of new mathematics or the first Lean proof of Nash existence.",
+  "authors": [
+    {
+      "name": "Arthur Freitas Ramos"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-07-000009-v1/3b62cf7d4b144b3641c8a2cf7771b78e01571d3c91ef35eef011950a3ccb7cdd/",
+    "artifact_tree_sha256": "3b62cf7d4b144b3641c8a2cf7771b78e01571d3c91ef35eef011950a3ccb7cdd",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-07T16:12:56Z",
+    "renderer_commit": "c605f23466450a52999fcfb3c6d68ed8febc56bf",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.LO",
+      "cs.LO"
+    ],
+    "msc2020": [
+      "91A10"
+    ]
+  },
+  "first_registered_on": "2026-09-07",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "NashEquilibrium.Profile",
+      "NashEquilibrium.IsProfile",
+      "NashEquilibrium.deviation",
+      "NashEquilibrium.IsNash",
+      "NashEquilibrium.IsGeneralizedOrdinalPotential",
+      "NashEquilibrium.IsOrdinalPotential",
+      "NashEquilibrium.IsPotentialMaximizer",
+      "NashEquilibrium.IsBetterResponseStep",
+      "NashEquilibrium.IsPotentialLocalMaximum",
+      "NashEquilibrium.IsWeaklyAcyclic",
+      "NashEquilibrium.MixedProfile",
+      "NashEquilibrium.IsMixedProfile",
+      "NashEquilibrium.opponentWeight",
+      "NashEquilibrium.pureDeviationPayoff",
+      "NashEquilibrium.mixedPayoff",
+      "NashEquilibrium.IsMixedNash"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "NashEquilibrium.Palomar.exists_nash_maximizing_ordinal_potential",
+      "NashEquilibrium.Palomar.isNash_iff_potential_local_maximum",
+      "NashEquilibrium.Palomar.no_betterResponse_cycle_of_generalized_ordinal_potential",
+      "NashEquilibrium.Palomar.weaklyAcyclic_of_generalized_ordinal_potential",
+      "NashEquilibrium.Palomar.mixedNash_support_payoff_eq",
+      "NashEquilibrium.Palomar.exists_mixedNash"
+    ]
+  },
+  "id": "PALOMAR-2026-09-07-000009",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-07T16:13:26Z",
+    "receipt_sha256": "d554ae25fea0d9f9651f67815911ee5b412f5be6bf057c866b3067f273e55245",
+    "repositories": [
+      {
+        "commit": "6dd83f3b004c0318e52f4c3cb272d909efca321d",
+        "fork_repository": "PalomarArchive/Arthur742Ramos--nash-equilibrium-lean--950938f890dd",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000009-v1/6dd83f3b004c0318e52f4c3cb272d909efca321d",
+        "source_repository": "Arthur742Ramos/nash-equilibrium-lean"
+      },
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000009-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000009-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000009-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000009-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000009-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000009-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000009-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000009-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000009-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "John F. Nash, Jr."
+          }
+        ],
+        "identifier": "https://doi.org/10.1073/pnas.36.1.48",
+        "location": "https://doi.org/10.1073/pnas.36.1.48",
+        "relationship": "formalizes",
+        "title": "Equilibrium points in n-person games",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "John F. Nash"
+          }
+        ],
+        "identifier": "https://doi.org/10.2307/1969529",
+        "location": "https://doi.org/10.2307/1969529",
+        "relationship": "background",
+        "title": "Non-cooperative Games",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Dov Monderer"
+          },
+          {
+            "name": "Lloyd S. Shapley"
+          }
+        ],
+        "identifier": "https://doi.org/10.1006/game.1996.0044",
+        "location": "https://www.sciencedirect.com/science/article/pii/S0899825696900445",
+        "relationship": "formalizes",
+        "title": "Potential Games",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Robert W. Rosenthal"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/BF01737559",
+        "location": "https://doi.org/10.1007/BF01737559",
+        "relationship": "background",
+        "title": "A class of games possessing pure-strategy Nash equilibria",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ozan Candogan"
+          },
+          {
+            "name": "Ishai Menache"
+          },
+          {
+            "name": "Asuman Ozdaglar"
+          },
+          {
+            "name": "Pablo A. Parrilo"
+          }
+        ],
+        "identifier": "https://doi.org/10.1287/moor.1110.0500",
+        "location": "https://pubsonline.informs.org/doi/10.1287/moor.1110.0500",
+        "relationship": "background",
+        "title": "Flows and Decompositions of Games: Harmonic and Potential Games",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Stéphane Le Roux"
+          },
+          {
+            "name": "Érik Martin-Dorel"
+          },
+          {
+            "name": "Jan-Georg Smaus"
+          }
+        ],
+        "identifier": "https://doi.org/10.4204/EPTCS.256.4",
+        "location": "https://doi.org/10.4204/EPTCS.256.4",
+        "relationship": "background",
+        "title": "An Existence Theorem of Nash Equilibrium in Coq and Isabelle",
+        "type": "inproceedings"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Alexander Bagnall"
+          },
+          {
+            "name": "Samuel Merten"
+          },
+          {
+            "name": "Gordon Stewart"
+          }
+        ],
+        "identifier": "https://doi.org/10.6092/issn.1972-5787/7235",
+        "location": "https://jfr.unibo.it/article/view/7235",
+        "relationship": "background",
+        "title": "A Library for Algorithmic Game Theory in Ssreflect/Coq",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Arthur Freitas Ramos"
+          },
+          {
+            "name": "David Barros Hulak"
+          },
+          {
+            "name": "Ruy Jose Guerra Barretto de Queiroz"
+          }
+        ],
+        "identifier": "https://isa-afp.org/entries/Nash_Equilibrium.html",
+        "license": "BSD",
+        "location": "https://isa-afp.org/entries/Nash_Equilibrium.html",
+        "relationship": "background",
+        "title": "Nash Equilibria for Finite Games in Isabelle/HOL",
+        "type": "website"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Yuwei Lyu"
+          },
+          {
+            "name": "Kai Li"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2607.05987",
+        "location": "https://arxiv.org/abs/2607.05987",
+        "relationship": "adapts",
+        "title": "Formalizing Scarf, Brouwer, and Nash in Lean",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://isa-afp.org/entries/Nash_Equilibrium.html",
+        "note": "Prior Isabelle formalization of pure and mixed finite Nash equilibria. The Lean development changes the definitions and proof architecture, separates generalized from standard ordinal potentials, and adds the explicit improvement-path interface. The current mixed layer also formalizes the finite support/Dirac and analytic setup and proves the final mixed-Nash existence theorem through an attributed product-simplex Brouwer development.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://doi.org/10.6092/issn.1972-5787/7235",
+        "note": "Prior Coq/Ssreflect library covering potential games and best-response dynamics; cited to position this Lean artifact without claiming methodological novelty over that work.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://doi.org/10.4204/EPTCS.256.4",
+        "note": "Prior Coq and Isabelle formalization work on Nash-equilibrium existence; cited to make the formalization lineage explicit.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/math-xmum/Brouwer",
+        "note": "The MIT-licensed source repository for the Scarf, Brouwer, and product-simplex fixed-point theories included under Gametheory/. The upstream source is retained with an exact commit and license notice; this project contributes the MixedGame/MixedProfile bridge.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Arthur Freitas Ramos"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-07T16:13:11Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "42cc43f70b1b019d20d4b64e9016396e666a6bc7",
+    "report": {
+      "sha256": "085ac11e528373245ff90aeddbe346786ba2ad990c204576b64a4b01c2db3110"
+    },
+    "reviewed_at": "2026-09-07T15:52:23Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "6dd83f3b004c0318e52f4c3cb272d909efca321d",
+    "license": {
+      "declared_identifier": "BSD-3-Clause",
+      "detected_identifier": "BSD-3-Clause",
+      "path": "LICENSE",
+      "sha256": "88137b8f5203f92f444245cde04d73ed4d477ba1dd7bfbc07f554a95c333c737"
+    },
+    "repository": "Arthur742Ramos/nash-equilibrium-lean",
+    "repository_url": "https://github.com/Arthur742Ramos/nash-equilibrium-lean",
+    "tree_url": "https://github.com/Arthur742Ramos/nash-equilibrium-lean/tree/6dd83f3b004c0318e52f4c3cb272d909efca321d"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "cjauh6mffjwv"
+  },
+  "title": "Native Lean finite Nash equilibria",
+  "trust": {
+    "challenge_bytes": 13141,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.BigOperators.GroupWithZero.Finset",
+      "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+      "Mathlib.Data.Finset.Max",
+      "Mathlib.Data.Fintype.Pi",
+      "Mathlib.Data.Real.Basic",
+      "Mathlib.Tactic"
+    ],
+    "challenge_lines": 307,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "685ebaf909f917e8ff900af1704525ff0df5cc527e8d9a5dc0fd9b94e9655bd5",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-07-000009-v1/4017cd9a547fd858880bee3298ea1641f6f783e330e2390a0b00cb4858c90360/",
+    "evidence_tree_sha256": "4017cd9a547fd858880bee3298ea1641f6f783e330e2390a0b00cb4858c90360",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "bb57f759fa0bba6aff20b763d3b5c823e14f7b0b3e0f1e95e242f0538dfc3873",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 34128531761,
+    "solution_sha256": "ed1db72577f7dc5bdfd1587c18153b508c6d666ced6b5be1013ed36f43de0d5e",
+    "verified_at": "2026-09-07T13:45:01Z",
+    "workflow_commit": "c605f23466450a52999fcfb3c6d68ed8febc56bf",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/34128531761"
+  },
+  "version": 1
+}

@@ -1,0 +1,324 @@
+{
+  "abstract": "A Lean 4 formalisation of *Uniform sheafy Tate rings that are not stably uniform* (Birkbeck–Torzewski), answering Question 7 of Kedlaya's *Nonarchimedean Scottish Book* in the negative: a sheafy uniform Huber pair need not be stably uniform. Buzzard–Verberkmoes and Mihara proved that stably uniform Tate Huber rings are sheafy; whether the converse holds was open.\nThe paper gives two complete Tate algebras over a complete discretely valued field `k` that are uniform, nonnoetherian integral domains with `A° = A₀`, strongly sheafy (every Tate algebra `A⟨X₁, …, Xₙ⟩` is sheafy), and yet not stably uniform, because an explicit rational localisation is not uniform. The first (Theorem 1.1) is the finite-jet pinching algebra `𝓐 = B ×_D C`, the pullback of a Milnor square with `B = k⟨W, Q⟩/(Q²)`, `C = k⟨W, W⁻¹⟩⟨Q⟩`, `D = C/(Q²)` — concretely, the series in `k⟨W, W⁻¹⟩⟨Q⟩` whose `Q⁰`- and `Q¹`-coefficients have nonnegative `W`-support; its bad chart `𝓐⟨W/ϖ⟩ ≅ k⟨X, Q⟩/(Q²)` is non-reduced. The second (Theorem 8.1) is the weighted-parity algebra `𝒜_w`, whose bad chart is an integral domain; the paper proves it for every unbounded weight `w ≥ 1`, the formalisation for `w(n) = n`.\nThis submission certifies the seven conclusions of Theorem 1.1 together with two statements ruling out a vacuous reading of its sheafiness claims, stated self-containedly on Mathlib in `Challenge.lean` over an arbitrary complete ultrametric field with DVR valuation ring; Theorem 8.1 is certified by the repository's in-library configuration. The repository also develops the surrounding theory after Wedhorn's *Adic Spaces*: Huber and Tate rings, the adic spectrum, rational localisations, the structure presheaf, and sheafiness (Definition 8.26), including the strongly noetherian theorem (8.28(b)).",
+  "authors": [
+    {
+      "name": "Christopher Birkbeck"
+    },
+    {
+      "name": "Alex Torzewski"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-22-000010-v1/65efcfba0574f7cc0d82b17eb021ef75b2966dbd48993d83d95207f0911793ac/",
+    "artifact_tree_sha256": "65efcfba0574f7cc0d82b17eb021ef75b2966dbd48993d83d95207f0911793ac",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-22T23:37:54Z",
+    "renderer_commit": "16038af22a929ae3714acf7d74219cfbe57acf2d",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.AG",
+      "math.NT"
+    ],
+    "msc2020": [
+      "14G22",
+      "12J25",
+      "13J10",
+      "16W80",
+      "14G45"
+    ]
+  },
+  "first_registered_on": "2026-08-22",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Palomar.fjp_1_1_isSheafy",
+      "Palomar.fjp_1_1_isUniform",
+      "Palomar.fjp_1_1_isDomain",
+      "Palomar.fjp_1_1_not_isNoetherianRing",
+      "Palomar.fjp_1_1_powerBounded_eq_unitBall",
+      "Palomar.fjp_1_1_stronglySheafy",
+      "Palomar.fjp_1_1_not_isStablyUniform",
+      "Palomar.fjp_1_1_exists_ringOfIntegralElements",
+      "Palomar.fjp_1_1_tateExt_exists_ringOfIntegralElements"
+    ]
+  },
+  "id": "PALOMAR-2026-08-22-000010",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-22T23:32:14Z",
+    "receipt_sha256": "1865207bb55a26cc4038679783eaa642d0638ec268c9e8f137c00fb6a1891c00",
+    "repositories": [
+      {
+        "commit": "93be0af164d6feec98f17326dd6dcef884751fc9",
+        "fork_repository": "PalomarArchive/CBirkbeck--uniform-sheafy-tate-domains-lean--22a6d2e6470c",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000010-v1/93be0af164d6feec98f17326dd6dcef884751fc9",
+        "source_repository": "CBirkbeck/uniform-sheafy-tate-domains-lean"
+      },
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000010-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000010-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000010-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000010-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000010-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000010-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000010-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000010-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000010-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Christopher Birkbeck"
+          },
+          {
+            "name": "Alex Torzewski"
+          }
+        ],
+        "identifier": "https://cbirkbeck.github.io/uniform-sheafy-tate-domains/",
+        "license": "none stated",
+        "relationship": "formalizes",
+        "title": "Uniform sheafy Tate rings that are not stably uniform",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Torsten Wedhorn"
+          }
+        ],
+        "identifier": "arXiv:1910.05934",
+        "license": "arXiv nonexclusive-distrib/1.0",
+        "relationship": "background",
+        "title": "Adic Spaces (lecture notes)",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Kiran S. Kedlaya",
+            "role": "editor of the problem collection"
+          }
+        ],
+        "identifier": "https://scripts.mit.edu/~kedlaya/wiki/index.php?title=The_Nonarchimedean_Scottish_Book",
+        "license": "none stated",
+        "relationship": "background",
+        "title": "The Nonarchimedean Scottish Book",
+        "type": "web discussion"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Christopher Birkbeck"
+      },
+      {
+        "name": "Alex Torzewski"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-22T23:31:52Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "2d7c43b9c2d1dcc4e642c732091e4fea2569b81c",
+    "report": {
+      "sha256": "a8479db6a1637d3839ded3f1069b61ccd7c554efe468b95945b24905ece5991c"
+    },
+    "reviewed_at": "2026-08-22T22:40:11Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": [
+      "The README materially contradicts the formal effective domain of stable uniformity. Lean quantifies over localization data for which the ideal generated by `T` is open, not data for which `T ∪ {s}` generates the unit ideal. This changes which localization data qualify and makes the explanation of `fjp_1_1_not_isStablyUniform` unreliable. The README should state the actual open-ideal condition, or Lean and its Challenge documentation must be changed if the unit-ideal condition was intended."
+    ]
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "93be0af164d6feec98f17326dd6dcef884751fc9",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "d0caf8765591ae5c2abfadee8917deaebe5bbe881bd7e84d1900cc61a4226894"
+    },
+    "repository": "CBirkbeck/uniform-sheafy-tate-domains-lean",
+    "repository_url": "https://github.com/CBirkbeck/uniform-sheafy-tate-domains-lean",
+    "tree_url": "https://github.com/CBirkbeck/uniform-sheafy-tate-domains-lean/tree/93be0af164d6feec98f17326dd6dcef884751fc9"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "3uudzwszn76h"
+  },
+  "title": "CBirkbeck/uniform-sheafy-tate-domains-lean",
+  "trust": {
+    "challenge_bytes": 48949,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.MonoidAlgebra.Basic",
+      "Mathlib.Analysis.Normed.Field.Basic",
+      "Mathlib.Analysis.Normed.Group.Completion",
+      "Mathlib.Analysis.Normed.Group.Ultra",
+      "Mathlib.Analysis.Normed.Module.Completion",
+      "Mathlib.Analysis.Normed.Ring.Basic",
+      "Mathlib.RingTheory.DiscreteValuationRing.Basic",
+      "Mathlib.RingTheory.IntegralClosure.IsIntegral.Basic",
+      "Mathlib.RingTheory.Localization.Away.Basic",
+      "Mathlib.RingTheory.Noetherian.Defs",
+      "Mathlib.RingTheory.Valuation.ValuativeRel.Basic",
+      "Mathlib.Topology.Algebra.Nonarchimedean.AdicTopology",
+      "Mathlib.Topology.Algebra.Ring.Basic",
+      "Mathlib.Topology.Algebra.UniformRing",
+      "Mathlib.Topology.Algebra.Valued.NormedValued",
+      "Mathlib.Topology.Algebra.Valued.ValuedField",
+      "Mathlib.Topology.Category.TopCommRingCat",
+      "Mathlib.Topology.MetricSpace.Ultra.Basic",
+      "Mathlib.Topology.Sheaves.Sheaf"
+    ],
+    "challenge_lines": 993,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "a1d9f2a46cfe1664491239245d5faca79eddf992513fd981c295245a95ae1495",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-22-000010-v1/385faae901f649924695104692c945870eff951195d59c2fad710c34ced82087/",
+    "evidence_tree_sha256": "385faae901f649924695104692c945870eff951195d59c2fad710c34ced82087",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "0af6d20204b604792e50ea2052db7834cc3001cec495662e804c58cb7ac9ede9",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32601426463,
+    "solution_sha256": "a04f4531b15d1fc366f2e749c0f1f08709f70d437fad1b41c5bfb129a603060d",
+    "verified_at": "2026-08-22T22:32:50Z",
+    "workflow_commit": "16038af22a929ae3714acf7d74219cfbe57acf2d",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32601426463"
+  },
+  "version": 1
+}

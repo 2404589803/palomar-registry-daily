@@ -1,0 +1,258 @@
+{
+  "abstract": "Davenport and Heilbronn (1936) exhibited a Dirichlet series with real coefficients satisfying a Riemann-type functional equation which nevertheless has zeros off the critical line. It is the standard demonstration that a functional equation of Riemann type does not on its own force the Riemann Hypothesis, it is the reference counterexample against which structural explanations of the Riemann Hypothesis are tested, and the location of its zeros remains an active subject. The function is DH(s) = (1 - i*kappa)/2 * L(s, chi) + (1 + i*kappa)/2 * L(s, chi^-1) for a quartic Dirichlet character chi mod 5 and kappa = (sqrt(10 - 2*sqrt 5) - 2)/(sqrt 5 - 1), the value that rotates the two conjugate root numbers onto each other and so makes the Dirichlet coefficients real. This submission advertises one theorem, the analytic half of the Davenport-Heilbronn theorem: there exists an entire function represented by the Davenport-Heilbronn Dirichlet series on Re z > 1 whose completion (pi/5)^(-(s+1)/2) * Gamma((s+1)/2) * f(s) is symmetric under s -> 1-s. The statement is existential in f, so it carries its own non-vacuity and needs none of the character theory used to construct the witness. What the work consists of. The Davenport-Heilbronn function is not a library object anywhere we could find, so the development builds it: the quartic character mod 5, the linear combination, entirety on all of C, the identification of the Dirichlet coefficients as the real period-5 sequence 1, kappa, -kappa, -1, 0, and the completed functional equation. The last of these is where the content sits. It reduces to a root-number identity whose convention-sensitive constants are derived inside the development, from Mathlib's Real.cos_pi_div_five by radical algebra, rather than transcribed from a table; the standard sources state kappa without deriving it in a form a kernel will accept, and getting it wrong yields a function whose coefficients are not real and which therefore is not the counterexample. The functional equation is stated with explicit guards excluding the poles of the two Gamma factors, because Mathlib's junk value Gamma = 0 at the poles would otherwise make the unrestricted equation false for reasons having nothing to do with the mathematics. Audience. The Davenport-Heilbronn function is a named object of analytic number theory with a continuing literature on its zeros, so a machine-checked construction of it is of direct interest to number theorists working on zeros of L-functions and on what a Riemann-type functional equation does and does not imply. It is also the object a formalized treatment of the Davenport-Heilbronn theorem has to have before it can say anything, and this supplies it in a form that carries its own non-vacuity. Prior art. A search of Mathlib at the revision pinned by this repository found no Davenport-Heilbronn function and no formalization of this functional equation. That is a bounded search of one library. No systematic search of other proof assistants or of the mathematical literature for prior formalizations has been run, and no novelty against the literature is claimed: the mathematics is Davenport and Heilbronn's, published in 1936. Scope. The Davenport-Heilbronn theorem itself is NOT proved here. Its full statement additionally requires a zero s with Re s different from 1/2, and that conjunct appears nowhere in the advertised theorem. What is offered is the analytic half alone. No numerical enclosure for any zero of DH is asserted, and nothing here is a statement about the Riemann zeta function or the Riemann Hypothesis.",
+  "authors": [
+    {
+      "name": "Thomas Lince"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-21-000012-v1/cfddd56b2101cabd6788197089bd8d999bb59f2ecde6ffdfd21813d52d607212/",
+    "artifact_tree_sha256": "cfddd56b2101cabd6788197089bd8d999bb59f2ecde6ffdfd21813d52d607212",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-21T23:11:46Z",
+    "renderer_commit": "16038af22a929ae3714acf7d74219cfbe57acf2d",
+    "verso_commit": "755ccbe968ad1b0255bee8b46d9cb2306486d6d8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.CV"
+    ],
+    "msc2020": [
+      "11M26",
+      "11M41"
+    ]
+  },
+  "first_registered_on": "2026-08-21",
+  "formalization": {
+    "challenge_path": "lean/DHChallenge.lean",
+    "comparator_config_path": "lean/comparator-dh.json",
+    "definition_names": [],
+    "formalization_metadata_path": "lean/palomar-dh/formalization.yaml",
+    "lakefile_path": "lean/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "51e6992efd06126df61a496bebf8f49482a4e129"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "123d15766ba49356c02ebad2a4462dfe12d79899"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "f5c090429dff3cf66cb65562526c9ea6e8edfbcb"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "bb3469a87774349fe01898d8bf2fc6a1ce6411ca"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "222c58dad7706a6e7cae46c0edd65ea881d3ee27"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7db8190085343afde2f5d2cdcc9bac719b6ec02c"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ef42f8944eaf5b6cbfbe75d1917d824c7dd6cf33"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "76e1c118b0700b4ceafe99532e887d6431625e1a"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "1319485273bf87833fa472afbcefdedecb16b45f"
+      }
+    ],
+    "solution_path": "lean/DHSolution.lean",
+    "theorem_names": [
+      "ZetaLean.PalomarDH.dh_analytic_half"
+    ]
+  },
+  "id": "PALOMAR-2026-08-21-000012",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-21T23:05:49Z",
+    "receipt_sha256": "c9738c7d7aac5ecdf4840f1133ae1431c0c5b65ef7dd56bc164278d5396661a4",
+    "repositories": [
+      {
+        "commit": "7db8190085343afde2f5d2cdcc9bac719b6ec02c",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000012-v1/7db8190085343afde2f5d2cdcc9bac719b6ec02c",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "76e1c118b0700b4ceafe99532e887d6431625e1a",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000012-v1/76e1c118b0700b4ceafe99532e887d6431625e1a",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "bb3469a87774349fe01898d8bf2fc6a1ce6411ca",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000012-v1/bb3469a87774349fe01898d8bf2fc6a1ce6411ca",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "f5c090429dff3cf66cb65562526c9ea6e8edfbcb",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000012-v1/f5c090429dff3cf66cb65562526c9ea6e8edfbcb",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "51e6992efd06126df61a496bebf8f49482a4e129",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000012-v1/51e6992efd06126df61a496bebf8f49482a4e129",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "123d15766ba49356c02ebad2a4462dfe12d79899",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000012-v1/123d15766ba49356c02ebad2a4462dfe12d79899",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "222c58dad7706a6e7cae46c0edd65ea881d3ee27",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000012-v1/222c58dad7706a6e7cae46c0edd65ea881d3ee27",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ef42f8944eaf5b6cbfbe75d1917d824c7dd6cf33",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000012-v1/ef42f8944eaf5b6cbfbe75d1917d824c7dd6cf33",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "1319485273bf87833fa472afbcefdedecb16b45f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000012-v1/1319485273bf87833fa472afbcefdedecb16b45f",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "097215a8413641fd3b3de137386316bf294328de",
+        "fork_repository": "PalomarArchive/teal-sea--zeta-lab--3c21e0f57be6",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000012-v1/097215a8413641fd3b3de137386316bf294328de",
+        "source_repository": "teal-sea/zeta-lab"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "H. Davenport"
+          },
+          {
+            "name": "H. Heilbronn"
+          }
+        ],
+        "license": "unknown",
+        "location": "J. London Math. Soc. 11 (1936), 181-185 and 307-312",
+        "relationship": "formalizes",
+        "title": "On the zeros of certain Dirichlet series",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Thomas Lince"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-21T23:05:23Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "2d7c43b9c2d1dcc4e642c732091e4fea2569b81c",
+    "report": {
+      "sha256": "74f71c60636ea64bf2e481b186ed5a7914e64783d83b5ce6cf59bc1cc55a7fe5"
+    },
+    "reviewed_at": "2026-08-21T22:57:59Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "097215a8413641fd3b3de137386316bf294328de",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "fd0274e92564494901ccaf2ff75d99547568261ebe70c3271e559f6892baadee"
+    },
+    "project_path": "lean",
+    "repository": "teal-sea/zeta-lab",
+    "repository_url": "https://github.com/teal-sea/zeta-lab",
+    "tree_url": "https://github.com/teal-sea/zeta-lab/tree/097215a8413641fd3b3de137386316bf294328de/lean"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "sq96mvpjdvps"
+  },
+  "title": "teal-sea/zeta-lab",
+  "trust": {
+    "challenge_bytes": 4197,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 103,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "06ec74f3ebbb71c807cb021abe04712a069b6f88542573f02565eddde5a1aa95",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-21-000012-v1/c5a9475b558a99879b3ff0645a9e352cee9e786220001cd4b1cf979a39478437/",
+    "evidence_tree_sha256": "c5a9475b558a99879b3ff0645a9e352cee9e786220001cd4b1cf979a39478437",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "9fb131bb100eb32ccf6836f14e4f8328d13b6792",
+    "mechanical_report_sha256": "ab3670753ec4f2525e8a97a7021b166686b6f467a55d245ec203e8e110fec71e",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32533951368,
+    "solution_sha256": "0e2f76cd7c35c230ed209d2398bb7af08611c3f05496e253a57de218f3cd8b57",
+    "verified_at": "2026-08-21T22:48:59Z",
+    "workflow_commit": "16038af22a929ae3714acf7d74219cfbe57acf2d",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32533951368"
+  },
+  "version": 1
+}

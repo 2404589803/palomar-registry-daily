@@ -1,0 +1,418 @@
+{
+  "abstract": "Erdős problem #501 (Erdős 1961; Erdős–Hajnal 1971, Problem 38): for every real x let A_x be a bounded set of reals of Lebesgue outer measure < 1; must there be an infinite independent set, i.e. an infinite X ⊆ ℝ with x ∉ A_y for all distinct x, y ∈ X?  And if the sets A_x are closed of measure < 1, must there be an independent set of size 3?  This repository formalizes both answers.  Second question: yes — closed sets of measure < 1 admit an infinite independent set (Newelski–Pawlikowski–Seredyński 1987; no boundedness is needed), hence one of size 3.  First question: independent of ZFC.  Under CH (as ℵ₁ = 𝔠) Hechler's 1972 construction gives a family of bounded null sets with no infinite independent set — a Mathlib-level theorem — and the negation of the first question holds in the Boolean-valued model of the collapse algebra Col(ω₁, 𝒫(ω)); after adding 𝔠⁺ random reals (Glazer and Sol 2026, adapting the paper's ω₂ random reals over a CH ground) the first question has a positive answer, so it holds in the Boolean-valued model of the random algebra with 𝔠⁺ coordinates.  Both Boolean-valued models are built in a Lean 4 port of Han–van Doorn's Flypitch (the framework of their independence-of-CH proof), and Flypitch's completeness theorem turns them into two-valued models.  The comparator challenge states the results in Mathlib alone: the language of set theory, the theory ZFC (Flypitch's axiomatization: extensionality, empty set, ordered pairs, union, power set, infinity, regularity, Zorn's lemma, strong collection) and the sentence Erdos501 (\"every complete ordered field has the Erdős property\") are defined in Mathlib's ModelTheory, and independence is stated semantically as ¬ (ZFC ⊨ᵇ Erdos501) ∧ ¬ (ZFC ⊨ᵇ ∼Erdos501); a faithfulness theorem shows that in Mathlib's ZFSet the sentence is equivalent to the Mathlib statement of the first question, verbatim the proposition of google-deepmind/formal-conjectures.  All targets are proved from propext, Classical.choice and Quot.sound only.  As far as we know this is the first Erdős problem whose resolution is a formally verified independence result.",
+  "authors": [
+    {
+      "name": "Elliot Glazer"
+    },
+    {
+      "name": "Sol"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-19-000002-v1/d0be23c13e46a028ca977ac0994df9a30eba49b59ef737dfb122d5c89aab15bc/",
+    "artifact_tree_sha256": "d0be23c13e46a028ca977ac0994df9a30eba49b59ef737dfb122d5c89aab15bc",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-19T12:09:09Z",
+    "renderer_commit": "a3fabf899f557cd03e81916d85887b2d8046206e",
+    "verso_commit": "74fc8d1b7bb781c3623a06ec6484f34d35eb5fba"
+  },
+  "classification": {
+    "arxiv": [
+      "math.LO",
+      "math.CO"
+    ],
+    "msc2020": [
+      "03E35",
+      "03E75",
+      "03E40",
+      "03E50",
+      "05D10",
+      "28A05"
+    ]
+  },
+  "first_registered_on": "2026-08-19",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.34.0-rc1",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "355bc1e0ed1d36e49525121e1a280ca13a058a92"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "38e9c3ce15cbb63c92e90bb9a92e4eb82131f669"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "2bc7cf064315b26bc38dac2e9612fb581be9b75f"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "978b7ec9fbbf9a535114f1de8fe5b3778b358870"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "99e8adeea3c3cd86b6b79ba01a1383bf2d31d055"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "c1c4362a130f12e632d252180a6c2a31d8fd4726"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "3b55e9d00c6b0018e5d984eb011b6f93c09bd163"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "36cc05ca2d0e469bfbeea9437f460e19238e885e"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "af8bc067a4cc6c6df472a68909a3f40b1c76c43e"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "erdos501_closed_infinite",
+      "erdos501_closed_size3",
+      "erdos501_hechler_of_CH",
+      "erdos501_not_refutable",
+      "erdos501_not_provable",
+      "erdos501_independent",
+      "erdos501_sentence_faithful"
+    ]
+  },
+  "id": "PALOMAR-2026-08-19-000002",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-19T12:03:06Z",
+    "receipt_sha256": "9336c7606eac42dc003b258b9b9d820b0fdaa4b7ab59a4393bc27f919c255c3e",
+    "repositories": [
+      {
+        "commit": "f406eaebc79537487955a484ba9cdc8abeaf1c9a",
+        "fork_repository": "PalomarArchive/elliotglazer--erdos501--a846048a857c",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000002-v1/f406eaebc79537487955a484ba9cdc8abeaf1c9a",
+        "source_repository": "elliotglazer/erdos501"
+      },
+      {
+        "commit": "c1c4362a130f12e632d252180a6c2a31d8fd4726",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000002-v1/c1c4362a130f12e632d252180a6c2a31d8fd4726",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "36cc05ca2d0e469bfbeea9437f460e19238e885e",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000002-v1/36cc05ca2d0e469bfbeea9437f460e19238e885e",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "978b7ec9fbbf9a535114f1de8fe5b3778b358870",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000002-v1/978b7ec9fbbf9a535114f1de8fe5b3778b358870",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "2bc7cf064315b26bc38dac2e9612fb581be9b75f",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000002-v1/2bc7cf064315b26bc38dac2e9612fb581be9b75f",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "355bc1e0ed1d36e49525121e1a280ca13a058a92",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000002-v1/355bc1e0ed1d36e49525121e1a280ca13a058a92",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "38e9c3ce15cbb63c92e90bb9a92e4eb82131f669",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000002-v1/38e9c3ce15cbb63c92e90bb9a92e4eb82131f669",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "99e8adeea3c3cd86b6b79ba01a1383bf2d31d055",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000002-v1/99e8adeea3c3cd86b6b79ba01a1383bf2d31d055",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "3b55e9d00c6b0018e5d984eb011b6f93c09bd163",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000002-v1/3b55e9d00c6b0018e5d984eb011b6f93c09bd163",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "af8bc067a4cc6c6df472a68909a3f40b1c76c43e",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000002-v1/af8bc067a4cc6c6df472a68909a3f40b1c76c43e",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Paul Erdős"
+          }
+        ],
+        "identifier": "Magyar Tud. Akad. Mat. Kutató Int. Közl. 6 (1961), 221–254",
+        "location": "Problem II.9",
+        "relationship": "background",
+        "title": "Some unsolved problems (Problem II.9)",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Paul Erdős"
+          },
+          {
+            "name": "András Hajnal"
+          }
+        ],
+        "identifier": "Proc. Sympos. Pure Math. XIII, Part I (Axiomatic Set Theory), AMS 1971, 17–48",
+        "location": "Problem 38 (B)/(C)",
+        "relationship": "background",
+        "title": "Unsolved problems in set theory (Problem 38)",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Thomas F. Bloom (ed.)"
+          }
+        ],
+        "identifier": "https://www.erdosproblems.com/501",
+        "relationship": "background",
+        "title": "Erdős problem #501 (erdosproblems.com)",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Sungchul Lee"
+          },
+          {
+            "name": "Nat Sothanaphan"
+          },
+          {
+            "name": "Elliot Glazer"
+          },
+          {
+            "name": "Sol"
+          }
+        ],
+        "identifier": "https://www.erdosproblems.com/forum/thread/501",
+        "relationship": "background",
+        "title": "Erdős problem #501 — forum discussion (erdosproblems.com)",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Elliot Glazer"
+          }
+        ],
+        "identifier": "https://www.erdosproblems.com/forum/user/ElliotGlazer/proof-claims",
+        "relationship": "background",
+        "title": "Elliot Glazer — proof claims for #501 (erdosproblems.com)",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ludomir Newelski"
+          },
+          {
+            "name": "Janusz Pawlikowski"
+          },
+          {
+            "name": "Wiesław Seredyński"
+          }
+        ],
+        "identifier": "Proc. Amer. Math. Soc. 100 (1987), 335–339",
+        "relationship": "formalizes",
+        "title": "Infinite free set for small measure set mappings",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Stephen H. Hechler"
+          }
+        ],
+        "identifier": "Israel J. Math. 11 (1972), 231–248",
+        "relationship": "formalizes",
+        "title": "Directed graphs over topological spaces: some set theoretical aspects",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Elliot Glazer"
+          },
+          {
+            "name": "Sol"
+          }
+        ],
+        "identifier": "docs/paper/erdos501_random_profiles_rev10.pdf (unpublished draft, 2026-08-16)",
+        "relationship": "adapts",
+        "title": "Erdős Problem 501 after adding ω₂ random reals (draft, revision 10)",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Paul Erdős"
+          },
+          {
+            "name": "András Hajnal"
+          }
+        ],
+        "identifier": "Michigan Math. J. 7 (1960), 187–191",
+        "relationship": "background",
+        "title": "Some remarks on set theory VIII",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/flypitch/flypitch",
+        "note": "Han–van Doorn, \"A formal proof of the independence of the continuum hypothesis\" (CPP 2020), Lean 3: first-order logic, the theory ZFC, Boolean-valued models, forcing, the completeness theorem and the collapse algebra Col(ω₁, 𝒫(ω)) with independence_of_CH.  The vendored library Flypitch4/ is derived from it (see below); its axiomatization of ZFC is the one mirrored, axiom by axiom, in the Mathlib-side theory of the Challenge",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/ianklatzco/flypitch",
+        "note": "Lean 4 port of Flypitch (Ian Klatzco with Claude; commit ad649f8, directory flypitch4/), vendored here as Flypitch4/ and forward-ported to the pinned Mathlib, then extended with measure algebras, the random algebra and the forcing development for #501 (Flypitch4/Erdos501/); see third_party/flypitch4/ and docs/PORTING-NOTES.md",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures",
+        "note": "FormalConjectures/ErdosProblems/501.lean states the first question (answer(sorry)); the Mathlib-level statements here (hypotheses, independence predicate) follow it verbatim, and the faithfulness target erdos501_sentence_faithful ties the first-order sentence to that proposition.  No code is shared; the relationship is \"same statement shape\"",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4",
+        "note": "Mathlib.ModelTheory (languages, bounded formulas, structures, Theory.ModelsBoundedFormula, Löwenheim–Skolem via Theory.Model.isSatisfiable) is the vocabulary of the Challenge; Mathlib measure theory, ZFSet and cardinals supply the rest of the trusted statements",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Elliot Glazer"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-19T12:02:38Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "24494b2ffd60c3cd22d72fae0afaf1c6b2d0d679",
+    "report": {
+      "sha256": "9f77c4ffdf25ccaa8f7de7350262f38b6c56848e11288ec8a4fdf9c23d3616b4"
+    },
+    "reviewed_at": "2026-08-19T11:54:52Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": [
+      "The declaration-specific prose advertises the materially stronger conclusion that Hechler's family consists of countable null sets, but the compared theorem does not state countability or zero outer measure. Thus Comparator does not verify that strengthening. Either add those properties to the Lean conclusion or revise the prose to identify them as an unselected result proved elsewhere."
+    ]
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "f406eaebc79537487955a484ba9cdc8abeaf1c9a",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "elliotglazer/erdos501",
+    "repository_url": "https://github.com/elliotglazer/erdos501",
+    "tree_url": "https://github.com/elliotglazer/erdos501/tree/f406eaebc79537487955a484ba9cdc8abeaf1c9a"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "htgsebjchqg5"
+  },
+  "title": "elliotglazer/erdos501",
+  "trust": {
+    "challenge_bytes": 31824,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Data.Set.Card",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+      "Mathlib.ModelTheory.Satisfiability",
+      "Mathlib.SetTheory.Cardinal.Aleph",
+      "Mathlib.SetTheory.Cardinal.Continuum",
+      "Mathlib.SetTheory.ZFC.Basic"
+    ],
+    "challenge_lines": 619,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "e92334abb7482da34acc0800bcd3b8e74234efab3ff29032417c10aea8b1b96b",
+    "comparator_commit": "68a064109f01c08f47c8edc9f51d6a2bbffaa188",
+    "evidence_path": "evidence/PALOMAR-2026-08-19-000002-v1/cf915ecffa3735337d60ca120b71be92dbd7b57fbf83b20bd29d49b05a19e6c3/",
+    "evidence_tree_sha256": "cf915ecffa3735337d60ca120b71be92dbd7b57fbf83b20bd29d49b05a19e6c3",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "b18d673bd29b476466a51a3be1012df2ed322b10",
+    "mechanical_report_sha256": "549c786ac04b11c963045b34bfd721720af99fb5b78693a1e5c2f5746b2044da",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32248810098,
+    "solution_sha256": "3b58690107dc547b78066178873c9902814a43ca4c6202dc3f2972785fcc58cd",
+    "verified_at": "2026-08-19T11:49:51Z",
+    "workflow_commit": "a3fabf899f557cd03e81916d85887b2d8046206e",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32248810098"
+  },
+  "version": 1
+}

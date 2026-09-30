@@ -1,0 +1,275 @@
+{
+  "abstract": "For each degree d in {2, 3, 4}, the polynomial x^d - x - 1 attains the minimal Mahler measure among monic irreducible integer polynomials of degree d with Mahler measure above one, and the three minimal values are exactly the golden ratio (M^2 = M + 1), the plastic ratio (M^3 = M + 1), and the root of x^4 - x^3 - 1 above one (M^4 = M^3 + 1); by Siegel's classical theorem (1944, cited as background, not formalized here) the latter two are the smallest and second-smallest Pisot numbers. Classically the degree-4 minimizer is not itself a Pisot polynomial, yet its measure lands back on the Pisot list via the reciprocal transform. The minimizers' irreducibility is part of the compared surface. Proofs are by a Graeffe-certificate architecture: an effective coefficient-bound box from Mathlib's norm_coeff_le_choose_mul_mahlerMeasure, then one integer certificate per box element (tie orbit, cyclotomic cofactor, explicit factorization, or an iterated Graeffe coefficient bound), 6,171 + 147 + 21 certificates kernel-decided with plain decide — no native_decide anywhere. The exact values follow from a root-inversion identity and a (sigma, s)-reduction localizing the conjugate pairs, with multiplicity excluded by kernel-certified measure brackets.",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-31-000004-v1/9bbdc6e2d9a8e21e408b715240adc63b084e86f1a8493a3a72fa2de7180fd3bd/",
+    "artifact_tree_sha256": "9bbdc6e2d9a8e21e408b715240adc63b084e86f1a8493a3a72fa2de7180fd3bd",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-31T03:21:23Z",
+    "renderer_commit": "fab5afbc3387b855a3187e7a898b89358089c7cc",
+    "verso_commit": "b677415e8a0becccc0b850137c2d8f6205132a91"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11R06",
+      "11R09",
+      "12D10"
+    ]
+  },
+  "first_registered_on": "2026-08-31",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.31.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "63045536fe95024e6c18fc7b48e03f506701c5bc"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "5c7542ed018c78194f1e2b903eaf6a792b74c03d"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "24b0d9dc081c5423f8eec7e866c441e5184f29d9"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "e3cb2f741431ce31bf73549fb52316a57368b06f"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "f46324995fca5f0483b742e4eb4daec7f4ee50d2"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "fa08db58b30eb033edcdab331bba000827f9f785"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "MahlerWindow.quadratic_min",
+      "MahlerWindow.quadratic_exact",
+      "MahlerWindow.quadratic_min_irreducible",
+      "MahlerWindow.cubic_min",
+      "MahlerWindow.cubic_exact",
+      "MahlerWindow.cubic_min_irreducible",
+      "MahlerWindow.quartic_min",
+      "MahlerWindow.quartic_exact",
+      "MahlerWindow.quartic_min_irreducible"
+    ]
+  },
+  "id": "PALOMAR-2026-08-31-000004",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-31T03:21:57Z",
+    "receipt_sha256": "a35dcc0e2997db0e6389772ccdd0a40a4360677652be9f1a74b30b825b0123ff",
+    "repositories": [
+      {
+        "commit": "e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000004-v1/e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "fa08db58b30eb033edcdab331bba000827f9f785",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000004-v1/fa08db58b30eb033edcdab331bba000827f9f785",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000004-v1/5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000004-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000004-v1/fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000004-v1/63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000004-v1/24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000004-v1/f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000004-v1/92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "ca3df22ba91ce60e5199aee4a0c35a6ca8ee559d",
+        "fork_repository": "PalomarArchive/stalex444--mahler-measure-minima--93e268aaf02f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000004-v1/ca3df22ba91ce60e5199aee4a0c35a6ca8ee559d",
+        "source_repository": "stalex444/mahler-measure-minima"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "relationship": "formalizes",
+        "title": "Quantum Mechanics as the Arithmetic of a Complex Place (v8B)"
+      },
+      {
+        "authors": [],
+        "relationship": "background",
+        "title": "C. L. Siegel, Algebraic integers whose conjugates lie in the unit circle, Duke Math. J. 11 (1944), 597-602"
+      },
+      {
+        "authors": [],
+        "relationship": "formalizes",
+        "title": "D. H. Lehmer, Factorization of certain cyclotomic functions, Ann. of Math. (2) 34 (1933), 461-479"
+      },
+      {
+        "authors": [],
+        "relationship": "independently-proves",
+        "title": "C. J. Smyth, On the product of the conjugates outside the unit circle of an algebraic integer, Bull. London Math. Soc. 3 (1971), 169-175"
+      },
+      {
+        "authors": [],
+        "relationship": "background",
+        "title": "C. Smyth, The Mahler measure of algebraic numbers: a survey, in Number Theory and Polynomials, LMS Lecture Note Series 352, CUP (2008), 322-349"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-31T03:21:35Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "d5a647db3757303b1d928cfae4d3d232eed3e79e",
+    "report": {
+      "sha256": "56e03e6d92a68094307839dc0010bef4f2796ba8f5d3ba86aceb6d046428d04d"
+    },
+    "reviewed_at": "2026-08-31T02:26:47Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "ca3df22ba91ce60e5199aee4a0c35a6ca8ee559d",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/mahler-measure-minima",
+    "repository_url": "https://github.com/stalex444/mahler-measure-minima",
+    "tree_url": "https://github.com/stalex444/mahler-measure-minima/tree/ca3df22ba91ce60e5199aee4a0c35a6ca8ee559d"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "rzfuy9xssfae"
+  },
+  "title": "stalex444/mahler-measure-minima",
+  "trust": {
+    "challenge_bytes": 4826,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Polynomial.MahlerMeasure",
+      "Mathlib.NumberTheory.MahlerMeasure"
+    ],
+    "challenge_lines": 98,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "c578bac5181a09f19e228cf2b24cdf8f6c741349d95986ad8a04b2c553c874db",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-31-000004-v1/4d04f1d8e0ca587ac584c2694c0fb7a6883f1ac7e8748bc7866783fa6df19355/",
+    "evidence_tree_sha256": "4d04f1d8e0ca587ac584c2694c0fb7a6883f1ac7e8748bc7866783fa6df19355",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "8554815c2dc6b7abe99ec1f08849c9759ba77947",
+    "mechanical_report_sha256": "b074d55f5d7cd3998c9554d56261dab62481cf9dcac933653f9aa3d315994469",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33348783174,
+    "solution_sha256": "f0ab4dba2965cb3ef69796a59125cd797de9fe38582b24cae440cb8a14d1e9cf",
+    "verified_at": "2026-08-31T02:10:45Z",
+    "workflow_commit": "fab5afbc3387b855a3187e7a898b89358089c7cc",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33348783174"
+  },
+  "version": 1
+}

@@ -1,0 +1,369 @@
+{
+  "abstract": "GENERAL THEOREMS FIRST. Throughout, E is a finite-dimensional real inner product space of dimension n, Δ is Mathlib's coordinate-free Laplacian, HarmonicOnNhd its harmonic functions, and f : ℝ → ℝ is twice differentiable on (0, ∞) (two HasDerivAt hypotheses, with derivatives f', f''). (I) THE CLASSIFICATION OF RADIAL HARMONIC FUNCTIONS: (1) for n ≠ 2 and E ≠ 0, the radial function f ∘ ‖·‖ is harmonic on E ∖ {0} if and only if f(r) = a + b r^(2−n) on (0, ∞) for some real a, b; (2) for n = 2, if and only if f(r) = a + b log r — every radial harmonic function with a twice-differentiable profile is an affine function of the Newtonian potential, constants included, and of the logarithm in the plane. (II) THE LAPLACIAN OF RADIAL FUNCTIONS, away from the origin: (3) Δ(f ∘ ‖·‖)(x) = f''(‖x‖) + (n − 1) f'(‖x‖)/‖x‖, the radial Laplacian; (4) for g twice differentiable on (0, ∞), Δ(g(‖y‖²))(x) = 2n g'(‖x‖²) + 4‖x‖² g''(‖x‖²), the squared-norm parametrization; (5) for every real s, Δ(‖y‖^s)(x) = s (n + s − 2) ‖x‖^(s−2), the indicial identity (its consequence, not itself compared: for E ≠ 0, ‖y‖^s is harmonic away from 0 exactly when s (n + s − 2) = 0, at s = 0 and s = 2 − n, which coincide at n = 2); (6) Δ(log ‖y‖)(x) = (n − 2)/‖x‖²; (7) ‖y‖^(2−n) is harmonic on E ∖ {0} for every n — for n ≥ 3, up to its normalizing constant, the Newtonian kernel away from the origin (the normalization and the distributional identity −ΔΦ = δ at the origin, in Evans's sign convention, which make a normalized multiple of it the fundamental solution proper, are NOT formalized); at n = 2 the power is the constant 1 and the logarithmic case is (8); on the zero space the statement is vacuous; (8) log ‖y‖ is harmonic on E ∖ {0} when n = 2. (III) THE RADIAL EQUATION, the one-variable content of (1)-(2): (9) for n ≠ 2, f'' + (n − 1) f'/r = 0 on (0, ∞) if and only if f(r) = a + b r^(2−n) there for some a, b; (10) for n = 2, if and only if f(r) = a + b log r. (IV) THE STABILITY OF CIRCULAR ORBITS, general in the real exponent: for the effective potential U(r) = a/r² − b/r^p on (0, ∞), a, b > 0, p > 0 real — the radial potential of a body with angular momentum under a central attraction with force law 1/r^(p+1) — (11) U'(r) = 0 iff r^(2−p) = 2a/(bp), the circular-orbit condition (for p ≠ 2 that equation has exactly one positive solution, whence \"the circular orbit\" below — a consequence of (11), not itself compared; in the plane \"the circular orbit r = √(2a/b)\" names the point of (19)); (12) at a circular orbit U''(r) = 2a(2 − p)/r⁴; (13) for p < 2 the circular orbit r* = (2a/(bp))^(1/(2−p)) is a local minimum of U (Mathlib's non-strict IsLocalMin) — stable; (14) for p > 2 it is a local maximum — unstable; (15) for p > 2 U has no local minimum on (0, ∞) at all (Ehrenfest's reading, that bounded motion between two radii is then impossible, is not formalized); (16) U''(r*) r*⁴/(2a) = 2 − p, the square of the ratio of the radial to the angular frequency of small oscillations about the circular orbit, which the local step of Bertrand's argument requires to be the square of a rational number for a near-circular orbit to close. The boundary p = 2, where the two terms of U have the same power, is covered by the critical-point and second-derivative identities (11)-(12), whose only hypothesis on the exponent is p > 0, and is excluded from the stability conclusions (13)-(15) and the frequency identity (16), all of which require p ≠ 2; among the instances it is n = 4, where (17) with a ≠ b yields no local minimum (the potential (a − b)/r² has no critical point) while the sub-case a = b, where U vanishes, is excluded; the table's 'unstable' cell at n = 4 is not compared. THE INSTANCES (17)-(23), with p = n − 2 for the Newtonian potential in n ≥ 3 dimensions and the logarithmic potential in the plane: (17) for n ≥ 3 and a ≠ b a stable circular orbit exists iff n = 3 (a ≠ b excludes n = 4, a = b, where U vanishes identically and every point is a non-strict minimum); (18) for n ≥ 5 the effective potential has no local minimum on (0, ∞); (19) in the plane, for a/r² + b log r, the circular orbit r = √(2a/b) is stable; (20) the quantity of (16) is 4 − n for n ≥ 3, n ≠ 4, hence 1 at n = 3; (21) in the plane it equals 2; (22) in the plane its square root is irrational (it is √2 by (21); this statement asserts irrationality only); (23) ‖x‖^(2−n) is harmonic on ℝⁿ ∖ {0} for every n; for n ≥ 3, up to its normalizing constant, the Newtonian kernel away from the origin, with the same disclosure as (7). THE APPLICATION: Ehrenfest's argument of 1917 (KNAW Proceedings 20 (1918) 200-209, §1 and Appendix I) that the stability of planetary orbits singles out three spatial dimensions. He deduces the n-dimensional force law from the Laplace–Poisson equation (the Laplace half is statement (7), harmonicity away from the source; the Poisson half, the point source, is not formalized; the classification (1)-(2) makes \"the radial harmonic function\" a theorem), reduces the motion to the radial equation ṙ = (1/r)√(A r² + B r^(4−n) − C²), and tabulates three columns — circular trajectories; motions between two positive values of r; motion to the infinite — for n ≥ 4 (unstable, impossible, possible), n = 3 (stable, possible and moreover closed, possible), n = 2 (stable, possible and not closed, impossible). Statements (17)-(22) are the extrema and frequency identities of the effective potential behind the first two columns for n ≥ 5, n = 3, n = 2 — a local minimum where the table says stable, no local minimum where it says bounded motion is impossible, the frequency ratio where it says closed or not closed; the passage from those identities to trajectories (bounded motion, closure, the third column), the n = 4 cell, and Bertrand's global theorem (1873) are not formalized. Tangherlini (1963) extended the argument to the n-dimensional Schwarzschild field; Caruso and Xavier (1987) and Tegmark (1997) discuss its epistemological status and call it Ehrenfest's argument, as does this entry (\"Ehrenfest's theorem\" names his 1927 quantum-mechanical result). NOT formalized: Bertrand's theorem, the third column and the n = 4 cell of the table, the derivation of the effective potential from the equations of motion, the relativistic extension, the wave-equation half of Ehrenfest's paper (Huygens' principle in odd dimensions), and any statement about the actual dimension of physical space — the theorems classify radial functions and a family of effective potentials; the reading that the stable case is the world we observe is Ehrenfest's, cited, not compared. PRIOR ART, as of the 2026-09-02 sweep: Mathlib has the Laplacian on inner product spaces (InnerProductSpace.laplacian, laplacian_eq_iteratedFDeriv_orthonormalBasis), harmonic functions (HarmonicAt, HarmonicOnNhd, harmonicAt_congr_nhds) with complex-analytic examples — in particular AnalyticAt.harmonicAt_log_norm, which gives log |z| harmonic on ℂ ∖ {0}, the n = 2 case of (8) in the complex model obtained through complex analysis — the second- derivative test (isLocalMin_of_deriv_deriv_pos), the mean-value lemmas IsOpen.exists_is_const_of_deriv_eq_zero and IsOpen.exists_eq_add_of_deriv_eq, and real powers; it has no Laplacian of a radial function, no harmonic power of the norm, no classification of radial harmonic functions, no central-force mechanics, and no formalization of Ehrenfest's argument. No formalization of the classification of radial harmonic functions, of Ehrenfest's argument, of the harmonic Newtonian potential in general dimension, or of Bertrand's theorem was found in the surveyed prover ecosystems (Mathlib and its archive, the Isabelle AFP, the Coq Mathematical Components and Coquelicot analysis libraries). The proof module descends from the author's public pdt-lean development (pinned below), where none of these statements was ever a compared statement. Axioms on every compared theorem: propext, Classical.choice, Quot.sound, audited in-build.",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-03-000004-v1/31aef489b1975258a718efea66cf364eac1b9d3ee23314b606ac9bbe7aac30c7/",
+    "artifact_tree_sha256": "31aef489b1975258a718efea66cf364eac1b9d3ee23314b606ac9bbe7aac30c7",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-03T13:09:14Z",
+    "renderer_commit": "c605f23466450a52999fcfb3c6d68ed8febc56bf",
+    "verso_commit": "b677415e8a0becccc0b850137c2d8f6205132a91"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CA",
+      "math.AP",
+      "math-ph",
+      "physics.class-ph"
+    ],
+    "msc2020": [
+      "31B05",
+      "35J05",
+      "34A05",
+      "70F05",
+      "70H14",
+      "70K20"
+    ]
+  },
+  "first_registered_on": "2026-09-03",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.31.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "63045536fe95024e6c18fc7b48e03f506701c5bc"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "5c7542ed018c78194f1e2b903eaf6a792b74c03d"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "24b0d9dc081c5423f8eec7e866c441e5184f29d9"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "e3cb2f741431ce31bf73549fb52316a57368b06f"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "f46324995fca5f0483b742e4eb4daec7f4ee50d2"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "fa08db58b30eb033edcdab331bba000827f9f785"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "EhrenfestArgument.harmonicOnNhd_radial_iff",
+      "EhrenfestArgument.harmonicOnNhd_radial_iff_two",
+      "EhrenfestArgument.laplacian_comp_norm",
+      "EhrenfestArgument.laplacian_comp_normSq",
+      "EhrenfestArgument.laplacian_normPow",
+      "EhrenfestArgument.laplacian_log_norm",
+      "EhrenfestArgument.harmonicOnNhd_normPow",
+      "EhrenfestArgument.harmonicOnNhd_log_norm",
+      "EhrenfestArgument.radial_ode_iff",
+      "EhrenfestArgument.radial_ode_iff_two",
+      "EhrenfestArgument.critical_iff",
+      "EhrenfestArgument.deriv_deriv_of_critical",
+      "EhrenfestArgument.isLocalMin_of_lt_two",
+      "EhrenfestArgument.isLocalMax_of_gt_two",
+      "EhrenfestArgument.not_isLocalMin_of_gt_two",
+      "EhrenfestArgument.freq_ratio_sq",
+      "EhrenfestArgument.stable_iff_three",
+      "EhrenfestArgument.not_isLocalMin_of_ge_five",
+      "EhrenfestArgument.isLocalMin_log",
+      "EhrenfestArgument.freq_ratio_sq_dim",
+      "EhrenfestArgument.freq_ratio_sq_log",
+      "EhrenfestArgument.freq_ratio_log_irrational",
+      "EhrenfestArgument.harmonicOnNhd_euclidean"
+    ]
+  },
+  "id": "PALOMAR-2026-09-03-000004",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-03T13:09:48Z",
+    "receipt_sha256": "38f7c07840d3c421fa29cab1f960d4dab6b50dab25656567232f8c0fc4baddd8",
+    "repositories": [
+      {
+        "commit": "e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-03-000004-v1/e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "fa08db58b30eb033edcdab331bba000827f9f785",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-03-000004-v1/fa08db58b30eb033edcdab331bba000827f9f785",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-03-000004-v1/5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-03-000004-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-03-000004-v1/fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-03-000004-v1/63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-03-000004-v1/24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-03-000004-v1/f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-03-000004-v1/92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "74e9b3ea7f204fba2e84e546c80457bcca5c6268",
+        "fork_repository": "PalomarArchive/stalex444--radial-harmonic-classification--19ea2ae2a355",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-03-000004-v1/74e9b3ea7f204fba2e84e546c80457bcca5c6268",
+        "source_repository": "stalex444/radial-harmonic-classification"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Paul Ehrenfest"
+          }
+        ],
+        "identifier": "KNAW, Proceedings, 20 I (1918), Amsterdam, 200-209 (communicated in the meeting of 26 May 1917)",
+        "license": "unknown",
+        "location": "https://dwc.knaw.nl/DL/publications/PU00012213.pdf",
+        "relationship": "independently-proves",
+        "title": "In what way does it become manifest in the fundamental laws of physics that space has three dimensions?",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Lawrence C. Evans"
+          }
+        ],
+        "identifier": "Graduate Studies in Mathematics 19, American Mathematical Society, Providence, RI, 2010; §2.2.1(a), the radial-ansatz derivation of the fundamental solution",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/gsm/019",
+        "relationship": "independently-proves",
+        "title": "Partial Differential Equations, second edition",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Joseph Bertrand"
+          }
+        ],
+        "identifier": "Comptes Rendus de l'Académie des Sciences 77 (1873), 849-853",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/0704.2396",
+        "relationship": "background",
+        "title": "Théorème relatif au mouvement d'un point attiré vers un centre fixe",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "F. R. Tangherlini"
+          }
+        ],
+        "identifier": "Il Nuovo Cimento 27 (1963), no. 3, 636-651",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/BF02784569",
+        "relationship": "background",
+        "title": "Schwarzschild field in n dimensions and the dimensionality of space problem",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Max Tegmark"
+          }
+        ],
+        "identifier": "Classical and Quantum Gravity 14 (1997), no. 4, L69-L75",
+        "license": "unknown",
+        "location": "https://doi.org/10.1088/0264-9381/14/4/002",
+        "relationship": "background",
+        "title": "On the dimensionality of spacetime",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Francisco Caruso"
+          },
+          {
+            "name": "Roberto Moreira Xavier"
+          }
+        ],
+        "identifier": "Fundamenta Scientiae 8 (1987), no. 1, 73-91; arXiv:1205.4916 (2012)",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/1205.4916",
+        "relationship": "background",
+        "title": "On the Physical Problem of Spatial Dimensions: An Alternative Procedure to Stability Arguments",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4 (Mathlib/Analysis/InnerProductSpace/Laplacian.lean, Mathlib/Analysis/InnerProductSpace/Harmonic/Basic.lean, Mathlib/Analysis/InnerProductSpace/Harmonic/Constructions.lean, Mathlib/Analysis/Calculus/MeanValue.lean, Mathlib/Analysis/Calculus/DerivativeTest.lean, Mathlib/Analysis/SpecialFunctions/Pow/Deriv.lean, Mathlib/Analysis/SpecialFunctions/Sqrt.lean, Mathlib/Analysis/InnerProductSpace/Calculus.lean)",
+        "note": "Honest accounting of what is consumed, at the pin fabf563a7c95a166b8d7b6efca11c8b4dc9d911f: the Laplacian on inner product spaces (InnerProductSpace.laplacian, the class notation Δ, laplacian_eq_iteratedFDeriv_orthonormalBasis with iteratedFDeriv_two_apply) and harmonic functions (HarmonicOnNhd, HarmonicAt, harmonicAt_congr_nhds, the algebra of harmonic functions, exists_norm_eq) — used in (1)-(8), (23); the mean-value lemmas IsOpen.exists_is_const_of_deriv_eq_zero and IsOpen.exists_eq_add_of_deriv_eq on Ioi 0 — used in (1)-(2), (9)-(10); the second-derivative test isLocalMin_of_deriv_deriv_pos and isLocalMax_of_deriv_deriv_neg — used in (13)-(14), (19); real powers and their derivatives (Real.hasDerivAt_rpow_const, Real.rpow_add, Real.rpow_mul, Real.rpow_inv_rpow), the square root (Real.hasDerivAt_sqrt, Real.sqrt_sq) and the logarithm (Real.hasDerivAt_log) — used throughout; the derivative of the squared norm (hasStrictFDerivAt_norm_sq) and the inner product as a bounded bilinear map — used in (3)-(4); the irrationality of √2 (irrational_sqrt_two) — used in (22). Adjacent but not consumed: AnalyticAt.harmonicAt_log_norm (Harmonic/Constructions.lean), which gives log |z| harmonic on ℂ ∖ {0} through complex analysis — the n = 2 case of (8) in the complex model; (8) states it on an arbitrary two-dimensional real inner product space, from the Laplacian formula (6). Mathlib contains no formula for the Laplacian of a radial function, no harmonic power of the norm, no classification of radial harmonic functions, no central-force mechanics, and no formalization of Ehrenfest's argument.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/stalex444/pdt-lean (parent development; pinned reference revision: commit 843cf2dad8f89c7ff6ba19dfaf8d605a67c573ef)",
+        "note": "The broader public project this entry belongs to, and the provenance of the proof module. PdtEhrenfest.lean, the single proof module of this repository, was written for this entry on 2026-09-02, developed and committed in the parent at the pinned revision, and copied here byte-for-byte. This repository is a complete, self-contained proof development for the compared statements, not a wrapper: every compared theorem is proved from Mathlib within these files. Under the pin the module keeps its internal names and docstrings, which carry Ehrenfest's physical readings as labels (no_bounded_of_ge_five, 'no motion between two positive radii', 'the orbit closes iff it is rational'); the compared statements and this metadata are the entry's claims and assert only the extrema and identities.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-03T13:09:29Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "4ed67de4fd69df383badb7857dff97e2fb734ab0",
+    "report": {
+      "sha256": "9417c428b8263f61624035df76072f13a7036ae37ab9f449a4c28384aced135a"
+    },
+    "reviewed_at": "2026-09-03T12:51:12Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "74e9b3ea7f204fba2e84e546c80457bcca5c6268",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/radial-harmonic-classification",
+    "repository_url": "https://github.com/stalex444/radial-harmonic-classification",
+    "tree_url": "https://github.com/stalex444/radial-harmonic-classification/tree/74e9b3ea7f204fba2e84e546c80457bcca5c6268"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "v07iemykuoxc"
+  },
+  "title": "Radial harmonic functions on a real inner product space: the classification, the Laplacian of radial functions, and the stability of circular orbits for power-law central forces; Ehrenfest's dimensionality argument (1917) as the application",
+  "trust": {
+    "challenge_bytes": 17457,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 316,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "8c5f1fd9c1389bdc5d9d2fe02dbd2c53386eee1fe7c3adfb2ac33eaa16110a43",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-03-000004-v1/c53855ec2212ad4050a1a95e401721702383bccec9b7c0a155275d5979e17d29/",
+    "evidence_tree_sha256": "c53855ec2212ad4050a1a95e401721702383bccec9b7c0a155275d5979e17d29",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "8554815c2dc6b7abe99ec1f08849c9759ba77947",
+    "mechanical_report_sha256": "e66b81c1bfc74b45670d953f15f3214325228be53a3c28b7d342cc387bf0d941",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33755485370,
+    "solution_sha256": "b929d82483591b8b0d1d761b5c3de97c5077b1811b437b998fdc8686288aab6b",
+    "verified_at": "2026-09-03T12:36:25Z",
+    "workflow_commit": "c605f23466450a52999fcfb3c6d68ed8febc56bf",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33755485370"
+  },
+  "version": 1
+}

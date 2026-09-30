@@ -1,0 +1,325 @@
+{
+  "abstract": "A Lean 4 / mathlib formalization of Dana Scott's 1980 Oxford lectures, published May 1981 as PRG-19 Lectures on a Mathematical Theory of Computation. The Palomar compared result is only the first sentence of Theorem 8.8: the neighbourhood system U over [0,1) ⊆ ℚ is universal, in the sense that every countable neighbourhood system D embeds as a subdomain (D ⊴ U). Challenge.lean fixes the neighbourhood-system vocabulary, Scott's ⊴, and the concrete Definition 8.7 family U. This foundational universality result supplies a concrete host for all countable domains; it is relevant to domain theory, denotational semantics, mathematical logic, and formalized mathematics. The broader Lectures I–VIII development lives in Scott1980/Neighborhood/* and is not the advertised Comparator result. The informal account is arxiv.md; the working transcription is sources/PRG19.md. Lean was written by AI agents under the direction and review of the author. Dana Scott did not participate in or endorse this formalization. There is no sorry outside the deliberate holes in Challenge.lean, no project-defined axiom, and Mathlib is the only Lake dependency.",
+  "authors": [
+    {
+      "name": "Lars Warren Ericson"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-24-000001-v1/b4f453e5dd71dc3635e4f8d1dce4dd096ee6777d53c959ebf3259a144bc006ac/",
+    "artifact_tree_sha256": "b4f453e5dd71dc3635e4f8d1dce4dd096ee6777d53c959ebf3259a144bc006ac",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-24T16:12:47Z",
+    "renderer_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.LO",
+      "math.LO"
+    ],
+    "msc2020": [
+      "68Q55",
+      "06B35",
+      "03B70"
+    ]
+  },
+  "first_registered_on": "2026-08-24",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "Scott1980.Neighborhood.DomainIso",
+      "Scott1980.Neighborhood.Isomorphic",
+      "Scott1980.Neighborhood.Trianglelefteq",
+      "Scott1980.Neighborhood.NeighborhoodSystem.element_le",
+      "Scott1980.Neighborhood.presentedIntervals",
+      "Scott1980.Neighborhood.UMem",
+      "Scott1980.Neighborhood.UMaster",
+      "Scott1980.Neighborhood.U",
+      "Scott1980.Neighborhood.Example15.master",
+      "Scott1980.Neighborhood.Example15.P4Mem",
+      "Scott1980.Neighborhood.Example15.neighborhoodSystem",
+      "Scott1980.Neighborhood.Exercise722.concat",
+      "Scott1980.Neighborhood.Exercise722.Ssys"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Scott1980.Neighborhood.theorem_8_8",
+      "Scott1980.Neighborhood.NeighborhoodSystem.Element.ext",
+      "Scott1980.Neighborhood.NeighborhoodSystem.element_le_refl",
+      "Scott1980.Neighborhood.NeighborhoodSystem.element_le_trans",
+      "Scott1980.Neighborhood.NeighborhoodSystem.element_le_antisymm",
+      "Scott1980.Neighborhood.U_master_mem",
+      "Scott1980.Neighborhood.U_inter_mem",
+      "Scott1980.Neighborhood.U_sub_master",
+      "Scott1980.Neighborhood.Example15.P4_master_mem",
+      "Scott1980.Neighborhood.Example15.P4_inter_mem",
+      "Scott1980.Neighborhood.Example15.P4_sub_master",
+      "Scott1980.Neighborhood.Example15.P4_embeds",
+      "Scott1980.Neighborhood.Exercise722.Ssys_master_mem",
+      "Scott1980.Neighborhood.Exercise722.Ssys_sub_master",
+      "Scott1980.Neighborhood.Exercise722.Ssys_inter_mem",
+      "Scott1980.Neighborhood.Exercise722.Ssys_embeds"
+    ]
+  },
+  "id": "PALOMAR-2026-08-24-000001",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-24T16:13:18Z",
+    "receipt_sha256": "599aac6cc5d62d96573bb195143afecbf6b0125c1c448df938f5cdc8e73f25c6",
+    "repositories": [
+      {
+        "commit": "9249788c72bf017cb6acee1117a6452ca22076d4",
+        "fork_repository": "PalomarArchive/catskillsresearch--scott1980--01865c711747",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000001-v1/9249788c72bf017cb6acee1117a6452ca22076d4",
+        "source_repository": "catskillsresearch/scott1980"
+      },
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000001-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000001-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000001-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000001-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000001-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000001-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000001-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000001-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000001-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Dana S. Scott"
+          }
+        ],
+        "location": "Technical Monograph PRG-19, Oxford University Computing Laboratory, Programming Research Group, May 1981. First sentence of Theorem 8.8.",
+        "relationship": "formalizes",
+        "title": "Lectures on a Mathematical Theory of Computation",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Lars Warren Ericson"
+          }
+        ],
+        "relationship": "other",
+        "title": "A Lean 4 Formalization of Scott's Lectures on a Mathematical Theory of Computation (PRG-19)",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/catskillsresearch/scott1972",
+        "note": "Same-author formalization of Scott 1972 Continuous Lattices. Not imported here. Palomar packaging follows that repository's Challenge / Solution pattern.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/catskillsresearch/scott1982",
+        "note": "Same-author formalization of Scott 1982 information systems; not imported here.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/catskillsresearch/scott_models",
+        "note": "Same-author sibling with cross-presentation equivalence theorems for Scott 1972 / 1980 / 1982. Not imported here.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/catskillsresearch/cardb",
+        "note": "Same-author Palomar template source; not imported here.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Lars Warren Ericson"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-24T16:13:00Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "d5a647db3757303b1d928cfae4d3d232eed3e79e",
+    "report": {
+      "sha256": "30cb8c4a4bc8cb5ccf65b13d32170a39c730308ec56e46907a2a1ba929088045"
+    },
+    "reviewed_at": "2026-08-24T15:41:37Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": [
+      "The submission-specific public scope account contradicts the selected Comparator configuration by saying that only Theorem 8.8's first sentence is compared. Revise the abstract and README to state that the configuration also compares the two specialized embedding corollaries, while distinguishing them from the principal sourced theorem.",
+      "The Lean notion called Scott's neighbourhood system includes a degenerate empty-token system excluded by Scott's standing definition, so the universal theorem quantifies over a materially broader class than the cited statement. Add non-emptiness of the master neighbourhood to NeighborhoodSystem, restrict the theorem accordingly, or explicitly document and justify this extension."
+    ]
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "9249788c72bf017cb6acee1117a6452ca22076d4",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "catskillsresearch/scott1980",
+    "repository_url": "https://github.com/catskillsresearch/scott1980",
+    "tree_url": "https://github.com/catskillsresearch/scott1980/tree/9249788c72bf017cb6acee1117a6452ca22076d4"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "0yh3gpwjomgf"
+  },
+  "title": "catskillsresearch/scott1980",
+  "trust": {
+    "challenge_bytes": 9246,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Order.Ring.Rat",
+      "Mathlib.Data.Countable.Defs",
+      "Mathlib.Data.Fin.Basic",
+      "Mathlib.Data.List.Basic",
+      "Mathlib.Data.Set.Basic",
+      "Mathlib.Data.Set.Lattice",
+      "Mathlib.Order.Hom.Basic",
+      "Mathlib.Order.Interval.Set.Basic"
+    ],
+    "challenge_lines": 237,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "79e5860d82860c6fe73c20c44547e6ca6c97c912d5cb800cce05767666aeca93",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-24-000001-v1/c3ec191e8c460332ed0d010e484f97d9f6294ee30defa293cb6f88bee5d65e2b/",
+    "evidence_tree_sha256": "c3ec191e8c460332ed0d010e484f97d9f6294ee30defa293cb6f88bee5d65e2b",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "418b390814e9e4179615a1cf1aa42589ede7d8166834347dad93d7719270bc90",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32723774631,
+    "solution_sha256": "6069ed99a807f2bfa419fe134c903bf11f96db1a9cb764a5dc45606b466212f2",
+    "verified_at": "2026-08-24T11:54:34Z",
+    "workflow_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32723774631"
+  },
+  "version": 1
+}

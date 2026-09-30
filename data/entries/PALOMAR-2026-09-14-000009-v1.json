@@ -1,0 +1,390 @@
+{
+  "abstract": "Machine-checked Lean 4 proofs of two theorems about the classical inflation hierarchy. The headline theorem, TriangleInflation.Graph.classification_NW, classifies the scenarios on which the hierarchy terminates: for a pair-source scenario with binary observations, some finite Navascués–Wolfe order characterizes compatibility iff every connected component is a double-star, and then order two suffices. A pair-source scenario is a finite simple graph without isolated vertices, one binary observed variable per vertex and one independent latent source per edge; a double-star is a tree of diameter at most three. The terminating half first labels each component from its graph structure alone (its vertices of degree at least two are pairwise adjacent and number at most two; they are the centres, and every other vertex is a leaf attached to one of them), then reconstructs a model from any order-two witness: source-disjoint blocks are independent under the witness, and conditioning on a leaf pattern reads off the joint law of the two centres' response tables, which becomes the law of a fresh central source. The nonterminating half supplies, at every order t, a strictly positive law that passes the order-t test and has no model. On an induced cycle the law is the parity target with correlation 1/(4 m^2 t^2), whose witness is a positive Fourier density on m t auxiliary signs pushed forward along products of adjacent signs; its incompatibility is parity rigidity. On an induced five-observer path the law is a bilocal target with h = 1/(16 t^2), whose witness is the inflated law of a pair-source model with complex source weights (1 ± i s/(4t))/4 on the two inner sources, under which the copies are independent and identically distributed; the real part of that law is shown nonnegative by a telescoped triangle inequality, and the incompatibility is the bilocal inequality sqrt|I| + sqrt|J| ≤ 1. Both witnesses are moved to the ambient graph by induced-subgraph transport and made strictly positive by independent local flips. The same development proves the classification for the ancestral-independence and recursively expressible hierarchies, and proves that the latter two coincide on every pair-source scenario. The second theorem, TriangleInflation.no_finite_characterizing_order, is the triangle case made quantitative: for every order t ≥ 1 there is an explicit rational three-bit law that is feasible at order t for the ancestral-independence hierarchy I^AI_t, hence for the Navascués–Wolfe hierarchy I^NW_t, and is not triangle compatible. This answers, in the negative for the triangle, the question Navascués and Wolfe (2020, §4.1) raise about whether some finite order settles exact compatibility; their hierarchy is asymptotically complete, so each incompatible law is rejected at some finite order, but the rejecting order cannot be bounded uniformly. The witnesses are P_t = Q(ε_t, r_t) with ε_t = 1/(2t³) and r_t = (1 − ε_t)^(t−1), where Q(ε,r) = ε δ_000 + (1 − ε) Bern(r)^⊗3. Membership is proved by an explicit inflation law on the order-t copied observations: independent Bernoulli defect bits on the cube [t]³ of source-copy indices together with independent private bits, with an observation outputting 1 exactly when its private bit and every defect on its line vanish. That law is S_t³-symmetric, has the tensor power P^⊗t as its diagonal law, and satisfies the injectable-marginal and ancestral-independence prescriptions. Incompatibility comes from the Finner inequality P(000)² ≤ P_A(0) P_B(0) P_C(0), which P_t violates by at least ε_t²/2 > 0; the inequality is proved both for finite latent alphabets and, in FinnerMeasure.lean, for arbitrary measurable latent spaces. The library also formalizes the order-t fan inequalities and their rejecting-order corollary, the family R_p with rejecting order 2 at every distance, the Θ(ε^{-1/3}) bounds on the first rejecting order along P_ε, the order-t second-moment rate bound and its convex-order sharpening, the quantitative parity rigidity behind the cycle distance bound, and the triangle witness at q = 1/(16t). The two registry statements in Palomar/TriangleInflation/ import Mathlib alone and carry their definitions verbatim from TriangleInflation/Defs.lean and TriangleInflation/Graph/Defs.lean.",
+  "authors": [
+    {
+      "name": "William Blair"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-14-000009-v1/c35b9fdae2af123a1a6151326f779f8f04052796344aeef19ae547d75efc839f/",
+    "artifact_tree_sha256": "c35b9fdae2af123a1a6151326f779f8f04052796344aeef19ae547d75efc839f",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-14T19:53:14Z",
+    "renderer_commit": "a013555a88a0fc9ec910a09ea833dc9cc338db35",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "quant-ph",
+      "math.ST"
+    ],
+    "msc2020": [
+      "81P13",
+      "62A09",
+      "68Q17",
+      "60E15",
+      "05C90"
+    ]
+  },
+  "first_registered_on": "2026-09-14",
+  "formalization": {
+    "challenge_path": "Palomar/TriangleInflation/ClassificationChallenge.lean",
+    "comparator_config_path": "Palomar/TriangleInflation/classification-comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "PalomarSolutions/TriangleInflationClassification.lean",
+    "theorem_names": [
+      "TriangleInflation.Graph.classification_NW"
+    ]
+  },
+  "id": "PALOMAR-2026-09-14-000009",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-14T19:53:46Z",
+    "receipt_sha256": "837af9706e2d59c276ab0b57a7d88365a2409bf1f8fbfb045ac2fd26325e9509",
+    "repositories": [
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000009-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000009-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000009-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000009-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000009-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000009-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000009-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000009-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000009-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "93cc53f1545d693f4f99491ec75de90299e9878c",
+        "fork_repository": "PalomarArchive/williamjblair--inflation-termination--8b79346a201b",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000009-v1/93cc53f1545d693f4f99491ec75de90299e9878c",
+        "source_repository": "williamjblair/inflation-termination"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "William Blair"
+          }
+        ],
+        "identifier": "paper/main.pdf (this repository; not yet posted to arXiv)",
+        "location": "Theorem 4.2 (thm:classification), Section 4, with the reconstruction half in Section 5 and the witnesses in Sections 6 and 7; Theorem 8.2 (thm:main) and the corollary that follows it, with the construction in Section 8.1, the incompatibility in Section 8.2 and the injectable-set characterization in Appendix A; the formal-verification statement is Section 16 (sections/11-reproducibility.tex)",
+        "relationship": "formalizes",
+        "title": "Inflation for Classical Pair-Source Networks: Termination and Quantitative Obstructions",
+        "type": "preprint"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Miguel Navascués"
+          },
+          {
+            "name": "Elie Wolfe"
+          }
+        ],
+        "identifier": "https://doi.org/10.1515/jci-2018-0008",
+        "location": "§4.1, the open question whether some finite inflation order settles exact compatibility, and the order-2 P_v/Finner example; Theorem 1 and (A7), asymptotic completeness",
+        "relationship": "background",
+        "title": "The Inflation Technique Completely Solves the Causal Compatibility Problem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Elie Wolfe"
+          },
+          {
+            "name": "Robert W. Spekkens"
+          },
+          {
+            "name": "Tobias Fritz"
+          }
+        ],
+        "identifier": "https://doi.org/10.1515/jci-2017-0020",
+        "location": "Definitions 4 and 7: injectable sets, ancestral independence, the expressible-set recursion",
+        "relationship": "background",
+        "title": "The inflation technique for causal inference with latent variables",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Helmut Finner"
+          }
+        ],
+        "identifier": "https://doi.org/10.1214/aop/1176989541",
+        "location": "the generalized Hölder inequality specializing to P(000)² ≤ P_A(0) P_B(0) P_C(0) on the triangle",
+        "relationship": "background",
+        "title": "A generalization of Hölder's inequality and some probability inequalities",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Marc-Olivier Renou"
+          },
+          {
+            "name": "Elisa Bäumer"
+          },
+          {
+            "name": "Sadra Boreiri"
+          },
+          {
+            "name": "Nicolas Brunner"
+          },
+          {
+            "name": "Nicolas Gisin"
+          },
+          {
+            "name": "Salman Beigi"
+          }
+        ],
+        "identifier": "https://doi.org/10.1103/PhysRevLett.123.140401",
+        "location": "the classical triangle Finner inequality via two Cauchy–Schwarz steps",
+        "relationship": "background",
+        "title": "Genuine quantum nonlocality in the triangle network",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Denis Rosset"
+          },
+          {
+            "name": "Nicolas Gisin"
+          },
+          {
+            "name": "Elie Wolfe"
+          }
+        ],
+        "identifier": "https://doi.org/10.26421/QIC18.11-12-2",
+        "location": "bounded finite latent cardinality suffices; compatible sets are closed and semialgebraic",
+        "relationship": "background",
+        "title": "Universal bound on the cardinality of local hidden variables in networks",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Sadra Boreiri"
+          },
+          {
+            "name": "Antoine Girardin"
+          },
+          {
+            "name": "Bora Ulu"
+          },
+          {
+            "name": "Patryk Lipka-Bartosik"
+          },
+          {
+            "name": "Nicolas Brunner"
+          },
+          {
+            "name": "Pavel Sekatski"
+          }
+        ],
+        "identifier": "https://doi.org/10.1103/PhysRevA.107.062413",
+        "location": "exact parity rigidity for classical models of perfect-correlation targets on cycles",
+        "relationship": "background",
+        "title": "Towards a minimal example of quantum nonlocality without inputs",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "William Blair"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-14T19:53:25Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "e9c8c238f5695b10f75db7175648a1d0195352c1",
+    "report": {
+      "sha256": "8c29446beb3681a502e5ecda2cc4449be1d5675f8294cf5b7360eedf1cfc8057"
+    },
+    "reviewed_at": "2026-09-14T19:39:25Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "93cc53f1545d693f4f99491ec75de90299e9878c",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "14935f07de7448c167b7badfc02ec0b8f5b2dd1f740ff4cdf89f921c6caa762f"
+    },
+    "repository": "williamjblair/inflation-termination",
+    "repository_url": "https://github.com/williamjblair/inflation-termination",
+    "tree_url": "https://github.com/williamjblair/inflation-termination/tree/93cc53f1545d693f4f99491ec75de90299e9878c"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "5w0l31va1z0p"
+  },
+  "title": "Termination of the classical inflation hierarchy on pair-source networks",
+  "trust": {
+    "challenge_bytes": 25630,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.BigOperators.Field",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.Combinatorics.SimpleGraph.Acyclic",
+      "Mathlib.Combinatorics.SimpleGraph.Finite",
+      "Mathlib.Combinatorics.SimpleGraph.Metric",
+      "Mathlib.Data.Fintype.BigOperators",
+      "Mathlib.Data.List.Chain",
+      "Mathlib.Tactic",
+      "Mathlib.Tactic.DeriveFintype"
+    ],
+    "challenge_lines": 554,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "df3448a1d235524a788da417d8dea0af027932365fb18fadb629ef76efb71c83",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-14-000009-v1/489599756d947adc0914918f9a7c2a514cdd015009a98080a32c224291c2731c/",
+    "evidence_tree_sha256": "489599756d947adc0914918f9a7c2a514cdd015009a98080a32c224291c2731c",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "d0f73851e774b8b9dbb657ca3f319d89eddfa1e0fcdca28fbbcc16cef7046c7b",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 34885680039,
+    "solution_sha256": "676cf13b175a643d9d2d806cae7d9b0819f5882554f0390859b9808f7fd344e6",
+    "verified_at": "2026-09-14T19:27:13Z",
+    "workflow_commit": "a013555a88a0fc9ec910a09ea833dc9cc338db35",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/34885680039"
+  },
+  "version": 1
+}

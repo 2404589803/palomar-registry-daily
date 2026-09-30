@@ -1,0 +1,319 @@
+{
+  "abstract": "Lean proofs of Hausdorff dimension at least n-(n-k)/p_c^k for all (n,k)-Besicovitch sets with 1<=k<=n, and positive Lebesgue measure for Lebesgue measurable such sets when p_c^(k-1)+k>n. Here a Besicovitch set contains a translated unit k-disk in every k-dimensional direction, and p_c is the unique root in (2,3) of p^3-2p^2-2p+2=0.\nBuilding on Bourgain's arithmetic-combinatorial approach, Nets Hawk Katz and Terence Tao's New bounds for Kakeya problems (2002; preprint 2001) established the Minkowski-dimension bound 1+(n-1)/beta_c, where beta_c=p_c/(p_c-1)=1.67513... satisfies beta_c^3-4*beta_c+2=0. This is exactly n-(n-1)/p_c, so the numerical exponent itself is not new. They also proved the distinct Hausdorff bound (2-sqrt(2))*(n-4)+3. A Minkowski lower bound alone does not imply the same Hausdorff lower bound: Hausdorff dimension is at most Minkowski dimension.\nRichard Oberlin's subsequent X-ray work (2006 preprint; published 2010) gave the Hausdorff bound n-(n-k)/(1+sqrt(2))^k and positive measure when (1+sqrt(2))^(k-1)+k>n. Later polynomial-partitioning work by Hickman, Rogers, and Zhang improved Kakeya bounds in many dimensions while retaining the large-dimension leading coefficient 2-sqrt(2).\nThe claimed advance here is a continuous projection estimate with joint measurable parameter selection, developed from the supplied September 2026 manuscript. Its mixed-norm X-ray and plate maximal consequences, together with a countable-cover argument, give the Katz-Tao numerical bound for Hausdorff dimension and replace 1+sqrt(2)=2.41421... by p_c=2.48119... in Oberlin's displayed dimension and positive-measure ranges. For k=1 the resulting Hausdorff bound is approximately 0.596968*n+0.403032, with a larger leading coefficient than 2-sqrt(2)=0.585786.... This is an improvement in sufficiently high dimensions, not a claim to the best bound in every dimension. The formalized hypotheses require only unit disks, and the Hausdorff theorem requires neither measurability nor boundedness of the set.\nBoth geometric theorems and the exact bounds 2.481<p_c<2.482 are proved with only the standard Lean axioms. The comparisons above identify the improvement over the cited results; independent mathematical review and confirmation of novelty against the full literature remain pending. Final sandboxed Comparator and independent-kernel verification are pending.",
+  "authors": [
+    {
+      "name": "Yongxi Lin"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-19-000001-v1/e1ae2668a8606258a5148bf75af6af3c3c980f52dc7cc274b3793174635785ad/",
+    "artifact_tree_sha256": "e1ae2668a8606258a5148bf75af6af3c3c980f52dc7cc274b3793174635785ad",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-19T03:22:28Z",
+    "renderer_commit": "3561d237dcc4b28482558ad28a64d767d7cc8615",
+    "verso_commit": "74fc8d1b7bb781c3623a06ec6484f34d35eb5fba"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CA"
+    ],
+    "msc2020": [
+      "42B25",
+      "28A75"
+    ]
+  },
+  "first_registered_on": "2026-09-19",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.34.0-rc1",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "38e9c3ce15cbb63c92e90bb9a92e4eb82131f669"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "2bc7cf064315b26bc38dac2e9612fb581be9b75f"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "978b7ec9fbbf9a535114f1de8fe5b3778b358870"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "99e8adeea3c3cd86b6b79ba01a1383bf2d31d055"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "c1c4362a130f12e632d252180a6c2a31d8fd4726"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "3b55e9d00c6b0018e5d984eb011b6f93c09bd163"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "01bc479e7432594821ba3fb0ca465211941de86d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "af8bc067a4cc6c6df472a68909a3f40b1c76c43e"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "NKBesicovitch.criticalExponent_bounds",
+      "NKBesicovitch.volume_pos_of_criticalExponent",
+      "NKBesicovitch.le_dimH_of_isBesicovitch"
+    ]
+  },
+  "id": "PALOMAR-2026-09-19-000001",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-19T03:23:00Z",
+    "receipt_sha256": "689f2d02f0b0a557f1243c61859bd84f41ac9491e40cefd89cbaab1fea74228f",
+    "repositories": [
+      {
+        "commit": "e12e5981d840eb5ebdc25403691b3c63a9c7aff8",
+        "fork_repository": "PalomarArchive/CoolRmal--NKBesicovitch--2dc406a2bbd2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-19-000001-v1/e12e5981d840eb5ebdc25403691b3c63a9c7aff8",
+        "source_repository": "CoolRmal/NKBesicovitch"
+      },
+      {
+        "commit": "c1c4362a130f12e632d252180a6c2a31d8fd4726",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-19-000001-v1/c1c4362a130f12e632d252180a6c2a31d8fd4726",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "01bc479e7432594821ba3fb0ca465211941de86d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-19-000001-v1/01bc479e7432594821ba3fb0ca465211941de86d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "978b7ec9fbbf9a535114f1de8fe5b3778b358870",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-19-000001-v1/978b7ec9fbbf9a535114f1de8fe5b3778b358870",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "2bc7cf064315b26bc38dac2e9612fb581be9b75f",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-19-000001-v1/2bc7cf064315b26bc38dac2e9612fb581be9b75f",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-19-000001-v1/de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "38e9c3ce15cbb63c92e90bb9a92e4eb82131f669",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-19-000001-v1/38e9c3ce15cbb63c92e90bb9a92e4eb82131f669",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "99e8adeea3c3cd86b6b79ba01a1383bf2d31d055",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-19-000001-v1/99e8adeea3c3cd86b6b79ba01a1383bf2d31d055",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "3b55e9d00c6b0018e5d984eb011b6f93c09bd163",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-19-000001-v1/3b55e9d00c6b0018e5d984eb011b6f93c09bd163",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "af8bc067a4cc6c6df472a68909a3f40b1c76c43e",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-19-000001-v1/af8bc067a4cc6c6df472a68909a3f40b1c76c43e",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Nets Hawk Katz"
+          },
+          {
+            "name": "Terence Tao"
+          }
+        ],
+        "identifier": "arXiv:math/0102135",
+        "location": "https://arxiv.org/abs/math/0102135",
+        "relationship": "background",
+        "title": "New bounds for Kakeya problems",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jonathan Hickman"
+          },
+          {
+            "name": "Keith M. Rogers"
+          },
+          {
+            "name": "Ruixiang Zhang"
+          }
+        ],
+        "identifier": "arXiv:1908.05589",
+        "location": "https://arxiv.org/abs/1908.05589",
+        "relationship": "background",
+        "title": "Improved bounds for the Kakeya maximal conjecture in higher dimensions",
+        "type": "article"
+      },
+      {
+        "authors": [],
+        "license": "unknown",
+        "relationship": "formalizes",
+        "title": "The projection estimate near 1.675",
+        "type": "supplied manuscript"
+      },
+      {
+        "authors": [],
+        "license": "unknown",
+        "relationship": "formalizes",
+        "title": "From Projection Inequalities to Mixed-Norm Local X-Ray Estimates",
+        "type": "supplied proof notes"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Richard Oberlin"
+          }
+        ],
+        "identifier": "doi:10.1007/s00209-009-0589-5",
+        "location": "https://doi.org/10.1007/s00209-009-0589-5",
+        "relationship": "adapts",
+        "title": "Two bounds for the X-ray transform",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Richard Oberlin"
+          }
+        ],
+        "identifier": "arXiv:math/0512377",
+        "location": "https://arxiv.org/abs/math/0512377",
+        "relationship": "adapts",
+        "title": "Bounds for Kakeya-type maximal operators associated with k-planes",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Yongxi Lin"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-19T03:22:41Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "792c7c0b9e798bd02719e795ef11fa2b5929e067",
+    "report": {
+      "sha256": "3c265cc93eef5b6c65c13dff1217b6b1dae05f9d2780cbbe59fc8150e3efdfd0"
+    },
+    "reviewed_at": "2026-09-19T03:10:16Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "e12e5981d840eb5ebdc25403691b3c63a9c7aff8",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "CoolRmal/NKBesicovitch",
+    "repository_url": "https://github.com/CoolRmal/NKBesicovitch",
+    "tree_url": "https://github.com/CoolRmal/NKBesicovitch/tree/e12e5981d840eb5ebdc25403691b3c63a9c7aff8"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "i1izy9l0jqag"
+  },
+  "title": "NKBesicovitch",
+  "trust": {
+    "challenge_bytes": 2450,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.LinearAlgebra.FiniteDimensional.Basic",
+      "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace",
+      "Mathlib.Topology.MetricSpace.HausdorffDimension"
+    ],
+    "challenge_lines": 58,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "4030c5fcc7b285c9fee5a9709ceaa3f1202eae31e394da8f749c6ffa40e89ac9",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-19-000001-v1/15820552922795221ade06eb31329e2a256ae76a82d8bbdbc92bd0ac780299f1/",
+    "evidence_tree_sha256": "15820552922795221ade06eb31329e2a256ae76a82d8bbdbc92bd0ac780299f1",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "b18d673bd29b476466a51a3be1012df2ed322b10",
+    "mechanical_report_sha256": "ca46ea6c95f7271a3c0d4c5822122f2e2d74b915efd6ca887f02b0bf3ad65090",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 35416648464,
+    "solution_sha256": "a36081828bd27dc205762783ee806c0bfd09dddc2bb94e201c1ff2ffa80edbdb",
+    "verified_at": "2026-09-19T02:58:24Z",
+    "workflow_commit": "3561d237dcc4b28482558ad28a64d767d7cc8615",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/35416648464"
+  },
+  "version": 1
+}

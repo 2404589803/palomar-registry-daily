@@ -1,0 +1,306 @@
+{
+  "abstract": "A Lean 4 formalization of the Bellman value representation for bicausal optimal transport, together with the descriptive-set-theoretic library it requires.  The result registered by this Comparator configuration is the Polish-space structure of the space of probability measures: if X is a Polish space carrying its Borel sigma-algebra, then the space of Borel probability measures on X, with the topology of weak convergence, is again Polish — its topology is second countable and admits a complete compatible metric.  Mathlib at the pinned revision already supplies the Levy-Prokhorov metric, the identification of the Levy-Prokhorov topology with the topology of weak convergence on a separable space, and Prokhorov's theorem; it stops at metrizability of the space of probability measures and supplies neither completeness nor separability.  Both are proved here.  Completeness: a Levy-Prokhorov Cauchy sequence is uniformly tight, the compact witness being an intersection over j of finite unions of closed balls of radius 2^(-j), whose heads are covered using a countable dense sequence and continuity from below and whose tails are transferred between members of the sequence along the Levy-Prokhorov inequality; Prokhorov's theorem then produces a convergent subsequence, and a Cauchy sequence with a convergent subsequence converges.  Separability: normalized natural-weight mixtures of Dirac measures at points of a countable dense sequence are dense in Levy-Prokhorov distance.  Complete plus separable metric gives a Polish structure on the Levy-Prokhorov space, which Mathlib's homeomorphism LevyProkhorov.probabilityMeasureHomeomorph transports to the space of probability measures with the weak topology.  The wider repository contains the Bellman value representation for bicausal optimal transport in one period and over a general finite horizon, an epsilon-optimal strategy that is sigma(Sigma-1-1)-measurable at every stage and an exactly optimal Borel-measurable strategy under Feller kernels and lower semicontinuous costs (Bertsekas-Shreve 7.50 and 8.3), and the supporting descriptive set theory: Jankov-von Neumann uniformization, the Kuratowski-Ryll-Nardzewski measurable selection theorem, Choquet capacitability for analytic sets, and lower semianalyticity of kernel integrals.  The registered result is used in that development to make the space of probability measures a legitimate Polish parameter space for kernels and for the Bellman recursion.",
+  "authors": [
+    {
+      "github": "MaxWellApexLab",
+      "name": "KT. Wu"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-31-000010-v1/3494f61a901953a8caff0f5191433e0588bd9effc9bc17fd5a03e79f18d80aed/",
+    "artifact_tree_sha256": "3494f61a901953a8caff0f5191433e0588bd9effc9bc17fd5a03e79f18d80aed",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-31T12:38:28Z",
+    "renderer_commit": "704ece232c3b7845de2c14b8ecd9acd592d4654c",
+    "verso_commit": "6af30619664960f9c816b27157dff3ceb1500dcf"
+  },
+  "classification": {
+    "arxiv": [
+      "math.PR",
+      "math.GN",
+      "math.LO"
+    ],
+    "msc2020": [
+      "60B05",
+      "60B10",
+      "28A33",
+      "54E50",
+      "54E35",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-08-31",
+  "formalization": {
+    "challenge_path": "ChallengePolish.lean",
+    "comparator_config_path": "comparator-polish.json",
+    "definition_names": [],
+    "formalization_metadata_path": "polish/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0-rc1",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "edc39bf7bcc706ba243ae824adaa60fff00416db"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b1c4a69a7e247ab7df20460212001673d74f08c0"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "0498c7c070c143a3bf7379f4d99a2c63bb9d9715"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "18a90119a5d316358fde6c86e0ca24e59212e32c"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "b1436dc749e722c9920036b52cdc43b3451d0b69"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "57d3325be72a842920813bcb40f96a6f7393c185"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ee41917ae11d38479fb8fb24745f7ca4bf0a784d"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "d60e6444e6fd881dfa077ff36e96de75753afa28"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "da07ca808b6718cb2aed14dba154e5a08b8f8ecf"
+      }
+    ],
+    "solution_path": "SolutionPolish.lean",
+    "theorem_names": [
+      "ProbabilityMeasurePolish.polishSpace_probabilityMeasure"
+    ]
+  },
+  "id": "PALOMAR-2026-08-31-000010",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-31T12:39:04Z",
+    "receipt_sha256": "b7c7edfb0410a765a590358aaea8ff100b36a3be1d72869996800b428efda269",
+    "repositories": [
+      {
+        "commit": "57d3325be72a842920813bcb40f96a6f7393c185",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000010-v1/57d3325be72a842920813bcb40f96a6f7393c185",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "d60e6444e6fd881dfa077ff36e96de75753afa28",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000010-v1/d60e6444e6fd881dfa077ff36e96de75753afa28",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "18a90119a5d316358fde6c86e0ca24e59212e32c",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000010-v1/18a90119a5d316358fde6c86e0ca24e59212e32c",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "0498c7c070c143a3bf7379f4d99a2c63bb9d9715",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000010-v1/0498c7c070c143a3bf7379f4d99a2c63bb9d9715",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "edc39bf7bcc706ba243ae824adaa60fff00416db",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000010-v1/edc39bf7bcc706ba243ae824adaa60fff00416db",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b1c4a69a7e247ab7df20460212001673d74f08c0",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000010-v1/b1c4a69a7e247ab7df20460212001673d74f08c0",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "b1436dc749e722c9920036b52cdc43b3451d0b69",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000010-v1/b1436dc749e722c9920036b52cdc43b3451d0b69",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ee41917ae11d38479fb8fb24745f7ca4bf0a784d",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000010-v1/ee41917ae11d38479fb8fb24745f7ca4bf0a784d",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "da07ca808b6718cb2aed14dba154e5a08b8f8ecf",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000010-v1/da07ca808b6718cb2aed14dba154e5a08b8f8ecf",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "66fbfd2fcf10f570d43946aafbd8731ef0dc127f",
+        "fork_repository": "PalomarArchive/MaxWellApexLab--BicausalOT-palomar--498dc9db60b6",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000010-v1/66fbfd2fcf10f570d43946aafbd8731ef0dc127f",
+        "source_repository": "MaxWellApexLab/BicausalOT-palomar"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "K. R. Parthasarathy"
+          }
+        ],
+        "identifier": "ISBN 978-0-8218-3889-1 (AMS Chelsea Publishing 352, 2005; originally Academic Press, New York, 1967)",
+        "location": "Chapter II (Probability Measures in a Metric Space), Section 6 (The Weak Topology in the Space of Measures)",
+        "relationship": "adapts",
+        "title": "Probability Measures on Metric Spaces",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Yu. V. Prokhorov"
+          }
+        ],
+        "identifier": "Theory of Probability and its Applications 1 (1956), 157-214",
+        "location": "the compactness criterion for families of measures",
+        "relationship": "background",
+        "title": "Convergence of random processes and limit theorems in probability theory",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Dimitri P. Bertsekas"
+          },
+          {
+            "name": "Steven E. Shreve"
+          }
+        ],
+        "identifier": "ISBN 978-1-886529-03-3 (Athena Scientific, 1996; originally Academic Press, 1978)",
+        "location": "Chapters 7-8",
+        "relationship": "background",
+        "title": "Stochastic Optimal Control: The Discrete Time Case",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://doi.org/10.4230/LIPIcs.ITP.2024.21",
+        "note": "Michikazu Hirata, \"A Formalization of the Levy-Prokhorov Metric in Isabelle/HOL\", ITP 2024, LIPIcs volume 309, pages 21:1-21:18; Archive of Formal Proofs entries Levy_Prokhorov_Metric (https://www.isa-afp.org/entries/Levy_Prokhorov_Metric.html) and Riesz_Representation.  This is genuine prior art for the mathematical content registered here, and no priority of any kind is claimed by this submission.  That work formalizes the Levy-Prokhorov metric, the topology of weak convergence, Prokhorov's theorem and the Riesz representation theorem in Isabelle/HOL, and obtains, for P(X) the space of all finite measures on X: Proposition 12, X separable implies P(X) separable; Corollary 25, X separable and complete implies (P(X), d_P(X)) complete; and Corollary 26, \"If X is a Polish space, then so is P(X)\".  Corollary 26 is the same theorem as the one registered here, proved earlier and in another proof assistant.  The relationship is \"independent\": the Lean development neither uses, ports, translates nor consults that formalization, and it does not supersede it. Differences worth stating rather than glossing: Hirata treats all finite measures, the Lean development treats probability measures only; Hirata proves the Levy-Prokhorov metric theory, Prokhorov's theorem and Riesz representation from scratch, whereas here those come from Mathlib and only completeness and separability of the metric are supplied; the countable dense families are the same idea (rational-weight Dirac combinations there, normalized natural-weight Dirac mixtures here).",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/blob/edc39bf7bcc706ba243ae824adaa60fff00416db/Mathlib/MeasureTheory/Measure/LevyProkhorovMetric.lean#L695",
+        "note": "Not a prior formalization but the evidence of what Mathlib does and does not have at the pinned revision edc39bf7bcc706ba243ae824adaa60fff00416db.  Mathlib has the Levy-Prokhorov metric, the equivalence of the Levy-Prokhorov topology with the topology of weak convergence on separable spaces, Prokhorov's theorem (Mathlib/MeasureTheory/Measure/Prokhorov.lean:530), and metrizability of the space of probability measures — the linked declaration, instMetrizableSpaceProbabilityMeasure, is where it stops.  Searches of that revision find no CompleteSpace or SeparableSpace instance for LevyProkhorov (ProbabilityMeasure _), and no PolishSpace instance for ProbabilityMeasure _ or FiniteMeasure _, so the completeness and separability supplied here are not duplicates of Mathlib content.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/MaxWellApexLab/BicausalOT/tree/611e49d",
+        "note": "Provenance rather than a separate formalization.  This repository is a frozen snapshot of that repository at commit 611e49d, made for this submission; the same Lean sources are present in both.  Development continues there and not here.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "github": "MaxWellApexLab",
+        "name": "KT. Wu"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-31T12:38:43Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "0f86ce126376c4a3af6a5a67364c0b3a492363ae",
+    "report": {
+      "sha256": "027f53045b00316958de15bb339ed8d8b508d95bfcd50620d12612301851cf9c"
+    },
+    "reviewed_at": "2026-08-31T12:29:16Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "66fbfd2fcf10f570d43946aafbd8731ef0dc127f",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "MaxWellApexLab/BicausalOT-palomar",
+    "repository_url": "https://github.com/MaxWellApexLab/BicausalOT-palomar",
+    "tree_url": "https://github.com/MaxWellApexLab/BicausalOT-palomar/tree/66fbfd2fcf10f570d43946aafbd8731ef0dc127f"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "51cyqmybun50"
+  },
+  "title": "MaxWellApexLab/BicausalOT-palomar",
+  "trust": {
+    "challenge_bytes": 7940,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 134,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "ba219b29f9da68e5865d41cd550fb0847be17b3b0180c5bd08a410d99f1070b7",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-31-000010-v1/bbaa1659e0ea5a7557365db0ed62cb48294e79adad4937c99cf957186faa7ecc/",
+    "evidence_tree_sha256": "bbaa1659e0ea5a7557365db0ed62cb48294e79adad4937c99cf957186faa7ecc",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "af5aa64bb914c3c2c781f378088dbd38acf4f804",
+    "mechanical_report_sha256": "221bdc6f0d72b3ffc315d9db1e216a3311fb072914f6b7eda56e204115b2df5b",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33390012207,
+    "solution_sha256": "d9cb131b06a904344d7f99c4da404880ab4c41ba2235eaca3280c2f996e59175",
+    "verified_at": "2026-08-31T12:16:54Z",
+    "workflow_commit": "704ece232c3b7845de2c14b8ecd9acd592d4654c",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33390012207"
+  },
+  "version": 1
+}

@@ -1,0 +1,310 @@
+{
+  "abstract": "A sequential product on the effects of an order-unit space is a binary operation a & b, read \"first test a, then test b with the state updated by the first test\", satisfying the seven axioms S1-S7 of van de Wetering (arXiv:1803.11139, Definition 2). This development registers two classification theorems for such products on the Hermitian matrix algebras.\nOn H_N(R), the Hermitian N x N real matrices with N >= 1, every sequential product is the Lueders product sqrt(a) b sqrt(a): there is no free parameter. On H_N(C) with N >= 3, every sequential product has the twist normal form a^(1/2+it) b a^(1/2-it) for a unique real t. The twist family is a one-parameter deformation of the Lueders product, and the complex theorem says nothing outside it satisfies the axioms. The equations are asserted on all effects, including singular ones, and the uniqueness of t is part of the registered statement.\nDirection. Both registered classification theorems are necessity: a product satisfying the axioms is supplied, and the theorem says it has the stated normal form. The two converses differ in status and neither is registered. For the complex case, that each real t defines a SeqProd satisfying S2 is proved in the wider development; together with the registered uniqueness it is what would make the parameter map injective. For the real case, that the Lueders formula defines a SeqProd satisfying S2 is not proved anywhere in this development. Nothing here registers a bijection between parameters and products, or the admissibility of the Lueders formula.\nThe package also registers two classical theorems the development proves in passing. Albert's power-associativity theorem: in a commutative Jordan ring carrying an R-module structure, x^(m+1) * x^(n+1) = x^(m+n+2), with no unit, finite dimension, formal reality or positivity assumed. And the real case of Wigner's theorem: every transition probability preserving self-map of the rays of a finite-dimensional real inner product space is induced by a linear isometry, with bijectivity not assumed but derived.\nBoth classification theorems are proved from S1-S7 with no hypotheses beyond the dimension bounds, and their axiom closures contain only Lean's three core axioms (propext, Classical.choice, Quot.sound). The continuity axiom S2 is stated in the order-unit norm, as an explicit epsilon-delta condition, so the statement file depends on no normed-space or topological instance; the equivalence with continuity in the carrier's Frobenius topology is proved in the development.\nScope. Comparator registers four theorems across three separate entries: the two sequential-product classifications above, which use the SeqProd interface and the axiom S2 and correspond to numbered rows of the manuscript; and the two ancillary classical theorems, Albert and Wigner, which use neither and correspond to no manuscript row. Nothing beyond those four registered theorems is claimed by this submission.\nThe two classification theorems are two rows of a thirty-six row manifest tracking the numbered results of the accompanying manuscript. The manuscript as a whole is not formalized: as of 2026-08-12 the manifest stands at 12 rows formalized, 19 partial, and 5 absent. In particular the quaternionic row H_n(H) and the Albert-algebra row H_3(O) of the manuscript's main theorem are not proved here, and the coalescence and diagonal-homomorphism lemmas are established on the concrete carrier H_N(C) rather than at the manuscript's stated generality of a finite-dimensional simple Euclidean Jordan algebra.",
+  "authors": [
+    {
+      "name": "Bryan Ehrlich"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-21-000001-v1/ce492770acb57659b62a26546f3f23fc7de2ea4624930916b90e0db1d7577ba1/",
+    "artifact_tree_sha256": "ce492770acb57659b62a26546f3f23fc7de2ea4624930916b90e0db1d7577ba1",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-21T04:42:39Z",
+    "renderer_commit": "16038af22a929ae3714acf7d74219cfbe57acf2d",
+    "verso_commit": "8bcbd2b8723307c329c12997a0c16a6ac174d3e9"
+  },
+  "classification": {
+    "arxiv": [
+      "math.OA",
+      "math.RA",
+      "quant-ph"
+    ],
+    "msc2020": [
+      "17C65",
+      "81P16",
+      "46L70",
+      "81P10",
+      "15B57",
+      "17C90"
+    ]
+  },
+  "first_registered_on": "2026-08-21",
+  "formalization": {
+    "challenge_path": "WignerChallenge.lean",
+    "comparator_config_path": "comparator-wigner.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.30.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c5ea00351c28e24afc9f0f84379aa41082b1188f"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "a456461b368b71d2accd95234832cd9c174b5437"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "515cf9d0c00ece5e661f6de4326a53dedc1e8ea1"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "a84b3e2475d5c5ab979567b1ad8aea21b764bcf8"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "558915ae105bfd8074e22d597613d1961822adc2"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "a6e6c34c4ef182f83b219a3a5a385f51f44bdc4c"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "32dc18cde3684679f3c003de608743b57498c56f"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6b907cf12b2e445ccb7c24bc208ef04a1f39e84c"
+      }
+    ],
+    "solution_path": "WignerSolution.lean",
+    "theorem_names": [
+      "WignerReal.exists_isometry_of_transProbPreserving"
+    ]
+  },
+  "id": "PALOMAR-2026-08-21-000001",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-21T04:33:18Z",
+    "receipt_sha256": "a5fe1ed80dd6f78cec50c82615a5fc57394b8e1424472778106bc3fd35572f4a",
+    "repositories": [
+      {
+        "commit": "3c0e870eb2acb1320b62e62c791c9365f7e5260b",
+        "fork_repository": "PalomarArchive/ehrlich-b--sequential-products-lean--7c5c76db591c",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000001-v1/3c0e870eb2acb1320b62e62c791c9365f7e5260b",
+        "source_repository": "ehrlich-b/sequential-products-lean"
+      },
+      {
+        "commit": "558915ae105bfd8074e22d597613d1961822adc2",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000001-v1/558915ae105bfd8074e22d597613d1961822adc2",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "32dc18cde3684679f3c003de608743b57498c56f",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000001-v1/32dc18cde3684679f3c003de608743b57498c56f",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "515cf9d0c00ece5e661f6de4326a53dedc1e8ea1",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000001-v1/515cf9d0c00ece5e661f6de4326a53dedc1e8ea1",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000001-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000001-v1/c5ea00351c28e24afc9f0f84379aa41082b1188f",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "a456461b368b71d2accd95234832cd9c174b5437",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000001-v1/a456461b368b71d2accd95234832cd9c174b5437",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "a84b3e2475d5c5ab979567b1ad8aea21b764bcf8",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000001-v1/a84b3e2475d5c5ab979567b1ad8aea21b764bcf8",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "a6e6c34c4ef182f83b219a3a5a385f51f44bdc4c",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000001-v1/a6e6c34c4ef182f83b219a3a5a385f51f44bdc4c",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6b907cf12b2e445ccb7c24bc208ef04a1f39e84c",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-21-000001-v1/6b907cf12b2e445ccb7c24bc208ef04a1f39e84c",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Bryan Ehrlich"
+          }
+        ],
+        "relationship": "formalizes",
+        "title": "Sequential Products on Euclidean Jordan Algebras: Classification in Rank at Least Three and the Complex Qubit",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "John van de Wetering"
+          }
+        ],
+        "relationship": "background",
+        "title": "Sequential product spaces are Jordan algebras",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "A. A. Albert"
+          }
+        ],
+        "relationship": "formalizes",
+        "title": "On Jordan algebras of linear transformations",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [],
+        "relationship": "formalizes",
+        "title": "Wigner's theorem on symmetries of quantum mechanical systems, real case",
+        "type": "folklore"
+      },
+      {
+        "authors": [
+          {
+            "name": "Stanley Gudder"
+          },
+          {
+            "name": "Richard Greechie"
+          }
+        ],
+        "relationship": "background",
+        "title": "Sequential products on effect algebras",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "leanprover-community/physlib",
+        "note": "Seventeen modules (Hermitian matrices with the Loewner order, trace inner product, continuous functional calculus, Jordan product) by Alex Meiburg, with HermitianMat/Proj.lean also by Leonardo A Lessa, vendored verbatim at commit ad1d812 under RadicalRelativity/Vendor/ with per-file copyright headers retained. They form the carrier substrate the classification is proved over. Backported from Mathlib v4.32 to v4.28; the edit log and a zero-statement-change audit are in RadicalRelativity/Vendor/VENDOR.md.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "zblore/csd-lean4",
+        "note": "Eight modules by Zayn Blore giving complex Wigner rigidity on CP^(N-1), vendored verbatim at commit 2287f45; this is an input to the complex case. The corresponding real, non-bijective Wigner theorem is first-party (RadicalRelativity/Wigner/RealWigner.lean) and is not derived from this work.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Bryan Ehrlich"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-21T04:18:12Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "2d7c43b9c2d1dcc4e642c732091e4fea2569b81c",
+    "report": {
+      "sha256": "6c7ab11853f2dc3e1ca70518d1efdf897ff60598f5dde274ec6dcc4735537051"
+    },
+    "reviewed_at": "2026-08-21T04:15:04Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "3c0e870eb2acb1320b62e62c791c9365f7e5260b",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "ehrlich-b/sequential-products-lean",
+    "repository_url": "https://github.com/ehrlich-b/sequential-products-lean",
+    "tree_url": "https://github.com/ehrlich-b/sequential-products-lean/tree/3c0e870eb2acb1320b62e62c791c9365f7e5260b"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "krco2qubjfnk"
+  },
+  "title": "ehrlich-b/sequential-products-lean",
+  "trust": {
+    "challenge_bytes": 3724,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.InnerProductSpace.PiL2",
+      "Mathlib.LinearAlgebra.Projectivization.Basic"
+    ],
+    "challenge_lines": 81,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "2d16516ec3f6ed8a202bc31c5757f72641607bc6ad1c154f814d7415ffba6c55",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-21-000001-v1/441a1dcbd299c0ecff444d887183c1c142d7815a5bd18c4d30f062b70b9381af/",
+    "evidence_tree_sha256": "441a1dcbd299c0ecff444d887183c1c142d7815a5bd18c4d30f062b70b9381af",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "a3e35a584f59b390667db7269cd37fca8575e4bf",
+    "mechanical_report_sha256": "6305508d1cd30bc3cdc2f0307e257a7e61a3fa61d76064f4d832284de1efa567",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32445553751,
+    "solution_sha256": "0c59e47b83ab3512a1a6d8401750e53f095de66798a0dc404a48426e85633721",
+    "verified_at": "2026-08-21T04:08:43Z",
+    "workflow_commit": "16038af22a929ae3714acf7d74219cfbe57acf2d",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32445553751"
+  },
+  "version": 1
+}

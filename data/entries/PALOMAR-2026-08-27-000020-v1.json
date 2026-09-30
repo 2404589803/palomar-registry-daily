@@ -1,0 +1,496 @@
+{
+  "abstract": "Twenty-one theorems and thirty-three definitions, machine-checked in Lean 4 against Mathlib v4.32.0: the Schwarzschild, Schwarzschild-de Sitter (Kottler), Reissner-Nordstrom (with the Maxwell stress tensor defined and G = 8 pi T proved in all sixteen components), ingoing Vaidya (null dust of rank at most one, rank one wherever dm/dv ≠ 0, for a merely once-differentiable mass function), spatially flat FLRW (both Friedmann equations in Einstein-tensor form), static de Sitter, Minkowski-in-spherical and Kiselev metrics, together with Birkhoff uniqueness in the areal static gauge and the n != 2 equivalence of the two forms of the vacuum equations. The results are classical and NO NEW MATHEMATICS IS CLAIMED: this is a proof of concept for the definitions. Lean checks that a proof establishes a statement, not that a definition means what its name says, so the entry certifies its sign, index and contraction conventions by computing textbook solutions with them -- including four NONZERO answers (de Sitter R = 12/L^2, Reissner-Nordstrom R_thetatheta = Q^2/r^2, Vaidya R_vv = 2 (dm/dv)/r^2, Kiselev R_thetatheta = -3wc r^-(3w+1)), because a curvature definition that was accidentally identically zero would still prove every vacuum theorem here. Scope: everything is a computation in ONE FIXED CHART, an open subset of R^4 -- no atlas, no manifold, no coordinate-independence theorem, no maximal extension, and horizons and coordinate poles lie outside every statement. NOT compared: Ricci symmetry R_bd = R_db in general (it needs Clairaut for the coordinate partial derivative, which Mathlib supplies only for fderiv) or the Bianchi identities; Maxwell's own equations; any matter model, fluid or energy condition beyond the single defined Maxwell stress tensor; non-flat FLRW; the outgoing Vaidya chart. Audience: general relativists, for whom this is the definitional layer a junction-condition or thin-shell statement would be written against, and the formalization community, for whom it is coverage-creating rather than coverage-duplicating. Mathlib v4.32.0 contains no curvature of any kind -- christoffel, ricci, scalarCurvature, Lorentzian, PseudoRiemannian and five further names return zero hits across all 8,264 .lean files at the pinned revision, and its one metric structure hard-codes positive definiteness -- so the entire chain is defined inline in the Challenge.",
+  "authors": [
+    {
+      "name": "Brandon Yates"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-27-000020-v1/0dfdf8f5d76a368eb85a10c0e059f27cc29300907f3fcea364a45be8293ef62e/",
+    "artifact_tree_sha256": "0dfdf8f5d76a368eb85a10c0e059f27cc29300907f3fcea364a45be8293ef62e",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-27T22:42:26Z",
+    "renderer_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "verso_commit": "e09d21a5f7f66c9fc985b73197708298569bf583"
+  },
+  "classification": {
+    "arxiv": [
+      "gr-qc",
+      "math.DG",
+      "cs.LO"
+    ],
+    "msc2020": [
+      "83C15",
+      "83C05",
+      "83C22",
+      "83F05",
+      "53B30",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-08-27",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "SchwarzschildVacuum.coordLine",
+      "SchwarzschildVacuum.pderiv",
+      "SchwarzschildVacuum.MetricFn",
+      "SchwarzschildVacuum.IsSymmetricMetric",
+      "SchwarzschildVacuum.christoffel",
+      "SchwarzschildVacuum.riemann",
+      "SchwarzschildVacuum.ricci",
+      "SchwarzschildVacuum.scalarCurvature",
+      "SchwarzschildVacuum.einstein",
+      "SchwarzschildVacuum.RicciFlatAt",
+      "SchwarzschildVacuum.ssMetric",
+      "SchwarzschildVacuum.schwF",
+      "SchwarzschildVacuum.schwarzschild",
+      "SchwarzschildVacuum.SchwExterior",
+      "SchwarzschildVacuum.sdsF",
+      "SchwarzschildVacuum.rnF",
+      "SchwarzschildVacuum.reissnerNordstrom",
+      "SchwarzschildVacuum.RNRegion",
+      "SchwarzschildVacuum.coulombF",
+      "SchwarzschildVacuum.faradayUp",
+      "SchwarzschildVacuum.faradayInvariant",
+      "SchwarzschildVacuum.faradayContract",
+      "SchwarzschildVacuum.stressEM",
+      "SchwarzschildVacuum.vaidyaMetric",
+      "SchwarzschildVacuum.vRicci",
+      "SchwarzschildVacuum.flrwMetric",
+      "SchwarzschildVacuum.dsF",
+      "SchwarzschildVacuum.deSitterStatic",
+      "SchwarzschildVacuum.DSRegion",
+      "SchwarzschildVacuum.flatF",
+      "SchwarzschildVacuum.minkowskiSpherical",
+      "SchwarzschildVacuum.kiselevF",
+      "SchwarzschildVacuum.kiselev"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.32.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "GRLab",
+        "repository": "BrandonMYates/grlab",
+        "revision": "88aa2e75dc1bb7fb06e33c51c2447acb456edd4a"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "81a5d257c8e410db227a6665ed08f64fea08e997"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "SchwarzschildVacuum.einstein_eq_zero_iff_ricciFlat",
+      "SchwarzschildVacuum.schwarzschild_ricciFlat",
+      "SchwarzschildVacuum.schwarzschild_einstein_eq_zero",
+      "SchwarzschildVacuum.schwarzschild_scalarCurvature_eq_zero",
+      "SchwarzschildVacuum.ricci_sds",
+      "SchwarzschildVacuum.exists_mass_of_areal_vacuum",
+      "SchwarzschildVacuum.ricci_rn_thetaTheta",
+      "SchwarzschildVacuum.reissnerNordstrom_scalarCurvature_eq_zero",
+      "SchwarzschildVacuum.faradayInvariant_coulomb",
+      "SchwarzschildVacuum.reissnerNordstrom_einstein_eq_maxwell",
+      "SchwarzschildVacuum.ricci_vaidya_null_dust",
+      "SchwarzschildVacuum.vaidya_scalarCurvature_eq_zero",
+      "SchwarzschildVacuum.einstein_vaidya",
+      "SchwarzschildVacuum.friedmann_first",
+      "SchwarzschildVacuum.friedmann_second",
+      "SchwarzschildVacuum.einstein_flrw_offDiag",
+      "SchwarzschildVacuum.ricci_deSitterStatic",
+      "SchwarzschildVacuum.deSitterStatic_scalarCurvature",
+      "SchwarzschildVacuum.minkowskiSpherical_ricciFlat",
+      "SchwarzschildVacuum.ricci_kiselev_thetaTheta",
+      "SchwarzschildVacuum.kiselev_ricciFlat_of_w_eq_zero"
+    ]
+  },
+  "id": "PALOMAR-2026-08-27-000020",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-27T22:43:04Z",
+    "receipt_sha256": "5ea89fa8d714e8c8774d6a807d414ad2956f5a56a76f37f1071ff16afeb3b477",
+    "repositories": [
+      {
+        "commit": "88aa2e75dc1bb7fb06e33c51c2447acb456edd4a",
+        "fork_repository": "PalomarArchive/BrandonMYates--grlab--c380ea7db2ba",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000020-v1/88aa2e75dc1bb7fb06e33c51c2447acb456edd4a",
+        "source_repository": "BrandonMYates/grlab"
+      },
+      {
+        "commit": "d8b6acf8263d4924356ac8abb62668c137ab61cd",
+        "fork_repository": "PalomarArchive/BrandonMYates--schwarzschild-comparator--7b7249f95243",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000020-v1/d8b6acf8263d4924356ac8abb62668c137ab61cd",
+        "source_repository": "BrandonMYates/schwarzschild-comparator"
+      },
+      {
+        "commit": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000020-v1/a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000020-v1/023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000020-v1/7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000020-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000020-v1/81a5d257c8e410db227a6665ed08f64fea08e997",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000020-v1/e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000020-v1/6e311e2a844da9b2cc3971187df2fe0066947b93",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000020-v1/38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000020-v1/88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Karl Schwarzschild"
+          }
+        ],
+        "location": "Sitzungsber. Preuss. Akad. Wiss. Berlin, 1916, 189-196",
+        "relationship": "independently-proves",
+        "title": "Uber das Gravitationsfeld eines Massenpunktes nach der Einsteinschen Theorie",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Hans Reissner"
+          }
+        ],
+        "identifier": "https://doi.org/10.1002/andp.19163550905",
+        "location": "Annalen der Physik 355 (1916), no. 9, 106-120",
+        "relationship": "independently-proves",
+        "title": "Uber die Eigengravitation des elektrischen Feldes nach der Einsteinschen Theorie",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Gunnar Nordstrom"
+          }
+        ],
+        "location": "Koninklijke Nederlandsche Akademie van Wetenschappen, Proceedings 20 (1918), 1238-1245",
+        "relationship": "independently-proves",
+        "title": "On the Energy of the Gravitational Field in Einstein's Theory",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Friedrich Kottler"
+          }
+        ],
+        "identifier": "https://doi.org/10.1002/andp.19183611402",
+        "location": "Annalen der Physik 361 (1918), no. 14, 401-462",
+        "relationship": "independently-proves",
+        "title": "Uber die physikalischen Grundlagen der Einsteinschen Gravitationstheorie",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jorg Tofte Jebsen"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/s10714-005-0168-y",
+        "location": "Ark. Mat. Ast. Fys. 15 (1921), no. 18; transl. Gen. Relativ. Gravit. 37 (2005), 2253-2259",
+        "relationship": "independently-proves",
+        "title": "Uber die allgemeinen kugelsymmetrischen Losungen der Einsteinschen Gravitationsgleichungen im Vakuum",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "George David Birkhoff"
+          }
+        ],
+        "identifier": "https://doi.org/10.4159/harvard.9780674734487",
+        "location": "Harvard University Press, Cambridge MA, 1923",
+        "relationship": "independently-proves",
+        "title": "Relativity and Modern Physics",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "P. C. Vaidya"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/bf03173260",
+        "location": "Proc. Indian Acad. Sci. A 33 (1951), no. 5; repr. Gen. Relativ. Gravit. 31 (1999), 121-135",
+        "relationship": "independently-proves",
+        "title": "The gravitational field of a radiating star",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Alexander Friedmann"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/BF01332580",
+        "location": "Zeitschrift fur Physik 10 (1922), no. 1, 377-386",
+        "relationship": "independently-proves",
+        "title": "Uber die Krummung des Raumes",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Georges Lemaitre"
+          }
+        ],
+        "identifier": "https://doi.org/10.1093/mnras/91.5.483",
+        "location": "Ann. Soc. Sci. Bruxelles A47 (1927), 49-59; transl. Mon. Not. R. Astron. Soc. 91 (1931), 483-490",
+        "relationship": "independently-proves",
+        "title": "Un Univers homogene de masse constante et de rayon croissant rendant compte de la vitesse radiale des nebuleuses extra-galactiques",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "V. V. Kiselev"
+          }
+        ],
+        "identifier": "https://doi.org/10.1088/0264-9381/20/6/310",
+        "location": "Classical and Quantum Gravity 20 (2003), no. 6, 1187-1197",
+        "relationship": "independently-proves",
+        "title": "Quintessence and black holes",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Robert M. Wald"
+          }
+        ],
+        "identifier": "https://doi.org/10.7208/chicago/9780226870373.001.0001",
+        "location": "University of Chicago Press, Chicago, 1984",
+        "relationship": "background",
+        "title": "General Relativity",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Eric Poisson"
+          }
+        ],
+        "identifier": "https://doi.org/10.1017/CBO9780511606601",
+        "location": "Cambridge University Press, Cambridge, 2004",
+        "relationship": "background",
+        "title": "A Relativist's Toolkit: The Mathematics of Black-Hole Mechanics",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Sean M. Carroll"
+          }
+        ],
+        "identifier": "https://doi.org/10.1017/9781108770385",
+        "location": "Cambridge University Press, Cambridge, 2019 (orig. Addison-Wesley, 2004)",
+        "relationship": "background",
+        "title": "Spacetime and Geometry: An Introduction to General Relativity",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4",
+        "note": "Supplies deriv/HasDerivAt, fderiv, rpow and the Matrix machinery. Contains NO curvature: ten names grepped at the pinned revision, zero hits; RiemannianMetric is positive-definite only.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://arxiv.org/abs/2608.21502",
+        "note": "Chow, Liao and Qin, Hamilton's three-manifold theorem in Lean 4. Real curvature machinery, but positive-definite Riemannian for Ricci flow: no field equations, no exact solutions.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://arxiv.org/abs/2405.08863",
+        "note": "HepLean/PhysLean. Its Relativity directory is special-relativistic only, and Cosmology/FLRW POSITS the Friedmann equations as a definition with no metric or curvature tensors; Part VIII derives them.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://www.isa-afp.org/entries/No_FTL_observers_Gen_Rel.html",
+        "note": "Stannett et al., first-order axiomatic general relativity in Isabelle: no metric tensor, no curvature, no field equations. The search was targeted, not exhaustive; absence is not proof of novelty.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "thin-wrapper",
+    "responsible_maintainers": [
+      {
+        "name": "Brandon Yates"
+      }
+    ],
+    "result_origin": "source-based",
+    "substantive_formalization": {
+      "commit": "88aa2e75dc1bb7fb06e33c51c2447acb456edd4a",
+      "repository": "BrandonMYates/grlab",
+      "repository_url": "https://github.com/BrandonMYates/grlab",
+      "tree_url": "https://github.com/BrandonMYates/grlab/tree/88aa2e75dc1bb7fb06e33c51c2447acb456edd4a"
+    }
+  },
+  "registered_at": "2026-08-27T22:42:40Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "d5a647db3757303b1d928cfae4d3d232eed3e79e",
+    "report": {
+      "sha256": "2f8ec5a51f840fc0d93c0c4f1d7b36aff8cdb42f34fc7630589dfc6e86b36b95"
+    },
+    "reviewed_at": "2026-08-27T20:57:28Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": [
+      "The review record identifies Claude Code agents as reviewers and calls the work agent-reviewed, but then states that only the author reviewed it. Clarify that the author was the only human reviewer, if that is intended, so automated and human review are not attributed incompatibly."
+    ]
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "d8b6acf8263d4924356ac8abb62668c137ab61cd",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "BrandonMYates/schwarzschild-comparator",
+    "repository_url": "https://github.com/BrandonMYates/schwarzschild-comparator",
+    "tree_url": "https://github.com/BrandonMYates/schwarzschild-comparator/tree/d8b6acf8263d4924356ac8abb62668c137ab61cd"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "g2igwriry9eb"
+  },
+  "title": "BrandonMYates/schwarzschild-comparator",
+  "trust": {
+    "challenge_bytes": 35676,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 601,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "ee623d56cf3b47a904cb0c95229f5051283fe7039aea94355960735adf868702",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-27-000020-v1/ab36bb12164c22848eeb9064781c047f09a1b3398c6001201d3096b084822d24/",
+    "evidence_tree_sha256": "ab36bb12164c22848eeb9064781c047f09a1b3398c6001201d3096b084822d24",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "4e7915201d3f9f04470d9eae002fa695f7cdc589",
+    "mechanical_report_sha256": "fa0bee963c46460afabf7e6b14be87da4a9a975e544a2b1a54d28085db2f18a6",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33113699481,
+    "solution_sha256": "c0a63fd7b13ba17fc78cdad53bb91666201702410623eb0c614384590cb7cf0a",
+    "verified_at": "2026-08-27T20:40:34Z",
+    "workflow_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33113699481"
+  },
+  "version": 1
+}

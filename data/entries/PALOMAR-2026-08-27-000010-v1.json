@@ -1,0 +1,348 @@
+{
+  "abstract": "This project formalizes in Lean 4 the statement that the Diophantine equation y*z*(y+z) = x^3 + x^2 + 3x - 1 admits no polynomial parametrization over the rationals whose x-coordinate has degree between 1 and 4. Writing f = X^3 + X^2 + 3X - 1, the compared theorem is that there is no triple of rational polynomials (g, u, v) with g nonconstant of degree at most 4 satisfying the identity u*v*(u+v) = f composed with g. Exhibiting such a family is one of the two standard ways an equation of this shape is settled affirmatively -- the other being a sporadic solution -- and the theorem closes that route at low degree. The statement is over the rationals, which is the stronger reading: an integer family is in particular a rational one, so the theorem also excludes integer families in the same degree range. The statement is unconditional and uses no hypothesis from the literature. Context, stated plainly and without overstatement: this equation is recorded on MathOverflow (question 509449, posed by Bogdan Grechuk) as the smallest cubic equation with open solvability problem under the size ordering H(P) = sum |a_i| 2^{d_i} used in that programme, at H = 35. The compared theorem does NOT decide whether the equation has integer solutions, and makes no claim to. A solution could still exist sporadically, or in a polynomial family whose x-coordinate has degree 5 or more, or the equation could be unsolvable for reasons this theorem does not touch. Degree 5 is not covered and is not claimed: it admits slot-degree shapes the argument for degree at most 4 does not reach, and the bound in the statement is exactly the bound that is proved. The audience is the programme that maintains and closes the frontier list this equation sits on -- Bogdan Grechuk and Ashleigh Ratcliffe, On the shortest open cubic equations (arXiv:2603.29831), and the MathOverflow thread 466803 that tracks the current smallest open equations -- together with the adjacent literature on cubic Diophantine equations of this shape: Janos Kollar and Jennifer Li on the Mordell-Schinzel conjecture for cubic Diophantine equations XYZ = G(X,Y) (arXiv:2412.12080), and Martin Bright and Julian Lyczak on log K3 surfaces (arXiv:1705.04529), whose setting -- a del Pezzo surface minus a smooth anticanonical divisor -- is the geometry of the affine surface defined by this equation. Ruling out low-degree parametric families is directly responsive to how equations on that frontier list are resolved. On novelty: a literature search recorded 2026-07-21 and repeated 2026-08-26 identified no indexed resolution of the equation and no proof-assistant formalization touching it or the frontier list; the search is recorded but not exhaustive, and absence from search is not proof of open status. That search establishes that the equation is open; it does NOT establish that the non-existence of low-degree polynomial families is a new observation, and no such claim is made here. The contribution recorded by this entry is the proof-assistant formalization and its auditable dependency chain.",
+  "authors": [
+    {
+      "name": "Brandon Yates"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-27-000010-v1/67433a82fb65f4d1b43e1b03334a6db2118658bacdf07d3705c138c91c038b56/",
+    "artifact_tree_sha256": "67433a82fb65f4d1b43e1b03334a6db2118658bacdf07d3705c138c91c038b56",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-27T08:58:10Z",
+    "renderer_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "verso_commit": "e09d21a5f7f66c9fc985b73197708298569bf583"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.AC"
+    ],
+    "msc2020": [
+      "11D25",
+      "12E05",
+      "13P15"
+    ]
+  },
+  "first_registered_on": "2026-08-27",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.32.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "YZCubic",
+        "repository": "BrandonMYates/yzcubic",
+        "revision": "0c0b444244b4d1d1d551418676375fdc7f70b58e"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "81a5d257c8e410db227a6665ed08f64fea08e997"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "SmallestOpenCubic.no_polynomial_family_deg_le_four"
+    ]
+  },
+  "id": "PALOMAR-2026-08-27-000010",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-27T08:58:51Z",
+    "receipt_sha256": "d2187138765d0a41f5de206ec84639fede9a92f70fb14802400398685544656a",
+    "repositories": [
+      {
+        "commit": "70082c378b76b2eb9cec74de67506d1c0e36a514",
+        "fork_repository": "PalomarArchive/BrandonMYates--yz-cubic-comparator--23f58ebcc0e9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000010-v1/70082c378b76b2eb9cec74de67506d1c0e36a514",
+        "source_repository": "BrandonMYates/yz-cubic-comparator"
+      },
+      {
+        "commit": "0c0b444244b4d1d1d551418676375fdc7f70b58e",
+        "fork_repository": "PalomarArchive/BrandonMYates--yzcubic--9dd5f6ed27c6",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000010-v1/0c0b444244b4d1d1d551418676375fdc7f70b58e",
+        "source_repository": "BrandonMYates/yzcubic"
+      },
+      {
+        "commit": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000010-v1/a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000010-v1/023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000010-v1/7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000010-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000010-v1/81a5d257c8e410db227a6665ed08f64fea08e997",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000010-v1/e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000010-v1/6e311e2a844da9b2cc3971187df2fe0066947b93",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000010-v1/38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-27-000010-v1/88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Brandon Yates"
+          }
+        ],
+        "relationship": "other",
+        "title": "No polynomial family of degree at most four for yz(y+z) = x^3 + x^2 + 3x - 1",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Bogdan Grechuk",
+            "role": "problem proposer"
+          }
+        ],
+        "identifier": "https://mathoverflow.net/questions/509449",
+        "relationship": "background",
+        "title": "Is y^2 z + z^2 y = x^3 + x^2 + 3x - 1 solvable in integers?",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Bogdan Grechuk"
+          },
+          {
+            "name": "Ashleigh Ratcliffe"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2603.29831",
+        "relationship": "background",
+        "title": "On the shortest open cubic equations",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Bogdan Grechuk",
+            "role": "list maintainer"
+          }
+        ],
+        "identifier": "https://mathoverflow.net/questions/466803",
+        "relationship": "background",
+        "title": "The new shortest open cubic equations",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Janos Kollar"
+          },
+          {
+            "name": "Jennifer Li"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2412.12080",
+        "relationship": "background",
+        "title": "The Mordell-Schinzel conjecture for cubic diophantine equations",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Martin Bright"
+          },
+          {
+            "name": "Julian Lyczak"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1705.04529",
+        "relationship": "background",
+        "title": "A uniform bound on the Brauer groups of certain log K3 surfaces",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4",
+        "note": "Mathlib supplies everything the statement needs -- Polynomial, Polynomial.comp, natDegree -- so the Challenge introduces no definitions. The proof uses Mathlib's fermatLastTheoremThree (Fermat's Last Theorem for exponent three) for the degree-3 window, and otherwise only elementary polynomial algebra; no Groebner-basis or ideal-membership computation is replayed or relied upon.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "thin-wrapper",
+    "responsible_maintainers": [
+      {
+        "name": "Brandon Yates"
+      }
+    ],
+    "result_origin": "original",
+    "substantive_formalization": {
+      "commit": "0c0b444244b4d1d1d551418676375fdc7f70b58e",
+      "repository": "BrandonMYates/yzcubic",
+      "repository_url": "https://github.com/BrandonMYates/yzcubic",
+      "tree_url": "https://github.com/BrandonMYates/yzcubic/tree/0c0b444244b4d1d1d551418676375fdc7f70b58e"
+    }
+  },
+  "registered_at": "2026-08-27T08:58:24Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "d5a647db3757303b1d928cfae4d3d232eed3e79e",
+    "report": {
+      "sha256": "c419bb5eeb2e17b7ef15428857ceb2b732ab103a4aaf7b72e89eca26b47ce494"
+    },
+    "reviewed_at": "2026-08-27T08:43:15Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "70082c378b76b2eb9cec74de67506d1c0e36a514",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "BrandonMYates/yz-cubic-comparator",
+    "repository_url": "https://github.com/BrandonMYates/yz-cubic-comparator",
+    "tree_url": "https://github.com/BrandonMYates/yz-cubic-comparator/tree/70082c378b76b2eb9cec74de67506d1c0e36a514"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "twpeehrhswmu"
+  },
+  "title": "BrandonMYates/yz-cubic-comparator",
+  "trust": {
+    "challenge_bytes": 3226,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 79,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "c62a580f17f3dcb244efbdd37be00ae879da2659c1026cfb9ca637cd26ca0ebd",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-27-000010-v1/748f4927933217c1df750df8a628448194eb19f479b10d77badce432a8798d95/",
+    "evidence_tree_sha256": "748f4927933217c1df750df8a628448194eb19f479b10d77badce432a8798d95",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "4e7915201d3f9f04470d9eae002fa695f7cdc589",
+    "mechanical_report_sha256": "df24f3dda18c6a2af902cf59c7855feee6c9b3bef33ed4d18f085296d4ae3b0b",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33053917143,
+    "solution_sha256": "8bd60686430a6c629258eefcb0655034e4a75103fa00d77d4425a3e632b24956",
+    "verified_at": "2026-08-27T08:34:02Z",
+    "workflow_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33053917143"
+  },
+  "version": 1
+}

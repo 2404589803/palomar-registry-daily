@@ -1,0 +1,369 @@
+{
+  "abstract": "Exact height-span of Mazur's scheme grammar, a local dart-mass bound, and an adjugate identity for the Dirichlet matrix of that construction; not a proof of the strong Papadimitriou–Ratajczak conjecture and not a theorem that every 3-connected plane graph attains the scheme maximum. Mazur builds injective integer heights by inductive recurrences on rooted pieces (edge, cycle, binary series, two-range join) and then forms a weighted Dirichlet matrix for the horizontal coordinate; the paper does not bound the height span or the bit length of the coordinates. For a well-formed scheme on n >= 2 vertices with j nontrivial joins, T+1 <= 2^j (n-2j), attained at every admissible pair (n,j)=(2,0) or 2j+3 <= n. The one-parameter maximum is F(n) = 2^{n/2}-1 (n even) or 3 * 2^{(n-3)/2}-1 (n odd). The coarser bound T <= 2^{n-2} remains. An integer matrix has |det| at most the product of its row ell_1-norms. Heights in {0,...,T} force Mazur's interior dart weights to be at most (n-1)T, so every Dirichlet row has ell_1-norm at most 2(n-1)^2 T when T >= 1, and |det M| <= (2(n-1)^2 T)^n; locally the interior outgoing dart-weight sum is at most a_s b_s T. Combining the coarser span bound with the row-sum bound sizes T^2 |det M| and T^2 |det M| T. Independently of invertibility, under the height bound h i <= T, z = adj(M) u satisfies Mz = Delta u and z_s = Delta h_s (T-h_s) on the boundary as ordinary integer subtraction. Polynomial-area Euclidean planar greedy drawings of all 3-connected planar graphs remain open (Da Lozzo–D'Angelo–Frati, COCOON 2020).",
+  "authors": [
+    {
+      "name": "JD Jones"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-14-000001-v1/655121adb4d70e278a823f16ff2120286efd32aa279bc88abfb13ff71f961033/",
+    "artifact_tree_sha256": "655121adb4d70e278a823f16ff2120286efd32aa279bc88abfb13ff71f961033",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-14T02:14:35Z",
+    "renderer_commit": "ef2fa1eadcb246c2346ddba39b52eaa53d4bb763",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.MG"
+    ],
+    "msc2020": [
+      "05C10",
+      "05C62"
+    ]
+  },
+  "first_registered_on": "2026-09-14",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "MazurSpan.verts",
+      "MazurSpan.span",
+      "MazurSpan.WellFormed",
+      "MazurSpan.joinCount",
+      "MazurSpan.exactCap",
+      "MazurSpan.entry",
+      "MazurSpan.upwardSum",
+      "MazurSpan.downwardSum",
+      "MazurSpan.dartWeight",
+      "MazurSpan.dirichlet",
+      "MazurSpan.higherCount",
+      "MazurSpan.lowerCount",
+      "MazurSpan.dartMass",
+      "MazurSpan.boundaryTarget"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "MazurSpan.span_le_two_pow",
+      "MazurSpan.span_succ_le_join_budget",
+      "MazurSpan.exists_span_eq_join_budget",
+      "MazurSpan.span_le_exact",
+      "MazurSpan.exists_span_eq_exact",
+      "MazurSpan.natAbs_det_le_prod_rowSum",
+      "MazurSpan.natAbs_det_le_of_rowSum_le",
+      "MazurSpan.dirichlet_rowSum_le",
+      "MazurSpan.dirichlet_det_le",
+      "MazurSpan.coord_denom",
+      "MazurSpan.coord_grid",
+      "MazurSpan.dartMass_le",
+      "MazurSpan.dartWeight_sum_eq_dartMass",
+      "MazurSpan.dartWeight_interior_sum_le",
+      "MazurSpan.dirichlet_adjugate_clears"
+    ]
+  },
+  "id": "PALOMAR-2026-09-14-000001",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-14T02:15:20Z",
+    "receipt_sha256": "d3aa00b9a91fd44bcb52d1033266d1d305c89b0113c5a141a3980716a3ffe20e",
+    "repositories": [
+      {
+        "commit": "b7f9f9deb5f5e520c99fd0d48893808d6ad082d6",
+        "fork_repository": "PalomarArchive/JD-Jones-ASES--md-lean--c25a07047e32",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000001-v1/b7f9f9deb5f5e520c99fd0d48893808d6ad082d6",
+        "source_repository": "JD-Jones-ASES/md-lean"
+      },
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000001-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000001-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000001-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000001-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000001-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000001-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000001-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000001-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-14-000001-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Lech Mazur"
+          }
+        ],
+        "identifier": "https://proofatlas.ai/formalizations/strong-papadimitriou-ratajczak-conjecture/",
+        "location": "https://proofatlas.ai/papers/strong-papadimitriou-ratajczak-conjecture/Strong_Papadimitriou_Ratajczak_Conjecture_Proof_2026-09-09.pdf",
+        "relationship": "adapts",
+        "title": "A Proof of the Strong Papadimitriou–Ratajczak Conjecture",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Lech Mazur"
+          }
+        ],
+        "identifier": "https://x.com/LechMazur/status/2098915169799733339",
+        "location": "https://x.com/LechMazur/status/2098915169799733339",
+        "relationship": "background",
+        "title": "The strong Papadimitriou–Ratajczak conjecture, open since 2004, is now a theorem",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Christos H. Papadimitriou"
+          },
+          {
+            "name": "David Ratajczak"
+          }
+        ],
+        "identifier": "doi:10.1016/j.tcs.2005.06.022",
+        "location": "https://doi.org/10.1016/j.tcs.2005.06.022",
+        "relationship": "background",
+        "title": "On a conjecture related to geometric routing",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Tom Leighton"
+          },
+          {
+            "name": "Ankur Moitra"
+          }
+        ],
+        "identifier": "doi:10.1007/s00454-009-9227-6",
+        "location": "https://doi.org/10.1007/s00454-009-9227-6",
+        "relationship": "background",
+        "title": "Some results on greedy embeddings in metric spaces",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Xin He"
+          },
+          {
+            "name": "Huaming Zhang"
+          }
+        ],
+        "identifier": "doi:10.1137/1.9781611973082.115",
+        "location": "https://doi.org/10.1137/1.9781611973082.115",
+        "relationship": "background",
+        "title": "On succinct convex greedy drawing of 3-connected plane graphs",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Giordano Da Lozzo"
+          },
+          {
+            "name": "Anthony D'Angelo"
+          },
+          {
+            "name": "Fabrizio Frati"
+          }
+        ],
+        "identifier": "doi:10.1007/978-3-030-58150-3_35",
+        "location": "https://doi.org/10.1007/978-3-030-58150-3_35",
+        "relationship": "background",
+        "title": "On the area requirements of planar greedy drawings of triconnected planar graphs",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://proofatlas.ai/formalizations/strong-papadimitriou-ratajczak-conjecture/",
+        "note": "Mazur's Lean existence development for SPRC (ProofAtlas page of 2026-09-09; announced on X 2026-09-12). Not imported. This repository does not re-prove the existence theorem and does not share any Lean source with that development.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "JD Jones"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-14T02:14:51Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "e9c8c238f5695b10f75db7175648a1d0195352c1",
+    "report": {
+      "sha256": "a667c1a317e94f84531b5ac7e1acdd5ef79b26b8ac42845a9c5b1962a2d37097"
+    },
+    "reviewed_at": "2026-09-14T01:46:33Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "b7f9f9deb5f5e520c99fd0d48893808d6ad082d6",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "8d464f723696204001f7ef63b6146ffc544aa6837aa74c53f6f9c53d8a18b0f0"
+    },
+    "repository": "JD-Jones-ASES/md-lean",
+    "repository_url": "https://github.com/JD-Jones-ASES/md-lean",
+    "tree_url": "https://github.com/JD-Jones-ASES/md-lean/tree/b7f9f9deb5f5e520c99fd0d48893808d6ad082d6"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "dpxy5r2cntln"
+  },
+  "title": "md-lean: exact height span, dart mass, and adjugate scaling for Mazur's greedy construction",
+  "trust": {
+    "challenge_bytes": 11676,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 272,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "e2d61f52a229de3e8678ba9695ab9944c9d95f1747768d73eee95e8add19adfc",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-14-000001-v1/7a93f18e05b521078c7c5717dafec68347fba64cefd701a7b22b4595e8b56a90/",
+    "evidence_tree_sha256": "7a93f18e05b521078c7c5717dafec68347fba64cefd701a7b22b4595e8b56a90",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "9ec69e9a3dc508303536866586f03c54ebb55cdd11042bb40ddf8c82c12d4ebc",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 34791484782,
+    "solution_sha256": "ded10ab5f025e09a5ae4c7be1689d40035ac3019b9a5c0b810e00aab34560cd4",
+    "verified_at": "2026-09-14T00:09:25Z",
+    "workflow_commit": "ef2fa1eadcb246c2346ddba39b52eaa53d4bb763",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/34791484782"
+  },
+  "version": 1
+}

@@ -1,0 +1,407 @@
+{
+  "abstract": "Machine-checked Lean 4 proofs of solved research problems from the Erdős problems collection, hosted as stable formal_proof targets for Google DeepMind's Formal Conjectures. The principal result is an affirmative answer to Erdős Problem #730 (Erdős, Graham, Ruzsa and Straus, 1975): the set of pairs n < m for which binom(2n, n) and binom(2m, m) have the same set of prime divisors is infinite, and in fact contains infinitely many consecutive pairs (n, n + 1). The proof formalises the argument posted informally by Liam Price on the problem's discussion page on 24 June 2026: Kummer's theorem converts equality of prime supports into a base-p digit condition, an explicit quadratic family of consecutive pairs is constructed, a fixed-depth Fourier estimate bounds the digit obstruction on blocks of length p^r, a uniform depth tail uses a Mertens-type reciprocal-prime input, the top-prime range is handled by fixed-modulus divisor switching using the prime number theorem in arithmetic progressions, and an exact rational density budget yields positive lower density and hence infinitude. The repository also proves the sumset form of Erdős Problem #154 (equidistribution of A + A in residue classes for Sidon sets A with |A| ~ sqrt N, from Lindström's theorem) and hosts smaller bounded results for Problems #94, #399 and #1074. Every tracked theorem depends only on propext, Classical.choice and Quot.sound; each registry statement under Palomar/ restates its result in a Challenge importing Mathlib alone.",
+  "authors": [
+    {
+      "name": "Will Blair"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-22-000001-v1/df43ce8dd8e8288e8a4bc634d4d44a7089e82ccc56b0ad910775ba217786ccf8/",
+    "artifact_tree_sha256": "df43ce8dd8e8288e8a4bc634d4d44a7089e82ccc56b0ad910775ba217786ccf8",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-22T03:07:04Z",
+    "renderer_commit": "16038af22a929ae3714acf7d74219cfbe57acf2d",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.CO"
+    ],
+    "msc2020": [
+      "11B65",
+      "11N13",
+      "11A41",
+      "11B13"
+    ]
+  },
+  "first_registered_on": "2026-08-22",
+  "formalization": {
+    "challenge_path": "Palomar/Erdos730/Challenge.lean",
+    "comparator_config_path": "Palomar/Erdos730/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "PrimeNumberTheoremAnd",
+        "repository": "ajirving/PrimeNumberTheoremAnd",
+        "revision": "769d3b81fbff001d9fa7028df0168a8e546cf692"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "PrimeCert",
+        "repository": "b-mehta/PrimeCert",
+        "revision": "916ee9c35a57af128d5089a69172415051e700ca"
+      },
+      {
+        "name": "leancert",
+        "repository": "alerad/leancert",
+        "revision": "571a228555ae38742448854be81d7b59d994a8e3"
+      },
+      {
+        "name": "checkdecls",
+        "repository": "PatrickMassot/checkdecls",
+        "revision": "3d425859e73fcfbef85b9638c2a91708ef4a22d4"
+      },
+      {
+        "name": "LeanArchitect",
+        "repository": "hanwenzhu/LeanArchitect",
+        "revision": "78dd66840d3efe8c824c699fc03381cec817c271"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "PalomarSolutions/Erdos730.lean",
+    "theorem_names": [
+      "Palomar.Erdos730.erdos_730_infinite"
+    ]
+  },
+  "id": "PALOMAR-2026-08-22-000001",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-22T03:02:33Z",
+    "receipt_sha256": "de7e4a2414258b33f9d3250fde9769f9824c43bd1f27c4e76d1010e72f65309f",
+    "repositories": [
+      {
+        "commit": "769d3b81fbff001d9fa7028df0168a8e546cf692",
+        "fork_repository": "PalomarArchive/AlexKontorovich--PrimeNumberTheoremAnd--8a93fdfc4bd1",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000001-v1/769d3b81fbff001d9fa7028df0168a8e546cf692",
+        "source_repository": "ajirving/PrimeNumberTheoremAnd"
+      },
+      {
+        "commit": "571a228555ae38742448854be81d7b59d994a8e3",
+        "fork_repository": "PalomarArchive/alerad--leancert--f3752754ce0e",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000001-v1/571a228555ae38742448854be81d7b59d994a8e3",
+        "source_repository": "alerad/leancert"
+      },
+      {
+        "commit": "916ee9c35a57af128d5089a69172415051e700ca",
+        "fork_repository": "PalomarArchive/b-mehta--PrimeCert--6e1ce9df1ff2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000001-v1/916ee9c35a57af128d5089a69172415051e700ca",
+        "source_repository": "b-mehta/PrimeCert"
+      },
+      {
+        "commit": "78dd66840d3efe8c824c699fc03381cec817c271",
+        "fork_repository": "PalomarArchive/hanwenzhu--LeanArchitect--25c443d37079",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000001-v1/78dd66840d3efe8c824c699fc03381cec817c271",
+        "source_repository": "hanwenzhu/LeanArchitect"
+      },
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000001-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000001-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000001-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000001-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000001-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000001-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000001-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000001-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000001-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "3d425859e73fcfbef85b9638c2a91708ef4a22d4",
+        "fork_repository": "PalomarArchive/PatrickMassot--checkdecls--17681c736a92",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000001-v1/3d425859e73fcfbef85b9638c2a91708ef4a22d4",
+        "source_repository": "PatrickMassot/checkdecls"
+      },
+      {
+        "commit": "03729c9cbb0b602f5a828bb850c85e84c5a6d460",
+        "fork_repository": "PalomarArchive/williamjblair--lean-proofs--0e1dd8ebd799",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-22-000001-v1/03729c9cbb0b602f5a828bb850c85e84c5a6d460",
+        "source_repository": "williamjblair/lean-proofs"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Paul Erdős"
+          },
+          {
+            "name": "Ronald L. Graham"
+          },
+          {
+            "name": "Imre Z. Ruzsa"
+          },
+          {
+            "name": "Ernst G. Straus"
+          }
+        ],
+        "contributors": [
+          {
+            "name": "Thomas F. Bloom",
+            "role": "maintainer of erdosproblems.com, where the problem and its status are recorded"
+          }
+        ],
+        "identifier": "https://www.erdosproblems.com/730",
+        "location": "problem statement and remarks; site status OPEN as of 21 August 2026",
+        "relationship": "background",
+        "title": "Erdős Problem #730 (erdosproblems.com), after P. Erdős, R. L. Graham, I. Z. Ruzsa and E. G. Straus, 'On the prime factors of C(2n, n)', Math. Comp. 29 (1975)",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Liam Price"
+          }
+        ],
+        "identifier": "https://www.erdosproblems.com/forum/thread/730",
+        "location": "comment of 21:06 on 24 June 2026",
+        "relationship": "formalizes",
+        "title": "Comment on Erdős Problem #730 asserting, with a one-paragraph gist, that GPT Pro proves infinitely many consecutive pairs (n, n+1)",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Tomodovodoo (forum handle)"
+          }
+        ],
+        "identifier": "https://chatgpt.com/share/6a3c7e81-cab8-83eb-a247-cd10b62e80fb",
+        "location": "comment of 01:08 on 25 June 2026, and the linked shared conversation",
+        "relationship": "adapts",
+        "title": "Closing derivation ('Proof Route Mapping') linked as a follow-up, reproducing the algebraic skeleton of the argument; the analytic sections exist only in a private document and are reconstructed in this formalisation",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Bernt Lindström"
+          }
+        ],
+        "identifier": "https://doi.org/10.1006/jnth.1997.2212",
+        "location": "the theorem that a Sidon set A with |A| ~ sqrt N is equidistributed in residue classes",
+        "relationship": "adapts",
+        "title": "Bernt Lindström, 'Well distribution of Sidon sets in residue classes', J. Number Theory 69 (1998), 197–200",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Thomas F. Bloom (site)"
+          }
+        ],
+        "identifier": "https://www.erdosproblems.com/forum/thread/154#post-4218",
+        "relationship": "background",
+        "title": "Erdős Problem #154 discussion (erdosproblems.com), including the post presenting Lindström's proof",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "The Formal Conjectures Authors (Google DeepMind)"
+          }
+        ],
+        "identifier": "https://github.com/google-deepmind/formal-conjectures",
+        "license": "Apache-2.0",
+        "location": "FormalConjectures/ErdosProblems/{730,154,94,399,1074}.lean",
+        "relationship": "background",
+        "title": "Formal statements of Erdős Problems #730, #154, #94, #399 and #1074 in Formal Conjectures (the objects each Challenge restates)",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/Woett/Lean-files/blob/main/ErdosProblem154.lean",
+        "note": "Lindström's residue-distribution theorem for the Sidon set itself, formalised by Aristotle (Harmonic) and Wouter van Doorn; reproduced as ErdosProblems/Erdos154/Lindstrom.lean with its header, and extended to the sumset statement in ErdosProblems/Erdos154/Sumset.lean. No licence is published upstream; see NOTICE.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "note": "Pinned proof dependency supplying the prime number theorem in arithmetic progressions used by the #730 proof; not in any Challenge's import closure.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/pull/664",
+        "note": "AlphaProof's formal witness for the non-consecutive #730 pair (10003, 10005), recorded in Formal Conjectures as erdos_730.variants.delta_ne_one.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Will Blair"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-22T03:01:51Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "2d7c43b9c2d1dcc4e642c732091e4fea2569b81c",
+    "report": {
+      "sha256": "696c132935b0106eff523ef584dea05ad5554ff2cf33560d899d276b8b25cec8"
+    },
+    "reviewed_at": "2026-08-22T02:58:45Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "03729c9cbb0b602f5a828bb850c85e84c5a6d460",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "f23dc7d0e5caa81c07ecea470298c36cbfbb23699e87fbd5c17beeca3342e674"
+    },
+    "repository": "williamjblair/lean-proofs",
+    "repository_url": "https://github.com/williamjblair/lean-proofs",
+    "tree_url": "https://github.com/williamjblair/lean-proofs/tree/03729c9cbb0b602f5a828bb850c85e84c5a6d460"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "d2kk3hjfcqn0"
+  },
+  "title": "williamjblair/lean-proofs",
+  "trust": {
+    "challenge_bytes": 1979,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 39,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "589175e4b54f9438a3f67f58f6c319c71f106083ca3a2295da7c60e6bee470c4",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-22-000001-v1/0fcc7f7e6dccc8eb5e23d10d609e10092af5cf8657af5b3ccd497c75fd10737f/",
+    "evidence_tree_sha256": "0fcc7f7e6dccc8eb5e23d10d609e10092af5cf8657af5b3ccd497c75fd10737f",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "5cfbf99920fa9682f82abf2fc29955b256504ef91ccd22b9bca497ff8ad1b357",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32546908101,
+    "solution_sha256": "8f1103c1db48e9c8776ed4fe2416f67447e0e3426b6203d4690ddf1a95cf1294",
+    "verified_at": "2026-08-22T02:53:12Z",
+    "workflow_commit": "16038af22a929ae3714acf7d74219cfbe57acf2d",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32546908101"
+  },
+  "version": 1
+}

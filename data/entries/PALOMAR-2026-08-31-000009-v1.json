@@ -1,0 +1,296 @@
+{
+  "abstract": "A Lean 4 formalization of the Bellman value representation for bicausal optimal transport, together with the descriptive-set-theoretic library it requires.  The results registered by this Comparator configuration are Choquet capacitability for analytic sets in its finite-measure form, and its immediate corollary, the universal measurability of analytic sets.  Concretely: for a Polish space X carrying its Borel sigma-algebra, a finite Borel measure mu on X, and an analytic (not necessarily Borel) set A contained in X, the outer measure of A is the supremum of mu K over the compact subsets K of A; and consequently A is null-measurable for mu, i.e. it differs from a Borel set by a mu-null set.  Both are proved from Mathlib alone.  The argument writes a nonempty analytic set as the range of a continuous map pi from Baire space, forms the Souslin scheme of closures of images of cylinders, and runs a measure-free recursion that produces, coordinate by coordinate, a bound beta with c < mu (W(beta,n)) for every n, where W(beta,n) is the closed union of the scheme pieces bounded by beta on the first n coordinates.  A subsequence extraction inside the compact set of beta-bounded branches shows that the intersection of the W(beta,n) is contained in the compact set pi '' Sigma(beta), and continuity of mu along the decreasing sequence of closed sets W(beta,n) — the one step that uses finiteness of mu — supplies the compact witness.  Universal measurability then follows by inner approximation within 1/(k+1), taking the union of the approximating compacts and comparing with a measurable hull. Neither result exists in Mathlib at the pinned revision, where inner regularity is available for measurable sets only.  The wider repository contains the Bellman value representation for bicausal optimal transport in one period and over a general finite horizon, an epsilon-optimal strategy that is sigma(Sigma-1-1)-measurable at every stage and an exactly optimal Borel-measurable strategy under Feller kernels and lower semicontinuous costs (Bertsekas-Shreve 7.50 and 8.3), and the supporting descriptive set theory: Kuratowski-Ryll-Nardzewski measurable selection, Jankov-von Neumann uniformization, Polishness of the space of probability measures on a Polish space, and lower semianalyticity of kernel integrals.  Capacitability is what makes the last of these possible: universal measurability of analytic sets is the ingredient behind the null-measurable Fubini step in Bertsekas-Shreve 7.48.",
+  "authors": [
+    {
+      "github": "MaxWellApexLab",
+      "name": "KT. Wu"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-31-000009-v1/2e3f2c0faabc442a93954bacfcd64e6e70c65273220a3dcfaab66c27d5792bec/",
+    "artifact_tree_sha256": "2e3f2c0faabc442a93954bacfcd64e6e70c65273220a3dcfaab66c27d5792bec",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-31T12:01:06Z",
+    "renderer_commit": "704ece232c3b7845de2c14b8ecd9acd592d4654c",
+    "verso_commit": "6af30619664960f9c816b27157dff3ceb1500dcf"
+  },
+  "classification": {
+    "arxiv": [
+      "math.LO",
+      "math.CA",
+      "math.PR",
+      "math.GN",
+      "math.OC"
+    ],
+    "msc2020": [
+      "28A12",
+      "28A05",
+      "03E15",
+      "54H05",
+      "31C15",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-08-31",
+  "formalization": {
+    "challenge_path": "ChallengeCapacitability.lean",
+    "comparator_config_path": "comparator-capacitability.json",
+    "definition_names": [],
+    "formalization_metadata_path": "capacitability/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0-rc1",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "edc39bf7bcc706ba243ae824adaa60fff00416db"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b1c4a69a7e247ab7df20460212001673d74f08c0"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "0498c7c070c143a3bf7379f4d99a2c63bb9d9715"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "18a90119a5d316358fde6c86e0ca24e59212e32c"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "b1436dc749e722c9920036b52cdc43b3451d0b69"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "57d3325be72a842920813bcb40f96a6f7393c185"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ee41917ae11d38479fb8fb24745f7ca4bf0a784d"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "d60e6444e6fd881dfa077ff36e96de75753afa28"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "da07ca808b6718cb2aed14dba154e5a08b8f8ecf"
+      }
+    ],
+    "solution_path": "SolutionCapacitability.lean",
+    "theorem_names": [
+      "Capacitability.analyticSet_measure_eq_iSup_isCompact",
+      "Capacitability.analyticSet_nullMeasurableSet"
+    ]
+  },
+  "id": "PALOMAR-2026-08-31-000009",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-31T12:01:41Z",
+    "receipt_sha256": "91595d89c6a91fd6511d9bc820466c6094786605d74ceb9156e4696c6f38e31d",
+    "repositories": [
+      {
+        "commit": "57d3325be72a842920813bcb40f96a6f7393c185",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000009-v1/57d3325be72a842920813bcb40f96a6f7393c185",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "d60e6444e6fd881dfa077ff36e96de75753afa28",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000009-v1/d60e6444e6fd881dfa077ff36e96de75753afa28",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "18a90119a5d316358fde6c86e0ca24e59212e32c",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000009-v1/18a90119a5d316358fde6c86e0ca24e59212e32c",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "0498c7c070c143a3bf7379f4d99a2c63bb9d9715",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000009-v1/0498c7c070c143a3bf7379f4d99a2c63bb9d9715",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "edc39bf7bcc706ba243ae824adaa60fff00416db",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000009-v1/edc39bf7bcc706ba243ae824adaa60fff00416db",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b1c4a69a7e247ab7df20460212001673d74f08c0",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000009-v1/b1c4a69a7e247ab7df20460212001673d74f08c0",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "b1436dc749e722c9920036b52cdc43b3451d0b69",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000009-v1/b1436dc749e722c9920036b52cdc43b3451d0b69",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ee41917ae11d38479fb8fb24745f7ca4bf0a784d",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000009-v1/ee41917ae11d38479fb8fb24745f7ca4bf0a784d",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "da07ca808b6718cb2aed14dba154e5a08b8f8ecf",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000009-v1/da07ca808b6718cb2aed14dba154e5a08b8f8ecf",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "66fbfd2fcf10f570d43946aafbd8731ef0dc127f",
+        "fork_repository": "PalomarArchive/MaxWellApexLab--BicausalOT-palomar--498dc9db60b6",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000009-v1/66fbfd2fcf10f570d43946aafbd8731ef0dc127f",
+        "source_repository": "MaxWellApexLab/BicausalOT-palomar"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Alexander S. Kechris"
+          }
+        ],
+        "identifier": "ISBN 978-0-387-94374-9 (Graduate Texts in Mathematics 156, Springer, 1995)",
+        "location": "Theorem 30.13, with Definition 30.1, Definition 30.10, Example 30.B.1 and Exercise 30.11",
+        "relationship": "adapts",
+        "title": "Classical Descriptive Set Theory",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Dimitri P. Bertsekas"
+          },
+          {
+            "name": "Steven E. Shreve"
+          }
+        ],
+        "identifier": "ISBN 978-1-886529-03-3 (Athena Scientific, 1996; originally Academic Press, 1978)",
+        "location": "Proposition 7.42 and its Corollary 7.42.1, with Definition 7.18",
+        "relationship": "adapts",
+        "title": "Stochastic Optimal Control: The Discrete Time Case",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/MaxWellApexLab/BicausalOT/tree/611e49d",
+        "note": "Provenance rather than a separate formalization.  This repository is a frozen snapshot of that repository at commit 611e49d, made for this submission; the same Lean sources are present in both.  Development continues there and not here.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/blob/edc39bf7bcc706ba243ae824adaa60fff00416db/Mathlib/MeasureTheory/Constructions/Polish/Basic.lean#L184",
+        "note": "Not a prior formalization but the evidence of absence, and the nearest existing result.  The linked line is Mathlib's definition of `MeasureTheory.AnalyticSet` at the pinned revision edc39bf7bcc706ba243ae824adaa60fff00416db.  That revision has a substantial analytic-set API (`AnalyticSet.image_of_continuous`, `.iUnion`, `.iInter`, `.preimage`, `.measurablySeparable`, `MeasurableSet.analyticSet`) but no capacitability and no universal measurability for it: a case-insensitive grep of the whole library for \"capacitab\" and \"capacity\" returns only container-capacity occurrences (`Array.emptyWithCapacity`, `HashMap` capacity) in `Mathlib/Lean/Meta/RefinedDiscrTree*.lean` and four tactic files, and greps for \"universally measurable\", \"UniversallyMeasurable\" and \"AnalyticSet.nullMeasurableSet\" return nothing.  The nearest existing statement is `MeasurableSet.measure_eq_iSup_isCompact` (Mathlib/MeasureTheory/Measure/Regular.lean, line 704), inner regularity for *measurable* sets under `[InnerRegular mu]`, together with the Polish-space instances in `Measure/RegularityCompacts.lean`; analytic sets need not be Borel, so it does not cover the registered statement.  Note also a cosmetic difference for anyone comparing the two: Mathlib's declaration orders the supremum binders `(_ : K subset U) (_ : IsCompact K)` while the registered statement orders them `(_ : IsCompact K) (_ : K subset A)`.  The authors are not aware of a formalization of Choquet capacitability for Mathlib's `AnalyticSet` elsewhere; that search was informal and is not claimed to be exhaustive.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/RemyDegenne/brownian-motion/tree/314f04a34ff75e18fd383917ae7fe7d77beb1b6f",
+        "note": "An independent Lean 4 treatment of the same classical circle of ideas, in the abstract paving-and-capacity tradition.  Checked directly against that repository at commit 314f04a34ff75e18fd383917ae7fe7d77beb1b6f.  `BrownianMotion/Choquet/Capacity.lean` defines a bundled `MeasureTheory.Capacity p` (monotone, continuous from below along increasing sequences of arbitrary sets, continuous from above along decreasing sequences whose members lie in the paving p) and `IsCapacitable m s`, inner approximation by countable intersections of paving sets, and proves the abstract capacitability theorem `IsPavingAnalyticFor.isCapacitable` and `IsPavingAnalytic.isCapacitable`, together with `isCapacitable_measure_iff` (for a finite measure, `IsCapacitable mu.capacity s` iff `NullMeasurableSet s mu`) and the universal measurability results `IsPavingAnalytic.nullMeasurableSet` and `IsMeasurableAnalytic.nullMeasurableSet`. Its notions of analytic set are its own: `IsPavingAnalyticFor p K s`, a first projection of a set in `prodSigmaDelta p q` for a compact system q, and `IsMeasurableAnalytic s`, a first projection of a measurable subset of a product with the reals.  Neither Choquet file refers to Mathlib's `MeasureTheory.AnalyticSet`, so no bridge between the two notions is present there.  What is registered here is the compact-inner-approximation form, `mu A = supremum of mu K over compact K contained in A`, stated for Mathlib's `AnalyticSet` on a Polish space; the two developments prove different statements about different notions and neither is derived from the other.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "github": "MaxWellApexLab",
+        "name": "KT. Wu"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-31T12:01:20Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "0f86ce126376c4a3af6a5a67364c0b3a492363ae",
+    "report": {
+      "sha256": "b09f33f32d2ece54f5d94fdb23128b591e236bea8adaba6dc2917b20ed070275"
+    },
+    "reviewed_at": "2026-08-31T11:32:04Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "66fbfd2fcf10f570d43946aafbd8731ef0dc127f",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "MaxWellApexLab/BicausalOT-palomar",
+    "repository_url": "https://github.com/MaxWellApexLab/BicausalOT-palomar",
+    "tree_url": "https://github.com/MaxWellApexLab/BicausalOT-palomar/tree/66fbfd2fcf10f570d43946aafbd8731ef0dc127f"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "0fc349j1w83o"
+  },
+  "title": "MaxWellApexLab/BicausalOT-palomar",
+  "trust": {
+    "challenge_bytes": 8302,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 148,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "5be70b5f028242236b943aaeb30913f7c8eca34472dacf4e8ef8ebd4634854b6",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-31-000009-v1/de7162102a1ec0ff7cc1703ac59350293a8fc5395a46c4991fb328bc9f8e420b/",
+    "evidence_tree_sha256": "de7162102a1ec0ff7cc1703ac59350293a8fc5395a46c4991fb328bc9f8e420b",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "af5aa64bb914c3c2c781f378088dbd38acf4f804",
+    "mechanical_report_sha256": "63c835101a0d97af547aabbc8452d6732825e40add7229ad3cd554612bc7d1f9",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33376900701,
+    "solution_sha256": "9c43acc17ea56bfbc29b7b599044acc05910dfd93236d23f6f1decf2b49fad8d",
+    "verified_at": "2026-08-31T09:26:53Z",
+    "workflow_commit": "704ece232c3b7845de2c14b8ecd9acd592d4654c",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33376900701"
+  },
+  "version": 1
+}

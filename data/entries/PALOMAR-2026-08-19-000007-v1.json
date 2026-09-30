@@ -1,0 +1,328 @@
+{
+  "abstract": "Kernel-checked exact-constant results for the CHSH operator T = A₀B₀ + A₀B₁ + A₁B₀ − A₁B₁ of an arbitrary CHSH tuple (Mathlib's IsCHSHTuple: self-adjoint involutions with the A's commuting with the B's). (1) The Landau identity: in any *-ring, T² = 4 + [A₀,A₁]·[B₁,B₀] — the exact, representation-independent correction to the naive T² = 8·1 (chsh_mul_self). (2) Tsirelson's bound in norm form: ‖T‖ ≤ 2√2 for every CHSH tuple in every nontrivial unital real C*-normed algebra (chsh_norm_le). (3) The classical constant, exactly: if either party's pair commutes, ‖T‖ = 2 — not merely ≤ 2 (chsh_norm_of_comm). (4) Necessity of noncommutativity: any violation ‖T‖ > 2 forces A₀A₁ ≠ A₁A₀ and B₀B₁ ≠ B₁B₀ — noncommutativity within both parties is necessary for any violation of the classical bound (noncomm_of_chsh_norm_gt_two). (5) The exact constant of M₄(ℝ): in the l2 operator norm, 2√2 is the greatest element of the set of CHSH operator norms over 4×4 real matrices — an upper bound for every tuple, attained by an explicit real-Pauli tuple (chsh_opNorm_isGreatest), so the maximal violation 2√2 is possible, not just bounded. The witness side stays compared: the explicit quadruple is verified to be a genuine CHSH tuple, its CHSH operator has eigenvalue exactly 2√2 on the explicit nonzero vector (1,0,0,1) and l2 operator norm exactly 2√2; the ordered star-ring bounds T ≤ (2√2)·1 and (commutative case) T ≤ 2 and the strict gap 2 < 2√2 complete the picture. A falsification is compared alongside: the saturating tuple's T² is NOT the scalar 8·1, so the naive scalar-square route to the norm is closed for this representation; the norm results here go through the C*-identity (and, for the generic bound, the Landau identity) instead.",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-19-000007-v1/9aa3c3506724d4c1c87ca4652b4e1bcc5db7ad3e9d050c3bee696496ea414a85/",
+    "artifact_tree_sha256": "9aa3c3506724d4c1c87ca4652b4e1bcc5db7ad3e9d050c3bee696496ea414a85",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-19T23:50:33Z",
+    "renderer_commit": "a3fabf899f557cd03e81916d85887b2d8046206e",
+    "verso_commit": "b677415e8a0becccc0b850137c2d8f6205132a91"
+  },
+  "classification": {
+    "arxiv": [
+      "quant-ph",
+      "math.OA"
+    ],
+    "msc2020": [
+      "81P40",
+      "81P45",
+      "46L60",
+      "15A18"
+    ]
+  },
+  "first_registered_on": "2026-08-19",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "TsirelsonTightness.s",
+      "TsirelsonTightness.A₀",
+      "TsirelsonTightness.A₁",
+      "TsirelsonTightness.B₀i",
+      "TsirelsonTightness.B₁i",
+      "TsirelsonTightness.B₀",
+      "TsirelsonTightness.B₁",
+      "TsirelsonTightness.vsat"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.31.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "63045536fe95024e6c18fc7b48e03f506701c5bc"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "5c7542ed018c78194f1e2b903eaf6a792b74c03d"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "24b0d9dc081c5423f8eec7e866c441e5184f29d9"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "e3cb2f741431ce31bf73549fb52316a57368b06f"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "f46324995fca5f0483b742e4eb4daec7f4ee50d2"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "fa08db58b30eb033edcdab331bba000827f9f785"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "TsirelsonTightness.chsh_upper",
+      "TsirelsonTightness.chsh_mul_self",
+      "TsirelsonTightness.chsh_norm_le",
+      "TsirelsonTightness.chsh_norm_of_comm",
+      "TsirelsonTightness.noncomm_of_chsh_norm_gt_two",
+      "TsirelsonTightness.tuple_isCHSH",
+      "TsirelsonTightness.vsat_ne_zero",
+      "TsirelsonTightness.chsh_saturates",
+      "TsirelsonTightness.classical_le_two",
+      "TsirelsonTightness.bell_gap",
+      "TsirelsonTightness.chsh_opNorm",
+      "TsirelsonTightness.chsh_sq_ne",
+      "TsirelsonTightness.chsh_opNorm_isGreatest"
+    ]
+  },
+  "id": "PALOMAR-2026-08-19-000007",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-19T23:41:09Z",
+    "receipt_sha256": "86803c3ede073586d3b0319b4255cab27b19917eabcebc367b9fe2c60499f6e1",
+    "repositories": [
+      {
+        "commit": "e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000007-v1/e3cb2f741431ce31bf73549fb52316a57368b06f",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "fa08db58b30eb033edcdab331bba000827f9f785",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000007-v1/fa08db58b30eb033edcdab331bba000827f9f785",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000007-v1/5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000007-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000007-v1/fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000007-v1/63045536fe95024e6c18fc7b48e03f506701c5bc",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000007-v1/24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000007-v1/f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000007-v1/92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "22b7d8102722aa31518e625b10ce248e6c888840",
+        "fork_repository": "PalomarArchive/stalex444--pdt-lean--23d4079303b8",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000007-v1/22b7d8102722aa31518e625b10ce248e6c888840",
+        "source_repository": "stalex444/pdt-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "B. S. Cirel'son (Boris S. Tsirelson)"
+          }
+        ],
+        "identifier": "Letters in Mathematical Physics 4 (1980), 93–100",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/BF00417500",
+        "relationship": "formalizes",
+        "title": "Quantum generalizations of Bell's inequality",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Lawrence J. Landau"
+          }
+        ],
+        "identifier": "Physics Letters A 120, no. 2 (1987), 54–56",
+        "license": "unknown",
+        "location": "https://doi.org/10.1016/0375-9601(87)90075-2",
+        "relationship": "formalizes",
+        "title": "On the violation of Bell's inequality in quantum theory",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "John F. Clauser"
+          },
+          {
+            "name": "Michael A. Horne"
+          },
+          {
+            "name": "Abner Shimony"
+          },
+          {
+            "name": "Richard A. Holt"
+          }
+        ],
+        "identifier": "Physical Review Letters 23 (1969), 880–884",
+        "license": "unknown",
+        "location": "https://doi.org/10.1103/PhysRevLett.23.880",
+        "relationship": "background",
+        "title": "Proposed experiment to test local hidden-variable theories",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4 (Mathlib's CHSH development: IsCHSHTuple, CHSH_inequality_of_comm, tsirelson_inequality)",
+        "note": "The two ordered star-ring bounds (chsh_upper, classical_le_two) are supplied by Mathlib's CHSH development. The norm-level suite — the Landau identity, the generic C*-norm bound, the exact classical constant, the bilateral-noncommutativity necessity, and the IsGreatest packaging over M₄(ℝ) — together with the verified saturating tuple and its exact eigen-equation and operator norm, is this project's contribution.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/pull/41847",
+        "note": "The tightness portion of this material (the saturating tuple, its verification, the eigen-equation, and the gap packaging) is under review for inclusion in Mathlib (PR 41847, review feedback addressed 2026-08-12; placement discussion ongoing — main library versus Archive). The exact-constant suite compared here (chsh_mul_self, chsh_norm_le, chsh_norm_of_comm, noncomm_of_chsh_norm_gt_two, chsh_opNorm_isGreatest) is not part of that PR.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-19T23:40:46Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "24494b2ffd60c3cd22d72fae0afaf1c6b2d0d679",
+    "report": {
+      "sha256": "c58aaae66249d23639d8c03bd7f0cf073792680477c2645b3f6631b8eb0fffa6"
+    },
+    "reviewed_at": "2026-08-19T23:31:29Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": [
+      "The compared `chsh_sq_ne` statement does not establish the module documentation's broader assertion that the square is not any scalar multiple of the identity: its conclusion remains compatible with equality to `c • 1` for some `c ≠ 8`. Remove the broader parenthetical claim, or strengthen the compared Lean theorem to quantify over and exclude every scalar multiple."
+    ]
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "22b7d8102722aa31518e625b10ce248e6c888840",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/pdt-lean",
+    "repository_url": "https://github.com/stalex444/pdt-lean",
+    "tree_url": "https://github.com/stalex444/pdt-lean/tree/22b7d8102722aa31518e625b10ce248e6c888840"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "mzw7z3r9z5jr"
+  },
+  "title": "stalex444/pdt-lean",
+  "trust": {
+    "challenge_bytes": 8932,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 191,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "488f1ad304c85bd27a8898878cb9b3e0c8cb802572f9ee62de46a70b2f53888d",
+    "comparator_commit": "68a064109f01c08f47c8edc9f51d6a2bbffaa188",
+    "evidence_path": "evidence/PALOMAR-2026-08-19-000007-v1/8367e5de65feed3d782570f67cfc1c128431cccf67d9ad374212e3d2d6e84509/",
+    "evidence_tree_sha256": "8367e5de65feed3d782570f67cfc1c128431cccf67d9ad374212e3d2d6e84509",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "8554815c2dc6b7abe99ec1f08849c9759ba77947",
+    "mechanical_report_sha256": "aa15713b1f81ef8f7288b0c363173d4cad87c3141ff14afc43590660307a57f3",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32312297761,
+    "solution_sha256": "a13bfda9359d3522d771eb19fd84f3140328157032677023ffa3b0045a21a241",
+    "verified_at": "2026-08-19T23:19:39Z",
+    "workflow_commit": "a3fabf899f557cd03e81916d85887b2d8046206e",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32312297761"
+  },
+  "version": 1
+}

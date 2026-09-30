@@ -1,0 +1,341 @@
+{
+  "abstract": "A standalone Lean 4 and Mathlib formalization of the finite counterexample to the cost-preserving single-source unsplittable-flow conjecture. The development realizes a directed graph with seven vertices, nine arcs, and three terminal demands; checks a feasible rational fractional flow of cost 58 with maximum demand 15; and proves that every unsplittable routing under the weak additive congestion bound has cost at least 60. It also derives the failure of the strict congestion variant. No general algorithmic or complexity-theoretic claim is made.",
+  "authors": [
+    {
+      "name": "Arthur Freitas Ramos"
+    },
+    {
+      "name": "David Barros Hulak"
+    },
+    {
+      "name": "Ruy Jose Guerra Barretto de Queiroz"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-29-000003-v1/5d15f3ee0ba5975ab7bb7e0bd7f588189489fa343763fca5e52696a7864d915b/",
+    "artifact_tree_sha256": "5d15f3ee0ba5975ab7bb7e0bd7f588189489fa343763fca5e52696a7864d915b",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-29T00:52:03Z",
+    "renderer_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.DS",
+      "math.LO"
+    ],
+    "msc2020": [
+      "68R10",
+      "90C27",
+      "03B35"
+    ]
+  },
+  "first_registered_on": "2026-08-29",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "DinitzGargGoemans.fractionalLoad",
+      "DinitzGargGoemans.fractionalCost",
+      "DinitzGargGoemans.maximumDemand",
+      "DinitzGargGoemans.fractionalFeasible",
+      "DinitzGargGoemans.unsplittableLoad",
+      "DinitzGargGoemans.unsplittableCost",
+      "DinitzGargGoemans.weakDggRounding",
+      "DinitzGargGoemans.strictDggRounding",
+      "DinitzGargGoemans.counterexampleInstance",
+      "DinitzGargGoemans.splitFlow"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "DinitzGargGoemans.allSourceTerminalPaths",
+      "DinitzGargGoemans.splitFlowFeasible",
+      "DinitzGargGoemans.fractionalCostValue",
+      "DinitzGargGoemans.boundedUnsplittableCost",
+      "DinitzGargGoemans.dggCounterexampleWitness",
+      "DinitzGargGoemans.weakDggCostConjectureFalse",
+      "DinitzGargGoemans.strictDggCostConjectureFalse"
+    ]
+  },
+  "id": "PALOMAR-2026-08-29-000003",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-29T00:52:31Z",
+    "receipt_sha256": "6b19be84e33a3a63586cfda077f2caaf7ad03d7ab945432da8d42ec7b15ba2ba",
+    "repositories": [
+      {
+        "commit": "cc7284cf415fc2a773f00d400319ef39663c277a",
+        "fork_repository": "PalomarArchive/Arthur742Ramos--dinitz-garg-goemans-counterexample-lean--bbbff431965a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-29-000003-v1/cc7284cf415fc2a773f00d400319ef39663c277a",
+        "source_repository": "Arthur742Ramos/dinitz-garg-goemans-counterexample-lean"
+      },
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-29-000003-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-29-000003-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-29-000003-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-29-000003-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-29-000003-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-29-000003-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-29-000003-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-29-000003-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-29-000003-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Arthur Freitas Ramos"
+          },
+          {
+            "name": "David Barros Hulak"
+          },
+          {
+            "name": "Ruy Jose Guerra Barretto de Queiroz"
+          }
+        ],
+        "identifier": "https://isa-afp.org/entries/Dinitz_Garg_Goemans_Counterexample.html",
+        "location": "https://isa-afp.org/entries/Dinitz_Garg_Goemans_Counterexample.html",
+        "relationship": "independently-proves",
+        "title": "A Formal Counterexample to the Cost-Preserving Single-Source Unsplittable Flow Conjecture",
+        "type": "formalization"
+      },
+      {
+        "authors": [
+          {
+            "name": "Yefim Dinitz"
+          },
+          {
+            "name": "Naveen Garg"
+          },
+          {
+            "name": "Michel X. Goemans"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/s004930050043",
+        "location": "Combinatorica 19(1), 17--41 (1999)",
+        "relationship": "background",
+        "title": "On the Single-Source Unsplittable Flow Problem",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Dmitry Rybin"
+          }
+        ],
+        "identifier": "https://x.com/DmitryRybin1",
+        "location": "https://x.com/DmitryRybin1",
+        "relationship": "background",
+        "title": "Counterexample to the Dinitz--Garg--Goemans Cost Conjecture",
+        "type": "web post"
+      },
+      {
+        "authors": [
+          {
+            "name": "Vera Traub"
+          },
+          {
+            "name": "Laura Vargas Koch"
+          },
+          {
+            "name": "Rico Zenklusen"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/s10107-026-02365-x",
+        "location": "Mathematical Programming (2026)",
+        "relationship": "background",
+        "title": "Single-Source Unsplittable Flows in Planar and Bounded-Genus Graphs",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://isa-afp.org/entries/Dinitz_Garg_Goemans_Counterexample.html",
+        "note": "The Isabelle/HOL AFP entry formalizes the same finite certificate; this repository provides a separate Lean/Mathlib development.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Arthur Freitas Ramos"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-29T00:52:16Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "d5a647db3757303b1d928cfae4d3d232eed3e79e",
+    "report": {
+      "sha256": "3d055341a620eefc7e9171be224c37388a777f8ee2b0aadd34d7de3f0e7f22ea"
+    },
+    "reviewed_at": "2026-08-28T01:48:22Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "cc7284cf415fc2a773f00d400319ef39663c277a",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "Arthur742Ramos/dinitz-garg-goemans-counterexample-lean",
+    "repository_url": "https://github.com/Arthur742Ramos/dinitz-garg-goemans-counterexample-lean",
+    "tree_url": "https://github.com/Arthur742Ramos/dinitz-garg-goemans-counterexample-lean/tree/cc7284cf415fc2a773f00d400319ef39663c277a"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "ua8gywmcfhg6"
+  },
+  "title": "Arthur742Ramos/dinitz-garg-goemans-counterexample-lean",
+  "trust": {
+    "challenge_bytes": 8609,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+      "Mathlib.Algebra.Order.Ring.Rat",
+      "Mathlib.Data.Fintype.Order",
+      "Mathlib.Data.List.Basic",
+      "Mathlib.Data.Rat.Lemmas"
+    ],
+    "challenge_lines": 297,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "dfa1adf7e6eee3fdedbd5f4ad47406487ab42e04a5165bbaec8d38d11716882f",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-29-000003-v1/afb2fd1b4e321d7238e670a8c3e32e9c43faa89bb1ca8ec32334ddb941a73829/",
+    "evidence_tree_sha256": "afb2fd1b4e321d7238e670a8c3e32e9c43faa89bb1ca8ec32334ddb941a73829",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "c24331c154e53126c5d63e783c6cb21cea045f27f4b8c001c3c8353a37dfb51f",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33131019615,
+    "solution_sha256": "2e8e32e2c8cab154582e9ac25ebbf1333987b99e0eb7e96b04389b624b99354d",
+    "verified_at": "2026-08-28T00:57:41Z",
+    "workflow_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33131019615"
+  },
+  "version": 1
+}

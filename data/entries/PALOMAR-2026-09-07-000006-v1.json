@@ -1,0 +1,358 @@
+{
+  "abstract": "A Lean 4 / Mathlib development of the companion paper of the same name (doi:10.13140/RG.2.2.10727.82081). Fix coprime integers p > q ≥ 2 and an integer x₀ ≥ 1 and iterate the ceiling map of the rational base p/q, xₙ = ⌈p·xₙ₋₁/q⌉, with associated word wₙ = q·xₙ₊₁ − p·xₙ ∈ {0,…,q−1}, the correction that makes p·xₙ divisible by q. Four statements are compared. (A) The word of every such orbit is not P-recursive: it satisfies no nontrivial linear recurrence with polynomial coefficients. (B) At p/q = 3/2 the orbit itself is not P-recursive either; for x₀ = 1 it is the sequence A061419, which is therefore not holonomic. (C, D) neither generating function, Σⱼ wⱼzʲ nor Σₙ xₙzⁿ, is algebraic over ℚ(z). The Lean contains a proof of Stanley's algebraic-holonomic-p-recursive closure theorem.",
+  "authors": [
+    {
+      "name": "Ralf Stephan"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-07-000006-v1/43139874cdf2fe99003804ac9b930f384fa9391377021d7ca7516985199b4259/",
+    "artifact_tree_sha256": "43139874cdf2fe99003804ac9b930f384fa9391377021d7ca7516985199b4259",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-07T10:37:52Z",
+    "renderer_commit": "c605f23466450a52999fcfb3c6d68ed8febc56bf",
+    "verso_commit": "6af30619664960f9c816b27157dff3ceb1500dcf"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.CO"
+    ],
+    "msc2020": [
+      "11B37",
+      "11A63",
+      "05A15",
+      "68R15",
+      "12H05"
+    ]
+  },
+  "first_registered_on": "2026-09-07",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator/ceiling-orbits.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.33.0-rc1",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "comparator",
+        "repository": "leanprover/comparator",
+        "revision": "c3903e1ed0148a32cd39510707c632dc4d265514"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "e631b64438d263de54e682d9ee63d84dbb010473"
+      },
+      {
+        "name": "lean4export",
+        "repository": "leanprover/lean4export",
+        "revision": "af5aa64bb914c3c2c781f378088dbd38acf4f804"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b1c4a69a7e247ab7df20460212001673d74f08c0"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "0498c7c070c143a3bf7379f4d99a2c63bb9d9715"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "18a90119a5d316358fde6c86e0ca24e59212e32c"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "b1436dc749e722c9920036b52cdc43b3451d0b69"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "57d3325be72a842920813bcb40f96a6f7393c185"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ee41917ae11d38479fb8fb24745f7ca4bf0a784d"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "d60e6444e6fd881dfa077ff36e96de75753afa28"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "da07ca808b6718cb2aed14dba154e5a08b8f8ecf"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "RB.Gen.not_isPRecursive_word",
+      "RB.not_isPRecursive_orbit",
+      "RB.Gen.not_isAlgebraic_wordSeries",
+      "RB.not_isAlgebraic_orbitSeries"
+    ]
+  },
+  "id": "PALOMAR-2026-09-07-000006",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-07T10:38:29Z",
+    "receipt_sha256": "cece1b57585606d42cb85300972ab6ee334bebb0063106b0d0fbe5f69ea4dee4",
+    "repositories": [
+      {
+        "commit": "57d3325be72a842920813bcb40f96a6f7393c185",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000006-v1/57d3325be72a842920813bcb40f96a6f7393c185",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "d60e6444e6fd881dfa077ff36e96de75753afa28",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000006-v1/d60e6444e6fd881dfa077ff36e96de75753afa28",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "18a90119a5d316358fde6c86e0ca24e59212e32c",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000006-v1/18a90119a5d316358fde6c86e0ca24e59212e32c",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "0498c7c070c143a3bf7379f4d99a2c63bb9d9715",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000006-v1/0498c7c070c143a3bf7379f4d99a2c63bb9d9715",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "e631b64438d263de54e682d9ee63d84dbb010473",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000006-v1/e631b64438d263de54e682d9ee63d84dbb010473",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b1c4a69a7e247ab7df20460212001673d74f08c0",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000006-v1/b1c4a69a7e247ab7df20460212001673d74f08c0",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "b1436dc749e722c9920036b52cdc43b3451d0b69",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000006-v1/b1436dc749e722c9920036b52cdc43b3451d0b69",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ee41917ae11d38479fb8fb24745f7ca4bf0a784d",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000006-v1/ee41917ae11d38479fb8fb24745f7ca4bf0a784d",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c3903e1ed0148a32cd39510707c632dc4d265514",
+        "fork_repository": "PalomarArchive/leanprover--comparator--25495a50215b",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000006-v1/c3903e1ed0148a32cd39510707c632dc4d265514",
+        "source_repository": "leanprover/comparator"
+      },
+      {
+        "commit": "da07ca808b6718cb2aed14dba154e5a08b8f8ecf",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000006-v1/da07ca808b6718cb2aed14dba154e5a08b8f8ecf",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "af5aa64bb914c3c2c781f378088dbd38acf4f804",
+        "fork_repository": "PalomarArchive/leanprover--lean4export--94a894d77e17",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000006-v1/af5aa64bb914c3c2c781f378088dbd38acf4f804",
+        "source_repository": "leanprover/lean4export"
+      },
+      {
+        "commit": "f76e02755cf909322015890f568338273d98038f",
+        "fork_repository": "PalomarArchive/rwst--Ceiling-Orbits--83850daac49c",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-07-000006-v1/f76e02755cf909322015890f568338273d98038f",
+        "source_repository": "rwst/Ceiling-Orbits"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Ralf Stephan"
+          }
+        ],
+        "identifier": "https://doi.org/10.13140/RG.2.2.10727.82081",
+        "location": "Theorems A and B; Corollaries 5.5 and 6.4; Appendix A",
+        "relationship": "formalizes",
+        "title": "Ceiling orbits of rational bases are not P-recursive",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Arturas Dubickas"
+          }
+        ],
+        "identifier": "https://doi.org/10.1017/S0017089508004655",
+        "location": "Glasgow Math. J. 51 (2009), 243-252; pp. 244-245",
+        "relationship": "background",
+        "title": "On integer sequences generated by linear maps",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Shigeki Akiyama"
+          },
+          {
+            "name": "Christiane Frougny"
+          },
+          {
+            "name": "Jacques Sakarovitch"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/s11856-008-1056-4",
+        "location": "Israel J. Math. 168 (2008), 53-91; Def. 20, Prop. 26",
+        "relationship": "background",
+        "title": "Powers of rationals modulo 1 and rational base number systems",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Richard P. Stanley"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/S0195-6698(80)80051-5",
+        "location": "European J. Combin. 1 (1980), 175-188; Thm 2.1 and Thm 1.5",
+        "relationship": "background",
+        "title": "Differentiably finite power series",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Andrew M. Odlyzko"
+          },
+          {
+            "name": "Herbert S. Wilf"
+          }
+        ],
+        "identifier": "https://doi.org/10.1017/S0017089500008272",
+        "location": "Glasgow Math. J. 33 (1991), 235-240",
+        "relationship": "background",
+        "title": "Functional iteration and the Josephus problem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Jean-Paul Allouche"
+          },
+          {
+            "name": "Jeffrey Shallit"
+          }
+        ],
+        "location": "Cambridge University Press, 2003",
+        "relationship": "background",
+        "title": "Automatic Sequences: Theory, Applications, Generalizations",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ralf Stephan"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-07T10:38:05Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "42cc43f70b1b019d20d4b64e9016396e666a6bc7",
+    "report": {
+      "sha256": "e00ba2852227d7ab23a7b64a6f4d4b8ec8aaa86c8ee34656e0bc91bbc8701582"
+    },
+    "reviewed_at": "2026-09-07T10:30:51Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "f76e02755cf909322015890f568338273d98038f",
+    "license": {
+      "declared_identifier": "CC0-1.0",
+      "detected_identifier": "CC0-1.0",
+      "path": "LICENSE",
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    "repository": "rwst/Ceiling-Orbits",
+    "repository_url": "https://github.com/rwst/Ceiling-Orbits",
+    "tree_url": "https://github.com/rwst/Ceiling-Orbits/tree/f76e02755cf909322015890f568338273d98038f"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "15a94o4im7iq"
+  },
+  "title": "Ceiling orbits of rational bases are not P-recursive",
+  "trust": {
+    "challenge_bytes": 6459,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 130,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "2b5d51dadcbed3a4e9cbb2f2df5e91798ad59e04bba4d21af55817cc265dca09",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-07-000006-v1/d584d90eebfe3b8f38e5bf5f34170e3d949caf4f5c75145ccd44669c275fc6e3/",
+    "evidence_tree_sha256": "d584d90eebfe3b8f38e5bf5f34170e3d949caf4f5c75145ccd44669c275fc6e3",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "af5aa64bb914c3c2c781f378088dbd38acf4f804",
+    "mechanical_report_sha256": "2b35a88d122b79e01ed58185144808887a0494e122f8e603c95e9fd21895e7d1",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 34110268939,
+    "solution_sha256": "66b212fee9c8a3e655b7a9c75ce5e71dfa6a6ecd59831b3c859e1df1daeaf3ad",
+    "verified_at": "2026-09-07T10:19:29Z",
+    "workflow_commit": "c605f23466450a52999fcfb3c6d68ed8febc56bf",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/34110268939"
+  },
+  "version": 1
+}

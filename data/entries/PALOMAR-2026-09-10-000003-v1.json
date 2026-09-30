@@ -1,0 +1,308 @@
+{
+  "abstract": "A Mathlib-only formalization of two explicit three-action improper phi-regret families in Section 4.4.1 of Dann, Mansour, Mohri, Schneider, and Sivan (COLT 2025). They are finite counterexample families for the paper's rate-preserving linear-reduction program. It proves valid-improper certificates, the affine-hyperplane invariant-transport core of Lemma 4, the extreme-point antipodal-displacement core of Lemma 5, a direct finite one-way affine action/loss-transfer-to-canonical bridge, a source-style two-direction affine linear-equivalence-to-canonical bridge in an explicit bijective-coordinate regime, finite-dimensional Equation-(15)-to-(16) and Equation-(16)-to-(17) bridges, and concrete Equation-(18) vertex/corner criteria. These mechanisms rule out the selected canonical, normalized, finite-loss-basis, homogeneous/affine-transfer, two-direction affine-equivalence, and finite-vertex/corner proper reductions for the two cited families.",
+  "authors": [
+    {
+      "name": "Arthur Freitas Ramos"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-10-000003-v1/40c188246e52cf801b91c362f91fe1b9c9f4234b8b1f173ac8af23f650e52ed8/",
+    "artifact_tree_sha256": "40c188246e52cf801b91c362f91fe1b9c9f4234b8b1f173ac8af23f650e52ed8",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-10T12:36:58Z",
+    "renderer_commit": "ef2fa1eadcb246c2346ddba39b52eaa53d4bb763",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.GT",
+      "cs.LG"
+    ],
+    "msc2020": [
+      "91A26",
+      "68T05"
+    ]
+  },
+  "first_registered_on": "2026-09-10",
+  "formalization": {
+    "challenge_path": "BlackwellChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "BlackwellSolution.lean",
+    "theorem_names": [
+      "Blackwell.Palomar.skewPhi_valid_improper_instance",
+      "Blackwell.Palomar.sourceAB_valid_improper_family",
+      "Blackwell.Palomar.normalized_proper_reduction_implies_canonical_properization",
+      "Blackwell.Palomar.invertible_transfer_proper_reduction_implies_canonical_properization",
+      "Blackwell.Palomar.invertible_affine_transfer_proper_reduction_implies_canonical_properization",
+      "Blackwell.Palomar.affine_linear_equivalence_implies_canonical_properization",
+      "Blackwell.Palomar.loss_basis_pairing_implies_normalized_matrix_identity",
+      "Blackwell.Palomar.matrixProperOn_simplex3_iff_on_vertices",
+      "Blackwell.Palomar.canonicalProperOn_simplex3_iff_vertex_constraints",
+      "Blackwell.Palomar.affine_hyperplane_canonical_properizer_has_nonzero_common_invariant",
+      "Blackwell.Palomar.extreme_antipodal_no_canonical_properizer",
+      "Blackwell.Palomar.skewPhi_has_no_nonzero_common_invariant",
+      "Blackwell.Palomar.canonical_proper_matrices_are_singular",
+      "Blackwell.Palomar.skewPhi_not_canonically_proper_reducible",
+      "Blackwell.Palomar.skewPhi_not_invertible_transfer_proper_reducible",
+      "Blackwell.Palomar.skewPhi_not_invertible_affine_transfer_proper_reducible",
+      "Blackwell.Palomar.skewPhi_not_affine_linearly_equivalent_to_proper",
+      "Blackwell.Palomar.skew_canonicalProper_iff_vertex_constraints",
+      "Blackwell.Palomar.skewPhi_no_invertible_nine_vertex_properizer",
+      "Blackwell.Palomar.skewPhi_not_normalized_proper_reducible",
+      "Blackwell.Palomar.skewPhi_not_loss_basis_proper_reducible",
+      "Blackwell.Palomar.sourceAB_has_nonzero_common_invariant",
+      "Blackwell.Palomar.sourceAB_not_canonically_proper_reducible",
+      "Blackwell.Palomar.sourceAB_not_invertible_transfer_proper_reducible",
+      "Blackwell.Palomar.sourceAB_not_invertible_affine_transfer_proper_reducible",
+      "Blackwell.Palomar.sourceAB_not_affine_linearly_equivalent_to_proper",
+      "Blackwell.Palomar.sourceAB_canonicalProperOn_iff_twelve_corner_constraints",
+      "Blackwell.Palomar.sourceAB_no_invertible_twelve_corner_properizer",
+      "Blackwell.Palomar.sourceAB_not_normalized_proper_reducible",
+      "Blackwell.Palomar.sourceAB_not_loss_basis_proper_reducible"
+    ]
+  },
+  "id": "PALOMAR-2026-09-10-000003",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-10T12:37:31Z",
+    "receipt_sha256": "9a926fdff64de3fa2142ff2231f89504085df3b8858537579d8c48afec8e05e6",
+    "repositories": [
+      {
+        "commit": "8a53170bbf91309d687d4f0131b2147457a3dbc3",
+        "fork_repository": "PalomarArchive/Arthur742Ramos--blackwell-approachability-lean--ce111246e295",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-10-000003-v1/8a53170bbf91309d687d4f0131b2147457a3dbc3",
+        "source_repository": "Arthur742Ramos/blackwell-approachability-lean"
+      },
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-10-000003-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-10-000003-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-10-000003-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-10-000003-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-10-000003-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-10-000003-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-10-000003-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-10-000003-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-10-000003-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Christoph Dann"
+          },
+          {
+            "name": "Yishay Mansour"
+          },
+          {
+            "name": "Mehryar Mohri"
+          },
+          {
+            "name": "Jon Schneider"
+          },
+          {
+            "name": "Balasubramanian Sivan"
+          }
+        ],
+        "identifier": "https://proceedings.mlr.press/v291/dann25a.html",
+        "relationship": "formalizes",
+        "title": "Rate-Preserving Reductions for Blackwell Approachability",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "David Blackwell"
+          }
+        ],
+        "identifier": "https://projecteuclid.org/journals/pacific-journal-of-mathematics/volume-6/issue-1/An-analog-of-the-minimax-theorem-for-vector-payoffs/pjm/1103044269.full",
+        "relationship": "background",
+        "title": "An analog of the minimax theorem for vector payoffs",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Arthur Freitas Ramos"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-10T12:37:11Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "e9c8c238f5695b10f75db7175648a1d0195352c1",
+    "report": {
+      "sha256": "0b69c58a1d57581092897cfb062d4fbdfae3f0117c4c28f0329cfc726a7e3cc4"
+    },
+    "reviewed_at": "2026-09-10T12:21:40Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "8a53170bbf91309d687d4f0131b2147457a3dbc3",
+    "license": {
+      "declared_identifier": "BSD-3-Clause",
+      "detected_identifier": "BSD-3-Clause",
+      "path": "LICENSE",
+      "sha256": "7ab302da059361dc4456fba05c7867d4d1346d7c9a764eba1e81b0c793ca9bd7"
+    },
+    "repository": "Arthur742Ramos/blackwell-approachability-lean",
+    "repository_url": "https://github.com/Arthur742Ramos/blackwell-approachability-lean",
+    "tree_url": "https://github.com/Arthur742Ramos/blackwell-approachability-lean/tree/8a53170bbf91309d687d4f0131b2147457a3dbc3"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "mqmaxezkfaw4"
+  },
+  "title": "Irreducible improper phi-regret in Lean",
+  "trust": {
+    "challenge_bytes": 24737,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 534,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "19d1a1afa3afdded022bae7433e577fa2fcd86a9e029292b46c2f32f57200222",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-10-000003-v1/5f301f6ea33a5b3e75088c5f49addfba5cb7296c2f09349e3000687542c55dff/",
+    "evidence_tree_sha256": "5f301f6ea33a5b3e75088c5f49addfba5cb7296c2f09349e3000687542c55dff",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "cd3faad6a9f5848c6799f1ccb9ac5b34f45fd6eda21ca12588f22142abfad0c5",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 34474315510,
+    "solution_sha256": "c3c596209810c04654e49247b89e452f77e9788e8bccd4538df923d2522bfccd",
+    "verified_at": "2026-09-10T12:07:37Z",
+    "workflow_commit": "ef2fa1eadcb246c2346ddba39b52eaa53d4bb763",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/34474315510"
+  },
+  "version": 1
+}

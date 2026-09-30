@@ -1,0 +1,280 @@
+{
+  "abstract": "A Lean 4 formalization of the main theorem of Legat, Yuan and Parrilo, \"Low-Rank Univariate Sum of Squares Has No Spurious Local Minima\" (SIAM J. Optim. 33(3), 2023). For a real univariate polynomial p and a pair of polynomials u = (u₁, u₂), consider the quadratically penalized Burer–Monteiro objective f_p(u) = ‖σ(u) - p‖² with σ(u) = u₁² + u₂², the norm coming from any inner product on ℝ[x]. The formalized theorem states that if p is a sum of two squares (which is the case for any nonnegative  univariate polynomial) and u is a second-order critical point of f_p (vanishing gradient and positive semidefinite Hessian, Definition 3.1 of the paper), then σ(u) = p, equivalently f_p(u) = 0; hence every SOCP, and in particular every local minimum, is a global minimum. The development follows the paper's proof: the gcd decomposition u = a·u₀ with u₀ coprime, the observation that σ(u₀) has no real roots, a Bézout-based \"hgroup\" lemma writing a sum of squares p as g·q + s·σ(u₀) with s a sum of squares when g and σ(u₀) are coprime, the factor-peeling argument that replaces the quadratic factors of a shared with σ(u₀) by X², and the final certificate argument combining the first- and second-order conditions.",
+  "authors": [
+    {
+      "name": "Chenyang Yuan"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-20-000002-v1/ebe6ac7ea495c617d556f678b1def9e7bd2752e03307201650ffdca4317bc7cb/",
+    "artifact_tree_sha256": "ebe6ac7ea495c617d556f678b1def9e7bd2752e03307201650ffdca4317bc7cb",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-20T00:46:35Z",
+    "renderer_commit": "a3fabf899f557cd03e81916d85887b2d8046206e",
+    "verso_commit": "8bcbd2b8723307c329c12997a0c16a6ac174d3e9"
+  },
+  "classification": {
+    "arxiv": [
+      "math.OC",
+      "math.AG"
+    ],
+    "msc2020": [
+      "90C23",
+      "90C26",
+      "90C22",
+      "12D15"
+    ]
+  },
+  "first_registered_on": "2026-08-20",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.30.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c5ea00351c28e24afc9f0f84379aa41082b1188f"
+      },
+      {
+        "name": "checkdecls",
+        "repository": "PatrickMassot/checkdecls",
+        "revision": "3d425859e73fcfbef85b9638c2a91708ef4a22d4"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "a456461b368b71d2accd95234832cd9c174b5437"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "515cf9d0c00ece5e661f6de4326a53dedc1e8ea1"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "a84b3e2475d5c5ab979567b1ad8aea21b764bcf8"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "558915ae105bfd8074e22d597613d1961822adc2"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "a6e6c34c4ef182f83b219a3a5a385f51f44bdc4c"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "32dc18cde3684679f3c003de608743b57498c56f"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6b907cf12b2e445ccb7c24bc208ef04a1f39e84c"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "LowRankUnivariateSOS.rankTwo_no_spurious_socp"
+    ]
+  },
+  "id": "PALOMAR-2026-08-20-000002",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-20T00:37:21Z",
+    "receipt_sha256": "6fe7fa0284bc88b2d44f6f8062c8a3fc1cdf5fee8faf87a6bac97e0e4c606947",
+    "repositories": [
+      {
+        "commit": "558915ae105bfd8074e22d597613d1961822adc2",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000002-v1/558915ae105bfd8074e22d597613d1961822adc2",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "32dc18cde3684679f3c003de608743b57498c56f",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000002-v1/32dc18cde3684679f3c003de608743b57498c56f",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "515cf9d0c00ece5e661f6de4326a53dedc1e8ea1",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000002-v1/515cf9d0c00ece5e661f6de4326a53dedc1e8ea1",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000002-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000002-v1/c5ea00351c28e24afc9f0f84379aa41082b1188f",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "a456461b368b71d2accd95234832cd9c174b5437",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000002-v1/a456461b368b71d2accd95234832cd9c174b5437",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "a84b3e2475d5c5ab979567b1ad8aea21b764bcf8",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000002-v1/a84b3e2475d5c5ab979567b1ad8aea21b764bcf8",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "a6e6c34c4ef182f83b219a3a5a385f51f44bdc4c",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000002-v1/a6e6c34c4ef182f83b219a3a5a385f51f44bdc4c",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6b907cf12b2e445ccb7c24bc208ef04a1f39e84c",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000002-v1/6b907cf12b2e445ccb7c24bc208ef04a1f39e84c",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "3d425859e73fcfbef85b9638c2a91708ef4a22d4",
+        "fork_repository": "PalomarArchive/PatrickMassot--checkdecls--17681c736a92",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000002-v1/3d425859e73fcfbef85b9638c2a91708ef4a22d4",
+        "source_repository": "PatrickMassot/checkdecls"
+      },
+      {
+        "commit": "1fccd921a4530a088ab6e230f832041ab3c5c7f3",
+        "fork_repository": "PalomarArchive/yuanchenyang--lean_low_rank_univariate_sos--99a6cdb210e0",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-20-000002-v1/1fccd921a4530a088ab6e230f832041ab3c5c7f3",
+        "source_repository": "yuanchenyang/lean_low_rank_univariate_sos"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Benoît Legat"
+          },
+          {
+            "name": "Chenyang Yuan"
+          },
+          {
+            "name": "Pablo A. Parrilo"
+          }
+        ],
+        "identifier": "doi:10.1137/22M1516208",
+        "location": "SIAM Journal on Optimization 33(3), 2023, pp. 2041–2061; arXiv:2205.11466",
+        "relationship": "formalizes",
+        "title": "Low-Rank Univariate Sum of Squares Has No Spurious Local Minima",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Chenyang Yuan"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-20T00:36:51Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "24494b2ffd60c3cd22d72fae0afaf1c6b2d0d679",
+    "report": {
+      "sha256": "f93eb0664b05f3366c7be67d19d0baf5e5c1acba1873953a2464b3e24f790bb2"
+    },
+    "reviewed_at": "2026-08-19T22:49:14Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": [
+      "Positive definiteness of `B.toQuadraticMap` controls only `B(x,x)` and does not require `B` to be symmetric. For a nonsymmetric `B`, the derivative of `B(r,r)` contains both `B(A_u(v),r)` and `B(r,A_u(v))`, so the stated one-sided `IsFOCP` and `hessianTerm` are not generally the gradient and Hessian conditions of the advertised objective. The selected theorem correctly covers ordinary inner products as a special case, but the claimed extension to every positive-definite bilinear form is not justified as an optimization statement. Add a symmetry hypothesis to Lean, or revise the prose to describe the nonsymmetric case as an algebraic extension whose predicates need not be objective criticality."
+    ]
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "1fccd921a4530a088ab6e230f832041ab3c5c7f3",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "yuanchenyang/lean_low_rank_univariate_sos",
+    "repository_url": "https://github.com/yuanchenyang/lean_low_rank_univariate_sos",
+    "tree_url": "https://github.com/yuanchenyang/lean_low_rank_univariate_sos/tree/1fccd921a4530a088ab6e230f832041ab3c5c7f3"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "3spmwgh7r7hp"
+  },
+  "title": "yuanchenyang/lean_low_rank_univariate_sos",
+  "trust": {
+    "challenge_bytes": 5523,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.BigOperators.Ring.Finset",
+      "Mathlib.Algebra.Polynomial.FieldDivision",
+      "Mathlib.Data.Finset.Basic",
+      "Mathlib.Data.Real.Basic",
+      "Mathlib.LinearAlgebra.BilinearForm.Properties",
+      "Mathlib.LinearAlgebra.QuadraticForm.Basic"
+    ],
+    "challenge_lines": 136,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "453a136f256d910153d9c7303480b42045e6a55cd200ebda916d6e509a820292",
+    "comparator_commit": "68a064109f01c08f47c8edc9f51d6a2bbffaa188",
+    "evidence_path": "evidence/PALOMAR-2026-08-20-000002-v1/0bdb8786d83cce5bb3570c8cf898d66eeeead8b0c46c600717ad18ef28d9bc91/",
+    "evidence_tree_sha256": "0bdb8786d83cce5bb3570c8cf898d66eeeead8b0c46c600717ad18ef28d9bc91",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "a3e35a584f59b390667db7269cd37fca8575e4bf",
+    "mechanical_report_sha256": "de9c517e354595a076c19f76fc140575cc77ac38df6fc0925fd8ae8290682b59",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32291084001,
+    "solution_sha256": "385d233e1148345b2ef4531dc4ea74dec68fe920228f8ad4ec4f3d6637b53056",
+    "verified_at": "2026-08-19T19:11:02Z",
+    "workflow_commit": "a3fabf899f557cd03e81916d85887b2d8046206e",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32291084001"
+  },
+  "version": 1
+}

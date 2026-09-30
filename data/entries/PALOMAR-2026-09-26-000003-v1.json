@@ -1,0 +1,593 @@
+{
+  "abstract": "A complete Lean 4 / Mathlib formalization of the following theorem: there are absolute constants C, n0 > 0 such that every connected Cayley graph Cay(G, S) on n >= n0 vertices whose degree d = |S| is at least C (log n)^13 / log log n contains a Hamilton cycle (Lovasz.hamiltonian_of_polylog_degree). Here G is a finite group, S is a connection set (S = S^-1 and 1 not in S, so the graph is |S|-regular), log is the natural logarithm, and connectivity is equivalent to S generating G. The theorem is a case of the Lovász conjecture (every connected vertex-transitive graph has a Hamilton path) in its Cayley-graph form (every connected Cayley graph on at least three vertices is Hamiltonian). For arbitrary connected Cayley graphs the previously published degree thresholds were linear degree (Christofides, Hladký and Máthé, 2014) and degree at least n^(1-c) (Bedert, Draganić, Müyesser and Pavez-Signé, 2026). The proof follows the source manuscript: it extracts a connected bipartite template with spectral gap of order (log n)^-2, allocates the vertices to weighted translates of the template by signed rounding (a robust signed integrality theorem derived from the capacitated b-matching polytope, swap rounding, and a trace-exponential matrix concentration bound), connects the pieces by a sparse matching chosen by mutual nominations and a signed circulation, absorbs the outside matching inside every piece with Hamilton routers built from even-cycle comparators, and merges cycles. Every lemma of the manuscript is proved in the repository, as are the classical results it uses without proof (normalized Cheeger inequality, Haxell's hypergraph matching theorem, the b-matching polytope, Watkins's connectivity bound, the Nash-Williams–Tutte tree-packing theorem, Hoffman's circulation criterion, scalar Chernoff bounds); Hall's theorem is taken from Mathlib, and matrix Bernstein is avoided by deriving the one lemma that used it from the manuscript's own concentration bound. The source manuscript is an unpublished research draft that describes its own proof as not independently verified; this formalization is, to the maintainer's knowledge, the first verification of the theorem. The proved theorem has no sorry and depends only on propext, Classical.choice and Quot.sound.",
+  "authors": [
+    {
+      "name": "Shengtong Zhang"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-26-000003-v1/dacb8ecffc55cb2d4866bbdc51930d91cdcb719dbfc7d12be9aece15b28207f3/",
+    "artifact_tree_sha256": "dacb8ecffc55cb2d4866bbdc51930d91cdcb719dbfc7d12be9aece15b28207f3",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-09-26T03:17:02Z",
+    "renderer_commit": "a59f25bd8a66bf6faf3a4f4260d412989c0185ea",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C45",
+      "05C25",
+      "05C48",
+      "05C50",
+      "05C70",
+      "05C80"
+    ]
+  },
+  "first_registered_on": "2026-09-26",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Lovasz.hamiltonian_of_polylog_degree"
+    ]
+  },
+  "id": "PALOMAR-2026-09-26-000003",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-26T03:17:31Z",
+    "receipt_sha256": "147b688716a7d41320b903f24da0f611a2fbc35f26b777419b3e73260425c7ee",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000003-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000003-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000003-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000003-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000003-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000003-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000003-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000003-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000003-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "ee0085ddec79996279c7b52044659032e5cf8431",
+        "fork_repository": "PalomarArchive/ShengtongZhang-alt--lovasz-opus--32b678aa320e",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-26-000003-v1/ee0085ddec79996279c7b52044659032e5cf8431",
+        "source_repository": "ShengtongZhang-alt/lovasz-opus"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Domagoj Bradač"
+          },
+          {
+            "name": "Matija Bucić"
+          },
+          {
+            "name": "Micha Christoph"
+          },
+          {
+            "name": "Zach Hunter"
+          },
+          {
+            "name": "Oliver Janzer"
+          },
+          {
+            "name": "Alp Müyesser"
+          }
+        ],
+        "contributors": [
+          {
+            "name": "GPT 6 Pro (OpenAI)",
+            "role": "prepared the draft, with significant input from the authors"
+          }
+        ],
+        "identifier": "docs/Polylog_Cayley.pdf (this repository, at the submitted commit)",
+        "license": "unknown",
+        "location": "https://github.com/ShengtongZhang-alt/lovasz-opus/blob/main/docs/Polylog_Cayley.pdf",
+        "relationship": "formalizes",
+        "title": "Hamilton cycles in Cayley graphs of polylogarithmic degree",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "László Lovász"
+          }
+        ],
+        "location": "In: Combinatorial Structures and Their Applications (Proc. Calgary Internat. Conf., Calgary, Alberta, 1969), Gordon and Breach, New York, 1970, p. 497",
+        "relationship": "background",
+        "title": "Problem 11",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "E. Rapaport-Strasser"
+          }
+        ],
+        "location": "Scripta Math. 24 (1959), 51–58",
+        "relationship": "background",
+        "title": "Cayley color groups and Hamilton lines",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Demetres Christofides"
+          },
+          {
+            "name": "Jan Hladký"
+          },
+          {
+            "name": "András Máthé"
+          }
+        ],
+        "identifier": "doi:10.1016/j.jctb.2014.05.001",
+        "location": "https://doi.org/10.1016/j.jctb.2014.05.001",
+        "relationship": "background",
+        "title": "Hamilton cycles in dense vertex-transitive graphs",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Benjamin Bedert"
+          },
+          {
+            "name": "Nemanja Draganić"
+          },
+          {
+            "name": "Alp Müyesser"
+          },
+          {
+            "name": "Matías Pavez-Signé"
+          }
+        ],
+        "identifier": "arXiv:2603.08675",
+        "location": "https://arxiv.org/abs/2603.08675",
+        "relationship": "background",
+        "title": "The Lovász conjecture holds for moderately dense Cayley graphs",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Domagoj Bradač"
+          },
+          {
+            "name": "Oliver Janzer"
+          }
+        ],
+        "identifier": "arXiv:2605.15043",
+        "location": "https://arxiv.org/abs/2605.15043",
+        "relationship": "background",
+        "title": "Hamiltonicity of regular sublinear expanders",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Micha Christoph"
+          },
+          {
+            "name": "Zach Hunter"
+          },
+          {
+            "name": "Benny Sudakov"
+          }
+        ],
+        "identifier": "arXiv:2609.30165",
+        "location": "https://arxiv.org/abs/2609.30165",
+        "relationship": "background",
+        "title": "Thinning and sprinkling: from robust sampling to almost Hamiltonicity",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Nemanja Draganić"
+          },
+          {
+            "name": "Richard Montgomery"
+          },
+          {
+            "name": "David Munhá Correia"
+          },
+          {
+            "name": "Alexey Pokrovskiy"
+          },
+          {
+            "name": "Benny Sudakov"
+          }
+        ],
+        "identifier": "arXiv:2402.06603",
+        "location": "https://arxiv.org/abs/2402.06603",
+        "relationship": "background",
+        "title": "Hamiltonicity of expanders: optimal bounds and applications",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Matija Bucić"
+          },
+          {
+            "name": "Micha Christoph"
+          },
+          {
+            "name": "Alexey Pokrovskiy"
+          },
+          {
+            "name": "Raphael Steiner"
+          }
+        ],
+        "identifier": "arXiv:2606.09742",
+        "location": "https://arxiv.org/abs/2606.09742",
+        "relationship": "background",
+        "title": "Towards the Lovász conjecture via sublinear expanders",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Alp Müyesser"
+          }
+        ],
+        "location": "Unpublished manuscript (supplied manuscript cited as [6] by the source draft); not publicly available",
+        "relationship": "background",
+        "title": "Hamiltonicity of mildly pseudorandom regular graphs",
+        "type": "other"
+      },
+      {
+        "authors": [],
+        "location": "Unpublished research draft, 2026 (cited as [9] by the source draft); not publicly available",
+        "relationship": "background",
+        "title": "Hamilton cycles in bipartite Cayley graphs: a proof draft via balanced allocation",
+        "type": "other"
+      },
+      {
+        "authors": [],
+        "location": "Unpublished research draft, 2026 (cited as [10] by the source draft); not publicly available",
+        "relationship": "background",
+        "title": "A candidate logarithmic exponent of thirteen: weighted allocation and Hamilton routers",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Mark E. Watkins"
+          }
+        ],
+        "identifier": "doi:10.1016/S0021-9800(70)80005-9",
+        "location": "https://doi.org/10.1016/S0021-9800(70)80005-9",
+        "relationship": "background",
+        "title": "Connectivity of transitive graphs",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "P. E. Haxell"
+          }
+        ],
+        "identifier": "doi:10.1007/BF01793010",
+        "location": "https://doi.org/10.1007/BF01793010",
+        "relationship": "background",
+        "title": "A condition for matchability in hypergraphs",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "C. St. J. A. Nash-Williams"
+          }
+        ],
+        "identifier": "doi:10.1112/jlms/s1-36.1.445",
+        "location": "https://doi.org/10.1112/jlms/s1-36.1.445",
+        "relationship": "background",
+        "title": "Edge-disjoint spanning trees of finite graphs",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "W. T. Tutte"
+          }
+        ],
+        "identifier": "doi:10.1112/jlms/s1-36.1.221",
+        "location": "https://doi.org/10.1112/jlms/s1-36.1.221",
+        "relationship": "background",
+        "title": "On the problem of decomposing a graph into n connected factors",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Tomáš Kaiser"
+          }
+        ],
+        "identifier": "doi:10.1016/j.disc.2012.01.020",
+        "location": "https://doi.org/10.1016/j.disc.2012.01.020",
+        "relationship": "background",
+        "title": "A short proof of the tree-packing theorem",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Adam N. Letchford"
+          },
+          {
+            "name": "Gerhard Reinelt"
+          },
+          {
+            "name": "Dirk Oliver Theis"
+          }
+        ],
+        "identifier": "doi:10.1007/978-3-540-25960-2_15",
+        "location": "https://doi.org/10.1007/978-3-540-25960-2_15",
+        "relationship": "background",
+        "title": "A faster exact separation algorithm for blossom inequalities",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. J. Hoffman"
+          }
+        ],
+        "identifier": "doi:10.1090/psapm/010/0114759",
+        "location": "https://doi.org/10.1090/psapm/010/0114759",
+        "relationship": "background",
+        "title": "Some recent applications of the theory of linear inequalities to extremal combinatorial analysis",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Kumar Joag-Dev"
+          },
+          {
+            "name": "Frank Proschan"
+          }
+        ],
+        "identifier": "doi:10.1214/aos/1176346079",
+        "location": "https://doi.org/10.1214/aos/1176346079",
+        "relationship": "background",
+        "title": "Negative association of random variables with applications",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Joel A. Tropp"
+          }
+        ],
+        "identifier": "doi:10.1007/s10208-011-9099-z",
+        "location": "https://doi.org/10.1007/s10208-011-9099-z",
+        "relationship": "background",
+        "title": "User-friendly tail bounds for sums of random matrices",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Fan R. K. Chung"
+          }
+        ],
+        "identifier": "doi:10.1090/cbms/092",
+        "location": "CBMS Regional Conference Series in Mathematics, vol. 92, American Mathematical Society, 1997; https://doi.org/10.1090/cbms/092",
+        "relationship": "background",
+        "title": "Spectral Graph Theory",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Shengtong Zhang"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-26T03:17:12Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "792c7c0b9e798bd02719e795ef11fa2b5929e067",
+    "report": {
+      "sha256": "e9c7204d630895c3d6f8d9aaffdbf93cb0f2e141d05feee96649cd92ef1d3ed1"
+    },
+    "reviewed_at": "2026-09-26T02:48:39Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "ee0085ddec79996279c7b52044659032e5cf8431",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "ShengtongZhang-alt/lovasz-opus",
+    "repository_url": "https://github.com/ShengtongZhang-alt/lovasz-opus",
+    "tree_url": "https://github.com/ShengtongZhang-alt/lovasz-opus/tree/ee0085ddec79996279c7b52044659032e5cf8431"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "3ww3w4jr8ci7"
+  },
+  "title": "Hamilton cycles in Cayley graphs of polylogarithmic degree",
+  "trust": {
+    "challenge_bytes": 2093,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 53,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "4aaf16cf1164cd541c640575d3bb5785e5508edc404ec6889c9a156bd15d8e7c",
+    "evidence_path": "evidence/PALOMAR-2026-09-26-000003-v1/27cb24c9e7c6f2bf4b3dfd5bf42f76f149ec457e2a72be85315b2a4605894f7d/",
+    "evidence_tree_sha256": "27cb24c9e7c6f2bf4b3dfd5bf42f76f149ec457e2a72be85315b2a4605894f7d",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "6393dcc4aa12b7924536cd62052231856297603d9e13f0742884100bfe3cbf0f",
+    "protected_config_sha256": "2e3cc1e6997e838cd96a91d57db262e52974f4515b8fedf2c056f41ddabfbe3f",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 36212118572,
+    "solution_sha256": "abd73b935b9bf06ae13276868f9a6acb64d73778e12913d0ac0707614609f378",
+    "tool_digests": {
+      "bwrap": "bf9a414bce3364d0ceeba4be21b1ae3cc2ddd3aab639253e2e58299727e816fc",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-09-26T02:39:56Z",
+    "workflow_commit": "a59f25bd8a66bf6faf3a4f4260d412989c0185ea",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/36212118572"
+  },
+  "version": 1
+}

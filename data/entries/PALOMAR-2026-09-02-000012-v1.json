@@ -1,0 +1,370 @@
+{
+  "abstract": "For n = 3 through n = 8, this formalization determines the supremal minimum triangle area among n indexed planar points whose own convex hull has Lebesgue area one. It proves a pointwise upper bound, attainment, and the exact value for every n in that range. The values are 1, 1/2, (5-sqrt(5))/10, 1/6, 1/9, and, at n = 8, the unique root in (79/1000, 81/1000) of 2060x^5 - 2332x^4 + 1064x^3 - 240x^2 + 26x - 1.\nFor n = 3, 4, 5, 6, and 8 it also proves pairwise uniqueness of optimizers modulo arbitrary relabeling and arbitrary nonsingular affine transformations. Uniqueness is false at n = 7; instead, an explicit real family is proved to attain throughout its full parameter interval and to exhaust all unit-hull optimizers up to the same equivalence. A real subinterval is pairwise inequivalent, exhibiting a continuum-parameterized set of optimizer orbits; an explicit countable subfamily is retained too.\nThe n = 3 and n = 4 cases are elementary folklore. The sharp n = 6 and n = 7 values were published by Dress-Yang-Zeng and Yang-Zeng, respectively; the Lean developments here independently reprove those results rather than formalizing the published arguments. The full n = 5 result, the explicit n = 7 family and optimizer classification, and the exact n = 8 result and optimizer classification are first presented in this development. The scoped search described below located prior candidate records but no published full n = 5 proof, no prior exhaustive n = 7 optimizer classification, and no published n = 8 proof. This is not an absolute priority claim. These results are intended for researchers in discrete and computational geometry studying extremal configurations, exact geometric bounds, and formalized combinatorial geometry.",
+  "authors": [
+    {
+      "name": "Tej Stead"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-02-000012-v1/9d42f8da4acaca32dc2b9084b86a8f37fb529a6eab54be3e361726e67ffdbda2/",
+    "artifact_tree_sha256": "9d42f8da4acaca32dc2b9084b86a8f37fb529a6eab54be3e361726e67ffdbda2",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-09-02T23:22:11Z",
+    "renderer_commit": "5f26d4a0a40351530ce578a7dd4d6fc2a469fc28",
+    "verso_commit": "3bdedf29bada13d8103e6c979001c51dcee210c8"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.MG"
+    ],
+    "msc2020": [
+      "52C10"
+    ]
+  },
+  "first_registered_on": "2026-09-02",
+  "formalization": {
+    "challenge_path": "proofs/palomar/heilbronn-convex/HeilbronnChallenge.lean",
+    "comparator_config_path": "proofs/palomar/heilbronn-convex/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "proofs/palomar/heilbronn-convex/formalization.yaml",
+    "lakefile_path": "proofs/palomar/heilbronn-convex/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "db584cd6d46c92f209a44c0f1c829460d327499d"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "16f02aa7642864af59f1ff0e384a015994db9118"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6130a47896ce867c6a4a55373441e59e565bad0f"
+      }
+    ],
+    "solution_path": "proofs/palomar/heilbronn-convex/HeilbronnSolution.lean",
+    "theorem_names": [
+      "HeilbronnChallenge.heilbronn_convex_three_upper_bound",
+      "HeilbronnChallenge.heilbronn_convex_three_attained",
+      "HeilbronnChallenge.heilbronn_convex_three",
+      "HeilbronnChallenge.heilbronn_convex_three_unique",
+      "HeilbronnChallenge.heilbronn_convex_four_upper_bound",
+      "HeilbronnChallenge.heilbronn_convex_four_attained",
+      "HeilbronnChallenge.heilbronn_convex_four",
+      "HeilbronnChallenge.heilbronn_convex_four_unique",
+      "HeilbronnChallenge.P5_root_existsUnique",
+      "HeilbronnChallenge.heilbronn_convex_five_upper_bound",
+      "HeilbronnChallenge.heilbronn_convex_five_attained",
+      "HeilbronnChallenge.heilbronn_convex_five",
+      "HeilbronnChallenge.heilbronn_convex_five_unique",
+      "HeilbronnChallenge.heilbronn_convex_six_upper_bound",
+      "HeilbronnChallenge.heilbronn_convex_six_attained",
+      "HeilbronnChallenge.heilbronn_convex_six",
+      "HeilbronnChallenge.heilbronn_convex_six_unique",
+      "HeilbronnChallenge.heilbronn_convex_seven_upper_bound",
+      "HeilbronnChallenge.heilbronn_convex_seven_attained",
+      "HeilbronnChallenge.heilbronn_convex_seven",
+      "HeilbronnChallenge.heilbronn_convex_seven_family_attains",
+      "HeilbronnChallenge.heilbronn_convex_seven_real_family_inequivalent",
+      "HeilbronnChallenge.heilbronn_convex_seven_optimizer_classification",
+      "HeilbronnChallenge.heilbronn_convex_seven_infinite_optimizers",
+      "HeilbronnChallenge.P8_root_existsUnique",
+      "HeilbronnChallenge.heilbronn_convex_eight_upper_bound",
+      "HeilbronnChallenge.heilbronn_convex_eight_attained",
+      "HeilbronnChallenge.heilbronn_convex_eight",
+      "HeilbronnChallenge.heilbronn_convex_eight_unique"
+    ]
+  },
+  "id": "PALOMAR-2026-09-02-000012",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-02T23:22:41Z",
+    "receipt_sha256": "0499b8d50189213861559131ea84ae5fa2a08d6106e069c8c9771045d5484564",
+    "repositories": [
+      {
+        "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000012-v1/3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000012-v1/4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000012-v1/16f02aa7642864af59f1ff0e384a015994db9118",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000012-v1/5f4d51b81cbd3f6b32b156bfad9056621a040404",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000012-v1/db584cd6d46c92f209a44c0f1c829460d327499d",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000012-v1/b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000012-v1/4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000012-v1/92c15be17b7caf78c2ad767ec40f89052d908d81",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000012-v1/6130a47896ce867c6a4a55373441e59e565bad0f",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "143e09956fbbf68184cd60cfe445585a00e3b50f",
+        "fork_repository": "PalomarArchive/tejstead--heilbronn-site--aabef726a6e6",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-02-000012-v1/143e09956fbbf68184cd60cfe445585a00e3b50f",
+        "source_repository": "tejstead/heilbronn-site"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Tej Stead"
+          }
+        ],
+        "relationship": "other",
+        "title": "Exact convex Heilbronn value and optimizer classification for five points",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Tej Stead"
+          }
+        ],
+        "relationship": "other",
+        "title": "An explicit classification of seven-point optimizers",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Tej Stead"
+          }
+        ],
+        "relationship": "other",
+        "title": "Exact convex Heilbronn value and optimizer classification for eight points",
+        "type": "other"
+      },
+      {
+        "authors": [],
+        "relationship": "independently-proves",
+        "title": "Elementary convex Heilbronn cases for three and four points",
+        "type": "folklore"
+      },
+      {
+        "authors": [
+          {
+            "name": "Andreas W. M. Dress"
+          },
+          {
+            "name": "Lu Yang"
+          },
+          {
+            "name": "Zhenbing Zeng"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/978-1-4613-3557-3_13",
+        "location": "Minimax and Applications (1995), pp. 173-190",
+        "relationship": "independently-proves",
+        "title": "Heilbronn Problem for Six Points in a Planar Convex Body",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Lu Yang"
+          },
+          {
+            "name": "Zhenbing Zeng"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/978-1-4613-3557-3_14",
+        "location": "Minimax and Applications (1995), pp. 191-218",
+        "relationship": "independently-proves",
+        "title": "Heilbronn Problem for Seven Points in a Planar Convex Body",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Paolo Gronchi"
+          },
+          {
+            "name": "Marco Longinetti"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/s00454-007-9010-5",
+        "location": "Discrete & Computational Geometry 39 (2008), pp. 273-297",
+        "relationship": "background",
+        "title": "Affinely Regular Polygons as Extremals of Area Functionals",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Erich Friedman"
+          }
+        ],
+        "contributors": [
+          {
+            "name": "David Cantrell",
+            "role": "Credited by the page with the recorded n = 5 and n = 8 configurations"
+          }
+        ],
+        "identifier": "https://erich-friedman.github.io/packing/heilconvex/",
+        "relationship": "background",
+        "title": "The Heilbronn Problem for Convex Regions",
+        "type": "web discussion"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tej Stead"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-02T23:22:24Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "4ed67de4fd69df383badb7857dff97e2fb734ab0",
+    "report": {
+      "sha256": "f08fdcaca27449fd68ebc69b2838af54010f1561e4f453a9cf9774baa9d0b8b4"
+    },
+    "reviewed_at": "2026-09-02T20:22:02Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "143e09956fbbf68184cd60cfe445585a00e3b50f",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "a012f8bb87c6cce78c22e6f788a66682c7f42aa8630bac2bab68f1952a7dd75e"
+    },
+    "project_path": "proofs/palomar/heilbronn-convex",
+    "repository": "tejstead/heilbronn-site",
+    "repository_url": "https://github.com/tejstead/heilbronn-site",
+    "tree_url": "https://github.com/tejstead/heilbronn-site/tree/143e09956fbbf68184cd60cfe445585a00e3b50f/proofs/palomar/heilbronn-convex"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "3y560zl020lj"
+  },
+  "title": "heilbronn-convex-3-8",
+  "trust": {
+    "challenge_bytes": 10143,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 274,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "challenge_sha256": "b5fcaa40a10ef64ca4ffd4e935d1e364cf386e3a748af1ec146c8cd251b47ffb",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-09-02-000012-v1/0305782cbcc574b9495d7b0b1846de2868ea129b58ac5be820502ec976af771d/",
+    "evidence_tree_sha256": "0305782cbcc574b9495d7b0b1846de2868ea129b58ac5be820502ec976af771d",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "mechanical_report_sha256": "60e06ce98b052875c7d1e482a0ef93cb4bad5b0ae706bb5d8d898b979c681259",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33663114320,
+    "solution_sha256": "2ece21b3c7e57eae5e276df78e9906fb97b225f3265f43043a8a635ee72df14e",
+    "verified_at": "2026-09-02T20:07:12Z",
+    "workflow_commit": "5f26d4a0a40351530ce578a7dd4d6fc2a469fc28",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33663114320"
+  },
+  "version": 1
+}

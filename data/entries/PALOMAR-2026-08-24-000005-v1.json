@@ -1,0 +1,330 @@
+{
+  "abstract": "A Lean 4 / mathlib formalization of Dana Scott's 1982 ICALP paper *Domains for Denotational Semantics*. The Palomar compared result is only the first sentence of Theorem 7.2: if A and B are information systems, then so is A → B, and the approximable mappings f : A → B are exactly the elements f ∈ |A → B|. Challenge.lean imports Mathlib only and locks Definition 2.1, Definition 2.2, Definition 5.1, and Definition 7.1 (tokens, consistency, and the constructive-witness form of entailment). The remaining apply / curry clauses of the same numbered theorem live in Scott1982/Theorem72.lean and are not Comparator targets. The informal account is arxiv.md; ground truth for theorem wording is sources/Domains_for_Denotational_Semantics.pdf. Lean was written by AI agents under the direction and review of the author. Dana Scott did not participate in or endorse this formalization. There is no sorry outside the deliberate holes in Challenge.lean, no project-defined axiom, and Mathlib is the only Lake dependency.",
+  "authors": [
+    {
+      "name": "Lars Warren Ericson"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-24-000005-v1/b1ff8538348e84f40dfd0b147cc8182103aa7c76aed50e71ecdb71f7ef8e0aca/",
+    "artifact_tree_sha256": "b1ff8538348e84f40dfd0b147cc8182103aa7c76aed50e71ecdb71f7ef8e0aca",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-24T18:40:54Z",
+    "renderer_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "verso_commit": "8bcbd2b8723307c329c12997a0c16a6ac174d3e9"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.LO",
+      "math.LO"
+    ],
+    "msc2020": [
+      "68Q55",
+      "06B35",
+      "03B70"
+    ]
+  },
+  "first_registered_on": "2026-08-24",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "Scott1982.Constructive.funion",
+      "Scott1982.Constructive.decidableEq_finset",
+      "Scott1982.InfoSys.EntSet",
+      "Scott1982.InfoSys.FunToken",
+      "Scott1982.InfoSys.funBot",
+      "Scott1982.InfoSys.funInputUnion",
+      "Scott1982.InfoSys.funOutputUnion",
+      "Scott1982.InfoSys.FunCon",
+      "Scott1982.InfoSys.FunEnt",
+      "Scott1982.InfoSys.functionSystem",
+      "Scott1982.InfoSys.mkFunToken",
+      "Scott1982.InfoSys.approxMap_toElement",
+      "Scott1982.InfoSys.element_toApproxMap"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.30.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c5ea00351c28e24afc9f0f84379aa41082b1188f"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "a456461b368b71d2accd95234832cd9c174b5437"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "515cf9d0c00ece5e661f6de4326a53dedc1e8ea1"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "a84b3e2475d5c5ab979567b1ad8aea21b764bcf8"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "558915ae105bfd8074e22d597613d1961822adc2"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "a6e6c34c4ef182f83b219a3a5a385f51f44bdc4c"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "32dc18cde3684679f3c003de608743b57498c56f"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "6b907cf12b2e445ccb7c24bc208ef04a1f39e84c"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Scott1982.InfoSys.theorem_7_2",
+      "Scott1982.InfoSys.element_toApproxMap_approxMap_toElement",
+      "Scott1982.InfoSys.approxMap_toElement_element_toApproxMap",
+      "Scott1982.InfoSys.approxMap_toElement_consistent",
+      "Scott1982.InfoSys.approxMap_toElement_closed",
+      "Scott1982.InfoSys.element_toApproxMap_rel_dom",
+      "Scott1982.InfoSys.element_toApproxMap_rel_cod",
+      "Scott1982.InfoSys.element_toApproxMap_empty_rel",
+      "Scott1982.InfoSys.element_toApproxMap_union_right",
+      "Scott1982.InfoSys.element_toApproxMap_mono",
+      "Scott1982.InfoSys.functionSystem_con_subset",
+      "Scott1982.InfoSys.functionSystem_con_sing",
+      "Scott1982.InfoSys.functionSystem_ent_con",
+      "Scott1982.InfoSys.functionSystem_ent_bot",
+      "Scott1982.InfoSys.functionSystem_ent_refl",
+      "Scott1982.InfoSys.functionSystem_ent_trans",
+      "Scott1982.InfoSys.Element.ext",
+      "Scott1982.InfoSys.element_le_refl",
+      "Scott1982.InfoSys.element_le_trans",
+      "Scott1982.InfoSys.element_le_antisymm",
+      "Scott1982.InfoSys.con_empty",
+      "Scott1982.InfoSys.funion_left_comm",
+      "Scott1982.InfoSys.funion_left_comm'",
+      "Scott1982.InfoSys.funBot_property",
+      "Scott1982.Constructive.insert_comm'",
+      "Scott1982.Constructive.decidableEq_finset_eq_of_subset",
+      "Scott1982.Constructive.decidableEq_finset_false_of_ne",
+      "Scott1982.InfoSys.mkFunToken_property"
+    ]
+  },
+  "id": "PALOMAR-2026-08-24-000005",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-24T18:41:28Z",
+    "receipt_sha256": "22be5e8c148743df9096f9a80f66bd0c83573e76a07a05b1fdf101d2c071ca95",
+    "repositories": [
+      {
+        "commit": "d3221eec09505aa75e1b818aabc73f1f04339bdc",
+        "fork_repository": "PalomarArchive/catskillsresearch--scott1982--ca9aa6e0a302",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000005-v1/d3221eec09505aa75e1b818aabc73f1f04339bdc",
+        "source_repository": "catskillsresearch/scott1982"
+      },
+      {
+        "commit": "558915ae105bfd8074e22d597613d1961822adc2",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000005-v1/558915ae105bfd8074e22d597613d1961822adc2",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "32dc18cde3684679f3c003de608743b57498c56f",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000005-v1/32dc18cde3684679f3c003de608743b57498c56f",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "515cf9d0c00ece5e661f6de4326a53dedc1e8ea1",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000005-v1/515cf9d0c00ece5e661f6de4326a53dedc1e8ea1",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000005-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000005-v1/c5ea00351c28e24afc9f0f84379aa41082b1188f",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "a456461b368b71d2accd95234832cd9c174b5437",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000005-v1/a456461b368b71d2accd95234832cd9c174b5437",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "a84b3e2475d5c5ab979567b1ad8aea21b764bcf8",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000005-v1/a84b3e2475d5c5ab979567b1ad8aea21b764bcf8",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "a6e6c34c4ef182f83b219a3a5a385f51f44bdc4c",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000005-v1/a6e6c34c4ef182f83b219a3a5a385f51f44bdc4c",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "6b907cf12b2e445ccb7c24bc208ef04a1f39e84c",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-24-000005-v1/6b907cf12b2e445ccb7c24bc208ef04a1f39e84c",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Dana S. Scott"
+          }
+        ],
+        "location": "In: Automata, Languages and Programming (ICALP 1982), LNCS 140, Springer, 1982. Theorem 7.2.",
+        "relationship": "formalizes",
+        "title": "Domains for Denotational Semantics",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Lars Warren Ericson"
+          }
+        ],
+        "relationship": "other",
+        "title": "A Lean 4 Formalization of Scott's Domains for Denotational Semantics (1982)",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/catskillsresearch/scott1972",
+        "note": "Same-author formalization of Scott 1972 Continuous Lattices. Not imported here. Palomar packaging follows that repository's Challenge / Solution pattern.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/catskillsresearch/scott1980",
+        "note": "Same-author formalization of Scott PRG-19 (1981); not imported here.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/catskillsresearch/scott_models",
+        "note": "Same-author sibling with cross-presentation equivalence theorems for Scott 1972 / 1980 / 1982. Not imported here.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/catskillsresearch/cardb",
+        "note": "Same-author Palomar template source; not imported here.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Lars Warren Ericson"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-08-24T18:41:07Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "d5a647db3757303b1d928cfae4d3d232eed3e79e",
+    "report": {
+      "sha256": "f018361252d8442d2377c7c08a5113caec1e86b64d4de4996435780fabc70c53"
+    },
+    "reviewed_at": "2026-08-24T18:21:58Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "d3221eec09505aa75e1b818aabc73f1f04339bdc",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "dc38100a5b3dfff2784761303e06b310fa28a308c37446f155e2733948084e6b"
+    },
+    "repository": "catskillsresearch/scott1982",
+    "repository_url": "https://github.com/catskillsresearch/scott1982",
+    "tree_url": "https://github.com/catskillsresearch/scott1982/tree/d3221eec09505aa75e1b818aabc73f1f04339bdc"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "6iklkpgihwqa"
+  },
+  "title": "catskillsresearch/scott1982",
+  "trust": {
+    "challenge_bytes": 15039,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Data.Finset.Basic",
+      "Mathlib.Data.Set.Basic",
+      "Mathlib.Order.Basic"
+    ],
+    "challenge_lines": 361,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "902267a2d5126b61e6856d0225a111e846d576f0a23e7c40b69927e61dfb6a35",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-24-000005-v1/e7cedb44121ec84e2932d43dad0e68059e9dce1e2f0f7a815570b886b569d54a/",
+    "evidence_tree_sha256": "e7cedb44121ec84e2932d43dad0e68059e9dce1e2f0f7a815570b886b569d54a",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "a3e35a584f59b390667db7269cd37fca8575e4bf",
+    "mechanical_report_sha256": "45b364bdefecdea13bc4b1010671f25142e5306021269db2d9257549a86132d3",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 32760083003,
+    "solution_sha256": "69c45ac6d825e4102a822e808c93f11a8de086eb61841dd0346cf1642cd96d04",
+    "verified_at": "2026-08-24T18:07:24Z",
+    "workflow_commit": "e215b184d1b659e8e3e641162a7d63708678016f",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/32760083003"
+  },
+  "version": 1
+}

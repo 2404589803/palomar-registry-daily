@@ -1,0 +1,466 @@
+{
+  "abstract": "A Lean 4 formalization, built on Mathlib, of the basic theory of locally convex topological vector spaces over the real or complex numbers. It covers barrelled, quasi-barrelled, bornological and ultrabornological spaces; the closed graph and open mapping theorems for barrelled spaces, and Pták's closed graph and open mapping theorems; duality theory with the bipolar, Alaoglu–Bourbaki, Mackey, Mackey–Arens, Banach–Dieudonné and Krein–Šmulian theorems and Grothendieck's completeness theorem; semi-reflexive, reflexive and Montel spaces with their permanence properties; completeness of strong duals; countable strict inductive limits, with the Dieudonné–Schwartz theorem; Milman's converse to the Krein–Milman theorem; and webbed spaces with De Wilde's closed graph and open mapping theorems. The Palomar entry compares 52 theorems from these areas; their statements and the notions they use are in Challenge.lean. The results are classical textbook and research results; the formalization proves them without sorry and without additional axioms.",
+  "authors": [
+    {
+      "name": "Bastiaan J. Braams"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-25-000007-v1/219385972e9d3d02c6e20f9105e34ace4247b98fb88dd8b255bd7978cdbfb1fd/",
+    "artifact_tree_sha256": "219385972e9d3d02c6e20f9105e34ace4247b98fb88dd8b255bd7978cdbfb1fd",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-09-25T07:11:57Z",
+    "renderer_commit": "a59f25bd8a66bf6faf3a4f4260d412989c0185ea",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.FA"
+    ],
+    "msc2020": [
+      "46A03",
+      "46A08",
+      "46A30",
+      "46A20",
+      "46A25",
+      "46A13",
+      "46A04"
+    ]
+  },
+  "first_registered_on": "2026-09-25",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "LeanLCS.barrelledSpace_iff_forall_isBarrel_mem_nhds",
+      "LeanLCS.barrelledSpace_iff_forall_equicontinuous",
+      "LeanLCS.LinearMap.continuous_of_isClosed_graph_of_barrelledSpace",
+      "LeanLCS.ContinuousLinearMap.isOpenMap_of_barrelledSpace",
+      "LeanLCS.LinearEquiv.continuous_symm_of_barrelledSpace",
+      "LeanLCS.locallyConvexFinalTopology.barrelledSpace",
+      "LeanLCS.Submodule.Quotient.instBarrelledSpace",
+      "LeanLCS.PtakSpace.of_completeSpace_firstCountableTopology",
+      "LeanLCS.LinearMap.continuous_of_isClosed_graph_of_infraPtakSpace",
+      "LeanLCS.ContinuousLinearMap.isOpenMap_of_ptakSpace",
+      "LeanLCS.StrongDual.bipolar_eq_self",
+      "LeanLCS.LinearMap.flip_polar_polar_eq_self",
+      "LeanLCS.WeakDual.isCompact_polar_of_mem_nhds",
+      "LeanLCS.Bornology.isVonNBounded_iff_forall_strongDual",
+      "LeanLCS.LinearMap.isCompatibleTopology_iff_mackeyTopology_le",
+      "LeanLCS.StrongDual.exists_isCompact_polar_subset",
+      "LeanLCS.StrongDual.isClosed_of_isAlmostWeakStarClosed",
+      "LeanLCS.StrongDual.completeSpace_iff_forall_exists_eq_apply",
+      "LeanLCS.CompactConvergenceCLM.exists_forall_apply_eq",
+      "LeanLCS.IsCompact.exists_isCompact_convex_balanced_superset",
+      "LeanLCS.IsCompact.extremePoints_closure_convexHull_subset_closure",
+      "LeanLCS.bornologicalSpace_iff_forall_mem_nhds_zero",
+      "LeanLCS.LinearMap.continuous_of_forall_isVonNBounded_image",
+      "LeanLCS.BornologicalSpace.of_firstCountableTopology",
+      "LeanLCS.UltrabornologicalSpace.of_completeSpace_firstCountableTopology",
+      "LeanLCS.UltrabornologicalSpace.toBarrelledSpace",
+      "LeanLCS.UltrabornologicalSpace.of_bornologicalSpace_of_quasiCompleteSpace",
+      "LeanLCS.locallyConvexFinalTopology.ultrabornologicalSpace",
+      "LeanLCS.quasiBarrelledSpace_iff_forall_equicontinuous",
+      "LeanLCS.reflexiveSpace_iff_semiReflexiveSpace_and_barrelledSpace",
+      "LeanLCS.semiReflexiveSpace_iff_forall_isVonNBounded",
+      "LeanLCS.semiReflexiveSpace_iff_mackeyTopology_le",
+      "LeanLCS.ReflexiveSpace.strongDual",
+      "LeanLCS.MontelSpace.reflexiveSpace",
+      "LeanLCS.MontelSpace.strongDual",
+      "LeanLCS.MontelSpace.barrelledSpace_strongDual",
+      "LeanLCS.ReflexiveSpace.submodule_of_quasiBarrelledSpace",
+      "LeanLCS.SemiReflexiveSpace.pi",
+      "LeanLCS.ReflexiveSpace.pi",
+      "LeanLCS.MontelSpace.pi",
+      "LeanLCS.QuasiBarrelledSpace.pi",
+      "LeanLCS.BornologicalSpace.completeSpace_strongDual",
+      "LeanLCS.QuasiBarrelledSpace.quasiCompleteSpace_strongDual",
+      "LeanLCS.SchwartzMap.instCompleteSpaceStrongDual",
+      "LeanLCS.TestFunction.instBornologicalSpace",
+      "LeanLCS.TestFunction.instCompleteSpaceStrongDual",
+      "LeanLCS.IsStrictInductiveLimit.exists_subset_range_of_isVonNBounded",
+      "LeanLCS.IsStrictInductiveLimit.completeSpace",
+      "LeanLCS.IsStrictInductiveLimit.reflexiveSpace",
+      "LeanLCS.IsStrictInductiveLimit.montelSpace",
+      "LeanLCS.LinearMap.continuous_of_isSeqClosed_graph_of_ultrabornologicalSpace",
+      "LeanLCS.LinearMap.isOpenMap_of_isSeqClosed_graph_of_ultrabornologicalSpace"
+    ]
+  },
+  "id": "PALOMAR-2026-09-25-000007",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-25T07:12:27Z",
+    "receipt_sha256": "3088a87b8c85a83bd3cb6cafc723155d09d3c5bf7d6471eb7d20f8eeba9d10e2",
+    "repositories": [
+      {
+        "commit": "d2a9c3112132820d7d1bf2fbc340a9db3cd6213a",
+        "fork_repository": "PalomarArchive/bjbraams--lean-LCS--5bcb86023edc",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000007-v1/d2a9c3112132820d7d1bf2fbc340a9db3cd6213a",
+        "source_repository": "bjbraams/lean-LCS"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000007-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000007-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000007-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000007-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000007-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000007-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000007-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000007-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-25-000007-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Helmut H. Schaefer"
+          },
+          {
+            "name": "Manfred P. Wolff"
+          }
+        ],
+        "identifier": "doi:10.1007/978-1-4612-1468-7",
+        "location": "Graduate Texts in Mathematics 3, Springer, 1999",
+        "relationship": "formalizes",
+        "title": "Topological Vector Spaces (second edition)",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Gottfried Köthe"
+          }
+        ],
+        "identifier": "doi:10.1007/978-3-642-64988-2",
+        "location": "Grundlehren der mathematischen Wissenschaften 159, Springer, 1983",
+        "relationship": "formalizes",
+        "title": "Topological Vector Spaces I",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Gottfried Köthe"
+          }
+        ],
+        "identifier": "doi:10.1007/978-1-4684-9409-9",
+        "location": "Grundlehren der mathematischen Wissenschaften 237, Springer, 1979",
+        "relationship": "formalizes",
+        "title": "Topological Vector Spaces II",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "N. Bourbaki"
+          }
+        ],
+        "identifier": "doi:10.1007/978-3-642-61715-7",
+        "location": "Elements of Mathematics, Springer, 1987",
+        "relationship": "formalizes",
+        "title": "Topological Vector Spaces, Chapters 1–5",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Lawrence Narici"
+          },
+          {
+            "name": "Edward Beckenstein"
+          }
+        ],
+        "identifier": "isbn:9781584888666",
+        "location": "Chapman and Hall/CRC, 2010",
+        "relationship": "background",
+        "title": "Topological Vector Spaces (second edition)",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Marc De Wilde"
+          }
+        ],
+        "location": "Pitman, 1978",
+        "relationship": "background",
+        "title": "Closed Graph Theorems and Webbed Spaces",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Vlastimil Pták"
+          }
+        ],
+        "location": "Bulletin de la Société Mathématique de France 86 (1958)",
+        "relationship": "background",
+        "title": "Completeness and the open mapping theorem",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "John B. Conway"
+          }
+        ],
+        "location": "Graduate Texts in Mathematics 96, Springer, 1990",
+        "relationship": "background",
+        "title": "A Course in Functional Analysis (second edition)",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Bill Casselman"
+          }
+        ],
+        "location": "University of British Columbia, 2016",
+        "relationship": "background",
+        "title": "Introduction to Topological Vector Spaces (lecture notes)",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4",
+        "note": "Extends Mathlib's library of locally convex spaces (seminorms, von Neumann bounded sets, barrelled spaces and Banach–Steinhaus, polars, weak and strong duals, Montel spaces, Hahn–Banach separation, Krein–Milman, test functions, Schwartz space). The new space classes are defined through seminorms in the style of Mathlib's BarrelledSpace.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/pull/26345",
+        "note": "Open Mathlib PR (C. Hoskin) proving the bipolar theorem for a pairing. The project's bipolar theorem was written after reading it; the statement is reformulated and the proof is organized differently. See the notes in LocallyConvexSpaces/Bipolar.lean.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/pull/41166",
+        "note": "Open Mathlib PRs #40983 and #41166 (K. H. Wilson) generalize the open mapping theorem to F-spaces. The project contains adapted duplicates of support lemmas of #40983, under the same names, and its successive-approximation argument follows the organization of the proof in #41166; see the notes in TopologicalVectorSpaces/Basic.lean and TopologicalGroups/NearlyOpen.lean.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/pull/26339",
+        "note": "Draft Mathlib PR (C. Hoskin) towards the Banach–Dieudonné lemma for normed spaces; the project proves it independently for first-countable topological vector spaces.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/pull/43747",
+        "note": "Open Mathlib PR (yuanyi-350) characterizing dense real submodules by annihilators; the project's Transpose.lean proves the pointwise statement over ℝ or ℂ independently.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/pull/34106",
+        "note": "Draft Mathlib PR (A. Dedecker) on quotient group seminorms; the project's QuotientSeminorm.lean is the independently obtained analogue for seminorms over a field.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/mrdouglasny/gaussian-field",
+        "note": "Independent Lean development (M. R. Douglas, Y. Tanimoto) of nuclear spaces and Gaussian measures on duals of nuclear Fréchet spaces; nuclear spaces are not treated in lean-LCS.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Bastiaan J. Braams"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-25T07:12:06Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "792c7c0b9e798bd02719e795ef11fa2b5929e067",
+    "report": {
+      "sha256": "707192a35884cf395247e9d0dec573b19ac01e877e2fe95344102fcc446d4952"
+    },
+    "reviewed_at": "2026-09-24T14:17:28Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "d2a9c3112132820d7d1bf2fbc340a9db3cd6213a",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "bjbraams/lean-LCS",
+    "repository_url": "https://github.com/bjbraams/lean-LCS",
+    "tree_url": "https://github.com/bjbraams/lean-LCS/tree/d2a9c3112132820d7d1bf2fbc340a9db3cd6213a"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "h4ujgzlqhr5m"
+  },
+  "title": "lean-LCS: locally convex spaces, duality, and closed graph theorems in Lean 4",
+  "trust": {
+    "challenge_bytes": 48639,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 860,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "2eaf7e12408b6267d5fb765b751ba9d9be4d98a8dd0a0a747ee4cba91ee06efc",
+    "evidence_path": "evidence/PALOMAR-2026-09-25-000007-v1/7f732eb4b78a59a50cb956b07d608c869901f245982d0383ca2ee4144adbedcf/",
+    "evidence_tree_sha256": "7f732eb4b78a59a50cb956b07d608c869901f245982d0383ca2ee4144adbedcf",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "1e531e85ccfd439b6c327d67e504263a589d84d8f05db06a155e1d6eaddd3e94",
+    "protected_config_sha256": "1dbeb35cd110205c110d07b46b72154a63ab7b4c4bac2881a13ad1dc7ac5d63b",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 36001378705,
+    "solution_sha256": "6e4de40fa08b7eb8fa788510e95f9860154d9765141fec7fe9f35abc8256a3dd",
+    "tool_digests": {
+      "bwrap": "d1e5e281639db3f5aa778a57b92f76837f4552c4ab896ddd6d378e9252bb6919",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-09-24T13:01:20Z",
+    "workflow_commit": "1703d7babd984ccc3831cdf89c28221abe34808f",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/36001378705"
+  },
+  "version": 1
+}

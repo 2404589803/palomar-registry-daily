@@ -1,0 +1,393 @@
+{
+  "abstract": "Construction of the massive Gaussian Free Field in Euclidean spacetime of any dimension d >= 2 as a probability measure on the tempered distributions S'(R^d), and a proof that it satisfies all of the Osterwalder-Schrader axioms: OS0 analyticity, OS1 regularity, OS2 Euclidean invariance, OS3 reflection positivity, and OS4 clustering and ergodicity. The OS axioms are the conditions under which a Euclidean field theory reconstructs a relativistic quantum field theory obeying the Wightman axioms, so the free field is the base case of constructive quantum field theory on which interacting constructions are built. The development is dimension-generic: one proof parameterized by d, consuming the free covariance only through a typeclass whose per-dimension input is a single closed-form radial kernel identified with the proper-time integral, with concrete instances at d = 2, 3, 4, 5. The result addresses three research audiences. In constructive quantum field theory, the free field satisfying OS0-OS4 is the base case (Glimm-Jaffe, ch. 6) on which interacting constructions such as P(phi)_2 and phi^4_3 are built, so a machine-checked base case is the reusable starting point for any formalized interacting construction. The analytic chain is proved rather than assumed: the Minlos theorem and the Hilbert-nuclearity of Schwartz space are consumed from the bochner and gaussian-field developments as theorems, nuclearity in the general form for Schwartz functions on any finite-dimensional real normed space, so every headline result depends on nothing beyond Lean's three foundational axioms. In stochastic quantization and singular SPDEs, the massive GFF constructed here is the reference Gaussian and the invariant measure of the free dynamics in every dimension treated. And for researchers formalizing quantum field theory in various dimensions, this is, to our knowledge, the first machine-checked verification of the Osterwalder-Schrader axioms — the literature search supporting that statement (scope, terms, dates, and the related-but-distinct work found) is documented in docs/novelty.md of this repository — with the dimension-generic propagator typeclass as the designed extension point for further covariances and dimensions.",
+  "authors": [
+    {
+      "name": "Sergey A. Cherkis"
+    },
+    {
+      "name": "Michael R. Douglas"
+    },
+    {
+      "name": "Sarah Hoback"
+    },
+    {
+      "name": "Anna Mei"
+    },
+    {
+      "name": "Ron Nissim"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-31-000012-v1/e6d7c171d8fe6767a47f8c29f7e7df07b97c047d12afe707d5c6ea890cc6bdb7/",
+    "artifact_tree_sha256": "e6d7c171d8fe6767a47f8c29f7e7df07b97c047d12afe707d5c6ea890cc6bdb7",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "rendered_at": "2026-08-31T14:32:02Z",
+    "renderer_commit": "704ece232c3b7845de2c14b8ecd9acd592d4654c",
+    "verso_commit": "6af30619664960f9c816b27157dff3ceb1500dcf"
+  },
+  "classification": {
+    "arxiv": [
+      "hep-th",
+      "math-ph"
+    ],
+    "msc2020": [
+      "81T08",
+      "81S40",
+      "60G60"
+    ]
+  },
+  "first_registered_on": "2026-08-31",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.33.0-rc1",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "OSforGFF",
+        "repository": "mrdouglasny/OSforGFF",
+        "revision": "fef84a82937dfd2bb7f672108a72da329d3ef0fd"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "79d0395a1825a6264ad5d269e35e60537518955e"
+      },
+      {
+        "name": "GaussianField",
+        "repository": "mrdouglasny/gaussian-field",
+        "revision": "ddb7102eb0515e420944b731ac66f8b4c29a9341"
+      },
+      {
+        "name": "BochnerMinlos",
+        "repository": "mrdouglasny/bochner",
+        "revision": "58405ecd328cf8383a1c0b53d37605fe61a0b3f6"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "b1c4a69a7e247ab7df20460212001673d74f08c0"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "18a90119a5d316358fde6c86e0ca24e59212e32c"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "b1436dc749e722c9920036b52cdc43b3451d0b69"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "57d3325be72a842920813bcb40f96a6f7393c185"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ee41917ae11d38479fb8fb24745f7ca4bf0a784d"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "31a49105f960721073a9adfc82b261f5d0f2ce1e"
+      },
+      {
+        "name": "kolmogorov_extension4",
+        "repository": "mrdouglasny/kolmogorov_extension4",
+        "revision": "45b4694ce1f7cd0fb0f00079510cd83c94e35a68"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "da07ca808b6718cb2aed14dba154e5a08b8f8ecf"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Challenge.gaussianFreeField_satisfies_OS_axioms"
+    ]
+  },
+  "id": "PALOMAR-2026-08-31-000012",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-08-31T14:32:37Z",
+    "receipt_sha256": "a460eb2a3056cd27884b80fc3fcfa5819c4a1d5a1c635331374f469736c4d47b",
+    "repositories": [
+      {
+        "commit": "57d3325be72a842920813bcb40f96a6f7393c185",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000012-v1/57d3325be72a842920813bcb40f96a6f7393c185",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "31a49105f960721073a9adfc82b261f5d0f2ce1e",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000012-v1/31a49105f960721073a9adfc82b261f5d0f2ce1e",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "18a90119a5d316358fde6c86e0ca24e59212e32c",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000012-v1/18a90119a5d316358fde6c86e0ca24e59212e32c",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000012-v1/c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "79d0395a1825a6264ad5d269e35e60537518955e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000012-v1/79d0395a1825a6264ad5d269e35e60537518955e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "b1c4a69a7e247ab7df20460212001673d74f08c0",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000012-v1/b1c4a69a7e247ab7df20460212001673d74f08c0",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "b1436dc749e722c9920036b52cdc43b3451d0b69",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000012-v1/b1436dc749e722c9920036b52cdc43b3451d0b69",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ee41917ae11d38479fb8fb24745f7ca4bf0a784d",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000012-v1/ee41917ae11d38479fb8fb24745f7ca4bf0a784d",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "da07ca808b6718cb2aed14dba154e5a08b8f8ecf",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000012-v1/da07ca808b6718cb2aed14dba154e5a08b8f8ecf",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "58405ecd328cf8383a1c0b53d37605fe61a0b3f6",
+        "fork_repository": "PalomarArchive/mrdouglasny--bochner--72b2dc293d6b",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000012-v1/58405ecd328cf8383a1c0b53d37605fe61a0b3f6",
+        "source_repository": "mrdouglasny/bochner"
+      },
+      {
+        "commit": "ddb7102eb0515e420944b731ac66f8b4c29a9341",
+        "fork_repository": "PalomarArchive/mrdouglasny--gaussian-field--3e3e3806dda5",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000012-v1/ddb7102eb0515e420944b731ac66f8b4c29a9341",
+        "source_repository": "mrdouglasny/gaussian-field"
+      },
+      {
+        "commit": "45b4694ce1f7cd0fb0f00079510cd83c94e35a68",
+        "fork_repository": "PalomarArchive/RemyDegenne--kolmogorov_extension4--24bff9d3fa3f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000012-v1/45b4694ce1f7cd0fb0f00079510cd83c94e35a68",
+        "source_repository": "mrdouglasny/kolmogorov_extension4"
+      },
+      {
+        "commit": "fef84a82937dfd2bb7f672108a72da329d3ef0fd",
+        "fork_repository": "PalomarArchive/mrdouglasny--OSforGFF--e6119b00e739",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000012-v1/fef84a82937dfd2bb7f672108a72da329d3ef0fd",
+        "source_repository": "mrdouglasny/OSforGFF"
+      },
+      {
+        "commit": "6e56a6f2a0fe01272492ae8c2ae3dd4fc5bc5901",
+        "fork_repository": "PalomarArchive/mrdouglasny--OSforGFF-comparator--e33f878203cf",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-31-000012-v1/6e56a6f2a0fe01272492ae8c2ae3dd4fc5bc5901",
+        "source_repository": "mrdouglasny/OSforGFF-comparator"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "James Glimm"
+          },
+          {
+            "name": "Arthur Jaffe"
+          }
+        ],
+        "identifier": "ISBN:978-0-387-96477-7",
+        "license": "proprietary",
+        "location": "ch. 6, pp. 89-90",
+        "relationship": "formalizes",
+        "title": "Quantum Physics: A Functional Integral Point of View",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Konrad Osterwalder"
+          },
+          {
+            "name": "Robert Schrader"
+          }
+        ],
+        "identifier": "10.1007/BF01645738",
+        "license": "proprietary",
+        "relationship": "formalizes",
+        "title": "Axioms for Euclidean Green's functions",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Konrad Osterwalder"
+          },
+          {
+            "name": "Robert Schrader"
+          }
+        ],
+        "identifier": "10.1007/BF01608978",
+        "license": "proprietary",
+        "relationship": "formalizes",
+        "title": "Axioms for Euclidean Green's functions II",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "I. M. Gel'fand"
+          },
+          {
+            "name": "N. Ya. Vilenkin"
+          }
+        ],
+        "identifier": "ISBN:978-1-4704-2662-5",
+        "license": "proprietary",
+        "relationship": "background",
+        "title": "Generalized Functions, Volume 4: Applications of Harmonic Analysis",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Michael Reed"
+          },
+          {
+            "name": "Barry Simon"
+          }
+        ],
+        "identifier": "ISBN:978-0-12-585002-5",
+        "license": "proprietary",
+        "relationship": "background",
+        "title": "Methods of Modern Mathematical Physics, Volume II: Fourier Analysis, Self-Adjointness",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/or4nge19/OSforGFF",
+        "note": "Fork by Matteo Cipollina pursuing an alternative measure-construction pipeline (finite-dimensional Gaussians -> Kolmogorov extension -> pushforward), avoiding the Minlos theorem.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "thin-wrapper",
+    "responsible_maintainers": [
+      {
+        "name": "Michael R. Douglas"
+      }
+    ],
+    "result_origin": "source-based",
+    "substantive_formalization": {
+      "commit": "fef84a82937dfd2bb7f672108a72da329d3ef0fd",
+      "repository": "mrdouglasny/OSforGFF",
+      "repository_url": "https://github.com/mrdouglasny/OSforGFF",
+      "tree_url": "https://github.com/mrdouglasny/OSforGFF/tree/fef84a82937dfd2bb7f672108a72da329d3ef0fd"
+    }
+  },
+  "registered_at": "2026-08-31T14:32:13Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "0f86ce126376c4a3af6a5a67364c0b3a492363ae",
+    "report": {
+      "sha256": "2b59d4c589ed12258948ef81f226bfaabc31617950276ffcfa785865380fab18"
+    },
+    "reviewed_at": "2026-08-31T14:09:13Z",
+    "reviewer_models": [
+      "codex:gpt-5.6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 3,
+  "source": {
+    "commit": "6e56a6f2a0fe01272492ae8c2ae3dd4fc5bc5901",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "375bd1c170a96855dc3177b9da61c46bb4dd92fbe54b6ca1e59c4dcf7ba2586b"
+    },
+    "repository": "mrdouglasny/OSforGFF-comparator",
+    "repository_url": "https://github.com/mrdouglasny/OSforGFF-comparator",
+    "tree_url": "https://github.com/mrdouglasny/OSforGFF-comparator/tree/6e56a6f2a0fe01272492ae8c2ae3dd4fc5bc5901"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "ggcapz2xaddg"
+  },
+  "title": "mrdouglasny/OSforGFF-comparator",
+  "trust": {
+    "challenge_bytes": 22764,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 399,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "challenge_sha256": "a4d6de55e2e181e6bc7b9ff06b4638d063bba319489b925ab6e8d9102c1c8937",
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "evidence_path": "evidence/PALOMAR-2026-08-31-000012-v1/da5f053dc10208d3e0f042b3a5c271c3e0c6b34bb7e8eb7d174afffc337e0b98/",
+    "evidence_tree_sha256": "da5f053dc10208d3e0f042b3a5c271c3e0c6b34bb7e8eb7d174afffc337e0b98",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "lean4export_commit": "af5aa64bb914c3c2c781f378088dbd38acf4f804",
+    "mechanical_report_sha256": "32a6803bf4d80b1c866776d1eb56bad246347f30cc32bc8ddddd037c9394ba26",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 33397189655,
+    "solution_sha256": "dd22c15af05a0256a9f6ca7c93e9ccaf496b0ecf22708de744923f722552b3c7",
+    "verified_at": "2026-08-31T13:42:41Z",
+    "workflow_commit": "704ece232c3b7845de2c14b8ecd9acd592d4654c",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/33397189655"
+  },
+  "version": 1
+}
