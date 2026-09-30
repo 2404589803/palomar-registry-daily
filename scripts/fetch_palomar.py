@@ -54,14 +54,16 @@ def thumbnail(path, title, subtitle, remote=None):
     return None
 
 def make_thumbnails(rows):
+    for old in (OUT/'thumbnails').rglob('*.svg') if (OUT/'thumbnails').exists() else []:
+        old.unlink()
     repos = set()
     for row in rows:
         ident = row['id']; repo = row.get('source', {}).get('repository')
-        thumbnail(OUT/'thumbnails'/'entries'/(ident+'.svg'), row.get('title', ident), repo or 'Lean formalization')
+        # Entry previews are only shown when a real image is available.
         if repo: repos.add(repo)
     for repo in repos:
         slug = re.sub(r'[^A-Za-z0-9_.-]+', '_', repo)
-        thumbnail(OUT/'thumbnails'/'repos'/(slug+'.svg'), repo, 'GitHub source repository', f'https://opengraph.githubassets.com/1/{repo}')
+        thumbnail(OUT/'thumbnails'/'repos'/(slug+'.png'), repo, 'GitHub source repository', f'https://opengraph.githubassets.com/1/{repo}')
     metadata = {}
     for repo in repos:
         try:
