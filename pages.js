@@ -50,7 +50,7 @@ Promise.all([
     const warnings = x.warnings || [];
     c.innerHTML = `
       <div class="page-eyebrow eyebrow">About the Archive</div>
-      <h1 class="page-title">Sync Notes</h1>
+      <h1 class="page-title">About</h1>
       <section class="panel">
         <h2>Data pipeline</h2>
         <p>GitHub Actions starts a daily sync at 10:15 China Standard Time. It fetches Palomar Registry result pages, recent records, previews, and source availability, then stores version indexes and fixed-version JSON for every result.</p>
@@ -117,3 +117,4 @@ Promise.all([
 }).catch(() => {
   $('#content').innerHTML = `<h1 class="page-title">Failed to load data</h1><p class="page-lead">Could not fetch <code>data/latest.json</code>. Please try again later.</p>`;
 });
+
