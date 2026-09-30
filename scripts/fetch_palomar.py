@@ -1,4 +1,5 @@
 import json, os, pathlib, urllib.parse, urllib.request, time, concurrent.futures, csv, hashlib
+import html, re
 from datetime import datetime, timezone
 
 BASE = os.environ.get("PALOMAR_BASE", "https://data.palomar-registry.org/")
@@ -38,6 +39,32 @@ def save(path, value):
     temp.write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding='utf-8')
     temp.replace(path)
 
+def thumbnail(path, title, subtitle, remote=None):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if remote:
+        try:
+            req = urllib.request.Request(remote, headers={'User-Agent':'palomar-daily-dashboard/2.0'})
+            with urllib.request.urlopen(req, timeout=20) as r:
+                data = r.read()
+            if len(data) > 1000:
+                path.with_suffix('.png').write_bytes(data)
+                return path.with_suffix('.png')
+        except Exception: pass
+    safe = lambda s: html.escape(str(s)[:72])
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#173d35"/><stop offset="1" stop-color="#3a9275"/></linearGradient></defs><rect width="640" height="360" rx="18" fill="url(#g)"/><circle cx="540" cy="70" r="140" fill="#fff" opacity=".08"/><text x="38" y="54" fill="#b9e8d2" font-family="Arial" font-size="14" letter-spacing="3">PALOMAR / LEAN VERIFIED</text><text x="38" y="170" fill="white" font-family="Arial" font-size="25" font-weight="700">{safe(title)}</text><text x="38" y="214" fill="#d6f4e6" font-family="Arial" font-size="16">{safe(subtitle)}</text><text x="38" y="320" fill="#b9e8d2" font-family="Arial" font-size="13">FORMAL MATHEMATICS ARCHIVE</text></svg>'''
+    path.write_text(svg, encoding='utf-8')
+    return path
+
+def make_thumbnails(rows):
+    repos = set()
+    for row in rows:
+        ident = row['id']; repo = row.get('source', {}).get('repository')
+        thumbnail(OUT/'thumbnails'/'entries'/(ident+'.svg'), row.get('title', ident), repo or 'Lean formalization')
+        if repo: repos.add(repo)
+    for repo in repos:
+        slug = re.sub(r'[^A-Za-z0-9_.-]+', '_', repo)
+        thumbnail(OUT/'thumbnails'/'repos'/(slug+'.svg'), repo, 'GitHub source repository', f'https://opengraph.githubassets.com/1/{repo}')
+
 def archive(row):
     ident = row['id']
     if not ident.startswith('PALOMAR-') or not all(c.isalnum() or c == '-' for c in ident): raise ValueError('Unsafe identifier')
@@ -58,6 +85,7 @@ def main():
         try: save(snap/name, get(name))
         except Exception as error: warnings.append({'path':name, 'error':str(error)})
     rows = payload['results']['entries']
+    make_thumbnails(rows)
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
         tasks = {pool.submit(archive, row):row['id'] for row in rows}
         for task in concurrent.futures.as_completed(tasks):
