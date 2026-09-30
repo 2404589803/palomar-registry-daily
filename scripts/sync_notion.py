@@ -18,7 +18,16 @@ def request(method, path, payload=None):
         detail = error.read().decode('utf-8', 'replace')
         raise RuntimeError(f'Notion API {error.code} {method} {path}: {detail[:2000]}') from error
 
-def rich(value): return [{'type':'text','text':{'content':str(value)[:2000]}}]
+def notion_trim(value, limit=2000):
+    """Trim rich text by UTF-16 code units, which is Notion's API limit."""
+    text = str(value or '')
+    if len(text.encode('utf-16-le')) // 2 <= limit:
+        return text
+    encoded = text.encode('utf-16-le')[:limit * 2]
+    # Avoid leaving a dangling high surrogate at the boundary.
+    return encoded.decode('utf-16-le', 'ignore')
+
+def rich(value): return [{'type':'text','text':{'content':notion_trim(value)}}]
 def props(row, day):
     ident, version = row['id'], int(row.get('version', 1)); title = row.get('title') or ident
     repo = row.get('source', {}).get('repository')
