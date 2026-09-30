@@ -64,6 +64,13 @@ def make_thumbnails(rows):
     for repo in repos:
         slug = re.sub(r'[^A-Za-z0-9_.-]+', '_', repo)
         thumbnail(OUT/'thumbnails'/'repos'/(slug+'.svg'), repo, 'GitHub source repository', f'https://opengraph.githubassets.com/1/{repo}')
+    metadata = {}
+    for repo in repos:
+        try:
+            req = urllib.request.Request(f'https://api.github.com/repos/{repo}', headers={'User-Agent':'palomar-daily-dashboard/2.0','Accept':'application/vnd.github+json'})
+            with urllib.request.urlopen(req, timeout=20) as response: metadata[repo] = json.load(response)
+        except Exception as error: metadata[repo] = {'full_name':repo,'html_url':f'https://github.com/{repo}','name':repo.split('/')[-1],'description':'GitHub source repository','avatar_url':'','stargazers_count':0,'forks_count':0,'error':str(error)}
+    save(OUT/'repository-metadata.json', metadata)
 
 def archive(row):
     ident = row['id']
