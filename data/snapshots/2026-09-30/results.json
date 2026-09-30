@@ -1,12 +1,66 @@
 {
   "schema_version": 1,
-  "revision": 67,
-  "release": "c22c320f55de4c1e3c8624131e632ddf3da9cf5db42e70beef3d4a219d44519b",
+  "revision": 68,
+  "release": "0d5cbf751e17bf7760616dbe1cad36d4afc1d97443b330cd562454a5f7740bec",
   "totals": {
-    "results": 364,
-    "projects": 286
+    "results": 365,
+    "projects": 287
   },
   "entries": [
+    {
+      "abbreviated": false,
+      "abstract": "The computational difficulty of D-stability, raised by Chen, Fan and Yu (1995, doi:10.1016/0167-6911(94)00036-U), is addressed by an explicit integer-matrix reduction from PARTITION. For positive weights of total 2T, the construction produces a matrix of order m + 4 that is D-stable exactly when no subset has weight T. When an equal split exists, some positive diagonal scaling has an eigenvalue with strictly positive real part. A Pell recursion supplies the parameters, with a logarithmic search bound and an explicit bound on every matrix entry. These bounds give polynomial binary output length. Together with the classical NP-completeness of PARTITION, the reduction yields coNP-hardness of D-stability and D-semistability, and NP-hardness of strict D-instability, even for a four-dimensional core with attachments at one coordinate.",
+      "authors": [
+        {
+          "name": "Michael Mislan"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.DS"
+        ],
+        "msc2020": [
+          "15A18",
+          "68Q17",
+          "93D09"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "DStabilityHardness.dStability_coNP_reduction",
+          "DStabilityHardness.partition_dichotomy"
+        ]
+      },
+      "id": "PALOMAR-2026-09-30-000019",
+      "path": "entries/PALOMAR-2026-09-30-000019-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "4bca0dc5b1d87d12e789cfc817b91db5a84dec37",
+            "fork_repository": "PalomarArchive/mmislan--palomar-p086-d-stability-conp-hard--e33c3a455fa7",
+            "source_repository": "mmislan/palomar-p086-d-stability-conp-hard"
+          }
+        ]
+      },
+      "preview": {
+        "artifact_tree_sha256": "5770a34393332e64461ee9b52b3ace5d33039dd1f0ae2af67e52c177b7421c55",
+        "version": 1
+      },
+      "published_at": "2026-09-30T06:03:55Z",
+      "source": {
+        "commit": "4bca0dc5b1d87d12e789cfc817b91db5a84dec37",
+        "project_path": null,
+        "repository": "mmislan/palomar-p086-d-stability-conp-hard"
+      },
+      "source_omitted": false,
+      "status": "registered",
+      "title": "Deciding D-stability is coNP-hard",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
     {
       "abbreviated": false,
       "abstract": "A Lean 4 and Mathlib proof that the 2-adic zeta value ζ₂(7) is irrational. The theorem has no hypotheses, and its proof uses only the axioms propext, Classical.choice and Quot.sound. The value is defined through the Volkenborn integral: zeta2 s = J(s−1)/((s−1)·2^s), where J(s) is the 2-adic limit of the Riemann sums 2^(−N) Σ_{x<2^N} (x+1/2)^(−s), so zeta2 7 = J(6)/768; the theorem also proves that these limits exist. By Lemma 2.8 of Lai, Sprang and Zudilin (IMRN 2026), zeta2 s is the Kubota–Leopoldt value ζ₂(s) = L₂(s, ω^(1−s)) for s ≥ 2. That identification is cited, not formalised; it only involves a non-zero rational factor, which does not affect irrationality. ζ₂(3) and ζ₂(5) are known to be irrational, and L. Lai (Int. J. Number Theory 2025) proved that at least one of ζ₂(7), ζ₂(9), ζ₂(11), ζ₂(13) is irrational; the theorem here implies that result and the two registered formalisations of the same maintainer for {ζ₂(7), ζ₂(9), ζ₂(11)} and {ζ₂(7), ζ₂(9)}. An unrefereed draft by C. D. Long claims, by a different method, that ζ₂(s) is irrational for every odd s with 3 ≤ s ≤ 29; it is not used here, and an internal review of it (docs/long_review.md) found a gap in its large-prime step, so we do not regard it as settling the question. No refereed proof that ζ₂(7) is irrational is known to us. The proof uses the linear forms S_n = ∫ R_n'''(t+1/2−n/2) dt = ρ_n + Z_n ζ₂(7) of the rational functions R_n(t) = (2t+n) Π_{m=1}^{6} Π_{c∈C_m} (t+1/2+c) / Π_{k=0}^{n} (t+k)^(a_k), with six nested well-poised numerator blocks C_m = [η_m n, (1−η_m) n − 1], η = (5, 7, 7, 9, 11, 13)/40, and pole orders a_k ∈ {1, 2, 3, 4} that ramp up from both ends; the evaluation at the centred point t + 1/2 − n/2 leaves ζ₂(7) as the only zeta value. The 2-adic size of S_n comes from Lai's and Sprang's Δ-calculus, and the size of the coefficients from residue-level Cauchy bounds and a certified maximum of an explicit potential. The odd part of the denominators is bounded by a residue-class analysis of the partial fractions (a class lemma, a kernel identity and per-pole bounds, evaluated on local models of the residue classes whose values are certified in Lean on finitely many intervals) and the prime number theorem, proved here from a vendored Lean proof of the Wiener–Ikehara theorem. If ζ₂(7) were rational, the valuations at the auxiliary prime ℓ = 19n/20 − 1 (an idea of Lai and Sprang) would make S_n non-zero for infinitely many n, and Lai's irrationality criterion gives the contradiction. The mathematics and the Lean code were produced by AI agents under human direction and have not been refereed.",
@@ -21486,7 +21540,7 @@
       "versions": 3
     }
   ],
-  "previous": "eyJyZXZpc2lvbiI6NjcsInF1ZXJ5IjoiZGFjNDJjMDY1NWQzZGNjMGVlYzcxYTU4OWY0NzMwM2I5OTQ0MmY3ZjRiZTBjZGI3NGRiOWVjODJkN2Q3ZWM3NSIsImRpcmVjdGlvbiI6InByZXZpb3VzIiwiZGF0ZSI6IjIwMjYtMDgtMjBUMDA6MjM6MjNaIiwiaWQiOiJQQUxPTUFSLTIwMjYtMDgtMTMtMDAwMDAxIn0=",
+  "previous": "eyJyZXZpc2lvbiI6NjgsInF1ZXJ5IjoiZGFjNDJjMDY1NWQzZGNjMGVlYzcxYTU4OWY0NzMwM2I5OTQ0MmY3ZjRiZTBjZGI3NGRiOWVjODJkN2Q3ZWM3NSIsImRpcmVjdGlvbiI6InByZXZpb3VzIiwiZGF0ZSI6IjIwMjYtMDgtMjBUMDA6MzY6NTFaIiwiaWQiOiJQQUxPTUFSLTIwMjYtMDgtMjAtMDAwMDAyIn0=",
   "next": null,
   "dropped": [],
   "message": null,
