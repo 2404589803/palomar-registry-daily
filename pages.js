@@ -2,7 +2,10 @@
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-fetch('data/latest.json').then(r => r.json()).then(x => {
+Promise.all([
+  fetch('data/latest.json').then(r => r.json()),
+  fetch('data/repository-metadata.json').then(r => r.json()).catch(() => ({}))
+]).then(([x, repos]) => {
   const c = $('#content');
   const p = location.pathname.split('/').pop() || 'index.html';
   const entries = x.results.entries || [];
@@ -68,27 +71,48 @@ fetch('data/latest.json').then(r => r.json()).then(x => {
       return;
     }
     const repo = r.source?.repository;
+    const m = repo ? (repos[repo] || {}) : {};
     const slug = (repo || '').replace(/[^A-Za-z0-9_.-]+/g, '_');
     const theorems = r.formalization?.theorem_names || [];
+    const tagList = [...(r.classification?.arxiv || []), ...(r.classification?.msc2020 || [])];
     document.title = `${r.title} · Palomar Observatory`;
     c.innerHTML = `
       <div class="page-eyebrow eyebrow">${esc(r.id)}</div>
-      <h1 class="page-title">${esc(r.title)}</h1>
-      <p class="page-lead">${esc(r.abstract || '')}</p>
-      ${repo ? `<p><a href="https://github.com/${esc(repo)}" target="_blank" rel="noopener"><img class="detail-repo-thumb" src="data/thumbnails/repos/${slug}.png" alt="GitHub repository thumbnail" onerror="this.remove()"></a></p>` : ''}
-      <div class="detail-meta">
-        <div class="meta-item"><small>Authors</small><b>${esc((r.authors || []).map(a => a.name).join(', ') || 'Unknown')}</b></div>
-        <div class="meta-item"><small>Version</small><b>${esc(r.version ?? '—')}</b></div>
-        <div class="meta-item"><small>Status</small><b>${esc(r.status || '—')}</b></div>
-        <div class="meta-item"><small>Registered</small><b>${esc(r.published_at || '—')}</b></div>
-      </div>
-      <section class="panel">
-        <h2>Formal theorems</h2>
-        <div class="theorem-list">${theorems.map(t => `<code>${esc(t)}</code>`).join('') || '<p>Not provided.</p>'}</div>
-        <h2>Source</h2>
-        <pre>${esc(JSON.stringify({ source: r.source, preservation: r.preservation, preview: r.preview }, null, 2))}</pre>
-        <p><a class="btn-primary" style="display:inline-block;padding:10px 18px;border-radius:10px" href="data/${esc(r.path)}" download>Download raw record JSON ↓</a></p>
-      </section>`;
+      <h1 class="detail-title">${esc(r.title)}</h1>
+      <div class="tags" style="margin:6px 0 28px">${tagList.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+      <div class="detail-layout">
+        <div class="detail-main">
+          <section class="panel">
+            <h2>Abstract</h2>
+            <p class="abstract-full">${esc(r.abstract || 'No abstract available.')}</p>
+          </section>
+          <section class="panel">
+            <h2>Formal theorems <span class="tag">${theorems.length}</span></h2>
+            <div class="theorem-list">${theorems.map(t => `<code>${esc(t)}</code>`).join('') || '<p>Not provided.</p>'}</div>
+          </section>
+          <section class="panel">
+            <h2>Source</h2>
+            <pre>${esc(JSON.stringify({ source: r.source, preservation: r.preservation, preview: r.preview }, null, 2))}</pre>
+          </section>
+        </div>
+        <aside class="detail-side">
+          <div class="panel side-card">
+            <div class="side-meta"><small>Authors</small><b>${esc((r.authors || []).map(a => a.name).join(', ') || 'Unknown')}</b></div>
+            <div class="side-meta"><small>Version</small><b>${esc(r.version ?? '—')}</b></div>
+            <div class="side-meta"><small>Status</small><b>${esc(r.status || '—')}</b></div>
+            <div class="side-meta"><small>Trust level</small><b>${esc(r.trust?.level || '—')}</b></div>
+            <div class="side-meta"><small>Registered</small><b>${esc(r.published_at || '—')}</b></div>
+          </div>
+          ${repo ? `<a class="github-card" href="${esc(m.html_url || ('https://github.com/' + repo))}" target="_blank" rel="noopener">
+            <img src="data/thumbnails/repos/${slug}.png" alt="GitHub repository preview" onerror="this.remove()">
+            <b>${esc(m.full_name || repo)}</b>
+            <span>${esc(m.description || 'Source repository')}</span>
+            <small>★ ${m.stargazers_count || 0} · Forks ${m.forks_count || 0}</small>
+          </a>` : ''}
+          <a class="btn-primary download-btn" href="data/${esc(r.path)}" download>Download raw record JSON ↓</a>
+          <a class="back-link" href="index.html">← Back to the registry</a>
+        </aside>
+      </div>`;
   }
 }).catch(() => {
   $('#content').innerHTML = `<h1 class="page-title">Failed to load data</h1><p class="page-lead">Could not fetch <code>data/latest.json</code>. Please try again later.</p>`;
