@@ -1,0 +1,309 @@
+{
+  "abstract": "A Lean 4 and Mathlib formalization of the Four Color Theorem, ported from Georges Gonthier's Coq proof by Claude Opus 5.5, Anthropic's AI model, working as an agent under the direction of Robert D. Barish. The main theorem, FourColor.RealPlane.four_color, states that every simple map of the real plane can be colored with at most four colors so that adjacent regions get different colors. The map may have infinitely many regions, bounded or not; each region must be open and connected, and two regions are adjacent when their closures share a point that lies in the closure of no third region. As in Coq, a compactness argument reduces the theorem to finite maps, which are turned into planar bridgeless hypermaps. A smallest hypermap that cannot be four-colored cannot exist: discharging shows that it would contain one of the 633 configurations of Robertson, Sanders, Seymour and Thomas, and each of these is reducible.\nThe port differs from the Coq proof in three main ways. Its statement uses Mathlib's real numbers rather than an arbitrary model of Coq's axiomatized reals; the two are equivalent, because all such models are isomorphic and the definitions use only the order. Coq checks that the 633 configurations are reducible with a procedure on trees of colorings, run by its virtual machine. The port replaces it with a new bit-parallel engine whose certificates, generated during the build, are checked by the Lean kernel itself. Finally, the case analysis of the unavoidability proof, written as tactic scripts in Coq, becomes case trees checked by a checker proved correct once. Every computation is carried out by the Lean kernel, without native_decide, and the proof uses only the axioms propext, Classical.choice and Quot.sound.",
+  "authors": [
+    {
+      "name": "Robert D. Barish"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-27-000005-v1/e5a1dae1b407b8611fa4b863cdf4205c3e8b1a0d83468a053f9ded87631963e2/",
+    "artifact_tree_sha256": "e5a1dae1b407b8611fa4b863cdf4205c3e8b1a0d83468a053f9ded87631963e2",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-09-27T01:43:04Z",
+    "renderer_commit": "a59f25bd8a66bf6faf3a4f4260d412989c0185ea",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C15",
+      "05C10",
+      "68V20",
+      "68V15"
+    ]
+  },
+  "first_registered_on": "2026-09-27",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "FourColor.RealPlane.four_color"
+    ]
+  },
+  "id": "PALOMAR-2026-09-27-000005",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-27T01:43:34Z",
+    "receipt_sha256": "fca9d2cd7ff89f2297c4d646e85fc7978c9abd0e706b75030258737255b67e97",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-27-000005-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-27-000005-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-27-000005-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-27-000005-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-27-000005-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-27-000005-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-27-000005-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-27-000005-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-27-000005-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "20fa34599f5189dd569d96dd22f306c94ab1c446",
+        "fork_repository": "PalomarArchive/RBarish-UTokyo--FourColorTheorem-Lean4--2ebb41eff675",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-27-000005-v1/20fa34599f5189dd569d96dd22f306c94ab1c446",
+        "source_repository": "RBarish-UTokyo/FourColorTheorem-Lean4"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Neil Robertson"
+          },
+          {
+            "name": "Daniel P. Sanders"
+          },
+          {
+            "name": "Paul Seymour"
+          },
+          {
+            "name": "Robin Thomas"
+          }
+        ],
+        "identifier": "doi:10.1006/jctb.1997.1750",
+        "location": "Journal of Combinatorial Theory, Series B 70 (1997), 2-44",
+        "relationship": "formalizes",
+        "title": "The four-colour theorem",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Georges Gonthier"
+          }
+        ],
+        "identifier": "https://www.ams.org/notices/200811/tx081101382p.pdf",
+        "license": "CeCILL-B (the Coq development)",
+        "location": "Notices of the American Mathematical Society 55(11) (2008), 1382-1393",
+        "relationship": "adapts",
+        "title": "Formal Proof—The Four-Color Theorem",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/math-comp/fourcolor",
+        "note": "The Coq/Rocq formal proof by Georges Gonthier et al. (Microsoft Research and Inria, CeCILL-B; now maintained as coq-community/fourcolor), ported from commit c1d6b1cd5288bea4b067aac13cdde3c18dffe018. Definitions, statements, proof structure and the combinatorial data are translated; the tree-based reducibility decision procedure is replaced by a new kernel-checkable engine (see fidelity.divergences).",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/corun1024/4ct",
+        "note": "Chris Emery's Lean 4 formalization of the same statement, public before this one: complete, also following Gonthier and Werner's proof, and also written mostly by AI (Claude Fable 5.1). Its reducibility certificates are produced before the Lean build by C and Python programs and are not in its repository (the kernel checks them). Here every file of the proof is Lean source in the repository, and the certificates are computed by Lean code during the build, so the Lean toolchain alone builds and checks the proof. README.md (\"Other formalizations\") lists the other differences.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Robert D. Barish"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-27T01:43:13Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "792c7c0b9e798bd02719e795ef11fa2b5929e067",
+    "report": {
+      "sha256": "4d5d46336cbc81b114e433256bf0bac8b5ae1133bfe73a64dc0caef809e36ea6"
+    },
+    "reviewed_at": "2026-09-26T18:39:41Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "20fa34599f5189dd569d96dd22f306c94ab1c446",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "RBarish-UTokyo/FourColorTheorem-Lean4",
+    "repository_url": "https://github.com/RBarish-UTokyo/FourColorTheorem-Lean4",
+    "tree_url": "https://github.com/RBarish-UTokyo/FourColorTheorem-Lean4/tree/20fa34599f5189dd569d96dd22f306c94ab1c446"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "dx4ermp3zyoj"
+  },
+  "title": "The Four Color Theorem (Lean 4 port of Gonthier's Coq proof)",
+  "trust": {
+    "challenge_bytes": 10070,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Basic.Real.Basic"
+    ],
+    "challenge_lines": 220,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "1a61cc9d98f62dd14682c7e769da1ef181d4b725087214753c66ea046e0106b1",
+    "evidence_path": "evidence/PALOMAR-2026-09-27-000005-v1/fff13682da7ab6ec118fb31423a4cf31603e945455c536c5a3ebdd95d1cc4c82/",
+    "evidence_tree_sha256": "fff13682da7ab6ec118fb31423a4cf31603e945455c536c5a3ebdd95d1cc4c82",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "4c023f64f358e428e1bf2ff494ff0f21bd1fd109511ef63e0985d065cb879dea",
+    "protected_config_sha256": "b88d5cf3ea25f838b5183127ce1a65439177086fbb896d0a944e6a57f007cb29",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 36255138236,
+    "solution_sha256": "06160d58e9e7b0ebceee58dfec5488c60913aa44be148137acc090cf3c27be71",
+    "tool_digests": {
+      "bwrap": "206cbb6ef2aef0d047b853a80ed0aa55419804b7db092f2e66f7233b71d1e0ea",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-09-26T18:31:32Z",
+    "workflow_commit": "a59f25bd8a66bf6faf3a4f4260d412989c0185ea",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/36255138236"
+  },
+  "version": 1
+}

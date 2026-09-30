@@ -1,0 +1,447 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of B. Adamczewski and Y. Bugeaud, On the complexity of algebraic numbers I. Expansions in integer bases (Ann. of Math. 165 (2007)), built on the repository's libraries ArithmeticHeights, DiophantineApproximation and ForMathlib, whose Subspace Theorem with algebraic coefficients it uses. The library AdamczewskiBugeaud2007 is sorry-free and within Lean's three standard axioms. It proves Theorem 1 (the complexity of an irrational algebraic number in an integer base satisfies p(n)/n → ∞, with (1), p(n) − n → ∞), Theorems 2–4 (automatic and morphic expansions), Theorem 5 in full (β Pisot or Salem, bounded integer digits satisfying Condition (∗)_w: the number lies in ℚ(β) or is transcendental), Lemma 1, Theorems 1A–5A on β-expansions with K. Schmidt's periodicity theorem, and the p-adic Theorems 6 and 1B–4B, together with the finite automata and morphisms of §3, and Theorem 7 in corrected form (u_k < min(b, p)) with Christol's theorem (algebraic ⇒ automatic) and a counterexample to Theorem 7 as printed. The counterexample and the corrected hypothesis were worked out during this formalization, not taken from the cited works (see limitations). Thirty-two statements are compared.",
+  "authors": [
+    {
+      "name": "Ralf Stephan"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-30-000010-v1/98beaa963f9adc317d2bb3eda8d316eb0ff10662c88cb0b5be340327be58a1e6/",
+    "artifact_tree_sha256": "98beaa963f9adc317d2bb3eda8d316eb0ff10662c88cb0b5be340327be58a1e6",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-09-30T02:38:12Z",
+    "renderer_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11J81",
+      "11A63",
+      "11K16",
+      "11R06",
+      "68R15"
+    ]
+  },
+  "first_registered_on": "2026-09-30",
+  "formalization": {
+    "challenge_path": "ChallengeAdamczewskiBugeaud2007.lean",
+    "comparator_config_path": "comparator/adamczewski-bugeaud-2007.json",
+    "definition_names": [],
+    "formalization_metadata_path": "AdamczewskiBugeaud2007/formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "comparator",
+        "repository": "leanprover/comparator",
+        "revision": "fd5d5bcf14177b187f66d4502071268d877887c3"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "5e0c4e5239cb0a2d86d68a884bf52cfd963fce22"
+      },
+      {
+        "name": "lean4export",
+        "repository": "leanprover/lean4export",
+        "revision": "66f1fb4bc256072069767fce52d39480e4524869"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "33131f4fb10067cb3009bf4db615d9680c1ccd6b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "SolutionAdamczewskiBugeaud2007.lean",
+    "theorem_names": [
+      "Real.tendsto_complexity_div_atTop",
+      "Real.tendsto_complexity_sub_atTop",
+      "Real.transcendental_ofDigits_of_isGeneratedByAutomaton",
+      "Real.transcendental_ofDigits_of_isAutomatic",
+      "Real.transcendental_ofDigits_of_isGeneratedByMorphism",
+      "Real.transcendental_ofDigits_of_isGeneratedByMorphism_of_isRecurrent",
+      "Function.finite_kKernel_iff_isGeneratedByAutomaton",
+      "Function.IsAutomatic.exists_complexity_le",
+      "Function.IsAutomatic.isStammering",
+      "Real.abs_sub_le_of_periodic",
+      "Real.mem_adjoin_of_isStammering",
+      "Real.mem_adjoin_or_transcendental_of_isPisot",
+      "Real.mem_adjoin_or_transcendental_of_isSalem",
+      "Real.tsum_mem_adjoin_of_isEventuallyPeriodic",
+      "Real.tendsto_complexity_betaDigitsFin_div_atTop",
+      "Real.not_isGeneratedByAutomaton_betaDigitsFin",
+      "Real.not_isAutomatic_betaDigitsFin",
+      "Real.not_isGeneratedByMorphism_of_betaDigits",
+      "Real.not_isGeneratedByMorphism_betaDigitsFin_of_isRecurrent",
+      "Real.isEventuallyPeriodic_betaDigits_of_mem_adjoin",
+      "Real.transcendental_of_isStammering_betaDigits",
+      "Padic.transcendental_of_isStammering_henselDigits",
+      "Padic.transcendental_ofDigits_of_isStammering",
+      "Padic.tendsto_complexity_henselDigits_div_atTop",
+      "Padic.tendsto_complexity_div_atTop",
+      "Padic.transcendental_ofDigits_of_isAutomatic",
+      "Padic.transcendental_ofDigits_of_isGeneratedByMorphism",
+      "Padic.transcendental_ofDigits_of_isGeneratedByMorphism_of_isRecurrent",
+      "PowerSeries.finite_kKernel_coeff_of_isAlgebraic",
+      "Real.isAlgebraic_and_isAlgebraic_iff",
+      "exists_counterexample_theorem7",
+      "not_forall_theorem7_as_printed"
+    ]
+  },
+  "id": "PALOMAR-2026-09-30-000010",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-30T02:38:49Z",
+    "receipt_sha256": "22f04cd2b03b0bef5a0b591f7f548c6de65a6faa74556802fc6d9c4e29bb99d3",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000010-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "33131f4fb10067cb3009bf4db615d9680c1ccd6b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000010-v1/33131f4fb10067cb3009bf4db615d9680c1ccd6b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000010-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000010-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "5e0c4e5239cb0a2d86d68a884bf52cfd963fce22",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000010-v1/5e0c4e5239cb0a2d86d68a884bf52cfd963fce22",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000010-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000010-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000010-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "fd5d5bcf14177b187f66d4502071268d877887c3",
+        "fork_repository": "PalomarArchive/leanprover--comparator--25495a50215b",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000010-v1/fd5d5bcf14177b187f66d4502071268d877887c3",
+        "source_repository": "leanprover/comparator"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000010-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "66f1fb4bc256072069767fce52d39480e4524869",
+        "fork_repository": "PalomarArchive/leanprover--lean4export--94a894d77e17",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000010-v1/66f1fb4bc256072069767fce52d39480e4524869",
+        "source_repository": "leanprover/lean4export"
+      },
+      {
+        "commit": "ce289c64054c8ffcfb6fd37d5881312c6a5d577d",
+        "fork_repository": "PalomarArchive/rwst--Subspace-Theorems--9bd9bba330e8",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000010-v1/ce289c64054c8ffcfb6fd37d5881312c6a5d577d",
+        "source_repository": "rwst/Subspace-Theorems"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Boris Adamczewski"
+          },
+          {
+            "name": "Yann Bugeaud"
+          }
+        ],
+        "location": "Ann. of Math. (2) 165 (2007), 547–565; arXiv:math/0511674. Theorems 1–6, 1A–5A, 1B–4B, Lemma 1, (1), and the facts of §§3–5 it quotes",
+        "relationship": "formalizes",
+        "title": "On the complexity of algebraic numbers I. Expansions in integer bases",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Klaus Schmidt"
+          }
+        ],
+        "location": "Bull. London Math. Soc. 12 (1980), 269–278; the Pisot case",
+        "relationship": "formalizes",
+        "title": "On periodic expansions of Pisot numbers and Salem numbers",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Gilles Christol"
+          },
+          {
+            "name": "Teturo Kamae"
+          },
+          {
+            "name": "Michel Mendès France"
+          },
+          {
+            "name": "Gérard Rauzy"
+          }
+        ],
+        "location": "Bull. Soc. Math. France 108 (1980), 401–419; Théorème 1, (iii) ⇒ (i), proof in §7",
+        "relationship": "formalizes",
+        "title": "Suites algébriques, automates et substitutions",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Boris Adamczewski"
+          }
+        ],
+        "location": "Habilitation, Université Lyon 1, 2010, §7.2, Théorème 7.1",
+        "relationship": "background",
+        "title": "Une approche arithmétique des systèmes de numération",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ralf Stephan"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-30T02:38:23Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "a8c3a004f1676b6b649728ef4260898b9fb57f7bd741067849c1429f7fe1268f"
+    },
+    "reviewed_at": "2026-09-28T15:57:15Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "ce289c64054c8ffcfb6fd37d5881312c6a5d577d",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "rwst/Subspace-Theorems",
+    "repository_url": "https://github.com/rwst/Subspace-Theorems",
+    "tree_url": "https://github.com/rwst/Subspace-Theorems/tree/ce289c64054c8ffcfb6fd37d5881312c6a5d577d"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "fvej1zw7rubx"
+  },
+  "title": "Adamczewski–Bugeaud 2007: the complexity of algebraic numbers in integer bases",
+  "trust": {
+    "challenge_bytes": 22529,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.FiniteSupport.Basic",
+      "Mathlib.Algebra.Module.LinearMap.Rat",
+      "Mathlib.Algebra.Module.ZLattice.Basic",
+      "Mathlib.Algebra.Module.ZLattice.Covolume",
+      "Mathlib.Algebra.MvPolynomial.Coeff",
+      "Mathlib.Algebra.MvPolynomial.Funext",
+      "Mathlib.Algebra.MvPolynomial.NoZeroDivisors",
+      "Mathlib.Algebra.Order.Antidiag.FinsuppEquiv",
+      "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+      "Mathlib.Algebra.Order.Ring.IsNonarchimedean",
+      "Mathlib.Analysis.AbsoluteValue.Equivalence",
+      "Mathlib.Analysis.Complex.ExponentialBounds",
+      "Mathlib.Analysis.InnerProductSpace.Adjoint",
+      "Mathlib.Analysis.Matrix.LDL",
+      "Mathlib.Analysis.MeanInequalitiesPow",
+      "Mathlib.Analysis.Normed.Algebra.GelfandMazur",
+      "Mathlib.Analysis.Normed.Field.Instances",
+      "Mathlib.Analysis.Polynomial.MahlerMeasure",
+      "Mathlib.Analysis.Real.OfDigits",
+      "Mathlib.Analysis.SpecialFunctions.Log.PosLog",
+      "Mathlib.Data.Finsupp.Interval",
+      "Mathlib.Data.Finsupp.MonomialOrder",
+      "Mathlib.Data.Fintype.Pigeonhole",
+      "Mathlib.Data.List.Infix",
+      "Mathlib.Data.Matrix.ColumnRowPartitioned",
+      "Mathlib.Data.Set.Card",
+      "Mathlib.Data.Set.Finite.Range",
+      "Mathlib.LinearAlgebra.ExteriorPower.Basis",
+      "Mathlib.LinearAlgebra.LinearIndependent.BaseChange",
+      "Mathlib.LinearAlgebra.Matrix.Rank",
+      "Mathlib.MeasureTheory.Group.GeometryOfNumbers",
+      "Mathlib.MeasureTheory.Measure.Haar.Disintegration",
+      "Mathlib.MeasureTheory.Measure.Haar.Unique",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls",
+      "Mathlib.NumberTheory.DiophantineApproximation.Basic",
+      "Mathlib.NumberTheory.Height.MvPolynomial",
+      "Mathlib.NumberTheory.Height.NumberField",
+      "Mathlib.NumberTheory.Height.Projectivization",
+      "Mathlib.NumberTheory.NumberField.CanonicalEmbedding.Basic",
+      "Mathlib.NumberTheory.NumberField.ClassNumber",
+      "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+      "Mathlib.NumberTheory.NumberField.Completion.InfinitePlace",
+      "Mathlib.NumberTheory.NumberField.Completion.Ramification",
+      "Mathlib.NumberTheory.NumberField.Discriminant.Basic",
+      "Mathlib.NumberTheory.NumberField.House",
+      "Mathlib.NumberTheory.NumberField.Units.DirichletTheorem",
+      "Mathlib.NumberTheory.NumberField.Units.Regulator",
+      "Mathlib.NumberTheory.Ostrowski",
+      "Mathlib.NumberTheory.Padics.PadicNumbers",
+      "Mathlib.NumberTheory.Padics.RingHoms",
+      "Mathlib.NumberTheory.Real.GoldenRatio",
+      "Mathlib.NumberTheory.Real.Irrational",
+      "Mathlib.NumberTheory.Transcendental.Liouville.LiouvilleNumber",
+      "Mathlib.NumberTheory.Transcendental.Liouville.LiouvilleWith",
+      "Mathlib.Order.Filter.AtTopBot.Basic",
+      "Mathlib.RingTheory.Complex",
+      "Mathlib.RingTheory.DedekindDomain.SInteger",
+      "Mathlib.RingTheory.DedekindDomain.SelmerGroup",
+      "Mathlib.RingTheory.Ideal.Norm.RelNorm",
+      "Mathlib.RingTheory.Polynomial.GaussNorm",
+      "Mathlib.RingTheory.Polynomial.Wronskian",
+      "Mathlib.RingTheory.PowerSeries.Expand",
+      "Mathlib.RingTheory.PowerSeries.Inverse",
+      "Mathlib.RingTheory.PowerSeries.NoZeroDivisors",
+      "Mathlib.RingTheory.PowerSeries.WellKnown",
+      "Mathlib.Tactic.LinearCombination",
+      "Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean",
+      "Mathlib.Topology.Compactification.OnePoint.Basic"
+    ],
+    "challenge_lines": 483,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "f7acc13dd0f6a8fc427b160a9214f117796a418521b33bfee85bac6fd41e9754",
+    "evidence_path": "evidence/PALOMAR-2026-09-30-000010-v1/3b5b223b155d0c8afcb362fc89e9ade61fc6f727017eb634824fd998bda93183/",
+    "evidence_tree_sha256": "3b5b223b155d0c8afcb362fc89e9ade61fc6f727017eb634824fd998bda93183",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/con-ron"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "0c4d32252e8824f2c07092005d21b08a8125731df5881596fb15998bca9fbebd",
+    "protected_config_sha256": "4df814b6d440edc5db895a8c712a778a9c22687f42fa5a1386ca6ce721f79c8b",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 36443974065,
+    "solution_sha256": "2f54573baadda1e911f77e5ebff9f2ab47c74c890e425217131e0c1dc6624cc5",
+    "tool_digests": {
+      "bwrap": "6c59e672c31b1df6373a6766d0112f071dc7c50fc20949a6084a94cb99d459af",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-09-28T15:39:27Z",
+    "workflow_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/36443974065"
+  },
+  "version": 1
+}

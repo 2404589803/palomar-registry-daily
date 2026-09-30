@@ -1,0 +1,434 @@
+{
+  "abstract": "A Lean 4 and Mathlib proof that at least one of the eight values ζ(7), ζ(9), ζ(11), ζ(13), ζ(15), ζ(17), ζ(19), ζ(21) of the Riemann zeta function is irrational. The statement uses only Mathlib's riemannZeta, the theorem has no hypotheses, and its proof uses only the axioms propext, Classical.choice and Quot.sound. The shortest list of odd zeta values starting at ζ(7) that our literature search found proved to contain an irrational number was ζ(7), ζ(9), …, ζ(35) (W. Zudilin, Math. Notes 2001). The proof uses the very-well-poised linear forms of Zudilin (J. Théor. Nombres Bordeaux 2004, §8) with five derivatives, 23 factors and the direction vector η₀ = 160, η = (47, 47, 47, 47, 48, 50, 50, 51, 52, …, 66); they are linear forms in 1, ζ(7), ζ(9), …, ζ(21) with rational coefficients. Zudilin anticipated such an improvement but could not prove the asymptotics of his forms (his Lemma 20) for more than three derivatives. The proof here does not need them. The denominators of the coefficients are bounded by Zudilin's arithmetic lemma, the prime number theorem (proved from a vendored Lean proof of the Wiener–Ikehara theorem) and a kernel-checked table of 2602 pieces of Zudilin's function φ. For large n the forms are bounded by e^(−748.1n), through a contour integral on a fixed vertical line, pointwise estimates and certified numerical inequalities, without saddle-point analysis. They are non-zero if the eight values are rational, because at the auxiliary primes ℓ = 63n − 1, of which there are infinitely many by Dirichlet's theorem, the constant term has ℓ-adic valuation −5 while the coefficients of the zeta values are ℓ-integral. The theorem does not say which value is irrational. The mathematics and the Lean code were produced by AI agents under human direction and have not been refereed.",
+  "authors": [
+    {
+      "name": "Gennaro Marco Devincenzis"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-30-000007-v1/ec4663ad1b36c82008e8ab7395492c49f7fac7798e74417cbec753dd62d1959e/",
+    "artifact_tree_sha256": "ec4663ad1b36c82008e8ab7395492c49f7fac7798e74417cbec753dd62d1959e",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-09-30T01:55:40Z",
+    "renderer_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11J72",
+      "11M06",
+      "33C20"
+    ]
+  },
+  "first_registered_on": "2026-09-30",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "ZetaWindow.zeta_7_to_21_not_all_rational_palomar"
+    ]
+  },
+  "id": "PALOMAR-2026-09-30-000007",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-30T01:56:17Z",
+    "receipt_sha256": "523a978c21da14d0cb93b7b57d9bfed876451ee12c49bdeba7b7fc948f89fa1b",
+    "repositories": [
+      {
+        "commit": "a3b69fc43aea3dd140540f6e8380c7d0fecce028",
+        "fork_repository": "PalomarArchive/gmDevi--zeta-7-21-lean--801a5a28c754",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000007-v1/a3b69fc43aea3dd140540f6e8380c7d0fecce028",
+        "source_repository": "gmDevi/zeta-7-21-lean"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000007-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000007-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000007-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000007-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000007-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000007-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000007-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000007-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000007-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "identifier": "docs/proof.md (this repository)",
+        "relationship": "other",
+        "title": "At least one of ζ(7), ζ(9), …, ζ(21) is irrational (informal proof in docs/proof.md of this repository)",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Wadim Zudilin"
+          }
+        ],
+        "identifier": "https://doi.org/10.5802/jtnb.447",
+        "location": "J. Théor. Nombres Bordeaux 16 (2004), no. 1, 251–291; arXiv:math/0206176. Section 8: the very-well-poised forms (8.1)–(8.13), Lemmas 15–19 (arithmetic), Lemma 20 (asymptotics), Proposition 5 (the irrationality criterion and the growth of the denominators), and the remark at the end of Section 8 (p. 286).",
+        "relationship": "other",
+        "title": "Arithmetic of linear forms involving odd zeta values",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Wadim Zudilin"
+          }
+        ],
+        "identifier": "https://doi.org/10.1023/A:1012312315852",
+        "location": "Math. Notes 70 (2001), no. 3–4, 426–431 (translated from Mat. Zametki 70 (2001), no. 3, 472–476; author name V. V. Zudilin). Theorem 2.",
+        "relationship": "other",
+        "title": "One of the eight numbers ζ(5), ζ(7), …, ζ(17), ζ(19) is irrational",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Li Lai"
+          },
+          {
+            "name": "Li Zhou"
+          }
+        ],
+        "identifier": "https://doi.org/10.5486/PMD.2022.9252",
+        "location": "Publ. Math. Debrecen 101 (2022), no. 3–4, 353–372; arXiv:2103.00904. Theorem 1.2.",
+        "relationship": "background",
+        "title": "At least two of ζ(5), ζ(7), …, ζ(35) are irrational",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Li Lai"
+          },
+          {
+            "name": "Johannes Sprang"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2306.10393",
+        "location": "arXiv:2306.10393 (v2, 2025; to appear in Michigan Math. J.). Lemma 2.3 (the Archimedean irrationality criterion with auxiliary primes ℓ(n); Lemma 2.2 is the p-adic version).",
+        "relationship": "other",
+        "title": "Many p-adic odd zeta values are irrational",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jose Francisco Antonio Balderas"
+          },
+          {
+            "name": "Vincent Beffara"
+          },
+          {
+            "name": "Alex Kontorovich"
+          },
+          {
+            "name": "Terence Tao"
+          },
+          {
+            "name": "Ruben Van de Velde"
+          },
+          {
+            "name": "Arend Mellendijk"
+          },
+          {
+            "name": "Alastair Irving"
+          }
+        ],
+        "identifier": "https://github.com/leanprover-community/mathlib4/pull/43238",
+        "license": "Apache-2.0",
+        "location": "Head commit 78e1b2bbd0d256081c926fccada84fd084653286 of pull request #43238, which contains #43046 and #43233 (open, not merged in Mathlib as of 2026-09-25). Authors as in the file headers.",
+        "relationship": "other",
+        "title": "The Wiener–Ikehara Tauberian theorem and the prime number theorem, in the Lean 4 proofs of mathlib4 pull requests #43046, #43233 and #43238",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Tanguy Rivoal"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/S0764-4442(00)01624-4",
+        "location": "C. R. Acad. Sci. Paris Sér. I Math. 331 (2000), no. 4, 267–270; arXiv:math/0008051",
+        "relationship": "background",
+        "title": "La fonction zêta de Riemann prend une infinité de valeurs irrationnelles aux entiers impairs",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Keith Ball"
+          },
+          {
+            "name": "Tanguy Rivoal"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/s002220100168",
+        "location": "Invent. Math. 146 (2001), no. 1, 193–207",
+        "relationship": "background",
+        "title": "Irrationalité d'une infinité de valeurs de la fonction zêta aux entiers impairs",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Prince Anand"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.22920911",
+        "location": "Zenodo preprint, 23 September 2026",
+        "relationship": "background",
+        "title": "Zeta 7 is Irrational",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Aabir Fauzan"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.22826419",
+        "location": "Zenodo preprint, 17 September 2026",
+        "relationship": "background",
+        "title": "ζ(5) is irrational",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/gmDevi/zeta2-7-9-11-lean",
+        "note": "Formalisation by the same maintainer, registered in the Palomar registry as PALOMAR-2026-09-25-000023 (commit 2ae1bccb82f1f72ed7a7aeab3196aa1cdbee165a): at least one of the 2-adic zeta values ζ₂(7), ζ₂(9), ζ₂(11) is irrational. This repository started as a copy of that one, and the files that the theorem here does not use were removed. It reuses the vendored Wiener–Ikehara files (identical) and the proof of the prime number theorem (the same declarations, collected in Zeta2Lean/Cited/PNT.lean, with the statement PNT_Stmt in Zeta2Lean/Cited/PNTStatement.lean). The mathematics is different: that result concerns 2-adic values.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/gmDevi/zeta2-7-9-lean",
+        "note": "Formalisation by the same maintainer, registered in the Palomar registry as PALOMAR-2026-09-25-000026 (commit 3797cb6e4f8653744c0aa8e66ec8eb3645e75dcd): at least one of the 2-adic zeta values ζ₂(7), ζ₂(9) is irrational. Its growth bound uses the same contour technique as Theorem U here. Zeta2Lean/Window/Proofs/L20U/VLine.lean (from Zeta2Lean/Pair/Proofs/Growth.lean), Zeta2Lean/Window/Proofs/L20U/Numerics.lean (from Zeta2Lean/Pair/Proofs/Landscape/Numerics.lean) and the first block of Zeta2Lean/Window/Proofs/L20U/Gf.lean are copied from it with the namespace changed, and Zeta2Lean/Cited/PNT.lean has the same declarations as its file of that name. The ℓ-adic infrastructure of Zeta2Lean/Window/Proofs/AuxPrime.lean follows its nonvanishing proof.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/pull/43238",
+        "note": "Open mathlib4 pull requests by Terence Tao: #43046 (compactly supported functions are dense in Schwartz space), #43233 (the Wiener–Ikehara Tauberian theorem) and #43238 (the weak prime number theorem), at head 78e1b2bbd0d256081c926fccada84fd084653286. The files of #43046 and #43233 are vendored verbatim, with porting notes, in Zeta2Lean/Cited/Vendor/PNT. Once they are in Mathlib, the vendored copies can be dropped.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "note": "Indirectly: the vendored Wiener–Ikehara code comes from the pull requests above, which adapt it from the PrimeNumberTheoremAnd project. This repository does not depend on that project.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Gennaro Marco Devincenzis"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-09-30T01:55:49Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "9fd20c76ec5916f0803d3cccacf4ba8d87ce743154a433addaedb1f674d959a4"
+    },
+    "reviewed_at": "2026-09-28T11:11:13Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "a3b69fc43aea3dd140540f6e8380c7d0fecce028",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "gmDevi/zeta-7-21-lean",
+    "repository_url": "https://github.com/gmDevi/zeta-7-21-lean",
+    "tree_url": "https://github.com/gmDevi/zeta-7-21-lean/tree/a3b69fc43aea3dd140540f6e8380c7d0fecce028"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "1wymdj1nmksz"
+  },
+  "title": "At least one of ζ(7), ζ(9), …, ζ(21) is irrational",
+  "trust": {
+    "challenge_bytes": 1583,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 34,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "58b9b15488ee4c3e8b308041a4c4aad268f12329ed7216d2bcc232f32d77d3d0",
+    "evidence_path": "evidence/PALOMAR-2026-09-30-000007-v1/22fd020157f044a0286edd98b62554c9e8a25aa3681fd984b25bb8a0cdf10c1f/",
+    "evidence_tree_sha256": "22fd020157f044a0286edd98b62554c9e8a25aa3681fd984b25bb8a0cdf10c1f",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "78bf3526b11f54ccafe5024064b9e4baa1cd624b0724bb639e3330401636e3a1",
+    "protected_config_sha256": "dd3b7dd695460d004f58037b8f18119b5a592bd3589ff70cd81f0504ad89ab7d",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 36412067612,
+    "solution_sha256": "369ab471f93eca86f7cfe1315d956d70d9ab3ea3fd1b0de72df3d789feaf1608",
+    "tool_digests": {
+      "bwrap": "90585df9abc9c5d8746b7ef480595fc799206a6bfa64202c492f4c454ac735a9",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-09-28T10:59:08Z",
+    "workflow_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/36412067612"
+  },
+  "version": 1
+}

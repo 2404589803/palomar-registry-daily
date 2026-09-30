@@ -1,0 +1,336 @@
+{
+  "abstract": "Erdős problem #1219 (erdosproblems.com/1219; Erdős–Hajnal 1971, Problem 3, asked by Erdős, Hajnal and Rado): let (n_k) be an increasing sequence of integers such that 2^{ℵ_{n_k}} is strictly increasing and 2^{ℵ_{n_0}} > ℵ_ω; is it true that Σ_k 2^{ℵ_{n_k}} → (ℵ_ω)²?  Shelah (Notes on partition calculus, 1975, §1) proved that the answer is yes.  This project formalizes that proof in Lean 4 with Mathlib: the comparator target erdos_1219 states that for every strictly increasing n : ℕ → ℕ with k ↦ 2 ^ ℵ_(n k) strictly increasing and ℵ_ω < 2 ^ ℵ_(n 0), the binary partition relation PartitionArrow (Σ_k 2 ^ ℵ_(n k)) ℵ_ω holds, i.e. every 2-colouring of the 2-element subsets of a set of cardinality Σ_k 2 ^ ℵ_(n k) has a monochromatic subset of cardinality ℵ_ω (PartitionArrow is the binary case of formal-conjectures' Combinatorics.cardinalPartitionRel).  The proof follows Shelah's Canonization Lemma 1.1 and Theorem 1.2: the unbalanced Erdős–Rado theorem (2^μ)⁺ → ((2^μ)⁺, μ⁺)² (proved here with a critical-ordinal / closure-point argument), a canonization of the colouring across blocks of sizes (2^{ℵ_{n_k}})⁺ by means of guides generic over all small subsets of the earlier blocks, and Ramsey's theorem for pairs on ℕ.  The target is proved from propext, Classical.choice and Quot.sound only and passes the Lean comparator (landrun sandbox, NanoDa kernel).",
+  "authors": [
+    {
+      "name": "Ji Ho Bae (JRTI)"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-30-000003-v1/8ff0bf8fbac1cd8dd20665ad5a43dfe3717025f93bbe35b62b25fa300981788b/",
+    "artifact_tree_sha256": "8ff0bf8fbac1cd8dd20665ad5a43dfe3717025f93bbe35b62b25fa300981788b",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-09-30T01:10:31Z",
+    "renderer_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.LO",
+      "math.CO"
+    ],
+    "msc2020": [
+      "03E02",
+      "03E05",
+      "03E10",
+      "05D10"
+    ]
+  },
+  "first_registered_on": "2026-09-30",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "erdos_1219"
+    ]
+  },
+  "id": "PALOMAR-2026-09-30-000003",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-30T01:11:06Z",
+    "receipt_sha256": "1bfc5bbdac31a10018882583f6346caae642465b65e8079b66c47036464b6b5a",
+    "repositories": [
+      {
+        "commit": "00e696a9cd2bbd8cad33d2cdc90ad385058c1466",
+        "fork_repository": "PalomarArchive/jbaelaw--erdos1219-lean--9297707161f0",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000003-v1/00e696a9cd2bbd8cad33d2cdc90ad385058c1466",
+        "source_repository": "jbaelaw/erdos1219-lean"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000003-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000003-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000003-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000003-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000003-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000003-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000003-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000003-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000003-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Paul Erdős"
+          },
+          {
+            "name": "András Hajnal"
+          }
+        ],
+        "identifier": "Proc. Sympos. Pure Math. XIII, Part I (Axiomatic Set Theory), AMS 1971, 17–48; Problem 3",
+        "relationship": "background",
+        "title": "Unsolved problems in set theory",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Thomas F. Bloom (ed.)"
+          }
+        ],
+        "identifier": "https://www.erdosproblems.com/1219",
+        "relationship": "background",
+        "title": "Erdős problem #1219 (erdosproblems.com)",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Saharon Shelah"
+          }
+        ],
+        "identifier": "Infinite and finite sets (Colloq., Keszthely, 1973), Vol. III, Colloq. Math. Soc. János Bolyai 10, North-Holland 1975, 1257–1276 (Sh:40; MR 406798)",
+        "location": "§1: Canonization Lemma 1.1, Theorem 1.2, Corollary 1.3",
+        "relationship": "formalizes",
+        "title": "Notes on partition calculus",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Péter Komjáth"
+          }
+        ],
+        "identifier": "Bull. Symb. Log. 31 (2025), 418–461",
+        "relationship": "background",
+        "title": "The Erdős–Hajnal problem list",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures",
+        "note": "the partition relation PartitionArrow is the binary case (r = 2, two colours, equal targets) of Combinatorics.cardinalPartitionRel; no code is imported (the definition is restated so that Challenge.lean imports Mathlib only)",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/elliotglazer/erdos501",
+        "note": "comparator tooling conventions and scripts (Apache-2.0), adapted in scripts/",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4",
+        "note": "cardinal and ordinal arithmetic, ultrafilters, Zorn's lemma (pinned commit c55e6e786f49471c72fbddbec5415808896aec1e)",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ji Ho Bae"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-30T01:10:42Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "30b86ed3dada0e16997b93d5c7deffb41f1b31c4c5a8b15153fb9530a3f31141"
+    },
+    "reviewed_at": "2026-09-28T05:58:17Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "00e696a9cd2bbd8cad33d2cdc90ad385058c1466",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jbaelaw/erdos1219-lean",
+    "repository_url": "https://github.com/jbaelaw/erdos1219-lean",
+    "tree_url": "https://github.com/jbaelaw/erdos1219-lean/tree/00e696a9cd2bbd8cad33d2cdc90ad385058c1466"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "ndpx38mzbezv"
+  },
+  "title": "Erdős Problem #1219 in Lean 4: Σ_k 2^{ℵ_{n_k}} → (ℵ_ω)² (Shelah 1975)",
+  "trust": {
+    "challenge_bytes": 3322,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.SetTheory.Cardinal.Aleph",
+      "Mathlib.SetTheory.Cardinal.Arithmetic",
+      "Mathlib.SetTheory.Cardinal.Regular"
+    ],
+    "challenge_lines": 67,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "1c9de900c669dff980f3c5f1641dc0d7465f63ab5df761036a0b45e842ba2d56",
+    "evidence_path": "evidence/PALOMAR-2026-09-30-000003-v1/72e55f0b9d0ef3e19bf69e077957e89125b6d1e0b3f7f75c4918885de7a2c065/",
+    "evidence_tree_sha256": "72e55f0b9d0ef3e19bf69e077957e89125b6d1e0b3f7f75c4918885de7a2c065",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/con-ron"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "c17d5168aae6cf28f0acf75d2258113da1952fb98ab5e5a61cb24a02601d9945",
+    "protected_config_sha256": "2a0ded65a578917351c10261580caa5c758d560705de97b6b7e27682ff2eae94",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 36338479481,
+    "solution_sha256": "e41919ad6f3ff06cb734505da451978ba77ec1ac76edb52977e360b4171d68b0",
+    "tool_digests": {
+      "bwrap": "14d3d3d6829684a9439f1362a0bef207acc99fd633756224dafae06c6c9d2c0e",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-09-27T18:21:24Z",
+    "workflow_commit": "a59f25bd8a66bf6faf3a4f4260d412989c0185ea",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/36338479481"
+  },
+  "version": 1
+}

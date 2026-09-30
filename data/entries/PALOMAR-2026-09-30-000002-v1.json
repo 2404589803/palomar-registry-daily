@@ -1,0 +1,541 @@
+{
+  "abstract": "A Lean 4 characterization of two-fold Langford sequences. An m-fold Langford sequence of order l and defect d fills the positions 1, ..., 2ml so that every p in [d, d + l - 1] occupies the endpoints of m pairwise disjoint pairs of positions at distance p. For d, l >= 1 a two-fold sequence exists exactly when 3l >= 2d - 1. For every m, (2m - 1)l >= 2d - 1 is necessary, with l(2d + l + 1) = 0 (mod 4) for odd m, and the bound is attained whenever 2d + l = 2ml + 1; the row of order one exists exactly when d divides m; no three-fold sequence of order 3 and defect 6 exists; and for every m >= 3 the necessary conditions are not sufficient. For every T >= 1, with r = ml mod T, every m-fold sequence satisfies the residue bound r(T - r) <= m * sum |p - T| over p in [d, d + l - 1], which contains the counting bound and the necessity half of the order-one theorem. Every m-fold sequence satisfies the forced-endpoint bound 6mld + ml <= 4d^2 + 2(ml)^2 + ml^2. For every m >= 3 the cell (d, l) = (3m - 3, 3) meets the necessary conditions and admits no m-fold sequence. Equality 2d + l = 2ml + 1 holds exactly when every pair straddles the middle, that is ml < i + s_i for every position i <= ml. Alkasasbeh, Dyer and Howell define these sequences and ask for necessary and sufficient conditions when m >= 2; this repository answers the question for m = 2. Necessity is a distance sum. Sufficiency at m = 2 is strong induction on l: sixteen literal cells, concatenation, and otherwise a mirror-symmetric sequence built by Lemma S from a signed permutation, which is found on the whole cone by inversion, the reversal, a descent along lines of fixed mu, and in the band by 21 block-reversal families plus the two-block reversal tau_l, eight sporadic cells and three bases. The tight line is m interleaved copies of the source's Table 1.",
+  "authors": [
+    {
+      "name": "JD Jones"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-30-000002-v1/9577d043734b31196a3a82de537d9c675029b953fd3cad9e1b45854ece3ccf8a/",
+    "artifact_tree_sha256": "9577d043734b31196a3a82de537d9c675029b953fd3cad9e1b45854ece3ccf8a",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-09-30T01:00:05Z",
+    "renderer_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05A05",
+      "11B83"
+    ]
+  },
+  "first_registered_on": "2026-09-30",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "Langford.IsLangford"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Langford.twoFold_exists_iff",
+      "Langford.necessary",
+      "Langford.tight_exists",
+      "Langford.order_one_iff",
+      "Langford.not_threeFold_six_three",
+      "Langford.not_sufficient",
+      "Langford.residue_bound",
+      "Langford.forced_endpoint",
+      "Langford.not_order_three",
+      "Langford.tight_iff_straddle"
+    ]
+  },
+  "id": "PALOMAR-2026-09-30-000002",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-30T01:00:34Z",
+    "receipt_sha256": "f01cb17d2ba6aa4343ef21c4038e67f8a18a2e364340f8169d6fc6b4926f13c6",
+    "repositories": [
+      {
+        "commit": "c4cbeafac7e44ebcbbee9a8839f70278bb19b6ab",
+        "fork_repository": "PalomarArchive/JD-Jones-ASES--l2-lean--fd9f0be0adc0",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000002-v1/c4cbeafac7e44ebcbbee9a8839f70278bb19b6ab",
+        "source_repository": "JD-Jones-ASES/l2-lean"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000002-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000002-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000002-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000002-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000002-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000002-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000002-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000002-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000002-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ahmad H. Alkasasbeh"
+          },
+          {
+            "name": "Danny Dyer"
+          },
+          {
+            "name": "Jared Howell"
+          }
+        ],
+        "identifier": "arXiv:2112.04265",
+        "location": "https://arxiv.org/abs/2112.04265, Sections 2 and 7",
+        "relationship": "adapts",
+        "title": "Graceful labellings of variable windmills using Skolem sequences",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Gustav Nordh"
+          }
+        ],
+        "identifier": "doi:10.1016/j.disc.2006.12.003",
+        "location": "Theorem 15 (numbering of arXiv:math/0506155 v1)",
+        "relationship": "background",
+        "title": "Perfect Skolem sets",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "James E. Simpson"
+          }
+        ],
+        "identifier": "doi:10.1016/0012-365X(83)90008-0",
+        "relationship": "background",
+        "title": "Langford sequences: perfect and hooked",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "C. A. Baker"
+          },
+          {
+            "name": "R. J. Nowakowski"
+          },
+          {
+            "name": "N. Shalaby"
+          },
+          {
+            "name": "A. Sharary"
+          }
+        ],
+        "identifier": "Zbl 0808.05001",
+        "relationship": "background",
+        "title": "m-fold and extended m-fold Skolem sequences",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Th. Skolem"
+          }
+        ],
+        "identifier": "doi:10.7146/math.scand.a-10490",
+        "relationship": "background",
+        "title": "On certain distributions of integers in pairs with given differences",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Edward S. O'Keefe"
+          }
+        ],
+        "identifier": "doi:10.7146/math.scand.a-10624",
+        "relationship": "background",
+        "title": "Verification of a conjecture of Th. Skolem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "M. Grüttmüller"
+          },
+          {
+            "name": "R. Rees"
+          },
+          {
+            "name": "N. Shalaby"
+          }
+        ],
+        "identifier": "Zbl 1133.05012",
+        "relationship": "background",
+        "title": "Cyclically indecomposable triple systems that are decomposable",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Nevena Francetić"
+          },
+          {
+            "name": "Eric Mendelsohn"
+          }
+        ],
+        "identifier": "doi:10.2478/s12175-008-0110-3",
+        "relationship": "background",
+        "title": "A survey of Skolem-type sequences and Rosa's use of them",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ahmad H. Alkasasbeh"
+          }
+        ],
+        "identifier": "hdl:20.500.14783/2068",
+        "relationship": "background",
+        "title": "Graceful labellings of new families of windmill and snake graphs",
+        "type": "thesis"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Fatimah Alruhaymi"
+          }
+        ],
+        "identifier": "hdl:20.500.14783/2007",
+        "relationship": "background",
+        "title": "Mathematical and algorithmic methods for finding disjoint Rosa-type sequences",
+        "type": "thesis"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Manrique Mata-Montero"
+          },
+          {
+            "name": "Steven Normore"
+          },
+          {
+            "name": "Nabil Shalaby"
+          }
+        ],
+        "identifier": "doi:10.12988/imf.2014.38161",
+        "relationship": "background",
+        "title": "Generalized Langford sequences: new results and algorithms",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Charles J. Colbourn (editor)"
+          },
+          {
+            "name": "Jeffrey H. Dinitz (editor)"
+          }
+        ],
+        "identifier": "ISBN 9781584885061",
+        "relationship": "background",
+        "title": "Handbook of Combinatorial Designs, second edition, Section VI.53 (Skolem and Langford-type sequences)",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jiwen Zhang"
+          },
+          {
+            "name": "Haitao Cao"
+          }
+        ],
+        "identifier": "doi:10.1002/jcd.70010",
+        "relationship": "background",
+        "title": "Generalized Signed Langford Sequences",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Susana Clara López"
+          },
+          {
+            "name": "Francesc Antoni Muntaner-Batle"
+          }
+        ],
+        "identifier": "doi:10.26493/1855-3974.896.fbf",
+        "relationship": "background",
+        "title": "Distance labelings: a generalization of Langford sequences",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "R. J. Nowakowski"
+          }
+        ],
+        "identifier": "https://oeis.org/A104429/a104429.pdf",
+        "relationship": "background",
+        "title": "Generalizations of the Langford-Skolem problem",
+        "type": "thesis"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "John F. Dillon"
+          }
+        ],
+        "identifier": "Zbl 0328.10011",
+        "relationship": "background",
+        "title": "The generalized Langford-Skolem problem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Leonardo de Moura"
+          },
+          {
+            "name": "Sebastian Ullrich"
+          }
+        ],
+        "identifier": "doi:10.1007/978-3-030-79876-5_37",
+        "location": "Automated Deduction - CADE 28, Lecture Notes in Computer Science, Springer, 2021, 625-635",
+        "relationship": "background",
+        "title": "The Lean 4 Theorem Prover and Programming Language",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "The mathlib Community"
+          }
+        ],
+        "identifier": "doi:10.1145/3372885.3373824",
+        "location": "Proceedings of the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs (CPP 2020), 367-381",
+        "relationship": "background",
+        "title": "The Lean mathematical library",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-09-07-000013",
+        "note": "gn-lean, by the same author (MIT). L2/Pairs.lean adapts its code for pairs of positions, their endpoints and differences, translations and oriented endpoints, ported to Lean v4.35.0-rc2.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "JD Jones"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-30T01:00:15Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "31c391c262abd82c26514dab78a8289f27ffd7b955a64d225763c0b2572db4e1"
+    },
+    "reviewed_at": "2026-09-28T05:30:32Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "c4cbeafac7e44ebcbbee9a8839f70278bb19b6ab",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "8d464f723696204001f7ef63b6146ffc544aa6837aa74c53f6f9c53d8a18b0f0"
+    },
+    "repository": "JD-Jones-ASES/l2-lean",
+    "repository_url": "https://github.com/JD-Jones-ASES/l2-lean",
+    "tree_url": "https://github.com/JD-Jones-ASES/l2-lean/tree/c4cbeafac7e44ebcbbee9a8839f70278bb19b6ab"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "ytw693daz8qn"
+  },
+  "title": "Two-fold Langford sequences exist exactly when 3l ≥ 2d − 1; the m-fold counting bound and its attainment, and a residue bound",
+  "trust": {
+    "challenge_bytes": 6408,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 109,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "90d76c023661173e7df1a970b76355c4c7955d8d0937a384b3f785523f0ff9d1",
+    "evidence_path": "evidence/PALOMAR-2026-09-30-000002-v1/22ddd482ff251023c47173e334174e5270d059d29dd033986dcfe9c225c0c758/",
+    "evidence_tree_sha256": "22ddd482ff251023c47173e334174e5270d059d29dd033986dcfe9c225c0c758",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "e3addbeb909fe2c7dc70d38d8681a12f884c293df921a902afc41c7b3e626928",
+    "protected_config_sha256": "723ebf7c162577930fe0a04bf401d2ae8534f98618bf8662b59322c2bd5b6c60",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 36335087193,
+    "solution_sha256": "d1c0062dbaf62f543787e2abe29fdd1d94e8b820128f4199fb5ea980cb45db30",
+    "tool_digests": {
+      "bwrap": "213bb6b84e034c7b8844b51485ecc14662caef6b2af3de057757b2549306f1ae",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-09-27T17:00:56Z",
+    "workflow_commit": "a59f25bd8a66bf6faf3a4f4260d412989c0185ea",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/36335087193"
+  },
+  "version": 1
+}

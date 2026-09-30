@@ -1,0 +1,315 @@
+{
+  "abstract": "Lean 4 results (core Lean, no dependencies, no axioms beyond the standard three) about law 1518 of the Equational Theories Project, x = (y ◇ y) ◇ (x ◇ (y ◇ x)). Theorem A: in every magma satisfying 1518 and 3862 (x ◇ x = (x ◇ (x ◇ x)) ◇ x), writing S x = x ◇ x, the set {x, S x, S (S x)} is closed under ◇ with u ◇ v = S v and S (S (S x)) = x; hence every one-generated such magma is the trivial magma or the three-element cyclic shift x ◇ y = y + 1. This proves a classification conjectured by Terence Tao on the Lean Zulip on 2024-11-29 (message 485148288). That message assumed 1518 together with all four of 47, 614, 817 and 3862 and carried no finiteness hypothesis; assuming 3862 alone is no weaker, because Matthew Bolan reported the same day (message 485153888) that 1518 and 3862 already imply the other three. What is added here is a machine-checked proof, not a weaker hypothesis: no proof of the classification was found in the venues searched. Theorem A is what the compared declarations state. Outside them the repository holds an explicit family of finite 1518-magmas that do violate the four targets, with two members checked by kernel evaluation, and kernel-checked certificate identities behind a cohomological obstruction theorem (every 1518-cocycle over the shift with finite fibre is a coboundary), whose reduction is a written proof, and the computations classifying base-dependent extensions of the shift.",
+  "authors": [
+    {
+      "name": "Carlo Perassi"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-30-000005-v1/292b20ea34ad9d7ce4f4d8f7e844075dc9fd54d59181de5d034fa69ff1044278/",
+    "artifact_tree_sha256": "292b20ea34ad9d7ce4f4d8f7e844075dc9fd54d59181de5d034fa69ff1044278",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-09-30T01:30:18Z",
+    "renderer_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.RA",
+      "math.LO"
+    ],
+    "msc2020": [
+      "20N02",
+      "08B05",
+      "03C05",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-09-30",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Magma1518.table",
+      "Magma1518.cube",
+      "Magma1518.words_in_T",
+      "Magma1518.one_or_three"
+    ]
+  },
+  "id": "PALOMAR-2026-09-30-000005",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-30T01:30:39Z",
+    "receipt_sha256": "84b912d1a3a3e39a5fc104e8d0125016288b92a51680257587d6d62dce88f7a1",
+    "repositories": [
+      {
+        "commit": "eb2bbde8c137570d0e281a237187f5323a1b0a2d",
+        "fork_repository": "PalomarArchive/carlok--magma-1518-obstruction-lean--763845730337",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000005-v1/eb2bbde8c137570d0e281a237187f5323a1b0a2d",
+        "source_repository": "carlok/magma-1518-obstruction-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "location": "https://github.com/carlok/magma-1518-obstruction-lean, paper/l2_note.pdf",
+        "relationship": "other",
+        "title": "One-generated magmas satisfying laws 1518 and 3862 are trivial or the Z/3 shift; an explicit family of finite 1518-magmas violating 47, 614, 817, 3862 (Theorems 4 and 6 of paper/l2_note.pdf in this repository)",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Terence Tao"
+          }
+        ],
+        "identifier": "https://leanprover.zulipchat.com/#narrow/channel/458659-Equational/topic/Austin.20pairs/near/485148288",
+        "location": "https://leanprover-community.github.io/archive/stream/458659-Equational/topic/Austin.20pairs.html",
+        "relationship": "background",
+        "title": "Austin pairs: conjecture that finite one-generated magmas satisfying 1518, 47, 614, 817 and 3862 are trivial or the Z/3 shift (Lean Zulip, Equational stream, message 485148288)",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Matthew Bolan"
+          },
+          {
+            "name": "Joachim Breitner"
+          },
+          {
+            "name": "Jose Brox"
+          },
+          {
+            "name": "Nicholas Carlini"
+          },
+          {
+            "name": "Mario Carneiro"
+          },
+          {
+            "name": "Floris van Doorn"
+          },
+          {
+            "name": "Martin Dvorak"
+          },
+          {
+            "name": "Andrés Goens"
+          },
+          {
+            "name": "Aaron Hill"
+          },
+          {
+            "name": "Harald Husum"
+          },
+          {
+            "name": "Hernán Ibarra Mejia"
+          },
+          {
+            "name": "Zoltan A. Kocsis"
+          },
+          {
+            "name": "Bruno Le Floch"
+          },
+          {
+            "name": "Amir Livne Bar-on"
+          },
+          {
+            "name": "Lorenzo Luccioli"
+          },
+          {
+            "name": "Douglas McNeil"
+          },
+          {
+            "name": "Alex Meiburg"
+          },
+          {
+            "name": "Pietro Monticone"
+          },
+          {
+            "name": "Pace P. Nielsen"
+          },
+          {
+            "name": "Emmanuel Osalotioman Osazuwa"
+          },
+          {
+            "name": "Giovanni Paolini"
+          },
+          {
+            "name": "Marco Petracci"
+          },
+          {
+            "name": "Bernhard Reinke"
+          },
+          {
+            "name": "David Renshaw"
+          },
+          {
+            "name": "Marcus Rossel"
+          },
+          {
+            "name": "Cody Roux"
+          },
+          {
+            "name": "Jérémy Scanvic"
+          },
+          {
+            "name": "Shreyas Srinivas"
+          },
+          {
+            "name": "Anand Rao Tadipatri"
+          },
+          {
+            "name": "Terence Tao"
+          },
+          {
+            "name": "Vlad Tsyrklevich"
+          },
+          {
+            "name": "Fernando Vaquerizo-Villar"
+          },
+          {
+            "name": "Daniel Weber"
+          },
+          {
+            "name": "Fan Zheng"
+          }
+        ],
+        "identifier": "arXiv:2512.07087",
+        "location": "https://arxiv.org/abs/2512.07087",
+        "relationship": "background",
+        "title": "The Equational Theories Project: Advancing Collaborative Mathematical Research at Scale",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Bruno Le Floch"
+          },
+          {
+            "name": "Jose Brox"
+          }
+        ],
+        "identifier": "https://leanprover-community.github.io/archive/stream/458659-Equational/topic/Shrinking.20the.20size-232.20magma.20for.20law.201518.20to.20size.2015.html",
+        "location": "https://leanprover-community.github.io/archive/stream/458659-Equational/topic/Shrinking.20the.20size-232.20magma.20for.20law.201518.20to.20size.2015.html",
+        "relationship": "background",
+        "title": "Shrinking the size-232 magma for law 1518 to size 15 (Lean Zulip, Equational stream, October 2025)",
+        "type": "web discussion"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/teorth/equational_theories/blob/88088faaccfaa05f268cf4d007ceb5286630ba24/equational_theories/Generated/All4x4Tables/Refutation939.lean",
+        "note": "The Equational Theories Project's Lean-verified 15-element countermodel to 1518 ⇒ 47, 614, 817, 3862, given as a lookup table. The F_5 member of Theorem F is isomorphic to it but is defined here by its coefficient matrices on Z/3 × F_5, together with the 39-element member and, outside Lean, the whole family. Not a Lean dependency of this project.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Carlo Perassi"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-09-30T01:30:28Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "b3de0ff7e590a310fa9309dade55632227456b8d30c628f2483a34f84a953b84"
+    },
+    "reviewed_at": "2026-09-28T07:59:53Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "eb2bbde8c137570d0e281a237187f5323a1b0a2d",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "carlok/magma-1518-obstruction-lean",
+    "repository_url": "https://github.com/carlok/magma-1518-obstruction-lean",
+    "tree_url": "https://github.com/carlok/magma-1518-obstruction-lean/tree/eb2bbde8c137570d0e281a237187f5323a1b0a2d"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "hmfbrjulqpxe"
+  },
+  "title": "One-generated (1518 + 3862)-magmas are trivial or the Z/3 shift; an explicit family of finite 1518-magmas violating laws 47, 614, 817, 3862",
+  "trust": {
+    "challenge_bytes": 5010,
+    "challenge_dependencies": [],
+    "challenge_imports": [],
+    "challenge_lines": 88,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "e3a6e694298784a9e7ca7797940dbe5509e0d13694a214255973e34dbd8ad7cc",
+    "evidence_path": "evidence/PALOMAR-2026-09-30-000005-v1/a47a1d4fb15a02105278d20ba9e779bf4799ce145e6d5d810987f8cb439c6f84/",
+    "evidence_tree_sha256": "a47a1d4fb15a02105278d20ba9e779bf4799ce145e6d5d810987f8cb439c6f84",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/con-ron"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "48049ad8ae1324494305f447783a491953d737c136dfa3fa3ee011566d947243",
+    "protected_config_sha256": "ed916fecd42bb3d0fdc7f49139555d6cfb3361a1bd09b0172c7294f3c51640dd",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 36393698531,
+    "solution_sha256": "62e22c1766c8b30343c3015350e648e0fe10f65b675f0f77f1a0ef8cfa8162af",
+    "tool_digests": {
+      "bwrap": "e9f0811618024bbb78382a1ae1a68e2451c7412bcdd59792217bb1cd4d70bdf8",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-09-28T07:50:19Z",
+    "workflow_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/36393698531"
+  },
+  "version": 1
+}
