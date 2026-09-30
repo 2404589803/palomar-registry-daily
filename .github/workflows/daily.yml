@@ -7,6 +7,9 @@ concurrency: {group: pages, cancel-in-progress: true}
 jobs:
   fetch:
     runs-on: ubuntu-latest
+    env:
+      NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+      NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -24,16 +27,20 @@ jobs:
         with: {path: .}
       - uses: actions/deploy-pages@v4
       - name: Sync result versions to Notion
-        if: ${{ secrets.NOTION_TOKEN != '' && secrets.NOTION_DATABASE_ID != '' }}
+        if: ${{ env.NOTION_TOKEN != '' && env.NOTION_DATABASE_ID != '' }}
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: python scripts/sync_notion.py
       - name: Persist Notion sync state
-        if: ${{ secrets.NOTION_TOKEN != '' && secrets.NOTION_DATABASE_ID != '' }}
+        if: ${{ env.NOTION_TOKEN != '' && env.NOTION_DATABASE_ID != '' }}
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add data/notion-sync-state.json
           git diff --cached --quiet || git commit -m "data: update Notion sync state"
           git push
+
