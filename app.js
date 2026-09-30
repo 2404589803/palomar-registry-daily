@@ -2,6 +2,7 @@
 let all = [], filtered = [], page = 1, repos = {};
 const size = 20;
 const $ = s => document.querySelector(s);
+const setHTML = (sel, html) => { const el = $(sel); if (el) el.innerHTML = html; };
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 const authors = e => (e.authors || []).map(a => a.name).join(', ') || 'Unknown author';
@@ -40,8 +41,8 @@ function render() {
     : String(y.published_at).localeCompare(String(x.published_at)));
   const pages = Math.max(1, Math.ceil(filtered.length / size));
   page = Math.min(page, pages);
-  $('#rows').innerHTML = filtered.slice((page - 1) * size, page * size).map(card).join('')
-    || '<div class="empty">No matching results — try clearing the filters.</div>';
+  setHTML('#rows', filtered.slice((page - 1) * size, page * size).map(card).join('')
+    || '<div class="empty">No matching results — try clearing the filters.</div>');
   $('#count').textContent = `${filtered.length} results`;
   $('#page').textContent = `Page ${page} / ${pages}`;
   $('#prev').disabled = page === 1;
@@ -50,7 +51,7 @@ function render() {
 
 function fill(id, vals, label) {
   const u = [...new Set(vals)].sort();
-  $(id).innerHTML = `<option value="">${label}</option>` + u.map(x => `<option>${esc(x)}</option>`).join('');
+  setHTML(id, `<option value="">${label}</option>` + u.map(x => `<option>${esc(x)}</option>`).join(''));
 }
 
 /* Animated count-up for hero metrics */
@@ -79,8 +80,8 @@ Promise.all([
     ['Added', c.added?.length || 0],
     ['Updated', c.updated?.length || 0]
   ];
-  $('#metrics').innerHTML = metrics.map(([label]) =>
-    `<div class="metric"><b>0</b><span>${label}</span></div>`).join('');
+  setHTML('#metrics', metrics.map(([label]) =>
+    `<div class="metric"><b>0</b><span>${label}</span></div>`).join(''));
   document.querySelectorAll('#metrics .metric b').forEach((el, i) => countUp(el, metrics[i][1]));
 
   fill('#arxiv', all.flatMap(e => cls(e).arxiv || []), 'All arXiv categories');
