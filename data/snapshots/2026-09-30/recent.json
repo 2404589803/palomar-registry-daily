@@ -1,6 +1,55 @@
 {
   "entries": [
     {
+      "abstract": "A Lean 4 and Mathlib formalization of the Krohn–Rhodes prime decomposition theorem for finite monoids, in a form with aperiodic factors: every finite monoid M divides an iterated wreath product of finite monoids, each of which is aperiodic or a simple group, and every simple group among the factors divides M. The proof follows the local-divisor proof of Diekert, Kufleitner and Steinberg. Unlike the classical statement, the aperiodic factors are not reduced to copies of the three-element flip-flop monoid U₂; for an aperiodic M the statement holds with M as its only factor, and in general it separates the group structure of M, as simple groups dividing M, from aperiodic factors.",
+      "authors": [
+        {
+          "name": "Aditya Rao"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.GR",
+          "cs.FL"
+        ],
+        "msc2020": [
+          "20M10",
+          "20M35",
+          "20M20",
+          "68Q70"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "KrohnRhodes.krohn_rhodes_prime_decomposition"
+        ]
+      },
+      "id": "PALOMAR-2026-09-30-000017",
+      "path": "entries/PALOMAR-2026-09-30-000017-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "1f4a7e39ba2baede5434ac48c7571a442f8d521d",
+            "fork_repository": "PalomarArchive/adii800--krohn-rhodes-lean--0944fc6761e8",
+            "source_repository": "adii800/krohn-rhodes-lean"
+          }
+        ]
+      },
+      "published_at": "2026-09-30T05:33:48Z",
+      "source": {
+        "commit": "1f4a7e39ba2baede5434ac48c7571a442f8d521d",
+        "project_path": null,
+        "repository": "adii800/krohn-rhodes-lean"
+      },
+      "status": "registered",
+      "title": "Krohn–Rhodes decomposition of finite monoids into aperiodic and simple-group factors",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
       "abstract": "For every integer d ≥ 4, every finite simple graph with fewer than C(d + 2, 2) edges has an injective placement in Euclidean d-space under which every edge has length 1, and the complete graph K_{d+2} has exactly C(d + 2, 2) edges and has no such placement. Equivalently, f(d) = C(d + 2, 2), where f(d) is the least number of edges in a finite simple graph with no unit-distance representation in R^d. Non-edges may also lie at distance 1. Finite simple graphs are represented as SimpleGraph (Fin n), including the empty graph. The proof is Frankl–Kupavskii–Swanepoel Theorem 3, already proved in the GraphDimension library and imported here. The spherical half of the same theorem is not stated. The question belongs to discrete geometry and extremal graph theory, specifically the study of unit-distance representations and the dimension of graphs.",
       "authors": [
         {
@@ -10614,58 +10663,6 @@
       },
       "status": "registered",
       "title": "Tucker's Lemma: Full Combinatorial & Topological Parity Suite in 1D and 2D",
-      "trust": {
-        "level": "high"
-      },
-      "version": 1,
-      "versions": 1
-    },
-    {
-      "abstract": "A Lean 4 formalization, against Mathlib, of the main theorem of J. H. Bae, \"Unbounded logarithmic limsup in Erdős Problem 684 via shifted carry scheduling\" (arXiv:2604.23784, v3).  For 0 ≤ k ≤ n write C(n,k) = u·v with u supported on the primes ≤ k and v on the primes in (k,n], and let f(n) be the least k with u > n²; Erdős asked for bounds on f(n) (Problem 684 in Bloom's database).  The compared theorems state that for every ε > 0 there are infinitely many n with f(n) > (1/2 − ε)·log n·log log n / log log log n, equivalently limsup f(n)·log log log n /(log n·log log n) ≥ 1/2 (stated in the extended nonnegative reals), and in particular that f(n)/log n is unbounded, so no estimate f(n) = O(log n) holds.  This strengthens the subsequential lower bound (1/2 − o(1)) log n of Alexeev–Putterman–Sawhney–Sellke–Valiant by a factor of order log log n / log log log n; the general upper bound (log n)² remains the best known and the exact order of f(n) is open.  Two further compared statements fix the meaning of the definitions: u(n,k) times the part of C(n,k) supported on primes exceeding k equals C(n,k), and K < f(n) holds exactly when u(n,k) ≤ n² for all 1 ≤ k ≤ min(K,n).  The proof follows the paper section by section (Kummer carries, a product-cell code, a CRT count with exponential weighting, an anchored-fibre selection lemma, and a four-range carry budget).  The prime number theorem is the single analytic input: the library proves the theorem under the explicit hypothesis θ(x) = x + O(x/log² x) and then discharges that hypothesis from the bound ψ(x) = x + O(x·exp(−c(log x)^{1/10})) of the PrimeNumberTheoremAnd project (Kontorovich, Tao et al.), so the compared theorems carry no hypotheses and depend only on propext, Classical.choice and Quot.sound.",
-      "authors": [
-        {
-          "name": "Ji Ho Bae"
-        }
-      ],
-      "classification": {
-        "arxiv": [
-          "math.NT",
-          "math.CO"
-        ],
-        "msc2020": [
-          "11B65",
-          "11N05",
-          "11A51"
-        ]
-      },
-      "formalization": {
-        "theorem_names": [
-          "Erdos684.Palomar.main_theorem",
-          "Erdos684.Palomar.main_theorem_limsup",
-          "Erdos684.Palomar.unbounded",
-          "Erdos684.Palomar.lt_f_iff",
-          "Erdos684.Palomar.u_mul_eq_choose"
-        ]
-      },
-      "id": "PALOMAR-2026-09-03-000006",
-      "path": "entries/PALOMAR-2026-09-03-000006-v1.json",
-      "preservation": {
-        "repositories": [
-          {
-            "commit": "4543ff7764f9e8f1b2732a8464d5c19c945bfc52",
-            "fork_repository": "PalomarArchive/jidodat--erdos684-lean--b4c193c90ac2",
-            "source_repository": "jidodat/erdos684-lean"
-          }
-        ]
-      },
-      "published_at": "2026-09-03T18:32:41Z",
-      "source": {
-        "commit": "4543ff7764f9e8f1b2732a8464d5c19c945bfc52",
-        "project_path": null,
-        "repository": "jidodat/erdos684-lean"
-      },
-      "status": "registered",
-      "title": "Erdős Problem 684: f(n)/log n is unbounded — a Lean 4 formalization of arXiv:2604.23784",
       "trust": {
         "level": "high"
       },
