@@ -1,0 +1,25 @@
+name: Fetch Palomar Registry and deploy
+on:
+  schedule: [{cron: '15 2 * * *'}]
+  workflow_dispatch:
+permissions: {contents: write, pages: write, id-token: write}
+concurrency: {group: pages, cancel-in-progress: true}
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.x'}
+      - run: python scripts/fetch_palomar.py
+      - name: Persist daily snapshot
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data
+          git diff --cached --quiet || git commit -m "data: Palomar snapshot $(date -u +%F)"
+          git push
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with: {path: .}
+      - uses: actions/deploy-pages@v4
