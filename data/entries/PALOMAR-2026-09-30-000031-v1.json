@@ -1,0 +1,375 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of the whole of J.-H. Evertse, On sums of S-units and linear recurrences (Compositio Math. 53 (1984)), built on the repository's libraries ArithmeticHeights and DiophantineApproximation, whose p-adic Subspace Theorem (Schlickewei's, the paper's Theorem 4) it uses. The library Evertse1984 is sorry-free and within Lean's three standard axioms. It proves Theorem 2 (a lower bound for S-integral sums without vanishing subsums, at any set of places), Theorem 1 (finitely many admissible projective solutions of x₀ + ⋯ + xₙ = 0), Corollaries 1 and 2, Lemmas 1 and 2 (polynomial values and shifted polynomial quotients that are S-units), Theorem 3 (for a non-degenerate linear recurrence with at least two characteristic roots, the largest prime ideal norm of u_r / u_s tends to infinity), and Corollaries 3 and 4 (P(u_r) → ∞; u_r = u_s has finitely many solutions r ≠ s). It also compares the paper's cited Theorem 4, the repository's p-adic Subspace Theorem. Fourteen statements are compared.",
+  "authors": [
+    {
+      "name": "Ralf Stephan"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-09-30-000031-v1/7736f8cc7468fe1a1e58409462d330ae609a4865bf3c7b175b829bc70919b84f/",
+    "artifact_tree_sha256": "7736f8cc7468fe1a1e58409462d330ae609a4865bf3c7b175b829bc70919b84f",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-09-30T14:23:20Z",
+    "renderer_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11D61",
+      "11B37",
+      "11J87",
+      "11R27"
+    ]
+  },
+  "first_registered_on": "2026-09-30",
+  "formalization": {
+    "challenge_path": "ChallengeEvertse1984.lean",
+    "comparator_config_path": "comparator/evertse-1984.json",
+    "definition_names": [],
+    "formalization_metadata_path": "Evertse1984/formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "comparator",
+        "repository": "leanprover/comparator",
+        "revision": "fd5d5bcf14177b187f66d4502071268d877887c3"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "5e0c4e5239cb0a2d86d68a884bf52cfd963fce22"
+      },
+      {
+        "name": "lean4export",
+        "repository": "leanprover/lean4export",
+        "revision": "66f1fb4bc256072069767fce52d39480e4524869"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "33131f4fb10067cb3009bf4db615d9680c1ccd6b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "SolutionEvertse1984.lean",
+    "theorem_names": [
+      "NumberField.exists_finset_submodule_of_integer_of_affineProd_le",
+      "NumberField.exists_pos_forall_placeProd_le",
+      "NumberField.finite_setOf_admissible_sum_eq_zero",
+      "evertseTheorem1",
+      "NumberField.exists_pos_forall_placeProd_iInf_le",
+      "Rat.finite_setOf_sum_eq_zero_of_gcd_eq_one",
+      "NumberField.exists_pos_forall_placeProd_eval_intCast",
+      "NumberField.finite_setOf_eval_div_eval_mem_unit",
+      "NumberField.finite_setOf_powerSum_div_mem_unit",
+      "NumberField.finite_setOf_div_mem_unit_of_eq_powerSum",
+      "NumberField.finite_setOf_powerSum_mem_unit",
+      "NumberField.finite_setOf_mem_unit_of_eq_powerSum",
+      "NumberField.finite_setOf_powerSum_eq",
+      "NumberField.finite_setOf_eq_of_eq_powerSum"
+    ]
+  },
+  "id": "PALOMAR-2026-09-30-000031",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-09-30T14:23:58Z",
+    "receipt_sha256": "ad017b3b136b0499abe63d35095162fb4e35c68adbe472376e9367b4e7cb4fbf",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000031-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "33131f4fb10067cb3009bf4db615d9680c1ccd6b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000031-v1/33131f4fb10067cb3009bf4db615d9680c1ccd6b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000031-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000031-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "5e0c4e5239cb0a2d86d68a884bf52cfd963fce22",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000031-v1/5e0c4e5239cb0a2d86d68a884bf52cfd963fce22",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000031-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000031-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000031-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "fd5d5bcf14177b187f66d4502071268d877887c3",
+        "fork_repository": "PalomarArchive/leanprover--comparator--25495a50215b",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000031-v1/fd5d5bcf14177b187f66d4502071268d877887c3",
+        "source_repository": "leanprover/comparator"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000031-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "66f1fb4bc256072069767fce52d39480e4524869",
+        "fork_repository": "PalomarArchive/leanprover--lean4export--94a894d77e17",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000031-v1/66f1fb4bc256072069767fce52d39480e4524869",
+        "source_repository": "leanprover/lean4export"
+      },
+      {
+        "commit": "f10f915bc689c86ae0abe45d4164dcb7df91e7ea",
+        "fork_repository": "PalomarArchive/rwst--Subspace-Theorems--9bd9bba330e8",
+        "ref": "refs/tags/palomar/PALOMAR-2026-09-30-000031-v1/f10f915bc689c86ae0abe45d4164dcb7df91e7ea",
+        "source_repository": "rwst/Subspace-Theorems"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jan-Hendrik Evertse"
+          }
+        ],
+        "location": "Compositio Math. 53 (1984), 225–244. Theorems 1–3, Corollaries 1–4, Lemmas 1 and 2",
+        "relationship": "formalizes",
+        "title": "On sums of S-units and linear recurrences",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Hans Peter Schlickewei"
+          }
+        ],
+        "location": "Arch. Math. 29 (1977), 267–270; the paper's Theorem 4",
+        "relationship": "background",
+        "title": "The p-adic Thue–Siegel–Roth–Schmidt theorem",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ralf Stephan"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-09-30T14:23:34Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "aaf08a3266edba0537fc6bdcf4bff0d029a191f59f31f692b7c9e4153e76ab8c"
+    },
+    "reviewed_at": "2026-09-30T09:48:08Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "f10f915bc689c86ae0abe45d4164dcb7df91e7ea",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "rwst/Subspace-Theorems",
+    "repository_url": "https://github.com/rwst/Subspace-Theorems",
+    "tree_url": "https://github.com/rwst/Subspace-Theorems/tree/f10f915bc689c86ae0abe45d4164dcb7df91e7ea"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "lai1hzu5iszi"
+  },
+  "title": "Evertse 1984: sums of S-units and linear recurrences",
+  "trust": {
+    "challenge_bytes": 16402,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.FiniteSupport.Basic",
+      "Mathlib.Algebra.Module.LinearMap.Rat",
+      "Mathlib.Algebra.Module.ZLattice.Basic",
+      "Mathlib.Algebra.Module.ZLattice.Covolume",
+      "Mathlib.Algebra.MvPolynomial.Coeff",
+      "Mathlib.Algebra.MvPolynomial.Funext",
+      "Mathlib.Algebra.MvPolynomial.NoZeroDivisors",
+      "Mathlib.Algebra.Order.Antidiag.FinsuppEquiv",
+      "Mathlib.Algebra.Order.Ring.IsNonarchimedean",
+      "Mathlib.Algebra.Polynomial.Homogenize",
+      "Mathlib.Analysis.AbsoluteValue.Equivalence",
+      "Mathlib.Analysis.Complex.ExponentialBounds",
+      "Mathlib.Analysis.InnerProductSpace.Adjoint",
+      "Mathlib.Analysis.Matrix.LDL",
+      "Mathlib.Analysis.MeanInequalitiesPow",
+      "Mathlib.Analysis.Normed.Algebra.GelfandMazur",
+      "Mathlib.Analysis.Normed.Field.Instances",
+      "Mathlib.Analysis.Polynomial.MahlerMeasure",
+      "Mathlib.Analysis.SpecialFunctions.Log.PosLog",
+      "Mathlib.Data.Finsupp.Interval",
+      "Mathlib.Data.Finsupp.MonomialOrder",
+      "Mathlib.Data.Matrix.ColumnRowPartitioned",
+      "Mathlib.GroupTheory.FiniteAbelian.Basic",
+      "Mathlib.LinearAlgebra.ExteriorPower.Basis",
+      "Mathlib.LinearAlgebra.LinearIndependent.BaseChange",
+      "Mathlib.LinearAlgebra.Matrix.Rank",
+      "Mathlib.MeasureTheory.Group.GeometryOfNumbers",
+      "Mathlib.MeasureTheory.Measure.Haar.Disintegration",
+      "Mathlib.MeasureTheory.Measure.Haar.Unique",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls",
+      "Mathlib.NumberTheory.Height.MvPolynomial",
+      "Mathlib.NumberTheory.Height.NumberField",
+      "Mathlib.NumberTheory.Height.Projectivization",
+      "Mathlib.NumberTheory.MahlerMeasure",
+      "Mathlib.NumberTheory.NumberField.CanonicalEmbedding.Basic",
+      "Mathlib.NumberTheory.NumberField.ClassNumber",
+      "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+      "Mathlib.NumberTheory.NumberField.Completion.InfinitePlace",
+      "Mathlib.NumberTheory.NumberField.Completion.Ramification",
+      "Mathlib.NumberTheory.NumberField.Discriminant.Basic",
+      "Mathlib.NumberTheory.NumberField.House",
+      "Mathlib.NumberTheory.NumberField.Units.DirichletTheorem",
+      "Mathlib.NumberTheory.NumberField.Units.Regulator",
+      "Mathlib.NumberTheory.Ostrowski",
+      "Mathlib.RingTheory.Complex",
+      "Mathlib.RingTheory.DedekindDomain.SInteger",
+      "Mathlib.RingTheory.DedekindDomain.SelmerGroup",
+      "Mathlib.RingTheory.Ideal.Norm.RelNorm",
+      "Mathlib.RingTheory.Polynomial.GaussNorm",
+      "Mathlib.RingTheory.Polynomial.Wronskian",
+      "Mathlib.Topology.Compactification.OnePoint.Basic"
+    ],
+    "challenge_lines": 316,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "a0b347e2c53de222418f7ffacbc6bb8dbf9acefa44fa5967bd85b093494419fd",
+    "evidence_path": "evidence/PALOMAR-2026-09-30-000031-v1/02fd56342398a38f924fe91310cb32e37b4834365d809a3b73d0f82b54fe0198/",
+    "evidence_tree_sha256": "02fd56342398a38f924fe91310cb32e37b4834365d809a3b73d0f82b54fe0198",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/con-ron"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "b6d6040fdb3387e7f666e832bcea21cd5fcf244cffc51d6785d60148f05fa941",
+    "protected_config_sha256": "4eda2aae76bf3236eb1081f3ef57e43ecbf7eb59d47a1310640f6f85198d0c71",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 36694560618,
+    "solution_sha256": "fd866aa40ea29e9b045377503d710a9c25f136f70d55982bccbac23524c739d3",
+    "tool_digests": {
+      "bwrap": "53b3af0b61e1d54e3d9c009f859488bdbbc792d48b6acd3742f0985e4672638a",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-09-30T09:35:22Z",
+    "workflow_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/36694560618"
+  },
+  "version": 1
+}
