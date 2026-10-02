@@ -1,0 +1,305 @@
+{
+  "abstract": "A Lean formalization of Myerson's 1981 optimal auction theorem, regular case, in a single-parameter independent-private-values model with real types. Finitely many bidders draw independent types from TypeDist priors: probability measures on ℝ with a continuous monotone CDF and a nonnegative Lebesgue density that vanishes for negative types, so each prior's mass lies on [0, ∞). The formal results are MyersonOptimalAuction.Palomar.virtualSurplusIdentity: under BIC, the support hypothesis (hsupp : ∀ t : ℝ, 0 < t → 0 < D.F t, i.e. the prior puts positive mass in (0, t] for every t > 0 so zero is in the support), and five integrability hypotheses, the expected payment equals the expected virtual surplus minus the interim utility at the reference type (type zero), expectedPayment p D = expectedVirtualSurplus x D - interimUtility x p 0; and MyersonOptimalAuction.Palomar.optimalAuction: for regular priors (hreg : Regular D, i.e. each bidder's virtual value ψ(t) = t - (1 - F t) / f t is nondecreasing on nonnegative types), the auction that allocates the item to the least-index bidder attaining the highest virtual value whenever that value is strictly positive (no sale otherwise), with envelope payments normalized to zero utility at type zero, is Bayesian incentive compatible and interim individually rational, and raises at least as much expected revenue as any feasible BIC and interim-IR mechanism. Independence is the product measure over type profiles; feasibility is pointwise (∑ i, X i t ≤ 1 for every profile t). Types range over all of ℝ; zero is only the reference/normalization type, never a lowest type. The Bochner integrals defining expectations are totalized, so every expectation claim carries the integrability hypotheses that make it non-vacuous. Ironing for irregular distributions is out of scope. The Palomar registry API searches on 2026-10-01 for \"optimal auction\", \"virtual surplus\", and \"virtual value\" returned no existing Myerson optimal auction formalization (\"optimal auction\" matched only PALOMAR-2026-10-01-000007, Bulow-Klemperer, a different theorem). These are dated, limited observations, not universal prior-art claims.",
+  "authors": [
+    {
+      "name": "Arthur Freitas Ramos"
+    },
+    {
+      "name": "David Barros Hulak"
+    },
+    {
+      "name": "Ruy Jose Guerra Barretto de Queiroz"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-01-000012-v1/d8317a0e90a28b946d5b62ea52d9bddc866dba128cf8112fae43fb7c9a0bbf06/",
+    "artifact_tree_sha256": "d8317a0e90a28b946d5b62ea52d9bddc866dba128cf8112fae43fb7c9a0bbf06",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-01T13:50:27Z",
+    "renderer_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.GT",
+      "econ.TH"
+    ],
+    "msc2020": [
+      "91B26"
+    ]
+  },
+  "first_registered_on": "2026-10-01",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "MyersonOptimalAuction.virtualValue",
+      "MyersonOptimalAuction.Regular",
+      "MyersonOptimalAuction.interimUtility",
+      "MyersonOptimalAuction.BIC",
+      "MyersonOptimalAuction.IIR",
+      "MyersonOptimalAuction.expectedPayment"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "MyersonOptimalAuction.Palomar.virtualSurplusIdentity",
+      "MyersonOptimalAuction.Palomar.optimalAuction"
+    ]
+  },
+  "id": "PALOMAR-2026-10-01-000012",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-01T13:51:04Z",
+    "receipt_sha256": "24dc755f6ddddd805a9e23d1f1f665b483cee1a46b04a27ffc62678e6bb4ca7c",
+    "repositories": [
+      {
+        "commit": "f78aa142d4c34ed70262f44250fa66eb1f95ffb4",
+        "fork_repository": "PalomarArchive/Arthur742Ramos--myerson-optimal-auction-lean--3701856fdb67",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000012-v1/f78aa142d4c34ed70262f44250fa66eb1f95ffb4",
+        "source_repository": "Arthur742Ramos/myerson-optimal-auction-lean"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000012-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000012-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000012-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000012-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000012-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000012-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000012-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000012-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000012-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Roger B. Myerson"
+          }
+        ],
+        "location": "Mathematics of Operations Research 6(1), 58-73, 1981. https://doi.org/10.1287/moor.6.1.58",
+        "relationship": "formalizes",
+        "title": "Optimal Auction Design",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-10-01-000011",
+        "note": "Companion formalization by the same authors, registered on Palomar as PALOMAR-2026-10-01-000011 (version 1, published 2026-10-01). This development reuses its BIC/envelope machinery (Myerson's lemma: BIC iff monotone interim allocation plus the envelope payment formula). The two formalize different theorems: revenue equivalence (equal interim allocations and equal reference-type utility force equal payments) versus optimal auction design (which allocation maximizes expected revenue).",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Arthur Freitas Ramos"
+      },
+      {
+        "name": "David Barros Hulak"
+      },
+      {
+        "name": "Ruy Jose Guerra Barretto de Queiroz"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-01T13:50:39Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "cc75a9d3301a0eec5fdb6f507961feb0191ce7247cd5d1d2dc11a55ca92a6a1f"
+    },
+    "reviewed_at": "2026-10-01T13:40:45Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "f78aa142d4c34ed70262f44250fa66eb1f95ffb4",
+    "license": {
+      "declared_identifier": "BSD-3-Clause",
+      "detected_identifier": "BSD-3-Clause",
+      "path": "LICENSE",
+      "sha256": "5c92d4e8aa0139d2c1810332bf69efcd6737d0e63d43d20c4ee9437ff0533d1f"
+    },
+    "repository": "Arthur742Ramos/myerson-optimal-auction-lean",
+    "repository_url": "https://github.com/Arthur742Ramos/myerson-optimal-auction-lean",
+    "tree_url": "https://github.com/Arthur742Ramos/myerson-optimal-auction-lean/tree/f78aa142d4c34ed70262f44250fa66eb1f95ffb4"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "5dv2e6dy06b1"
+  },
+  "title": "Myerson's Optimal Auction Theorem",
+  "trust": {
+    "challenge_bytes": 7260,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Data.Finset.Max",
+      "Mathlib.MeasureTheory.Constructions.Pi",
+      "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+      "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+      "Mathlib.MeasureTheory.Measure.Typeclasses.Probability"
+    ],
+    "challenge_lines": 163,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "c0185239a2cdeb30a18a338bf3968d0d61666a6b3119cf581fd5521176927324",
+    "evidence_path": "evidence/PALOMAR-2026-10-01-000012-v1/a82ed66652fc3372d118cb471cb7253ce266e951e51c36de3ea18b0e13417c1e/",
+    "evidence_tree_sha256": "a82ed66652fc3372d118cb471cb7253ce266e951e51c36de3ea18b0e13417c1e",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "4b40c5d3bacb38368a3810546ee34909268baa31e0fae45fa3efa4136191f5dc",
+    "protected_config_sha256": "4e5ce6f1764dbecbee18db482d9ed66bcfa1a8f3244ff987c0cff7e7e568a584",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 36868631870,
+    "solution_sha256": "55342ee5c5c6a8777f680fc0c846e56cbf49b7fa2f7bf3b5aabfb978bc9bfdf4",
+    "tool_digests": {
+      "bwrap": "1fa22e73072bc7b17ee84c35fc6e22659986d843ced115402e780f289a985a3c",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-01T13:30:23Z",
+    "workflow_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/36868631870"
+  },
+  "version": 1
+}

@@ -1,0 +1,421 @@
+{
+  "abstract": "Lean formalization accompanying the paper An Exponent of 1.04273 for the Unit Distance Problem by Eric Naslund (cited under sources), which proves the exponent 1.04273 unconditionally with a computer-assisted certificate. Conditional theorem on unit distances in the Euclidean plane. Let B = Q(sqrt 241) and let E be the number field of degree 512 generated over Q by sqrt 241 and square roots of the eight elements -1, -71011068 + 4574225 sqrt 241, (-6101 - 393 sqrt 241)/2, (6101 - 393 sqrt 241)/2, 31 - 2 sqrt 241, 31 + 2 sqrt 241, 326 - 21 sqrt 241 and 326 + 21 sqrt 241 of B (a basis of the {2,3,5}-units of B modulo squares; E is the maximal elementary abelian 2-extension of B unramified outside 2, 3, 5 and the infinite places). Hypothesis (H) is one displayed numerical inequality for the Dedekind zeta function of E: log(Re zeta_E(1 + 1/300))/512 + (1/300)((L - gamma - log(4 pi))/4 - Re((zeta_E'/zeta_E)(2))/512) < 852/10000, where L = (9/4) log 2 + (1/2) log 3615 and gamma is Euler's constant. The compared theorem proves that (H) implies the existence of finite sets U_j in the plane with |U_j| -> infinity such that the number of unordered pairs of points of U_j at distance one, divided by |U_j|^(10427/10000), tends to infinity. The exponent is exactly 10427/10000 = 1.0427. The conclusion is a sequence statement only; no bound at every sufficiently large cardinality is asserted. The infinite pro-2 tower over B (generators, relation bound, presentation, Golod-Shafarevich infinitude, local data), its retained field and growing Galois fields, the root-discriminant bound, the passage from (H) to the analytic ceiling, the numerical margin and the planar construction are proved in Lean over Mathlib; (H) itself is not proved. Outside Lean, a rigorous computation (certified approximate functional equations for the 255 quadratic Hecke L-functions of E/B and an Euler product with explicit tail) bounds the left side of (H) by 0.0848336; that computation is not part of the formal proof.",
+  "authors": [
+    {
+      "name": "Eric Naslund"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-01-000018-v1/d51b78423f2e9016a5d3dc89691e8ea7ce08e6b2b8e923e652cea4f0dfcdaef5/",
+    "artifact_tree_sha256": "d51b78423f2e9016a5d3dc89691e8ea7ce08e6b2b8e923e652cea4f0dfcdaef5",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-01T21:55:41Z",
+    "renderer_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.NT"
+    ],
+    "msc2020": [
+      "52C10",
+      "11R37",
+      "20C05"
+    ]
+  },
+  "first_registered_on": "2026-10-01",
+  "formalization": {
+    "challenge_path": "lean/ChallengeZeta241.lean",
+    "comparator_config_path": "lean/comparator-zeta241.json",
+    "definition_names": [],
+    "formalization_metadata_path": "lean/formalization.yaml",
+    "lakefile_path": "lean/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "lean/SolutionZeta241.lean",
+    "theorem_names": [
+      "UnitDistanceSqrt241Submission.target_of_canonical_genus_zeta_bound"
+    ]
+  },
+  "id": "PALOMAR-2026-10-01-000018",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-01T21:56:20Z",
+    "receipt_sha256": "b9209458806d829f74675731f7cb33e38a9598df5284d237fdb997c895fbed6b",
+    "repositories": [
+      {
+        "commit": "e0ac836176016dbefae28646bc91fc3a5aca30e8",
+        "fork_repository": "PalomarArchive/enaslund--unit-distance-bound-0.0427--b3a8b62d2e9c",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000018-v1/e0ac836176016dbefae28646bc91fc3a5aca30e8",
+        "source_repository": "enaslund/unit-distance-bound-0.0427"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000018-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000018-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000018-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000018-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000018-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000018-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000018-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000018-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-01-000018-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Eric Naslund"
+          }
+        ],
+        "identifier": "https://github.com/enaslund/unit-distance-bound-0.0427/blob/7dfcf8889cecd9a484267c1401b8a32b810d4213/papers/0.04273/main.tex",
+        "location": "Public repository enaslund/unit-distance-bound-0.0427: papers/0.04273/ at the cited commit (main.tex, sections/, certificates/). The source archive includes these materials under docs/quadratic-base-research/.",
+        "relationship": "adapts",
+        "title": "An exponent of 1.04273 for the unit distance problem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Eric Naslund"
+          }
+        ],
+        "identifier": "https://github.com/enaslund/unit-distance-bound-0.0427/blob/7dfcf8889cecd9a484267c1401b8a32b810d4213/papers/0.0418235/main.tex",
+        "location": "Public repository enaslund/unit-distance-bound-0.0427: papers/0.0418235/ at the cited commit. Exported formalization package: docs/manuscript/; especially sections/tower.tex, analytic.tex, geometry.tex and finite-windows.tex",
+        "relationship": "adapts",
+        "title": "A lower exponent of 1.0418235 for planar unit distances",
+        "type": "research note"
+      },
+      {
+        "authors": [
+          {
+            "name": "Will Sawin"
+          }
+        ],
+        "identifier": "arXiv:2605.20579v1",
+        "relationship": "background",
+        "title": "An explicit lower bound for the unit distance problem",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Noga Alon"
+          },
+          {
+            "name": "Thomas F. Bloom"
+          },
+          {
+            "name": "W. T. Gowers"
+          },
+          {
+            "name": "Daniel Litt"
+          },
+          {
+            "name": "Will Sawin"
+          },
+          {
+            "name": "Arul Shankar"
+          },
+          {
+            "name": "Jacob Tsimerman"
+          },
+          {
+            "name": "Victor Wang"
+          },
+          {
+            "name": "Melanie Matchett Wood"
+          }
+        ],
+        "identifier": "arXiv:2605.20695v1",
+        "relationship": "background",
+        "title": "Remarks on the disproof of the unit distance conjecture",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Michael T. M. Emmerich"
+          }
+        ],
+        "identifier": "arXiv:2606.03419",
+        "relationship": "background",
+        "title": "Optimizing Explicit Unit-Distance Lower-Bound Certificates",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Eric Naslund"
+          }
+        ],
+        "contributors": [
+          {
+            "name": "Dustin G. Mixon",
+            "role": "question-poser"
+          }
+        ],
+        "identifier": "https://mathoverflow.net/q/511514",
+        "location": "https://mathoverflow.net/a/511576",
+        "relationship": "background",
+        "title": "What is the unit distance exponent? (MathOverflow question 511514) and the answer by Eric Naslund",
+        "type": "web discussion"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "local-git:enaslund/unit-distance-bound@ed01a1ea90e59c61e13c0e8cdc7392a15db0979f:lean-formalization",
+        "note": "The library of the verified conditional 1.0418235 package (Lean v4.35.0-rc2) is reused unchanged: generic geometry, analysis, class field theory ports and pro-p machinery are imported; witness-dependent modules are copied into UnitDistance/Sqrt241 with the new data (generator scripts in scripts/sqrt241/), and the Q tower is rebuilt over Q(sqrt 241). This identifies the local research revision merged into this branch. Its selected 1.0418235 archive passed two bounded full local runs; those passes do not verify the new 1.0427 theorem. The 1.0418235 theorem remains in the same Lean project (ChallengeZeta/SolutionZeta). Its public-layout candidate was prepared locally and remains unpublished and unregistered; this 1.0427 package is the intended submission. No public identifier for that formalization is asserted here.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/tree/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "note": "Matched dependency target for Lean v4.35.0-rc2, Apache-2.0. Exact selected-build and archive-verification outcomes require receipts for the corresponding source and archive digests. Its own pinned dependencies remain external public dependencies.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/mathlib-initiative/sum_product/tree/80e4127a67742659d521466204c6d2d7e0ca2b3f",
+        "note": "Formal Frontier Team, Apache-2.0. Its multidimensional Poisson summation module (DedekindZeta/PoissonSummation.lean) is version-ported, with original copyright/license and explicit modification provenance, to UnitDistance/ThirdParty/PoissonSummation.lean; the full source file compiled against the present pinned Mathlib, and PoissonBound derives translated finite lattice bounds from actual dual Fourier tails. The ideal-series, geometric-product and factorization sections of DedekindZeta/Statements.lean are ported into DedekindEuler, and selected trace-dual proofs from DedekindZeta/Theta.lean into MinkowskiTrace; those two modules carry the sum_product adaptations in this package. EulerBound.lean through its divisor-series theorem is ported into IdealCounting in the research repository, but the IdealCounting port named in NOTICE is not in this package's selected import closure. Original copyright and license are preserved and modifications and the new full Euler-product assembly are recorded in docs/SUBMISSION_PROVENANCE.md and NOTICE. The whole upstream project was not rebuilt; other code was audited at source level. Its field tower is an explicit hypothesis. License retained under third-party/sum_product/LICENSE. No registration of that project is claimed.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/CBirkbeck/AINTLIB/tree/a302aeacd86053f9d5f991fbbf664e1cc1051d08",
+        "note": "Chris Birkbeck, Apache-2.0. Completed Dedekind zeta and explicit-formula foundations are ported as an attributed source port under UnitDistance/Upstream/AINTLIB. Copyright, license, exact source hashes and version modifications are recorded in third-party/aintlib. Completed zeta continuation and functional equation are actual theorems; relative Hecke entireness is not assumed to follow.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/n-yamaguchi-0729/SawinTotallyRealTowers/tree/3a455e1aa9140dbbe7b7d68f508392a69c86d0f4",
+        "note": "Naganori Yamaguchi, Apache-2.0. Selected profinite presentations and continuous pro-p cohomology are imported under UnitDistance/Upstream/Yamaguchi, retaining original declaration namespaces and mathematical statements. The selected archive inventory records which files of the larger historical port are shipped. License, original/local source hashes, compatibility patches and dated verification scope are in third-party/yamaguchi. Historical build and imported-axiom-query records retain their original scope and are not a verifier result for the new theorem. New local arithmetic proofs assemble the seven-relation bound over Q(sqrt 241) and the growing field family; those conclusions are not supplied as upstream assumptions.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/logical-intelligence/erdos-unit-distance/tree/b6493074dd103ca32ea4f5e9b0bc9cb3a0379f2e",
+        "note": "Erdős unit-distance formalization contributors, Apache-2.0. Selected openNormalChain and fixed-field construction proofs from ErdosUnitDistance/Internal/ClassFieldTheory/Witness.lean are adapted in ProfiniteQuotientTower and GaloisQuotientTower. License, NOTICE, hashes and modifications are retained under third-party/erdos-unit-distance. The whole upstream project was not rebuilt. No upstream arithmetic tower or headline theorem is assumed; its unspecified-exponent theorem and explicit odd-prime Shafarevich and Golod-Shafarevich inputs do not supply the present dyadic tower. No registration of that project is claimed.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/alejandrozu/RiemannHypothesis-Formalization/tree/753938937e624d1c8bbe4c208517660a672d1b8e",
+        "note": "Tristen Harr, Apache-2.0. Twelve generic entire-function and canonical Hadamard product modules and a selected negation-pairing section are ported, with original headers and exact provenance under third-party/entire-hadamard. No xi-specific module or Riemann Hypothesis assumption is imported. New local compositions derive paired-product monotonicity from actual entire divisor, summability and growth data.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/kim-em/erdos-unit-distance-comparator/tree/6f54548da16c3f243d7e300716795906b955271a",
+        "note": "Registered in the Palomar registry as PALOMAR-2026-08-08-000001 (2026-08-08); a Comparator wrapper for the library kim-em/erdos-unit-distance at 34b4587bbd0740efb9c06a519a8ee14a3eff8cd7. It proves the uniform-constant form of the disproof of the Erdős unit-distance conjecture (for every C > 0, arbitrarily large n admit n-point planar sets with more than n^(1 + C/log log n) unit-distance pairs), a different and weaker statement than the fixed exponent here. No code or theorem from it is used.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/plby/Erdos90",
+        "note": "Independent Lean formalization of the fixed-power (unspecified-exponent) planar unit-distance statement, as described in the Palomar record PALOMAR-2026-08-08-000001. No code or theorem from it is used, and no comparison of exponents is claimed.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Eric Naslund"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-01T21:55:55Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "5b9447e3563c4efbaaea80571028a089fb43adaf8d1ad339538fdef61e867f40"
+    },
+    "reviewed_at": "2026-10-01T21:46:29Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "e0ac836176016dbefae28646bc91fc3a5aca30e8",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "project_path": "lean",
+    "repository": "enaslund/unit-distance-bound-0.0427",
+    "repository_url": "https://github.com/enaslund/unit-distance-bound-0.0427",
+    "tree_url": "https://github.com/enaslund/unit-distance-bound-0.0427/tree/e0ac836176016dbefae28646bc91fc3a5aca30e8/lean"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "kcg0qrswoo9i"
+  },
+  "title": "An Exponent of 1.04273 for the Unit Distance Problem: Lean formalization at exponent 1.0427, conditional on one zeta inequality",
+  "trust": {
+    "challenge_bytes": 6553,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.AlgebraicTopology.SimplexCategory.Basic",
+      "Mathlib.Analysis.CStarAlgebra.Classes",
+      "Mathlib.Analysis.Calculus.LogDeriv",
+      "Mathlib.Analysis.Complex.Basic",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.Data.Finset.Prod",
+      "Mathlib.FieldTheory.IntermediateField.Adjoin.Basic",
+      "Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure",
+      "Mathlib.NumberTheory.Harmonic.EulerMascheroni",
+      "Mathlib.NumberTheory.NumberField.DedekindZeta",
+      "Mathlib.Order.Filter.AtTopBot.Tendsto"
+    ],
+    "challenge_lines": 135,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "f5568120a004fe153a5cceecdc1329da32e4a6404ad1b54a1c6c3325d1a26358",
+    "evidence_path": "evidence/PALOMAR-2026-10-01-000018-v1/d11e71ecd1510ac8f74e5addc1c45a2ae6c4a6d3324a746f8d82a0224060721c/",
+    "evidence_tree_sha256": "d11e71ecd1510ac8f74e5addc1c45a2ae6c4a6d3324a746f8d82a0224060721c",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "f9e66f1b3e4a80bb341bffdce945921df3e3a1d497cfd50983ac917cc0513db9",
+    "protected_config_sha256": "e6995a2afdae6d0be110604415fa43208fb64e2b1248fd66481bffab56c623c4",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 36919920713,
+    "solution_sha256": "bca8b73b6440714155a024f36e5eb94ce7d4e25309a115c74ec20991e95b62f4",
+    "tool_digests": {
+      "bwrap": "9ae690cff6b909ace1e294ca85cede321547d440e6dc578b5a7a026e39f76932",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-01T21:24:41Z",
+    "workflow_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/36919920713"
+  },
+  "version": 1
+}
