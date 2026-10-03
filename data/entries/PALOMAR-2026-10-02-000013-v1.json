@@ -1,0 +1,307 @@
+{
+  "abstract": "A Lean 4 proof of the Cook–Levin theorem and of the NP-completeness of several variants of satisfiability, for an explicit machine model, using only Lean's core library. The compared theorems state that the following languages are NP-complete: SAT, the set of binary codes of satisfiable CNF formulas (Complexity.sat_np_complete); 3-SAT, with at most three literals per clause (threeSAT_np_complete); exactly-3-SAT, with exactly three literals per clause on three distinct variables (exactThreeSAT_np_complete); (≤1,≤2)-SAT, with two or three literals per clause and every variable occurring at most once positively and at most twice negatively (leOneLeTwoSAT_np_complete); SAT with variable indices written in binary (binarySAT_np_complete); planar 3-SAT, whose variable–clause incidence graph is planar (planarThreeSAT_np_complete); and Lichtenstein's planar 3-SAT, whose incidence graph stays planar with the cycle through the variables added (cyclePlanarThreeSAT_np_complete). Planarity is Gonthier's from the formal proof of the Four Color Theorem: a graph is planar when a hypermap on its half-edges embeds it with genus zero, the genus being computed from the Euler formula. NP-complete means: in NP, and every language in NP reduces to it by a polynomial-time many-one (Karp) reduction. A further compared theorem, inNP_iff_nondeterministicPolyTime, proves that NP, defined by verifiers, is the class of languages accepted in polynomial time by nondeterministic machines with two transition tables. Languages are sets of binary words. Computation is by deterministic Turing machines with a single two-way infinite tape over a four-symbol alphabet, and time is the number of machine steps. NP is defined by polynomial-time verifiers and polynomially bounded certificates, the standard certificate characterization; a reduction is a function computed by such a machine within a polynomial number of steps. Formulas are coded with unary variable indices and list lengths (binary indices for the binary variant); words that code no formula belong to none of the languages.\nFor an arbitrary NP verifier, the hardness proof builds a CNF formula describing the computation tableau of the verifier on the input and an unknown certificate; it is satisfiable exactly when some certificate makes the verifier accept. The reduction is itself implemented as a machine: it is written in a small language of loops over unary counters, compiled through finite programs on Boolean stacks to the single-tape model, and its running time is proved by counting the executed steps. SAT is reduced to 3-SAT by replacing each clause with a chain of clauses of at most three literals linked by fresh variables, and the reductions are composed as machines. Exactly-3-SAT and (≤1,≤2)-SAT are reached by transforming the Cook–Levin formula generator itself: every literal occurrence gets its own copy variable, a cycle of implications links the copies of each variable, long clauses are split by chains, and short clauses are padded. The binary variant is reached by a machine converting unary indices to binary. For planar 3-SAT, the Cook–Levin formula is turned into a grid formula in the style of Lichtenstein (one column of crossover gadgets per clause, copies of each variable joined by nested two-literal clauses), proved equisatisfiable and planar with its variable cycle through a general lemma on formulas drawn as combs; the plain version subdivides the cycle edges. Membership in NP is proved with explicit verifier machines for every language; for the planar versions the certificate also describes a planar embedding. For the nondeterministic characterization, a deterministic verifier simulates a nondeterministic machine with its choices read from the certificate, and conversely a nondeterministic machine guesses a certificate in a unary budget and runs the verifier. The development was written by AI under human direction: GPT-6 Astra (OpenAI) produced the proof, and Claude Opus 5.5 (Anthropic) ran its full verification, revised the statement for auditability and prepared it for Palomar, with the variants and the nondeterministic characterization proved by Claude agents. The proof uses only the axioms propext, Classical.choice and Quot.sound.",
+  "authors": [
+    {
+      "name": "Robert D. Barish"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-02-000013-v1/66ba4c68b9bb80ae5ce642733c9d051cd4d098d1e7b64e1a5d2dcbb7df0cc2e6/",
+    "artifact_tree_sha256": "66ba4c68b9bb80ae5ce642733c9d051cd4d098d1e7b64e1a5d2dcbb7df0cc2e6",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-02T19:47:13Z",
+    "renderer_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.CC",
+      "cs.LO"
+    ],
+    "msc2020": [
+      "68Q17",
+      "68Q15",
+      "03D15",
+      "68Q04",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-10-02",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Complexity.sat_np_complete",
+      "Complexity.threeSAT_np_complete",
+      "Complexity.exactThreeSAT_np_complete",
+      "Complexity.leOneLeTwoSAT_np_complete",
+      "Complexity.binarySAT_np_complete",
+      "Complexity.planarThreeSAT_np_complete",
+      "Complexity.cyclePlanarThreeSAT_np_complete",
+      "Complexity.inNP_iff_nondeterministicPolyTime"
+    ]
+  },
+  "id": "PALOMAR-2026-10-02-000013",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-02T19:47:38Z",
+    "receipt_sha256": "3cf0764b25ddcd22f68fdeffd04eb2d2061319b3a8aefa5a082612b3d395bb6f",
+    "repositories": [
+      {
+        "commit": "3e603e795b44fedcf7d6dd65b7d1e30547ead925",
+        "fork_repository": "PalomarArchive/RBarish-UTokyo--NPCompleteness-Lean4--67a5f2be4177",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000013-v1/3e603e795b44fedcf7d6dd65b7d1e30547ead925",
+        "source_repository": "RBarish-UTokyo/NPCompleteness-Lean4"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Stephen A. Cook"
+          }
+        ],
+        "identifier": "doi:10.1145/800157.805047",
+        "location": "Proceedings of the Third Annual ACM Symposium on Theory of Computing (STOC 1971), pp. 151-158",
+        "relationship": "formalizes",
+        "title": "The complexity of theorem-proving procedures",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Leonid A. Levin"
+          }
+        ],
+        "location": "Problemy Peredachi Informatsii 9(3) (1973), 115-116 (in Russian); English translation in Problems of Information Transmission 9(3) (1973), 265-266",
+        "relationship": "background",
+        "title": "Universal sequential search problems",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Richard M. Karp"
+          }
+        ],
+        "identifier": "doi:10.1007/978-1-4684-2001-2_9",
+        "location": "Complexity of Computer Computations (R. E. Miller and J. W. Thatcher, eds.), Plenum Press (1972), pp. 85-103",
+        "relationship": "formalizes",
+        "title": "Reducibility among combinatorial problems",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Craig A. Tovey"
+          }
+        ],
+        "identifier": "doi:10.1016/0166-218X(84)90081-7",
+        "location": "Discrete Applied Mathematics 8(1) (1984), 85-89",
+        "relationship": "adapts",
+        "title": "A simplified NP-complete satisfiability problem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "David Lichtenstein"
+          }
+        ],
+        "identifier": "doi:10.1137/0211025",
+        "location": "SIAM Journal on Computing 11(2) (1982), 329-343",
+        "relationship": "adapts",
+        "title": "Planar formulae and their uses",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Georges Gonthier"
+          }
+        ],
+        "identifier": "https://www.ams.org/notices/200811/tx081101382p.pdf",
+        "location": "Notices of the American Mathematical Society 55(11) (2008), 1382-1393",
+        "relationship": "background",
+        "title": "Formal Proof—The Four-Color Theorem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Michael R. Garey"
+          },
+          {
+            "name": "David S. Johnson"
+          }
+        ],
+        "location": "W. H. Freeman (1979), Section 3.1.1 and problem LO2 (3-satisfiability)",
+        "relationship": "background",
+        "title": "Computers and Intractability: A Guide to the Theory of NP-Completeness",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Sanjeev Arora"
+          },
+          {
+            "name": "Boaz Barak"
+          }
+        ],
+        "identifier": "ISBN 978-0-521-42426-4",
+        "location": "Cambridge University Press (2009), Chapter 2",
+        "relationship": "formalizes",
+        "title": "Computational Complexity: A Modern Approach",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/uds-psl/coq-library-complexity",
+        "note": "Lennard Gäher and Fabian Kunze, \"Mechanising Complexity Theory: The Cook-Levin Theorem in Coq\", ITP 2021, doi:10.4230/LIPIcs.ITP.2021.20 (supplementary snapshot at https://github.com/uds-psl/cook-levin). Proves SAT and 3-SAT NP-complete in Coq, with NP and polynomial time defined in the call-by-value lambda calculus L and a reduction chain through Turing machines and tableau problems. No code from it is used here.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://isa-afp.org/entries/Cook_Levin.html",
+        "note": "Frank J. Balbach, \"The Cook-Levin theorem\", Archive of Formal Proofs, January 2023 (Isabelle/HOL). Proves CNF-SAT NP-complete for multi-tape Turing machines, following Arora and Barak, through oblivious two-tape machines.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/SamuelSchlesinger/complexitylib",
+        "note": "Complexitylib (Samuel Schlesinger and contributors), a Lean 4 library of complexity theory built on Mathlib, over multi-tape Turing machines in the style of Arora and Barak; among many other results it proves SAT and 3SAT NP-complete. It is the closest prior Lean 4 work. The present development is independent of it and uses neither Mathlib nor Complexitylib: its statement depends only on Lean core, and it uses a single-tape machine model with the 'at most three literals' convention for 3-SAT. No prior formalization of (≤1,≤2)-SAT, of the binary-index variant or of planar 3-SAT was found.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/DominicBreuker/cook-levin-lean",
+        "note": "Dominic Breuker's Lean 4 and Mathlib proof that SAT, CNF satisfiability over bit strings with unary variable indices, is NP-complete for single-tape Turing machine verifiers. It does not treat 3-SAT. Independent of this development.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/PierreSenellart/descriptive-complexity",
+        "note": "Pierre Senellart and Anton Gnatenko, \"Descriptive Complexity in Lean: Completeness by First-Order Reductions\", arXiv:2609.18261 (2026). A machine-free Lean 4 and Mathlib treatment in which NP is defined logically (existential second-order logic) and hardness uses first-order reductions; proves SAT, 3SAT and Karp's 21 problems complete, and relates its logical NP to acceptance by nondeterministic machines. A different formulation of NP-completeness from the machine-based one here.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "doi:10.1007/978-3-540-30142-4_8",
+        "note": "Ruben Gamboa and John Cowles, \"A Mechanical Proof of the Cook-Levin Theorem\", TPHOLs 2004 (ACL2). Mechanizes the translation of single-tape Turing machine computations into satisfiability, without the complexity classes or running times.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Robert D. Barish"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-02T19:47:25Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "d27f3019e63ed5d6b1c525d449fdabcabad41fc9a19942ccef1ca353823736ce"
+    },
+    "reviewed_at": "2026-10-02T19:27:00Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "3e603e795b44fedcf7d6dd65b7d1e30547ead925",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "RBarish-UTokyo/NPCompleteness-Lean4",
+    "repository_url": "https://github.com/RBarish-UTokyo/NPCompleteness-Lean4",
+    "tree_url": "https://github.com/RBarish-UTokyo/NPCompleteness-Lean4/tree/3e603e795b44fedcf7d6dd65b7d1e30547ead925"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "0txpnkot0yag"
+  },
+  "title": "NP-completeness of SAT, 3-SAT and their variants (the Cook–Levin theorem) in Lean 4",
+  "trust": {
+    "challenge_bytes": 19509,
+    "challenge_dependencies": [],
+    "challenge_imports": [],
+    "challenge_lines": 464,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "9ac53982033a1ac805af6e1b2f9668a3f03fa6585f7b4fff5225f846c7d25d1b",
+    "evidence_path": "evidence/PALOMAR-2026-10-02-000013-v1/8a32bb4bfa7f685da0e4c28c750dcb68b685c2b5c0a54d5c96d4fc54b4a85493/",
+    "evidence_tree_sha256": "8a32bb4bfa7f685da0e4c28c750dcb68b685c2b5c0a54d5c96d4fc54b4a85493",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "f82a43b59a15050e461b28aca1452ab7db9aa40b885768fa023cdcf36de15724",
+    "protected_config_sha256": "f3d01a5c09db559f0e4a6a8ace94227d30c8c9b654028a392cd387ba89473695",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 37052185740,
+    "solution_sha256": "2121d213a5df53ebf279da116a461b02efb81ed60a23776187ae2feb1230d2b5",
+    "tool_digests": {
+      "bwrap": "74baf1bc222f06033eca06a886c662051564f0d051a129510949abf051f1ca4d",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-02T19:11:54Z",
+    "workflow_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/37052185740"
+  },
+  "version": 1
+}

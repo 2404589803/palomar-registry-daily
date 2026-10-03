@@ -1,14 +1,798 @@
 {
-  "fetched_at": "2026-10-02T08:27:30.004229+00:00",
+  "fetched_at": "2026-10-03T08:03:26.558380+00:00",
   "results": {
     "schema_version": 1,
-    "revision": 116,
-    "release": "c5378ae52010af0922142528beb99f597ac3aa4da8aab7595522e8c52171cf09",
+    "revision": 130,
+    "release": "b3c6d50921694b82ac81331d7ddae50fa2b795036aa1d047c772a7e550ce424c",
     "totals": {
-      "results": 407,
-      "projects": 328
+      "results": 420,
+      "projects": 341
     },
     "entries": [
+      {
+        "abbreviated": false,
+        "abstract": "A Lean formalisation of a hitting time theorem of Wanfang Chen, Jared León and Xizhi Liu. For every fixed integer r ≥ 3, assume all r-element subsets of n vertices are exposed in a uniformly random order. As n tends to infinity through multiples of r − 1, with probability tending to one, a loose Hamilton cycle first emerges exactly when the last isolated vertex disappears.",
+        "authors": [
+          {
+            "name": "Jared León"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C65",
+            "05C80"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "HittingTimeLooseHamilton.main_result"
+          ]
+        },
+        "id": "PALOMAR-2026-10-03-000003",
+        "path": "entries/PALOMAR-2026-10-03-000003-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "594001afb0fb7d80c581d0e2998a98355e87143c",
+              "fork_repository": "PalomarArchive/WozMit--hitting-time-loose-hamilton--76aa0aa185d8",
+              "source_repository": "WozMit/hitting-time-loose-hamilton"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "2636710e2ed14d3967e2c3b59a7fb3d9dfea287c44b71ce8d1cd1a457350f16b",
+          "version": 1
+        },
+        "published_at": "2026-10-03T07:27:23Z",
+        "source": {
+          "commit": "594001afb0fb7d80c581d0e2998a98355e87143c",
+          "project_path": null,
+          "repository": "WozMit/hitting-time-loose-hamilton"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The hitting time for loose Hamilton cycles in r-graphs",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "The moving sofa problem (Moser 1966) asks for the largest area of a connected planar shape that can be moved around the right-angled corner of a hallway of unit width. Gerver (1992) constructed a sofa of area 2.21953..., which Romik (2018) described by an explicit system of equations, and conjectured that it is optimal. Jineon Baek (arXiv:2411.19826, 2024) proved that Gerver's sofa has the maximum area. This repository formalizes Baek's entire proof in Lean 4 with Mathlib. The Challenge states, in Mathlib's vocabulary only: Romik's system of equations has exactly one solution with phi in [0.039, 0.04] and theta in [0.68, 0.69], so Gerver's sofa is well defined; Gerver's sofa has area between 2.2192 and 2.2199; and Gerver's sofa is a moving sofa whose area is at least the area of every moving sofa. Every numbered result of the paper is proved. This includes Theorem 8.4.1, on the structure of Gerver's sofa, which the paper states without proof and which is proved here from Romik's equations by rigorous interval arithmetic. It also includes the results the paper takes from the literature: Schneider's area formula for planar convex bodies, and the existence and uniqueness of the solution of Romik's system, which Romik asserts without proof. Only Lean's three standard axioms are used. An accompanying audit (REPORT.md) checks the paper against its LaTeX source. Two statements of the paper are false as written: Definition 3.2.5, which makes Proposition 3.3.5 and Lemma 3.4.2 false, and one direction of Proposition 5.1.4. The proof of Theorem 6.1.2 is invalid as written. The audit also records smaller gaps and slips. Every result survives in its intended form, and the main theorem holds. The repository also proves, and the Challenge states, that Gerver's sofa is the only moving sofa of maximum area up to rigid motions: every moving sofa with the area of Gerver's sofa is mapped onto it, as a set, by a rotation followed by a translation. Baek's paper does not prove this, and Google DeepMind's formal-conjectures lists it as an open problem; we know of no earlier proof but have not searched the literature systematically. The argument was written by ChatGPT Pro 6 (OpenAI) for this repository (docs/uniqueness/20-complete-paper-proof.md) and has not been peer reviewed. Its formal proof uses the definitions and results of the formalization of Baek's paper: it selects polygon approximations of a given maximizing cap, shows that every maximizing right-angle cap satisfies Baek's injectivity condition, extends the motion of a maximizing sofa to a right angle, and identifies the cap with Gerver's through the equality case of Baek's upper bound and the regular closedness of Gerver's sofa.",
+        "authors": [
+          {
+            "name": "The-Anh Vu-Le"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.MG",
+            "math.OC"
+          ],
+          "msc2020": [
+            "49Q10",
+            "52A10",
+            "52A38",
+            "52A40",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "MovingSofaChallenge.gerver_params_exists",
+            "MovingSofaChallenge.gerver_params_unique",
+            "MovingSofaChallenge.gerver_sofa_area",
+            "MovingSofaChallenge.gerver_sofa_optimal",
+            "MovingSofaChallenge.gerver_sofa_unique"
+          ]
+        },
+        "id": "PALOMAR-2026-10-02-000008",
+        "path": "entries/PALOMAR-2026-10-02-000008-v2.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "cf4fefff35971554e635d84a7ef5593c66e5c6e4",
+              "fork_repository": "PalomarArchive/vltanh--lean4-moving-sofa--dfc797b6e6b6",
+              "source_repository": "vltanh/lean4-moving-sofa"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "ad232a448799afb3786441933e28aa20c42477b49fcc93eddabd3379db5a8a40",
+          "version": 2
+        },
+        "published_at": "2026-10-03T04:42:18Z",
+        "source": {
+          "commit": "cf4fefff35971554e635d84a7ef5593c66e5c6e4",
+          "project_path": null,
+          "repository": "vltanh/lean4-moving-sofa"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Optimality (Baek 2024) and uniqueness of Gerver's sofa, formalized in Lean 4",
+        "trust": {
+          "level": "high"
+        },
+        "version": 2,
+        "versions": 2
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A general two-alternative implementation characterization on own-type domains containing an open ball: affine private and social valuation differences, nonzero social linear form, one active welfare cut, and a fixed independent opposing probability law force nonnegative coefficient alignment. Arbitrary measurable efficient lotteries have integrable Bayesian incentive compatible transfers exactly under alignment, with explicit ex-post truthful-opponent transfers and a measurable efficient allocation witness. Arbitrary distributions including atoms are covered. A genuine independent uniform-square auction model rules out efficiency even under only agent 0 incentive compatibility for every a,b>0. The separately proved finite sharp welfare/error frontier and original example corollary are retained. This does not formalize arbitrary-alternative Theorem 4.3 or genericity, and makes no novelty claim.",
+        "authors": [
+          {
+            "name": "Arthur Freitas Ramos"
+          },
+          {
+            "name": "David Barros Hulak"
+          },
+          {
+            "name": "Ruy Jose Guerra Barretto de Queiroz"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "cs.GT",
+            "econ.TH"
+          ],
+          "msc2020": [
+            "91B26"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "JM.Quantitative.welfare_incentive_bound",
+            "JM.Sharp.welfare_incentive_frontier",
+            "JM.Sharp.frontier_attained",
+            "JM.Sharp.feasible_iff",
+            "JM.Sharp.exact_bic_loss",
+            "JM.Sharp.exact_bic_attained",
+            "JM.jehiel_moldovanu_impossibility",
+            "JM.Binary.utility_integrable",
+            "JM.Binary.congruence",
+            "JM.Binary.aligned_ex_post",
+            "JM.Binary.implementation_iff",
+            "JM.Binary.efficient_bic_exists_iff",
+            "JM.ContinuousAuction.uniform_probability",
+            "JM.ContinuousAuction.prior_probability",
+            "JM.ContinuousAuction.joint_probability",
+            "JM.ContinuousAuction.welfare_difference",
+            "JM.ContinuousAuction.utility_integrable",
+            "JM.ContinuousAuction.impossibility"
+          ]
+        },
+        "id": "PALOMAR-2026-10-03-000002",
+        "path": "entries/PALOMAR-2026-10-03-000002-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "4ab48f369106f8e7304ea62d6d9264a736ebf7b6",
+              "fork_repository": "PalomarArchive/Arthur742Ramos--jehiel-moldovanu-lean--f6da463ab7ef",
+              "source_repository": "Arthur742Ramos/jehiel-moldovanu-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "b37ca48b580fb16e7b2c15e47be159a162949ddf8de56a92fbc27c0886eb66a1",
+          "version": 1
+        },
+        "published_at": "2026-10-03T01:40:47Z",
+        "source": {
+          "commit": "4ab48f369106f8e7304ea62d6d9264a736ebf7b6",
+          "project_path": null,
+          "repository": "Arthur742Ramos/jehiel-moldovanu-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Continuous binary implementation congruence and sharp finite welfare frontier",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For abstract linear control systems on Banach spaces with L-infinity inputs, the operator norm of the input map tends to zero at time zero, and every input response is continuous on the nonnegative time axis. The hypotheses are strong continuity of the semigroup, bounded linear input maps, and the concatenation identity; no integral representation is assumed. The proof uses a diagonal consequence of Phillips' lemma, proved in the repository, and a semigroup doubling argument. This gives a positive answer to Weiss' 1989 Problem 2.4.",
+        "authors": [
+          {
+            "name": "Frédéric Marbach"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.OC",
+            "math.FA"
+          ],
+          "msc2020": [
+            "93C25",
+            "47D06"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PalomarALCS.zero_class",
+            "PalomarALCS.continuousOn_Phi"
+          ]
+        },
+        "id": "PALOMAR-2026-10-03-000001",
+        "path": "entries/PALOMAR-2026-10-03-000001-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "2e9ef6b504d7d47db89d0b6ca1a95bfc5b36811d",
+              "fork_repository": "PalomarArchive/frederic-marbach--alcs--85985fba62b5",
+              "source_repository": "frederic-marbach/alcs"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "1dc356c82aef3329bb9cff12f077532b699d4d2b6160cbbb64d71be4dbd7b6dd",
+          "version": 1
+        },
+        "published_at": "2026-10-03T00:49:17Z",
+        "source": {
+          "commit": "2e9ef6b504d7d47db89d0b6ca1a95bfc5b36811d",
+          "project_path": null,
+          "repository": "frederic-marbach/alcs"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Continuity of solutions to abstract linear control systems",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 formalisation of p-adic valuation laws for alternating cofactors C_d(p^a) = (p^(ad)+1)/(p^a+1) with odd d. It proves finite-window coefficient scaling and an exact pre-extremal restricted-binomial-gcd formula, identifies the sparse endpoint, proves the least extremal row T_p(C_d(p^a)) = p^(ad)+1 for odd d >= 5, and gives the full cubic classification for p^(2a)-p^a+1. The Palomar Challenge records coefficient scaling, the exact bounded gcd formula, the odd-degree least-row theorem, and the cubic classification.",
+        "authors": [
+          {
+            "name": "John Fairfax-Ball"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11B65"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PascalCofactorsPalomar.coefficient_scaling",
+            "PascalCofactorsPalomar.restricted_gcd_valuation_bounded",
+            "PascalCofactorsPalomar.targetA_d",
+            "PascalCofactorsPalomar.targetC"
+          ]
+        },
+        "id": "PALOMAR-2026-10-02-000014",
+        "path": "entries/PALOMAR-2026-10-02-000014-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "02a52e71a0a5ab1e77824490d0c47650d4a45691",
+              "fork_repository": "PalomarArchive/jfairfaxball-348--pascal-cofactors--9d6b3a0fe1db",
+              "source_repository": "jfairfaxball-348/pascal-cofactors"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "8cefba2e55002b1abfa6953b6c25a0df7a8e54599438ce986edb24478d475717",
+          "version": 1
+        },
+        "published_at": "2026-10-02T20:32:00Z",
+        "source": {
+          "commit": "02a52e71a0a5ab1e77824490d0c47650d4a45691",
+          "project_path": null,
+          "repository": "jfairfaxball-348/pascal-cofactors"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Pascal Cofactors",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 proof of the Cook–Levin theorem and of the NP-completeness of several variants of satisfiability, for an explicit machine model, using only Lean's core library. The compared theorems state that the following languages are NP-complete: SAT, the set of binary codes of satisfiable CNF formulas (Complexity.sat_np_complete); 3-SAT, with at most three literals per clause (threeSAT_np_complete); exactly-3-SAT, with exactly three literals per clause on three distinct variables (exactThreeSAT_np_complete); (≤1,≤2)-SAT, with two or three literals per clause and every variable occurring at most once positively and at most twice negatively (leOneLeTwoSAT_np_complete); SAT with variable indices written in binary (binarySAT_np_complete); planar 3-SAT, whose variable–clause incidence graph is planar (planarThreeSAT_np_complete); and Lichtenstein's planar 3-SAT, whose incidence graph stays planar with the cycle through the variables added (cyclePlanarThreeSAT_np_complete). Planarity is Gonthier's from the formal proof of the Four Color Theorem: a graph is planar when a hypermap on its half-edges embeds it with genus zero, the genus being computed from the Euler formula. NP-complete means: in NP, and every language in NP reduces to it by a polynomial-time many-one (Karp) reduction. A further compared theorem, inNP_iff_nondeterministicPolyTime, proves that NP, defined by verifiers, is the class of languages accepted in polynomial time by nondeterministic machines with two transition tables. Languages are sets of binary words. Computation is by deterministic Turing machines with a single two-way infinite tape over a four-symbol alphabet, and time is the number of machine steps. NP is defined by polynomial-time verifiers and polynomially bounded certificates, the standard certificate characterization; a reduction is a function computed by such a machine within a polynomial number of steps. Formulas are coded with unary variable indices and list lengths (binary indices for the binary variant); words that code no formula belong to none of the languages.\nFor an arbitrary NP verifier, the hardness proof builds a CNF formula describing the computation tableau of the verifier on the input and an unknown certificate; it is satisfiable exactly when some certificate makes the verifier accept. The reduction is itself implemented as a machine: it is written in a small language of loops over unary counters, compiled through finite programs on Boolean stacks to the single-tape model, and its running time is proved by counting the executed steps. SAT is reduced to 3-SAT by replacing each clause with a chain of clauses of at most three literals linked by fresh variables, and the reductions are composed as machines. Exactly-3-SAT and (≤1,≤2)-SAT are reached by transforming the Cook–Levin formula generator itself: every literal occurrence gets its own copy variable, a cycle of implications links the copies of each variable, long clauses are split by chains, and short clauses are padded. The binary variant is reached by a machine converting unary indices to binary. For planar 3-SAT, the Cook–Levin formula is turned into a grid formula in the style of Lichtenstein (one column of crossover gadgets per clause, copies of each variable joined by nested two-literal clauses), proved equisatisfiable and planar with its variable cycle through a general lemma on formulas drawn as combs; the plain version subdivides the cycle edges. Membership in NP is proved with explicit verifier machines for every language; for the planar versions the certificate also describes a planar embedding. For the nondeterministic characterization, a deterministic verifier simulates a nondeterministic machine with its choices read from the certificate, and conversely a nondeterministic machine guesses a certificate in a unary budget and runs the verifier. The development was written by AI under human direction: GPT-6 Astra (OpenAI) produced the proof, and Claude Opus 5.5 (Anthropic) ran its full verification, revised the statement for auditability and prepared it for Palomar, with the variants and the nondeterministic characterization proved by Claude agents. The proof uses only the axioms propext, Classical.choice and Quot.sound.",
+        "authors": [
+          {
+            "name": "Robert D. Barish"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "cs.CC",
+            "cs.LO"
+          ],
+          "msc2020": [
+            "68Q17",
+            "68Q15",
+            "03D15",
+            "68Q04",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Complexity.sat_np_complete",
+            "Complexity.threeSAT_np_complete",
+            "Complexity.exactThreeSAT_np_complete",
+            "Complexity.leOneLeTwoSAT_np_complete",
+            "Complexity.binarySAT_np_complete",
+            "Complexity.planarThreeSAT_np_complete",
+            "Complexity.cyclePlanarThreeSAT_np_complete",
+            "Complexity.inNP_iff_nondeterministicPolyTime"
+          ]
+        },
+        "id": "PALOMAR-2026-10-02-000013",
+        "path": "entries/PALOMAR-2026-10-02-000013-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "3e603e795b44fedcf7d6dd65b7d1e30547ead925",
+              "fork_repository": "PalomarArchive/RBarish-UTokyo--NPCompleteness-Lean4--67a5f2be4177",
+              "source_repository": "RBarish-UTokyo/NPCompleteness-Lean4"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "66ba4c68b9bb80ae5ce642733c9d051cd4d098d1e7b64e1a5d2dcbb7df0cc2e6",
+          "version": 1
+        },
+        "published_at": "2026-10-02T19:47:25Z",
+        "source": {
+          "commit": "3e603e795b44fedcf7d6dd65b7d1e30547ead925",
+          "project_path": null,
+          "repository": "RBarish-UTokyo/NPCompleteness-Lean4"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "NP-completeness of SAT, 3-SAT and their variants (the Cook–Levin theorem) in Lean 4",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Hordijk and Steel (https://arxiv.org/abs/1605.03919, Section 7, Eq. (21)) conjectured a zero-one threshold for RAF emergence at linear mean catalysis. An interior limiting law is established for the reversible binary-polymer model with monomer/dimer food and reaction channels obtained by identifying the split descriptions u + v and v + u precisely when uv = vu. Each molecule independently catalyzes each channel, with one catalysis coordinate shared by both directions. For every real sequence f(n)/n → λ > 0, the clamped channel parameter eventually equals f(n)/|J_n|, and the probability of a reflexively autocatalytic and food-generated (RAF) set converges to a limit L(λ) depending only on λ. The function L is nondecreasing and satisfies 0 < L(λ) ≤ 1 − exp(−34λ) < 1 at every positive finite intensity. Thus a zero-one step threshold is excluded in this channel model.",
+        "authors": [
+          {
+            "name": "Michael Mislan"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.PR",
+            "q-bio.MN"
+          ],
+          "msc2020": [
+            "60K35",
+            "92E20",
+            "05C80"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "RAFReactionQuotient.palomar_quotient_critical_window"
+          ]
+        },
+        "id": "PALOMAR-2026-10-02-000012",
+        "path": "entries/PALOMAR-2026-10-02-000012-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "12b505dcc1ccc5ee2d06b32692af201d452a2a7c",
+              "fork_repository": "PalomarArchive/mmislan--palomar-p036-quotient-channel-raf-limit--e02bae3b1dd7",
+              "source_repository": "mmislan/palomar-p036-quotient-channel-raf-limit"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "cf121e2403d55f8225fc97c0f84555f2c3929f5aafdef7ffe0f402fa35191d4c",
+          "version": 1
+        },
+        "published_at": "2026-10-02T19:32:01Z",
+        "source": {
+          "commit": "12b505dcc1ccc5ee2d06b32692af201d452a2a7c",
+          "project_path": null,
+          "repository": "mmislan/palomar-p036-quotient-channel-raf-limit"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Critical-window emergence of autocatalytic sets under reaction-channel quotienting",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 and Mathlib formalization of Theorem A of arXiv:2609.35632 on the central configurations of the planar Newtonian four-body problem. For every choice of four positive masses and every cyclic order of the bodies there is exactly one strictly convex central configuration with that cyclic order, up to similarity, so there are exactly three convex central configurations up to similarity. This answers Problem 10 in the list of Albouy, Cabral and Santos (2012). The main step of the paper is Theorem B: at every strictly convex central configuration of positive masses, the Hessian form Q of U + (λ/2)I is at least one quarter of its radial part K. This formalization proves the weaker bound Q ≥ K/128 (C4.theoremB_weak), which is all that the proof of Theorem A uses; Theorem B with the constant 1/4 is formalized in lean4body, release v1.0, which the paper cites. It follows that every convex central configuration is a nondegenerate local minimum of U I^(1/2), whose Hessian vanishes exactly on the tangent space of the orbit of the similarities. The computer-assisted step, a branch and bound with interval arithmetic over the three-dimensional set of normalized convex central configurations in the coordinates of Corbera, Cors and Roberts, proves tr S < 127/128 and is checked by Lean's kernel with `decide +kernel` in 3875 certificate theorems. No compiled code is trusted, and the proofs use only Lean's three standard axioms.",
+        "authors": [
+          {
+            "name": "Tejasvi Singh Tomar"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.DS",
+            "math-ph"
+          ],
+          "msc2020": [
+            "70F10",
+            "70F15",
+            "58K05",
+            "65G40"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "C4.theoremA_slice",
+            "C4.theoremA",
+            "C4.theoremA_cyclic",
+            "C4.nondegenerate",
+            "C4.convex_count"
+          ]
+        },
+        "id": "PALOMAR-2026-10-02-000011",
+        "path": "entries/PALOMAR-2026-10-02-000011-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "9da70faf34239e1cbd85e2bedebe6b4a50875db1",
+              "fork_repository": "PalomarArchive/tejasvi--lean4body-uniqueness--ceab4c756231",
+              "source_repository": "tejasvi/lean4body-uniqueness"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "93a56134752cf43ee2c86ecd6394162b017efa42c69278df233a1206f417fd2e",
+          "version": 1
+        },
+        "published_at": "2026-10-02T19:16:07Z",
+        "source": {
+          "commit": "9da70faf34239e1cbd85e2bedebe6b4a50875db1",
+          "project_path": null,
+          "repository": "tejasvi/lean4body-uniqueness"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Uniqueness of four-body convex central configurations for all masses",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Finite Gershkov–Goeree–Kushnir–Moldovanu–Shi (2013) Theorem 2 for arbitrary finite agents and alternatives, heterogeneous ordered finite scalar type supports, arbitrary independent positive support masses, and linear private values with nonnegative slopes and arbitrary constants. The library constructs a feasible dominant-strategy mechanism preserving every support type's interim expected utility and ex ante social surplus. Weighted monotone lifting is proved by a compact feasible quadratic minimizer and an improving perturbation. Adjacent transfer bounds imply full-report IC by telescoping. Selected results are finite equivalence, weighted monotone lifting and optimizer monotonicity; scalar IC and support-restriction facts remain in the library as supporting lemmas. Validation evidence is recorded separately for the exact candidate.",
+        "authors": [
+          {
+            "name": "Arthur Freitas Ramos"
+          },
+          {
+            "name": "David Barros Hulak"
+          },
+          {
+            "name": "Ruy Jose Guerra Barretto de Queiroz"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "econ.TH",
+            "cs.GT"
+          ],
+          "msc2020": [
+            "91A27",
+            "91A10",
+            "91B44",
+            "03B35"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "GGKMS.finite_bayesian_dominant_equivalence",
+            "GGKMS.weighted_monotone_lifting",
+            "GGKMS.minimizer_monotone"
+          ]
+        },
+        "id": "PALOMAR-2026-10-02-000010",
+        "path": "entries/PALOMAR-2026-10-02-000010-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "0e1bed171ab66b194d5ee28ac02818b9a7bc5073",
+              "fork_repository": "PalomarArchive/Arthur742Ramos--gershkov-bic-dic-lean--d98725fc9369",
+              "source_repository": "Arthur742Ramos/gershkov-bic-dic-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "4b335345187f8e9b3991e9c88d1dd7c4a22d128cb152802de25879e0950be768",
+          "version": 1
+        },
+        "published_at": "2026-10-02T18:37:38Z",
+        "source": {
+          "commit": "0e1bed171ab66b194d5ee28ac02818b9a7bc5073",
+          "project_path": null,
+          "repository": "Arthur742Ramos/gershkov-bic-dic-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Finite Bayesian-to-Dominant-Strategy Equivalence",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of S. Armstrong and V. Vicol, \"Anomalous diffusion by fractal homogenization\" (arXiv:2305.05048). For every alpha in (0, 1/3) it constructs one divergence-free, Z^2-periodic drift b in C^0_t C^{0,alpha}_x intersect C^{0,alpha}_t C^0_x on [0,1] x T^2, and proves three properties of the advection-diffusion equation with this drift: anomalous dissipation of scalar variance for every mean-zero H^1 datum (Theorem 1.1 of the paper); a uniform C^{0,mu}([0,1]; L^2) bound by C times the H^1 norm of the datum along a set of diffusivities accumulating at zero (Remark r.LeBron.2); and non-uniqueness of vanishing-diffusivity limits for a class of data containing cos(2 pi n x_1) for infinitely many n (a corrected form of the paper's no-selection principle). The three properties are combined in one theorem, restated in a Mathlib-only comparator challenge. The formalization also proves existence and uniqueness of weak solutions and the classical facts the paper uses without proof.",
+        "authors": [
+          {
+            "name": "Scott Armstrong"
+          },
+          {
+            "name": "Vlad Vicol"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.AP"
+          ],
+          "msc2020": [
+            "35K15",
+            "35B27",
+            "76F25",
+            "35Q35"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "AVChallenge.anomalous_dissipation_full"
+          ]
+        },
+        "id": "PALOMAR-2026-10-02-000009",
+        "path": "entries/PALOMAR-2026-10-02-000009-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "c5b0e710c14cf41eca33dc2ae5d7aeceff829f99",
+              "fork_repository": "PalomarArchive/scottnarmstrong--AVAnomalousDiffusion--6a23398d8017",
+              "source_repository": "scottnarmstrong/AVAnomalousDiffusion"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "e69786e4f9f63dd3755c0d6f39ecbab117cd02a00787d8ad4567b1837da46547",
+          "version": 1
+        },
+        "published_at": "2026-10-02T17:44:56Z",
+        "source": {
+          "commit": "c5b0e710c14cf41eca33dc2ae5d7aeceff829f99",
+          "project_path": null,
+          "repository": "scottnarmstrong/AVAnomalousDiffusion"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Anomalous diffusion by fractal homogenization",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Bergemann–Morris Theorem 1 for arbitrary finite players and states with heterogeneous action and original-signal spaces: a normalized decision rule is obedient if and only if a finite marginal-preserving information expansion supports a valid mixed Bayes–Nash strategy profile inducing its joint law. The recommendation expansion and the converse for arbitrary extra signals and independent behavioral randomization are proved. Null fibers are handled without conditioning, and exact induction is equivalent to the paper's positive-support quotient. Zero prior masses are permitted, extending the paper's full-support assumption. The one-player decision-problem specialization and explicit examples are included. Theorem 2 proves that individual sufficiency is equivalent to BCE outcome inclusion across all finite basic games with arbitrary heterogeneous actions and utilities and full-support common priors, on a nonempty finite state space. Its converse constructs actual couplings from finite quadratic-scoring games and weighted compactness.",
+        "authors": [
+          {
+            "name": "Arthur Freitas Ramos"
+          },
+          {
+            "name": "David Barros Hulak"
+          },
+          {
+            "name": "Ruy Jose Guerra Barretto de Queiroz"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "econ.TH",
+            "cs.GT"
+          ],
+          "msc2020": [
+            "91A27",
+            "91A10",
+            "91B44",
+            "03B35"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "BayesCorrelated.finite_characterization",
+            "BayesCorrelated.mixedBNE_induces_BCE",
+            "BayesCorrelated.expansion_normalized",
+            "BayesCorrelated.expansion_null_fiber",
+            "BayesCorrelated.strategyProduct_isProbability",
+            "BayesCorrelated.induces_iff_positive_support",
+            "BayesCorrelated.onePlayer_obedienceGain",
+            "BayesCorrelated.onePlayer_characterization",
+            "BayesCorrelated.information_order_characterization",
+            "BayesCorrelated.individuallySufficient_outcome",
+            "BayesCorrelated.moreIncentiveConstrained_outcome_any_universe",
+            "BayesCorrelated.onePlayer_individual_sufficiency",
+            "BayesCorrelated.onePlayer_information_order"
+          ]
+        },
+        "id": "PALOMAR-2026-10-02-000007",
+        "path": "entries/PALOMAR-2026-10-02-000007-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "1f2d307e49d5dbcc33984709f9c7bf8691554fbc",
+              "fork_repository": "PalomarArchive/Arthur742Ramos--bayes-correlated-equilibrium-lean--cecbf64a937e",
+              "source_repository": "Arthur742Ramos/bayes-correlated-equilibrium-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "adf01dfd9cfb0bd07cf1196e7fb3c8ab36ede74782868a8a9a62466f796f1022",
+          "version": 1
+        },
+        "published_at": "2026-10-02T15:22:28Z",
+        "source": {
+          "commit": "1f2d307e49d5dbcc33984709f9c7bf8691554fbc",
+          "project_path": null,
+          "repository": "Arthur742Ramos/bayes-correlated-equilibrium-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Finite Bayes Correlated Equilibrium, Information Expansions and Information Order",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Lean 4 formalization of the AGV (d'Aspremont-Gérard-Varet-Arrow) expected-externality mechanism: with independent types, ex post efficiency, Bayesian incentive compatibility, and budget balance are jointly attainable. Agents are indexed by Fin n with 2 ≤ n; each agent has a finite nonempty type space with an independent PMF prior; alternatives form a finite nonempty type; values are private. The efficient rule xmax maximizes utilitarian welfare, and agvTransfer pays each agent its expected externality minus an equal share of the other agents' receipts. Interim individual rationality is not claimed.",
+        "authors": [
+          {
+            "name": "Arthur Freitas Ramos"
+          },
+          {
+            "name": "David Barros Hulak"
+          },
+          {
+            "name": "Ruy Jose Guerra Barretto de Queiroz"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "cs.GT",
+            "econ.TH"
+          ],
+          "msc2020": [
+            "91B26"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "AGV.agv_efficient",
+            "AGV.agv_bic",
+            "AGV.agv_budget_balanced",
+            "AGV.agv_theorem"
+          ]
+        },
+        "id": "PALOMAR-2026-10-02-000006",
+        "path": "entries/PALOMAR-2026-10-02-000006-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "4e1f6b369836e6ec0a5443ea57424b5ed71b97d6",
+              "fork_repository": "PalomarArchive/Arthur742Ramos--agv-mechanism-lean--2dd26d94a5d0",
+              "source_repository": "Arthur742Ramos/agv-mechanism-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "462634089de5f5a91f8a95eb06fe77f23b4d6ca34ac6cec47287c606b05bcc99",
+          "version": 1
+        },
+        "published_at": "2026-10-02T14:11:36Z",
+        "source": {
+          "commit": "4e1f6b369836e6ec0a5443ea57424b5ed71b97d6",
+          "project_path": null,
+          "repository": "Arthur742Ramos/agv-mechanism-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "agv-mechanism-lean",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Lean 4 formalization of Maskin's theorem on Nash implementation: necessity of Maskin monotonicity and sufficiency of monotonicity plus no-veto power via the canonical mechanism. Alternatives form a finite nonempty type, agents are indexed by Fin n, preferences are complete preorders, and the social choice correspondence is nonempty-valued. Sufficiency requires at least three agents; implementation is in pure strategies.",
+        "authors": [
+          {
+            "name": "Arthur Freitas Ramos"
+          },
+          {
+            "name": "David Barros Hulak"
+          },
+          {
+            "name": "Ruy Jose Guerra Barretto de Queiroz"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "cs.GT",
+            "econ.TH"
+          ],
+          "msc2020": [
+            "91B26"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Maskin.maskin_necessity",
+            "Maskin.maskin_sufficiency"
+          ]
+        },
+        "id": "PALOMAR-2026-10-02-000005",
+        "path": "entries/PALOMAR-2026-10-02-000005-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "9c041756dcee8e572b73f4c12b62e6c95322db09",
+              "fork_repository": "PalomarArchive/Arthur742Ramos--maskin-nash-implementation-lean--e0bbd25de94a",
+              "source_repository": "Arthur742Ramos/maskin-nash-implementation-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "0ae2305bddfa3eab2d467186425718bf491f1b946be68100b2e407e55a02cef1",
+          "version": 1
+        },
+        "published_at": "2026-10-02T12:54:40Z",
+        "source": {
+          "commit": "9c041756dcee8e572b73f4c12b62e6c95322db09",
+          "project_path": null,
+          "repository": "Arthur742Ramos/maskin-nash-implementation-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "maskin-nash-implementation-lean",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
       {
         "abbreviated": false,
         "abstract": "A Lean 4 formalization of the Herzog–Schönheim conjecture (the index form, which implies the cardinality form asked in Erdős problem 274) for every solvable group, finite or infinite: if a solvable group is partitioned into finitely many, and at least two, left cosets of subgroups, then two of the subgroups have the same index (hence, in the cardinality form, the same cardinality). The conjecture for arbitrary groups is open and is not claimed. The infinite case reduces to a finite solvable quotient by the common core of the parts; the finite case is proved for a least counterexample by considering its largest prime divisor p, using the subgroup generated by the p-prime-part elements, divisibility restrictions on local indices obtained from fixed-point counts in a primitive solvable quotient, and an extra closure argument at p = 7. The statements use the same exact covering structure as the formal-conjectures file for Erdős problem 274.",
@@ -23975,7 +24759,7 @@
         "versions": 3
       }
     ],
-    "previous": "eyJyZXZpc2lvbiI6MTE2LCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTE4VDIwOjI3OjM4WiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTE4LTAwMDAwMiJ9",
+    "previous": "eyJyZXZpc2lvbiI6MTMwLCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTIwVDExOjU2OjAyWiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTIwLTAwMDAwNyJ9",
     "next": null,
     "dropped": [],
     "message": null,
@@ -23983,25 +24767,21 @@
   },
   "changes": {
     "added": [
-      "PALOMAR-2026-10-02-000004",
-      "PALOMAR-2026-10-02-000003",
-      "PALOMAR-2026-10-02-000002",
-      "PALOMAR-2026-10-02-000001",
-      "PALOMAR-2026-10-01-000020",
-      "PALOMAR-2026-10-01-000019",
-      "PALOMAR-2026-10-01-000018",
-      "PALOMAR-2026-10-01-000017",
-      "PALOMAR-2026-10-01-000016",
-      "PALOMAR-2026-10-01-000015",
-      "PALOMAR-2026-10-01-000014",
-      "PALOMAR-2026-10-01-000013",
-      "PALOMAR-2026-10-01-000012",
-      "PALOMAR-2026-10-01-000011",
-      "PALOMAR-2026-10-01-000010"
+      "PALOMAR-2026-10-03-000003",
+      "PALOMAR-2026-10-02-000008",
+      "PALOMAR-2026-10-03-000002",
+      "PALOMAR-2026-10-03-000001",
+      "PALOMAR-2026-10-02-000014",
+      "PALOMAR-2026-10-02-000013",
+      "PALOMAR-2026-10-02-000012",
+      "PALOMAR-2026-10-02-000011",
+      "PALOMAR-2026-10-02-000010",
+      "PALOMAR-2026-10-02-000009",
+      "PALOMAR-2026-10-02-000007",
+      "PALOMAR-2026-10-02-000006",
+      "PALOMAR-2026-10-02-000005"
     ],
-    "updated": [
-      "PALOMAR-2026-09-25-000001"
-    ],
+    "updated": [],
     "absent": []
   },
   "warnings": []

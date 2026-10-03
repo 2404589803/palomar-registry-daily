@@ -1,0 +1,347 @@
+{
+  "abstract": "The moving sofa problem (Moser 1966) asks for the largest area of a connected planar shape that can be moved around the right-angled corner of a hallway of unit width. Gerver (1992) constructed a sofa of area 2.21953..., which Romik (2018) described by an explicit system of equations, and conjectured that it is optimal. Jineon Baek (arXiv:2411.19826, 2024) proved that Gerver's sofa has the maximum area. This repository formalizes Baek's entire proof in Lean 4 with Mathlib. The Challenge states, in Mathlib's vocabulary only: Romik's system of equations has exactly one solution with phi in [0.039, 0.04] and theta in [0.68, 0.69], so Gerver's sofa is well defined; Gerver's sofa has area between 2.2192 and 2.2199; and Gerver's sofa is a moving sofa whose area is at least the area of every moving sofa. Every numbered result of the paper is proved. This includes Theorem 8.4.1, on the structure of Gerver's sofa, which the paper states without proof and which is proved here from Romik's equations by rigorous interval arithmetic. It also includes the results the paper takes from the literature: Schneider's area formula for planar convex bodies, and the existence and uniqueness of the solution of Romik's system, which Romik asserts without proof. Only Lean's three standard axioms are used. An accompanying audit (REPORT.md) checks the paper against its LaTeX source. Two statements of the paper are false as written: Definition 3.2.5, which makes Proposition 3.3.5 and Lemma 3.4.2 false, and one direction of Proposition 5.1.4. The proof of Theorem 6.1.2 is invalid as written. The audit also records smaller gaps and slips. Every result survives in its intended form, and the main theorem holds.",
+  "authors": [
+    {
+      "name": "The-Anh Vu-Le"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-02-000008-v1/205640abec89ce8b272c0a9d00b8fea816c19561ac08c402582dab1a36e3bd14/",
+    "artifact_tree_sha256": "205640abec89ce8b272c0a9d00b8fea816c19561ac08c402582dab1a36e3bd14",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-02T15:55:09Z",
+    "renderer_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.MG",
+      "math.OC"
+    ],
+    "msc2020": [
+      "49Q10",
+      "52A10",
+      "52A38",
+      "52A40",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-10-02",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "MovingSofaChallenge.gerver_params_exists",
+      "MovingSofaChallenge.gerver_params_unique",
+      "MovingSofaChallenge.gerver_sofa_area",
+      "MovingSofaChallenge.gerver_sofa_optimal"
+    ]
+  },
+  "id": "PALOMAR-2026-10-02-000008",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-02T15:55:44Z",
+    "receipt_sha256": "69f93d45797c86b6b33d7ec087003052b6033c0dfe7f251b353c06ed21e1abed",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "d0b42d2331a267519a5083097351847107367db3",
+        "fork_repository": "PalomarArchive/vltanh--lean4-moving-sofa--dfc797b6e6b6",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v1/d0b42d2331a267519a5083097351847107367db3",
+        "source_repository": "vltanh/lean4-moving-sofa"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jineon Baek"
+          }
+        ],
+        "identifier": "arXiv:2411.19826v1",
+        "location": "https://arxiv.org/abs/2411.19826v1",
+        "relationship": "formalizes",
+        "title": "Optimality of Gerver's Sofa",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Dan Romik"
+          }
+        ],
+        "identifier": "doi:10.1080/10586458.2016.1270858",
+        "location": "Experimental Mathematics 27 (2018), no. 3, 316-330; arXiv:1606.08111",
+        "relationship": "background",
+        "title": "Differential Equations and Exact Solutions in the Moving Sofa Problem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Joseph L. Gerver"
+          }
+        ],
+        "identifier": "doi:10.1007/BF02414066",
+        "location": "Geometriae Dedicata 42 (1992), no. 3, 267-283",
+        "relationship": "background",
+        "title": "On Moving a Sofa around a Corner",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Rolf Schneider"
+          }
+        ],
+        "identifier": "doi:10.1017/CBO9781139003858",
+        "location": "Encyclopedia of Mathematics and Its Applications 151, Cambridge University Press, 2013",
+        "relationship": "background",
+        "title": "Convex Bodies: The Brunn-Minkowski Theory (2nd edition)",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Leo Moser"
+          }
+        ],
+        "location": "SIAM Review 8 (1966), no. 3, 381",
+        "relationship": "background",
+        "title": "Problem 66-11, Moving Furniture Through a Hallway",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/deancureton/MovingSofa",
+        "note": "An earlier Lean 4 formalization of the same paper, written by AI coding agents directed by Dean Cureton. It proves the formal-conjectures statement sofaConstant = volume gerversSofa, with Gerver's description of the sofa and vendored libraries. The README compares the two.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/RuifengCao/sofa-formal",
+        "note": "An earlier Lean 4 formalization of the same paper. It proves the formal-conjectures statement sofaConstant = volume gerversSofa, with Gerver's description of the sofa. The README compares the two.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "The-Anh Vu-Le"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-02T15:55:19Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "126d1624ac4d93350037f29605bb63081104c03966c307cdb9a69e8ef8622385"
+    },
+    "reviewed_at": "2026-10-02T15:46:58Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "d0b42d2331a267519a5083097351847107367db3",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "vltanh/lean4-moving-sofa",
+    "repository_url": "https://github.com/vltanh/lean4-moving-sofa",
+    "tree_url": "https://github.com/vltanh/lean4-moving-sofa/tree/d0b42d2331a267519a5083097351847107367db3"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "cvuqwqop51iq"
+  },
+  "title": "Optimality of Gerver's sofa (Baek 2024), formalized in Lean 4",
+  "trust": {
+    "challenge_bytes": 8873,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Calculus.Deriv.Basic",
+      "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+      "Mathlib.Topology.Connected.Basic"
+    ],
+    "challenge_lines": 182,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "a232a28e10a9fc76b9a6303816cd31a2f6613d039c719399a71bf01b8c0e509a",
+    "evidence_path": "evidence/PALOMAR-2026-10-02-000008-v1/ea3eda3e3a25113e5474a1d3eeb517b092dfa10bca34634ea09249c894de3dae/",
+    "evidence_tree_sha256": "ea3eda3e3a25113e5474a1d3eeb517b092dfa10bca34634ea09249c894de3dae",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/con-ron"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "fea85df69eb8638adaf9ce5effaf3037ff19acbe1f51412380b28e95dc6bb55b",
+    "protected_config_sha256": "9fe33c45ccd529c4bf3a230f9011deebdf1a5b3b7fb929b75e325ded3be133b1",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 37026763580,
+    "solution_sha256": "7985b3b93078a791ee5ffe97b2ac5c6fcdbefe9bb01bcd732564ed6722b4980b",
+    "tool_digests": {
+      "bwrap": "6d28afe69651bae5857cbb3ec1cc5992d90384a2dc8b4be0a255548a4d13e31a",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-02T15:32:19Z",
+    "workflow_commit": "65f0154ed776cd26c224254aa57b379137f28b0d",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/37026763580"
+  },
+  "version": 1
+}
