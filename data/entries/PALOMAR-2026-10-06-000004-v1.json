@@ -1,0 +1,330 @@
+{
+  "abstract": "A complete Lean 4 disproof of Erdős problem 575 in both its unrestricted and cycle-containing formulations: a finite family F of forbidden graphs containing a bipartite member need not contain a bipartite H ∈ F with ex(n; H) = O(ex(n; F)). Proves the unrestricted case from scratch via the bipartite forest family F_0 = {K_{1,2}, 2K_2} (where ex(n; F_0) ≤ 1 while ex(n; K_{1,2}) ≥ ⌊n/2⌋ and ex(n; 2K_2) ≥ n - 1), and resolves the cycle-containing case by adapting OpenAI's all-bipartite cyclic counterexample family from Erdős problem 180 (where ex(n; F) = O(n^(21/16)) and ex(n; H) = Ω(n^(4/3)) for every H ∈ F).",
+  "authors": [
+    {
+      "name": "Linmiao Xu"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-06-000004-v1/d797ee544653a199866170b27770751896c582e0519539d0d061a7693c181319/",
+    "artifact_tree_sha256": "d797ee544653a199866170b27770751896c582e0519539d0d061a7693c181319",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-06T02:18:19Z",
+    "renderer_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C35"
+    ]
+  },
+  "first_registered_on": "2026-10-06",
+  "formalization": {
+    "challenge_path": "erdos-575/Challenge.lean",
+    "comparator_config_path": "erdos-575/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "erdos-575/formalization.yaml",
+    "lakefile_path": "erdos-575/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      }
+    ],
+    "solution_path": "erdos-575/Solution.lean",
+    "theorem_names": [
+      "Erdos575.not_erdos_575_corrected",
+      "Erdos575.not_erdos_575",
+      "Erdos575.not_erdos_575_all_bipartite",
+      "Erdos575.correctedCounterexample",
+      "Erdos575.quantitativeCounterexample",
+      "Erdos575.ForestCounterexample.forestCounterexample",
+      "Erdos575.ForestCounterexample.forestFamily_not_isBipartiteCompact",
+      "Erdos575.erdos_575",
+      "Erdos575.erdos_575_unrestricted"
+    ]
+  },
+  "id": "PALOMAR-2026-10-06-000004",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-06T02:18:53Z",
+    "receipt_sha256": "3fd87e0dd815e74379ef7eb8c154c8d2177a11f43a65932647047ad31ab420b4",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-06-000004-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-06-000004-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-06-000004-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-06-000004-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-06-000004-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-06-000004-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-06-000004-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-06-000004-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-06-000004-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "b135fd8f6e5ee25129c4855e06c93739dd80651d",
+        "fork_repository": "PalomarArchive/linrock--math-proofs--14cf37780a40",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-06-000004-v1/b135fd8f6e5ee25129c4855e06c93739dd80651d",
+        "source_repository": "linrock/math-proofs"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "OpenAI"
+          }
+        ],
+        "identifier": "https://cdn.openai.com/pdf/ten-proofs-oai.pdf",
+        "location": "Chapter 10",
+        "relationship": "formalizes",
+        "title": "Ten advances in mathematics and theoretical computer science",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Yuval Wigderson"
+          }
+        ],
+        "identifier": "https://ywigderson.math.ethz.ch/math/static/Compactness.pdf",
+        "relationship": "formalizes",
+        "title": "The Erdős–Simonovits Compactness Conjecture Needs More Assumptions",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "P. Erdős"
+          },
+          {
+            "name": "M. Simonovits"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/BF02579424",
+        "location": "Combinatorica 2 (1982), 275–288",
+        "relationship": "background",
+        "title": "Compactness results in extremal graph theory",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "identifier": "https://www.erdosproblems.com/575",
+        "relationship": "background",
+        "title": "Erdős Problem 575: bipartite extremal-graph compactness",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/openai/ten-proofs/blob/94bc0feb6a9ff12c7d31d6de640a725c9d43d2b6/CompactnessAndDegeneracy.lean",
+        "note": "Pinned Apache-2.0 OpenAI Lean 4.32 proof of #180 and #146, ported here to Lean 4.35.0-rc2 (3-line Mathlib API update) and extended with the 14-theorem #575 bridge in Proofs/Erdos575.lean.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/issues/804",
+        "note": "Formal Conjectures statement conventions from Problem 180 adapted to Problem 575.",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Linmiao Xu"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-06T02:18:29Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "c2d5123fb65e99f6520c9ed61a9f562e9cb9d1b95c4c996bcf8e671f7276de67"
+    },
+    "reviewed_at": "2026-10-06T02:00:14Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "b135fd8f6e5ee25129c4855e06c93739dd80651d",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "c79bfb397f7c2b17f1d45dc97bb224e01773dba31da0fb8c47ca55bf92b64697"
+    },
+    "project_path": "erdos-575",
+    "repository": "linrock/math-proofs",
+    "repository_url": "https://github.com/linrock/math-proofs",
+    "tree_url": "https://github.com/linrock/math-proofs/tree/b135fd8f6e5ee25129c4855e06c93739dd80651d/erdos-575"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "lhjqrh89ucd7"
+  },
+  "title": "Erdős 575: bipartite extremal-graph compactness",
+  "trust": {
+    "challenge_bytes": 10461,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 266,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "4729fdbb04e4c2505f15b95396a775c90e29e20b125b1131e7c952405d3a0e64",
+    "evidence_path": "evidence/PALOMAR-2026-10-06-000004-v1/e8c10fea8263f9f346611f5fab54788d2f63e7da94f3f659c09cbc22ce53ef14/",
+    "evidence_tree_sha256": "e8c10fea8263f9f346611f5fab54788d2f63e7da94f3f659c09cbc22ce53ef14",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--jobs=2"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "5e4116fd87864bf180927228c0aea9393e6a210dc7626ec66ad1136a367b139d",
+    "protected_config_sha256": "b5bb4ce28c36c7bdb5443845899884c7f8d58b2adcbda41fd0257a16a00cf2f1",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 37400476065,
+    "solution_sha256": "0080a8dd45f99ed569d3151db27123ad24644e96a7d4b55944038ce0431cad4d",
+    "tool_digests": {
+      "bwrap": "7a4f19c5452866bf74cd536cbac64884f818a4be74ef88b17ea5ba0b38990c2a",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-06T01:47:33Z",
+    "workflow_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/37400476065"
+  },
+  "version": 1
+}
