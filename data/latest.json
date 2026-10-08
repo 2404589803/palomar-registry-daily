@@ -1,14 +1,604 @@
 {
-  "fetched_at": "2026-10-07T08:36:01.551617+00:00",
+  "fetched_at": "2026-10-08T08:54:06.200383+00:00",
   "results": {
     "schema_version": 1,
-    "revision": 179,
-    "release": "dbbfafc99f79dc72d637f2085ab733b01694caab7829644b891800fa9de4ff6e",
+    "revision": 189,
+    "release": "e63a72352d85209728cba6c254282aaddec8d922fb18f974293f2695d28ebbb1",
     "totals": {
-      "results": 461,
-      "projects": 374
+      "results": 470,
+      "projects": 382
     },
     "entries": [
+      {
+        "abbreviated": false,
+        "abstract": "The moving sofa problem asks for the largest area of a planar shape that can be moved around the right-angled corner of a hallway of unit width. Jineon Baek proved (arXiv:2411.19826) that Gerver's sofa G, of area 2.2195..., is optimal. His proof bounds the area of every large moving sofa by a concave functional Q of a triple (K, B, D) of convex bodies built from a cap K of the sofa, and shows that Q is largest at Gerver's triple, where it equals |G|.\n\nThis entry proves one estimate for Q, the coercive certificate, and derives three results from it. On an enlarged domain of triples, on which the cap need not satisfy Baek's injectivity condition, Q(K, B, D) <= |G|, and the cap K lies within Euclidean Hausdorff distance 2 sec(phi) sqrt(|G| - Q(K, B, D)) of the horizontal translate of Gerver's cap with the same leftmost point, where phi = 0.039... is Gerver's angle. The proof writes |G| - Q as a sum of nonnegative terms, and the energy terms among them also bound that distance. The bound is attained: Gerver's triple lies in the enlarged domain, and Q equals |G| there.\n\nFrom the certificate: optimality, Baek's theorem, proved without his Theorem 1.1.1 and without the balance argument of his Chapters 4 to 6; uniqueness, every moving sofa with the area of G is mapped onto G by a rotation and a translation (a translation suffices); and stability, after a translation a moving sofa of area |G| - epsilon lies within Euclidean Hausdorff distance C sqrt(epsilon) of G, their symmetric difference has area at most C' sqrt(epsilon), its rotation angle misses a right angle by at most C'' epsilon, and the exponent 1/2 cannot be improved. The Challenge also states the correspondence between Baek's definitions and those of Google DeepMind's formal-conjectures, and formal-conjectures' statements, among them the uniqueness, which it lists as open; here they are proved through the certificate.\n\nVersions 1 to 4 of this entry registered the formalization of Baek's paper with a first proof of uniqueness that uses his Theorem 1.1.1; they state the same optimality, uniqueness and formal-conjectures theorems, proved through Baek's argument, and the repository keeps their Challenge and Solution in baek/. This version proves those theorems through the certificate and adds the certificate and the stability. A script in the repository, scripts/AuditCoerciveRoute.lean, run by the continuous integration, checks that its proofs reach neither Baek's Theorem 1.1.1, nor the results of his balance argument, nor the main theorem and the equality analysis of the first proof of uniqueness.",
+        "authors": [
+          {
+            "name": "The-Anh Vu-Le"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.MG",
+            "math.OC"
+          ],
+          "msc2020": [
+            "49Q10",
+            "52A10",
+            "52A38",
+            "52A40",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Baek.gerver_params_exists",
+            "Baek.gerver_params_unique",
+            "Baek.gerver_sofa_area",
+            "Baek.gerver_sofa_optimal",
+            "Baek.gerver_sofa_unique",
+            "Baek.gerver_sofa_stable",
+            "Baek.gerver_sofa_angle_stable",
+            "Baek.gerver_sofa_stability_exponent",
+            "Bridge.isMovingSofa_iff",
+            "Bridge.sofaConstant_eq",
+            "Bridge.gerversSofa_eq",
+            "FormalConjectures.MovingSofa.GerversSofa.ABφθSpec.existsUnique",
+            "FormalConjectures.MovingSofa.isMovingSofa_gerversSofa",
+            "FormalConjectures.MovingSofa.sofaConstant_eq_volume_gerversSofa",
+            "FormalConjectures.MovingSofa.volume_eq_sofaConstant_iff_congruent_gerversSofa",
+            "Certificate.coercive_certificate",
+            "Certificate.gerver_triple"
+          ]
+        },
+        "id": "PALOMAR-2026-10-02-000008",
+        "path": "entries/PALOMAR-2026-10-02-000008-v5.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "1174c5c25c1c66b807e368446d6682e8d0276759",
+              "fork_repository": "PalomarArchive/vltanh--lean4-moving-sofa--dfc797b6e6b6",
+              "source_repository": "vltanh/lean4-moving-sofa"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "96cd33bad6b36182102a9595daa9c83923779fd537e4d0274f2500aafd60dcc9",
+          "version": 5
+        },
+        "published_at": "2026-10-08T06:43:06Z",
+        "source": {
+          "commit": "1174c5c25c1c66b807e368446d6682e8d0276759",
+          "project_path": null,
+          "repository": "vltanh/lean4-moving-sofa"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Optimality, uniqueness and stability of Gerver's sofa from one coercive certificate, formalized in Lean 4",
+        "trust": {
+          "level": "high"
+        },
+        "version": 5,
+        "versions": 5
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A sorry-free Lean 4 formalization of improved running-time exponents for 3SUM, Exact Triangle, the (min,+)-product and all-pairs shortest paths (APSP), on the word RAM of the published formalization (anthropics/formal-math, 3sum-apsp) of the paper of Alman and Vassilevska Williams, \"Truly Subquadratic 3SUM and Truly Subcubic APSP via Triangles in Sparse Lopsided Graphs\" (arXiv:2610.06783). That paper gives deterministic algorithms for 3SUM in time O(n^1.9992) and for the (min,+)-product and APSP in time O(n^2.99942), through Exact Triangle in time O(n^(3 - 0.0017)). The project analyzes the same algorithm again and changes it in a few places: an exact count of the leaves of its recursion, a host that charges the solver at the true size of the middle part, and encodings restricted to the leaves that are read. The theorems submitted state, in exactly the sense of upstream's trusted file EndStatement.lean (programs of a word RAM with O(log n)-bit words, numbers of polynomial absolute value, every instance, every size), that 3SUM is solved in O(n^1.99896) steps and Exact Triangle in O(n^2.99791) steps, and, by carrying out the all-edges route that footnote 10 of the paper mentions, that the (min,+)-product and APSP are solved in O(n^2.99791) steps instead of O(n^2.99931) through the standard reductions. None of them has a hypothesis; every proof depends only on the axioms propext, Classical.choice and Quot.sound. The library also proves general theorems for all admissible parameters, a closed form for the optimal saving of the method at each ratio of parameters, and that the supremum of that saving over all ratios lies in (0.002095, 0.002096], so that no choice of parameters gives 3SUM an exponent below 1.998952 with this method. The pruned encoder and the two new hosts are written as programs of the machine and their running times are proved on it. All Lean, Python and LaTeX was written by the language model Claude Fable 5.1 (Anthropic) in Claude Code, under the direction of the maintainer, who wrote no Lean by hand; the move to Lean v4.35.0-rc2, with the port of the included part of upstream, was made by Claude Opus 5.5 (Anthropic) in the same way. An accompanying paper (papers/improved-exponents/) states every result with its Lean name.",
+        "authors": [
+          {
+            "name": "Jihoon Hyun"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "cs.DS",
+            "cs.LO"
+          ],
+          "msc2020": [
+            "68Q25",
+            "68W40",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "ImprovedExponents.threeSum_pruned",
+            "ImprovedExponents.exactTriangle_pruned",
+            "ImprovedExponents.minPlus_allEdges_pruned",
+            "ImprovedExponents.apsp_allEdges_pruned"
+          ]
+        },
+        "id": "PALOMAR-2026-10-08-000003",
+        "path": "entries/PALOMAR-2026-10-08-000003-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "0725f2477587d67212936777b8a264c9793ac7bb",
+              "fork_repository": "PalomarArchive/qawbecrdtey--ImprovedExponents--333412a9c407",
+              "source_repository": "qawbecrdtey/ImprovedExponents"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "35f5717323a688ccdb69d17fa97b7176b2e63a33e716c7fadc3143376f40bf34",
+          "version": 1
+        },
+        "published_at": "2026-10-08T05:35:09Z",
+        "source": {
+          "commit": "0725f2477587d67212936777b8a264c9793ac7bb",
+          "project_path": null,
+          "repository": "qawbecrdtey/ImprovedExponents"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Improved exponents for 3SUM and APSP from triangles in sparse lopsided graphs",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "There exists a locally finite carrier Λ in the real line whose whole complex strongly tempered Meyer space has Hamel dimension ℵ₀. Both a tempered distribution and its distributional Fourier transform have local atomic formulas on Λ, with coefficient families whose absolute values are summable after division by some polynomial weight (1 + |x|)^N. The same carrier supports the entire space; finite-dimensional exponent layers prove the rank upper bound and independent original parity modes prove the lower bound. The radius schedule is selected classically. This is an existence theorem for one carrier, not an effective construction or a classification of all carriers.",
+        "authors": [
+          {
+            "name": "Jamie Martin"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CA",
+            "math.FA"
+          ],
+          "msc2020": [
+            "42A38",
+            "46F12",
+            "52C23"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "CountablyInfiniteStrongCrystallineMeasures.strongCardinalClaim"
+          ]
+        },
+        "id": "PALOMAR-2026-10-08-000002",
+        "path": "entries/PALOMAR-2026-10-08-000002-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "4d3163a0ce1dd93fa48b7d4677fe78db15c0af9c",
+              "fork_repository": "PalomarArchive/balancedscorpion--countably-infinite-dimension-strong-meyer-spaces--8319e9fa53b3",
+              "source_repository": "balancedscorpion/countably-infinite-dimension-strong-meyer-spaces"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "7df85bae46cc2a330d536ed1ee46d4ea69579693795e3959e1cd6d92218039af",
+          "version": 1
+        },
+        "published_at": "2026-10-08T03:47:50Z",
+        "source": {
+          "commit": "4d3163a0ce1dd93fa48b7d4677fe78db15c0af9c",
+          "project_path": null,
+          "repository": "balancedscorpion/countably-infinite-dimension-strong-meyer-spaces"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "A strongly tempered Meyer space of countably infinite Hamel dimension",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 proof, checked against Mathlib, of a sharp quantitative propagation of chaos estimate for mean field diffusions dX_i = (a(X_i) + N^{-1} sum_j K(X_i, X_j)) dt + sqrt 2 dW_i with a globally Lipschitz one-body drift a and a bounded, globally Lipschitz pairwise interaction K. If every k-particle marginal of the (possibly correlated and singular) exchangeable initial law lies within squared quadratic Wasserstein distance C_0 (k/N)^2 of the corresponding power of the McKean-Vlasov initial law, then the same holds on every finite time interval [0, T] with an explicit constant C_T that depends neither on N nor on the dimension. No entropy bound, transport inequality or independence of the initial particles is assumed.",
+        "authors": [
+          {
+            "name": "Yuhao Lei"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.PR"
+          ],
+          "msc2020": [
+            "60K35",
+            "82C22",
+            "60H10",
+            "35Q84",
+            "49Q22"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "SharpChaos.sharp_propagation_of_chaos"
+          ]
+        },
+        "id": "PALOMAR-2026-10-08-000001",
+        "path": "entries/PALOMAR-2026-10-08-000001-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "84dbe881384ad2f0358857b025ef6fd824ebc9a1",
+              "fork_repository": "PalomarArchive/yuhaolei-ctrl--Sharp-W2-to-W2-Propagation-of-Chaos--916e37ae9fb6",
+              "source_repository": "yuhaolei-ctrl/Sharp-W2-to-W2-Propagation-of-Chaos"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "5b68aeff0619b5bc30dec8eb43a8a0a40e50fd61da09b4ce41f4ac61b920bddb",
+          "version": 1
+        },
+        "published_at": "2026-10-08T01:43:28Z",
+        "source": {
+          "commit": "84dbe881384ad2f0358857b025ef6fd824ebc9a1",
+          "project_path": null,
+          "repository": "yuhaolei-ctrl/Sharp-W2-to-W2-Propagation-of-Chaos"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Sharp Wasserstein propagation of chaos from correlated initial data",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 development around the tensor criterion of the classification of finite Euclidean Ramsey configurations (openai/math, family 172). With the criterion's definitions restated character for character from that project's challenge file: every set of six distinct points on a circle satisfies the criterion, by an explicit certificate (the product of the two bilinear forms through the first three and the last three points of a homogeneous parametrisation of the circle, scaled and conjugated by the parametrisation); the sharp dimension theorem: every spherical set of at most m + 4 distinct points, m the dimension of its affine span, satisfies the criterion in its own space and coordinate field (either the augmented vectors admit real isolating quadrics and the sphere lifts by the adjugate, or a dependence among them is supported on six concyclic points while every other point adds a dimension, and the six-point certificate is carried into the ambient space, symmetrised, adjusted to the common sphere, extended point by point and descended from R tensor R to F tensor F), so every spherical set of at most six points satisfies it in any dimension with any affine span; every spherical set with algebraic coordinates satisfies it, of any size, by the separability idempotent of F tensor F; the criterion always implies sphericity, so for algebraic coordinates it is exactly sphericity. Given the sufficiency half of the classification as an explicit hypothesis (quantified as the source states its Theorem 1.1), every spherical set of at most six points, every spherical set of at most m + 4 points and every spanning spherical set with algebraic coordinates is Ramsey; given both halves, a spanning set with algebraic coordinates is Ramsey if and only if it is spherical. The source proves the Ramsey property for at most five circle points; six is the first case its method of independent quadratic rows cannot reach. With the seven-point non-Ramsey circle set of A cyclic non-Ramsey heptagon (arXiv:2609.23327), the least size of a non-Ramsey spherical set is seven, given the classification, and, for m at least 2, m + 5 the least size of one with affine span of dimension m, since the heptagon with m - 2 further sphere points fails the criterion and is not Ramsey; the research note in note/ states this, verifies by an exact derivation identity that the heptagon fails the criterion, and proves the sharpness on paper (nothing in Lean says that a set fails the criterion). The classification is not proved here. The restated definitions and a few adapted lemmas derive from Apache-2.0 work of OpenAI (NOTICE, LICENSES/Apache-2.0.txt); the rest is MIT.",
+        "authors": [
+          {
+            "name": "JD Jones"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "math.MG"
+          ],
+          "msc2020": [
+            "05D10",
+            "52C10"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "SixConcyclic.six_concyclic_fieldCriterion",
+            "SixConcyclic.at_most_six_concyclic_fieldCriterion",
+            "SixConcyclic.at_most_six_spherical_spanning_fieldCriterion",
+            "SixConcyclic.at_most_five_spherical_fieldCriterion",
+            "SixConcyclic.algebraic_spherical_fieldCriterion",
+            "SixConcyclic.fieldCriterion_spherical",
+            "SixConcyclic.algebraic_fieldCriterion_iff_spherical",
+            "SixConcyclic.at_most_six_spherical_ramsey_of_sufficiency",
+            "SixConcyclic.at_most_six_circle_points_ramsey_of_sufficiency",
+            "SixConcyclic.algebraic_spherical_ramsey_of_sufficiency",
+            "SixConcyclic.algebraic_ramsey_iff_spherical_of_classification",
+            "SixConcyclic.spherical_fieldCriterion_of_card_le_finrank_add_four",
+            "SixConcyclic.at_most_six_spherical_fieldCriterion",
+            "SixConcyclic.spherical_ramsey_of_sufficiency_of_card_le_finrank_add_four"
+          ]
+        },
+        "id": "PALOMAR-2026-10-07-000011",
+        "path": "entries/PALOMAR-2026-10-07-000011-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "6bf3f4019bf0ced69f609abe3d517f9d7c31e55e",
+              "fork_repository": "PalomarArchive/JD-Jones-ASES--six-concyclic-lean--c1d655f6e8fd",
+              "source_repository": "JD-Jones-ASES/six-concyclic-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "1349f50b76e2368e53b336a7dbcbd1aa29a13835f3b9d0d058e9b6bc85e3a935",
+          "version": 1
+        },
+        "published_at": "2026-10-07T15:56:05Z",
+        "source": {
+          "commit": "6bf3f4019bf0ced69f609abe3d517f9d7c31e55e",
+          "project_path": null,
+          "repository": "JD-Jones-ASES/six-concyclic-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Six concyclic points satisfy the Euclidean Ramsey tensor criterion, as does every spherical set of at most m + 4 points of affine dimension m and every algebraic spherical set; given the classification's sufficiency half, these sets are Ramsey (the algebraic ones when spanning)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Formalization of classical factorial-square constructions, exclusion of prime endpoints, existence of minimum representation cardinalities for composite endpoints, and the cutoff D_k = empty for k greater than six. The density question from Erdős problem 374 is defined but not proved. No mathematical novelty or solution of the density problem is claimed.",
+        "authors": [
+          {
+            "name": "alexander"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11D57",
+            "11A41"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Erdos374.rep_two",
+            "Erdos374.square_inD_two",
+            "Erdos374.adjacent_identity",
+            "Erdos374.four_factor_identity",
+            "Erdos374.six_factor_identity",
+            "Erdos374.minimum_unique",
+            "Erdos374.prime_no_rep",
+            "Erdos374.product_separated_rep_six",
+            "Erdos374.product_adjacent_rep_four",
+            "Erdos374.product_equal_rep_two",
+            "Erdos374.product_has_rep_le_six",
+            "Erdos374.exists_minimum_le",
+            "Erdos374.product_minimum_le_six",
+            "Erdos374.rep_527_six",
+            "Erdos374.rep_card_le",
+            "Erdos374.composite_minimum_le_six",
+            "Erdos374.D_empty_above_six",
+            "Erdos374.countD_le"
+          ]
+        },
+        "id": "PALOMAR-2026-10-07-000010",
+        "path": "entries/PALOMAR-2026-10-07-000010-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "40857297956c031d92b1bc30b007a46575c60c5d",
+              "fork_repository": "PalomarArchive/AItoBit--erdos374-palomar--3718c5153338",
+              "source_repository": "AItoBit/erdos374-palomar"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "fc6cf54139d5541973e173fb2c77183755cf8bb599c6afdf5f022b573d9569c3",
+          "version": 1
+        },
+        "published_at": "2026-10-07T15:34:20Z",
+        "source": {
+          "commit": "40857297956c031d92b1bc30b007a46575c60c5d",
+          "project_path": null,
+          "repository": "AItoBit/erdos374-palomar"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Erdős 374: classical square products of factorials",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Lean formalization of Nζ(σ,T) ≪σ,ε T^(2(1−σ)+ε), hence A(σ) ≤ 2, for fixed 3/4 < σ < 1 and ε > 0; zeros with Re(ρ) ≥ σ and 0 < Im(ρ) ≤ T are counted with multiplicity.",
+        "authors": [
+          {
+            "name": "Mark Lewko"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11M26"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "DensityThreeQuarters.density_bound"
+          ]
+        },
+        "id": "PALOMAR-2026-10-07-000009",
+        "path": "entries/PALOMAR-2026-10-07-000009-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "5dd0dd391c117ef4d8fd04a6b16b4b1ad5735d88",
+              "fork_repository": "PalomarArchive/mrklwk--zeta-zero-density-lean--4326f648d928",
+              "source_repository": "mrklwk/zeta-zero-density-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "08365744480d66c8e1a5e0d54d84013032e9a116769f47a1f0649e5f867c2a94",
+          "version": 1
+        },
+        "published_at": "2026-10-07T15:00:33Z",
+        "source": {
+          "commit": "5dd0dd391c117ef4d8fd04a6b16b4b1ad5735d88",
+          "project_path": "lean",
+          "repository": "mrklwk/zeta-zero-density-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The density hypothesis for σ > 3/4",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Properly nested nonempty compact connected subsets A and B of a compact metric space are the endpoints of a continuous embedded interval of nonempty compact connected subsets, strictly increasing under inclusion. The ambient space need not be connected.",
+        "authors": [
+          {
+            "name": "Arthur Freitas Ramos"
+          },
+          {
+            "name": "David Barros Hulak"
+          },
+          {
+            "name": "Ruy Jose Guerra Barretto de Queiroz"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.GN"
+          ],
+          "msc2020": [
+            "54F15",
+            "54B20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "OrderArcs.exists_order_arc"
+          ]
+        },
+        "id": "PALOMAR-2026-10-07-000008",
+        "path": "entries/PALOMAR-2026-10-07-000008-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "8b802e2f62a31b08276a67021cd40f6941c5c256",
+              "fork_repository": "PalomarArchive/Arthur742Ramos--Math-Formalization--4c88ddbef95a",
+              "source_repository": "Arthur742Ramos/Math-Formalization"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "aac1671afcaf84f37502f4981365b65351a3d9f2451ffe2587f068288e9f8039",
+          "version": 1
+        },
+        "published_at": "2026-10-07T13:39:49Z",
+        "source": {
+          "commit": "8b802e2f62a31b08276a67021cd40f6941c5c256",
+          "project_path": "topology/order-arcs",
+          "repository": "Arthur742Ramos/Math-Formalization"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Order Arcs Between Subcontinua",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "The matrix multiplication exponent ω is the least exponent such that n×n matrices can be multiplied in n^(ω+o(1)) operations. This repository proves in Lean 4 / Mathlib that ω < 2.3710449 over every commutative ring, improving the previous bound ω < 2.371177 (Dupont et al. 2026). ω is defined via the exact tensor rank of n×n matrix multiplication. The new ingredient is shared extraction across recursion levels of the asymmetric laser method. The formalization covers the full argument, from the Coppersmith–Winograd degeneration to an exact rational certificate checked in the Lean kernel. The construction and proof were produced largely by AI systems under the authors' direction.",
+        "authors": [
+          {
+            "name": "Oliver Proudfoot"
+          },
+          {
+            "name": "Andrew Perrault"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "cs.CC",
+            "math.CO"
+          ],
+          "msc2020": [
+            "68Q17",
+            "68Q25",
+            "15A69",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "MatrixBounds.Numeric.SuppliedCertifiedPipeline.exponent_lt"
+          ]
+        },
+        "id": "PALOMAR-2026-10-07-000007",
+        "path": "entries/PALOMAR-2026-10-07-000007-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "93492a4dd1ee90fd98cd7b339af77bb8bbc8be55",
+              "fork_repository": "PalomarArchive/olliepro--LeanMMBound--bc7df2f4d6b7",
+              "source_repository": "olliepro/LeanMMBound"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "4f1c6d7a7e54655d223d33f1a274a06b81d3403564ddaa89c50981bd1c7dec8a",
+          "version": 1
+        },
+        "published_at": "2026-10-07T13:29:49Z",
+        "source": {
+          "commit": "93492a4dd1ee90fd98cd7b339af77bb8bbc8be55",
+          "project_path": null,
+          "repository": "olliepro/LeanMMBound"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "LeanMMBound: the matrix multiplication exponent is below 2.3710449",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "We give an explicit compact tile, called CLARK (Chair with Local Asymmetric Registration Keys), in five-dimensional Euclidean space. It modifies a chair of 31 unit five-cubes with 256 rational pyramidal keys. Copies may be translated, rotated or reflected. The selected theorem proves tiling existence, no nonzero translation period in any physical tiling, and a finite full Euclidean symmetry group of cardinality at most 3840 for every such tiling. No registration, matching-rule or hierarchy assumption is imposed. A trivial symmetry group is not asserted.",
+        "authors": [
+          {
+            "name": "Conor Grogan"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.MG",
+            "math.CO"
+          ],
+          "msc2020": []
+        },
+        "formalization": {
+          "theorem_names": [
+            "PalomarMonotiles.T5_strongAperiodicity"
+          ]
+        },
+        "id": "PALOMAR-2026-10-07-000006",
+        "path": "entries/PALOMAR-2026-10-07-000006-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "5f5ceedee770b76c21e8f1105e5e4e3b84b8d676",
+              "fork_repository": "PalomarArchive/jconorgrogan--palomar-chair-verification--3baebe3c8c75",
+              "source_repository": "jconorgrogan/palomar-chair-verification"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "77552734dde0055a906a64aee02169fe6013b5d5fbc381a5e391e7250a2d0d3a",
+          "version": 1
+        },
+        "published_at": "2026-10-07T12:38:06Z",
+        "source": {
+          "commit": "5f5ceedee770b76c21e8f1105e5e4e3b84b8d676",
+          "project_path": null,
+          "repository": "jconorgrogan/palomar-chair-verification"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The CLARK Tile: An Aperiodic Monotile in Five Dimensions",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
       {
         "abbreviated": false,
         "abstract": "A Lean 4 formalization, against Mathlib, of the theorem that the first Betti number (minimal number of generators of the toric ideal) of a numerical semigroup minimally generated by four elements n0 < n1 < n2 < n3 is at most 2W, where W = (n3 - n0) / gcd(n1 - n0, n2 - n0, n3 - n0); in particular at most twice the width n3 - n0.  This replaces the conjectured quadratic bound (w+1 choose 2) of Herzog–Stamate (2014) and Caviglia–Moscariello–Sammartano (2024) in embedding dimension four; the bound 2w is attained for every width w >= 4 (an informal companion result; sharpness is not formalized).",
@@ -2024,73 +2614,6 @@
         },
         "version": 2,
         "versions": 2
-      },
-      {
-        "abbreviated": false,
-        "abstract": "The moving sofa problem asks for the largest area of a planar shape that can be moved around the right-angled corner of a hallway of unit width. This repository formalizes in Lean 4, with Mathlib, Jineon Baek's proof (arXiv:2411.19826) that Gerver's sofa, of area 2.2195..., is optimal: every numbered result of the paper, the results it cites (Schneider's area formula for convex bodies, and the existence and uniqueness of the solution of Romik's equations, which define Gerver's sofa), and the structure of Gerver's sofa (Theorem 8.4.1), which the paper states without proof.\n\nIt also proves that Gerver's sofa is the only moving sofa of maximum area up to rigid motions: a rotation followed by a translation maps every moving sofa of that area onto Gerver's sofa. Baek's paper does not prove this.\n\nFinally, it bridges Baek's definitions and those of Google DeepMind's formal-conjectures: the two notions of moving sofa agree, the sofa constant of formal-conjectures is the supremum of the areas of Baek's moving sofas, and the two definitions of Gerver's sofa, from Gerver's four constants and from Romik's equations, give the same set. Gerver's four constants are proved unique by elementary inequalities. Formal-conjectures' statements follow, including the uniqueness, which it lists as open.",
-        "authors": [
-          {
-            "name": "The-Anh Vu-Le"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.MG",
-            "math.OC"
-          ],
-          "msc2020": [
-            "49Q10",
-            "52A10",
-            "52A38",
-            "52A40",
-            "68V20"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "Baek.gerver_params_exists",
-            "Baek.gerver_params_unique",
-            "Baek.gerver_sofa_area",
-            "Baek.gerver_sofa_optimal",
-            "Baek.gerver_sofa_unique",
-            "Bridge.isMovingSofa_iff",
-            "Bridge.sofaConstant_eq",
-            "Bridge.gerversSofa_eq",
-            "FormalConjectures.MovingSofa.GerversSofa.ABφθSpec.existsUnique",
-            "FormalConjectures.MovingSofa.isMovingSofa_gerversSofa",
-            "FormalConjectures.MovingSofa.sofaConstant_eq_volume_gerversSofa",
-            "FormalConjectures.MovingSofa.volume_eq_sofaConstant_iff_congruent_gerversSofa"
-          ]
-        },
-        "id": "PALOMAR-2026-10-02-000008",
-        "path": "entries/PALOMAR-2026-10-02-000008-v4.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "16653ae81e0e4f52a362bafae2ad3440100ad065",
-              "fork_repository": "PalomarArchive/vltanh--lean4-moving-sofa--dfc797b6e6b6",
-              "source_repository": "vltanh/lean4-moving-sofa"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "5a92f05ed0b95f63d784abf29487f2adc8bc65628a53ac310abb742d197de0b2",
-          "version": 4
-        },
-        "published_at": "2026-10-04T10:16:22Z",
-        "source": {
-          "commit": "16653ae81e0e4f52a362bafae2ad3440100ad065",
-          "project_path": null,
-          "repository": "vltanh/lean4-moving-sofa"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "Optimality (Baek 2024) and uniqueness of Gerver's sofa, formalized in Lean 4",
-        "trust": {
-          "level": "high"
-        },
-        "version": 4,
-        "versions": 4
       },
       {
         "abbreviated": false,
@@ -27260,7 +27783,7 @@
         "versions": 3
       }
     ],
-    "previous": "eyJyZXZpc2lvbiI6MTc5LCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTE5VDIzOjAyOjIyWiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTE5LTAwMDAwNSJ9",
+    "previous": "eyJyZXZpc2lvbiI6MTg5LCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTIwVDExOjU2OjAyWiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTIwLTAwMDAwNyJ9",
     "next": null,
     "dropped": [],
     "message": null,
@@ -27268,15 +27791,19 @@
   },
   "changes": {
     "added": [
-      "PALOMAR-2026-10-07-000005",
-      "PALOMAR-2026-10-07-000004",
-      "PALOMAR-2026-10-07-000003",
-      "PALOMAR-2026-10-07-000002",
-      "PALOMAR-2026-10-07-000001",
-      "PALOMAR-2026-10-06-000011",
-      "PALOMAR-2026-10-06-000010"
+      "PALOMAR-2026-10-08-000003",
+      "PALOMAR-2026-10-08-000002",
+      "PALOMAR-2026-10-08-000001",
+      "PALOMAR-2026-10-07-000011",
+      "PALOMAR-2026-10-07-000010",
+      "PALOMAR-2026-10-07-000009",
+      "PALOMAR-2026-10-07-000008",
+      "PALOMAR-2026-10-07-000007",
+      "PALOMAR-2026-10-07-000006"
     ],
-    "updated": [],
+    "updated": [
+      "PALOMAR-2026-10-02-000008"
+    ],
     "absent": []
   },
   "warnings": []

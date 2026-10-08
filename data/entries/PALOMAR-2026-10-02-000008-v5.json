@@ -1,0 +1,388 @@
+{
+  "abstract": "The moving sofa problem asks for the largest area of a planar shape that can be moved around the right-angled corner of a hallway of unit width. Jineon Baek proved (arXiv:2411.19826) that Gerver's sofa G, of area 2.2195..., is optimal. His proof bounds the area of every large moving sofa by a concave functional Q of a triple (K, B, D) of convex bodies built from a cap K of the sofa, and shows that Q is largest at Gerver's triple, where it equals |G|.\n\nThis entry proves one estimate for Q, the coercive certificate, and derives three results from it. On an enlarged domain of triples, on which the cap need not satisfy Baek's injectivity condition, Q(K, B, D) <= |G|, and the cap K lies within Euclidean Hausdorff distance 2 sec(phi) sqrt(|G| - Q(K, B, D)) of the horizontal translate of Gerver's cap with the same leftmost point, where phi = 0.039... is Gerver's angle. The proof writes |G| - Q as a sum of nonnegative terms, and the energy terms among them also bound that distance. The bound is attained: Gerver's triple lies in the enlarged domain, and Q equals |G| there.\n\nFrom the certificate: optimality, Baek's theorem, proved without his Theorem 1.1.1 and without the balance argument of his Chapters 4 to 6; uniqueness, every moving sofa with the area of G is mapped onto G by a rotation and a translation (a translation suffices); and stability, after a translation a moving sofa of area |G| - epsilon lies within Euclidean Hausdorff distance C sqrt(epsilon) of G, their symmetric difference has area at most C' sqrt(epsilon), its rotation angle misses a right angle by at most C'' epsilon, and the exponent 1/2 cannot be improved. The Challenge also states the correspondence between Baek's definitions and those of Google DeepMind's formal-conjectures, and formal-conjectures' statements, among them the uniqueness, which it lists as open; here they are proved through the certificate.\n\nVersions 1 to 4 of this entry registered the formalization of Baek's paper with a first proof of uniqueness that uses his Theorem 1.1.1; they state the same optimality, uniqueness and formal-conjectures theorems, proved through Baek's argument, and the repository keeps their Challenge and Solution in baek/. This version proves those theorems through the certificate and adds the certificate and the stability. A script in the repository, scripts/AuditCoerciveRoute.lean, run by the continuous integration, checks that its proofs reach neither Baek's Theorem 1.1.1, nor the results of his balance argument, nor the main theorem and the equality analysis of the first proof of uniqueness.",
+  "authors": [
+    {
+      "name": "The-Anh Vu-Le"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-02-000008-v5/96cd33bad6b36182102a9595daa9c83923779fd537e4d0274f2500aafd60dcc9/",
+    "artifact_tree_sha256": "96cd33bad6b36182102a9595daa9c83923779fd537e4d0274f2500aafd60dcc9",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-08T06:42:54Z",
+    "renderer_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.MG",
+      "math.OC"
+    ],
+    "msc2020": [
+      "49Q10",
+      "52A10",
+      "52A38",
+      "52A40",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-10-02",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Baek.gerver_params_exists",
+      "Baek.gerver_params_unique",
+      "Baek.gerver_sofa_area",
+      "Baek.gerver_sofa_optimal",
+      "Baek.gerver_sofa_unique",
+      "Baek.gerver_sofa_stable",
+      "Baek.gerver_sofa_angle_stable",
+      "Baek.gerver_sofa_stability_exponent",
+      "Bridge.isMovingSofa_iff",
+      "Bridge.sofaConstant_eq",
+      "Bridge.gerversSofa_eq",
+      "FormalConjectures.MovingSofa.GerversSofa.ABφθSpec.existsUnique",
+      "FormalConjectures.MovingSofa.isMovingSofa_gerversSofa",
+      "FormalConjectures.MovingSofa.sofaConstant_eq_volume_gerversSofa",
+      "FormalConjectures.MovingSofa.volume_eq_sofaConstant_iff_congruent_gerversSofa",
+      "Certificate.coercive_certificate",
+      "Certificate.gerver_triple"
+    ]
+  },
+  "id": "PALOMAR-2026-10-02-000008",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-08T06:43:28Z",
+    "receipt_sha256": "685ae3242863017d99b266d2eb619359db4f9a3cb7906823a8529ae25e538fda",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v5/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v5/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v5/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v5/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v5/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v5/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v5/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v5/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v5/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "1174c5c25c1c66b807e368446d6682e8d0276759",
+        "fork_repository": "PalomarArchive/vltanh--lean4-moving-sofa--dfc797b6e6b6",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-02-000008-v5/1174c5c25c1c66b807e368446d6682e8d0276759",
+        "source_repository": "vltanh/lean4-moving-sofa"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jineon Baek"
+          }
+        ],
+        "identifier": "arXiv:2411.19826v1",
+        "location": "https://arxiv.org/abs/2411.19826v1",
+        "relationship": "adapts",
+        "title": "Optimality of Gerver's Sofa",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [],
+        "identifier": "docs/archive/stability/",
+        "location": "https://github.com/vltanh/lean4-moving-sofa/tree/a8f7719fd43fa91b223d9f6c0eb53594e5a95716/docs/archive/stability",
+        "relationship": "formalizes",
+        "title": "Stability of Gerver's sofa: notes",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [],
+        "identifier": "docs/archive/coercive/",
+        "location": "https://github.com/vltanh/lean4-moving-sofa/tree/8042bad7eb08037f773ea03a635d10ff203e57de/docs/coercive-extremal",
+        "relationship": "formalizes",
+        "title": "The coercive route: notes",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [],
+        "identifier": "docs/archive/uniqueness/20-complete-paper-proof.md",
+        "location": "https://github.com/vltanh/lean4-moving-sofa/blob/02af5017769d67982a217596b4ad97a10f4f180d/docs/uniqueness/20-complete-paper-proof.md",
+        "relationship": "adapts",
+        "title": "Uniqueness of Gerver's sofa: complete paper argument",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [],
+        "identifier": "docs/paper/",
+        "location": "https://github.com/vltanh/lean4-moving-sofa/tree/701ec744a73a5fe21c3ac1703ac83cf31df853c2/docs/paper",
+        "relationship": "other",
+        "title": "Uniqueness and stability of Gerver's sofa (manuscript)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Dan Romik"
+          }
+        ],
+        "identifier": "doi:10.1080/10586458.2016.1270858",
+        "location": "Experimental Mathematics 27 (2018), no. 3, 316-330; arXiv:1606.08111",
+        "relationship": "background",
+        "title": "Differential Equations and Exact Solutions in the Moving Sofa Problem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Joseph L. Gerver"
+          }
+        ],
+        "identifier": "doi:10.1007/BF02414066",
+        "location": "Geometriae Dedicata 42 (1992), no. 3, 267-283",
+        "relationship": "background",
+        "title": "On Moving a Sofa around a Corner",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Leo Moser"
+          }
+        ],
+        "location": "SIAM Review 8 (1966), no. 3, 381",
+        "relationship": "background",
+        "title": "Problem 66-11, Moving Furniture Through a Hallway",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Wikipedia/MovingSofa.lean",
+        "note": "Google DeepMind's formal-conjectures states the optimality (solved) and the uniqueness (research open) with definitions of its own. The Challenge restates its definitions and statements in the namespace FormalConjectures.MovingSofa and relates its definitions to Baek's (namespace Bridge); its statements are proved here through the certificate.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/deancureton/MovingSofa",
+        "note": "An earlier Lean 4 formalization of Baek's optimality theorem; it does not state the uniqueness, the stability or the certificate. baek/formalizations.md compares it with this repository.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/RuifengCao/sofa-formal",
+        "note": "An earlier Lean 4 formalization of Baek's optimality theorem; it does not state the uniqueness, the stability or the certificate. baek/formalizations.md compares it with this repository.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "The-Anh Vu-Le"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-08T06:43:06Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "88f7c611e693d4b3743ded210a1c10e92f64a501faab18d1a486746a1cef9499"
+    },
+    "reviewed_at": "2026-10-07T14:45:47Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "1174c5c25c1c66b807e368446d6682e8d0276759",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "vltanh/lean4-moving-sofa",
+    "repository_url": "https://github.com/vltanh/lean4-moving-sofa",
+    "tree_url": "https://github.com/vltanh/lean4-moving-sofa/tree/1174c5c25c1c66b807e368446d6682e8d0276759"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "d9rirga14f5w"
+  },
+  "title": "Optimality, uniqueness and stability of Gerver's sofa from one coercive certificate, formalized in Lean 4",
+  "trust": {
+    "challenge_bytes": 41204,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 770,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "bcd652713031cb7c019e3a857d3aab4e8e241e469a876e240fd7290af716ea08",
+    "evidence_path": "evidence/PALOMAR-2026-10-02-000008-v5/5e6e04e36263acec5c9a3ff0e879d8a0bf6747a49d3b6483b80780ab40520735/",
+    "evidence_tree_sha256": "5e6e04e36263acec5c9a3ff0e879d8a0bf6747a49d3b6483b80780ab40520735",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/con-ron",
+          "--jobs=2"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "fa42149f7f9b9a53b015609a015d8591bc4c58db737578fedce0554484665f81",
+    "protected_config_sha256": "6073ae8ab34c5f79ad4970329aa83d9b7eacd34eb6e995d10909c3d2986bc46c",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 37627649625,
+    "solution_sha256": "6badf13c14b657bc48c7c7f2aa59ae2634b6e62e4b04ea2f29142e697fe79e78",
+    "tool_digests": {
+      "bwrap": "30a5a8fddade439af2bfae83fdd4a5867f2b719e2df2078a983b1a0463df9690",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-07T13:30:53Z",
+    "workflow_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/37627649625"
+  },
+  "version": 5
+}

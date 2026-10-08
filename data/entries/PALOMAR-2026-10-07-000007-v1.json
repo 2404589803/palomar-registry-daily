@@ -1,0 +1,414 @@
+{
+  "abstract": "The matrix multiplication exponent ω is the least exponent such that n×n matrices can be multiplied in n^(ω+o(1)) operations. This repository proves in Lean 4 / Mathlib that ω < 2.3710449 over every commutative ring, improving the previous bound ω < 2.371177 (Dupont et al. 2026). ω is defined via the exact tensor rank of n×n matrix multiplication. The new ingredient is shared extraction across recursion levels of the asymmetric laser method. The formalization covers the full argument, from the Coppersmith–Winograd degeneration to an exact rational certificate checked in the Lean kernel. The construction and proof were produced largely by AI systems under the authors' direction.",
+  "authors": [
+    {
+      "name": "Oliver Proudfoot"
+    },
+    {
+      "name": "Andrew Perrault"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-07-000007-v1/4f1c6d7a7e54655d223d33f1a274a06b81d3403564ddaa89c50981bd1c7dec8a/",
+    "artifact_tree_sha256": "4f1c6d7a7e54655d223d33f1a274a06b81d3403564ddaa89c50981bd1c7dec8a",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-07T13:29:39Z",
+    "renderer_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.CC",
+      "math.CO"
+    ],
+    "msc2020": [
+      "68Q17",
+      "68Q25",
+      "15A69",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-10-07",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "MatrixBounds.Numeric.SuppliedCertifiedPipeline.exponent_lt"
+    ]
+  },
+  "id": "PALOMAR-2026-10-07-000007",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-07T13:30:12Z",
+    "receipt_sha256": "7e74b3a009368b9cee729eb552635e75fd655fc5d558fb9941015243216d84f9",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-07-000007-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-07-000007-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-07-000007-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-07-000007-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-07-000007-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-07-000007-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-07-000007-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-07-000007-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-07-000007-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "93492a4dd1ee90fd98cd7b339af77bb8bbc8be55",
+        "fork_repository": "PalomarArchive/olliepro--LeanMMBound--bc7df2f4d6b7",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-07-000007-v1/93492a4dd1ee90fd98cd7b339af77bb8bbc8be55",
+        "source_repository": "olliepro/LeanMMBound"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "relationship": "other",
+        "title": "New upper bound ω < 2.3710449 on the matrix multiplication exponent via shared extraction across recursion levels, first presented with this formalization",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "Emilien Dupont"
+          },
+          {
+            "name": "Marvin Eisenberger"
+          },
+          {
+            "name": "Borislav Kozlovskii"
+          },
+          {
+            "name": "Abbas Mehrabian"
+          },
+          {
+            "name": "Francisco J. R. Ruiz"
+          },
+          {
+            "name": "Abigail See"
+          },
+          {
+            "name": "Renfei Zhou"
+          },
+          {
+            "name": "Josh Alman"
+          },
+          {
+            "name": "Virginia Vassilevska Williams"
+          },
+          {
+            "name": "Matej Balog"
+          }
+        ],
+        "identifier": "arXiv:2608.16884",
+        "relationship": "background",
+        "title": "Improving the Matrix Multiplication Exponent with Modern Optimization and AlphaEvolve",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Josh Alman"
+          },
+          {
+            "name": "Ran Duan"
+          },
+          {
+            "name": "Virginia Vassilevska Williams"
+          },
+          {
+            "name": "Yinzhan Xu"
+          },
+          {
+            "name": "Zixuan Xu"
+          },
+          {
+            "name": "Renfei Zhou"
+          }
+        ],
+        "identifier": "arXiv:2404.16349",
+        "location": "Proceedings of the 2025 ACM–SIAM Symposium on Discrete Algorithms (SODA), 2005–2039",
+        "relationship": "background",
+        "title": "More Asymmetry Yields Faster Matrix Multiplication",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Virginia Vassilevska Williams"
+          },
+          {
+            "name": "Yinzhan Xu"
+          },
+          {
+            "name": "Zixuan Xu"
+          },
+          {
+            "name": "Renfei Zhou"
+          }
+        ],
+        "identifier": "arXiv:2307.07970",
+        "location": "Proceedings of the 2024 ACM–SIAM Symposium on Discrete Algorithms (SODA), 3792–3835",
+        "relationship": "background",
+        "title": "New Bounds for Matrix Multiplication: From Alpha to Omega",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Don Coppersmith"
+          },
+          {
+            "name": "Shmuel Winograd"
+          }
+        ],
+        "identifier": "doi:10.1016/S0747-7171(08)80013-2",
+        "location": "Journal of Symbolic Computation 9(3) (1990) 251–280",
+        "relationship": "background",
+        "title": "Matrix multiplication via arithmetic progressions",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Felix A. Behrend"
+          }
+        ],
+        "identifier": "doi:10.1073/pnas.32.12.331",
+        "location": "Proceedings of the National Academy of Sciences 32(12) (1946) 331–332",
+        "relationship": "background",
+        "title": "On Sets of Integers Which Contain No Three Terms in Arithmetical Progression",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Eric Naslund"
+          }
+        ],
+        "location": "https://chatgpt.com/share/6aa0442c-7c34-83e8-8ba7-403131b52304",
+        "relationship": "background",
+        "title": "Improve Matrix Multiplication Exponent",
+        "type": "web post"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://arxiv.org/abs/2608.28433",
+        "note": "Prove2Me hosts a community campaign formalizing upper bounds on ω in Lean against an operation-count definition. This development is independent of it, and relating the two definitions is not formalized. We know of no earlier formalization of a laser-method bound.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Oliver Proudfoot"
+      },
+      {
+        "name": "Andrew Perrault"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-10-07T13:29:49Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "33074c223d36f0efada51f5d43d5adb15438e10c28fba16921af5b5f893d6f4d"
+    },
+    "reviewed_at": "2026-10-06T05:39:58Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "93492a4dd1ee90fd98cd7b339af77bb8bbc8be55",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "olliepro/LeanMMBound",
+    "repository_url": "https://github.com/olliepro/LeanMMBound",
+    "tree_url": "https://github.com/olliepro/LeanMMBound/tree/93492a4dd1ee90fd98cd7b339af77bb8bbc8be55"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "wodstax08f5a"
+  },
+  "title": "LeanMMBound: the matrix multiplication exponent is below 2.3710449",
+  "trust": {
+    "challenge_bytes": 6388,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.BigOperators.Field",
+      "Mathlib.Algebra.BigOperators.Group.Finset.Sigma",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.Data.Fintype.BigOperators",
+      "Mathlib.Data.Fintype.Prod",
+      "Mathlib.Data.Matrix.Mul",
+      "Mathlib.Tactic.Ring"
+    ],
+    "challenge_lines": 137,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "48e39d2ac2b03cdd8ac20a779e402ae7d8f6251d4b9266aa63e359b5cc85997b",
+    "evidence_path": "evidence/PALOMAR-2026-10-07-000007-v1/eca3c9786d0b641ec6e80a017968196493a03dcaa40784545028efcad1fedbaf/",
+    "evidence_tree_sha256": "eca3c9786d0b641ec6e80a017968196493a03dcaa40784545028efcad1fedbaf",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--jobs=2"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "feb2eb9b9d8d0b243d849bccfca7609d67dffc13a2c8d4f58e9aafe38691c72d",
+    "protected_config_sha256": "3775e0a3b890212002dce35a0a4ba73fc5882088b75e1c8f4d4ef7a337b97381",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 37411858138,
+    "solution_sha256": "d4cb5b83761f80d2356b717770ece8cf2d011a63dc686799ab0497d2c4a6e2ce",
+    "tool_digests": {
+      "bwrap": "e9afde84c6fc4cfc58393e694e21c4761a9ffbc235c5208d566fe679ad9f89c9",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-06T05:26:04Z",
+    "workflow_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/37411858138"
+  },
+  "version": 1
+}
