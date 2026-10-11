@@ -1,0 +1,392 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalisation of Aleksandrov maximum principles for kinetic equations d_t u + v.grad_x u - A : D_v^2 u = f in non-divergence form, with measurable, uniformly elliptic diffusion acting only in the velocity. For coefficients A(t,v) the estimate holds for every source exponent p > 2d+1; for autonomous coefficients a(x,v) in one space dimension for every p above a threshold 1 + beta_*(Lambda/lambda) < 4, where no exponent below 4 works uniformly in the ellipticity ratio; and for general measurable coefficients A(t,x,v) for every p >= 1 + 128 d^2 (Lambda/lambda)^2 / 3. In each case the estimate implies interior Hölder continuity of solutions; for coefficients A(t,x,v) this is the kinetic Krylov–Safonov theorem. The library also proves the parabolic Aleksandrov estimate of Krylov, the parabolic Harnack inequality of Krylov and Safonov, the terminal solution operators of the kinetic equation, and classical Dirichlet solvability on ellipsoidal cylinders. Hörmander's hypoellipticity theorem is taken from the formalisation hoermander-rothschild-stein.",
+  "authors": [
+    {
+      "name": "Amélie Loher"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-11-000001-v1/f1063bd45300669c4bdacee8ca9d5f45975560b4b50aeb5422f4971d99d7f0bd/",
+    "artifact_tree_sha256": "f1063bd45300669c4bdacee8ca9d5f45975560b4b50aeb5422f4971d99d7f0bd",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-11T00:01:53Z",
+    "renderer_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.AP",
+      "math.PR"
+    ],
+    "msc2020": [
+      "35K70",
+      "35B50",
+      "35B65",
+      "35Q84",
+      "35H10"
+    ]
+  },
+  "first_registered_on": "2026-10-11",
+  "formalization": {
+    "challenge_path": "AleksandrovComparators/KineticAleksandrov/Challenge.lean",
+    "comparator_config_path": "AleksandrovComparators/KineticAleksandrov/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "hormander",
+        "repository": "amelieloher/hoermander-rothschild-stein",
+        "revision": "d1462014b4ca69cf04b250582ea45021aa07b546"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "AleksandrovComparators/KineticAleksandrov/Solution.lean",
+    "theorem_names": [
+      "KineticAleksandrovChallenge.kinetic_aleksandrov_timeVelocity",
+      "KineticAleksandrovChallenge.kinetic_aleksandrov_timeVelocity_localised",
+      "KineticAleksandrovChallenge.kinetic_holder_timeVelocity",
+      "KineticAleksandrovChallenge.kinetic_aleksandrov_autonomous",
+      "KineticAleksandrovChallenge.kinetic_aleksandrov_autonomous_localised",
+      "KineticAleksandrovChallenge.kinetic_holder_autonomous",
+      "KineticAleksandrovChallenge.kinetic_aleksandrov_autonomous_counterexample",
+      "KineticAleksandrovChallenge.existsUnique_bellmanAdjointExponent",
+      "KineticAleksandrovChallenge.bellmanAdjointExponent_characterization",
+      "KineticAleksandrovChallenge.parabolic_aleksandrov",
+      "KineticAleksandrovChallenge.parabolic_harnack_unit_cylinder"
+    ]
+  },
+  "id": "PALOMAR-2026-10-11-000001",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-11T00:02:21Z",
+    "receipt_sha256": "d299f6eed8466dcbe90660422c1da627dcc911b95fb2ca723148450b3e2cb754",
+    "repositories": [
+      {
+        "commit": "d1462014b4ca69cf04b250582ea45021aa07b546",
+        "fork_repository": "PalomarArchive/amelieloher--hoermander-rothschild-stein--a3f8df3a01f8",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000001-v1/d1462014b4ca69cf04b250582ea45021aa07b546",
+        "source_repository": "amelieloher/hoermander-rothschild-stein"
+      },
+      {
+        "commit": "d7e0125892d7bbd013c86c9c5d6a04e39e0168a6",
+        "fork_repository": "PalomarArchive/amelieloher--hypoelliptic-aleksandrov--29cafd061e52",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000001-v1/d7e0125892d7bbd013c86c9c5d6a04e39e0168a6",
+        "source_repository": "amelieloher/hypoelliptic-aleksandrov"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000001-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000001-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000001-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000001-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000001-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000001-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000001-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000001-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000001-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "endorsed",
+        "authors": [
+          {
+            "name": "Amélie Loher"
+          },
+          {
+            "name": "Connor Mooney"
+          },
+          {
+            "name": "Clément Mouhot"
+          }
+        ],
+        "license": "all rights reserved",
+        "location": "https://amelieloher.github.io/DF-visual-paper/pdf/doeblin-fourier-companion.pdf (long version, 2 October 2026)",
+        "relationship": "formalizes",
+        "title": "From Döblin to Aleksandrov",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "endorsed",
+        "authors": [
+          {
+            "name": "Amélie Loher"
+          },
+          {
+            "name": "Connor Mooney"
+          },
+          {
+            "name": "Clément Mouhot"
+          }
+        ],
+        "license": "all rights reserved",
+        "location": "arXiv:2610.03083",
+        "relationship": "formalizes",
+        "title": "Döblin–Fourier cancellation and kinetic Aleksandrov estimates",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "endorsed",
+        "authors": [],
+        "license": "all rights reserved",
+        "location": "https://weneedabp.github.io/kinetic.html",
+        "relationship": "formalizes",
+        "title": "We need ABP",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Lars Hörmander"
+          }
+        ],
+        "license": "all rights reserved",
+        "location": "Acta Mathematica 119 (1967), 147-171",
+        "relationship": "background",
+        "title": "Hypoelliptic second order differential equations",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "N. V. Krylov"
+          }
+        ],
+        "license": "all rights reserved",
+        "location": "Sibirsk. Mat. Zh. 17 (1976), no. 2, 290-303",
+        "relationship": "formalizes",
+        "title": "Sequences of convex functions and estimates of the maximum of the solution of a parabolic equation",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "N. V. Krylov"
+          },
+          {
+            "name": "M. V. Safonov"
+          }
+        ],
+        "license": "all rights reserved",
+        "location": "Izv. Akad. Nauk SSSR Ser. Mat. 44 (1980), no. 1, 161-175",
+        "relationship": "formalizes",
+        "title": "A certain property of solutions of parabolic equations with measurable coefficients",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Gary M. Lieberman"
+          }
+        ],
+        "license": "all rights reserved",
+        "location": "World Scientific, 1996",
+        "relationship": "formalizes",
+        "title": "Second Order Parabolic Differential Equations",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Amélie Loher"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-11T00:02:03Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "ae83f4e95b825dc0a1346b00d11eacd7c39e3172adea4f073fba353bdcfc7c2d"
+    },
+    "reviewed_at": "2026-10-09T09:40:00Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "d7e0125892d7bbd013c86c9c5d6a04e39e0168a6",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "amelieloher/hypoelliptic-aleksandrov",
+    "repository_url": "https://github.com/amelieloher/hypoelliptic-aleksandrov",
+    "tree_url": "https://github.com/amelieloher/hypoelliptic-aleksandrov/tree/d7e0125892d7bbd013c86c9c5d6a04e39e0168a6"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "q4kgl7c6stgf"
+  },
+  "title": "Kinetic Aleksandrov estimates",
+  "trust": {
+    "challenge_bytes": 31593,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 605,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "77ed8de084da37f2aa76a71df34cb19489d4fdfb9fb6acf99f2c846cdab45daf",
+    "evidence_path": "evidence/PALOMAR-2026-10-11-000001-v1/4de8ae906fff0e3bce0da9691af167a8ee31eb57b1f90737b91d054323d993e9/",
+    "evidence_tree_sha256": "4de8ae906fff0e3bce0da9691af167a8ee31eb57b1f90737b91d054323d993e9",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--jobs=2"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "8b112e1d6efd9add31452365e4077315d0ef08426dbbaf068a49ac25fe7ae9e9",
+    "protected_config_sha256": "312b9d862653ea50f48a4f9ed75c879a70f08fb089620b655866c3ab996f17ff",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 37907280375,
+    "solution_sha256": "7ab34f34a4f67edf825713a6137b0100d8965b275f4963a9611e053f3ac15633",
+    "tool_digests": {
+      "bwrap": "2532425636efdc5666a33ab03098b01412c764f0cb8b69864e988214232f2b63",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-09T09:12:36Z",
+    "workflow_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/37907280375"
+  },
+  "version": 1
+}
