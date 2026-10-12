@@ -1,0 +1,641 @@
+{
+  "abstract": "A Lean 4 and Mathlib formalization of the theorem that the independence sequence of every finite forest is unimodal: the numbers of independent sets with 0, 1, 2, ... vertices weakly increase up to some index and weakly decrease after it. This is the statement listed as Erdős Problem 993; later sources attribute the question to a 1987 paper of Alavi, Malde, Schwenk and Erdős. The first claimed proof for all finite forests is by T. Zhang and W. Li (self-archived preprints, September 2026). This repository formalizes a second proof, by W. Li, K. Vallier and T. Zhang: it adapts the public arXiv:2610.07943v1 and follows version 2.15 of that manuscript, deposited with restricted access and under revision. The Lean proof is computer-assisted and in two parts (at most 24 vertices; at least 25). About 13,700 finite computations are evaluated by the Lean kernel, without native_decide, on the three standard axioms. AI systems produced and reviewed all of the Lean; no human has read the Lean proofs. No manuscript cited is peer reviewed. No priority and no first formalization is claimed.",
+  "authors": [
+    {
+      "name": "Kevin Vallier"
+    },
+    {
+      "name": "Tong Zhang"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-11-000012-v1/fad9e4697c14b31a3e895f0f6d85f289c8bb9f0cb70cbe2c861ed7e658d4de2b/",
+    "artifact_tree_sha256": "fad9e4697c14b31a3e895f0f6d85f289c8bb9f0cb70cbe2c861ed7e658d4de2b",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-11T09:59:21Z",
+    "renderer_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C69",
+      "05C05",
+      "05C31",
+      "05A20"
+    ]
+  },
+  "first_registered_on": "2026-10-11",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "Erdos993.indepSeq",
+      "Erdos993.UnimodalSeq"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Erdos993.erdos_993_forest",
+      "Erdos993.erdos_993"
+    ]
+  },
+  "id": "PALOMAR-2026-10-11-000012",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-11T09:59:54Z",
+    "receipt_sha256": "f04018ace6368c82c934ada08717cdf21cc01c6611c39c7d57ea0afce00924af",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000012-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000012-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000012-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000012-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000012-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000012-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000012-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000012-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000012-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "c020ce114a4b21ee164946547093e40452af898a",
+        "fork_repository": "PalomarArchive/selfreferencing--erdos993-palomar--53067af9d958",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-11-000012-v1/c020ce114a4b21ee164946547093e40452af898a",
+        "source_repository": "selfreferencing/erdos993-palomar"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Wei Li"
+          },
+          {
+            "name": "Kevin Vallier"
+          },
+          {
+            "name": "Tong Zhang"
+          }
+        ],
+        "identifier": "arXiv:2610.07943v1",
+        "license": "arXiv.org non-exclusive distribution licence 1.0 (http://arxiv.org/licenses/nonexclusive-distrib/1.0/)",
+        "location": "Main theorem (Section 1); Sections 2 and 3 (window, decomposition, choice of activity, moment criterion); statements of Theorems 4.3, 4.22 and 5.5",
+        "relationship": "adapts",
+        "title": "Unimodality of Forest Independence Polynomials",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Wei Li"
+          },
+          {
+            "name": "Kevin Vallier"
+          },
+          {
+            "name": "Tong Zhang"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.23269638",
+        "license": "All rights reserved (no open licence). Restricted access: the record is public, the files are available from the authors on request",
+        "location": "Version 2.15: Theorem 1.1, restated as Theorem 2.9; Theorem 7.1 for at most 24 vertices",
+        "relationship": "formalizes",
+        "title": "Unimodality of Forest Independence Polynomials",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Tong Zhang"
+          }
+        ],
+        "identifier": "https://github.com/zhangzenozhang-jpg/-forest-unimodality-proof",
+        "location": "Manuscript, v1.1, 26 September 2026, as cited in the manuscript of the second proof",
+        "relationship": "adapts",
+        "title": "Exact Certificates for Unimodality of Forest Independence Polynomials: A consolidated proof manuscript and reproducible supplement",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Tong Zhang"
+          },
+          {
+            "name": "Wei Li"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.22999166",
+        "license": "CC-BY-4.0",
+        "location": "Zenodo preprint, version label 2026-09-27",
+        "relationship": "adapts",
+        "title": "Unimodality of Forest Independence Polynomials",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Y. Alavi"
+          },
+          {
+            "name": "P. J. Malde"
+          },
+          {
+            "name": "A. J. Schwenk"
+          },
+          {
+            "name": "P. Erdős"
+          }
+        ],
+        "identifier": "Congressus Numerantium 58 (1987), 15-23; Zbl 0679.05061",
+        "location": "Problem 3, p. 21, as located by formal-conjectures pull request #4192",
+        "relationship": "background",
+        "title": "The vertex independence sequence of a graph is not constrained",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "identifier": "https://www.erdosproblems.com/993",
+        "relationship": "background",
+        "title": "Erdős Problem 993",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "E. X. Fang"
+          },
+          {
+            "name": "J. Lu"
+          },
+          {
+            "name": "E. Nevo"
+          },
+          {
+            "name": "Y. Yao"
+          },
+          {
+            "name": "H. Zheng"
+          }
+        ],
+        "identifier": "arXiv:2609.20961v1",
+        "location": "Theorem 1.1",
+        "relationship": "background",
+        "title": "Unimodality of Independence Polynomials for Sufficiently Large Forests",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "S. G. Hoggar"
+          }
+        ],
+        "identifier": "doi:10.1016/0095-8956(74)90071-9",
+        "location": "J. Combin. Theory Ser. B 16 (1974), 248-254",
+        "relationship": "formalizes",
+        "title": "Chromatic polynomials and logarithmic concavity",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "W. N. Hsieh"
+          },
+          {
+            "name": "D. J. Kleitman"
+          }
+        ],
+        "identifier": "Stud. Appl. Math. 52 (1973), 285-289",
+        "relationship": "background",
+        "title": "Normalized matching in direct products of partial orders",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "L. H. Harper"
+          }
+        ],
+        "identifier": "J. Combin. Theory Ser. A 17 (1974), 44-58",
+        "relationship": "background",
+        "title": "The morphology of partially ordered sets",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Y. O. Hamidoune"
+          }
+        ],
+        "identifier": "doi:10.1016/0095-8956(90)90079-F",
+        "location": "J. Combin. Theory Ser. B 50 (1990), 241-244",
+        "relationship": "background",
+        "title": "On the numbers of independent k-sets in a claw free graph",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "M. Chudnovsky"
+          },
+          {
+            "name": "P. Seymour"
+          }
+        ],
+        "identifier": "doi:10.1016/j.jctb.2006.06.001",
+        "location": "J. Combin. Theory Ser. B 97 (2007), 350-357",
+        "relationship": "background",
+        "title": "The roots of the independence polynomial of a clawfree graph",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "V. E. Levit"
+          },
+          {
+            "name": "E. Mandrescu"
+          }
+        ],
+        "identifier": "arXiv:math/0211036v1",
+        "location": "LNCS 2731 (2003), 237-256, doi:10.1007/3-540-45066-1_19",
+        "relationship": "background",
+        "title": "On Unimodality of Independence Polynomials of some Well-Covered Trees",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "D. Galvin"
+          },
+          {
+            "name": "J. Hilyard"
+          }
+        ],
+        "identifier": "arXiv:1701.02204v4",
+        "relationship": "background",
+        "title": "The independent set sequence of some families of trees",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "E. Y. H. Li"
+          },
+          {
+            "name": "G. M. X. Li"
+          },
+          {
+            "name": "A. L. B. Yang"
+          },
+          {
+            "name": "Z.-X. Zhang"
+          }
+        ],
+        "identifier": "arXiv:2501.04245v1",
+        "location": "Selecta Math. 32 (2026), article 87, doi:10.1007/s00029-026-01195-1",
+        "relationship": "background",
+        "title": "A symmetric function approach to log-concavity of independence polynomials",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. Basit"
+          },
+          {
+            "name": "D. Galvin"
+          }
+        ],
+        "identifier": "arXiv:2006.12562v2",
+        "location": "Electron. J. Combin. 28(3) (2021), P3.23, doi:10.37236/9896",
+        "relationship": "background",
+        "title": "On the independent set sequence of a tree",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "O. Kadrawi"
+          },
+          {
+            "name": "V. E. Levit"
+          },
+          {
+            "name": "R. Yosef"
+          },
+          {
+            "name": "M. Mizrachi"
+          }
+        ],
+        "identifier": "doi:10.5772/intechopen.1001130",
+        "location": "in Recent Research in Polynomials, IntechOpen 2023",
+        "relationship": "background",
+        "title": "On computing of independence polynomials of trees",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "O. Kadrawi"
+          },
+          {
+            "name": "V. E. Levit"
+          }
+        ],
+        "identifier": "arXiv:2305.01784v2",
+        "location": "Ars Math. Contemp. 25(4) (2025), P4.03, doi:10.26493/1855-3974.3207.2ad",
+        "relationship": "background",
+        "title": "The independence polynomial of trees is not always log-concave starting from order 26",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "D. Galvin"
+          }
+        ],
+        "identifier": "arXiv:2502.10654v2",
+        "relationship": "background",
+        "title": "Trees with non log-concave independent set sequences",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "E. Ramos"
+          },
+          {
+            "name": "S. Sun"
+          }
+        ],
+        "identifier": "arXiv:2510.18826v2",
+        "relationship": "background",
+        "title": "An AI enhanced approach to the tree unimodality conjecture",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. Bhattacharyya"
+          },
+          {
+            "name": "J. Kahn"
+          }
+        ],
+        "identifier": "arXiv:1301.1752v1",
+        "relationship": "background",
+        "title": "A bipartite graph with non-unimodal independent set sequence",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/issues/5012",
+        "note": "Issue opened 16 August 2026 by K. Vallier (AI-assisted, as disclosed there; open): a candidate statement for forests with IsAcyclic, counting with indepSetFinset, peak over all natural numbers. Erdos993Lean/Statement.lean counts the same way; count_eq in Erdos993Lean/PalomarBridge.lean relates it to the Challenge form.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/pull/4192",
+        "note": "Statement only. File FormalConjectures/ErdosProblems/993.lean on the branch of this pull request, which was open and not merged on 9 October 2026 (the file is absent from the main branch); it marks the forest and the tree statement \"research open\". Challenge.lean takes its two definitions and the types of its two statements. Mapping: Erdos993.erdos_993_forest is its erdos_993 (forests); Erdos993.erdos_993 is its erdos_993.variants.tree (trees). Each statement differs from its counterpart in one token, the name; the two definitions are identical. The other differences (attribute line, import, licence header, texts, four omitted declarations about spiders) are listed in the module text of Challenge.lean. No proof is taken from it.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/selfreferencing/erdos993-lean",
+        "note": "This project's earlier public repository (version 1.0; created 2026-09-28, release of 2026-09-29 06:13 UTC). As its README describes it: a Lean 4 proof of the full statement, for at most 60 vertices by T. Zhang's certificates and for at least 61 by a different argument developed in this project and not independently reviewed; 271 native_decide evaluations, hence five axioms (the three standard ones and the two that trust the compiler). Not rebuilt for this entry. Erdos993Lean/PalomarBridge.lean here is adapted from its bridge at commit c524aa2, which targeted the tree statement.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/lixiang90/forest-unimodality",
+        "note": "An independent Lean 4 formalization, by another person, of T. Zhang's manuscript of 26 September 2026 (over acyclic graphs on Fin n). Created 2026-09-29; proof commit dated 2026-09-29 23:35 UTC. Its README reports a clean rebuild of all 31,598 modules on 2 October 2026 and the three standard axioms only; its one-line description still says verification is pending. We did not rebuild it. Neither work uses the other.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/selfreferencing/erdos993-forest-unimodality-lean",
+        "note": "This project's repository that accompanies arXiv:2610.07943v1 (commit of 2026-10-06 04:28 UTC; final theorem erdos993_v22_final, over forests on Fin n). As that paper reports: 411 compiled evaluations in the part for at least 25 vertices, hence five axioms. Not rebuilt for this entry. The present repository follows a later version of the manuscript and replaces every compiled evaluation by kernel evaluation.",
+        "relationship": "supersedes"
+      },
+      {
+        "identifier": "https://github.com/junwei-lu/Erdos_993_Tree_Independent_Set_Unimodality",
+        "note": "Created 2026-09-15, last commit 2026-09-21. Lean 4 formalization of Theorem 1.1 of Fang et al. (forests with at least N0 vertices, N0 existential). Its README reports no sorry and the three standard axioms. We did not rebuild it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/zouzh14/erdos-993-eventual",
+        "note": "Preprint and Lean 4 formalization by Z. Zou of an eventual statement (forests with at least N0 vertices, N0 existential), released 11 September 2026. Its README says the threshold is existential and the all-orders problem is not settled. We did not rebuild it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/RichP0123/erdos993-floor38",
+        "note": "Created and pushed 2026-09-29. Its README reports a Lean proof, on the three standard axioms, that every forest with at most 37 vertices is unimodal, and says it does not settle the problem. We did not rebuild it.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Kevin Vallier"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-11T09:59:30Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "2e13232cd2e28e8bb6b6ee2b6ac63daea8a75d8b7a1405881cfc4ad04328f068"
+    },
+    "reviewed_at": "2026-10-10T17:52:54Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "c020ce114a4b21ee164946547093e40452af898a",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "selfreferencing/erdos993-palomar",
+    "repository_url": "https://github.com/selfreferencing/erdos993-palomar",
+    "tree_url": "https://github.com/selfreferencing/erdos993-palomar/tree/c020ce114a4b21ee164946547093e40452af898a"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "tpxdnuc9jb11"
+  },
+  "title": "Unimodality of the independence sequence of a finite forest (Erdős Problem 993)",
+  "trust": {
+    "challenge_bytes": 7097,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Combinatorics.SimpleGraph.Acyclic",
+      "Mathlib.Combinatorics.SimpleGraph.Clique",
+      "Mathlib.SetTheory.Cardinal.Finite"
+    ],
+    "challenge_lines": 98,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "0460c8ad3a0405df2930e4fc95c916f535fd0ee7b4402d27df86522466ffcb57",
+    "evidence_path": "evidence/PALOMAR-2026-10-11-000012-v1/9f69b09b7f4fb5006c12a1162eb997b38178fa943055c14025d55a366f465fb7/",
+    "evidence_tree_sha256": "9f69b09b7f4fb5006c12a1162eb997b38178fa943055c14025d55a366f465fb7",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--jobs=2"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "0a8be63c2486103126d2ef730a40b8d5ed192e7cdbf5915dcc3503467202dd99",
+    "protected_config_sha256": "12fbb4ffa1412f382d46443a6c23a9111c200b26bc8b311adfa75090bf33d80c",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 38059456260,
+    "solution_sha256": "085e8b8faf17c05e4f0cd99b95d00ea687fe4b30de4a8c29064fea3c9f60dc82",
+    "tool_digests": {
+      "bwrap": "b4e9f4935720a4d8443e0c7b4bcb64b0d66db291af9f792248699480458e7258",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-10T16:54:06Z",
+    "workflow_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/38059456260"
+  },
+  "version": 1
+}
