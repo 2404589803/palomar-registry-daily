@@ -1,0 +1,306 @@
+{
+  "abstract": "The main theorem (thm:A, Theorem A \"Every dimension\", of version 1) of the manuscript \"Low-discrepancy quasi-uniform digital nets in every dimension\", in one statement. For every dimension s >= 3, every integer base q >= 2 all of whose prime factors are at least s - 1, and every k >= 1, the explicit digital net P^{U*_s}_{k,q} over Z/qZ with N = q^(sk) points (Definition def:Ns for the places infinity, 0, 1, ..., s-2 -- the Faure-Hammersley frame in graph form with the gauges of prop:Ns and prop:Gs -- and the design U*_s of Definition def:Ustar, whose columns are short vectors of the lattices of admissible columns, chosen level by level by Babai rounding) (1) is a (0,sk,s)-net in base q, so every cell of side q^(-k) holds exactly one point, and every point of [0,1]^s lies within Euclidean distance sqrt(s) N^(-1/s) of a net point (covering radius); (2) if q >= 5 a*_s + 4, any two distinct net points have toroidal and Euclidean distance at least (1 - a*_s/q) N^(-1/s), for every k >= 1, and for k >= 2 and q > (s-1) a*_s some two distinct points are closer than (1 - a*_s/q + (s-1)(a*_s+1)^2/q^2) N^(-1/s) (first-order sharpness of a*_s). The constant a*_s = max_c sum_{d != c} max_j |E_{d,j}[c]| of def:Ustar satisfies a*_3 = 2 and, for s >= 4, a*_s <= 2(s-1)^(3/2) (3/2)^(s-2) (s-2)!, and this explicit bound is e^(s log s + O(s)) (|log(bound) - s log s| <= 3s). So a*_s <= e^(s log s + O(s)), an upper bound only. Matching bounds of the same order N^(-1/s) for arbitrary N-point sets (the volume argument behind \"optimal order\") are classical and not formalized.\nComparator configuration: comparatorHeadline.json (4 compared theorems, all proved, no sorry): Z3NetA.theoremA, and three theorems showing inside the entry that the data the definitions introduce by choice are the paper's -- Z3NetA.ustarCols_spec (the columns E_{d,j} of def:Ustar exist and are unique), Z3NetA.gamma_spec (gamma_j of lem:sat(ii) exists and is unique) and Z3NetA.net_wellDefined (the reduction R_S -> Z/qZ, a solution U' of the residual problem and the coefficients beta of prop:Gs exist, and the net built from any of them is the entry's net). The Challenge (Headline/Challenge.lean) imports only Mathlib and contains verbatim copies of the 43 definitions of the proof side (Z3Net/FDefs.lean, Z3Net/ThmADefs.lean) that the statement reaches. The Solution (Headline/Solution.lean) obtains the theorem from Z3NetA.thmA of the full formalization in the same Lake project (whose single configuration comparator.json covers all compared theorems of the statement library).",
+  "authors": [
+    {
+      "name": "Leonhard Gruenschloss",
+      "orcid": "0009-0004-6476-2191",
+      "orcid_record_checked_at": "2026-10-12T23:54:19Z"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-13-000011-v1/527de562fb85ad0f155bd7571b08733c865f539703d3ce7b08c833662d39fac8/",
+    "artifact_tree_sha256": "527de562fb85ad0f155bd7571b08733c865f539703d3ce7b08c833662d39fac8",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-13T05:19:02Z",
+    "renderer_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.NA"
+    ],
+    "msc2020": [
+      "11K38",
+      "65C05",
+      "11K45",
+      "52C17",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-10-13",
+  "formalization": {
+    "challenge_path": "Headline/Challenge.lean",
+    "comparator_config_path": "comparatorHeadline.json",
+    "definition_names": [],
+    "formalization_metadata_path": "palomar/headline/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Headline/Solution.lean",
+    "theorem_names": [
+      "Z3NetA.theoremA",
+      "Z3NetA.ustarCols_spec",
+      "Z3NetA.gamma_spec",
+      "Z3NetA.net_wellDefined"
+    ]
+  },
+  "id": "PALOMAR-2026-10-13-000011",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-13T05:19:33Z",
+    "receipt_sha256": "a401e1ef1a46ebe9a9122f72930165e6696e197fe7ca4e72e4231fa08e834aca",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000011-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000011-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000011-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000011-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000011-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000011-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000011-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000011-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000011-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "d7b5f50530f21871c58c462a049385c1e1c1b1fa",
+        "fork_repository": "PalomarArchive/lgruen--separated-nets-lean--dda738bde113",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000011-v1/d7b5f50530f21871c58c462a049385c1e1c1b1fa",
+        "source_repository": "lgruen/separated-nets-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Leonhard Gruenschloss",
+            "orcid": "0009-0004-6476-2191",
+            "orcid_record_checked_at": "2026-10-12T23:54:19Z"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.23327749",
+        "location": "https://doi.org/10.5281/zenodo.23327749 (paper/core.tex of release v1.0.0 of https://github.com/lgruen/separated-nets-lean; all versions: https://doi.org/10.5281/zenodo.23327748)",
+        "relationship": "formalizes",
+        "title": "Low-discrepancy quasi-uniform digital nets in every dimension (version 1)",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Harald Niederreiter"
+          }
+        ],
+        "relationship": "background",
+        "title": "Point sets and sequences with small discrepancy (Monatsh. Math. 104 (1987) 273-337)",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "github.com/lennrt/palomar-formalizations (zenodo-22264675/palomar)",
+        "note": "Different mathematics (two-dimensional even-order Grünschloß-Keller permutation nets). The project layout follows its Palomar template, and the centred residue cres is adapted from its GKEvenNet.cres (MIT licence; here with an integer argument).",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Leonhard Gruenschloss",
+        "orcid": "0009-0004-6476-2191",
+        "orcid_record_checked_at": "2026-10-12T23:54:19Z"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-13T05:19:11Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "57628240f3177e2e2caa44e59ad80093921827df2c98bb0e34fc3d38f686d1df"
+    },
+    "reviewed_at": "2026-10-13T00:12:38Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "d7b5f50530f21871c58c462a049385c1e1c1b1fa",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "6c7a135e41b48a21f4bf7b0a7b5a836d1dd82dd6382ec7aa8ed18eba32e4129e"
+    },
+    "repository": "lgruen/separated-nets-lean",
+    "repository_url": "https://github.com/lgruen/separated-nets-lean",
+    "tree_url": "https://github.com/lgruen/separated-nets-lean/tree/d7b5f50530f21871c58c462a049385c1e1c1b1fa"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "xtwy9pgb6ao1"
+  },
+  "title": "Low-discrepancy quasi-uniform digital nets in every dimension",
+  "trust": {
+    "challenge_bytes": 27711,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 438,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "cf1eff9b67bfc87571cf48329d293ba45d7b9db9dd52ff5e4e755655fb5a193f",
+    "evidence_path": "evidence/PALOMAR-2026-10-13-000011-v1/ec2232d9e248ba019bea0663af5fa46181ed8a310e64121f6079b4615cadf5c7/",
+    "evidence_tree_sha256": "ec2232d9e248ba019bea0663af5fa46181ed8a310e64121f6079b4615cadf5c7",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/con-ron",
+          "--jobs=2"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "dc8cb1b1ee3ae4ba88a214db733f2e5cce8bd6d6cc161dbc3d468b2b692c9fd5",
+    "protected_config_sha256": "d33f83a7c467ad830e183f95eb4d7b8505bec6dda6e797843091af4ee767811c",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 38324494329,
+    "solution_sha256": "0f400415860e12cc40f89a3d2a98bd5cdefede428be536cdaa8ca9981349b9f2",
+    "tool_digests": {
+      "bwrap": "d97c96ce2f72be377be305fc2620666b701e8a647e69e3b182fca8abf1d50489",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-13T00:01:30Z",
+    "workflow_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/38324494329"
+  },
+  "version": 1
+}

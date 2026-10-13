@@ -1,0 +1,748 @@
+{
+  "abstract": "A Lean 4 development of the optimal universal 1 -> 2 cloning of a qubit, with every figure of merit finite: a channel from one qubit to two is a finite Kraus family K_i : C^2 -> C^2 (x) C^2 with sum K_i^* K_i = 1 (the blank qubit is fixed, so this is a 1 -> 2 map; the Choi-Kraus theorem is not proved), the two clone fidelities of a pure input psi are Re <psi| Tr_2 Lambda(psi psi^*) |psi> and Re <psi| Tr_1 Lambda(psi psi^*) |psi>, and F1-bar, F2-bar are their averages over the six Pauli eigenstates (1 +- sigma)/2, Gaussian-rational density matrices (the six states form a 2-design, the octahedron being a spherical 3-design, so these equal the Bloch-sphere averages of Gisin-Massar, as Bowdrey-Oi-Short-Banaszek-Jones 2002, (11), print for qubit maps; that equality is neither used nor claimed). Theorems, kernel-only: for every channel (F1-bar + F2-bar)/2 <= 5/6, so some unit psi has min(F1, F2) <= 5/6 (Gisin-Massar 1997, their largest-eigenvalue bound; Bruss-DiVincenzo-Ekert-Fuchs-Macchiavello-Smolin 1998 within the symmetric isotropic ansatz), proved by a six-term sum of squares in the Kraus entries; the Buzek-Hillery channel (1/6) V1 rho V1^* + (2/3) V2 rho V2^* (V1|0> = 2|00>, V1|1> = |01> + |10>, V2|0> = (|01> + |10>)/2, V2|1> = |11>; Buzek-Hillery 1996, (3.29)) is a channel whose two marginals are rho -> (2/3) rho + (1/6) Tr(rho) 1 (their (4.6); Werner 1998, (3.7)-(3.8)), so F1 = F2 = 5/6 for every unit psi (their root fidelity sqrt(5/6), p. 7); a channel with (F1-bar + F2-bar)/2 = 5/6, or with F1, F2 >= 5/6 on every unit psi, is the Buzek-Hillery channel as a map (the uniqueness under the average-fidelity criterion is proved here from the certificate; Keyl-Werner 1999 prove uniqueness under the worst-case one-clone criterion Delta_one and Werner 1998 under the global criterion; the Kraus family and the dilation are not unique, Roubert-Braun 2008), so 5/6 is the greatest t for which some channel has t <= F1(psi), F2(psi) for every unit psi, in Lean's IsGreatest form; F1-bar, F2-bar >= 1/3 for every channel, attained for the first clone by the universal NOT on it with a maximally mixed second clone (the universal-NOT bound of Buzek-Hillery-Werner 1999 and Gisin-Popescu 1999, in six-state average form); the asymmetric trade-off a b <= a(a + 2b)(1 - F1-bar) + b(2a + b)(1 - F2-bar) for every channel and all weights a, b >= 0, also with worst-case fidelities in place of the averages (the largest-eigenvalue bound of Fiurasek-Filip-Cerf 2005, Section II, in every dimension, with their conic alpha^2 + alpha beta + beta^2 = 1 written homogeneously; Hashagen 2017, (6.4a); the curve of Niu-Griffiths 1998, (6.29); the conic of Cerf, J. Mod. Opt. 2000, (2.31), and x^2 + x'^2 + x x' >= 1/4 of Cerf, PRL 2000, (6); Buzek-Hillery-Bednik 1998, (11); the full achievable region in Hashagen 2017 and Nechita-Pellegrini-Rochette 2021), proved by a sum of squares polynomial in a, b; the family (A0 rho A0^* + A1 rho A1^*)/(2(a^2 + ab + b^2)) with A0|0> = (a + b)|00>, A0|1> = a|10> + b|01>, A1|0> = a|01> + b|10>, A1|1> = (a + b)|11> (the optimal asymmetric cloner of Niu-Griffiths (4.13), Cerf, J. Mod. Opt. 2000, (2.28), Fiurasek-Filip-Cerf (19), Scarani-Iblisdir-Gisin-Acin 2005 (27)) consists of channels with marginals rho -> (1 - b^2/s) rho + (b^2/2s) Tr(rho) 1 and rho -> (1 - a^2/s) rho + (a^2/2s) Tr(rho) 1, s = a^2 + ab + b^2, so F1 = 1 - b^2/2s and F2 = 1 - a^2/2s on every unit psi, with equality in the bound at the weights (a, b), and for a, b > 0 equality holds only for that channel (proved here; Hashagen's uniqueness is within symmetrized channels); a = b is the Buzek-Hillery channel; hence the square-root form sqrt((1 - F1-bar)(1 - F2-bar)) >= F1-bar + F2-bar - 3/2 (Scarani-Iblisdir-Gisin-Acin 2005, (23)), its worst-case form, and equality along the family for a, b >= 0 (the curve of Niu-Griffiths (6.29)). For every channel 3(F1-bar + F2-bar) - 7/2 <= sqrt((3F1-bar - 1)(3F2-bar - 1)), binding also where a clone is below 1/2 (with the floor, the necessity half of Nechita-Pellegrini-Rochette 2021, Theorem 6, at d = 2 for the six-state averages; Hashagen 2017, Theorem 6.4, in entanglement fidelity), proved by a Gram identity in the Kraus entries and Cauchy-Schwarz, with equality along the family when (2a + b)(a + 2b) >= 0 and, with neither clone perfect, only there; a perfect clone on average leaves the other at 1/2 (Hashagen 2017, p. 20, via Nielsen 2002, (3)); the asymmetric bound holds for all real a, b with (2a + b)(a + 2b) >= 0, the family being its only equality case when the product is positive and a, b != 0, and at (3, -1) it is the anticloning bound 3F1-bar - 5F2-bar <= 1, attained only by asymChannel 3 (-1), at (13/14, 5/14); F2-bar = 1/3 forces F1-bar <= 5/6, and (5/6, 1/3) is attained only by asymChannel 2 (-1), on every unit psi, the Buzek-Hillery clone with its anti-clone (Scarani-Iblisdir-Gisin-Acin 2005, (12)-(15)), and likewise with the clones exchanged; if (F1-bar + F2-bar)/2 >= 5/6 - eps, the Kraus operators lie within total squared Frobenius distance 6 eps of span{V1, V2}, and ||Lambda(rho) - Lambda_BH(rho)||_F <= 200 sqrt(eps) ||rho||_F for every input rho. Forty-four compared statements over twenty fully specified definitions; the identities behind every statement are replayed in rational arithmetic in the standard library by scripts/check_cloning.py and scripts/check_extensions.py. As of 2026-10-11 no formalization of the fidelity bound, of the Buzek-Hillery marginals, of the uniqueness, of the floor or of any asymmetric trade-off was located in the Palomar registry, Mathlib, formal-conjectures, openai/math, physlib, Lean-QIT, QICLean, csd-lean4, atlas-lean, trureturing, JWang226/Cloning (asymptotic global-fidelity cloning, a different figure of merit), the Isabelle AFP, the Rocq package index or arXiv; physlib's wishlist names the 5/6 bound as wanted and csd-lean4 holds the qualitative no-cloning and no-broadcasting theorems; nor, on the same date, of the full-range or signed trade-offs, their equality cases or the stability in the Palomar registry, Mathlib, formal-conjectures, physlib, Lean-QIT, QICLean, csd-lean4, atlas-lean, trureturing, JWang226/Cloning, the Isabelle AFP or GitHub code search.",
+  "authors": [
+    {
+      "name": "JD Jones"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-13-000001-v1/703d43bd45d6ab9681384693d4b1502d49f8b574660d7b94922fb2d2401075ba/",
+    "artifact_tree_sha256": "703d43bd45d6ab9681384693d4b1502d49f8b574660d7b94922fb2d2401075ba",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-13T00:17:38Z",
+    "renderer_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "quant-ph"
+    ],
+    "msc2020": [
+      "81P45",
+      "81P47",
+      "15A45"
+    ]
+  },
+  "first_registered_on": "2026-10-13",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "QubitCloning.proj_pauliVec",
+      "QubitCloning.pauliVec_unit",
+      "QubitCloning.sixAvg_le",
+      "QubitCloning.exists_unit_min_le",
+      "QubitCloning.sixAvg_ge_third",
+      "QubitCloning.exists_sixAvg_eq_third",
+      "QubitCloning.bh_isChannel",
+      "QubitCloning.bh_trace",
+      "QubitCloning.bh_traceSecond",
+      "QubitCloning.bh_traceFirst",
+      "QubitCloning.bh_fidelity",
+      "QubitCloning.bh_sixAvg",
+      "QubitCloning.eq_bh_of_sixAvg",
+      "QubitCloning.eq_bh_of_forall",
+      "QubitCloning.isGreatest_cloning_fidelity",
+      "QubitCloning.asym_bound",
+      "QubitCloning.asym_bound_forall",
+      "QubitCloning.asym_isChannel",
+      "QubitCloning.asym_traceSecond",
+      "QubitCloning.asym_traceFirst",
+      "QubitCloning.asym_fidelity",
+      "QubitCloning.asym_equality",
+      "QubitCloning.eq_asym_of_equality",
+      "QubitCloning.bhChannel_eq_asymChannel",
+      "QubitCloning.tradeoff_sqrt",
+      "QubitCloning.tradeoff_forall",
+      "QubitCloning.tradeoff_attained",
+      "QubitCloning.tradeoff_full_sqrt",
+      "QubitCloning.signed_asym_bound",
+      "QubitCloning.eq_asym_of_signed_equality",
+      "QubitCloning.clone_anticlone_bound",
+      "QubitCloning.clone_anticlone_attained",
+      "QubitCloning.eq_clone_anticlone_of_equality",
+      "QubitCloning.sixAvg₁_le_of_sixAvg₂_eq_third",
+      "QubitCloning.sixAvg₂_le_of_sixAvg₁_eq_third",
+      "QubitCloning.floor_companion_attained",
+      "QubitCloning.kraus_span_stability",
+      "QubitCloning.tradeoff_full_attained",
+      "QubitCloning.eq_asym_of_tradeoff_full_equality",
+      "QubitCloning.eq_asym_of_floor₂",
+      "QubitCloning.eq_asym_of_floor₁",
+      "QubitCloning.sixAvg₂_eq_half_of_sixAvg₁_eq_one",
+      "QubitCloning.sixAvg₁_eq_half_of_sixAvg₂_eq_one",
+      "QubitCloning.channel_stability"
+    ]
+  },
+  "id": "PALOMAR-2026-10-13-000001",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-13T00:18:07Z",
+    "receipt_sha256": "4ab5f88f3123382755111195a9d4825f9d0e0f6277acd08a3a77b2c3a989a04a",
+    "repositories": [
+      {
+        "commit": "f619a52e67849f80205127e3ba7877f7f7658e50",
+        "fork_repository": "PalomarArchive/JD-Jones-ASES--qubit-cloning-lean--940a4273493b",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000001-v1/f619a52e67849f80205127e3ba7877f7f7658e50",
+        "source_repository": "JD-Jones-ASES/qubit-cloning-lean"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000001-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000001-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000001-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000001-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000001-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000001-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000001-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000001-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000001-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Vladimir Bužek"
+          },
+          {
+            "name": "Mark Hillery"
+          }
+        ],
+        "identifier": "doi:10.1103/PhysRevA.54.1844",
+        "location": "Physical Review A 54 (1996), 1844; read as arXiv:quant-ph/9607018v1 (https://arxiv.org/abs/quant-ph/9607018), printed pages: the transformation (3.2) with eta = 1 - 2 xi (3.10a) and xi = 1/6 from (3.13), pp. 5-7; the clone state (3.16) with eigenvalues 5/6 and 1/6 and the root fidelity sqrt(5/6) for every input, item (2), p. 7; the Bloch scaling 2/3, (3.23), p. 8; the explicit machine (3.29), p. 8; the reduced state (2/3) rho + (1/6) 1, (4.6), p. 9; the open question of optimality, item (4), p. 8, and the conclusions, p. 11; the Hilbert-Schmidt distances (2.10), (2.15). The journal print was not read.",
+        "relationship": "formalizes",
+        "title": "Quantum copying: Beyond the no-cloning theorem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Nicolas Gisin"
+          },
+          {
+            "name": "Serge Massar"
+          }
+        ],
+        "identifier": "doi:10.1103/PhysRevLett.79.2153",
+        "location": "Physical Review Letters 79 (1997), 2153; read as arXiv:quant-ph/9705046v2 (https://arxiv.org/abs/quant-ph/9705046), all four pages: the figure of merit F = int dOmega <psi| rho_out |psi>, (1); F_{1,M} = (2M + 1)/(3M), (4), and F_{N,M}, (6); the symmetric-output hypothesis (9) and its removal by averaging over permutations and rotations, p. 4; the largest-eigenvalue bound (12)-(17): a trace constraint (14), F = 2 lambda (16), lambda_max = (2M + 1)/(6M). The journal print was not read.",
+        "relationship": "formalizes",
+        "title": "Optimal quantum cloning machines",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Dagmar Bruß"
+          },
+          {
+            "name": "David P. DiVincenzo"
+          },
+          {
+            "name": "Artur Ekert"
+          },
+          {
+            "name": "Christopher A. Fuchs"
+          },
+          {
+            "name": "Chiara Macchiavello"
+          },
+          {
+            "name": "John A. Smolin"
+          }
+        ],
+        "identifier": "doi:10.1103/PhysRevA.57.2368",
+        "location": "Physical Review A 57 (1998), 2368; read as arXiv:quant-ph/9705038v3 (https://arxiv.org/abs/quant-ph/9705038), pp. 1-9 and 23-28: the hypotheses I (equal clones), II.a-b (no Bloch rotation, isotropy), p. 4, the ansatz (3)-(4) and the symmetry (A2); eta = 2/3, (15), and F = 5/6, (16); the class of optimal unitaries (17)-(18) = (A25)-(A26); the remark on global fidelity, p. 9. The journal print was not read.",
+        "relationship": "background",
+        "title": "Optimal universal and state-dependent quantum cloning",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Reinhard F. Werner"
+          }
+        ],
+        "identifier": "doi:10.1103/PhysRevA.58.1827",
+        "location": "Physical Review A 58 (1998), 1827; read as arXiv:quant-ph/9804001 (https://arxiv.org/abs/quant-ph/9804001), pp. 4 and 6-9: the worst-case global fidelity (2.1); the optimal map T-hat (3.3); the one-site restriction gamma rho + (1 - gamma) tr(rho) 1/2 with gamma = 2/3, (3.7)-(3.8), and the single-clone value 5/6, p. 8; the theorem of Section 4, equality iff T = T-hat for the global criterion, p. 9. The journal print was not read.",
+        "relationship": "formalizes",
+        "title": "Optimal cloning of pure states",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Michael Keyl"
+          },
+          {
+            "name": "Reinhard F. Werner"
+          }
+        ],
+        "identifier": "doi:10.1063/1.532887",
+        "location": "Journal of Mathematical Physics 40 (1999), 3283; read as arXiv:quant-ph/9807010 (https://arxiv.org/abs/quant-ph/9807010), pp. 1-3 and 10-11: the worst-case one-clone criterion Delta_one, (1); Theorem 1 with equality iff T = T-hat, p. 3 (the value 1/6 at d = 2); Section III.F, p. 11, the uniqueness from the unique covariant optimum (Lemma 6) and Proposition 7. Pages 4-9 and 12-16 and the journal print were not read.",
+        "relationship": "background",
+        "title": "Optimal cloning of pure states, testing single clones",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Chi-Sheng Niu"
+          },
+          {
+            "name": "Robert B. Griffiths"
+          }
+        ],
+        "identifier": "doi:10.1103/PhysRevA.58.4377",
+        "location": "Physical Review A 58 (1998), 4377-4393; read as arXiv:quant-ph/9805073v1 (https://arxiv.org/abs/quant-ph/9805073), pp. 1-3 and 6-21: the distinguishability measure (3.4) and its Bloch semi-axis form (3.10), (3.12); the machine (4.13) with the normalization (4.8), (4.9), (4.17); the isotropic trade-off s = (1/2)[1 - r + sqrt((1 - r)(1 + 3r))], (6.29); the best second copy for a fixed first copy, Sections IV-V; the unproved (6.19), p. 17; the Bužek-Hillery case beta_q = 1/sqrt(12), p. 21. The journal print was not read.",
+        "relationship": "formalizes",
+        "title": "Optimal copying of one quantum bit",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Nicolas J. Cerf"
+          }
+        ],
+        "identifier": "doi:10.1103/PhysRevLett.84.4497",
+        "location": "Physical Review Letters 84 (2000), 4497; read as arXiv:quant-ph/9803058v2 (https://arxiv.org/abs/quant-ph/9803058, titled there \"Quantum cloning and the capacity of the Pauli channel\"), pp. 1-4: the asymmetric Pauli cloning machine (2); the no-cloning inequality x^2 + x'^2 + x x' >= 1/4, (6), with F = 1 - 2x^2 and p = 3x^2; optimality \"strongly suggested\", p. 3. The journal print was not read.",
+        "relationship": "background",
+        "title": "Pauli cloning of a quantum bit",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Nicolas J. Cerf"
+          }
+        ],
+        "identifier": "arXiv:quant-ph/9805024",
+        "location": "Journal of Modern Optics 47 (2000), 187; read as arXiv:quant-ph/9805024v2 (https://arxiv.org/abs/quant-ph/9805024), pp. 5-8: the x-inequality (2.24); the machine (2.28); the conic a^2 + ab + b^2 >= 1, (2.31), with pi_a = a^2, pi_b = b^2, (2.32); the optimality proviso (a single additional qubit), p. 6; footnotes 5-6 (Niu-Griffiths independently; the symmetric case by Bruß et al. and Gisin-Massar). The journal print was not read.",
+        "relationship": "background",
+        "title": "Asymmetric quantum cloning machines in any dimension",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Vladimir Bužek"
+          },
+          {
+            "name": "Mark Hillery"
+          },
+          {
+            "name": "Radoslav Bednik"
+          }
+        ],
+        "identifier": "arXiv:quant-ph/9807086",
+        "location": "Acta Physica Slovaca 48 (1998), 177; read as arXiv:quant-ph/9807086 (https://arxiv.org/abs/quant-ph/9807086), all eight pages: the clones rho_j = s_j rho + (1 - s_j) 1/2, (4); the network (5), (7), (9)-(10); the range s_0^2 + s_1^2 + s_0 s_1 - s_0 - s_1 <= 0, (11); the identification with Cerf's Pauli cloning machine, (18). The journal print was not read.",
+        "relationship": "background",
+        "title": "Controlling the flow of information in quantum cloners: asymmetric cloning",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jaromír Fiurášek"
+          },
+          {
+            "name": "Radim Filip"
+          },
+          {
+            "name": "Nicolas J. Cerf"
+          }
+        ],
+        "identifier": "arXiv:quant-ph/0505212",
+        "location": "Quantum Information and Computation 5 (2005), 583; read as arXiv:quant-ph/0505212 (https://arxiv.org/abs/quant-ph/0505212), Section II: the averaged operator L_A = [1 + d Phi^+_{RA} (x) 1]/(d(d + 1)), (8)-(9); the largest-eigenvalue bound p F_A + (1 - p) F_B <= d lambda_max, (11)-(12), the eigenvalues (16); the top eigenvectors alpha |Phi^+>_{RA}|k> + beta |Phi^+>_{RB}|k>, (15), with alpha^2 + beta^2 + 2 alpha beta/d = 1, (18); the optimal map (19) and the fidelities F_A = 1 - ((d - 1)/d) beta^2, F_B = 1 - ((d - 1)/d) alpha^2, (22). The journal print was not read.",
+        "relationship": "formalizes",
+        "title": "Highly asymmetric quantum cloning in arbitrary dimension",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Valerio Scarani"
+          },
+          {
+            "name": "Sofyan Iblisdir"
+          },
+          {
+            "name": "Nicolas Gisin"
+          },
+          {
+            "name": "Antonio Acín"
+          }
+        ],
+        "identifier": "doi:10.1103/RevModPhys.77.1225",
+        "location": "Reviews of Modern Physics 77 (2005), 1225; read as arXiv:quant-ph/0511088 (https://arxiv.org/abs/quant-ph/0511088), p. 8: the Bužek-Hillery cloner, (12)-(15), whose ancilla is the anti-clone (2/3)|psi-perp><psi-perp| + (1/3)|psi><psi|; p. 10: the square-root form sqrt((1 - F_A)(1 - F_B)) >= 1/2 - (1 - F_A) - (1 - F_B), (23), with footnote 12 identifying it with Bužek-Hillery-Bednik's (11) and Cerf's (6); the circuit and a^2 + b^2 + ab = 1, F_A = 1 - b^2/2, F_B = 1 - a^2/2, (27)-(28). The journal print was not read.",
+        "relationship": "formalizes",
+        "title": "Quantum cloning",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Vladimir Bužek"
+          },
+          {
+            "name": "Mark Hillery"
+          },
+          {
+            "name": "Reinhard F. Werner"
+          }
+        ],
+        "identifier": "doi:10.1103/PhysRevA.60.R2626",
+        "location": "Physical Review A 60 (1999), R2626; read as arXiv:quant-ph/9901053 (https://arxiv.org/abs/quant-ph/9901053), all four pages: Delta(T) = max over sigma of Tr[sigma T(sigma^{(x) N})], (2); the Theorem, p. 3: the minimum of Delta over all channels is 1/(N + 2), so 1/3 at N = 1. The journal print was not read.",
+        "relationship": "background",
+        "title": "Optimal manipulations with qubits: Universal-NOT gate",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Nicolas Gisin"
+          },
+          {
+            "name": "Sandu Popescu"
+          }
+        ],
+        "identifier": "doi:10.1103/PhysRevLett.83.432",
+        "location": "Physical Review Letters 83 (1999), 432; read as arXiv:quant-ph/9901072 (https://arxiv.org/abs/quant-ph/9901072), pp. 3-4: the spin-flip fidelity int dn <-n| rho |-n>, its optimum 2/3, p. 4 (stated there by reference), so the average fidelity to the input is at least 1/3. The journal print was not read.",
+        "relationship": "background",
+        "title": "Spin flips and quantum information for antiparallel spins",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Anna-Lena K. Hashagen"
+          }
+        ],
+        "identifier": "arXiv:1607.03723",
+        "location": "Quantum Information and Computation 17 (2017), 747-778; read as arXiv:1607.03723v2 (https://arxiv.org/abs/1607.03723), pp. 6-26: the figures of merit (3.1)-(3.5); the reduction to twirled channels (4.2); Theorem 5.5, (5.10), the optimal map; the uniqueness remark for d = 2 within symmetrized channels, p. 18; the region in entanglement fidelity x_i = <Omega| tau_0i |Omega> over all channels, (6.1)-(6.2), p. 20, with the Choi state |Omega><Omega| (x) sigma of a perfect clone and the extreme points (1, 1/d^2) and (0, (d^2 - 1)/d^2), pp. 20-21; Theorem 6.4, pp. 24-25, the region by its polar (6.4a) and its upper boundary (6.4b); the floor (5.6b). Also read: v1, pp. 22 and 27-28, where the region is (6.3)-(6.4). The journal print was not read.",
+        "relationship": "background",
+        "title": "Universal asymmetric quantum cloning revisited",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ion Nechita"
+          },
+          {
+            "name": "Clément Pellegrini"
+          },
+          {
+            "name": "Denis Rochette"
+          }
+        ],
+        "identifier": "doi:10.1007/s11128-021-03258-y",
+        "location": "Quantum Information Processing 20 (2021), 333, doi:10.1007/s11128-021-03258-y; read as arXiv:2106.09655v1 (https://arxiv.org/abs/2106.09655), pp. 1-6 and 8-14: Definition 2 (worst-case and Haar-average fidelity) and Theorem 4 (equal suprema); the reduction to symmetrized channels, Section 3, p. 4; their singlet fractions are the depolarizing parameters p_i, with f_i = p_i + (1 - p_i)/d, p. 6; Theorem 5, p. 10, (1 - p_1)(1 - p_2)/d^2 >= ((p_1 + p_2 - 1)/2)^2 for p in [-1/(d^2 - 1), 1], the region of the restricted four-permutation family; Theorem 6, (10), p. 12, the general region as a union of ellipses for lambda in [0, d]; \"can be chosen\", p. 10. The journal print was not read.",
+        "relationship": "formalizes",
+        "title": "A geometrical description of the universal 1 -> 2 asymmetric quantum cloning region",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Alastair Kay"
+          }
+        ],
+        "identifier": "arXiv:1407.4951",
+        "location": "Quantum Information and Computation 16 (2016), 991; read as arXiv:1407.4951v3 (https://arxiv.org/abs/1407.4951), the abstract, pp. 1-5 and p. 8: Definition 1 (averaged fidelities); Theorem 1; (5) at d = 2, N = 2, F_1 + F_2 = 1 + ((sqrt(3F_1 - 1) + sqrt(3F_2 - 1))/3)^2; the 3-design remark for joint fidelities, pp. 2-3. The journal print was not read.",
+        "relationship": "background",
+        "title": "Optimal universal quantum cloning: asymmetries and fidelity measures",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Benoit Roubert"
+          },
+          {
+            "name": "Daniel Braun"
+          }
+        ],
+        "identifier": "doi:10.1103/PhysRevA.78.042311",
+        "location": "Physical Review A 78 (2008), 042311 (the journal title, from Crossref); read as arXiv:0807.1657v1 (https://arxiv.org/abs/0807.1657), titled there \"Quantum Cloning without Interference\", pp. 6-12: the two-qubit machines and their average fidelities (6)-(7); the 64-parameter family (20)-(22) with the same reduced states as Bužek-Hillery, (24); the numerical floor F >= 1/3 within a restricted class, p. 9. The journal print was not read.",
+        "relationship": "background",
+        "title": "Role of interference in quantum cloning",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Michael A. Nielsen"
+          }
+        ],
+        "identifier": "arXiv:quant-ph/0205035",
+        "location": "Physics Letters A 303 (2002), 249; read as arXiv:quant-ph/0205035v2 (https://arxiv.org/abs/quant-ph/0205035), p. 1: the average fidelity (1) and Eq. (3), F-bar = (d F_e + 1)/(d + 1), relating it to the entanglement fidelity F_e (credited there to M., P. and R. Horodecki). The journal print was not read.",
+        "relationship": "background",
+        "title": "A simple formula for the average gate fidelity of a quantum dynamical operation",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Mark D. Bowdrey"
+          },
+          {
+            "name": "Daniel K. L. Oi"
+          },
+          {
+            "name": "Anthony J. Short"
+          },
+          {
+            "name": "Konrad Banaszek"
+          },
+          {
+            "name": "Jonathan A. Jones"
+          }
+        ],
+        "identifier": "arXiv:quant-ph/0201106",
+        "location": "Physics Letters A 294 (2002), 258; read as arXiv:quant-ph/0201106v1 (https://arxiv.org/abs/quant-ph/0201106), p. 4: Eq. (11), the average fidelity of a single-qubit map with a unitary or anti-unitary map is the mean over the six axial pure states; the regular tetrahedron and octahedron remark. The journal print was not read.",
+        "relationship": "background",
+        "title": "Fidelity of single qubit maps",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jörg Hettel"
+          }
+        ],
+        "identifier": "arXiv:2605.21274",
+        "location": "https://arxiv.org/abs/2605.21274 (the abstract; 2026-05-20)",
+        "relationship": "background",
+        "title": "Semidefinite programming for optimal quantum cloning: a computational framework",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jiani Fei"
+          },
+          {
+            "name": "Jinzhao Wang"
+          }
+        ],
+        "identifier": "arXiv:2609.35986",
+        "location": "https://arxiv.org/abs/2609.35986 (the abstract; its Lean repository https://github.com/JWang226/Cloning at efc423c, 2026-10-09)",
+        "relationship": "background",
+        "title": "Asymptotically optimal mixed-state cloning",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Man-Duen Choi"
+          }
+        ],
+        "identifier": "doi:10.1016/0024-3795(75)90075-0",
+        "location": "Linear Algebra and its Applications 10 (1975), 285-290 (not read; named for the theorem that is not proved here)",
+        "relationship": "background",
+        "title": "Completely positive linear maps on complex matrices",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Karl Kraus"
+          }
+        ],
+        "identifier": "doi:10.1007/3-540-12732-1",
+        "location": "Lecture Notes in Physics 190, Springer (1983) (not read; named for the Kraus form of a channel)",
+        "relationship": "background",
+        "title": "States, effects, and operations: fundamental notions of quantum theory",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "The Palomar registry (PalomarRegistry/PalomarSubmission)"
+          }
+        ],
+        "identifier": "https://github.com/PalomarRegistry/PalomarSubmission",
+        "location": "scripts/core_notation_audit.lean in this repository, copied with a three-line provenance comment; MIT (LICENSES/PalomarSubmission-MIT.txt)",
+        "relationship": "other",
+        "title": "PalomarSubmission: the registry's submission checks and core-notation audit",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/physlib/blob/a4ef461/docs/WildeTODO.md",
+        "note": "physlib's wishlist (line 95, unchanged since 2026-08-03) names \"the bounds on the optimal universal quantum clone (5/6 fidelity etc.)\" as wanted; its QuantumInfo library holds the qualitative no_cloning only. No code is shared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/zblore/csd-lean4/tree/e3ea4f1",
+        "note": "Kraus channels, partial traces, fidelity and the channel-level no-broadcasting theorem, with the qualitative no-cloning theorems (CsdLean4/Empirical/QM/NoCloning.lean); its WiesnerProtocol.lean names a quantitative cloning bound (the 3/4 Wiesner bound) as a separate later tranche. No quantitative cloning bound as of 2026-10-11; no code is shared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/JWang226/Cloning/tree/efc423c",
+        "note": "The Lean development of Fei-Wang (arXiv:2609.35986): asymptotic global-fidelity cloning of mixed states, a finite converse for flat projectors; a different figure of merit, unregistered as of 2026-10-11. No code is shared.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/the-omega-institute/trureturing/blob/8904b50/D5/S3/Quantum/CloningMachine.lean",
+        "note": "The spectrum {1/3, 2/3} and the entropy of the machine qubit of the universal symmetric 1 -> 2 cloner, from a given state; no channel, no clone fidelity, no bound. No code is shared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/facebookresearch/atlas-lean/blob/02e016d/MathlibExt/QuantumInformation/Finite/NoCloning.lean",
+        "note": "The qualitative two-state no-cloning theorem. No code is shared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/QuAIR/Lean-QIT/tree/15a0a5e",
+        "note": "Channel infrastructure (symmetric subspace, unitary twirl, Choi characterization, pure-target fidelity) with no cloning statement. No code is shared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/LionSR/QICLean/tree/34fe86c",
+        "note": "Channels, Choi matrices and partial traces, with no cloning statement. No code is shared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/isabelle-prover/mirror-afp-devel/blob/80985fd/thys/Isabelle_Marries_Dirac/No_Cloning.thy",
+        "note": "The qualitative no-cloning theorem in Isabelle/HOL (the Archive of Formal Proofs, Isabelle Marries Dirac); no quantitative bound. No code is shared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/issues/3437",
+        "note": "An open issue (2026-03-06) proposing Open Quantum Problem 22, asymptotic cloning is state estimation (N -> M, solved in 2006); no statement file, no PR; a different statement.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "JD Jones"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-13T00:17:47Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "3079b74d3ac76e41878762be10a46bce99f9f2011cb7c4b7cc88cce2118a1b80"
+    },
+    "reviewed_at": "2026-10-12T14:03:22Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "f619a52e67849f80205127e3ba7877f7f7658e50",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "8d464f723696204001f7ef63b6146ffc544aa6837aa74c53f6f9c53d8a18b0f0"
+    },
+    "repository": "JD-Jones-ASES/qubit-cloning-lean",
+    "repository_url": "https://github.com/JD-Jones-ASES/qubit-cloning-lean",
+    "tree_url": "https://github.com/JD-Jones-ASES/qubit-cloning-lean/tree/f619a52e67849f80205127e3ba7877f7f7658e50"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "1f7ja1jt20rf"
+  },
+  "title": "Optimal universal 1 → 2 qubit cloning at fidelity 5/6, the universal-NOT, and asymmetric cloning",
+  "trust": {
+    "challenge_bytes": 29332,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 435,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "a8a19fae0e3ab0a767cc24676782c1409844feb0115e20bad598e7c6860a8f35",
+    "evidence_path": "evidence/PALOMAR-2026-10-13-000001-v1/ed425a2c34f63cf249292fef4c323b3b34220a28e39ac8866e2bed7931323b95/",
+    "evidence_tree_sha256": "ed425a2c34f63cf249292fef4c323b3b34220a28e39ac8866e2bed7931323b95",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--jobs=2"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "291b992d6543ca7456472aaae760fed44fefae297edbafbba18d403ea8e0497d",
+    "protected_config_sha256": "bade129c392a81ff9e82a52fa7e41ff1ce85dc6bcb5ff080c8345f670759b189",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 38251126636,
+    "solution_sha256": "0ec02c306d840169f1128288d215e4db7cdcbe6c2a0509c41a65d194f87a59ff",
+    "tool_digests": {
+      "bwrap": "cc8c5ce15ba0e593d584c9daa577bead2cde09eda0bd2a9a05ac3a0a0dfcc104",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-12T12:54:26Z",
+    "workflow_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/38251126636"
+  },
+  "version": 1
+}

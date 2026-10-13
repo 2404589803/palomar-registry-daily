@@ -1,0 +1,347 @@
+{
+  "abstract": "A complete Lean 4 proof of Erdős problem 1180 and its quantitative variants on representing every residue modulo a prime p as a sum of at most C(ε) modular inverses n⁻¹ (mod p) with 1 ≤ n ≤ p^ε and gcd(n, p) = 1. Formalizing Glibichuk's 8-fold bilinear covering theorem via additive energy and Cauchy–Davenport together with an inductive asymmetric two-block prime-reciprocal construction, this development proves the affirmative existence theorem for all ε > 0 and all primes p, the discrete large-prime bound C_asymp(ε) ≤ 8(⌊1/ε⌋ + 1)² = (8 + o(1))ε⁻² (and ≤ 32ε⁻² uniformly on (0, 1]), the asymmetric staircase bounds C_asymp(ε) ≤ 8k(k + 1) whenever (2k + 1)ε > 2 and C_asymp(ε) ≤ 8k whenever (2k - 1)ε > k (giving C_asymp(ε) ≤ 16 for ε > 2/3 and ≤ 24 for ε > 3/5), and Shparlinski's O(ε⁻³) bound. It also proves the large-prime pigeonhole lower bound 1/ε ≤ ⌈1/ε⌉ ≤ C_asymp(ε), the small-prime exponential lower bound 2^(1/ε) ≤ 4 C(ε), the strict separation C_asymp(1/n) < C(1/n) for all n ≥ 15, and the disproof of the unthresholded all-primes optimality statement.",
+  "authors": [
+    {
+      "name": "Linmiao Xu"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-12-000005-v1/2bff4e00e5297472b5bccd94a39e04e67ca5ecdb57354b58c8708a742c7bb28d/",
+    "artifact_tree_sha256": "2bff4e00e5297472b5bccd94a39e04e67ca5ecdb57354b58c8708a742c7bb28d",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-12T09:09:59Z",
+    "renderer_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.CO"
+    ],
+    "msc2020": [
+      "11B13",
+      "11T23"
+    ]
+  },
+  "first_registered_on": "2026-10-12",
+  "formalization": {
+    "challenge_path": "erdos-1180/Challenge.lean",
+    "comparator_config_path": "erdos-1180/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "erdos-1180/formalization.yaml",
+    "lakefile_path": "erdos-1180/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      }
+    ],
+    "solution_path": "erdos-1180/Solution.lean",
+    "theorem_names": [
+      "Erdos1180.Palomar.erdos_1180",
+      "Erdos1180.Palomar.erdos_1180_variants_glibichuk",
+      "Erdos1180.Palomar.erdos_1180_variants_shparlinski",
+      "Erdos1180.Palomar.erdos_1180_variants_lower_bound",
+      "Erdos1180.Palomar.erdos_1180_variants_lower_bound_large_primes",
+      "Erdos1180.Palomar.not_erdos_1180_variants_optimal",
+      "Erdos1180.Palomar.two_rpow_inv_le_four_mul_C",
+      "Erdos1180.Palomar.inv_le_CAsymptotic",
+      "Erdos1180.Palomar.natCeil_inv_le_CAsymptotic",
+      "Erdos1180.Palomar.CAsymptotic_le_thirty_two_mul_inv_sq",
+      "Erdos1180.Palomar.CAsymptotic_le_eight_mul_sq_of_one_lt_mul",
+      "Erdos1180.Palomar.CAsymptotic_le_eight_mul_succ_of_two_lt_mul",
+      "Erdos1180.Palomar.CAsymptotic_le_eight_mul_of_lt_mul",
+      "Erdos1180.Palomar.CAsymptotic_le_sixteen_of_two_thirds_lt",
+      "Erdos1180.Palomar.CAsymptotic_le_eight_mul_floor_inv_add_one_sq",
+      "Erdos1180.Palomar.eventually_CAsymptotic_le_eight_add_mul_inv_sq",
+      "Erdos1180.Palomar.CAsymptotic_inv_nat_lt_C_inv_nat"
+    ]
+  },
+  "id": "PALOMAR-2026-10-12-000005",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-12T09:10:33Z",
+    "receipt_sha256": "cf89bf75efaa7651c438092ca44eb880fc92a2fa9085b04050035fdadb72850f",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-12-000005-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-12-000005-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-12-000005-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-12-000005-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-12-000005-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-12-000005-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-12-000005-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-12-000005-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-12-000005-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "ba96303b34a95ac458958c1eb0bbdee54733484a",
+        "fork_repository": "PalomarArchive/linrock--math-proofs--14cf37780a40",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-12-000005-v1/ba96303b34a95ac458958c1eb0bbdee54733484a",
+        "source_repository": "linrock/math-proofs"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Alexei A. Glibichuk"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/s11006-006-0040-8",
+        "location": "Matematicheskie Zametki 79 (2006), 384–395; Mathematical Notes 79 (2006), 356–365",
+        "relationship": "formalizes",
+        "title": "Combinatorial properties of sets of residues modulo a prime and the Erdős–Graham problem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Alexei A. Glibichuk"
+          }
+        ],
+        "location": "Additive Combinatorics (CRM Proceedings & Lecture Notes, Vol. 43), American Mathematical Society (2007), 167–172",
+        "relationship": "formalizes",
+        "title": "Additive combinatorics over finite fields: new results and applications",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Igor E. Shparlinski"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/s00013-002-8270-z",
+        "location": "Archiv der Mathematik 78 (2002), 445–448",
+        "relationship": "adapts",
+        "title": "On a question of Erdős and Graham",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Paul Erdős"
+          },
+          {
+            "name": "Ronald L. Graham"
+          }
+        ],
+        "location": "Monographies de L'Enseignement Mathématique, Vol. 28 (1980)",
+        "relationship": "background",
+        "title": "Old and new problems and results in combinatorial number theory",
+        "type": "book"
+      },
+      {
+        "authors": [],
+        "identifier": "https://www.erdosproblems.com/1180",
+        "relationship": "background",
+        "title": "Erdős Problem 1180",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/1180.lean",
+        "note": "Uses the exact Represents and C definitions and proves erdos_1180, variants.glibichuk, variants.shparlinski, both the all-primes and PR #6951 large-prime formulations of variants.lower_bound, and the negation of the unthresholded variants.optimal.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Linmiao Xu"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-12T09:10:11Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "7d07cae3607b5c6c8b780ccbc4f6f7b5c78806d6b1a917989717317ff3e36ac0"
+    },
+    "reviewed_at": "2026-10-11T16:44:50Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "ba96303b34a95ac458958c1eb0bbdee54733484a",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "project_path": "erdos-1180",
+    "repository": "linrock/math-proofs",
+    "repository_url": "https://github.com/linrock/math-proofs",
+    "tree_url": "https://github.com/linrock/math-proofs/tree/ba96303b34a95ac458958c1eb0bbdee54733484a/erdos-1180"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "nmr14ri4hjzc"
+  },
+  "title": "Erdős 1180: representing residues as sums of modular inverses with small denominators",
+  "trust": {
+    "challenge_bytes": 12599,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 212,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "3482524f358677984bfaba9f713a57e31938710c852109f96010eb82d9fd1e4b",
+    "evidence_path": "evidence/PALOMAR-2026-10-12-000005-v1/e01457288dfc49e3d3dd57f733d51f91552cbf877cc042fd1a49da65ba9a1bff/",
+    "evidence_tree_sha256": "e01457288dfc49e3d3dd57f733d51f91552cbf877cc042fd1a49da65ba9a1bff",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--jobs=2"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "3266ae8f1d2119f366c643bdad6215bd497b94c692bcefc99687a2944d285962",
+    "protected_config_sha256": "ebd2193fc1f22d24d89d534592e37b77d744f63453e89a35f7a2fc5e33a8bc92",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 38153654074,
+    "solution_sha256": "d75139f227e9716172479791e74d1ea021c86facfa179d353c6bfa833eccea49",
+    "tool_digests": {
+      "bwrap": "825d6892e0829e5a7f5b9de01b92e3b0c67f79192416a824ec4519edae817985",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-11T16:04:53Z",
+    "workflow_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/38153654074"
+  },
+  "version": 1
+}

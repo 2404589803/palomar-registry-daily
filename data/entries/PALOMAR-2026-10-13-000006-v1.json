@@ -1,0 +1,373 @@
+{
+  "abstract": "A complete Lean 4 proof of both parts of Erdős problem 1105 on the anti-Ramsey number AR(n, H), the maximum number of colors in a surjective edge-coloring of K_n with no rainbow copy of H. Part (i) proves the Erdős–Simonovits–Sós (1975) cycle formula AR(n, C_k) = ((k - 2) / 2 + 1 / (k - 1)) n + O(1) for every fixed k ≥ 3 (Montellano-Ballesteros and Neumann-Lara 2005; Choi 2011), together with the exact triangle value AR(n, C_3) = n - 1 and the explicit two-sided bounds ⌊n / (k - 1)⌋(choose(k - 1, 2) + 1) - 1 ≤ AR(n, C_k) ≤ ((k - 2) / 2 + 1 / (k - 1)) n - 1 for all n ≥ k ≥ 3 via private-color deletion and weak anticyclic block decompositions. Part (ii) proves the Simonovits–Sós (1984) and Yuan (2021) exact path formula AR(n, P_k) = max(choose(k - 2, 2) + 1, choose(ℓ - 1, 2) + (ℓ - 1)(n - ℓ + 1) + ε) for all n ≥ k ≥ 5, where ℓ = ⌊(k - 1) / 2⌋ and ε = 1 for odd k and 2 for even k, via representative-graph exchanges, finite host-window reduction, degree-core elimination, and 2-connected circumference bounds.",
+  "authors": [
+    {
+      "name": "Linmiao Xu"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-13-000006-v1/d545dcfcd94c73c809ff8e5735cfcbecd05f6582bafd21d516c95ae72b588941/",
+    "artifact_tree_sha256": "d545dcfcd94c73c809ff8e5735cfcbecd05f6582bafd21d516c95ae72b588941",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-13T03:17:40Z",
+    "renderer_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C55",
+      "05C38",
+      "05C35"
+    ]
+  },
+  "first_registered_on": "2026-10-13",
+  "formalization": {
+    "challenge_path": "erdos-1105/Challenge.lean",
+    "comparator_config_path": "erdos-1105/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "erdos-1105/formalization.yaml",
+    "lakefile_path": "erdos-1105/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      }
+    ],
+    "solution_path": "erdos-1105/Solution.lean",
+    "theorem_names": [
+      "Erdos1105.Palomar.erdos_1105_cycles",
+      "Erdos1105.Palomar.erdos_1105_paths",
+      "Erdos1105.Palomar.erdos_1105_parts_i",
+      "Erdos1105.Palomar.erdos_1105_parts_ii",
+      "Erdos1105.Palomar.antiRamseyNum_triangle",
+      "Erdos1105.Palomar.cycle_fullBlock_lower",
+      "Erdos1105.Palomar.cycle_real_lower",
+      "Erdos1105.Palomar.cycle_linear_upper"
+    ]
+  },
+  "id": "PALOMAR-2026-10-13-000006",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-13T03:18:09Z",
+    "receipt_sha256": "0f511748d53bd7f151003b11ee89be178a66821b2f1e203ec6a13da183751a94",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000006-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000006-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000006-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000006-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000006-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000006-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000006-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000006-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000006-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "ba96303b34a95ac458958c1eb0bbdee54733484a",
+        "fork_repository": "PalomarArchive/linrock--math-proofs--14cf37780a40",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000006-v1/ba96303b34a95ac458958c1eb0bbdee54733484a",
+        "source_repository": "linrock/math-proofs"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Paul Erdős"
+          },
+          {
+            "name": "Miklós Simonovits"
+          },
+          {
+            "name": "Vera T. Sós"
+          }
+        ],
+        "identifier": "https://real.mtak.hu/110457/1/1975-05.pdf",
+        "location": "Infinite and Finite Sets, Colloq. Math. Soc. János Bolyai 10 (1975), 633–643",
+        "relationship": "formalizes",
+        "title": "Anti-Ramsey theorems",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Juan José Montellano-Ballesteros"
+          },
+          {
+            "name": "Víctor Neumann-Lara"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/s00373-005-0619-3",
+        "location": "Graphs and Combinatorics 21 (2005), 343–354",
+        "relationship": "adapts",
+        "title": "An anti-Ramsey theorem on cycles",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jongook Choi"
+          }
+        ],
+        "identifier": "https://doi.org/10.31274/etd-180810-2269",
+        "location": "PhD dissertation, Iowa State University (2011), Chapter 3: On Anti-Ramsey Numbers of Cycles, pp. 74–88",
+        "relationship": "adapts",
+        "title": "Problems in Graph Theory and Probability",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Miklós Simonovits"
+          },
+          {
+            "name": "Vera T. Sós"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/BF02579163",
+        "location": "Combinatorica 4 (1984), 101–110",
+        "relationship": "background",
+        "title": "On restricted colourings of K_n",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Long-Tu Yuan"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2102.00807",
+        "location": "arXiv:2102.00807 (2021)",
+        "relationship": "adapts",
+        "title": "The anti-Ramsey number for paths",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "identifier": "https://www.erdosproblems.com/1105",
+        "relationship": "background",
+        "title": "Erdős Problem 1105: anti-Ramsey numbers for cycles and paths",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/blob/eb1c5ce1bf406e46a6af5f859f097a5c5350a462/FormalConjectures/ErdosProblems/1105.lean",
+        "note": "The attributed Apache-2.0 definitions SimpleGraph.IsRainbow and SimpleGraph.antiRamseyNum from Formal Conjectures are retained in Proofs/CycleRepresentativeExchange.lean, Challenge.lean, and Solution.lean, and Statement.lean, Challenge.lean, and Solution.lean reproduce the exact Erdős 1105 statements over SimpleGraph.antiRamseyNum with answer(True) elaborated as True. The upstream declarations end in sorry.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/plby/lean-proofs/blob/main/src/latest/ErdosProblems/Erdos1105.lean",
+        "note": "Independent Lean 4.33.0 formalization of both parts of Erdős Problem 1105 using a custom Erdos1105.antiRamseyNum definition over (⊤ : SimpleGraph (Fin n)).edgeSet → Fin q (written prior to Formal Conjectures PR #5829). No code is imported or adapted. In contrast, our development on Lean 4.35.0-rc2 proves the literal Formal Conjectures declarations over SimpleGraph.antiRamseyNum and TopEdgeLabeling, exports explicit non-asymptotic cycle sandwich bounds across all n ≥ k ≥ 3, and proves Part (ii) via an explicit finite host-window reduction, additive seed-first path filling, and 2-connected circumference bounds.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Linmiao Xu"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-13T03:17:50Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "7117bac690c2d1c3a9387969419d6e301ea9b9562863c9bfc8449b13cdd2ef4c"
+    },
+    "reviewed_at": "2026-10-12T18:05:44Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "ba96303b34a95ac458958c1eb0bbdee54733484a",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "project_path": "erdos-1105",
+    "repository": "linrock/math-proofs",
+    "repository_url": "https://github.com/linrock/math-proofs",
+    "tree_url": "https://github.com/linrock/math-proofs/tree/ba96303b34a95ac458958c1eb0bbdee54733484a/erdos-1105"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "crhquaz58bzr"
+  },
+  "title": "Erdős 1105: anti-Ramsey numbers for cycles and paths",
+  "trust": {
+    "challenge_bytes": 8520,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Asymptotics.Defs",
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.Combinatorics.SimpleGraph.Coloring.EdgeLabeling",
+      "Mathlib.Combinatorics.SimpleGraph.CycleGraph",
+      "Mathlib.Combinatorics.SimpleGraph.Hasse",
+      "Mathlib.Combinatorics.SimpleGraph.Maps",
+      "Mathlib.Order.ConditionallyCompleteLattice.Basic"
+    ],
+    "challenge_lines": 179,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "c741f5da517243790cd1017db85099fa5fcd26a3f0b54b654860aba77f6655ac",
+    "evidence_path": "evidence/PALOMAR-2026-10-13-000006-v1/8377aa44026851a06b70aada51fda4e4ad91a0e8dbd9fffaa47879a2dbe8b853/",
+    "evidence_tree_sha256": "8377aa44026851a06b70aada51fda4e4ad91a0e8dbd9fffaa47879a2dbe8b853",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--jobs=2"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "81254ae80ded487cdef3955ad540602a7a9d4034d6bbb6528815c231de83befa",
+    "protected_config_sha256": "7bd6c92de7548902fbc85433bf4beb524203c510651ab982c875aa44624b0b09",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 38282203385,
+    "solution_sha256": "7ca8019edef680f97086cfe6a21161840c70c9051a3bfe11414a9fe24465d0b7",
+    "tool_digests": {
+      "bwrap": "26fafe3dc536a7023764345910dc1d4753245400a8cb58b316870c5365d0dd12",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-12T17:44:11Z",
+    "workflow_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/38282203385"
+  },
+  "version": 1
+}
