@@ -1,0 +1,1010 @@
+{
+  "abstract": "A Lean 4 development of two structures of finite-dimensional quantum information, in the vocabulary of google-deepmind/formal-conjectures (Open Quantum Problems 13 and 23; the fourteen definitions restated character for character under their Apache-2.0 license, see NOTICE). A basis of C^d is a unitary matrix whose columns are the basis vectors; two bases U, V are mutually unbiased when every entry of U^* V has squared norm 1/d; HasMUBs d k says k pairwise unbiased bases exist and IsMaxMUBCount d k that k is the largest such number. Theorems: for d >= 2, HasMUBs d m implies m <= d + 1 (Wootters-Fields 1989; Bandyopadhyay-Boykin-Roychowdhury-Vatan 2002, Theorem 3.5: the identity and the m(d - 1) traceless combinations of the rank-one projectors are pairwise orthogonal in the d^2-dimensional matrix space), and the hypothesis is sharp since in dimension 1 every two bases are unbiased; restriction to subfamilies; the tensor bound HasMUBs m k and HasMUBs n k imply HasMUBs (m n) k (Klappenecker-Rötteler 2004, Lemma 3) and its corollary over the factorization (HasMUBs d k whenever k <= q + 1 for every exact prime-power divisor q of d), hence three mutually unbiased bases in every dimension d >= 2; for a finite field F of odd characteristic and size q, the standard basis and the q bases with entries psi(a x^2 + b x)/sqrt q (psi a nontrivial additive character) are q + 1 mutually unbiased bases (Klappenecker-Rötteler, Theorem 2), through the identity |sum_x psi(c x^2 + e x)|^2 = q for c != 0 proved by Weyl differencing; for q = 2^n the bases with entries i^(x^T S_a x) (-1)^(b . x)/sqrt q, S_a the {0, 1}-lifted Gram matrix of the trace form (x, y) -> Tr(a x y) of the field with 2^n elements (an equivalent form of the Galois-ring bases of Klappenecker-Rötteler, Theorem 3), through the mod-4 identity Q(x + y) = Q(x) + Q(y) + 2 x^T S y and the nondegeneracy of the trace form; so IsMaxMUBCount (p^k) (p^k + 1) for every prime power, HasCompleteMUBs d iff IsMaxMUBCount d (d + 1) for d >= 2, and the values 3, 5, 9 in dimensions 2, 4, 8 also by explicit kernel-checked tables. Weiner's gap (Weiner 2013, Corollary 3.4): any d mutually unbiased bases of C^d extend, by one more basis, to a complete set of d + 1, the given bases keeping their places, for every d (and in the existence form, HasMUBs d d implies HasCompleteMUBs d), by Weiner's proof with its operator-algebra steps written out. The orthogonal projection Phi onto the matrices with a constant diagonal in every one of the d bases has a Kraus form X -> sum_i K_i^* X K_i whose operators K_i have constant diagonals themselves (Weiner's Lemma 3.2, through his Lemma 2.1, sum_k A_k^* X A_k = Tr(X) 1 for an orthonormal basis A_k of the matrix space, recalled there from Werner 2001); at a fixed point X the Kadison-Schwarz defect sum_i K_i^* X^* X K_i - Phi(X)^* Phi(X) is the sum of the squares (X K_i - K_i X)^* (X K_i - K_i X) and has zero trace, so the K_i commute with one another and with their adjoints (in place of the Schwarz inequality and the multiplicative-domain theorem of Choi 1974 that the paper's Lemma 3.1 uses); and the rank-one projectors of a common eigenbasis of the K_i are fixed by Phi, hence have constant diagonals, hence are unbiased to every basis of the family. Corollaries: k >= d bases give a complete set; for d >= 2, d is never the maximal number (in particular mu(6) != 6), and the maximal number is d + 1 or below d. The maximal number mu(d): two bases in every dimension; HasMUBs (p^k) m iff m <= p^k + 1; mu(d) is unique, exists for d >= 2 and lies in [3, d + 1], and does not exist for d = 1; formal-conjectures' mutuallyUnbiasedBases_dim6_bounds, 3 <= mu(6) <= 7, left with sorry there. Reconstruction (Scott 2006, eq. (9)): a complete set of d + 1 bases determines every matrix, X = sum_{s,l} Tr(X P_{s,l}) P_{s,l} - Tr(X) 1 with P_{s,l} the projector onto column l of basis s (after Ivanović 1981 and Wootters-Fields 1989), and so does a SIC family, X = sum_i ((d + 1) Tr(X P_i) - Tr X)/d P_i (its projectors are linearly independent, Renes-Blume-Kohout-Scott-Caves 2004, section II). Second moments (Klappenecker-Rötteler 2005, Theorems 3 and 5; Renes-Blume-Kohout-Scott-Caves 2004, p. 4; Scott 2006, eq. (8)): for all matrices X, Y, sum_{s,l} Tr(X P_{s,l}) Tr(Y P_{s,l}) = Tr(XY) + Tr X Tr Y for a complete set and (d + 1) sum_i Tr(X P_i) Tr(Y P_i) = d (Tr(XY) + Tr X Tr Y) for a SIC family; hence the data Tr(X P_{s,l}), and the SIC-POVM outcomes Tr(X P_i)/d with the factor d(d + 1), give ||X||_HS^2 + |Tr X|^2, the Hilbert-Schmidt distance of two matrices with equal traces, and the purity Tr(rho^2) of a Hermitian rho with Tr rho = 1 (Larsen 1990, not read, as stated by Wu-Yu-Mølmer 2009; Scott 2006, eqs. (32), (36), (55)). A SIC family in C^d is d^2 unit vectors with pairwise squared overlap 1/(d + 1); HasSICPOVM d says one exists. Theorems: N unit vectors of C^d with one squared overlap c != 1 on every pair satisfy N <= d^2 (the absolute bound of Delsarte-Goethals-Seidel 1975, the complex form of Gerzon's bound; the rank-one projectors are linearly independent), and with c = 1 the family may be any length; for d >= 2, d^2 such vectors have c = 1/(d + 1) and resolve the identity, sum_i (1/d) |phi_i><phi_i| = 1, so every SIC family is a POVM (Renes-Blume-Kohout-Scott-Caves 2004), HasSICPOVM d holds iff C^d has d^2 equiangular unit vectors, and a family at the SIC angle has at most d^2 members; Welch's bound (Welch 1974, the bound for k = 1, in the frame-potential form of Benedetto-Fickus 2003): N unit vectors of C^d have sum_{i,j} |<phi_i, phi_j>|^2 >= N^2/d, by the Cauchy-Schwarz inequality for the identity and the frame operator in the matrix space; hence N >= 2 unit vectors with one squared overlap c on every pair have c >= (N - d)/(d (N - 1)), pairwise squared overlaps at most alpha with alpha d < 1 give N (1 - alpha d) <= d (1 - alpha) (the relative bound), and at most d^2 unit vectors have every pairwise squared overlap at most 1/(d + 1). Welch's equality case (Mixon-Needham-Shonkwiler-Villar, Proposition 1 and its proof): sum_{i,j} |<phi_i, phi_j>|^2 - N^2/d = ||S - (N/d) 1||_HS^2 for the frame operator S = sum_i |phi_i><phi_i|, so equality holds exactly for a tight frame; at equality in the relative bound every pairwise squared overlap is alpha and S = (N/d) 1 (Strohmer-Heath 2003, Theorem 2.3); d^2 unit vectors with every pairwise squared overlap at most 1/(d + 1) are a SIC family, and HasSICPOVM d holds iff such vectors exist; and pairwise squared overlaps at most 1/(d + 1) + epsilon give ||S/d - 1||_HS^2 <= (d^2 - 1) epsilon for d >= 1, a bound on the resolution of the identity only. SIC-POVMs exist in dimensions 2 (the tetrahedron), 3 (the Hesse configuration), 4 (the sixteen Weyl-Heisenberg translates of Appleby's exact fiducial, Appleby 2005, eq. (149), credited there to Zauner and to Renes et al.; covariance reduces the 240 overlaps to fifteen, proved by exact trigonometric and radical identities in cos(pi/8), sin(pi/8) and sqrt(2 + sqrt 5)) and 8 (Hoggar's 64 lines: the orbit of (-1 + 2i, 1, 1, 1, 1, 1, 1, 1)/sqrt 12 under the three-qubit Pauli group, Jedwab-Wiebe 2015, Example 4, checked by the kernel over all ordered pairs). Sixty compared statements, kernel-only. As of 2026-10-10 no formalization of the general bound, of the prime-power constructions, of the factorization corollary, of the complex absolute bound with its equality case, of Weiner's gap for general d, of Welch's bound, of the two reconstruction formulas for every matrix or of a SIC-POVM in dimension 4 was located in the Palomar registry, Mathlib, formal-conjectures, openai/math, physlib, the other Lean repositories searched, the Isabelle AFP, the Rocq package index or arXiv; none of the second moment of a SIC family with its norm, distance and purity forms, of Welch's deficit with its equality case, of the equality case of the relative bound, of the SIC family from d^2 vectors at or below the SIC angle or of the frame-defect bound was located in the Palomar registry, Mathlib, formal-conjectures, openai/math, physlib or the-omega-institute/trureturing. Read 2026-10-14, after that search: marozols/SIC-existence (public 2026-10-09, Lean v4.34.1, self-assessed, unregistered) states SICs in every dimension and, in RSIC.lean, the N = d^2 equality case, in its own vocabulary, so a dimension-4 SIC and that equality case exist elsewhere in Lean; the statements here are over formal-conjectures' definitions and were proved independently. The neighbours: the dimension-2 MUB case is formal-conjectures' mutuallyUnbiasedBases_dim2; the dimension-6 projector bound and the Kronecker lemma are in the XC0R fork of formal-conjectures (adapted here, see NOTICE); the dimension-2 and 3 SIC overlaps are in zblore/csd-lean4; the-omega-institute/trureturing kernel-checks the same 64 Hoggar vectors and the Hesse SIC in its own vocabulary, proves that the trace pairings with a complete family of rank-one contexts determine every matrix, proves the density-matrix formula under an assumed completeness hypothesis, and proves the second moment of a complete set in operator form with the purity identity for density matrices (complete_context_collision_conservation, 2026-08-28); openai/math holds mu(6) <= 5 and Weiner's gap at d = 6 (six_extend_to_seven), with lemmas for general n (commutator_trace_identity, commute_of_kraus_fixed, exists_joint_projection_basis) that make the same elementary move as the route here, the Schwarz defect of a Kraus map as a sum of squared commutators; the Kadison-Schwarz inequality for Kraus and completely positive maps is in physlib, QuAIR/Lean-QIT and kencyke/quantum-system. Not claimed: anything about dimension 6 beyond 3 <= mu(6) <= 7 and mu(6) != 6 (openai/math holds mu(6) <= 5), SICs in dimensions 5 to 7, that a family near the SIC angle is close to a SIC family, any first formalization.",
+  "authors": [
+    {
+      "name": "JD Jones"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-16-000014-v1/54d1bd5357390cd1a406be9e6c92284537b338b54007f7911b56e16f102c9157/",
+    "artifact_tree_sha256": "54d1bd5357390cd1a406be9e6c92284537b338b54007f7911b56e16f102c9157",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-16T13:52:45Z",
+    "renderer_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "quant-ph",
+      "math.CO"
+    ],
+    "msc2020": [
+      "81P15",
+      "05B30",
+      "52C35",
+      "11T24"
+    ]
+  },
+  "first_registered_on": "2026-10-16",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "QuantumDesigns.hasMUBs_le",
+      "QuantumDesigns.hasMUBs_one_dim",
+      "QuantumDesigns.hasMUBs_of_le",
+      "QuantumDesigns.hasMUBs_mul",
+      "QuantumDesigns.hasMUBs_of_forall_primePow",
+      "QuantumDesigns.hasMUBs_three",
+      "QuantumDesigns.quadSum_normSq",
+      "QuantumDesigns.hasCompleteMUBs_of_odd_char",
+      "QuantumDesigns.isMaxMUBCount_odd_prime_pow",
+      "QuantumDesigns.hasCompleteMUBs_two_pow",
+      "QuantumDesigns.isMaxMUBCount_two_pow",
+      "QuantumDesigns.isMaxMUBCount_prime_pow",
+      "QuantumDesigns.hasCompleteMUBs_iff_isMaxMUBCount",
+      "QuantumDesigns.isMaxMUBCount_two",
+      "QuantumDesigns.isMaxMUBCount_four",
+      "QuantumDesigns.isMaxMUBCount_eight",
+      "QuantumDesigns.gerzon_bound",
+      "QuantumDesigns.gerzon_sharp",
+      "QuantumDesigns.gerzon_equality",
+      "QuantumDesigns.gerzon_frame",
+      "QuantumDesigns.isSICFamily_frame",
+      "QuantumDesigns.hasSICPOVM_iff_equiangular",
+      "QuantumDesigns.card_le_of_sicOverlapSq",
+      "QuantumDesigns.hasSICPOVM_two",
+      "QuantumDesigns.hasSICPOVM_three",
+      "QuantumDesigns.hasSICPOVM_eight",
+      "QuantumDesigns.hasCompleteMUBs_of_hasMUBs_self",
+      "QuantumDesigns.exists_isMUBFamily_extension",
+      "QuantumDesigns.hasCompleteMUBs_of_le_hasMUBs",
+      "QuantumDesigns.isMaxMUBCount_ne_self",
+      "QuantumDesigns.isMaxMUBCount_dichotomy",
+      "QuantumDesigns.hasMUBs_two",
+      "QuantumDesigns.hasMUBs_prime_pow_iff",
+      "QuantumDesigns.isMaxMUBCount_unique",
+      "QuantumDesigns.exists_isMaxMUBCount",
+      "QuantumDesigns.not_exists_isMaxMUBCount_one",
+      "QuantumDesigns.isMaxMUBCount_bounds",
+      "QuantumDesigns.mutuallyUnbiasedBases_dim6_bounds",
+      "QuantumDesigns.not_isMaxMUBCount_six_six",
+      "QuantumDesigns.mub_reconstruction",
+      "QuantumDesigns.sic_reconstruction",
+      "QuantumDesigns.welch_bound",
+      "QuantumDesigns.welch_bound_of_constantOverlap",
+      "QuantumDesigns.welch_card_bound",
+      "QuantumDesigns.card_le_of_overlapSq_le_sic",
+      "QuantumDesigns.hasSICPOVM_four",
+      "QuantumDesigns.mub_second_moment",
+      "QuantumDesigns.sic_second_moment",
+      "QuantumDesigns.mub_hilbert_schmidt",
+      "QuantumDesigns.sic_hilbert_schmidt",
+      "QuantumDesigns.mub_tomography_distance",
+      "QuantumDesigns.sic_tomography_distance",
+      "QuantumDesigns.mub_tomography_purity",
+      "QuantumDesigns.sic_tomography_purity",
+      "QuantumDesigns.welch_deficit",
+      "QuantumDesigns.welch_equality_iff_tight",
+      "QuantumDesigns.welch_relative_equality",
+      "QuantumDesigns.isSICFamily_of_overlapSq_le",
+      "QuantumDesigns.hasSICPOVM_iff_overlapSq_le",
+      "QuantumDesigns.frame_defect_le_of_overlapSq_le"
+    ]
+  },
+  "id": "PALOMAR-2026-10-16-000014",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-16T13:53:19Z",
+    "receipt_sha256": "2ae5881db8dab9ebc27bdffd17b17dbb93f41a4e0b0662a780447e45ffe3b1a9",
+    "repositories": [
+      {
+        "commit": "5938504ecc632f9101d5ef17603879a08dad3866",
+        "fork_repository": "PalomarArchive/JD-Jones-ASES--finite-quantum-designs-lean--49799ace49af",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000014-v1/5938504ecc632f9101d5ef17603879a08dad3866",
+        "source_repository": "JD-Jones-ASES/finite-quantum-designs-lean"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000014-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000014-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000014-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000014-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000014-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000014-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000014-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000014-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000014-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Andreas Klappenecker"
+          },
+          {
+            "name": "Martin Rötteler"
+          }
+        ],
+        "identifier": "doi:10.1007/978-3-540-24633-6_10",
+        "location": "Finite Fields and Applications (Fq7), Lecture Notes in Computer Science 2948, Springer, 2004, 137-144; the text read is arXiv:quant-ph/0309120v1: p. 2 (Lemma 1, Weil sums), p. 3 (Theorem 2, odd characteristic), p. 4 (Lemma 2; Theorem 3, the Galois-ring bases for 2^n), p. 6 (Lemma 3, N(d) >= the minimum of N(p_i^{a_i}) over the prime-power factors, N(nm) >= min{N(n), N(m)}, and the remark N(d) >= 3 for d >= 2)",
+        "relationship": "formalizes",
+        "title": "Constructions of Mutually Unbiased Bases",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Somshubhro Bandyopadhyay"
+          },
+          {
+            "name": "P. Oscar Boykin"
+          },
+          {
+            "name": "Vwani Roychowdhury"
+          },
+          {
+            "name": "Farrokh Vatan"
+          }
+        ],
+        "identifier": "doi:10.1007/s00453-002-0980-7",
+        "location": "Algorithmica 34 (2002), no. 4, 512-528; the text read is arXiv:quant-ph/0103162v3: pp. 9-10 (Theorem 3.4), p. 11 (Theorem 3.5)",
+        "relationship": "formalizes",
+        "title": "A New Proof for the Existence of Mutually Unbiased Bases",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Mihály Weiner"
+          }
+        ],
+        "identifier": "doi:10.1090/S0002-9939-2013-11487-5",
+        "location": "Proceedings of the American Mathematical Society 141 (2013), no. 6, 1963-1969; read in full in the text arXiv:0902.0635v2 (16 Jul 2010), pages 1-6: p. 1 (abstract: at most d + 1 bases for d > 1, N(d) != d, and for d > 1 either N(d) = d + 1 or N(d) <= d - 1; eq. (1), the definition), p. 2 (the missing basis can only be the orthogonal complement of V), p. 3 (eq. (4), the pinching; eq. (6), the bound; Lemma 2.1, recalled from Werner 2001, and eq. (8)), p. 4 (section 3: V, B = V^perp, 1 in B, B self-adjoint; Lemma 3.1, citing Choi 1974, Corollary 2.8 and Theorem 3.1; Lemma 3.2 with eqs. (11)-(14)), p. 5 (Proposition 3.3 with eq. (15); Corollary 3.4), p. 6 (references)",
+        "relationship": "formalizes",
+        "title": "A gap for the maximum number of mutually unbiased bases",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Aidan Roy"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1306.0978",
+        "location": "PhD thesis, University of Waterloo, 2005 (arXiv:1306.0978): p. 28 (Theorem 3.3.1, the absolute bound, credited to Delsarte, Goethals and Seidel), p. 29 (Corollary 3.3.2, at most d^2 equiangular lines in C^d), p. 31 (Theorem 3.5.2, the relative bound for s-distance sets, credited to Delsarte, Goethals and Seidel, with its equality condition, and Corollary 3.5.3), p. 32 (Corollary 3.5.5, the relative bound for equiangular lines at an angle below 1/d), p. 36 (Corollary 3.5.15: for d^2 lines, equiangular and 2-design are equivalent), p. 83 (Corollary 6.0.4, the relative bound solved for the angle, one case of the Welch bound)",
+        "relationship": "formalizes",
+        "title": "Complex Lines with Restricted Angles",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Joseph M. Renes"
+          },
+          {
+            "name": "Robin Blume-Kohout"
+          },
+          {
+            "name": "A. J. Scott"
+          },
+          {
+            "name": "Carlton M. Caves"
+          }
+        ],
+        "identifier": "doi:10.1063/1.1737053",
+        "location": "Journal of Mathematical Physics 45 (2004), no. 6, 2171-2180; the text read is arXiv:quant-ph/0310075v1, pp. 1-8: p. 1 (eq. (1), the SIC definition; the known analytic solutions d = 2, 3, 8), p. 2 (eqs. (5)-(6), Theorem 1, the frame-potential bound of Benedetto and Fickus), pp. 2-3 (section II: a SIC is a tight frame, hence a POVM; the Gram matrix of its projectors is nonsingular, so they are linearly independent and the SIC is informationally complete; no expansion coefficients are given), p. 4 (every SIC-POVM is a 2-design; eq. (16) with a = b = 1/(d(d + 1)), the unitarily invariant average of <psi|A_1|psi><psi|A_2|psi>)",
+        "relationship": "formalizes",
+        "title": "Symmetric informationally complete quantum measurements",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "A. J. Scott"
+          }
+        ],
+        "identifier": "doi:10.1088/0305-4470/39/43/009",
+        "location": "Journal of Physics A: Mathematical and General 39 (2006), no. 43, 13507-13530; the text read is arXiv:quant-ph/0604049v6, pp. 2-4, 7 and 9-11 (the pages are listed in the note)",
+        "relationship": "formalizes",
+        "title": "Tight informationally complete quantum measurements",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Andreas Klappenecker"
+          },
+          {
+            "name": "Martin Rötteler"
+          }
+        ],
+        "identifier": "doi:10.1109/ISIT.2005.1523643",
+        "location": "Proceedings of the 2005 IEEE International Symposium on Information Theory (ISIT 2005), 1740-1744; the text read is arXiv:quant-ph/0502031v2: p. 3 (Definition 2, t-designs by a cubature formula; Theorem 2, the uniform tight frames are the sets attaining Welch's bound for k = 1), p. 4 (Theorem 3, the d(d + 1) vectors of d + 1 mutually unbiased bases form a 2-design, Remark 2 crediting it also to Zauner's thesis, Theorem 2.19; Theorem 5, a SIC-POVM is a 2-design, credited to Renes-Blume-Kohout-Scott-Caves 2004)",
+        "relationship": "formalizes",
+        "title": "Mutually Unbiased Bases are Complex Projective 2-Designs",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "L. R. Welch"
+          }
+        ],
+        "identifier": "doi:10.1109/TIT.1974.1055219",
+        "location": "IEEE Transactions on Information Theory 20 (1974), no. 3, 397-399. Not read (closed access); the statement is taken from the restatements in Datta-Howard-Cochran, arXiv:0909.0206v2, p. 2 (eqs. (1) and (2), with k = 1), Mixon-Needham-Shonkwiler-Villar, arXiv:2112.02916v1, p. 2 (Proposition 1), and Roy's thesis, p. 83 (Corollary 6.0.4, one case of the Welch bound)",
+        "relationship": "formalizes",
+        "title": "Lower bounds on the maximum cross correlation of signals (Corresp.)",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jonathan Jedwab"
+          },
+          {
+            "name": "Amy Wiebe"
+          }
+        ],
+        "identifier": "doi:10.1007/978-3-319-17729-8_13",
+        "location": "Algebraic Design Theory and Hadamard Matrices (ADTHM 2014), Springer Proceedings in Mathematics & Statistics, 2015, 159-169; the text read is arXiv:1408.2492v3: p. 2 (the equivalence with Hoggar's lines), p. 4 (the set H(v)), pp. 5-6 (Example 4, d = 8, v = -1 + 2i), p. 7 (Theorem 1)",
+        "relationship": "formalizes",
+        "title": "A Simple Construction of Complex Equiangular Lines",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "D. M. Appleby"
+          }
+        ],
+        "identifier": "doi:10.1063/1.1896384",
+        "location": "Journal of Mathematical Physics 46 (2005), no. 5, 052107; the text read is arXiv:quant-ph/0412001v2 (SIC-POVMs and the Extended Clifford Group): section 8 (Dimensions 2 to 7), paragraph Dimension 4, eq. (149), printed page 21 (PDF page 22), the fiducial vector, credited there to Zauner and to Renes-Blume-Kohout-Scott-Caves; eqs. (6)-(8), printed page 3 (PDF page 4), the operators T and S and the displacement operators D_p",
+        "relationship": "formalizes",
+        "title": "Symmetric informationally complete-positive operator valued measures and the extended Clifford group",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "P. Delsarte"
+          },
+          {
+            "name": "J. M. Goethals"
+          },
+          {
+            "name": "J. J. Seidel"
+          }
+        ],
+        "identifier": "doi:10.1016/B978-0-12-189420-7.50020-7",
+        "location": "Philips Research Reports 30 (1975) 91*-105*; reprinted in Geometry and Combinatorics: Selected Works of J. J. Seidel, Academic Press, 1991, 193-207",
+        "relationship": "background",
+        "title": "Bounds for systems of lines, and Jacobi polynomials",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "P. W. H. Lemmens"
+          },
+          {
+            "name": "J. J. Seidel"
+          }
+        ],
+        "identifier": "doi:10.1016/0021-8693(73)90123-3",
+        "location": "Journal of Algebra 24 (1973) 494-512",
+        "relationship": "background",
+        "title": "Equiangular lines",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "S. G. Hoggar"
+          }
+        ],
+        "identifier": "doi:10.1007/978-1-4612-5648-9_14",
+        "location": "The Geometric Vein: The Coxeter Festschrift, Springer, 1981, 219-230",
+        "relationship": "background",
+        "title": "Two Quaternionic 4-Polytopes",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "S. G. Hoggar"
+          }
+        ],
+        "identifier": "doi:10.1023/A:1005009727232",
+        "location": "Geometriae Dedicata 69 (1998), no. 3, 287-289",
+        "relationship": "background",
+        "title": "64 Lines from a Quaternionic Polytope",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Chris Godsil"
+          },
+          {
+            "name": "Aidan Roy"
+          }
+        ],
+        "identifier": "doi:10.1016/j.ejc.2008.01.002",
+        "location": "European Journal of Combinatorics 30 (2009) 246-262; the text read is arXiv:quant-ph/0511004v3: p. 1, p. 5 (section 3, Hoggar's lines as a Pauli orbit), p. 12 (Lemma 5.4, Z/4 characters through the {0, 1} lift), p. 16 (section 6, Klappenecker-Rötteler's Theorem 3 bases rewritten as i^{tr(a x^2 + 2 y x)})",
+        "relationship": "background",
+        "title": "Equiangular lines, mutually unbiased bases, and spin models",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "I. D. Ivanović"
+          }
+        ],
+        "identifier": "doi:10.1088/0305-4470/14/12/019",
+        "location": "Journal of Physics A: Mathematical and General 14 (1981), no. 12, 3241-3245 (the abstract page read; the publisher's byline spells the name Ivonovic)",
+        "relationship": "background",
+        "title": "Geometrical description of quantal state determination",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "William K. Wootters"
+          },
+          {
+            "name": "Brian D. Fields"
+          }
+        ],
+        "identifier": "doi:10.1016/0003-4916(89)90322-9",
+        "location": "Annals of Physics 191 (1989) 363-381",
+        "relationship": "background",
+        "title": "Optimal state-determination by mutually unbiased measurements",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "R. F. Werner"
+          }
+        ],
+        "identifier": "doi:10.1088/0305-4470/34/35/332",
+        "location": "Journal of Physics A: Mathematical and General 34 (2001), no. 35, 7081-7094",
+        "relationship": "background",
+        "title": "All teleportation and dense coding schemes",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Man-Duen Choi"
+          }
+        ],
+        "identifier": "doi:10.1215/ijm/1256051007",
+        "location": "Illinois Journal of Mathematics 18 (1974), no. 4, from p. 565 (as Weiner's reference [27] gives it); Corollary 2.8 and Theorem 3.1, as Weiner cites them",
+        "relationship": "background",
+        "title": "A Schwarz inequality for positive linear maps on C*-algebras",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Richard V. Kadison"
+          }
+        ],
+        "identifier": "doi:10.2307/1969657",
+        "location": "Annals of Mathematics 56 (1952), no. 3, from p. 494",
+        "relationship": "background",
+        "title": "A generalized Schwarz inequality and algebraic invariants for operator algebras",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Gerhard Zauner"
+          }
+        ],
+        "identifier": "doi:10.1142/S0219749911006776",
+        "location": "International Journal of Quantum Information 9 (2011), no. 1, 445-507 (the 1999 Vienna PhD thesis, Quantendesigns: Grundzüge einer nichtkommutativen Designtheorie, in translation)",
+        "relationship": "background",
+        "title": "Quantum designs: foundations of a noncommutative design theory",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Thomas Durt"
+          },
+          {
+            "name": "Berthold-Georg Englert"
+          },
+          {
+            "name": "Ingemar Bengtsson"
+          },
+          {
+            "name": "Karol Życzkowski"
+          }
+        ],
+        "identifier": "doi:10.1142/S0219749910006502",
+        "location": "International Journal of Quantum Information 8 (2010) 535-640; the text read is arXiv:1004.3348: pp. 4-10, p. 57 (eq. (4.15), the expansion of a matrix over the unitary operator bases of a complete set)",
+        "relationship": "background",
+        "title": "On mutually unbiased bases",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "D. M. Appleby"
+          },
+          {
+            "name": "Hoan Bui Dang"
+          },
+          {
+            "name": "Christopher A. Fuchs"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/0707.2071",
+        "location": "the text read is arXiv:0707.2071v2 (2010): p. 2 (eq. (3), the expansion of a density matrix over the projectors of a SIC family; eq. (4), for a pure state the SIC probabilities satisfy sum_i p(i)^2 = 2/(d(d + 1))), p. 4 (eq. (19), for a pure state the probabilities of a complete set of mutually unbiased bases satisfy sum p^2 = 2, credited there to Larsen 1990 among others)",
+        "relationship": "background",
+        "title": "Symmetric Informationally-Complete Quantum States as Analogues to Orthonormal Bases and Minimum-Uncertainty States",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "John J. Benedetto"
+          },
+          {
+            "name": "Matthew Fickus"
+          }
+        ],
+        "identifier": "doi:10.1023/A:1021323312367",
+        "location": "Advances in Computational Mathematics 18 (2003), no. 2-4, 357-385 (the abstract read)",
+        "relationship": "background",
+        "title": "Finite Normalized Tight Frames",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Somantika Datta"
+          },
+          {
+            "name": "Stephen Howard"
+          },
+          {
+            "name": "Douglas Cochran"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/0909.0206",
+        "location": "the text read is arXiv:0909.0206v2: p. 2 (eqs. (1) and (2), Welch's bounds for unit vectors of C^n, the double sum (2) as Welch's main result), p. 3 (the geometric derivations of the bound for k = 1)",
+        "relationship": "background",
+        "title": "Geometry of the Welch Bounds",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Dustin G. Mixon"
+          },
+          {
+            "name": "Tom Needham"
+          },
+          {
+            "name": "Clayton Shonkwiler"
+          },
+          {
+            "name": "Soledad Villar"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2112.02916",
+        "location": "the text read is arXiv:2112.02916v1: p. 2 (the frame potential FP(Z) = ||Z^* Z||_F^2; Proposition 1, Welch's bound for unit-norm frames, with equality exactly at the unit-norm tight frames, proved by the displayed identity 0 <= ||Z Z^* - (n/d) I||_F^2 = FP(Z) - n^2/d), p. 3 (Proposition 2, the Benedetto-Fickus theorem)",
+        "relationship": "formalizes",
+        "title": "Three proofs of the Benedetto-Fickus theorem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Thomas Strohmer"
+          },
+          {
+            "name": "Robert W. Heath Jr."
+          }
+        ],
+        "identifier": "doi:10.1016/S1063-5203(03)00023-X",
+        "location": "Applied and Computational Harmonic Analysis 14 (2003), no. 3, 257-275; the text read is arXiv:math/0301135v1: p. 6 (Theorem 2.3, eqs. (12)-(13): the largest |<f_k, f_l>| of N unit vectors spanning E^m is at least sqrt((N - m)/(m(N - 1))), with equality exactly for equiangular tight frames; eq. (15), N <= m^2 at equality over C)",
+        "relationship": "formalizes",
+        "title": "Grassmannian frames with applications to coding and communication",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "U. Larsen"
+          }
+        ],
+        "identifier": "doi:10.1088/0305-4470/23/7/013",
+        "location": "Journal of Physics A: Mathematical and General 23 (1990), no. 7, 1041-1061. Not read (closed access); the statement is taken from Wu-Yu-Mølmer 2009, p. 2",
+        "relationship": "background",
+        "title": "Superspace geometry: the exact uncertainty relationship between complementary aspects",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Shengjun Wu"
+          },
+          {
+            "name": "Sixia Yu"
+          },
+          {
+            "name": "Klaus Mølmer"
+          }
+        ],
+        "identifier": "doi:10.1103/PhysRevA.79.022104",
+        "location": "Physical Review A 79 (2009), 022104; the text read is arXiv:0811.2298v2: p. 2 (section III, first paragraph: for d + 1 mutually unbiased bases the squared outcome probabilities sum to Tr(rho^2) + 1, credited there to Larsen 1990 among others)",
+        "relationship": "background",
+        "title": "Entropic uncertainty relation for mutually unbiased bases",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "The Formal Conjectures Authors"
+          }
+        ],
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/tree/1646ca16afd6cc7a693d3bdc9f066c4d3cc01a89/FormalConjectures/OpenQuantumProblems",
+        "location": "13.lean (mutuallyUnbiasedBases_dim2 proved; mutuallyUnbiasedBases_dim6_bounds, 3 <= mu(6) <= 7, marked solved with its proof in the XC0R fork; the general statement and dimensions 6, 10, 12, 14, 15 open) and 23.lean (the witness families qubitSICFamily and hesseFamily; hasSICPOVM_two and hasSICPOVM_three left with sorry); Apache-2.0; the files cite the IQOQI Open Quantum Problems pages 13 and 23",
+        "relationship": "adapts",
+        "title": "Formal Conjectures: OpenQuantumProblems/13.lean and 23.lean",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "The Formal Conjectures Authors"
+          }
+        ],
+        "identifier": "https://github.com/XC0R/formal-conjectures/blob/c8733543568e8011288a9fa7ef33375f5e5907d3/FormalConjectures/OpenQuantumProblems/13.lean",
+        "location": "lines 511-583 (kroneckerUMat, relativeUnitary_kronecker, isUnbiased_kronecker, hasMUBs_mul), 912-998 (colProjector, matToEuc, inner_matToEuc, colProjector_inner_eq_mul, colProjector_inner_self, colProjector_inner_diff, colProjector_inner_unbiased), 1049-1160 (dftProjector, the dimension-6 bound); Apache-2.0",
+        "relationship": "adapts",
+        "title": "XC0R/formal-conjectures: OpenQuantumProblems/13.lean at c8733543",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Maris Ozols"
+          }
+        ],
+        "identifier": "https://github.com/marozols/SIC-existence/tree/91e3a438be",
+        "location": "MainResults.lean (SIC.exists_SIC, SIC.exists_RSIC) and SICs/Quantum/RSIC.lean; Apache-2.0; Lean v4.34.1",
+        "relationship": "other",
+        "title": "marozols/SIC-existence: SIC-POVMs in every dimension, in Lean",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "The Omega Institute"
+          }
+        ],
+        "identifier": "https://github.com/the-omega-institute/trureturing/tree/1588d05416142e0600a00baa2265d61a72fb5d97/D5/S3",
+        "location": "D5/S3, eleven files at the commits listed in the note; Apache-2.0",
+        "relationship": "other",
+        "title": "the-omega-institute/trureturing: SIC certificates, complete-context tomography and frame-potential files",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Zayn Blore"
+          }
+        ],
+        "identifier": "https://github.com/zblore/csd-lean4/tree/27e97330c524366e78d8f32fde0b67bd58135ac6/CsdLean4/Empirical/CSD",
+        "location": "SICVolume.lean (sic_inner_normSq, sic_complete), SIC3Volume.lean (sic3_complete), MUB3Volume.lean (mub3_unbiased, mub3_complete); Apache-2.0",
+        "relationship": "other",
+        "title": "zblore/csd-lean4: Empirical/CSD SICVolume, SIC3Volume, MUB3Volume",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "The physlib contributors"
+          }
+        ],
+        "identifier": "https://github.com/leanprover-community/physlib/blob/af484f78ee0701290595f8bf892b157b10d64940/QuantumInfo/Channels/Unbundled.lean",
+        "location": "line 771, cp_subunital_kadison_schwarz (the Kadison-Schwarz inequality for completely positive subunital matrix maps; commit af484f78, 2026-09-30); Apache-2.0",
+        "relationship": "other",
+        "title": "leanprover-community/physlib: QuantumInfo/Channels/Unbundled.lean",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "QuAIR"
+          }
+        ],
+        "identifier": "https://github.com/QuAIR/Lean-QIT/blob/15a0a5ef13e5824327e0850ea896e472366287af/QIT/Core/Map.lean",
+        "location": "section KrausKadison: krausAdjoint_conjTranspose_mul_self_le_of_krausAdjoint_one (the Kadison-Schwarz inequality for a unital Kraus map in the Heisenberg picture) and its trace-preserving variant (commit 15a0a5ef, 2026-10-05); Apache-2.0",
+        "relationship": "other",
+        "title": "QuAIR/Lean-QIT: QIT/Core/Map.lean",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "kencyke"
+          }
+        ],
+        "identifier": "https://github.com/kencyke/quantum-system/blob/924e1f6a79f88890b557052c9d44a0cb1862e83f/QuantumSystem/ForMathlib/Analysis/CStarAlgebra/SchwarzMap.lean",
+        "location": "QuantumSystem/ForMathlib/Analysis/CStarAlgebra/SchwarzMap.lean (924e1f6a, 2026-09-30: SchwarzMap.ofKraus, Kraus maps are Schwarz maps), KPositiveMap.lean (2e11790f, 2026-10-03: KPositiveMapClass.le_smul_map_star_mul_of_norm_le, the Kadison-Schwarz inequality for 2-positive maps), QuantumSystem/Analysis/CStarAlgebra/KadisonSchwarz.lean (e75d1934, 2026-10-02); Apache-2.0",
+        "relationship": "other",
+        "title": "kencyke/quantum-system: SchwarzMap.lean, KPositiveMap.lean, KadisonSchwarz.lean",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "OpenAI"
+          }
+        ],
+        "identifier": "https://github.com/openai/math/blob/fd4aeeb/lean/docs/266.md",
+        "location": "lean/docs/266.md; ComparatorChallenges/MUBSix.lean (a bound of five bases in C^6); lean/OAI/Analysis/MutuallyUnbiased/Completion/*.lean (one commit, adc7f1241b, 2026-10-06, unchanged at fd4aeeb): Completion.lean six_extend_to_seven (Weiner's completion theorem for d = 6), Kraus.lean commutator_trace_identity and commute_of_kraus_fixed, Superoperator.lean applySuper_eq_kraus_columns, JointBasis.lean exists_joint_projection_basis, ProjectionBasis.lean exists_fixed_projection_basis (for every n); Apache-2.0",
+        "relationship": "background",
+        "title": "openai/math, item 266: Exactly three mutually unbiased bases in dimension six",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Leonardo de Moura"
+          },
+          {
+            "name": "Sebastian Ullrich"
+          }
+        ],
+        "identifier": "doi:10.1007/978-3-030-79876-5_37",
+        "location": "Automated Deduction - CADE 28, Lecture Notes in Computer Science 12699, Springer, 2021, 625-635",
+        "relationship": "background",
+        "title": "The Lean 4 Theorem Prover and Programming Language",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "The mathlib Community"
+          }
+        ],
+        "identifier": "doi:10.1145/3372885.3373824",
+        "location": "Proceedings of the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs (CPP 2020), 367-381",
+        "relationship": "background",
+        "title": "The Lean mathematical library",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/blob/1646ca16afd6cc7a693d3bdc9f066c4d3cc01a89/FormalConjectures/OpenQuantumProblems/13.lean",
+        "note": "mutuallyUnbiasedBases_dim2 (mu(2) = 3, by the Bloch-vector argument). isMaxMUBCount_two here is the same statement in this namespace, re-proved by a kernel-checked table and the general bound; mutuallyUnbiasedBases_dim6_bounds (3 <= mu(6) <= 7), left with sorry there, is proved here in this namespace from the general bound and three bases.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/XC0R/formal-conjectures/blob/c8733543568e8011288a9fa7ef33375f5e5907d3/FormalConjectures/OpenQuantumProblems/13.lean",
+        "note": "The dimension-6 bound mu(6) <= 7 (dim6_upper_bound) and the Kronecker lemma hasMUBs_mul; adapted here as listed in NOTICE, generalized to every dimension with the identity term. formal-conjectures marks mutuallyUnbiasedBases_dim6_bounds solved with the proof at line 1168 there.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/zblore/csd-lean4/tree/27e97330c524366e78d8f32fde0b67bd58135ac6/CsdLean4/Empirical/CSD",
+        "note": "The dimension-2 and 3 SIC overlaps and four mutually unbiased bases of C^3, in another vocabulary.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/the-omega-institute/trureturing/blob/798420dc/D5/S3/Quantum/Measurement/HoggarSicSumNegativity.lean",
+        "note": "The same 64 Hoggar vectors with their norms and overlaps kernel-checked (since 2026-09-30; cited at 798420dc, 2026-10-01), and the Hesse SIC (HesseSicCertificate.lean), in that repository's vocabulary.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/openai/math/blob/fd4aeeb/lean/ComparatorChallenges/MUBSix.lean",
+        "note": "At most five mutually unbiased bases in dimension six, which implies not_isMaxMUBCount_six_six and the bound of seven here; the bound of five is not proved here.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Analysis/MutuallyUnbiased/Completion",
+        "note": "Weiner's completion theorem in dimension six (Completion.lean, six_extend_to_seven: the extension form of exists_isMUBFamily_extension at d = 6, the six bases keeping their places), over lemmas for every n: the commutator identity for a Kraus map and the commutation of its fixed points (Kraus.lean, commutator_trace_identity, commute_of_kraus_fixed: the same elementary move as gp_schwarz_defect and gp_commute_of_fixed here), a Kraus form by realignment (Superoperator.lean, applySuper_eq_kraus_columns, where gp_exists_kraus and gp_flat_of_orth here extend an orthonormal family instead), a joint eigenbasis (JointBasis.lean, exists_joint_projection_basis; gp_simultaneous_diag here) and the complement superoperator (Complement.lean, complementMatrix; gp_Phi here); BasisFrame.lean's complete_basis_complement_eq_zero is the identity behind mub_reconstruction at d = 6. Its vocabulary is OrthonormalBasis of EuclideanSpace C (Fin 6); Weiner's gap for every d is not stated there. Its N6_le_five (Results/Bounds.lean, at most five bases in dimension six) implies two of the dimension-six statements here, not_isMaxMUBCount_six_six and the bound of seven in mutuallyUnbiasedBases_dim6_bounds (sha adc7f1241b, 2026-10-06).",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/the-omega-institute/trureturing/blob/aaf03b1c559ecf47a51a1add21b80c945cc059d2/D5/S3/Quantum/Tomography/CompleteContextTomography.lean",
+        "note": "complete_context_tomography: for n + 2 rank-one contexts of C^(n + 1) with the trace overlaps of a complete set, every matrix whose trace pairings with all the projectors vanish is zero, and traceless Hermitian matrices decompose uniquely; the injectivity behind mub_reconstruction, in a trace-overlap vocabulary, without the explicit formula for every matrix (since 2026-08-20).",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/the-omega-institute/trureturing/blob/625b18799d2fe6406fb69cfbc22fd30ade5fe19a/D5/S3/Quantum/Measurements/CompleteContextCollisionConservation.lean",
+        "note": "complete_context_collision_conservation: for n + 2 rank-one contexts of C^(n + 1) with the trace overlaps of a complete set, the sum of P tensor P is 1 + SWAP (the operator form of mub_second_moment) and, for a density matrix, the squared probabilities sum to 1 + Tr(rho^2) (mub_tomography_purity for positive trace-one rho; since 2026-08-28); CompleteContextPurityIdentities.lean (643b5b6c, 2026-08-27) adds the centred form, and QuantumBounds/Designs/CollisionConservation.lean (326e6477, 2026-08-16) contracts an assumed 2-design identity to the collision sum. No SIC second moment, Welch equality case or frame-defect bound was located there.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/the-omega-institute/trureturing/blob/8894e14485ee3895e8d504284f3091298f8803b1/D5/S3/QuantumContext/CompleteBasisReconstruction.lean",
+        "note": "complete_basis_reconstruction: the reconstruction of a trace-one density matrix from the probabilities of a complete family, under an assumed completeness hypothesis (since 2026-08-17).",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/the-omega-institute/trureturing/blob/c179239e902ac8b447a0119cc800589c9ec9c99b/D5/S3/Quantum/Tomography/MutuallyUnbiasedDiagonalPlanes.lean",
+        "note": "mutually_unbiased_diagonal_planes: for d >= 2, two bases are unbiased iff their centred diagonal planes are orthogonal, the core lemma of the d + 1 bound; the bound itself is not stated there (since 2026-08-23).",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/the-omega-institute/trureturing/blob/4066dcca8d5593096e96efb0a0b11c43ea8e986e/D5/S3/QuantumBounds/Designs/CrossFrameWelchBoundRefutation.lean",
+        "note": "The nearest files to Welch's bound located: a real-frame counterexample to a cross-frame potential conjecture (2026-10-03) and, in D5/S3/Quantum/Tomography/MUB/UnitaryThreeFramePotential.lean (6b00c364, 2026-09-11), a fourth frame-potential bound for 3 x 3 unitaries. Neither states Welch's bound.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/the-omega-institute/trureturing/blob/22bd3425f29b50dc67fab1669db95cc189ea30f5/D5/S3/Quantum/Magic/ErewGoldsteinSICStabilizerRefutation.lean",
+        "note": "IsSICFiducial, the Weyl-Heisenberg fiducial condition over ZMod d for every d, with a qutrit fiducial family (2026-10-07); no dimension-4 SIC was located there or elsewhere in Lean.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/physlib/blob/af484f78ee0701290595f8bf892b157b10d64940/QuantumInfo/Channels/Unbundled.lean",
+        "note": "cp_subunital_kadison_schwarz (line 771): the Kadison-Schwarz inequality for completely positive subunital matrix maps. gp_schwarz_defect here, an identity, gives it for unital Kraus maps.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/QuAIR/Lean-QIT/blob/15a0a5ef13e5824327e0850ea896e472366287af/QIT/Core/Map.lean",
+        "note": "Section KrausKadison: krausAdjoint_conjTranspose_mul_self_le_of_krausAdjoint_one, the Kadison-Schwarz inequality for a unital Kraus map in the Heisenberg picture.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/kencyke/quantum-system/blob/924e1f6a79f88890b557052c9d44a0cb1862e83f/QuantumSystem/ForMathlib/Analysis/CStarAlgebra/SchwarzMap.lean",
+        "note": "SchwarzMap.ofKraus (Kraus maps are Schwarz maps) and, in KPositiveMap.lean, KPositiveMapClass.le_smul_map_star_mul_of_norm_le (the Kadison-Schwarz inequality for 2-positive maps), on C*-algebras.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "JD Jones"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-16T13:52:58Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "b21d4e16cc7443867e6c8647e9981a063fcdb3e1e6c0bb3bf390d812c78d556e"
+    },
+    "reviewed_at": "2026-10-16T10:19:15Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "5938504ecc632f9101d5ef17603879a08dad3866",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "8d464f723696204001f7ef63b6146ffc544aa6837aa74c53f6f9c53d8a18b0f0"
+    },
+    "repository": "JD-Jones-ASES/finite-quantum-designs-lean",
+    "repository_url": "https://github.com/JD-Jones-ASES/finite-quantum-designs-lean",
+    "tree_url": "https://github.com/JD-Jones-ASES/finite-quantum-designs-lean/tree/5938504ecc632f9101d5ef17603879a08dad3866"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "glv65qc4yhvo"
+  },
+  "title": "Finite quantum designs: mutually unbiased bases, SIC-POVMs, and the Welch and Gerzon bounds",
+  "trust": {
+    "challenge_bytes": 37163,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 534,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "6baec67e762723fee2bdaa0478609b90a9cb1fe78dd20e2ff1bd5bf659557894",
+    "evidence_path": "evidence/PALOMAR-2026-10-16-000014-v1/1597bf14081628f92caa206cd27f458568e9a0d540196a9efc9a8e506a93f87d/",
+    "evidence_tree_sha256": "1597bf14081628f92caa206cd27f458568e9a0d540196a9efc9a8e506a93f87d",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--jobs=2"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "748a5fe8e84aa9c9c06ce6963da7432b6950f1c29e8efcf29d2262c5c4b53ba5",
+    "protected_config_sha256": "0d2e0d3d53af7d457da0a74809047530a041e1322706e52826ad4dbb1b9030ea",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 38881831032,
+    "solution_sha256": "72e6291ca540bb314cf45d20288f4b8d91972605292becb3be04cb8ff2e61cb9",
+    "tool_digests": {
+      "bwrap": "1f230f412940a7e5c6bcc237435d7c96571ba787238433bbd2b58bd512423463",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-16T09:48:38Z",
+    "workflow_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/38881831032"
+  },
+  "version": 1
+}

@@ -1,0 +1,712 @@
+{
+  "abstract": "A Lean 4 development of Section 3 of Lagarias, Mallows and Wilks, Beyond the Descartes circle theorem (Amer. Math. Monthly 109 (2002) 338-361), in the Lorentz form. An oriented sphere in R^n with centre x and signed radius r has the augmented curvature-centre row (|x|^2/r - r, 1/r, x/r); an oriented hyperplane <h, y> = delta with unit normal h has the row (2 delta, 0, h) (LMW Definition 3.2, (3.7)-(3.9)). Tangency is distance-encoded in LMW's oriented sense: two spheres dist^2 = (r + s)^2 (external tangency for two positive radii, internal when one radius is negative), a sphere and a hyperplane <h, x> - delta = -r, two hyperplanes opposite unit normals, LMW's oriented tangency pair by pair, and the converses deliver tangency in this sense; the compatible orientations of an oriented Descartes configuration (disjoint interiors, with the given orientations or all reversed) are proved separately for every solution, after multiplying each row's power polynomial by the total curvature, and for a valid, pairwise tangent family with positive total curvature for its own open interiors. Kernel-checked, for every n >= 1 (LMW's Section 3 assumes n >= 2; their Section 8, (8.4), is the identity on the line): the augmented matrix W of n + 2 pairwise tangent spheres of nonzero curvature, and of n + 2 pairwise tangent spheres and hyperplanes, satisfies W^T Q_n W = [[0, -4, 0], [-4, 0, 0], [0, 0, 2 I_n]] with Q_n = I - (1/n) 11^T (Theorem 3.3); every real solution W is the augmented matrix of exactly one family of valid, pairwise tangent oriented spheres and hyperplanes, and, when its second column has no zero, of exactly one pairwise tangent family of spheres (the converse of Theorem 3.3); the Soddy-Gosset relation (sum 1/r_i)^2 = n sum (1/r_i)^2 with and without hyperplanes (Theorem 1.2, (1.2)) and its form b^T Q_n b = 0 ((3.2)); the curvature-centre identity M^T Q_n M = diag(0, 2 I_n) (Theorem 3.2, (3.5)); at n = 2 the complex Descartes theorem (sum b_i z_i)^2 = 2 sum (b_i z_i)^2 and sum b_i (b_i z_i) = (1/2)(sum b_i)(sum b_i z_i) (Theorem 2.1, (2.2)-(2.3)); det Q_n = -2/n; and the three statements for Mathlib's EuclideanGeometry.Sphere (pairwise IsExtTangent, or one enclosing sphere to which the others are IsIntTangent, with curvature -1/r_e). The matrix identity is proved as LMW's Section 4 argument (Lemmas 4.3-4.4, (4.9)-(4.10)) run directly in Euclidean coordinates: W^T Q_n W is the target exactly when the rows of W have Lorentz norm 1 and pair to -1 under G = [[0, -1/2, 0], [-1/2, 0, 0], [0, 0, I_n]], since W G W^T = 2I - J and (2I - J)(Q_n/2) = I. Also proved: both halves of the converse of the Soddy-Gosset theorem, LMW's Theorem 3.1, about which they write \"We do not know an easy proof of this result; a proof appears in [16]\" ([16] is Graham-Lagarias-Mallows-Wilks-Yan III, whose arXiv versions 1-2 prove both halves as their Theorem 2.2 from the same base configuration and the transitivity of the Lorentz group, a section the published version omits). Existence: every nonzero b with (sum b_i)^2 = n sum b_i^2 is the curvature vector of a pairwise tangent family of spheres, where b_i is nonzero, and hyperplanes, where b_i = 0, and of a family of spheres when no b_i vanishes, by one Q_n-reflection from the configuration of two parallel hyperplanes and n unit spheres in the proof of GLMWY III's Theorem 6.1, or from its inversion in the unit sphere. Congruence: two valid, pairwise tangent families with the same curvatures, index by index, are carried one to the other by exactly one Euclidean motion x -> x O + t with O^T O = I, reflections and hyperplanes included, with O = (1/2) X^T Q_n X' and t = -(1/4) a^T Q_n X' for augmented matrices [a | b | X] and [a' | b | X'] and the motion's action on points, spheres and hyperplanes; W_1^-1 W_2 preserves the target form and fixes the curvature coordinate, and every such matrix is a motion matrix (GLMWY III's arXiv v1-v2 argue instead by the rigidity of a simplex of centres); its uniqueness and parameters are proved here. A motion preserves validity, curvature and tangency, so two valid, pairwise tangent families are congruent exactly when their curvature vectors agree. For every solution W: the total curvature B is nonzero, the open sets {y : B F_i(y) < 0}, F_i(y) = b_i |y|^2 - 2 <v_i, y> + a_i the power polynomial of row i (negative exactly inside a ball, outside a ball of negative radius, or on the side of a hyperplane its normal points to), are pairwise disjoint, at most two rows are hyperplanes, and no three boundaries pass through a finite point; for a valid, pairwise tangent family the total curvature is nonzero, at most two members are hyperplanes, and when the total curvature is positive the open interiors are pairwise disjoint. The converse of Theorem 3.2 in every dimension under the hypothesis of a nonzero first column (every real M with M^T Q_n M = diag(0, 2 I_n) and a nonzero first column is the curvature-centre matrix of exactly one family of valid, pairwise tangent oriented spheres and hyperplanes), which GLMWY I, Theorem 3.1 and its Remark, prove at n = 2 with that hypothesis and which LMW's printed converse (\"any real solution M\") and GLMWY III's arXiv v1-v2 Theorem 2.3 omit, together with the matrix at n = 2 with columns 0, e_0 - e_1, e_2 - e_3 (GLMWY I's configuration (3.15) with its first column zeroed; the matrix of four oriented lines with normals +-e_0, +-e_1), which solves the equation and is the curvature-centre matrix of no valid, pairwise tangent family. The existence of a configuration in every dimension (that configuration); for n >= 2 the Apollonian generators S_k = I + (2/(n-1)) e_k 1^T - (2n/(n-1)) e_k e_k^T of GLMWY III, (4.1), preserve Q_n and carry configurations to configurations, with the row formula (S_k W)_k = (2/(n-1)) sum_{i != k} W_i - W_k, and Soddy's two spheres (LMW, footnote 3; GLMWY III, Section 4.1), in the signed sense: the oriented spheres and hyperplanes tangent to n + 1 members of a configuration are exactly the missing member and its Apollonian reflection, two distinct objects whose curvatures sum to (2/(n-1)) times the sum of the others' curvatures. The planar Soddy-Gosset relation for four circles of positive radius, pairwise externally tangent or with one enclosing circle, is already in Lean in facebookresearch/atlas-lean (descartes_circle_theorem, not registered); rjwalters/lean-genius and carlok/LeanFrontier treat the planar relation as a definition (its two roots, the same over the complex numbers, integer reflections and parity; LeanFrontier checks it for one family of Ford circles and their tangent line), with no derivation from tangency; no other formalization of these statements was found by the dated searches.",
+  "authors": [
+    {
+      "name": "JD Jones"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-16-000020-v1/b3eb9c886959ac68564b9f4af59fc55f08821b4bdd54eda292ea60e80d5bd78f/",
+    "artifact_tree_sha256": "b3eb9c886959ac68564b9f4af59fc55f08821b4bdd54eda292ea60e80d5bd78f",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-16T21:13:20Z",
+    "renderer_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.MG"
+    ],
+    "msc2020": [
+      "52C26",
+      "51M04",
+      "51B10"
+    ]
+  },
+  "first_registered_on": "2026-10-16",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "AugmentedDescartes.lorentz_sphereRow_self",
+      "AugmentedDescartes.lorentz_sphereRow_eq_neg_one_iff",
+      "AugmentedDescartes.lorentz_sphereRow_planeRow_eq_neg_one_iff",
+      "AugmentedDescartes.lorentz_planeRow_eq_neg_one_iff",
+      "AugmentedDescartes.lorentz_row_self",
+      "AugmentedDescartes.lorentz_row_eq_neg_one_iff",
+      "AugmentedDescartes.row_injOn_valid",
+      "AugmentedDescartes.exists_orientedSphere_of_lorentz_self",
+      "AugmentedDescartes.augmented_identity_iff_lorentz",
+      "AugmentedDescartes.gram_eq_of_augmented_identity",
+      "AugmentedDescartes.augmented_descartes",
+      "AugmentedDescartes.augmented_descartes_general",
+      "AugmentedDescartes.augmented_descartes_converse",
+      "AugmentedDescartes.augmented_descartes_converse_spheres",
+      "AugmentedDescartes.soddy_gosset",
+      "AugmentedDescartes.soddy_gosset_general",
+      "AugmentedDescartes.soddy_gosset_iff_isotropic",
+      "AugmentedDescartes.curvature_center",
+      "AugmentedDescartes.curvature_center_general",
+      "AugmentedDescartes.complex_descartes",
+      "AugmentedDescartes.complex_descartes_mixed",
+      "AugmentedDescartes.det_descartesQ",
+      "AugmentedDescartes.sphere_soddy_gosset",
+      "AugmentedDescartes.sphere_soddy_gosset_enclosing",
+      "AugmentedDescartes.sphere_augmented_descartes",
+      "AugmentedDescartes.exists_configuration",
+      "AugmentedDescartes.exists_pairwiseTangent",
+      "AugmentedDescartes.converse_soddy_gosset",
+      "AugmentedDescartes.converse_soddy_gosset_spheres",
+      "AugmentedDescartes.curvature_center_converse",
+      "AugmentedDescartes.curvature_center_converse_needs_nonzero",
+      "AugmentedDescartes.apollonianGen_mem_aut",
+      "AugmentedDescartes.apollonian_reflection",
+      "AugmentedDescartes.apollonianGen_mul_apply",
+      "AugmentedDescartes.two_tangent_rows",
+      "AugmentedDescartes.two_tangent_spheres",
+      "AugmentedDescartes.same_curvature_motion",
+      "AugmentedDescartes.rigidMotion_parameters",
+      "AugmentedDescartes.rigidMotionPoint_isometry",
+      "AugmentedDescartes.rigidMotionMatrix_sphereRow",
+      "AugmentedDescartes.rigidMotionMatrix_planeRow",
+      "AugmentedDescartes.same_curvature_congruence",
+      "AugmentedDescartes.rowPower_sphereRow",
+      "AugmentedDescartes.rowPower_planeRow",
+      "AugmentedDescartes.rowPower_sphereRow_neg_iff_of_pos",
+      "AugmentedDescartes.rowPower_sphereRow_neg_iff_of_neg",
+      "AugmentedDescartes.rowPower_planeRow_neg_iff",
+      "AugmentedDescartes.augmented_orientation",
+      "AugmentedDescartes.augmented_orientation_disjoint",
+      "AugmentedDescartes.augmented_no_three_zero_curvatures",
+      "AugmentedDescartes.augmented_no_three_boundaries",
+      "AugmentedDescartes.rigidMotionOf_isValid",
+      "AugmentedDescartes.rigidMotionOf_curvature",
+      "AugmentedDescartes.lorentz_vecMul_rigidMotionMatrix",
+      "AugmentedDescartes.rigidMotionOf_tangent_iff",
+      "AugmentedDescartes.congruent_iff_same_curvature",
+      "AugmentedDescartes.tangent_family_curvature_sum_ne_zero",
+      "AugmentedDescartes.tangent_family_interiors_disjoint",
+      "AugmentedDescartes.tangent_family_two_hyperplanes"
+    ]
+  },
+  "id": "PALOMAR-2026-10-16-000020",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-16T21:13:55Z",
+    "receipt_sha256": "e1a6e6c555dfea119a72dceaafd6109dddc55431e31e52cde5a545dafa990483",
+    "repositories": [
+      {
+        "commit": "44bdbf1dec3ffab07c97da8544aca6255826ded2",
+        "fork_repository": "PalomarArchive/JD-Jones-ASES--augmented-descartes-lean--1c7574ee15ad",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000020-v1/44bdbf1dec3ffab07c97da8544aca6255826ded2",
+        "source_repository": "JD-Jones-ASES/augmented-descartes-lean"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000020-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000020-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000020-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000020-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000020-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000020-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000020-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000020-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-16-000020-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jeffrey C. Lagarias"
+          },
+          {
+            "name": "Colin L. Mallows"
+          },
+          {
+            "name": "Allan R. Wilks"
+          }
+        ],
+        "identifier": "doi:10.1080/00029890.2002.11920896",
+        "location": "The American Mathematical Monthly 109 (2002), 338-361; read as arXiv:math/0101066v1 (https://arxiv.org/abs/math/0101066, the only arXiv version), printed pages: Theorem 1.2 (the Soddy-Gosset theorem, printed \"Gossett\", (1.2)) and footnote 3, p. 3; (2.1), p. 3; Theorem 2.1 (the complex Descartes theorem, (2.2), (2.3)), p. 4; (3.1) and Theorem 3.1 (the converse to the Soddy-Gosset theorem), p. 7; Theorem 3.2 ((3.5)), p. 8; (3.7), Definition 3.2 ((3.8)), (3.9) and Theorem 3.3 ((3.11)), p. 9; footnote 4, p. 10; Section 8 ((8.2)-(8.4)), pp. 22-23; the interior convention, pp. 1-2; (2.4), p. 6; Lemmas 4.3-4.4, p. 12; (5.1)-(5.2), p. 15. The Monthly print was not read.",
+        "relationship": "formalizes",
+        "title": "Beyond the Descartes circle theorem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ronald L. Graham"
+          },
+          {
+            "name": "Jeffrey C. Lagarias"
+          },
+          {
+            "name": "Colin L. Mallows"
+          },
+          {
+            "name": "Allan R. Wilks"
+          },
+          {
+            "name": "Catherine H. Yan"
+          }
+        ],
+        "identifier": "arXiv:math/0010324v2",
+        "location": "https://arxiv.org/abs/math/0010324v2 (2001-01-24; v1 of 2000-10-31 has the same Section 2 with the form normalized as n I − 𝟙𝟙ᵀ), in the normalization Qₙ = I − (1/n)𝟙𝟙ᵀ: Theorem 2.2 (the converse to the Soddy-Gosset theorem, printed \"Gossett\": (i) existence, (ii) congruence), p. 4; Theorem 2.3 ((2.8), (2.9)), pp. 5-6, its converse proof pp. 9-10; Theorem 2.4 and Lemma 2.5, pp. 11-12; the proof of Theorem 2.2, pp. 12-14; Theorem 3.1 (the translation and rotation matrices on augmented coordinates), p. 15; Definition 5.1 (separation), p. 33. This Section 2 (the generalized Descartes theorem) is absent from v3 (2004-06-16), v4 (2005-03-11) and the journal version.",
+        "relationship": "formalizes",
+        "title": "Apollonian circle packings: geometry and group theory III. Higher dimensions (arXiv versions 1 and 2)",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ronald L. Graham"
+          },
+          {
+            "name": "Jeffrey C. Lagarias"
+          },
+          {
+            "name": "Colin L. Mallows"
+          },
+          {
+            "name": "Allan R. Wilks"
+          },
+          {
+            "name": "Catherine H. Yan"
+          }
+        ],
+        "identifier": "doi:10.1007/s00454-005-1197-8",
+        "location": "Discrete & Computational Geometry 35 (2006), 37-72; read as arXiv:math/0010324v4 (https://arxiv.org/abs/math/0010324v4, 2005-03-11), printed pages: Theorem 3.1 (the augmented Euclidean Descartes theorem, proved by citation of LMW), p. 8; the determinants of the three forms and Theorem 3.2, p. 9; Section 4.1 and (4.1), p. 11; Theorem 6.1 and its configuration of curvatures (0, 0, 1, ..., 1), p. 20; Lemma 6.4 and (6.4), p. 21; Section 3.1, pp. 5-7 (all points of tangency distinct, p. 5; the total orientation, the sum of the curvatures cannot be zero, and the four cases, p. 6; a hyperplane as a limit of spheres, p. 7); Theorem 9.1 and (9.3), p. 31, and its proof with (9.4)-(9.5) and the translation and rotation matrices, pp. 32-33; Definition 7.1 (separation). The journal print was not read.",
+        "relationship": "background",
+        "title": "Apollonian circle packings: geometry and group theory III. Higher dimensions",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ronald L. Graham"
+          },
+          {
+            "name": "Jeffrey C. Lagarias"
+          },
+          {
+            "name": "Colin L. Mallows"
+          },
+          {
+            "name": "Allan R. Wilks"
+          },
+          {
+            "name": "Catherine H. Yan"
+          }
+        ],
+        "identifier": "doi:10.1007/s00454-005-1196-9",
+        "location": "Discrete & Computational Geometry 34 (2005), 547-585; read as arXiv:math/0010298v5 (https://arxiv.org/abs/math/0010298v5, 2005-03-11), printed pages: Theorem 3.1 (the extended Descartes theorem, its converse for a nonzero first column) and the Remark after it, p. 7; Theorem 3.2 and the hyperplane coordinate (b̄ twice the distance from the origin), pp. 8-9; the proof of the converse of Theorem 3.1, pp. 11-12; Section 3.3 ((3.25), the reflection operator S₁), p. 15; Definition 4.1 (the Apollonian group), p. 21. The journal print was not read.",
+        "relationship": "formalizes",
+        "title": "Apollonian circle packings: geometry and group theory I. The Apollonian group",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Frederick Soddy"
+          }
+        ],
+        "identifier": "doi:10.1038/1371021a0",
+        "location": "Nature 137 (1936), 1021 (20 June 1936); not read",
+        "relationship": "background",
+        "title": "The Kiss Precise",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Thorold Gosset",
+            "role": "author of the n-dimensional verse the item reports"
+          }
+        ],
+        "identifier": "doi:10.1038/139062a0",
+        "location": "Nature 139 (1937), 62 (9 January 1937); Crossref lists no author; not read (the publisher's page requires a login)",
+        "relationship": "background",
+        "title": "The Kiss Precise",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Thorold Gosset"
+          }
+        ],
+        "identifier": "doi:10.1038/139251b0",
+        "location": "Nature 139 (1937), 251-252; Crossref's author metadata (THOROLD GOSSET) read, the letter not read",
+        "relationship": "background",
+        "title": "The Hexlet",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "PalomarRegistry (PalomarSubmission)"
+          }
+        ],
+        "identifier": "https://github.com/PalomarRegistry/PalomarSubmission",
+        "location": "scripts/core_notation_audit.lean, vendored unchanged as this repository's scripts/core_notation_audit.lean; run by scripts/verify.py on every compared declaration",
+        "relationship": "other",
+        "title": "PalomarSubmission: scripts/core_notation_audit.lean (the registry's renderability audit)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "R. Lachlan"
+          }
+        ],
+        "identifier": "doi:10.1098/rstl.1886.0016",
+        "location": "Philosophical Transactions of the Royal Society of London 177 (1886), 481-625, p. 498 (per LMW p. 3); not read",
+        "relationship": "background",
+        "title": "On systems of circles and spheres",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Julian Lowell Coolidge"
+          }
+        ],
+        "identifier": "J. L. Coolidge, A treatise on the circle and the sphere, Clarendon Press, Oxford, 1916",
+        "location": "Clarendon Press, Oxford (1916), p. 258 (per LMW p. 3); not read",
+        "relationship": "background",
+        "title": "A treatise on the circle and the sphere",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Daniel Pedoe"
+          }
+        ],
+        "identifier": "doi:10.1080/00029890.1967.12000012",
+        "location": "The American Mathematical Monthly 74 (1967), 627-640; not read",
+        "relationship": "background",
+        "title": "On a theorem in geometry",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "H. S. M. Coxeter"
+          }
+        ],
+        "identifier": "doi:10.1007/bf01817563",
+        "location": "Aequationes Mathematicae 1 (1968), 104-121; not read",
+        "relationship": "background",
+        "title": "Loxodromic sequences of tangent spheres",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "J. B. Wilker"
+          }
+        ],
+        "identifier": "doi:10.1007/978-1-4612-5648-9_27",
+        "location": "In: C. Davis, B. Grünbaum, F. A. Sherk (eds.), The Geometric Vein, Springer (1981), 379-442; Section 2, pp. 388-390, and Section 9 (per GLMWY III v4 p. 8); not read",
+        "relationship": "background",
+        "title": "Inversive geometry",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "The mathlib Community"
+          }
+        ],
+        "identifier": "https://github.com/leanprover-community/mathlib4/blob/260040a48ce43845520c5fea79d0b511234dda2d/docs/1000.yaml",
+        "location": "docs/1000.yaml line 1519, Q1196538 (read 2026-10-10 at master 260040a, committed 2026-10-10T22:52Z: a title only, no declaration and no URL)",
+        "relationship": "background",
+        "title": "Mathlib docs/1000.yaml, entry Q1196538 (Descartes's theorem)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Meta Platforms, Inc. and affiliates (facebookresearch/atlas-lean)"
+          }
+        ],
+        "identifier": "https://github.com/facebookresearch/atlas-lean/blob/27a38cfdcea9e80a11c49ff8e2ce17650e264552/MathlibExt/Geometry/Euclidean/DescartesCircleTheorem.lean",
+        "location": "theorem MetaMathlibExt.descartes_circle_theorem (statement_id descartes-kissing-s1) and its private helpers descartes_sq_dist, descartes_planar_relation, descartes_signed_algebra, descartes_of_signed; imported 2026-10-05 in 27a38cf (\"[formal-math] Import Geometry 03: Euclidean, Manifold\"), its header changed only in 93f20f3 (2026-10-07), unchanged at main 02e016d (2026-10-10T22:14Z); test MathlibExtTest/Geometry/Euclidean/DescartesCircleTheorem.lean",
+        "relationship": "other",
+        "title": "facebookresearch/atlas-lean: MathlibExt/Geometry/Euclidean/DescartesCircleTheorem.lean",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Archana Mohandas"
+          }
+        ],
+        "contributors": [
+          {
+            "name": "Alex Kontorovich",
+            "role": "mentor"
+          }
+        ],
+        "identifier": "http://archive.reu.dimacs.rutgers.edu/2022/am3374/public_html/",
+        "location": "Weeks 6-9 (read 2026-10-10; the page says it is no longer maintained; no repository is linked)",
+        "relationship": "background",
+        "title": "Hyperbolic Geometry in the Lean Theorem Prover (DIMACS REU 2022 project page)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "tadamcz/annals-results"
+          }
+        ],
+        "identifier": "https://github.com/tadamcz/annals-results/tree/e37fac79bedddf40773e5e02dc5f9585247710ce/data/trees/2307.02749",
+        "location": "c01/Candidate/NumberTheory/Apollonian/Basic.lean (IsDescartes, soddy, orbit) and c02/Candidate/NumberTheory/ApollonianPacking/ (read 2026-10-10)",
+        "relationship": "other",
+        "title": "tadamcz/annals-results: Apollonian candidate trees for arXiv:2307.02749",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "ImperialCollegeLondon/AnnalsChallenge"
+          }
+        ],
+        "identifier": "https://github.com/ImperialCollegeLondon/AnnalsChallenge/blob/e32eb1411db0d700ca874dd695aea92f78699db8/AnnalsChallenge/AnnalsOfMathematics/2024-200-2-LocalGlobalApollonianCirclePackings.lean",
+        "location": "DescartesMatrix, DescartesOrthogonalGroup, descartes_iff, integralPrimitiveDescartesQuadruple (read 2026-10-10); Apache-2.0",
+        "relationship": "other",
+        "title": "ImperialCollegeLondon/AnnalsChallenge: The local-global conjecture for Apollonian circle packings is false",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "brandonrdug/holonics"
+          }
+        ],
+        "identifier": "https://github.com/brandonrdug/holonics/blob/337f351e9fb675c5e2498ca6750180542147db29/lean/HolonicsResearch/Geometry/SpherePacking.lean",
+        "location": "soddyGossettDefect, reflect, everyReflectionPreservesTheTangencyDefect, everyGeneratedPopulationSatisfiesTangency (last changed 2026-09-25 in 8f85f4b; read 2026-10-10, not built); Apache-2.0",
+        "relationship": "other",
+        "title": "brandonrdug/holonics: lean/HolonicsResearch/Geometry/SpherePacking.lean",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Leonardo de Moura"
+          },
+          {
+            "name": "Sebastian Ullrich"
+          }
+        ],
+        "identifier": "doi:10.1007/978-3-030-79876-5_37",
+        "location": "Automated Deduction - CADE 28, Lecture Notes in Computer Science, Springer, 2021, 625-635",
+        "relationship": "background",
+        "title": "The Lean 4 Theorem Prover and Programming Language",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "The mathlib Community"
+          }
+        ],
+        "identifier": "doi:10.1145/3372885.3373824",
+        "location": "Proceedings of the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs (CPP 2020), 367-381",
+        "relationship": "background",
+        "title": "The Lean mathematical library",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "rjwalters/lean-genius"
+          }
+        ],
+        "identifier": "https://github.com/rjwalters/lean-genius/blob/8e7085869ea0f90f1a5e1f8348affc97f75bb9a2/proofs/Proofs/DescartesCircleTheorem.lean",
+        "location": "descartes_circle, descartesRel_iff_sq, descartes_soddy_forward, descartes_soddy_backward, soddy_sum, soddy_prod (added 2026-06-16 in b54ac1b); DescartesCircleTheoremOQ01OQ01.lean (the relation over the complex numbers), DescartesCircleTheoremOQ01OQ02.lean (integer reflection), DescartesCircleParityOQ010201.lean (parity); unchanged at 8e70858 (2026-09-29); read 2026-10-11 UTC, not built; the repository has no license",
+        "relationship": "other",
+        "title": "rjwalters/lean-genius: proofs/Proofs/DescartesCircleTheorem.lean and three files built on it",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "carlok/LeanFrontier"
+          }
+        ],
+        "identifier": "https://github.com/carlok/LeanFrontier/blob/bb432f13a234e682dec83ba94e427d684d9825c5/LeanFrontier/NumberTheory/DescartesCircle.lean",
+        "location": "eq_or_eq_reflect, isQuadruple_reflect, curvatureReflection, farey_mediant_descartes_configuration (2026-08-17 to 2026-09-29); main bb432f1 (2026-10-09); read 2026-10-11 UTC, not built; Apache-2.0",
+        "relationship": "other",
+        "title": "carlok/LeanFrontier: NumberTheory/DescartesCircle.lean, NumberTheory/DescartesCurvatureAction.lean, Geometry/FordCircleDescartes.lean",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/facebookresearch/atlas-lean/blob/27a38cfdcea9e80a11c49ff8e2ce17650e264552/MathlibExt/Geometry/Euclidean/DescartesCircleTheorem.lean",
+        "note": "descartes_circle_theorem (facebookresearch/atlas-lean, imported 2026-10-05, unchanged in content at main 02e016d on 2026-10-10): a sorry-free Lean proof of the planar Soddy-Gosset relation for four circles of positive radius, all externally tangent or one enclosing, tangency distance-encoded, by a planar Gram determinant. It is the case n = 2 of soddy_gosset and sphere_soddy_gosset_enclosing here, which are not new at n = 2. Centres occur in its distance hypotheses, but it proves no curvature-centre identity, no augmented matrix identity, no converse, no higher dimension; unregistered. No code is shared.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "http://archive.reu.dimacs.rutgers.edu/2022/am3374/public_html/",
+        "note": "A 2022 DIMACS REU Lean attempt at the Soddy-Gosset theorem (A. Mohandas, mentor A. Kontorovich): definitions only; the preliminary lemmas and the main statement unfinished in Lean; no repository is linked.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/tadamcz/annals-results/tree/e37fac79bedddf40773e5e02dc5f9585247710ce/data/trees/2307.02749",
+        "note": "Integral Descartes quadruples and planar Soddy replacements, algebraic only. No code is shared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/ImperialCollegeLondon/AnnalsChallenge/blob/e32eb1411db0d700ca874dd695aea92f78699db8/AnnalsChallenge/AnnalsOfMathematics/2024-200-2-LocalGlobalApollonianCirclePackings.lean",
+        "note": "The integral Descartes form, its orthogonal group and primitive Descartes quadruples, algebraic only. No code is shared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/brandonrdug/holonics/blob/337f351e9fb675c5e2498ca6750180542147db29/lean/HolonicsResearch/Geometry/SpherePacking.lean",
+        "note": "Integer bend reflections at n = 3 preserving the Soddy-Gosset quadric (the case n = 3 of apollonianGen_mem_aut on curvature vectors), algebraic only. No code is shared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/rjwalters/lean-genius/blob/8e7085869ea0f90f1a5e1f8348affc97f75bb9a2/proofs/Proofs/DescartesCircleTheorem.lean",
+        "note": "The planar relation as a definition, its roots over the reals and the complex numbers, integer reflection and parity; no tangency. Read at the pinned commit on 2026-10-11 UTC, not built. No code is shared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/carlok/LeanFrontier/blob/bb432f13a234e682dec83ba94e427d684d9825c5/LeanFrontier/NumberTheory/DescartesCircle.lean",
+        "note": "The planar relation as a definition and its reflections; one Ford-circle family as an instance at n = 2, by direct computation. Read at main bb432f1 on 2026-10-11 UTC, not built. No code is shared.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "JD Jones"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-16T21:13:31Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "46619f4c9a878a205bfa2eafa4fd5f0042b297caf6c9bfb275ca63349ac9e809"
+    },
+    "reviewed_at": "2026-10-16T15:16:52Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "44bdbf1dec3ffab07c97da8544aca6255826ded2",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "8d464f723696204001f7ef63b6146ffc544aa6837aa74c53f6f9c53d8a18b0f0"
+    },
+    "repository": "JD-Jones-ASES/augmented-descartes-lean",
+    "repository_url": "https://github.com/JD-Jones-ASES/augmented-descartes-lean",
+    "tree_url": "https://github.com/JD-Jones-ASES/augmented-descartes-lean/tree/44bdbf1dec3ffab07c97da8544aca6255826ded2"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "zxu06sbfntbl"
+  },
+  "title": "The augmented Descartes theorem in every dimension, its converses, and Soddy's two spheres",
+  "trust": {
+    "challenge_bytes": 43250,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 641,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "12a188e1f17372989990f1e52dfddb47bc53db0a416260710edc28da5010cb5c",
+    "evidence_path": "evidence/PALOMAR-2026-10-16-000020-v1/8551108667abea1f5886068d830edb0f90887b8a4f3cb8e3c50dc09e72d58e73/",
+    "evidence_tree_sha256": "8551108667abea1f5886068d830edb0f90887b8a4f3cb8e3c50dc09e72d58e73",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--jobs=2"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "2d15735df58412c12448b09e64b72043cbe9920637df297b845084f5290c91bd",
+    "protected_config_sha256": "13d2419f11b045ea4baadf06b91f98a0b0bca9a00c3bfc84c71ef1f4722d413e",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 38916120735,
+    "solution_sha256": "da9b20cfbc31d57df082bfa087cbe467eb3b75c8ae0558a01c2a08a8b350b299",
+    "tool_digests": {
+      "bwrap": "01e4bde73b65be5fe7d4c3bb21de221258af78b4f199460e41cce763a7439c60",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-16T14:35:26Z",
+    "workflow_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/38916120735"
+  },
+  "version": 1
+}
