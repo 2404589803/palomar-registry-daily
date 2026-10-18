@@ -1,14 +1,1401 @@
 {
-  "fetched_at": "2026-10-17T06:53:22.391628+00:00",
+  "fetched_at": "2026-10-18T07:11:44.107375+00:00",
   "results": {
     "schema_version": 1,
-    "revision": 326,
-    "release": "89942bf14d4c51de088b415ea8f26e4f49c86d0d9f9e7eeb670603ef4b7a8313",
+    "revision": 349,
+    "release": "8ea1eaf13c7bd92b4328418b9afdbbf416af12dd39c55c05daa0f7deb08b99f0",
     "totals": {
-      "results": 593,
-      "projects": 491
+      "results": 614,
+      "projects": 508
     },
     "entries": [
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of classical structure theorems for finite simple graphs. Chordal graphs: every minimal a–b separator is a clique, a nonempty finite chordal graph has a simplicial vertex, and a connected non-complete one has two non-adjacent simplicial vertices (Dirac 1961); a finite graph is chordal iff it has a perfect elimination order (Fulkerson–Gross 1965), iff it is the intersection graph of subtrees of a finite tree (Gavril 1974); a nonempty finite chordal graph has treewidth ω − 1, and every finite graph has ω ≤ tw + 1. Split graphs: split iff the graph and its complement are chordal, iff no induced 2K₂, C₄ or C₅ (Földes–Hammer 1977). Threshold graphs: threshold iff no induced 2K₂, C₄ or P₄ (Chvátal–Hammer 1977), iff split and a cograph (no induced P₄). Mathlib has none of these graph classes; their definitions are stated in the Challenge.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C75",
+            "05C05"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "ChordalClasses.minimalSeparator_isClique",
+            "ChordalClasses.exists_isSimplicial",
+            "ChordalClasses.exists_two_nonadj_isSimplicial",
+            "ChordalClasses.isChordal_iff_exists_isPEO",
+            "ChordalClasses.cliqueNum_le_treewidth_succ",
+            "ChordalClasses.isSplit_iff_isChordal_and_compl",
+            "ChordalClasses.isSplit_iff_forbidden_induced_subgraphs",
+            "ChordalClasses.isCograph_iff_not_pathGraph_four_isIndContained",
+            "ChordalClasses.isThreshold_iff_isSplit_and_isCograph",
+            "ChordalClasses.isThreshold_iff_forbidden_induced_subgraphs",
+            "ChordalClasses.isChordal_iff_nonempty_subtreeRepresentation",
+            "ChordalClasses.treewidth_succ_eq_cliqueNum"
+          ]
+        },
+        "id": "PALOMAR-2026-10-18-000006",
+        "path": "entries/PALOMAR-2026-10-18-000006-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "ed65dcdc7339767d3e8e412420abbf54eae65ddb",
+              "fork_repository": "PalomarArchive/jtraverso--chordal-split-threshold-graphs--600d961f6749",
+              "source_repository": "jtraverso/chordal-split-threshold-graphs"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "23990b41b1456cda940d1410e5281d6bd042e4312d47e75365a3cc9190a7df64",
+          "version": 1
+        },
+        "published_at": "2026-10-18T07:03:18Z",
+        "source": {
+          "commit": "ed65dcdc7339767d3e8e412420abbf54eae65ddb",
+          "project_path": null,
+          "repository": "jtraverso/chordal-split-threshold-graphs"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Chordal, split, threshold and cograph structure",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of Tutte's f-factor theorem: a finite simple graph G has a spanning subgraph H with deg_H v = f v for every vertex v if and only if, for all disjoint vertex sets S and T, q(S, T) ≤ ∑_{v ∈ S} f v − ∑_{v ∈ T} f v + ∑_{v ∈ T} deg_{G−S} v, where q(S, T) is the number of connected components C of G − (S ∪ T) for which ∑_{v ∈ C} f v + e(C, T) is odd and deg_{G−S} v is the number of neighbours of v outside S. Mathlib has Tutte's 1-factor theorem but not the f-factor theorem.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C70",
+            "05C07"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "TutteFactor.tutte_f_factor"
+          ]
+        },
+        "id": "PALOMAR-2026-10-18-000005",
+        "path": "entries/PALOMAR-2026-10-18-000005-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "dc3bbce463c80c499d3e9fa072d13f9145d907d0",
+              "fork_repository": "PalomarArchive/jtraverso--tutte-f-factor--c791dc403ea0",
+              "source_repository": "jtraverso/tutte-f-factor"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "ffd717fc51c61923198c68f299825693d9ad47049cdfa0277ffc3ada8af7103d",
+          "version": 1
+        },
+        "published_at": "2026-10-18T06:51:21Z",
+        "source": {
+          "commit": "dc3bbce463c80c499d3e9fa072d13f9145d907d0",
+          "project_path": null,
+          "repository": "jtraverso/tutte-f-factor"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Tutte's f-factor theorem",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Formalizes Gregory Morse and Tamas Kozsik's paper \"Tamper-Proofing with Self-Modifying Code\" (arXiv:2604.12407v1). The selected statement (PalomarSMT.mathematical_result, four results T1-T4) is an abstract threat model for checksum units whose opcode state lives in the memory they checksum: a system of units with regions and code, a timeline of write, execute, check, split-view and DMA events, adversary levels L0-L4, a cost contract with lower bounds on emulation, forgery and mediation, and eight structural assumptions A1-A8 (none of the form \"the attacker is detected\"). An effective alarm needs a unit with a response code (at least one response byte, all of it unmodified) and either a value mismatch or a positive number k of consecutive timing failures; A6 therefore includes k > 0 and A7 includes that every unit has a response byte. The four selected results are: for every well-formed timeline of a system satisfying A1-A8, if a protected byte outside the SMC opcode bytes (which legitimately vary) is executed while the fetch view differs from the original image, an effective alarm occurs somewhere in the timeline, not necessarily before that execution (T1; executing a changed protected opcode byte is outside the goal); in a faithful split-view run every iteration with a non-zero toggle (apart from the last) is mediated, and under A3 and A5 a faithful mediated check that the cost contract admits, with such an iteration, is a timing failure (T2; not every split-view attack is claimed detected); each of the eleven assumptions is necessary, by an explicit winning adversary against a system that satisfies all the others (T3); and every well-formed timeline at level L0 or L1 with the inline timer satisfies A1, A4 and A5, while there are winning adversaries against systems satisfying every other assumption at L1 with an operating-system timer, at L2 and at L4 (T4: the removed assumption is A5 at L1 with an operating-system timer and at L2, A1 at L2, A4 at L4). Proved in the same development but NOT part of this record (they are not in the Comparator configuration): the paper's Harvard/von Neumann observation (C01, C02), a general fact about observation-preserving simulation whose time bound assumes the per-read charge it uses; the three-quadword forgery of the checksum and the proof that two quadwords do not suffice (the selected T3 witness for A8 is a single two-quadword collision pair); the x86-64 model of the kernels, the static kernel against its C emulation, the 296-unit unrolled kernel at an abstract level and at the instruction level, the byte layout against assembler output, a clear-count contract checked against the paper's tables, timers, the noise estimator, the detection predicate and the data ratios, and native test vectors for the corrected sources.",
+        "authors": [
+          {
+            "name": "Gregory Morse"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "cs.CR",
+            "cs.LO"
+          ],
+          "msc2020": [
+            "68M07",
+            "94A60",
+            "68Q60"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PalomarSMT.mathematical_result"
+          ]
+        },
+        "id": "PALOMAR-2026-10-18-000004",
+        "path": "entries/PALOMAR-2026-10-18-000004-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "0a48a85e0f1884a50c6abdcf8617bd315a6b59c2",
+              "fork_repository": "PalomarArchive/GregoryMorse--SelfModTamper--186bf1350036",
+              "source_repository": "GregoryMorse/SelfModTamper"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "48f86f28496eca03df22d83d44a5e1b9ee789213ca981091ae4d179791867a3f",
+          "version": 1
+        },
+        "published_at": "2026-10-18T06:13:21Z",
+        "source": {
+          "commit": "0a48a85e0f1884a50c6abdcf8617bd315a6b59c2",
+          "project_path": "lean",
+          "repository": "GregoryMorse/SelfModTamper"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Tamper-proofing with self-modifying code: a Lean formalization of the threat model",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For every real additive constant C and natural cutoff K, every sufficiently large natural n admits K < k < n with omega(n-k) at least log(k)/log(log(k)) + C. Here omega counts distinct prime factors. This independently implemented proof uses a fixed primorial residue window, elementary Chebyshev estimates and Stirling bounds. It refutes the known additive strengthening and does not resolve the main multiplicative question. No mathematical novelty is claimed.",
+        "authors": [
+          {
+            "name": "AItoBit"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11A25",
+            "11N37"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Erdos679.additive_refutation"
+          ]
+        },
+        "id": "PALOMAR-2026-10-18-000003",
+        "path": "entries/PALOMAR-2026-10-18-000003-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "4a53d358d1b7ade35d6f696f501c99b4d88c9e4c",
+              "fork_repository": "PalomarArchive/AItoBit--erdos-679-additive-refutation--721a6d9e77f6",
+              "source_repository": "AItoBit/erdos-679-additive-refutation"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "351842385028112250c48fc74145d739a0e1f0a2cc4549e7ef732ad73e587c50",
+          "version": 1
+        },
+        "published_at": "2026-10-18T06:05:40Z",
+        "source": {
+          "commit": "4a53d358d1b7ade35d6f696f501c99b4d88c9e4c",
+          "project_path": null,
+          "repository": "AItoBit/erdos-679-additive-refutation"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Additive strengthening of Erdos problem 679: a known refutation",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of the graph removal lemma of Erdős, Frankl and Rödl for an arbitrary fixed finite graph H on k vertices: for every ε > 0 there is δ > 0, depending only on H and ε, such that every finite graph on n vertices with fewer than δ nᵏ labelled copies of H can be made H-free by deleting fewer than ε n² edges; equivalently (far form), a graph from which at least ε n² edges must be deleted to destroy all copies of H has at least δ nᵏ labelled copies. Also included is the counting lemma used in the proof: if parts s x (one for each vertex x of H) are robustly dense with density at least d along the edges of H, with 2kη ≤ dᵏ and #(s x) ≥ 4k/dᵏ, then at least (dᵏ/4)ᵏ ∏ #(s x) injective maps send H into G with f x ∈ s x. Mathlib has the regularity lemma and the triangle removal lemma, but not the removal lemma for a general H.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C35"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "RemovalLemma.card_copies_ge",
+            "RemovalLemma.le_labelledCopyCount_of_deleteFar",
+            "RemovalLemma.graph_removal"
+          ]
+        },
+        "id": "PALOMAR-2026-10-18-000002",
+        "path": "entries/PALOMAR-2026-10-18-000002-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "589cf03ef1e4c80ea8cdd6be77778232c62dd37c",
+              "fork_repository": "PalomarArchive/jtraverso--graph-removal-lemma--03befbbe3fbf",
+              "source_repository": "jtraverso/graph-removal-lemma"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "de774b286d4f643ad29aae8b2506c5c31411b09d465487acaf5358cbb684c1bc",
+          "version": 1
+        },
+        "published_at": "2026-10-18T03:49:35Z",
+        "source": {
+          "commit": "589cf03ef1e4c80ea8cdd6be77778232c62dd37c",
+          "project_path": null,
+          "repository": "jtraverso/graph-removal-lemma"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The graph removal lemma for every fixed graph",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of two classical degree-sequence conditions for Hamiltonicity of a finite simple graph on n ≥ 3 vertices with degrees d₁ ≤ ⋯ ≤ dₙ. Chvátal's theorem (1972): if for every i < n/2, dᵢ ≤ i implies d_{n−i} ≥ n − i, then the graph is Hamiltonian (stated without sorting: if at least i vertices have degree at most i, then at least i + 1 vertices have degree at least n − i). Pósa's theorem (1962): if for every k with 1 ≤ k < (n − 1)/2 fewer than k vertices have degree at most k, and, for odd n, at most (n − 1)/2 vertices have degree at most (n − 1)/2, then the graph is Hamiltonian. Mathlib has Hamiltonian cycles but neither theorem.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C45",
+            "05C07"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "HamiltonDegree.chvatal",
+            "HamiltonDegree.posa"
+          ]
+        },
+        "id": "PALOMAR-2026-10-18-000001",
+        "path": "entries/PALOMAR-2026-10-18-000001-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "6be0ebda7b457b85ad400f6d7f92ad156d6e7712",
+              "fork_repository": "PalomarArchive/jtraverso--chvatal-posa-hamiltonian--3158a08a16e2",
+              "source_repository": "jtraverso/chvatal-posa-hamiltonian"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "6929195628337a3a506cb3cc03438b9911b1cd9ab7932d9571e56569f06655d6",
+          "version": 1
+        },
+        "published_at": "2026-10-18T01:59:46Z",
+        "source": {
+          "commit": "6be0ebda7b457b85ad400f6d7f92ad156d6e7712",
+          "project_path": null,
+          "repository": "jtraverso/chvatal-posa-hamiltonian"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Chvátal's and Pósa's degree conditions for Hamiltonian cycles",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A product of at most continuum many separable topological spaces is separable. The proof constructs a countable family of finite binary tables that realizes every finite assignment of natural-number labels, then applies dense sequences in the factors. No separation, metrizability, compactness or countable-base assumption on the factors is needed. Empty factors and empty index sets are allowed. A companion theorem proves the sharp criterion for discrete Boolean cubes: Bool^I is separable exactly when the index cardinality is at most continuum. This is the classical countable-density case; no arbitrary-cardinal or algebraic generalization, novelty or priority is claimed.",
+        "authors": [
+          {
+            "name": "Arthur Freitas Ramos"
+          },
+          {
+            "name": "David Barros Hulak"
+          },
+          {
+            "name": "Ruy Jose Guerra Barretto de Queiroz"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.GN"
+          ],
+          "msc2020": [
+            "54B10",
+            "54D65",
+            "54A25"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "HMP.finite_interpolation",
+            "HMP.denseRange_rows",
+            "HMP.continuum_bound_iff",
+            "HMP.separable_product_of_embedding",
+            "HMP.separable_product",
+            "HMP.coordinate_patterns_injective",
+            "HMP.boolean_cube_separable_iff"
+          ]
+        },
+        "id": "PALOMAR-2026-10-17-000019",
+        "path": "entries/PALOMAR-2026-10-17-000019-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "cd7ae6bc5f4a1e5569cbbe1a883b83e92eb07a0e",
+              "fork_repository": "PalomarArchive/Arthur742Ramos--Math-Formalization--4c88ddbef95a",
+              "source_repository": "Arthur742Ramos/Math-Formalization"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "bdcda614a2c7b3f2c8c14616d6316302f429493d87d48ff9df09514173d3d13b",
+          "version": 1
+        },
+        "published_at": "2026-10-17T23:57:25Z",
+        "source": {
+          "commit": "cd7ae6bc5f4a1e5569cbbe1a883b83e92eb07a0e",
+          "project_path": "topology/hewitt-marczewski-pondiczery",
+          "repository": "Arthur742Ramos/Math-Formalization"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Countable-density Hewitt–Marczewski–Pondiczery theorem",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of the Hoffman–Singleton theorem on Moore graphs of diameter two. For a finite k-regular graph of diameter at most two: the Moore bound n ≤ k² + 1; if moreover the girth is at least five, then n = k² + 1 and the graph is strongly regular with parameters (k² + 1, k, 0, 1); and, if k ≥ 2, then k ∈ {2, 3, 7, 57}. Mathlib has strongly regular graphs and the spectral theorem for Hermitian matrices, but not this theorem.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C50",
+            "05C35",
+            "05E30"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "HoffmanSingleton.card_le",
+            "HoffmanSingleton.card_eq",
+            "HoffmanSingleton.isSRGWith",
+            "HoffmanSingleton.hoffman_singleton"
+          ]
+        },
+        "id": "PALOMAR-2026-10-17-000018",
+        "path": "entries/PALOMAR-2026-10-17-000018-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "8819ccfea5474fab3d1cbc17e703860a4e008254",
+              "fork_repository": "PalomarArchive/jtraverso--moore-graphs-hoffman-singleton--c0de8dabed2e",
+              "source_repository": "jtraverso/moore-graphs-hoffman-singleton"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "2a0c325d1fa2e2da0c4abab3a308da2394a8eebf8910713bb230a75d22609803",
+          "version": 1
+        },
+        "published_at": "2026-10-17T23:47:21Z",
+        "source": {
+          "commit": "8819ccfea5474fab3d1cbc17e703860a4e008254",
+          "project_path": null,
+          "repository": "jtraverso/moore-graphs-hoffman-singleton"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Moore graphs of diameter two: the Hoffman–Singleton theorem",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A uniform finite-view reduction at the paper's counting-optimal k-bit vertex budget for odd maximum degree 2k-1. Given one total finite-view orientation rule with a sufficient one-bit advice guarantee, one decoder family is chosen before graph order, topology, markers, advice and payload. Every connected graph on Fin n with n>16(k+1) and degree at most 2k-1 admits an encoder recovering every edge bit at either endpoint from a 2^k-symbol vertex alphabet. The same total decoder is local across different connected graphs and arbitrary labelings, with no marker validity or encoded-input premise. Its explicit physical radius depends only on k and the oracle's radius, not n. Eight selected endpoints also cover storage capacity, advice-first coding, complete-graph counting, and bounded connected cell geometry. The external orientation algorithm, computability, general identifier assignments for the assembled theorem and mixed-component assembly remain outside the selected formal scope.",
+        "authors": [
+          {
+            "name": "Lennart Rudolph"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "cs.DC",
+            "math.CO"
+          ],
+          "msc2020": [
+            "68W15",
+            "05C85"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PalomarDecompression.cubicCapacity",
+            "PalomarDecompression.oddDegreeCapacity",
+            "PalomarDecompression.markedAdviceCodec",
+            "PalomarDecompression.informationLowerBound",
+            "PalomarDecompression.largeComponentPartition",
+            "PalomarDecompression.arbitraryLabelCellGeometry",
+            "PalomarDecompression.boundedCellStability",
+            "PalomarDecompression.uniformFiniteViewReconstruction"
+          ]
+        },
+        "id": "PALOMAR-2026-10-17-000017",
+        "path": "entries/PALOMAR-2026-10-17-000017-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "9a61a84e3a2e1494bc08b8eaf714c42f3f918325",
+              "fork_repository": "PalomarArchive/lennrt--palomar-formalizations--21c40838d48e",
+              "source_repository": "lennrt/palomar-formalizations"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "507ea12fab4b8afa45ef1e6d643c9e1673082b4f27ff62b01fd1843c94f4c6f0",
+          "version": 1
+        },
+        "published_at": "2026-10-17T23:30:52Z",
+        "source": {
+          "commit": "9a61a84e3a2e1494bc08b8eaf714c42f3f918325",
+          "project_path": "zenodo-23346565/palomar",
+          "repository": "lennrt/palomar-formalizations"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Optimal Local Decompression: Uniform Finite-View Reduction",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Lean 4 / Mathlib formalization around the quadratic form Q(n) = sum_{i,j in G} K(g(j) - g(i)) n_i n_j of Y. Huang (arXiv:2604.13238) on the gap diagram G of the numerical semigroup <a,b>, in two parts. Part A (Huang's results, two generators): the symmetric bilinear form B of Q satisfies B(1_D, 1_E) = dinv(D, E) for subdiagrams D, E (Huang's Theorem 1.2, formalized by AxiomProver and included in `Dinv/AxiomProver.lean`); from it this work proves Q(1_D) = dinv(D) and Q(1_D) > 0 for nonempty D (Theorem 1.1), B >= 0 on the cone of nonnegative decreasing functions, and the bound Q(n) >= n_i^2 / |G| for every coordinate i (Theorem 1.3, so Q(n) >= ||n||_inf^2 / |G|), which settles Huang's positive-definiteness conjecture for Q on that cone; Theorem 1.3 had not been formalized. Part B (the author's manuscript \"A Linear Algorithm for Huang's Quadratic Form on Numerical Semigroups and Density Asymptotics\", Flamandzki, 2026): for generators p_1,...,p_n the generalised kernel K^(n)(d) is the inclusion-exclusion sum over sub-multisets S of the generators of (-1)^|S| times the indicator of d >= sigma(S), where sigma(S) is the sum of S; it is a step function whose jumps are the parity function pi(s) = K(s) - K(s-1). Part B states and proves: (1) for two generators a < b, Q equals the sliding-window form sum_k n_k (W+_k - W-_k); (2) for any nonempty generator list, Q(n) is a sum over the breakpoints s of K of pi(s) times the tail pair-sum T(s) = sum_{j-i >= s} n_i n_j, with at most sigma + 1 breakpoints, and the number w of active windows (intervals between consecutive breakpoints on which K is nonzero) is at most sigma, and at most 2^n - 2 for n >= 2 distinct positive generators; and (3) for strictly increasing generators p_k >= 2 with log p_n = o(n), the density w(n)/(2^n - 1) is o(P(n)) where P(n) = prod (1 - 1/p_k), equivalently delta(n)/P(n) tends to 1 for delta(n) = P(n) - w(n)/(2^n - 1). The complexity claims of the manuscript (running times of the algorithms) and its computational tables and conjectures are not formalized. The substance of Part B is the exact breakpoint decomposition of Q, the identification of the inclusion-exclusion kernel with its recursive form, and the asymptotic squeeze. Zero sorries; depends only on the three standard Lean axioms. The file `Dinv/AxiomProver.lean` is third-party code under the MIT license (see NOTICE); everything else is Apache-2.0.",
+        "authors": [
+          {
+            "name": "Artur Flamandzki"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "math.NT"
+          ],
+          "msc2020": [
+            "20M14",
+            "11D07"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Submission.quadForm_two_eq_linearForm2",
+            "Submission.quadForm_eq_breakpoint_sum",
+            "Submission.breakpoints_card_le",
+            "Submission.activeWindowCount_le_sigma",
+            "Submission.activeWindowCount_le_pow_sub_two",
+            "Submission.windowCount_isLittleO_mertensProd",
+            "Submission.gap_div_mertensProd_tendsto_one",
+            "RationalDinv.mem_gapFinset_iff",
+            "RationalDinv.armLength_spec",
+            "RationalDinv.legLength_spec",
+            "RationalDinv.dinvCond_iff_slopes",
+            "RationalDinv.bilinForm_eq_crossDinv",
+            "RationalDinv.quadForm_indicator_eq_dinv",
+            "RationalDinv.quadForm_indicator_pos",
+            "RationalDinv.bilinForm_nonneg_of_cone",
+            "RationalDinv.quadForm_ge_sq_div_card"
+          ]
+        },
+        "id": "PALOMAR-2026-10-17-000016",
+        "path": "entries/PALOMAR-2026-10-17-000016-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "a872b68c6a0d0f09fba702347fdc75b3b5ec8491",
+              "fork_repository": "PalomarArchive/Flaman55--NumericalSemigroups--8bd257374eb9",
+              "source_repository": "Flaman55/NumericalSemigroups"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "953986cab2e003b2da9bcd109642cc4b4076b0359fec0a2d88d48d83621edd0e",
+          "version": 1
+        },
+        "published_at": "2026-10-17T23:13:54Z",
+        "source": {
+          "commit": "a872b68c6a0d0f09fba702347fdc75b3b5ec8491",
+          "project_path": null,
+          "repository": "Flaman55/NumericalSemigroups"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "NumericalSemigroups: Huang's quadratic form, its positivity, and its n-generator kernel windows",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Every continuous map from an arbitrary product of nonempty compact Hausdorff spaces into a metrizable space factors continuously through a countable subproduct. A uniform-space proof establishes countable coordinate dependence for uniformly continuous maps into separated countably generated uniform spaces. The factor for a fixed coordinate set is unique. Countably many maps share a countable coordinate set. Continuous injections into metrizable targets force only countably many nontrivial factors, giving the exact metrizability criterion for nonempty compact Hausdorff products. Empty index and empty selected-coordinate sets are allowed. These are classical results and no novelty or priority is claimed.",
+        "authors": [
+          {
+            "name": "Arthur Freitas Ramos"
+          },
+          {
+            "name": "David Barros Hulak"
+          },
+          {
+            "name": "Ruy Jose Guerra Barretto de Queiroz"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.GN"
+          ],
+          "msc2020": [
+            "54B10",
+            "54C05",
+            "54E35"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "CountableCoordinates.finite_coordinates_of_entourage",
+            "CountableCoordinates.countable_coordinates_of_uniformContinuous",
+            "CountableCoordinates.countable_coordinates_of_continuous",
+            "CountableCoordinates.restrict_refill",
+            "CountableCoordinates.uniformContinuous_refill",
+            "CountableCoordinates.exists_countable_uniform_factorization",
+            "CountableCoordinates.exists_countable_continuous_factorization",
+            "CountableCoordinates.factor_unique",
+            "CountableCoordinates.exists_common_countable_factorization",
+            "CountableCoordinates.nontrivial_subset_of_injective",
+            "CountableCoordinates.countable_nontrivial_of_continuous_injective",
+            "CountableCoordinates.continuous_refill",
+            "CountableCoordinates.compact_product_metrizable_iff"
+          ]
+        },
+        "id": "PALOMAR-2026-10-17-000015",
+        "path": "entries/PALOMAR-2026-10-17-000015-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "fc3f403c4d07356d2232e809f326f63a9ce9da45",
+              "fork_repository": "PalomarArchive/Arthur742Ramos--Math-Formalization--4c88ddbef95a",
+              "source_repository": "Arthur742Ramos/Math-Formalization"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "2b0285abcda2afed3c2487a8575b9f3a66df42eaa0b7fb484f9891ce3fdf4815",
+          "version": 1
+        },
+        "published_at": "2026-10-17T22:11:41Z",
+        "source": {
+          "commit": "fc3f403c4d07356d2232e809f326f63a9ce9da45",
+          "project_path": "topology/countable-coordinate-factorization",
+          "repository": "Arthur742Ramos/Math-Formalization"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Countable-coordinate factorization for compact products",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization project for (F) an explicit two-parameter family of minimally five-generated numerical semigroups <m, m+1, m+k, m+2k-1, m+2k>, m = 2kq+1, whose toric ideal has spanRank exactly 4k+2. Planned scope for (W), a proposed finite-width bound beta1 <= 2w+2 (4 <= w <= 40), not all formalized: the generic fiber-graph infrastructure, both algebraic bridges (only the upper bridge is formalized; the reverse bridge is not), the corrected singleton-counting decomposition beta1 + p = 5 + N, the pair-component antichain lemma and certificate-checker soundness (not yet written). Version 1 targets F; W is stated and excluded from the release comparator. F is sorry-free at 793e759.",
+        "authors": [
+          {
+            "name": "Ben Keene"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.AC",
+            "math.CO"
+          ],
+          "msc2020": [
+            "13D02",
+            "20M14",
+            "13F65",
+            "05E40"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "FiveGenBetti.family_spanRank_eq",
+            "FiveGenBetti.familyGens_minimallyGenerates",
+            "FiveGenBetti.family_presentation"
+          ]
+        },
+        "id": "PALOMAR-2026-10-17-000014",
+        "path": "entries/PALOMAR-2026-10-17-000014-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "65cd1b7289ed27ff6ffec32c5644a8b4323918d2",
+              "fork_repository": "PalomarArchive/benkeene--five-generator-betti--724a4e2a049a",
+              "source_repository": "benkeene/five-generator-betti"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "208eb8e3806c57319ef3c85eb8c521f5d2534a5ed4e2a54b0eb3febf50b3fdff",
+          "version": 1
+        },
+        "published_at": "2026-10-17T21:42:26Z",
+        "source": {
+          "commit": "65cd1b7289ed27ff6ffec32c5644a8b4323918d2",
+          "project_path": null,
+          "repository": "benkeene/five-generator-betti"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "First Betti numbers of five-generated numerical semigroups",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "This is a Lean 4 formalization of Theorem 1.1 from the paper \"Bounds for anisotropic Carleson operators\" by J. Roos, which generalizes the Lacey-Thiele proof for Carleson's theorem. The classical Carleson theorem on pointwise almost everywhere convergence of Fourier series is derived as a special case.",
+        "authors": [
+          {
+            "name": "Joris Roos"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CA"
+          ],
+          "msc2020": [
+            "42B20",
+            "42B25",
+            "42A20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "anisotropic_carleson",
+            "classical_carleson"
+          ]
+        },
+        "id": "PALOMAR-2026-10-12-000008",
+        "path": "entries/PALOMAR-2026-10-12-000008-v2.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "1fde1f341dfdde6e69500bfe909ea1f77159d163",
+              "fork_repository": "PalomarArchive/roos-j--lean-lt-carleson--3c5e40951aa7",
+              "source_repository": "roos-j/lean-lt-carleson"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "a284becd03e979945e6dff78d724669acd0a38ca35a8a9b1d3b2b03dee65a1ed",
+          "version": 2
+        },
+        "published_at": "2026-10-17T21:03:35Z",
+        "source": {
+          "commit": "1fde1f341dfdde6e69500bfe909ea1f77159d163",
+          "project_path": null,
+          "repository": "roos-j/lean-lt-carleson"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Formalization of Carleson's theorem via the Lacey-Thiele approach",
+        "trust": {
+          "level": "high"
+        },
+        "version": 2,
+        "versions": 2
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Kernel-checked proof, for every Coxeter system on three generators a, b, c with m(a,c) = p, m(b,c) = q, m(a,b) = infinity and p, q >= 2, of the growth-series identity in the ring of integer power series: (sum_n a(n) X^n) * (1 - (X + ... + X^(p-1))(X + ... + X^(q-1))) = (1 + X)(1 + ... + X^(p-1))(1 + ... + X^(q-1)), where a(n) is the number of group elements of Coxeter length n; together with its instances (2,3,inf), (2,4,inf), (3,3,inf) and, for (2,3,inf) = PGL(2,Z), the sphere sizes 1, 3, 5, 7, 9, 12, 16, ..., the Padovan identity a(n) = Pad(n+5) for n >= 2, the two-sided bounds 2 rho^n <= a(n) <= 4 rho^n (n >= 2), and the growth rate a(n)^(1/n) -> rho, the plastic number, the unique real root > 1 of x^3 = x + 1; and, for the whole family, monotonicity and symmetry in (p, q), the growth rate of every hyperbolic member, and the minimality of the plastic number. Twenty compared theorems: (1) the general identity for all p, q >= 2; (2) non-vacuity, a Coxeter matrix of that type exists for all p, q >= 2; (3)-(5) the three instances; (6) the (2,3,inf) sphere sizes a(0..4) = 1, 3, 5, 7, 9 and the recursion a(n+5) = a(n+3) + a(n+2) for all n; (7) that the recursion fails one step earlier, a(4) != a(2) + a(1); (8) a(n) = Pad(n+5) for n >= 2, for any sequence with the Padovan initial values and recursion; (9) existence and uniqueness of the plastic number; (10) the bounds; (11) the n-th-root limit; (12) monotonicity: a(n) of a (p,q,inf) system is at most a(n) of a (p',q',inf) system for p <= p', q <= q'; (13) symmetry in p and q; (14) 2 rho^n <= a(n), n >= 2, for every hyperbolic member; (15) for (p,q) != (2,2) exactly one tau > 1 solves (tau^-1 + ... + tau^-(p-1))(tau^-1 + ... + tau^-(q-1)) = 1; (16) a(n)^(1/n) -> tau; (17) tau strictly increasing in (p,q); (18) rho <= tau with equality exactly at (2,3), (3,2), so the plastic number is the minimal growth rate of the family; (19) tau < 2; (20) tau -> 2 as p, q -> infinity (for every sigma < 2 there is N with tau > sigma whenever p, q >= N). The family statements (12)-(20) give the growth rate of every hyperbolic (p, q, inf) group as the unique root tau > 1 of an explicit equation, strictly increasing in the labels, with the plastic number as the family minimum attained only at (2,3,inf) and (3,2,inf); they restrict to this family, and kernel-check there, Terragni's monotonicity (2016, Thm. A), Floyd's planar minimality (1992, p. 482) and the continuity of the growth rate (Floyd 1992; Yukita 2024). The mathematics is classical and no novelty is claimed for it: the growth series of a Coxeter group is rational and determined by its finite parabolic subgroups (Steinberg 1968; Humphreys 1990 Section 5.12); growth of planar hyperbolic Coxeter groups is Floyd 1992 and Cannon-Wagreich 1992, and the (2,3,inf), (2,4,inf) and (3,3,inf) sphere sequences are OEIS A096231, A179070 (shifted) and A054886, with generating functions derived there from Cannon-Wagreich Prop. 3.1 and, for A096231, the Padovan form a(n) = A000931(n+10) recorded; Floyd 1992 (p. 482) proves (2,3,inf) minimal among cusped planar groups and Kellerhals 2013 gives an alternative proof; Bucher-Talambutsa 2016 Prop. 18 proves statement (11) itself by a normal form and, with Mann's bound, the minimality of rho for PGL(2,Z) over all generating sets. The (p, q, inf) family is hyperbolic exactly when (p, q) differs from (2, 2); the affine (2, 2, inf) is included in (1). The contribution claimed is the kernel-checked general identity for all p, q at once, and the family statements (12)-(20) derived from it, from Mathlib's CoxeterSystem alone — Mathlib at this pin has no growth series, no exchange or deletion property and no parabolic-subgroup API — by constructing the amalgam normal forms, lifting their action to the group, proving Coxeter length equals normal-form length, and counting. No \"first formalization\" claim is made. Application, cited and not a claim of the entry: the (2,3,inf) group is the Weyl group of AE_3 = PGL(2,Z) (Feingold-Frenkel 1983) and, in the Damour-Henneaux-Nicolai billiard description of the Belinski-Khalatnikov-Lifshitz limit (a conjecture for generic singularities, Henneaux-Persson-Spindel 2008 Section 2.9), the reflection group of the billiard of 3+1-dimensional vacuum gravity near a spacelike singularity (Damour-Henneaux-Nicolai 2003 Section 8; Henneaux-Persson-Spindel 2008 Section 3.1), where a(n) counts the chambers reachable from the fundamental chamber after exactly n wall collisions over all initial data, so (10)-(11) give the growth rate of those outcomes (elementary reflection-group geometry, not formal content). Hypotheses are inline: the Coxeter system enters through Mathlib's CoxeterSystem with the three matrix entries as hypotheses, rho through its defining equation and 1 < rho, the Padovan sequence through its initial values and recursion; the compared statements use only core Mathlib vocabulary (CoxeterMatrix, CoxeterSystem, CoxeterSystem.length, Nat.card, PowerSeries.mk, Finset.range/Ico sums, Filter.Tendsto, Filter.atTop, nhds, real powers) — zero custom definitions. The pinned source of each Coxeter-specific imported definition, and of Nat.card and PowerSeries.mk, is quoted verbatim, with permalinks, in MATHLIB_DEFINITIONS.md (the remaining vocabulary is standard Mathlib and is not quoted), and DefinitionAudit.lean kernel-checks the facts the statements rely on (the entry 0 encodes infinity; length is the minimal word length; spheres are finite and Nat.card is their cardinality; every Coxeter matrix has a Coxeter system).",
+        "authors": [
+          {
+            "name": "Stephanie Alexander"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.GR",
+            "gr-qc",
+            "math-ph"
+          ],
+          "msc2020": [
+            "20F55",
+            "20F69",
+            "05A15",
+            "11B39",
+            "83C75",
+            "17B67"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "TriangleGrowth.growth_series",
+            "TriangleGrowth.triangle_matrix_exists",
+            "TriangleGrowth.growth_series_23",
+            "TriangleGrowth.growth_series_24",
+            "TriangleGrowth.growth_series_33",
+            "TriangleGrowth.sphere23_values",
+            "TriangleGrowth.sphere23_rec_fails_at_4",
+            "TriangleGrowth.sphere23_padovan",
+            "TriangleGrowth.plastic_exists_unique",
+            "TriangleGrowth.sphere23_growth_bounds",
+            "TriangleGrowth.sphere23_root_tendsto",
+            "TriangleGrowth.sphere_mono",
+            "TriangleGrowth.sphere_symm",
+            "TriangleGrowth.sphere_ge_plastic",
+            "TriangleGrowth.rate_exists_unique",
+            "TriangleGrowth.sphere_root_tendsto_rate",
+            "TriangleGrowth.rate_lt_rate",
+            "TriangleGrowth.plastic_le_rate",
+            "TriangleGrowth.rate_lt_two",
+            "TriangleGrowth.rate_tendsto_two"
+          ]
+        },
+        "id": "PALOMAR-2026-10-17-000013",
+        "path": "entries/PALOMAR-2026-10-17-000013-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "874b6a264e1eb8adf06141686eabab8a7afbe583",
+              "fork_repository": "PalomarArchive/stalex444--triangle-group-growth--258d69f6e936",
+              "source_repository": "stalex444/triangle-group-growth"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "9d5c35634c88bc9e95e473a4e5f28cd2f0ba90543bdc7f5c4ff402f6919a19b0",
+          "version": 1
+        },
+        "published_at": "2026-10-17T20:11:39Z",
+        "source": {
+          "commit": "874b6a264e1eb8adf06141686eabab8a7afbe583",
+          "project_path": null,
+          "repository": "stalex444/triangle-group-growth"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Growth series of the triangle Coxeter groups (p, q, infinity), with the PGL(2,Z) instance: Padovan sphere sizes and growth rate the plastic number",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization project for the connected size-Ramsey equality rhat_c(4K2, C4) = 17. The intended proof uses a universal C4 vertex-transversal bound 4 tau_4(G) <= |E(G)|, a classification of the connected equality cases through sixteen edges (C4, the 4-wheel, K_{3,3} minus an edge, the octahedron), an avoiding-colouring construction from a three-vertex transversal, and an explicit twelve-vertex, seventeen-edge host. Proofs are complete as of commit c8d54e2 (2026-10-17); the proof certificate is Solution.lean and its dependency closure. Formal adversary pass 1 and reviewer pass 1 are ACCEPT_WITH_FIXES (fixes applied); the CI comparator passed at 38bd345 (2026-10-17) with five records. A sixth record, the transversal half of Corollary C (SizeRamsey.connected_transversal_le_three), was registered on 2026-10-17 (commit cc2aec2); the CI comparator passed with six records at 46bf2d0 (2026-10-17, run 39034260971).",
+        "authors": [
+          {
+            "name": "Ben Keene"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C55",
+            "05D10",
+            "05C35"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "SizeRamsey.four_mul_tau4_le_edgeCount",
+            "SizeRamsey.equality_classification",
+            "SizeRamsey.connected_transversal_le_three",
+            "SizeRamsey.avoiding_coloring_le_sixteen",
+            "SizeRamsey.F17_spec",
+            "SizeRamsey.connectedSizeRamsey_eq_seventeen"
+          ]
+        },
+        "id": "PALOMAR-2026-10-17-000012",
+        "path": "entries/PALOMAR-2026-10-17-000012-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "3233dcdd4807cbc808f68582d913c4f463047de2",
+              "fork_repository": "PalomarArchive/benkeene--size-ramsey--8458867bc4a3",
+              "source_repository": "benkeene/size-ramsey"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "afc8621bc48328809163a0af6a7289b43b99282949604c0bffd04d1383c68938",
+          "version": 1
+        },
+        "published_at": "2026-10-17T19:02:09Z",
+        "source": {
+          "commit": "3233dcdd4807cbc808f68582d913c4f463047de2",
+          "project_path": null,
+          "repository": "benkeene/size-ramsey"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The connected size-Ramsey number of a four-edge matching versus a quadrilateral",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For an arbitrary compact Hausdorff space, metrizability and second countability are each equivalent to the existence of a countable network of arbitrary subsets. A genuine Urysohn-function construction from pairs of network elements supplies continuous separation, and a compatible metric induces exactly the original topology. Supporting results give bounded-real-coordinate closed embeddings, preservation under continuous surjections, arbitrary-subspace heredity and compact-subspace metrization. Empty spaces and arbitrary universes are allowed. This is classical mathematics; no novelty or priority is claimed.",
+        "authors": [
+          {
+            "name": "Arthur Freitas Ramos"
+          },
+          {
+            "name": "David Barros Hulak"
+          },
+          {
+            "name": "Ruy Jose Guerra Barretto de Queiroz"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.GN"
+          ],
+          "msc2020": [
+            "54E35",
+            "54D30"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "CountableNetwork.IsNetwork.exists_bounded_separating_family",
+            "CountableNetwork.metrizableSpace_of_countable_network",
+            "CountableNetwork.hasCountableNetwork_of_secondCountable",
+            "CountableNetwork.metrizable_iff_hasCountableNetwork",
+            "CountableNetwork.secondCountable_iff_hasCountableNetwork",
+            "CountableNetwork.exists_compatibleMetric",
+            "CountableNetwork.IsNetwork.exists_closedEmbedding",
+            "CountableNetwork.IsNetwork.image",
+            "CountableNetwork.HasCountableNetwork.of_continuous_surjective",
+            "CountableNetwork.HasCountableNetwork.subtype",
+            "CountableNetwork.metrizable_compact_subspace"
+          ]
+        },
+        "id": "PALOMAR-2026-10-17-000011",
+        "path": "entries/PALOMAR-2026-10-17-000011-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "47aaba112beb17b7c0ca68f56356c5c829ee154d",
+              "fork_repository": "PalomarArchive/Arthur742Ramos--Math-Formalization--4c88ddbef95a",
+              "source_repository": "Arthur742Ramos/Math-Formalization"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "af75a1085ebe82e04fba49016fb3314380510ade68b8ba2ce0b60dcd6ec5fa0d",
+          "version": 1
+        },
+        "published_at": "2026-10-17T17:50:38Z",
+        "source": {
+          "commit": "47aaba112beb17b7c0ca68f56356c5c829ee154d",
+          "project_path": "topology/compact-countable-network",
+          "repository": "Arthur742Ramos/Math-Formalization"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Compact Hausdorff countable-network metrization",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Lean formalization of coordinatewise Rényi and Tsallis entropy monotonicity for finite independent Bernoulli sums on the closed half cube, for every real order in [0,2], as stated in Hillion-Johnson Conjecture 4.4. The complete core proves both entropy comparisons and the finite inverse-score association inequality. Concrete coefficient-law and entropy definitions are checked separately. VERIFICATION.md defines exact-source Linux acceptance and distinguishes historical association-only checkpoints.",
+        "authors": [
+          {
+            "name": "JD Jones"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.PR",
+            "cs.IT"
+          ],
+          "msc2020": [
+            "60E15",
+            "94A17",
+            "60G50"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "RenyiMonotonicity.renyi_monotone",
+            "RenyiMonotonicity.tsallis_monotone",
+            "RenyiMonotonicity.inverse_score_association",
+            "RenyiMonotonicity.bernoulliPolynomial_spec",
+            "RenyiMonotonicity.bernoulliSum_spec",
+            "RenyiMonotonicity.supportCard_spec",
+            "RenyiMonotonicity.powerSum_spec",
+            "RenyiMonotonicity.shannon_spec",
+            "RenyiMonotonicity.renyi_spec",
+            "RenyiMonotonicity.tsallis_spec",
+            "RenyiMonotonicity.expectation_spec"
+          ]
+        },
+        "id": "PALOMAR-2026-10-17-000010",
+        "path": "entries/PALOMAR-2026-10-17-000010-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "f990878ac03c85b08e80f8b169cbec5941d34e6a",
+              "fork_repository": "PalomarArchive/JD-Jones-ASES--renyi-monotonicity--fd798efca654",
+              "source_repository": "JD-Jones-ASES/renyi-monotonicity"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "6e86cd7081fa42d2b68c82b10472bb4ff0260062797748d6016a01ea52a47aba",
+          "version": 1
+        },
+        "published_at": "2026-10-17T16:11:19Z",
+        "source": {
+          "commit": "f990878ac03c85b08e80f8b169cbec5941d34e6a",
+          "project_path": null,
+          "repository": "JD-Jones-ASES/renyi-monotonicity"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Rényi and Tsallis entropy monotonicity for Bernoulli sums",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Kernel-checked certificates for the multiplicative compositum of the two registered Mahler minimizers — rho, the real root of x^3 = x + 1 (the plastic number: Smyth's nonreciprocal minimum, Siegel's smallest Pisot number) and Q, the real root > 1 of x^4 = x + 1 (the degree-4 entry of the minimal-measure tables) — together with the Bedford-Kim spectral family whose limit rho is, and (new in version 2) the identification of that family with the Coxeter-element spectra of the E_m star trees. Twenty-two compared theorems. The spectral half: (1) for n >= 7 the family chi_n(x) = x^(n+1)(x^3 - x - 1) + (x^3 + x^2 - 1) has a canonical root in [117/100, rho), largest below rho, strictly increasing, tending to rho; (2) every chi_n is strictly positive on [rho, infinity); (3) chi_7 = (x - 1) * L exactly, over any commutative ring, with L Lehmer's degree-10 polynomial; (4) L has a root in [117/100, rho). The compositum half, for the degree-12 minimal polynomial of rho * Q (written out in full in every compared statement): (5) an exclusion witness — a nonreal quartic root z with 1 < |rho * z| < rho * Q; (6) the twelve embedding products ARE the conjugates of rho * Q, both directions; (7) there are exactly twelve of them; (8) rho * Q is an algebraic unit, via an explicit degree-11 cofactor over any commutative ring — the (3, 4, 12) triple in the normal form alpha * beta * gamma = 1; (9) the degree-12 polynomial is not reciprocal (neither its reversal nor the reversal's negation), placing it in the regime of Smyth's theorem; (10) degree multiplicativity — deg minpoly(rho*Q) = deg minpoly(rho) * deg minpoly(Q) = 12; (11) the compositum in sup form Q(rho) join Q(Q) = Q(rho*Q), of degree 12, with the two simple extensions linearly disjoint; (12) the complete unit-circle census — EXACTLY 5 conjugates strictly outside, EXACTLY 7 strictly inside, NONE on the circle, so rho * Q is neither a Pisot nor a Salem number; (13) the house — every conjugate other than rho * Q has modulus strictly below rho * Q; (14) the exact Mahler measure M = rho^2 * Q^2 * psi, where psi is the real root > 1 of psi^4 = psi^3 + 1; (15) the registry bridge — M(X^4 - X - 1) = psi and M(rulerPoly) = (rho * Q)^2 * M(X^4 - X - 1), re-proving in-repo the quantity pinned in registered entry PALOMAR-2026-08-31-000004; (16) the order-12 Hadamard product recurrence — the termwise product of any solutions of the cubic and quartic shift recurrences satisfies the order-12 recurrence whose characteristic polynomial is exactly the degree-12 polynomial, in any Q-algebra; (17) the annihilator ideal of the product power sequence n |-> (rho * Q)^n is EXACTLY the principal ideal of the degree-12 polynomial — the classical order <= 3 * 4 bound is an equality, forced by the polynomial's kernel-held irreducibility. THE COXETER BRIDGE (version 2), for the star trees E_m = T(2,3,m-3) with generalized Cartan matrix A given entrywise and Coxeter element c = s_0 s_1 ... s_{m-1}, each simple reflection the matrix s_i = 1 - e_i e_i^T A of the geometric representation: (18) for every m >= 4, (X - 1) * charpoly(c) = X^(m-2)(X^3 - X - 1) + (X^3 + X^2 - 1) — the classical E_n Coxeter-polynomial identity (recorded in Gross-Hironaka-McMullen 2009, Section 1, and proved there as Cor. 4.3 for n >= 4), whose right-hand side is chi_{m-3}: the spectral half of this entry IS the E_m Coxeter spectrum; (19) with the E_10 Cartan matrix written out, the Coxeter polynomial of E_10 is Lehmer's polynomial; (20) for every m >= 10 the Coxeter polynomial of E_m has a root lambda_m in [117/100, rho) with no real root above it, the lambda_m strictly increasing and tending to rho; (21) for every m >= 10 the complexified Coxeter element has an eigenvalue lambda in (1, rho) and every complex eigenvalue is unimodular, lambda, or 1/lambda; (22) that lambda dominates the modulus of every eigenvalue and is a Salem number, for every m >= 10, with the Salem predicate written out as in the registered entry PALOMAR-2026-09-02-000003. Two disclosures of version 1 are discharged by (21)-(22) for n >= 7: the Salem property of the Bedford-Kim roots is now kernel-held, and the interval (1, 117/100) is now swept (the only eigenvalues off the unit circle are lambda_m and its inverse). The results address four research audiences: the degree problem for products and composita of algebraic numbers (the certified (3,4,12) witness at a canonically distinguished pair, in the field's own unit-product normal form); the Mahler-measure tradition (the measure of the composed product of the two degree-minimal polynomials, in closed form in the second-smallest Pisot number); composed products of polynomials (a certified rational instance where the finite-field coprimality criterion is unavailable and irreducibility is proved by elimination); and, new, Coxeter groups and Salem numbers (McMullen; Gross-Hironaka-McMullen; Hironaka's Lehmer program): the E_m Coxeter spectra, their Salem radii and their limit rho as one kernel-checked family — with the Lean audience served by concrete exercise of the Mahler-measure, linear-disjointness, Matrix.charpoly and spectrum APIs. Like the golden ratio, rho * Q is an algebraic unit of norm -1; the compared cofactor identity is that norm computation, certified. No novelty claim is made for the measure identity (the entry is not aware of it in the literature; the claimed contribution is the kernel certificate), none for the mathematics of (18)-(22), which is classical (the claimed contribution is the kernel-checked bridge from the registered Bedford-Kim family to the E_m Coxeter elements, for every m >= 4 (bridge) and every m >= 10 (spectrum, Salem) at once), no \"first formalization\" claim is made anywhere, and whether rho is ATTAINED as a dynamical degree is open in the literature — no statement claims it. Hypotheses are inline: rho, Q, psi enter only through their defining equations plus root-selection inequalities, the E_m Cartan matrices only through their entries, and the compared statements use only core Mathlib vocabulary (Filter.Tendsto, nhds, the complex norm, minpoly, Polynomial.rootSet, Set.ncard, Polynomial.mahlerMeasure, IntermediateField adjoin/sup, Module.finrank, Finset.range sums, Matrix.charpoly, Matrix.diagonal, List.finRange/List.prod, matrix literals, Matrix.map, spectrum, IsIntegral, Polynomial.aeval) — zero custom definitions. The name prefix \"ruler\" in statement names is the source project's term for the product rho * Q; nothing in any statement depends on it.",
+        "authors": [
+          {
+            "name": "Stephanie Alexander"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT",
+            "math.DS",
+            "math.GR",
+            "math.RT"
+          ],
+          "msc2020": [
+            "11R06",
+            "11R04",
+            "11B37",
+            "14E07",
+            "37B40",
+            "20F55",
+            "15A18"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PlasticThreshold.plastic_salem_family",
+            "PlasticThreshold.family_pos_of_rho_le",
+            "PlasticThreshold.lehmer_first_rung",
+            "PlasticThreshold.lehmer_root_below_plastic",
+            "PlasticThreshold.ruler_second_conjugate",
+            "PlasticThreshold.ruler_conjugates_eq_embedding_products",
+            "PlasticThreshold.ruler_conjugates_card",
+            "PlasticThreshold.ruler_unit",
+            "PlasticThreshold.rulerPoly_nonreciprocal",
+            "PlasticThreshold.ruler_degree_multiplicative",
+            "PlasticThreshold.ruler_linearDisjoint",
+            "PlasticThreshold.ruler_conjugate_census",
+            "PlasticThreshold.ruler_house",
+            "PlasticThreshold.ruler_mahler_measure",
+            "PlasticThreshold.ruler_mahler_eq_quartic_measure",
+            "PlasticThreshold.product_recurrence_charpoly",
+            "PlasticThreshold.product_annihilator_iff",
+            "PlasticThreshold.coxeter_E_bridge",
+            "PlasticThreshold.coxeter_E10_lehmer",
+            "PlasticThreshold.coxeter_E_plastic",
+            "PlasticThreshold.coxeter_E_spectrum",
+            "PlasticThreshold.coxeter_E_salem"
+          ]
+        },
+        "id": "PALOMAR-2026-09-01-000005",
+        "path": "entries/PALOMAR-2026-09-01-000005-v2.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "84b364a5f98daefc1be387ae0aeb3d39866eca79",
+              "fork_repository": "PalomarArchive/stalex444--mahler-minimizer-compositum--ca9ebf56e752",
+              "source_repository": "stalex444/mahler-minimizer-compositum"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "a48c47af6d422214d8af628d5e0edc30542c132d4b9c3739e71562c9169a0e61",
+          "version": 2
+        },
+        "published_at": "2026-10-17T14:57:18Z",
+        "source": {
+          "commit": "84b364a5f98daefc1be387ae0aeb3d39866eca79",
+          "project_path": null,
+          "repository": "stalex444/mahler-minimizer-compositum"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The compositum of the two Mahler minimizers: exact measure, conjugate census, house, and minimal product recurrence, with the Bedford-Kim plastic family, Lehmer's polynomial, and the E_m Coxeter bridge",
+        "trust": {
+          "level": "high"
+        },
+        "version": 2,
+        "versions": 2
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of Erdős' 1959 theorem: for every g and k there is a finite graph with girth greater than g and chromatic number greater than k. The formalization proves the structural form given by Erdős' probabilistic argument: for every g and every ε > 0, for all sufficiently large n there is a graph on n vertices with no cycle of length at most g in which every independent set has fewer than εn vertices; hence, for all large n, a graph on n vertices with girth greater than g that is not k-colourable. Mathlib has girth and chromatic number but not this theorem; Mycielski's construction (registered separately by another author) gives triangle-free graphs only.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C15",
+            "05C38",
+            "05C80"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "ErdosGirthChromatic.exists_girth_indep",
+            "ErdosGirthChromatic.exists_girth_not_colorable",
+            "ErdosGirthChromatic.exists_girth_chromaticNumber"
+          ]
+        },
+        "id": "PALOMAR-2026-10-17-000009",
+        "path": "entries/PALOMAR-2026-10-17-000009-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "e41d7493430ba42f18da380192a4111763155064",
+              "fork_repository": "PalomarArchive/jtraverso--erdos-girth-chromatic--0532ff066cce",
+              "source_repository": "jtraverso/erdos-girth-chromatic"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "af0eb6139c984dca76384d47361045f55fa8b80879450a4d9e83883efabf3fea",
+          "version": 1
+        },
+        "published_at": "2026-10-17T14:07:50Z",
+        "source": {
+          "commit": "e41d7493430ba42f18da380192a4111763155064",
+          "project_path": null,
+          "repository": "jtraverso/erdos-girth-chromatic"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Erdős' theorem on graphs of large girth and large chromatic number",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of three classical results on edge-disjoint trees and forests in finite simple graphs, none of which is in Mathlib. (1) The Nash-Williams–Tutte tree packing theorem: a graph has k edge-disjoint spanning trees if and only if every partition of its vertices into m parts has at least k(m − 1) edges between different parts. (2) Nash-Williams' arboricity theorem: the edges can be covered by k forests if and only if every nonempty vertex set S spans at most k(|S| − 1) edges. (3) The corollary that every 2k-edge-connected graph has k edge-disjoint spanning trees. Mathlib has no matroid union theorem and no graphic matroid; the proofs are direct edge-exchange arguments.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C05",
+            "05C70",
+            "05C40"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "NashWilliamsTutte.tree_packing",
+            "NashWilliamsTutte.arboricity",
+            "NashWilliamsTutte.exists_trees_of_isEdgeConnected"
+          ]
+        },
+        "id": "PALOMAR-2026-10-17-000008",
+        "path": "entries/PALOMAR-2026-10-17-000008-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "101e48847a929dd8102521f57723e2137989ce2e",
+              "fork_repository": "PalomarArchive/jtraverso--nash-williams-trees--9280327cd578",
+              "source_repository": "jtraverso/nash-williams-trees"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "2755241987d7d9a967c89c90ebdb29922b119da076a5e056f9dd692317c80683",
+          "version": 1
+        },
+        "published_at": "2026-10-17T12:29:41Z",
+        "source": {
+          "commit": "101e48847a929dd8102521f57723e2137989ce2e",
+          "project_path": null,
+          "repository": "jtraverso/nash-williams-trees"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The Nash-Williams–Tutte tree packing theorem and Nash-Williams' arboricity theorem",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For a specified planar homogeneous cubic family, positive definite real homogeneous quartic Lyapunov certificates exist with strict derivative exactly when the absolute parameter is below an explicit algebraic boundary, and with weak derivative exactly through that boundary. Its value is about 2.1281535330886186. At the positive endpoint the entire cone of quartics with nonpositive derivative is one explicit nonnegative ray, without any positivity assumption. The negative Lie derivative of the endpoint quartic is a cubic square with three distinct real zero lines. Exact integer certificates separate degrees two and four at parameter two, and degrees four and six at nine fourths. The formal statements use actual partial derivatives and allow unrestricted real coefficients.",
+        "authors": [
+          {
+            "name": "JD Jones"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.OC",
+            "math.DS"
+          ],
+          "msc2020": [
+            "34D20",
+            "93D05",
+            "14P10"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "QuarticLyapunov.endpoint_classification",
+            "QuarticLyapunov.degree_separation",
+            "QuarticLyapunov.strict_classification",
+            "QuarticLyapunov.weak_classification",
+            "QuarticLyapunov.endpoint_explicit",
+            "QuarticLyapunov.endpoint_geometry",
+            "QuarticLyapunov.degree_preserving_contraction",
+            "QuarticLyapunov.boundary_isolation",
+            "QuarticLyapunov.endpoint_cone_classification",
+            "QuarticLyapunov.sextic_separation"
+          ]
+        },
+        "id": "PALOMAR-2026-10-17-000007",
+        "path": "entries/PALOMAR-2026-10-17-000007-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "6b9b50561cf076e003ecfe1b442594c31a613f9e",
+              "fork_repository": "PalomarArchive/JD-Jones-ASES--quartic-lyapunov--04cc1cb92bb9",
+              "source_repository": "JD-Jones-ASES/quartic-lyapunov"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "b351b202ea3c1dc268bc9c65fae848f0a962f21051c3b80940f5b14c90c655b1",
+          "version": 1
+        },
+        "published_at": "2026-10-17T10:12:13Z",
+        "source": {
+          "commit": "6b9b50561cf076e003ecfe1b442594c31a613f9e",
+          "project_path": null,
+          "repository": "JD-Jones-ASES/quartic-lyapunov"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Sharp quartic Lyapunov boundaries and sextic separation for a planar cubic family",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Five real symmetric PSD 3×3 integer matrices and five complex Hermitian PSD 2×2 Gaussian-integer matrices each have sum 100I and exact norm-of-averaged-product ratio 10329/10000 at n=k=5. The Lean statements use Mathlib positive semidefiniteness over the real and complex fields and the Euclidean operator norm. The rational formalization of De Sa's dimension-five norm-19/16 example is included as a supporting benchmark. The real symmetric dimension-two case is not resolved.",
+        "authors": [
+          {
+            "name": "JD Jones"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.OC",
+            "math.FA"
+          ],
+          "msc2020": [
+            "15A45",
+            "15A60",
+            "47A30"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "RRExact.real_counterexample",
+            "RRExact.complex_counterexample"
+          ]
+        },
+        "id": "PALOMAR-2026-10-17-000006",
+        "path": "entries/PALOMAR-2026-10-17-000006-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "141bddb9f263aa99c0c6a8be4af469389d2afca2",
+              "fork_repository": "PalomarArchive/JD-Jones-ASES--rr-exact--5aef06347702",
+              "source_repository": "JD-Jones-ASES/rr-exact"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "871b4cf69f7f3250c74bc239d6fff39f74d9f3148d3a2ef21acbc782cc16874b",
+          "version": 1
+        },
+        "published_at": "2026-10-17T09:02:59Z",
+        "source": {
+          "commit": "141bddb9f263aa99c0c6a8be4af469389d2afca2",
+          "project_path": null,
+          "repository": "JD-Jones-ASES/rr-exact"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Low-dimensional exact counterexamples to the Recht–Ré inequality",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For every fixed finite graph F of chromatic number r+1 at least three and every positive epsilon, there is an edge threshold M such that every finite simple F-free graph G with m at least M satisfies F2(A_G) <= 2(1-1/r)m - (2(1-1/r)-1)Delta(G) + epsilon m. F2 is the sum of the squares of the two largest positive adjacency eigenvalues with missing terms padded by zero. The graphs may be disconnected. A companion theorem establishes agreement with the two largest ordered eigenvalue squares in the same eventual range. Enough edges force an F-free graph to be noncomplete; BN nonedge interlacing gives a nonnegative second ordered eigenvalue, so its positive-two energy equals the first two ordered eigenvalue squares. The proof checks ordinary clique removal through regularity and clique counting, derives weighted deletion, reuses the proved BN rank-two Gram inequality, and supplies the spectral lift, hub separation and uniform assembly.",
+        "authors": [
+          {
+            "name": "Idris Ali Shaik"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C50",
+            "05C35"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "KKP117.strengthened_asymptotic",
+            "KKP117.strengthened_ordered_asymptotic"
+          ]
+        },
+        "id": "PALOMAR-2026-10-17-000005",
+        "path": "entries/PALOMAR-2026-10-17-000005-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "8aa258c7a0b06ae96cfa56018bddd60ee643efd5",
+              "fork_repository": "PalomarArchive/shaikidris--kkp-asymptotic-spectral-bound--16a8809ca472",
+              "source_repository": "shaikidris/kkp-asymptotic-spectral-bound"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "14fdd4cd9e078ac425de05a85fd43fb52a81d9d2937c4217e7101fda63d5803f",
+          "version": 1
+        },
+        "published_at": "2026-10-17T07:40:46Z",
+        "source": {
+          "commit": "8aa258c7a0b06ae96cfa56018bddd60ee643efd5",
+          "project_path": null,
+          "repository": "shaikidris/kkp-asymptotic-spectral-bound"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "A sharp asymptotic spectral bound for forbidden subgraphs",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
       {
         "abbreviated": false,
         "abstract": "A Lean 4 / Mathlib formalization of the main results of Ehard, Glock and Joos, \"Pseudorandom hypergraph matchings\" (Combin. Probab. Comput. 2020): Pippenger's theorem on almost perfect matchings in almost regular hypergraphs with small codegrees (Theorem 1.1); the existence of a matching M in any r-uniform hypergraph with Δ(H) ≤ Δ, codegrees ≤ Δ^{1−δ} and at most exp(Δ^{ε²}) edges such that ω(M) = (1 ± Δ^{−ε}) ω(E(H))/Δ simultaneously for up to exp(Δ^{ε²}) weight functions (Theorem 1.2, with ε = δ/(50r²)); the generalization to weight functions on ℓ-tuples of edges, under the same exponential cap on the number of edges and of weight functions (Theorem 1.3, the main theorem, with ε = δ/(50L²r²)); the concentration inequality for pattern weights under a uniformly random colouring (Theorem 3.1); and the existence of partial Steiner systems whose subgraph counts behave as in the random model (Theorem 4.1). The formal proof is self-contained over Mathlib: Freedman's and Bernstein's inequalities are proved inside the project, and the Molloy–Reed colouring theorem used as a black box in the paper is replaced by a self-contained nibble.",
@@ -4705,60 +6092,6 @@
         "source_omitted": false,
         "status": "registered",
         "title": "Hilbert functions of chopped ideals of general plane points",
-        "trust": {
-          "level": "high"
-        },
-        "version": 1,
-        "versions": 1
-      },
-      {
-        "abbreviated": false,
-        "abstract": "This is a Lean 4 formalization of Theorem 1.1 from the paper \"Bounds for anisotropic Carleson operators\" by J. Roos, which generalizes the Lacey-Thiele proof for Carleson's theorem. The classical Carleson theorem on pointwise almost everywhere convergence of Fourier series is derived as a special case.",
-        "authors": [
-          {
-            "name": "Joris Roos"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.CA"
-          ],
-          "msc2020": [
-            "42B20",
-            "42B25",
-            "42A20"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "anisotropic_carleson",
-            "classical_carleson"
-          ]
-        },
-        "id": "PALOMAR-2026-10-12-000008",
-        "path": "entries/PALOMAR-2026-10-12-000008-v1.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "a83052776113c6417432c594a29b98f3500091a4",
-              "fork_repository": "PalomarArchive/roos-j--lean-lt-carleson--3c5e40951aa7",
-              "source_repository": "roos-j/lean-lt-carleson"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "db52fa7716b899448a4176ce90254f9758e725e616a94795af29a39e9b14a9f2",
-          "version": 1
-        },
-        "published_at": "2026-10-12T14:18:09Z",
-        "source": {
-          "commit": "a83052776113c6417432c594a29b98f3500091a4",
-          "project_path": null,
-          "repository": "roos-j/lean-lt-carleson"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "Formalization of Carleson's theorem via the Lacey-Thiele approach",
         "trust": {
           "level": "high"
         },
@@ -27874,78 +29207,6 @@
       },
       {
         "abbreviated": false,
-        "abstract": "Kernel-checked certificates for the multiplicative compositum of the two registered Mahler minimizers — rho, the real root of x^3 = x + 1 (the plastic number: Smyth's nonreciprocal minimum, Siegel's smallest Pisot number) and Q, the real root > 1 of x^4 = x + 1 (the degree-4 entry of the minimal-measure tables) — together with the Bedford-Kim spectral family whose limit rho is. Seventeen compared theorems. The spectral half: (1) for n >= 7 the family chi_n(x) = x^(n+1)(x^3 - x - 1) + (x^3 + x^2 - 1) has a canonical root in [117/100, rho), largest below rho, strictly increasing, tending to rho; (2) every chi_n is strictly positive on [rho, infinity); (3) chi_7 = (x - 1) * L exactly, over any commutative ring, with L Lehmer's degree-10 polynomial; (4) L has a root in [117/100, rho). The compositum half, for the degree-12 minimal polynomial of rho * Q (written out in full in every compared statement): (5) an exclusion witness — a nonreal quartic root z with 1 < |rho * z| < rho * Q; (6) the twelve embedding products ARE the conjugates of rho * Q, both directions; (7) there are exactly twelve of them; (8) rho * Q is an algebraic unit, via an explicit degree-11 cofactor over any commutative ring — the (3, 4, 12) triple in the normal form alpha * beta * gamma = 1; (9) the degree-12 polynomial is not reciprocal (neither its reversal nor the reversal's negation), placing it in the regime of Smyth's theorem; (10) degree multiplicativity — deg minpoly(rho*Q) = deg minpoly(rho) * deg minpoly(Q) = 12; (11) the compositum in sup form Q(rho) join Q(Q) = Q(rho*Q), of degree 12, with the two simple extensions linearly disjoint; (12) the complete unit-circle census — EXACTLY 5 conjugates strictly outside, EXACTLY 7 strictly inside, NONE on the circle, so rho * Q is neither a Pisot nor a Salem number; (13) the house — every conjugate other than rho * Q has modulus strictly below rho * Q; (14) the exact Mahler measure M = rho^2 * Q^2 * psi, where psi is the real root > 1 of psi^4 = psi^3 + 1; (15) the registry bridge — M(X^4 - X - 1) = psi and M(rulerPoly) = (rho * Q)^2 * M(X^4 - X - 1), re-proving in-repo the quantity pinned in registered entry PALOMAR-2026-08-31-000004; (16) the order-12 Hadamard product recurrence — the termwise product of any solutions of the cubic and quartic shift recurrences satisfies the order-12 recurrence whose characteristic polynomial is exactly the degree-12 polynomial, in any Q-algebra; (17) the annihilator ideal of the product power sequence n |-> (rho * Q)^n is EXACTLY the principal ideal of the degree-12 polynomial — the classical order <= 3 * 4 bound is an equality, forced by the polynomial's kernel-held irreducibility. The results address three research audiences: the degree problem for products and composita of algebraic numbers (the certified (3,4,12) witness at a canonically distinguished pair, in the field's own unit-product normal form); the Mahler-measure tradition (the measure of the composed product of the two degree-minimal polynomials, in closed form in the second-smallest Pisot number); and composed products of polynomials (a certified rational instance where the finite-field coprimality criterion is unavailable and irreducibility is proved by elimination) — with the Lean audience served by concrete exercise of the Mahler-measure and linear-disjointness APIs. Like the golden ratio, rho * Q is an algebraic unit of norm -1; the compared cofactor identity is that norm computation, certified. No novelty claim is made for the measure identity (the entry is not aware of it in the literature; the claimed contribution is the kernel certificate), no \"first formalization\" claim is made anywhere, and whether rho is ATTAINED as a dynamical degree is open in the literature — no statement claims it. Hypotheses are inline: rho, Q, psi enter only through their defining equations plus root-selection inequalities, and the compared statements use only core Mathlib vocabulary (Filter.Tendsto, nhds, the complex norm, minpoly, Polynomial.rootSet, Set.ncard, Polynomial.mahlerMeasure, IntermediateField adjoin/sup, Module.finrank, Finset.range sums) — zero custom definitions. The name prefix \"ruler\" in statement names is the source project's term for the product rho * Q; nothing in any statement depends on it.",
-        "authors": [
-          {
-            "name": "Stephanie Alexander"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.NT",
-            "math.DS"
-          ],
-          "msc2020": [
-            "11R06",
-            "11R04",
-            "11B37",
-            "14E07",
-            "37B40"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "PlasticThreshold.plastic_salem_family",
-            "PlasticThreshold.family_pos_of_rho_le",
-            "PlasticThreshold.lehmer_first_rung",
-            "PlasticThreshold.lehmer_root_below_plastic",
-            "PlasticThreshold.ruler_second_conjugate",
-            "PlasticThreshold.ruler_conjugates_eq_embedding_products",
-            "PlasticThreshold.ruler_conjugates_card",
-            "PlasticThreshold.ruler_unit",
-            "PlasticThreshold.rulerPoly_nonreciprocal",
-            "PlasticThreshold.ruler_degree_multiplicative",
-            "PlasticThreshold.ruler_linearDisjoint",
-            "PlasticThreshold.ruler_conjugate_census",
-            "PlasticThreshold.ruler_house",
-            "PlasticThreshold.ruler_mahler_measure",
-            "PlasticThreshold.ruler_mahler_eq_quartic_measure",
-            "PlasticThreshold.product_recurrence_charpoly",
-            "PlasticThreshold.product_annihilator_iff"
-          ]
-        },
-        "id": "PALOMAR-2026-09-01-000005",
-        "path": "entries/PALOMAR-2026-09-01-000005-v1.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "d78ce1610608cf4a90d5580c267110c96d2f9af5",
-              "fork_repository": "PalomarArchive/stalex444--mahler-minimizer-compositum--ca9ebf56e752",
-              "source_repository": "stalex444/mahler-minimizer-compositum"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "efceeb54af1e1ee19b6095c6a7788831defc1b0bc35e304ab28e8df11b7ff00a",
-          "version": 1
-        },
-        "published_at": "2026-09-01T11:04:17Z",
-        "source": {
-          "commit": "d78ce1610608cf4a90d5580c267110c96d2f9af5",
-          "project_path": null,
-          "repository": "stalex444/mahler-minimizer-compositum"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "The compositum of the two Mahler minimizers: exact measure, conjugate census, house, and minimal product recurrence, with the Bedford-Kim plastic family and Lehmer's polynomial",
-        "trust": {
-          "level": "high"
-        },
-        "version": 1,
-        "versions": 1
-      },
-      {
-        "abbreviated": false,
         "abstract": "The spectral theorem for possibly unbounded self-adjoint operators on complex Hilbert spaces, formalized through the Cayley transform and real projection-valued measures. The selected spectral theorem constructs a PVM whose scalar measures give the exact finite-second-moment domain and first-moment quadratic form, with measurable-set uniqueness, and is proved equivalent to equality with the unbounded coordinate spectral integral. The selected Stone theorem proves both that strongly continuous one-parameter unitary groups have self-adjoint generators and that every self-adjoint operator generates such a group.",
         "authors": [
           {
@@ -35268,37 +36529,39 @@
         "versions": 3
       }
     ],
-    "previous": "eyJyZXZpc2lvbiI6MzI2LCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTIwVDA1OjI4OjQxWiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTIwLTAwMDAwNCJ9",
+    "previous": "eyJyZXZpc2lvbiI6MzQ5LCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTIwVDAwOjIzOjIzWiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTEzLTAwMDAwMSJ9",
     "next": null,
     "dropped": [],
     "message": null,
-    "pages_fetched": 24
+    "pages_fetched": 25
   },
   "changes": {
     "added": [
-      "PALOMAR-2026-10-17-000004",
-      "PALOMAR-2026-10-17-000003",
-      "PALOMAR-2026-10-17-000002",
-      "PALOMAR-2026-10-17-000001",
-      "PALOMAR-2026-10-16-000024",
-      "PALOMAR-2026-10-16-000023",
-      "PALOMAR-2026-10-16-000022",
-      "PALOMAR-2026-10-16-000021",
-      "PALOMAR-2026-10-16-000020",
-      "PALOMAR-2026-10-16-000019",
-      "PALOMAR-2026-10-16-000018",
-      "PALOMAR-2026-10-16-000017",
-      "PALOMAR-2026-10-16-000016",
-      "PALOMAR-2026-10-16-000015",
-      "PALOMAR-2026-10-16-000014",
-      "PALOMAR-2026-10-16-000013",
-      "PALOMAR-2026-10-16-000012",
-      "PALOMAR-2026-10-16-000011"
+      "PALOMAR-2026-10-18-000006",
+      "PALOMAR-2026-10-18-000005",
+      "PALOMAR-2026-10-18-000004",
+      "PALOMAR-2026-10-18-000003",
+      "PALOMAR-2026-10-18-000002",
+      "PALOMAR-2026-10-18-000001",
+      "PALOMAR-2026-10-17-000019",
+      "PALOMAR-2026-10-17-000018",
+      "PALOMAR-2026-10-17-000017",
+      "PALOMAR-2026-10-17-000016",
+      "PALOMAR-2026-10-17-000015",
+      "PALOMAR-2026-10-17-000014",
+      "PALOMAR-2026-10-17-000013",
+      "PALOMAR-2026-10-17-000012",
+      "PALOMAR-2026-10-17-000011",
+      "PALOMAR-2026-10-17-000010",
+      "PALOMAR-2026-10-17-000009",
+      "PALOMAR-2026-10-17-000008",
+      "PALOMAR-2026-10-17-000007",
+      "PALOMAR-2026-10-17-000006",
+      "PALOMAR-2026-10-17-000005"
     ],
     "updated": [
-      "PALOMAR-2026-09-30-000034",
-      "PALOMAR-2026-10-16-000005",
-      "PALOMAR-2026-10-14-000009"
+      "PALOMAR-2026-10-12-000008",
+      "PALOMAR-2026-09-01-000005"
     ],
     "absent": []
   },
