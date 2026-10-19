@@ -1,0 +1,377 @@
+{
+  "abstract": "This development formalizes in Lean 4 the results of the paper \"The local dynamical structure of Δ* sets via a new Furstenberg family algebra\", which strengthens the connection between the combinatorics of difference sets and the dynamics of group rotations.\nLet S be a discrete semigroup. A set A ⊆ S is syndetic if there is a finite F ⊆ S with S = ∪_{f ∈ F} f⁻¹A; a Δ set if there is a sequence s₁, s₂, … in S with s_j ∈ s_i A for all i < j; and a Bohr_0 set if it contains the preimage of an open neighborhood of the identity under a semigroup homomorphism from S to a finite-dimensional torus. Dually, a set is thick, a Δ* set, or a set of Bohr recurrence according as it meets every syndetic, every Δ, or every Bohr_0 subset of S. Bohr_0 sets in the integers are the almost periodic sets of classical interest, and Δ* sets are combinatorially large, being syndetic and rich in additive patterns.\nThe definition of a Δ set used here is the one given for general semigroups by Hindman, who calls these rQ sets, Q for quotient; in a commutative semigroup his left- and right-handed variants agree. It does not require the witnessing sequence to be injective, and so is slightly more inclusive than the classical difference-set definition. In the positive integers the two agree exactly: if A consists of positive integers and s_j − s_i ∈ A for all i < j then the sequence is strictly increasing, so A contains the difference set (S − S) ∩ ℕ of the infinite set S = {s₁, s₂, …}, and conversely. The two notions separate only in a semigroup containing an element a with sa = s for some s, where the constant sequence makes every set containing such an a a Δ set. In the integers the element 0 is of this kind, so a Δ set in the present sense is either a classical difference set or a set containing 0, and a Δ* set is exactly a classical Δ* set that contains 0.\nThe main result (Theorem A) is that Δ* sets in an arbitrary commutative semigroup carry local Bohr structure: if A ⊆ S is a Δ* set, then for every thick H ⊆ S there is a thick H′ ⊆ H and a Bohr_0 set B with A ∩ H′ = B ∩ H′. This generalizes results of Bergelson, Furstenberg and Weiss and of Host and Kra from the positive integers to arbitrary commutative semigroups by a purely topological-dynamical route in place of the ergodic- theoretic arguments used in the integer case. Theorem B is the dual formulation, in terms of Δ sets and sets of Bohr recurrence, that the proof actually establishes: if A ⊆ S admits a thick H such that A ∩ H′ is a set of Bohr recurrence for every thick H′ ⊆ H, then A is a Δ set. Theorem C exhibits a second instance of local structure by the same method: in a countable commutative semigroup, every C* set agrees with an IP* set on a thick subset of any prescribed thick set.  Theorem C also formulates the equivalent dual statement, just as Theorem B is in relation to Theorem A.\nTheorem D supplies the algebraic framework the arguments rest on. A Furstenberg family on a set S is an upward-closed collection of subsets of S. On the Furstenberg families of a non-empty set, two binary operations, family meet and family join, are described and shown to be associative, commutative and monotone. Together with the family dual, they satisfy De Morgan-type laws. Family join has appeared before in the literature; family meet, as presented here, is believed to be new. The algebra reduces the equivalence of Theorems A and B to a short computation and makes similar reformulations in Ramsey theory routine.\nThe proofs of Theorems A and B depend on a companion result, formalized here but the subject of another Palomar entry, that the regionally proximal relation is an equivalence relation for minimal actions of commutative semigroups. The development runs to roughly 20,000 lines of Lean across 17 files and formalizes every lemma, proposition, corollary and theorem of the paper; the registered statements are Theorems A, B, C and D. Proved along the way, and not available in Mathlib, is the classical fact that the characters of a compact abelian group separate its points.",
+  "authors": [
+    {
+      "name": "Angelina Blahodatna"
+    },
+    {
+      "name": "Lauren Detmold"
+    },
+    {
+      "name": "Daniel Glasscock"
+    },
+    {
+      "name": "Anh N. Le"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-18-000015-v1/fd5d4f702e5ae4ced8dcc4e8ca2da0a2d3796581dcbb4c7a5843e806c101c218/",
+    "artifact_tree_sha256": "fd5d4f702e5ae4ced8dcc4e8ca2da0a2d3796581dcbb4c7a5843e806c101c218",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-18T14:01:05Z",
+    "renderer_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.DS"
+    ],
+    "msc2020": [
+      "05D10",
+      "37B05",
+      "37B20",
+      "22A20"
+    ]
+  },
+  "first_registered_on": "2026-10-18",
+  "formalization": {
+    "challenge_path": "Palomar/Delta/Challenge.lean",
+    "comparator_config_path": "Palomar/Delta/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "Palomar/Delta/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Palomar/Delta/Solution.lean",
+    "theorem_names": [
+      "DeltaIntro.DeltaTheoremA",
+      "DeltaIntro.DeltaTheoremB",
+      "DeltaIntro.DeltaTheoremC",
+      "DeltaIntro.DeltaTheoremD"
+    ]
+  },
+  "id": "PALOMAR-2026-10-18-000015",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-18T14:01:35Z",
+    "receipt_sha256": "6815be473eab0a5f9455d2002633af987688509789e5e8c002afdb5a319f9968",
+    "repositories": [
+      {
+        "commit": "e275c4e2bb477c110f542e606dac0519963e964c",
+        "fork_repository": "PalomarArchive/dglasscockUML--NSF_LEAPS--0bc2bbd0e51f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-18-000015-v1/e275c4e2bb477c110f542e606dac0519963e964c",
+        "source_repository": "dglasscockUML/NSF_LEAPS"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-18-000015-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-18-000015-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-18-000015-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-18-000015-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-18-000015-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-18-000015-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-18-000015-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-18-000015-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-18-000015-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Angelina Blahodatna"
+          },
+          {
+            "name": "Lauren Detmold"
+          },
+          {
+            "name": "Daniel Glasscock"
+          },
+          {
+            "name": "Anh N. Le"
+          }
+        ],
+        "identifier": "arXiv:2610.10416",
+        "location": "https://doi.org/10.48550/arXiv.2610.10416",
+        "relationship": "formalizes",
+        "title": "The local dynamical structure of Δ* sets via a new Furstenberg family algebra",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Angelina Blahodatna"
+          },
+          {
+            "name": "Lauren Detmold"
+          },
+          {
+            "name": "Daniel Glasscock"
+          },
+          {
+            "name": "Anh N. Le"
+          }
+        ],
+        "identifier": "arXiv:2610.10397",
+        "location": "https://doi.org/10.48550/arXiv.2610.10397",
+        "relationship": "other",
+        "title": "The regionally proximal relation for commutative semigroup actions",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Vitaly Bergelson"
+          },
+          {
+            "name": "Hillel Furstenberg"
+          },
+          {
+            "name": "Benjamin Weiss"
+          }
+        ],
+        "identifier": "doi:10.1007/3-540-33700-8_2",
+        "location": "Topics in Discrete Mathematics, Algorithms and Combinatorics 26, pages 13–37, Springer, Berlin, 2006. https://doi.org/10.1007/3-540-33700-8_2",
+        "relationship": "background",
+        "title": "Piecewise-Bohr sets of integers and combinatorial number theory",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Bernard Host"
+          },
+          {
+            "name": "Bryna Kra"
+          }
+        ],
+        "identifier": "doi:10.1017/S014338570900087X",
+        "location": "Ergodic Theory and Dynamical Systems 31(1), pages 113–142, 2011. https://doi.org/10.1017/S014338570900087X",
+        "relationship": "background",
+        "title": "Nil-Bohr sets of integers",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Neil Hindman"
+          }
+        ],
+        "identifier": "doi:10.1007/s00233-019-10041-0",
+        "location": "Semigroup Forum 100(1), pages 52–76, 2020. https://doi.org/10.1007/s00233-019-10041-0",
+        "relationship": "background",
+        "title": "Notions of size in a semigroup: an update from a historical perspective",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Daniel Glasscock"
+      },
+      {
+        "name": "Anh N. Le"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-18T14:01:16Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "3dc88ca6ef777e3648a80ed92e9edeb4910997497e83f2a1af150322dd72129b"
+    },
+    "reviewed_at": "2026-10-18T10:57:59Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "e275c4e2bb477c110f542e606dac0519963e964c",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "7f18a1b1d4d37d5c89cd70587a45bb1cb41bdd2e724a4d4a6502d3e8fd827cd3"
+    },
+    "repository": "dglasscockUML/NSF_LEAPS",
+    "repository_url": "https://github.com/dglasscockUML/NSF_LEAPS",
+    "tree_url": "https://github.com/dglasscockUML/NSF_LEAPS/tree/e275c4e2bb477c110f542e606dac0519963e964c"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "9tzr0w98ci37"
+  },
+  "title": "The local dynamical structure of Δ* sets via a new Furstenberg family algebra",
+  "trust": {
+    "challenge_bytes": 11644,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Group.Semigroup",
+      "Mathlib.Analysis.Complex.Circle",
+      "Mathlib.Combinatorics.Hindman",
+      "Mathlib.Data.Set.Defs",
+      "Mathlib.Order.Filter.Ultrafilter.Defs"
+    ],
+    "challenge_lines": 276,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "abcb350c5b926e0cd8f0b7025529d4234b2ee9d6167f40d3ac54977ed9ee7592",
+    "evidence_path": "evidence/PALOMAR-2026-10-18-000015-v1/0aa17759e509b0a0f837754b5fbe85261c820e1043883f5191043e8021f60e9f/",
+    "evidence_tree_sha256": "0aa17759e509b0a0f837754b5fbe85261c820e1043883f5191043e8021f60e9f",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/con-ron",
+          "--jobs=2"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "2559bc902087ed40d6b8a291aee98c356f8a57dbd0a25672fc39837ffa2f4bf0",
+    "protected_config_sha256": "b59140f2b3ab01787aa6b3add7e30e88739f1eaa6235fc5fcf821d56674dee12",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 39119778228,
+    "solution_sha256": "743ad7d0e68550eb770ff186581792ada87f7968067d4ded24e704854c9cb4f2",
+    "tool_digests": {
+      "bwrap": "3779e100153fd4af072dd67d367bf2a323d0b85ad2489589c5d646a296061443",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-18T10:40:26Z",
+    "workflow_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/39119778228"
+  },
+  "version": 1
+}
