@@ -1,0 +1,473 @@
+{
+  "abstract": "A Lean 4 development of the classification of Barker sequences of odd length. A Barker sequence of length n is a sequence h of n signs whose aperiodic autocorrelations C(k), the sum over j < n - k of h(j) h(j + k), satisfy |C(k)| <= 1 for 0 < k < n. Turyn and Storer (1961) stated, and gave a proof, that a Barker sequence of odd length n > 1 has length 3, 5, 7, 11 or 13 (length 1 is admitted here: it has no nontrivial shift). Theorem 1(iv) of Turyn–Storer, on which their proof relies, is false as stated (Willms 2014, explicit counterexamples); per Schmidt–Willms (footnote 1) parts (ii) and (iii) imply (iv) on a corrected range that suffices for the induction, and independent proofs exist (Borwein–Erdélyi 2013; Schmidt–Willms 2016, the proof formalized here). The proof formalized is that of Schmidt and Willms (2016), recast so that the classification needs no enumeration of sequences: for odd n and m = (n - 1)/2, odd shifts have autocorrelation 0 and even shifts (-1)^m (from C(u) + C(n - u) = n mod 4); skew-symmetry h(k) h(n - 1 - k) = (-1)^(m + k); the folded identity, the sum over k <= w of (-1)^k h(k) h(w - k), equals 1 for every even w <= n - 3; the doubling law h(u - 1) h(u) = h(2u - 1) h(2u) for 1 <= u <= (n - 3)/2; Schmidt and Willms's Lemmas 3 and 4 in sign-change form (for n >= 7 and h(0) = h(1), with p the first sign change and q the first sign change not divisible by p, both are odd and 2q - 3 <= n <= p + q + 1, Lemma 4 by one generating-function identity for the folded sums); and an endgame that leaves n in {7, 11, 13}, excluding n = 9 by skew-symmetry and doubling, with the alternation h(j) -> (-1)^j h(j) for the normalization h(0) = h(1). Eight witnesses, one at each length 1, 2, 3, 4, 5, 7, 11 and 13, are Barker by decide, and every Barker sequence of odd length equals a fixed sequence of its length (canon) up to negation and alternation, by a kernel enumeration of the 2^n sign patterns at each of the six odd lengths. Also proved: the even reduction of Turyn and Storer's footnote 2, that a Barker sequence of even length n > 2 has 4 | n and yields a real circulant Hadamard matrix of order n. Given the even-length classification as an explicit hypothesis (every Barker sequence of positive even length has length 2 or 4, the statement even_length_eq_two_or_four of openai/math, family 179), a Barker sequence of positive length n exists exactly when n is 1, 2, 3, 4, 5, 7, 11 or 13, and every Barker sequence has length at most 13; the same follows from the hypothesis that real circulant Hadamard matrices of positive order exist only at orders 1 and 4 (the forward direction of exists_iff_order_one_or_four of openai/math), through the even reduction. The seven definitions are restated from openai/math's two challenge files, character for character except the two Fin-bound proofs inside aperiodic (explicit terms in place of by omega, which under the module system yields module-private auxiliary theorems the comparator rejects), so its two theorems discharge the hypotheses, even_length_eq_two_or_four by unfolding alone and exists_iff_order_one_or_four by unfolding and Iff.mp; they are not proved here. The restated definitions and the adapted parts named in NOTICE derive from Apache-2.0 work of OpenAI (NOTICE, LICENSES/Apache-2.0.txt); the rest is MIT.",
+  "authors": [
+    {
+      "name": "JD Jones"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-19-000015-v1/d0e4a8b2d6833684b6177ff3ba69604803b0d14c026b5143d7c914402496158b/",
+    "artifact_tree_sha256": "d0e4a8b2d6833684b6177ff3ba69604803b0d14c026b5143d7c914402496158b",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-19T11:06:33Z",
+    "renderer_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.NT"
+    ],
+    "msc2020": [
+      "11B83",
+      "05B10",
+      "94A55"
+    ]
+  },
+  "first_registered_on": "2026-10-19",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "OddBarker.odd_length_mem",
+      "OddBarker.odd_exists_iff",
+      "OddBarker.unique",
+      "OddBarker.aperiodic_eq",
+      "OddBarker.skew",
+      "OddBarker.fold",
+      "OddBarker.doubling",
+      "OddBarker.run_bounds",
+      "OddBarker.four_dvd_of_even",
+      "OddBarker.existsRealCirculantHadamard_of_even",
+      "OddBarker.exists_iff_of_even",
+      "OddBarker.length_le_thirteen_of_even",
+      "OddBarker.exists_iff_of_circulantHadamard",
+      "OddBarker.length_le_thirteen_of_circulantHadamard"
+    ]
+  },
+  "id": "PALOMAR-2026-10-19-000015",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-19T11:07:04Z",
+    "receipt_sha256": "1f091f9a4d7f7e3dc7cb18d072d06a3622d45b020c768507cf69d6b9eb14e5ce",
+    "repositories": [
+      {
+        "commit": "7826a8c0249678cfcb4c606e88d9fb978b316989",
+        "fork_repository": "PalomarArchive/JD-Jones-ASES--ob-lean--7dc0abfeb8f8",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-19-000015-v1/7826a8c0249678cfcb4c606e88d9fb978b316989",
+        "source_repository": "JD-Jones-ASES/ob-lean"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-19-000015-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-19-000015-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-19-000015-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-19-000015-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-19-000015-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-19-000015-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-19-000015-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-19-000015-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-19-000015-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "R. Turyn"
+          },
+          {
+            "name": "J. Storer"
+          }
+        ],
+        "identifier": "doi:10.1090/S0002-9939-1961-0125026-2",
+        "location": "Proceedings of the American Mathematical Society 12 (1961), no. 3, 394-399; the introduction (p. 394: the known sequences and the claim that for odd n they are all), footnote 2 (p. 395: the even reduction), Theorem 1 (p. 396), Theorem 2 (p. 398: odd n implies n <= 13) and the reconstruction closing its proof (pp. 398-399)",
+        "relationship": "other",
+        "title": "On binary sequences",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Kai-Uwe Schmidt"
+          },
+          {
+            "name": "Jürgen Willms"
+          }
+        ],
+        "identifier": "doi:10.1007/s10623-015-0104-4",
+        "location": "Designs, Codes and Cryptography 80 (2016), no. 2, 409-414 (online 2015-06-16); arXiv:1501.06035 (v1, 2015-01-24, pp. 2-6): Theorem 1, Lemma 2 (i) and (ii), Lemma 3, Lemma 4 and the three cases that complete the proof of Theorem 1; footnote 1",
+        "relationship": "adapts",
+        "title": "Barker sequences of odd length",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jürgen Willms"
+          }
+        ],
+        "identifier": "arXiv:1404.4833",
+        "location": "https://arxiv.org/abs/1404.4833 (v2, 2014-07-05), Sections 2 and 3",
+        "relationship": "background",
+        "title": "Counterexamples to Theorem 1 of Turyn's and Storer's Paper \"On Binary Sequences\"",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jürgen Willms"
+          }
+        ],
+        "identifier": "arXiv:1409.1434",
+        "location": "https://arxiv.org/abs/1409.1434 (v2, 2014-10-30)",
+        "relationship": "background",
+        "title": "Run Vector Analysis and Barker Sequences of Odd Length",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jürgen Willms"
+          }
+        ],
+        "identifier": "doi:10.1109/TIT.2013.2259293",
+        "location": "IEEE Transactions on Information Theory 59 (2013), no. 8, 4985-4993",
+        "relationship": "background",
+        "title": "Autocorrelations of Binary Sequences and Run Structure",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Peter Borwein"
+          },
+          {
+            "name": "Tamás Erdélyi"
+          }
+        ],
+        "identifier": "doi:10.1142/S179304211250159X",
+        "location": "International Journal of Number Theory 9 (2013), no. 3, 759-767; arXiv:1206.5371",
+        "relationship": "background",
+        "title": "A note on Barker polynomials",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jonathan Jedwab"
+          }
+        ],
+        "identifier": "doi:10.1090/conm/461/08991",
+        "location": "In: G. L. Mullen, D. Panario, I. E. Shparlinski (eds.), Finite Fields and Applications, Contemporary Mathematics 461 (2008), 153-178; Section 1, Theorem 1.2",
+        "relationship": "background",
+        "title": "What can be used instead of a Barker sequence?",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Peter Borwein"
+          },
+          {
+            "name": "Michael J. Mossinghoff"
+          }
+        ],
+        "identifier": "doi:10.1017/CBO9780511721274.007",
+        "location": "In: J. McKee, C. Smyth (eds.), Number Theory and Polynomials, London Mathematical Society Lecture Note Series 352, Cambridge University Press (2008), 71-88",
+        "relationship": "background",
+        "title": "Barker sequences and flat polynomials",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "OpenAI"
+          }
+        ],
+        "identifier": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+        "location": "lean/ComparatorChallenges/EvenBarker.lean (OAI.CirculantHadamard.Barker.even_length_eq_two_or_four), lean/ComparatorChallenges/CirculantHadamard.lean (OAI.CirculantHadamard.exists_iff_order_one_or_four), lean/OAI/LinearAlgebra/Barker/ and lean/docs/179.md, at commit adc7f1241b42e322a6451854ab7e4b4c146bf78a (these files unchanged at fd4aeeb2ee4f); Apache-2.0",
+        "relationship": "adapts",
+        "title": "openai/math (family 179: The circulant Hadamard and Barker-sequence conjectures)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "OpenAI"
+          }
+        ],
+        "identifier": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-circulant-Hadamard-conjecture-September-23-2026/paper.pdf",
+        "location": "openai/math, family 179, preprint dated 2026-09-23; Theorem 1.1, Corollary 1.2, Section 5",
+        "relationship": "background",
+        "title": "The circulant Hadamard conjecture",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "The Formal Conjectures Authors"
+          }
+        ],
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/blob/87d97fa7626c7b39ee4c8565d3acfa5a048d6cae/FormalConjectures/Arxiv/2104.00502/BarkerSequence.lean",
+        "location": "FormalConjectures/Arxiv/2104.00502/BarkerSequence.lean, theorem barker_conjecture (tagged research open, proof sorry), added in pull request #4793; issue #6917 (open as of 2026-10-09)",
+        "relationship": "background",
+        "title": "Formal Conjectures: BarkerSequence.lean (barker_conjecture)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Leonardo de Moura"
+          },
+          {
+            "name": "Sebastian Ullrich"
+          }
+        ],
+        "identifier": "doi:10.1007/978-3-030-79876-5_37",
+        "location": "Automated Deduction - CADE 28, Lecture Notes in Computer Science, Springer, 2021, 625-635",
+        "relationship": "background",
+        "title": "The Lean 4 Theorem Prover and Programming Language",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "The mathlib Community"
+          }
+        ],
+        "identifier": "doi:10.1145/3372885.3373824",
+        "location": "Proceedings of the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs (CPP 2020), 367-381",
+        "relationship": "background",
+        "title": "The Lean mathematical library",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean",
+        "note": "The Lean tree of openai/math (family 179): lean/ComparatorChallenges/EvenBarker.lean and CirculantHadamard.lean supply the seven restated definitions and the two statements behind the hypotheses (heven is the first, hcirc the forward direction of the second); lean/OAI/LinearAlgebra/Barker/ proves the even half (four_dvd_length, existsRealCirculantHadamard_of_even_barker, even_length_eq_two_or_four). This entry re-proves the first two in its own environment as four_dvd_of_even and existsRealCirculantHadamard_of_even (the definition periodic and two lemmas adapted, see NOTICE). It does not prove even_length_eq_two_or_four: the argument of that theorem appears here only with the hypothesis hcirc, the forward direction of the circulant Hadamard statement (exists_iff_of_circulantHadamard, length_le_thirteen_of_circulantHadamard). The odd half, the structure theorems and the uniqueness theorem are not formalized there. Lean v4.34.1, not registered on Palomar.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Arxiv/2104.00502/BarkerSequence.lean",
+        "note": "States the Barker conjecture (every Barker sequence has length at most 13, over List ℤ) as an open statement with a sorry; this entry proves its odd-length half in the Fin-indexed vocabulary of openai/math and the full statement under the even-length hypothesis. No code is shared.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "JD Jones"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-19T11:06:43Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "a90a030b1d2c1e1bdfae3fa02ff4f0991a8538d4b422e223492123071c7dbf90"
+    },
+    "reviewed_at": "2026-10-19T10:14:17Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "7826a8c0249678cfcb4c606e88d9fb978b316989",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "8d464f723696204001f7ef63b6146ffc544aa6837aa74c53f6f9c53d8a18b0f0"
+    },
+    "repository": "JD-Jones-ASES/ob-lean",
+    "repository_url": "https://github.com/JD-Jones-ASES/ob-lean",
+    "tree_url": "https://github.com/JD-Jones-ASES/ob-lean/tree/7826a8c0249678cfcb4c606e88d9fb978b316989"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "3gxcj68ufrnd"
+  },
+  "title": "Barker sequences of odd length have length 1, 3, 5, 7, 11 or 13",
+  "trust": {
+    "challenge_bytes": 12326,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 226,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "2ed80d1acd7994581f52b1fb09551e981963b640274c22b600dccbf219f64a57",
+    "evidence_path": "evidence/PALOMAR-2026-10-19-000015-v1/19c20199f8ff541bb8eb9c93fbcaa0f392022c682ea888e3464d90e7ca36f77d/",
+    "evidence_tree_sha256": "19c20199f8ff541bb8eb9c93fbcaa0f392022c682ea888e3464d90e7ca36f77d",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--jobs=2"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "690bf4e2e062b75b2f3a681aa9751a35410161221015b18cab3ce9b5d5934287",
+    "protected_config_sha256": "cc37f39b0d393a3ed36edfb2ad07c03811455095bed97cd65d09bc532a773b2a",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 39232463068,
+    "solution_sha256": "12e45a8415a59fdc6025ee1d4155a6a4f408a970cb08d75ddeeb2a19d6ef0628",
+    "tool_digests": {
+      "bwrap": "ce944ad4e695ea39cd5bf8fe893145c7beacbffa02a8deb76617bd8b53b04ff7",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-19T09:50:32Z",
+    "workflow_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/39232463068"
+  },
+  "version": 1
+}
