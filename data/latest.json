@@ -1,14 +1,1553 @@
 {
-  "fetched_at": "2026-10-20T07:28:59.147949+00:00",
+  "fetched_at": "2026-10-21T07:33:13.811464+00:00",
   "results": {
     "schema_version": 1,
-    "revision": 416,
-    "release": "9255638a515f22ace1a2097cf68604b487bcd40e4d5d677e4ab3a11bca115762",
+    "revision": 442,
+    "release": "ca7c73055540422cfd277ff58910b103dd8af6b9fdea652370d6a55622acfe55",
     "totals": {
-      "results": 668,
-      "projects": 546
+      "results": 690,
+      "projects": 557
     },
     "entries": [
+      {
+        "abbreviated": false,
+        "abstract": "Checked ordinary-resolution construction for the native controller encoding and supported observation wrappers, with cubic inference bounds and the displayed derived-literal storage bound.",
+        "authors": [
+          {
+            "name": "Idris Ali Shaik"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "cs.CC"
+          ],
+          "msc2020": [
+            "68Q25",
+            "68Q60"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Controller.Cost.NativeResolution.native_refutation_encoded_cubic",
+            "Controller.Cost.NativeResolution.compactNativeCompile_complete",
+            "Controller.Cost.NativeResolution.compactNativeCompile_checked",
+            "Controller.Cost.NativeResolution.canonical_derived_literal_storage",
+            "Controller.Cost.WrapperResolution.runOptional_complete_cubic",
+            "Controller.Cost.WrapperResolution.runSelected_complete_cubic",
+            "Controller.Cost.WrapperResolution.runOptional_checked",
+            "Controller.Cost.WrapperResolution.runSelected_checked",
+            "Controller.Cost.NativeResolution.canonical_refutation_resources"
+          ]
+        },
+        "id": "PALOMAR-2026-10-21-000016",
+        "path": "entries/PALOMAR-2026-10-21-000016-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "a510ea7e76d9b10e21e7f4db8f57fd3a3468a090",
+              "fork_repository": "PalomarArchive/shaikidris--priority-controller-phase1--d60f9fc1688f",
+              "source_repository": "shaikidris/priority-controller-phase1"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "47d1dbd55d6139b6d68eb4122015771227727e56c7c1c9fdb1a63454176deb62",
+          "version": 1
+        },
+        "published_at": "2026-10-21T07:11:22Z",
+        "source": {
+          "commit": "a510ea7e76d9b10e21e7f4db8f57fd3a3468a090",
+          "project_path": null,
+          "repository": "shaikidris/priority-controller-phase1"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Ordinary resolution for native encodings and observation wrappers",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Lean 4 / Mathlib formalization of the results of the author's paper \"Nested Radicals of Ramanujan's Type with Arbitrary Coefficient Sequences\" (Flamandzki, 2026). For a coefficient sequence a : N -> R, the radical of depth d is built by the recursion R_k = sqrt(1 + a_k R_{k+1}) from a seed; `Submission.rollUp a T d` is the depth-d truncation with seed T and `Submission.truncRadical a d` uses the seed 1. For a root order n >= 2 the square root is replaced by the n-th root (`Submission.rollUpN`) and, for the classical unbounded family, by the signed recursion with radicand (-1)^n + a_k R_{k+1} (`Submission.rollUpNS`), whose coefficients are a_k = altSum n (N + k - 1) for the alternating polynomial altSum n x = x^(n-1) - x^(n-2) + ... +- 1. Four statements are submitted: (1) for real N >= 2 and a_k = N + k - 2 the square-root truncations converge to exactly N (for N = 3 this is Ramanujan's radical; the statement is known, see the sources, and is the base case); (2) for every root order n >= 2, both parities, the truncations of the signed family converge to exactly N, which is not treated in the sources listed below (the only place where parity enters is the sign (-1)^n); (3) an arbitrary-profile theorem: if R_k >= 1 and the coefficients are the ones for which R satisfies the recursion exactly, R_k^n = 1 + a_k R_{k+1}, then the depth-d truncation with seed 1 satisfies 0 <= R_1 - T_d <= R_1 prod_{j<d} (1 - 1/R_j), and it converges to exactly R_1 whenever the sum of 1/R_k diverges (it contains every constant profile and the classical family for every even n, with an explicit rate; it is not stated in version 2 of the paper; version 3 states it). The development (`RamanujanNested/`, 24 modules) contains further results that are not advertised in `Challenge.lean`: boundedness and monotonicity, controlled negative coefficients, the inverse construction, the closed-form identity chain for every n, the constant-coefficient exact-target radical for every n, an oscillatory family, and existence of a limit for linear and prime coefficient families at every root order. The paper's numerical tables, algorithms as running code, and informal discussion are not formalized. Zero sorries; depends only on the three standard Lean axioms.",
+        "authors": [
+          {
+            "name": "Artur Flamandzki"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CA",
+            "math.NT"
+          ],
+          "msc2020": [
+            "40A05"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Submission.truncRadical_classical_tendsto",
+            "Submission.truncRadicalNS_tendsto",
+            "Submission.rollUpN_profile_gap",
+            "Submission.rollUpN_profile_tendsto"
+          ]
+        },
+        "id": "PALOMAR-2026-10-21-000015",
+        "path": "entries/PALOMAR-2026-10-21-000015-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "2b932baf2e72426583ef47a1bb23b4458879e959",
+              "fork_repository": "PalomarArchive/Flaman55--RamanujanNestedRadicals--2d1f8fc5c68d",
+              "source_repository": "Flaman55/RamanujanNestedRadicals"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "5c51039c89150031fc349e4fa259f74b64630ca6034e36b3d8cf1d69172d30f0",
+          "version": 1
+        },
+        "published_at": "2026-10-21T06:41:40Z",
+        "source": {
+          "commit": "2b932baf2e72426583ef47a1bb23b4458879e959",
+          "project_path": null,
+          "repository": "Flaman55/RamanujanNestedRadicals"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "RamanujanNestedRadicals: convergence and exact values of Ramanujan-type nested radicals",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Bounded-support and consistent selector-expansion laws for decoder DAGs, with complete native detection executions and checked emitted witnesses for bounded live conjunctions and proper bases. Selected time inequalities give a general XP bound, a polynomial bound for one live conjunction, and an FPT bound for healthy-one roots. Concrete source construction, total time and temporary word-storage proofs are supplied as companion declarations.",
+        "authors": [
+          {
+            "name": "Idris Ali Shaik"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "cs.CC"
+          ],
+          "msc2020": [
+            "68Q25",
+            "68Q60"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Controller.Decoder.DAG.exists_small_true_support",
+            "Controller.Decoder.DAG.exists_small_target_support",
+            "Controller.Decoder.DAG.expansion_identity",
+            "Controller.Decoder.DAG.global_selector_count",
+            "Controller.Decoder.DAG.cone_expansion_identity",
+            "Controller.Extensions.BoundedNativeComplete.execution",
+            "Controller.Extensions.BoundedNativeComplete.emitted_witness",
+            "Controller.Extensions.BoundedNativeComplete.xp_time",
+            "Controller.Extensions.BoundedNativeComplete.one_and_time",
+            "Controller.Extensions.BoundedNativeComplete.healthy_one_time",
+            "Controller.Extensions.ProperBasisComplete.execution"
+          ]
+        },
+        "id": "PALOMAR-2026-10-21-000014",
+        "path": "entries/PALOMAR-2026-10-21-000014-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "a510ea7e76d9b10e21e7f4db8f57fd3a3468a090",
+              "fork_repository": "PalomarArchive/shaikidris--priority-controller-phase1--d60f9fc1688f",
+              "source_repository": "shaikidris/priority-controller-phase1"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "e943228df38deb254391ad8c743e8c831b0a1c5b4fc45fec8fe8618c14dde8f1",
+          "version": 1
+        },
+        "published_at": "2026-10-21T06:01:02Z",
+        "source": {
+          "commit": "a510ea7e76d9b10e21e7f4db8f57fd3a3468a090",
+          "project_path": null,
+          "repository": "shaikidris/priority-controller-phase1"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Bounded conjunction and proper-basis algorithms",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 proof of the combinatorial inequality (2.2) of J. Wu, Chen's double sieve, Goldbach's conjecture and the twin prime problem, 2, Acta Arith. 131 (2008), Lemma 2.2: 4 D_{1,2} >= 3 Y1 + Y2 - Y3 - Y4 + Y5 + Y6 - 2 Y7 - Y8 - Y9 - Y10 - Y11 - error, where the Y_i are Wu's sieve sums over the sequence A = {N - p}. The printed proof drops part of the range of the triple sum produced by Buchstab's identity, so the printed Y11, over p4 < N^{1/2-2 kappa1}/p3, is not justified; this formalization proves the inequality with the full range N^{kappa2} <= p4 < N^{1/2-3 kappa1}, for every N > 1, every pair kappa1, kappa2 meeting Wu's hypotheses, any finite A of integers 0 < a < N coprime to N, and with Wu's O(N^{1-kappa1}) made explicit as 4N/(N^{kappa1}-1) for A = {N - p}. Version 2 adds Lemma 3.1 of R. Li, On Chen's theorem, Goldbach's conjecture and almost prime twins II, which is the same inequality at kappa1 = 1/11.49, kappa2 = 1/6.18 with the same gap, repaired. Lean code written by an AI agent; the statement was checked against the paper by AI reviewers and is offered for human audit.",
+        "authors": [
+          {
+            "name": "Steve Hubbard"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11P32",
+            "11N35",
+            "11N36"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "GoldbachLean.Wu2008.WuReal.wu_admissible",
+            "GoldbachLean.Wu2008.WuSum.lemma22_sum",
+            "GoldbachLean.Wu2008.WuSum.lemma22_wuA",
+            "GoldbachLean.Li2024.Lemma31.li_admissible",
+            "GoldbachLean.Li2024.Lemma31.lemma31_repaired"
+          ]
+        },
+        "id": "PALOMAR-2026-10-21-000002",
+        "path": "entries/PALOMAR-2026-10-21-000002-v2.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "4501f42c25c951fc2e461801ec661fdb3969a022",
+              "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+              "source_repository": "sthubbar/goldbach-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "f82c95872527601e7fb87db783d0c109e9df20370eefbc3a4e91c2034b3fbebe",
+          "version": 2
+        },
+        "published_at": "2026-10-21T05:45:43Z",
+        "source": {
+          "commit": "4501f42c25c951fc2e461801ec661fdb3969a022",
+          "project_path": "entries/wu2008",
+          "repository": "sthubbar/goldbach-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Wu 2008 Lemma 2.2, Chen's double sieve inequality, with the range of the last sum repaired",
+        "trust": {
+          "level": "high"
+        },
+        "version": 2,
+        "versions": 2
+      },
+      {
+        "abbreviated": false,
+        "abstract": "We prove that every bounded Kakeya set in Rⁿ, n ≥ 4, has upper Minkowski dimension at least 0.597n. Here a Kakeya set contains a unit line segment in every direction. This improves the asymptotic coefficient c_KT = 1/α = 0.596968283237… in the Katz–Tao bound 1 + c_KT(n−1), where α is the unique root of α³−4α+2 = 0 in (1,2). The proof combines arithmetic estimates for line segments with geometric estimates for tubes at two different widths.",
+        "authors": [
+          {
+            "name": "Mark Lewko"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CA",
+            "math.CO"
+          ],
+          "msc2020": [
+            "42B25",
+            "28A75"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PalomarKakeya.upperMinkowski_lower"
+          ]
+        },
+        "id": "PALOMAR-2026-10-21-000006",
+        "path": "entries/PALOMAR-2026-10-21-000006-v2.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "1eba4ec16c6894aa2390b1c1bcb7d2c0e1c5a46c",
+              "fork_repository": "PalomarArchive/mrklwk--kakeya-two-scale-lean--545e237f3070",
+              "source_repository": "mrklwk/kakeya-two-scale-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "500b40563a984fc61133073597594b97558a6d22d4a8fd8aabc586bc203fa6da",
+          "version": 2
+        },
+        "published_at": "2026-10-21T05:35:43Z",
+        "source": {
+          "commit": "1eba4ec16c6894aa2390b1c1bcb7d2c0e1c5a46c",
+          "project_path": null,
+          "repository": "mrklwk/kakeya-two-scale-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Two-scale Kakeya upper Minkowski lower bound",
+        "trust": {
+          "level": "high"
+        },
+        "version": 2,
+        "versions": 2
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For any complete metric space and any target set with the property of Baire, the Banach–Mazur category game is determined: the first player has a winning full-history strategy exactly when the target is nonmeagre, and the second exactly when it is meagre. A win for the first player means one target point lies in every move. The proof constructs meagre-target avoidance without metric assumptions and shrinking closed-trap target forcing in complete metric spaces; it proves actual joint-play existence and excludes simultaneous winners. Empty spaces and equal nested moves are explicit. This is classical mathematics, with no novelty or general determinacy claim.",
+        "authors": [
+          {
+            "name": "Arthur Freitas Ramos"
+          },
+          {
+            "name": "David Barros Hulak"
+          },
+          {
+            "name": "Ruy Jose Guerra Barretto de Queiroz"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.GN"
+          ],
+          "msc2020": [
+            "54E52",
+            "91A44",
+            "03E15"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "CategoryGame.exists_jointPlay",
+            "CategoryGame.not_both_winning",
+            "CategoryGame.residual_has_dense_open_sequence",
+            "CategoryGame.second_winning_of_isMeagre",
+            "CategoryGame.open_residual_witness",
+            "CategoryGame.first_winning_of_open_residual",
+            "CategoryGame.first_winning_of_nonmeagre",
+            "CategoryGame.determined_of_baireMeasurable",
+            "CategoryGame.first_winning_iff_nonmeagre",
+            "CategoryGame.second_winning_iff_isMeagre"
+          ]
+        },
+        "id": "PALOMAR-2026-10-21-000013",
+        "path": "entries/PALOMAR-2026-10-21-000013-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "0377aacab289fee8153cdec87fd8a1be06b9ec2c",
+              "fork_repository": "PalomarArchive/Arthur742Ramos--Math-Formalization--4c88ddbef95a",
+              "source_repository": "Arthur742Ramos/Math-Formalization"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "1cf8f19faa5c9200ca52b75b0cf3ca5da196cd8ca00c665c00044f61ad50c2f0",
+          "version": 1
+        },
+        "published_at": "2026-10-21T05:24:52Z",
+        "source": {
+          "commit": "0377aacab289fee8153cdec87fd8a1be06b9ec2c",
+          "project_path": "topology/banach-mazur-category",
+          "repository": "Arthur742Ramos/Math-Formalization"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Banach–Mazur determinacy for Baire-property targets",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of six general theorems and twelve statements about one number field. General: (1) Hermite's signature theorem for every real polynomial f, degenerate case included and with no monic hypothesis: the power-sum Hankel (Hermite) form H_f has sigPos = #R + #C+, sigNeg = #C+, rank sigPos + sigNeg = #D and radical of dimension deg f - #D, where D, R, C+ are the distinct complex roots, the real ones, and those in the upper half plane; (2) its number-field form (classical, Hermite-Sylvester; in number-field form credited to O. Taussky 1968): the trace form Tr_{K/Q}(x^2) of a number field K has type (r1 + r2, r2), and is positive definite iff K is totally real; (3) the places of a linearly disjoint compositum L = K1 K2: r1(L) = r1(K1) r1(K2) and 2 r2(L) = [K1:Q][K2:Q] - r1(K1) r1(K2); (4) the signed discriminant of such a compositum with coprime discriminants, d_L = d_{K1}^[K2:Q] d_{K2}^[K1:Q], the sign included; (5) the trace projection [E:F]^-1 Tr_{E/F} onto a subfield F, the orthogonal decomposition E = F + F^perp for Tr_{E/Q}(xy) with F^perp = ker Tr_{E/F}, the restriction of the trace form of E to F as [E:F] times the trace form of F, and the type (r1(E) + r2(E) - r1(F) - r2(F), r2(E) - r2(F)) of its restriction to ker Tr_{E/F}; (6) the squarefree-discriminant criterion (a textbook exercise). The field: the compositum L of Q(rho) and Q(Q), rho and Q roots of x^3 - x - 1 and x^4 - x - 1, built as the tower K3 = Q[X]/(X^3 - X - 1), L = K3[Y]/(Y^4 - Y - 1), of degree 12: (7) the setting (degrees 3, 4, 12; linearly disjoint sectors); (8) O_{Q(rho)} = Z[rho], O_{Q(Q)} = Z[Q], discriminants -23 and -283, O_L = Z[rho, Q] with basis rho^i Q^j; (9) d_L = (-23)^4 (-283)^3 = -6342648595267; (10) places (1,1), (2,1), (2,5) and the trace-form type (7,5) of L, derived from (2) and (3) with no root located; (11) the relative traces on the product basis; (12) Tr(-alpha^-1) = 1 for alpha^n = alpha + 1 in degree n, the unit sections -Q^-1 and -rho^-1 of the relative traces, their surjectivity on rings of integers and the integral splittings of ranks 3 + 9 and 4 + 8; (13) the orthogonal decompositions of L along the two sectors, with restrictions 4 Tr and 3 Tr of types (2,1), (3,1) and complements of types (5,4), (4,4); (14) the covolume 2^-5 23^2 283 sqrt(283) of O_L in Mathlib's normalization, which is 4 times the product covol(O_{Q(rho)})^4 covol(O_{Q(Q)})^3; (15) the discriminant -23^4 53^2 283^3 of the degree-12 polynomial, which is the minimal polynomial of rho Q, and the index [O_L : Z[rho Q]] = 53; (16) the subfield lattice {Q, Q(rho), Q(Q), L}; (17) root-rigidity and circle-freeness of L; (18) Smyth's lower bound for the Mahler measure on O_L, with Smyth's theorem as an explicit hypothesis (cited, not proved). Eighteen compared theorems. The mathematics of (1)-(6) is classical and no novelty is claimed for it; the contribution is the kernel-checked proofs: (1), (2) and (5) from Mathlib's sigPos, sigNeg (D. Loeffler) and, for (2) and (5), Algebra.traceForm, between which Mathlib has no theorem at the pinned revision; (3) and (4) from Mathlib's infinite places and linear disjointness. The proof modules also prove, not compared, that sigPos and sigNeg are additive over orthogonal direct sums and invariant under positive scaling over any linearly ordered field, and that the signature of a rational matrix form is unchanged by base change to R; Mathlib at the pin has none of these. Mathlib prior art is used and not re-proved: X. Roblot's theorem on the absolute value of the discriminant of a coprime compositum (statement (4) adds the sign) and his theorem on its ring of integers (used in (8)). The definiteness corollary of (1) (real-rooted iff H_f positive semidefinite) was formalized in Lean 4 by P. Alexandersson (RealRooted, 2026-09-27) before this entry; (1) proves the full rank/signature/radical count, from which that corollary follows. No prior formalization of the rank and signature count of the Hermite form, or of the trace-form signature (r1 + r2, r2) of a number field, was found by a search on 2026-10-19 (Mathlib, the Isabelle AFP, Coq/MathComp, HOL Light, Lean 4 community repositories, Zenodo, arXiv); the existing root-counting formalizations use sign variations of remainder sequences. The sector inputs of the field at the level of Q are ported from the author's registered entry PALOMAR-2026-09-02-000014 and are not compared; (7) and the minimal-polynomial clause of (15) re-prove facts certified in the author's registered entry PALOMAR-2026-09-01-000005 and are not new. Application (cited, not a claim of the entry): In the author's Pisot Dimensional Theory, Q(rho) is the arithmetic of three-dimensional space and Q(Q) the arithmetic of four-dimensional spacetime, and their compositum K is the parent of both. Read through the theory, this entry's theorems make six conclusions exact.\nSpace and spacetime are the only worlds the parent contains. The fields between Q and K have degrees 3 and 4 and no others: Q(rho) and Q(Q) are K's only proper subfields other than Q (16). An intermediate sub-arithmetic of the parent has dimension 3 or 4, and nothing else; there is no 2-, 6- or other intermediate world.\nThe world is a product, not a sum. K is the tensor product of the two sectors, 12 = 3*4 (7), and its integers are exactly Z[rho] (x) Z[Q] (8). The parent's discrete structure is built from the two sectors' lattices and nothing else.\nThe parent's geometry is the product of space's and spacetime's. The trace form of K has type (7,5) (10), and it is the tensor product of the sectors' own forms (PALOMAR-2026-09-02-000014): (2,1) (x) (3,1), with 2*3 + 1*1 = 7 and 2*1 + 1*3 = 5. On the quartic sector the form is 3 times spacetime's own, of Lorentzian type (3,1); on the cubic sector, 4 times space's, of type (2,1) (13). The one time direction is not put in by hand: it is what the parent's form is on spacetime.\nAll of the parent's asymmetry between space and time is spacetime's. The parent's excess of positive over negative directions, 7 - 5 = 2, is exactly spacetime's 3 - 1 = 2. The eight dimensions orthogonal to spacetime are perfectly balanced, four positive and four negative (5, 13).\nBoth sectors are recovered from the parent. The relative traces, divided by the relative degrees [K:Q(rho)] = 4 and [K:Q(Q)] = 3, are the orthogonal projections onto the sectors (5), and the traces themselves carry the parent's lattice onto Z[rho] and Z[Q] (12). Every element of space and of spacetime is the shadow of an element of the parent.\nThe parent is built from minimizers, and joining them creates nothing smaller. Each sector's generator is a minimizer, certified in the author's registered entries: x^3 - x - 1 and x^4 - x - 1 attain the least Mahler measure above 1 among irreducible integer polynomials of degrees 3 and 4 (PALOMAR-2026-08-31-000004); rho is the least Pisot eigenvalue of any substitution on at most three letters, the slowest settling clock (PALOMAR-2026-10-18-000019), and the growth rate of the triangle group (2,3,infinity) = PGL(2,Z), the slowest of the hyperbolic triangle groups (p,q,infinity) (PALOMAR-2026-10-17-000013). K is the compositum of the two minimizers, and a single number generates all of it: rho*Q, the theory's coupling ruler (15; PALOMAR-2026-09-01-000005). Minimality survives the join. No element of K other than +/-1 has a conjugate on the unit circle (17), so the parent contains no Salem number, and with Smyth's theorem every nonzero integer of K other than +/-1 has Mahler measure at least rho (18), with equality at rho itself (PALOMAR-2026-08-31-000004). The 3D generator is the smallest nontrivial size in the whole twelve-dimensional arithmetic, exactly as in degree 3. In the theory, rho is the ground of minimality and therefore the ground of three-dimensional structure; joining space to spacetime keeps that ground.\nThe two sectors are the two sides of the Pisot boundary. rho is a Pisot number, and the Padovan substitution tiling, whose characteristic polynomial is x^3 - x - 1, is a regular model set with pure-point diffraction (Baake and Grimm 2020): the ordered, classical sector. It is handed, the arrow of time: its tiling flow is neither mutually locally derivable from nor topologically conjugate to its mirror image (Gaehler 2026, Example 10 and Remark 7, where the Padovan rule is varrho_R after renaming a <-> c), and in the factor language the author's registered entries PALOMAR-2026-08-19-000006, PALOMAR-2026-09-04-000004 and PALOMAR-2026-10-18-000019 certify it: ca occurs and ac never does. Q is not Pisot (PALOMAR-2026-09-01-000012), and every primitive self-similar tiling of the line with expansion Q has no non-trivial pure-point spectrum (Solomyak 1997): the quantum sector, which cannot settle on a line. This is the arithmetic of a quasicrystal (superspace crystallography: de Wolff 1974; Janner and Janssen 1977; cut-and-project: de Bruijn 1981; Kramer and Neri 1984; Duneau and Katz 1985; Elser 1986): a higher-dimensional lattice, O_K in R^2 x C^5, from which the sector lattices are recovered by the traces (12).",
+        "authors": [
+          {
+            "name": "Stephanie Alexander"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT",
+            "math-ph",
+            "gr-qc",
+            "cs.LO"
+          ],
+          "msc2020": [
+            "11E10",
+            "11E12",
+            "12D10",
+            "11R04",
+            "11R29",
+            "11R21",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "HermiteSignatureCompositum.hermite_signature",
+            "HermiteSignatureCompositum.traceForm_signature",
+            "HermiteSignatureCompositum.places_compositum",
+            "HermiteSignatureCompositum.discr_compositum",
+            "HermiteSignatureCompositum.trace_projection",
+            "HermiteSignatureCompositum.squarefree_discr_criterion",
+            "HermiteSignatureCompositum.setting",
+            "HermiteSignatureCompositum.integral_structure",
+            "HermiteSignatureCompositum.discr_L",
+            "HermiteSignatureCompositum.places_and_type",
+            "HermiteSignatureCompositum.relative_traces",
+            "HermiteSignatureCompositum.unit_sections",
+            "HermiteSignatureCompositum.orthogonal_decompositions",
+            "HermiteSignatureCompositum.covolume_L",
+            "HermiteSignatureCompositum.ruler_minpoly_index",
+            "HermiteSignatureCompositum.subfield_lattice",
+            "HermiteSignatureCompositum.rootRigid_circle_free",
+            "HermiteSignatureCompositum.mahlerMeasure_ge_of_smyth"
+          ]
+        },
+        "id": "PALOMAR-2026-10-21-000012",
+        "path": "entries/PALOMAR-2026-10-21-000012-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "5aa870e98236ba240561b798265c629df8c2d031",
+              "fork_repository": "PalomarArchive/stalex444--pdt-hermite-signature-compositum--de3680e74099",
+              "source_repository": "stalex444/pdt-hermite-signature-compositum"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "76dd0f56ef5799abf13dbf7ba80e55061155b056b55262d2fbb9ac399842b391",
+          "version": 1
+        },
+        "published_at": "2026-10-21T04:45:48Z",
+        "source": {
+          "commit": "5aa870e98236ba240561b798265c629df8c2d031",
+          "project_path": null,
+          "repository": "stalex444/pdt-hermite-signature-compositum"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Hermite's signature theorem and the coprime compositum, with the degree-12 compositum of x^3 - x - 1 and x^4 - x - 1",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A sorry-free Lean 4 proof of Theorem 1A of A. Granville, Refinements of Goldbach's conjecture, and the generalized Riemann hypothesis, Funct. Approx. Comment. Math. 37 (2007): with G(n) the sum over m1 + m2 = n of Lambda(m1) Lambda(m2), Mathlib's RiemannHypothesis holds if and only if the sum of G(n) over n <= N is N^2/2 + O(N^{3/2+eps}) for every eps > 0. Both directions are proved with no hypothesis: RH implies the asymptotic through the von Koch bound for psi(x) - x, and the asymptotic implies RH by the route reconstructed in part by Bhowmik, Halupczok, Matsumoto, Suzuki (arXiv 1704.06103) and completed by Bhowmik and Ruzsa (arXiv 1711.06442). Binary Goldbach is not claimed. Lean code written by an AI agent; the statements were checked against the literature by an AI reviewer and are offered for human audit.",
+        "authors": [
+          {
+            "name": "Steve Hubbard"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11P32",
+            "11M26",
+            "11N05"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "LeanLab.GoldbachAverage.avgRH_of_RH",
+            "LeanLab.GoldbachAverage.Converse.rh_of_avgRH",
+            "LeanLab.GoldbachAverage.Converse.granville_equiv_proved"
+          ]
+        },
+        "id": "PALOMAR-2026-10-21-000011",
+        "path": "entries/PALOMAR-2026-10-21-000011-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "9cee15bce4cc89532440973263a0f2fe0bd115c0",
+              "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+              "source_repository": "sthubbar/goldbach-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "15247782926710e228f413f1b2d789910802672990723d4691ee1a79daf4519e",
+          "version": 1
+        },
+        "published_at": "2026-10-21T04:32:15Z",
+        "source": {
+          "commit": "9cee15bce4cc89532440973263a0f2fe0bd115c0",
+          "project_path": "entries/granville2007",
+          "repository": "sthubbar/goldbach-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The Riemann hypothesis is equivalent to an asymptotic for the average number of Goldbach representations, after Granville 2007",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Acquisition and retention of catalytic function are established for a four-compartment chemical model with three prescribed catalyst types and finite resources. Starting with at least 512 copies of each of two old catalyst types per compartment, arbitrary candidate counts and arbitrary fuel occupancy, a seeding phase ends at time 30. At the fixed beta = 4,000,000 operating point, the joint mission through time 60 has failure probability at most 0.004517975690072193. It includes applicable count floors of 16 for both actual complementary daughters, 3,000,000 service credits, at least five initiating divisions per compartment after seed withdrawal, and eleven current-population recoveries interleaved with ten selected actual divisions by time 55.5. Seven simultaneous resource ceilings are enforced by one finite-stock process, with the first attempted excess entering failure. The proof connects the marked physical-time law, deterministic seed withdrawal, stopped recovery and resource accounting to the complete mission.",
+        "authors": [
+          {
+            "name": "Michael Mislan"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.PR",
+            "math.LO"
+          ],
+          "msc2020": [
+            "60J27",
+            "03B35"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "P161Formal.template_free_heredity_finite_stock",
+            "P161Formal.fixedGridService._proof_1",
+            "P161Formal.failureCeiling._proof_1",
+            "CTMCHeredity20261019.canonicalSeedFreeCF3._proof_2",
+            "CTMCHeredity20261019.canonicalSeedFreeCF3._proof_1",
+            "CTMCHeredity20261019.V2.SeedSwitch.blockDuration._proof_1",
+            "CTMCHeredity20261019.cutPrefixArrival._proof_1",
+            "CTMCHeredity20261019.V2.PhysicalSplice.prefixSplice._proof_1",
+            "CTMCHeredity20261019.V2.SeedSwitch.canonicalSeedOnCF3._proof_3",
+            "CTMCHeredity20261019.V2.SeedSwitch.canonicalSeedOnCF3._proof_2",
+            "CTMCHeredity20261019.V2.SeedSwitch.canonicalSeedOnCF3._proof_1",
+            "P161Formal.literalSourcePar._proof_2",
+            "P161Formal.literalSourcePar._proof_1",
+            "P161Formal.globalSourceDivisionAt._proof_1",
+            "P161Formal.emptyStockPopulation._proof_1",
+            "P161Formal.sourceRealizedObservations._proof_1",
+            "P161Formal.protectedFloors._proof_1",
+            "P161Formal.seedCoefficient._proof_1",
+            "P161Formal.renewalMission._proof_2",
+            "P161Formal.divisionMarkRate._proof_2",
+            "P161Formal.renewalMission._proof_1",
+            "CTMCHeredity20261019.V4.TwoPhaseLaw.terminalKernel._proof_1",
+            "CTMCHeredity20261019.canonicalSeedFree_valid",
+            "CTMCHeredity20261019.CF3MarkedKernel.rate_positive",
+            "FunctionalCapacity.cf3._proof_2",
+            "CTMCHeredity20261019.CF3MarkedKernel.core_channel_bound",
+            "CTMCHeredity20261019.CF3Marked.coreChannels._proof_1",
+            "FunctionalCapacity.Site.comp._proof_2",
+            "FunctionalCapacity.Site.dec._proof_2",
+            "FunctionalCapacity.Site.inc._proof_2",
+            "FunctionalCapacity.cf3._proof_1",
+            "CTMCHeredity20261019.MarkedKernel.kernel._proof_2",
+            "CTMCHeredity20261019.MarkedKernel.kernel._proof_1",
+            "CTMCHeredity20261019.CF3MarkedKernel.instMeasurableSingletonClassState",
+            "HybridCTMC.Kernel.eventKernel_markov",
+            "HybridCTMC.Kernel.eventKernel._proof_1",
+            "HybridCTMC.Kernel.eventKernel._proof_2",
+            "HybridCTMC.Kernel.clockKernel._proof_1",
+            "HybridCTMC.Kernel.pmf._proof_1",
+            "CTMCHeredity20261019.V2.SeedSwitch.afterSwitchKernel._proof_1",
+            "CTMCHeredity20261019.V2.RawOperated.measurable_nextState",
+            "CTMCHeredity20261019.V2.RawOperated.segmentKernel._proof_1",
+            "CTMCHeredity20261019.V2.RawOperated.instMeasurableSingletonClassSourceState",
+            "CTMCHeredity20261019.V2.RawOperated.rawLaw._proof_1",
+            "CTMCHeredity20261019.V2.Operated.tailKernel._proof_1",
+            "CTMCHeredity20261019.V2.SeedSwitch.seedOn_valid",
+            "P161Formal.sourceGlobalInitial._proof_1",
+            "P161Formal.sourceChemConsumed._proof_1",
+            "P161Formal.sourceStockStep._proof_1"
+          ]
+        },
+        "id": "PALOMAR-2026-10-21-000010",
+        "path": "entries/PALOMAR-2026-10-21-000010-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "771a4dbad576d336e7e054a2d6a71958ea547711",
+              "fork_repository": "PalomarArchive/mmislan--palomar-template-free-heredity--7897efb38133",
+              "source_repository": "mmislan/palomar-template-free-heredity"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "31402070995fc2a6e446d2751c7503b219409709d79282ef07a6ae653b502279",
+          "version": 1
+        },
+        "published_at": "2026-10-21T04:14:09Z",
+        "source": {
+          "commit": "771a4dbad576d336e7e054a2d6a71958ea547711",
+          "project_path": null,
+          "repository": "mmislan/palomar-template-free-heredity"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Chemical heredity without genetic templates",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For an integer r >= 2 and a finite set N of primes, the random Euler product model for Dirichlet characters of order r replaces chi(q) by independent uniform r-th roots of unity. The development proves that the order-r local factor E|1 - z/q|^(-2) equals (1 + q^-r)/((1 - q^-2)(1 - q^-r)), that its ratio to the full-circle factor (1 - q^-2)^(-1), multiplied over the primes outside N, is zeta^(N)(r)^2 / zeta^(N)(2r), that this correction factor is also the sum of (ab)^-r over the coprime pairs of integers prime to N, and that the model mean is zeta^(N)(2) zeta^(N)(r)^2 / zeta^(N)(2r). The factor exceeds 1, decreases strictly in r and tends to 1; for r = 2k and N empty it equals -binom(4k,2k) B_{2k}^2/(2 B_{4k}). For r = 4 and N = {2} it is 35/34, the ratio by which the limit of Louboutin's mean square of L(1, chi) with the factor at 2 removed changes when the average is restricted to quartic characters; with the forced factor 4/5 at 2 the development also proves the constants pi^2/10, 7 pi^2/68, 7 pi^2/36 and 7/136 = (1/20)(35/34) = (7/72)(9/17). It also identifies the pairs the model keeps: for positive m, n the average of z^m conj(z^n) is 1 exactly when m/n is an r-th power in Q, that is when (m, n) = (d a^r, d b^r) with a, b coprime, and 0 otherwise. Modulo a single prime p with r | p - 1 it proves the finite-character counterpart: there are exactly r Dirichlet characters mod p with chi^r = 1, the sum of chi(a) conj(chi(b)) over them is r when a/b is a nonzero r-th power mod p and 0 otherwise, so every pair (d a^r, d b^r) prime to p survives with sum r; by contrast, summed over all characters mod p, chi(m) conj(chi(n)) has sum 0 for distinct m, n < p.",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11M06",
+            "11M20",
+            "11R42",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "FixedOrderFactor.muAvg_eq",
+            "FixedOrderFactor.tendsto_muAvg",
+            "FixedOrderFactor.modelMean_eq",
+            "FixedOrderFactor.hasProd_correctionFactor",
+            "FixedOrderFactor.hasProd_muAvg",
+            "FixedOrderFactor.tendsto_modelMean",
+            "FixedOrderFactor.hasSum_coprime_pairs",
+            "FixedOrderFactor.correctionFactor_even",
+            "FixedOrderFactor.correctionFactor_eq_mul",
+            "FixedOrderFactor.one_lt_correctionFactor",
+            "FixedOrderFactor.correctionFactor_succ_lt",
+            "FixedOrderFactor.tendsto_correctionFactor",
+            "FixedOrderFactor.correctionFactor_four_two",
+            "FixedOrderFactor.localTerm_I_half",
+            "FixedOrderFactor.quartic_constants",
+            "FixedOrderFactor.sum_char_pow_eq_one",
+            "FixedOrderFactor.card_char_pow_eq_one",
+            "FixedOrderFactor.sum_char_pow_eq_one_of_pow",
+            "FixedOrderFactor.sum_char_all",
+            "FixedOrderFactor.div_eq_pow_iff",
+            "FixedOrderFactor.model_pair_average"
+          ]
+        },
+        "id": "PALOMAR-2026-10-20-000010",
+        "path": "entries/PALOMAR-2026-10-20-000010-v2.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "0149a0e54cb853c0ba07e8f59234751d7b8efb55",
+              "fork_repository": "PalomarArchive/jkfarland-bot--FixedOrderFactor-lean--c8161d9d4229",
+              "source_repository": "jkfarland-bot/FixedOrderFactor-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "4278fb0b614206c2f909a5adc1849c9b04a7ec29dc8a376a962e1cdc55a12ff1",
+          "version": 2
+        },
+        "published_at": "2026-10-21T03:47:36Z",
+        "source": {
+          "commit": "0149a0e54cb853c0ba07e8f59234751d7b8efb55",
+          "project_path": null,
+          "repository": "jkfarland-bot/FixedOrderFactor-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "FixedOrderFactor: the order-r correction factor for mean squares of L(1, chi), and the factor 35/34",
+        "trust": {
+          "level": "high"
+        },
+        "version": 2,
+        "versions": 2
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of the Nash–Williams theorem for large graphs proved by Delcourt and Postle: there is N such that every finite simple graph on n ≥ N vertices that is triangle-divisible (3 divides the number of edges and every degree is even) and has minimum degree at least 3n/4 has a triangle decomposition; together with Delcourt–Postle's fractional threshold (every graph with 3n ≤ 4δ has a fractional triangle decomposition) and their fractional stability theorem (with an additional order threshold). The proof follows their extremal/non-extremal case division but does not assume their Theorem 13.16, whose proof is assigned to an unpublished manuscript: the extremal residuals are decomposed with typed absorption results developed in the same project, and the non-extremal case with a protected covering-round argument. The development has 1,070 modules.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C70",
+            "05C35"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "NashWilliamsTheorem.nash_williams",
+            "NashWilliamsTheorem.fractional_nash_williams",
+            "NashWilliamsTheorem.fractional_stability"
+          ]
+        },
+        "id": "PALOMAR-2026-10-21-000009",
+        "path": "entries/PALOMAR-2026-10-21-000009-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "2603197abdbf0a600ec663f6f046f70fbd209d4a",
+              "fork_repository": "PalomarArchive/jtraverso--nash-williams-lean--252fc7828395",
+              "source_repository": "jtraverso/nash-williams-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "6dc44fa6f508a34c32d33d4eee5d3c74328af9da04b14e0a3442b2ca5506daf0",
+          "version": 1
+        },
+        "published_at": "2026-10-21T03:28:45Z",
+        "source": {
+          "commit": "2603197abdbf0a600ec663f6f046f70fbd209d4a",
+          "project_path": null,
+          "repository": "jtraverso/nash-williams-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The Nash–Williams triangle-decomposition theorem",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "We establish improved zero-density estimates for the Riemann zeta function relative to the bounds previously released in PALOMAR-2026-10-11-000010 v1 and PALOMAR-2026-10-09-000005 v1. Let N(σ,T) count the nontrivial zeros with Re ρ ≥ σ and |Im ρ| ≤ T, with analytic multiplicity. For T ≥ 2 and ε > 0, our bounds have the form N(σ,T) ≤ C(σ,ε)T^((1−σ)A(σ)+ε). The native quantitative bounds improve those earlier power curves for 12/17 < σ ≤ 3/4 and 7/9 < σ ≤ 7/8. The displayed power-curve comparison continues for 7/8 < σ < 17/19, where the imported OpenAI result already gives N(σ,T)=0. Later Lean-formalized refinements also give a zero-free region below 7/8 [Collet26]; our comparisons near 7/8 concern the named earlier results. Table 1 gives all the proved contribution curves and their full ranges, including A(σ)=12/(9σ−1) on [5/7,113/153] and A(σ)=255/(153σ+7) on [113/153,3/4]. Figure 1 compares the cumulative curves.",
+        "authors": [
+          {
+            "name": "Mark Lewko"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11M26"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "LewkoDensityPalomar.provider_P1",
+            "LewkoDensityPalomar.provider_P2",
+            "LewkoDensityPalomar.provider_P3",
+            "LewkoDensityPalomar.provider_P4",
+            "LewkoDensityPalomar.provider_P5",
+            "LewkoDensityPalomar.provider_P6",
+            "LewkoDensityPalomar.provider_P7",
+            "LewkoDensityPalomar.provider_P8",
+            "LewkoDensityPalomar.provider_P9",
+            "LewkoDensityPalomar.provider_P10",
+            "LewkoDensityPalomar.provider_P11",
+            "LewkoDensityPalomar.provider_P12",
+            "LewkoDensityPalomar.provider_P13",
+            "LewkoDensityPalomar.provider_P14",
+            "LewkoDensityPalomar.provider_P15",
+            "LewkoDensityPalomar.provider_P16",
+            "LewkoDensityPalomar.provider_P17",
+            "LewkoDensityPalomar.provider_P18",
+            "LewkoDensityPalomar.provider_P19",
+            "LewkoDensityPalomar.provider_P20",
+            "LewkoDensityPalomar.provider_P21",
+            "LewkoDensityPalomar.provider_P22",
+            "LewkoDensityPalomar.provider_P23",
+            "LewkoDensityPalomar.provider_P24",
+            "LewkoDensityPalomar.provider_P25",
+            "LewkoDensityPalomar.provider_P26",
+            "LewkoDensityPalomar.provider_P27",
+            "LewkoDensityPalomar.provider_P28",
+            "LewkoDensityPalomar.provider_P29",
+            "LewkoDensityPalomar.provider_P30",
+            "LewkoDensityPalomar.provider_P31",
+            "LewkoDensityPalomar.piece_G1",
+            "LewkoDensityPalomar.piece_G2",
+            "LewkoDensityPalomar.piece_G3",
+            "LewkoDensityPalomar.piece_G4",
+            "LewkoDensityPalomar.piece_G5",
+            "LewkoDensityPalomar.piece_G6",
+            "LewkoDensityPalomar.piece_G7",
+            "LewkoDensityPalomar.piece_G8",
+            "LewkoDensityPalomar.piece_G9",
+            "LewkoDensityPalomar.piece_G10",
+            "LewkoDensityPalomar.piece_B1",
+            "LewkoDensityPalomar.piece_B2",
+            "LewkoDensityPalomar.piece_B3",
+            "LewkoDensityPalomar.piece_B4",
+            "LewkoDensityPalomar.piece_B5",
+            "LewkoDensityPalomar.piece_B6",
+            "LewkoDensityPalomar.piece_O1",
+            "LewkoDensityPalomar.piece_O2",
+            "LewkoDensityPalomar.piece_O3",
+            "LewkoDensityPalomar.piece_O4",
+            "LewkoDensityPalomar.piece_O5",
+            "LewkoDensityPalomar.piece_O6",
+            "LewkoDensityPalomar.piece_O7",
+            "LewkoDensityPalomar.piece_O8",
+            "LewkoDensityPalomar.piece_O9",
+            "LewkoDensityPalomar.piece_O10",
+            "LewkoDensityPalomar.piece_O11",
+            "LewkoDensityPalomar.piece_O12",
+            "LewkoDensityPalomar.piece_O13",
+            "LewkoDensityPalomar.piece_O14",
+            "LewkoDensityPalomar.piece_O15",
+            "LewkoDensityPalomar.piece_O16",
+            "LewkoDensityPalomar.piece_O17",
+            "LewkoDensityPalomar.piece_O18",
+            "LewkoDensityPalomar.piece_O19",
+            "LewkoDensityPalomar.piece_O20",
+            "LewkoDensityPalomar.piece_O21",
+            "LewkoDensityPalomar.piece_O22",
+            "LewkoDensityPalomar.global39over17",
+            "LewkoDensityPalomar.uniform_P29",
+            "LewkoDensityPalomar.uniform_P30",
+            "LewkoDensityPalomar.uniform_P31"
+          ]
+        },
+        "id": "PALOMAR-2026-10-21-000008",
+        "path": "entries/PALOMAR-2026-10-21-000008-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "c55fc0088bd4d7e61c5934abc5dd9153e8cb2f5d",
+              "fork_repository": "PalomarArchive/mrklwk--zeta-density-39-over-17-lean--524c4cd16d2b",
+              "source_repository": "mrklwk/zeta-density-39-over-17-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "40520fab9a62f9da77f746fa8449c93ac9111ff4afe3b56e6712484f65fe4fce",
+          "version": 1
+        },
+        "published_at": "2026-10-21T03:18:19Z",
+        "source": {
+          "commit": "c55fc0088bd4d7e61c5934abc5dd9153e8cb2f5d",
+          "project_path": null,
+          "repository": "mrklwk/zeta-density-39-over-17-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Improved zero-density estimates for the Riemann zeta function",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of Lovász's 1972 theorems on perfect graphs: a finite simple graph is perfect (every induced subgraph has chromatic number equal to its clique number) if and only if |S| ≤ α(G[S]) · ω(G[S]) for every vertex set S; and the perfect graph theorem conjectured by Berge, that a finite graph is perfect if and only if its complement is perfect. The proof follows Gasparian's linear-algebra argument. Mathlib has chromatic, clique and independence numbers but no perfect graphs.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C17",
+            "05C15",
+            "05C69"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PerfectGraphTheorem.isPerfect_iff_card_le",
+            "PerfectGraphTheorem.isPerfect_compl_iff"
+          ]
+        },
+        "id": "PALOMAR-2026-10-21-000007",
+        "path": "entries/PALOMAR-2026-10-21-000007-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "796922460172c4e51c39c96575d03957652c0bab",
+              "fork_repository": "PalomarArchive/jtraverso--perfect-graphs--f01c6e39f696",
+              "source_repository": "jtraverso/perfect-graphs"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "af677b18af72fd1f48d0145b57d2c45ff0785f7d592486d15b75acbb56d182bf",
+          "version": 1
+        },
+        "published_at": "2026-10-21T02:39:49Z",
+        "source": {
+          "commit": "796922460172c4e51c39c96575d03957652c0bab",
+          "project_path": null,
+          "repository": "jtraverso/perfect-graphs"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Lovász's perfect graph theorems",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of Jaeger's 4-flow theorem: every finite 4-edge-connected simple graph has a nowhere-zero integer 4-flow, i.e. an antisymmetric function on darts with values in {±1, ±2, ±3} that is conserved at every vertex. Also proved: a graph with two edge-disjoint spanning trees has its edges covered by two even subgraphs (a nowhere-zero ℤ₂ × ℤ₂-flow) and has a nowhere-zero integer 4-flow. Version 2 adds Jaeger's 8-flow theorem: every finite bridgeless graph has its edges covered by three even subgraphs and has a nowhere-zero integer 8-flow; conversely a graph with a nowhere-zero flow has no bridge. Version 3 adds Seymour's 6-flow theorem (every finite bridgeless graph has a nowhere-zero integer 6-flow) and Tutte's theorem relating group and integer flows (for k > 0, every nowhere-zero ℤ/k-flow φ lifts to a nowhere-zero integer k-flow ψ with ψ ≡ φ mod k, and conversely an integer k-flow reduces modulo k to a nowhere-zero ℤ/k-flow). Mathlib has no flows.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C21",
+            "05C40"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "JaegerFlow.exists_even_cover_of_trees",
+            "JaegerFlow.exists_flow_of_trees",
+            "JaegerFlow.jaeger_four_flow",
+            "EightFlowTheorem.exists_even_cover_three",
+            "EightFlowTheorem.jaeger_eight_flow",
+            "EightFlowTheorem.not_isBridge_of_flow",
+            "SixFlowTheorem.integer_flow_of_zmod",
+            "SixFlowTheorem.zmod_flow_of_integer",
+            "SixFlowTheorem.seymour_six_flow"
+          ]
+        },
+        "id": "PALOMAR-2026-10-18-000009",
+        "path": "entries/PALOMAR-2026-10-18-000009-v3.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "623dd0dd718f93de06d4dc792e116dd32ef97553",
+              "fork_repository": "PalomarArchive/jtraverso--jaeger-four-flow--4443e53b8984",
+              "source_repository": "jtraverso/jaeger-four-flow"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "80fece2349e3b42a72afa6c8d4c0f613ace6eadb524eaf6862fff87823ee2ec0",
+          "version": 3
+        },
+        "published_at": "2026-10-21T02:16:21Z",
+        "source": {
+          "commit": "623dd0dd718f93de06d4dc792e116dd32ef97553",
+          "project_path": null,
+          "repository": "jtraverso/jaeger-four-flow"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Jaeger's 4-flow and 8-flow theorems and Seymour's 6-flow theorem",
+        "trust": {
+          "level": "high"
+        },
+        "version": 3,
+        "versions": 3
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A sorry-free Lean 4 proof of the main results of D. R. Heath-Brown, The ternary Goldbach problem, Rev. Mat. Iberoam. 1 (1985): the Siegel-Walfisz theorem in the form the paper quotes as (1.1), proved from a zero-free region for Dirichlet L-functions and Siegel's theorem; Theorem 1, sum over 2x < m <= 3x of |N2(m) - x S(m)| << x^2 (log x)^{-C}; Corollary 1 and the van der Corput, Chudakov, Estermann theorem that at most O(X (log X)^{-A}) even numbers up to X are not sums of two primes, and density zero; Corollary 2, Vinogradov's theorem that every sufficiently large odd number is a sum of three primes; and Corollary 3, infinitely many three-term arithmetic progressions of primes. All constants are ineffective, as in the paper. Binary Goldbach is not claimed. Lean code written by an AI agent; the statements were checked against the paper by AI reviewers and are offered for human audit.",
+        "authors": [
+          {
+            "name": "Steve Hubbard"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11P32",
+            "11N13",
+            "11M20",
+            "11P55"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "LeanLab.PNTPort.PsiChi.siegelWalfisz",
+            "LeanLab.PNTPort.PsiChi.heathBrown_theorem1",
+            "LeanLab.PNTPort.PsiChi.heathBrown_corollary1",
+            "LeanLab.PNTPort.PsiChi.goldbach_logPowerSaving",
+            "LeanLab.PNTPort.PsiChi.vinogradov_three_primes",
+            "LeanLab.PNTPort.PsiChi.three_primes_in_ap",
+            "LeanLab.PNTPort.PsiChi.goldbach_densityZero"
+          ]
+        },
+        "id": "PALOMAR-2026-10-21-000005",
+        "path": "entries/PALOMAR-2026-10-21-000005-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "6d7ae7b40fb5550e836456fd2ff4d8587157aee7",
+              "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+              "source_repository": "sthubbar/goldbach-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "a792bc51ebfaed55cb64da59d7b012f1dfa951601bef1c0175a846c5db20e009",
+          "version": 1
+        },
+        "published_at": "2026-10-21T02:05:35Z",
+        "source": {
+          "commit": "6d7ae7b40fb5550e836456fd2ff4d8587157aee7",
+          "project_path": "entries/heathbrown1985",
+          "repository": "sthubbar/goldbach-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Vinogradov's three primes theorem and almost all binary Goldbach, after Heath-Brown 1985, with the Siegel-Walfisz theorem",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "This is a Lean 4 formalization of the main theorem from the paper \"A curved three-dimensional simplex Hilbert transform\" by P. Durcik, M. Fraccaroli and J. Roos.",
+        "authors": [
+          {
+            "name": "Polona Durcik"
+          },
+          {
+            "name": "Marco Fraccaroli"
+          },
+          {
+            "name": "Joris Roos"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CA"
+          ],
+          "msc2020": [
+            "42B20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "DFR.main_result"
+          ]
+        },
+        "id": "PALOMAR-2026-10-21-000004",
+        "path": "entries/PALOMAR-2026-10-21-000004-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "5c7595a83657b6c02f62ebf4f4ae1c02cb4109e4",
+              "fork_repository": "PalomarArchive/roos-j--lean-dfr--500ac5d1958e",
+              "source_repository": "roos-j/lean-dfr"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "9da1b408573a58f3e8f968c3a4c768ac813002c65e49b4ba10b7353b929e3474",
+          "version": 1
+        },
+        "published_at": "2026-10-21T01:55:52Z",
+        "source": {
+          "commit": "5c7595a83657b6c02f62ebf4f4ae1c02cb4109e4",
+          "project_path": null,
+          "repository": "roos-j/lean-dfr"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Formalization of a curved three-dimensional simplex Hilbert transform",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of Lovász's orthonormal-representation bound on the independence number (if u is an orthonormal representation of G with handle c and 1 ≤ t (c·u_i)² for every vertex, then α(G) ≤ t), of its multiplicativity under strong powers (α(G^⊠k) ≤ t^k), and of its application to the pentagon: α(C₅^⊠k)² ≤ 5^k for every k, Shannon's α(C₅^⊠2) = 5, and hence the Shannon capacity Θ(C₅) = √5. Mathlib has independence numbers but neither strong graph products nor the Shannon capacity.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "cs.IT"
+          ],
+          "msc2020": [
+            "05C69",
+            "94A15",
+            "05C50"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "ShannonCapacity.indepNum_le",
+            "ShannonCapacity.indepNum_strongPow_le",
+            "ShannonCapacity.indepNum_strongPow_cycle_five",
+            "ShannonCapacity.indepNum_strongPow_cycle_five_two",
+            "ShannonCapacity.shannonCapacity_cycle_five"
+          ]
+        },
+        "id": "PALOMAR-2026-10-21-000003",
+        "path": "entries/PALOMAR-2026-10-21-000003-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "2d506b5abca378d9133b5e3f1264a5316843c9a7",
+              "fork_repository": "PalomarArchive/jtraverso--lovasz-theta--8c936f7e6f5c",
+              "source_repository": "jtraverso/lovasz-theta"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "6e12a8a9f98bee558fef97bd7d21cbebfc334f7729d2421ecb739be5a84681de",
+          "version": 1
+        },
+        "published_at": "2026-10-21T01:15:59Z",
+        "source": {
+          "commit": "2d506b5abca378d9133b5e3f1264a5316843c9a7",
+          "project_path": null,
+          "repository": "jtraverso/lovasz-theta"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Lovász's bound on the Shannon capacity",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A complete Lean 4 / Mathlib formalization of Theorems 1.1 and 1.2 of Duminil-Copin, Gagnebin, Harel, Manolescu and Tassion (arXiv:1611.09877v2). For the q-state Potts model on the square lattice with q > 4, at beta_c = log(1 + sqrt q), the q + 1 box-limit Gibbs measures are distinct and ergodic, each monochromatic measure gives its own colour probability greater than 1/q at the origin, and the inverse correlation length in the diagonal direction is lambda + 2 sum_{k >= 1} (-1)^k tanh(k lambda) / k, where cosh lambda = sqrt(q) / 2, a positive number. For the random-cluster model on the square lattice with q > 4 at p_c = sqrt(q) / (1 + sqrt q), the free and wired box-limit measures differ, the wired measure has an infinite cluster almost surely, the free two-point function between 0 and the diagonal site x_n decays at the same exact rate, and that rate equals sum_{k >= 0} 4 / ((2k + 1) sinh(pi^2 (2k + 1) / (2 lambda))), which is equivalent to 8 exp(-pi^2 / sqrt(q - 4)) as q decreases to 4. The external results the paper cites and the proof uses (Edwards-Sokal coupling, FKG and comparison inequalities, finite energy, ergodicity and the 0-1 law for infinite clusters, planar self-duality, the coordinate Bethe ansatz of the companion paper arXiv:1611.09909, Perron-Frobenius, the analytic implicit function theorem) are proved or taken from Mathlib; uniqueness of the infinite cluster is not needed, and Brouwer's fixed-point theorem comes from a vendored library. The only axioms are propext, Classical.choice and Quot.sound.",
+        "authors": [
+          {
+            "name": "Zijie Zhuang"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.PR",
+            "math-ph"
+          ],
+          "msc2020": [
+            "82B20",
+            "82B26",
+            "82B43",
+            "60K35",
+            "82B23"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PottsDiscontinuity.potts_theorem_1_1",
+            "PottsDiscontinuity.rc_theorem_1_2",
+            "PottsDiscontinuity.rc_theorem_1_2_positivity_eq_1_3"
+          ]
+        },
+        "id": "PALOMAR-2026-10-21-000001",
+        "path": "entries/PALOMAR-2026-10-21-000001-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "435fb57856860eda7a65c8fec9e5fb29eff2b46b",
+              "fork_repository": "PalomarArchive/zijie123123--PottsDiscontinuity-lean--93951fb65fb1",
+              "source_repository": "zijie123123/PottsDiscontinuity-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "77b1737df1185033aef166bafcfa8d6d72eae3be5d45b114ac174ae3659a4051",
+          "version": 1
+        },
+        "published_at": "2026-10-21T00:09:23Z",
+        "source": {
+          "commit": "435fb57856860eda7a65c8fec9e5fb29eff2b46b",
+          "project_path": null,
+          "repository": "zijie123123/PottsDiscontinuity-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Discontinuity of the phase transition for the planar random-cluster and Potts models with q > 4 (Theorems 1.1 and 1.2)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "The regionally proximal relation and the equicontinuous structure relation are fundamental relations in topological dynamics that capture equicontinuous behaviour in a topological dynamical system and its factors. For minimal actions of abelian groups they are known to be equivalence relations and to coincide. This development formalizes in Lean 4 the results of the paper \"The regionally proximal relation for commutative semigroup actions\", which generalizes these facts from group actions to semigroup actions.\nThroughout, a system is an action of a discrete semigroup S on a compact Hausdorff space X by continuous maps. A factor is a continuous S-equivariant surjection. The system X is minimal if every orbit is dense, and equicontinuous if the family of maps {s : X -> X} is uniformly equicontinuous. The regionally proximal relation RP consists of the pairs (x,y) such that for all neighbourhoods U of x and V of y and all neighbourhoods a of the diagonal, there are x' in U, y' in V and s in S with (sx', sy') in a. The equicontinuous structure relation Seq consists of the pairs identified by every equicontinuous factor.\nThe regionally proximal relation has classically been defined only for group actions. The definition used here, for actions of a general semigroup, is the one adopted by Auslander and Dai and by Dai and Xiao; it agrees with the classical notion when the acting semigroup is a group. A second, inequivalent generalization is also natural: the backward regionally proximal relation RP^-, obtained by following the group-action definition of de Vries. For semigroup actions the two differ in general, already for S = (N,+), which is what makes Theorem C below a statement with content.\nTheorem A states that for a commutative semigroup S and a minimal S-system X, a factor is equicontinuous exactly when RP is contained in the relation it induces. Theorem B states that RP and Seq coincide; in particular RP is a closed, S-invariant equivalence relation and X -> X/RP is the largest equicontinuous factor of X. Theorem B is apparently new even for systems generated by a single non-invertible map. Theorem C states that RP coincides with the backward regionally proximal relation RP^-, the second natural generalization of regional proximality from groups to semigroups; the two differ in general for semigroup actions, already for S = (N,+). Theorem D states that commuting minimal actions of two commutative semigroups on the same space induce the same regionally proximal relation.\nTheorems E and F concern natural extensions. Theorem E constructs, for any minimal action of a commutative semigroup, a smallest extension on which the semigroup acts by homeomorphisms: a minimal S-system W and a factor map W -> X through which every extension of X by homeomorphisms factors. The construction goes through the Grothendieck group Gr(S) of S and requires no cancellativity assumption. Theorem F identifies the largest equicontinuous factor of X with that of its natural extension W, both as an S-system and as a Gr(S)-system.\nThe proof of Theorem B follows the cube-space methods of Glasner, Gutman and Ye, generalized in places and specialized in others, using ultrafilters in place of enveloping semigroups and nets to simplify formalization. The development runs to roughly 20,000 lines of Lean across 17 files and formalizes every lemma, proposition, corollary and theorem of the paper; the registered statements are Theorems A through F. The same repository also formalizes a companion paper on the local structure of Delta* sets, registered separately as Palomar entry PALOMAR-2026-10-18-000015.",
+        "authors": [
+          {
+            "name": "Angelina Blahodatna"
+          },
+          {
+            "name": "Lauren Detmold"
+          },
+          {
+            "name": "Daniel Glasscock"
+          },
+          {
+            "name": "Anh N. Le"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.DS"
+          ],
+          "msc2020": [
+            "37B05",
+            "37B20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "RPIntro.RPTheoremA",
+            "RPIntro.RPTheoremB",
+            "RPIntro.RPTheoremC",
+            "RPIntro.RPTheoremD",
+            "RPIntro.RPTheoremsEandF"
+          ]
+        },
+        "id": "PALOMAR-2026-10-20-000017",
+        "path": "entries/PALOMAR-2026-10-20-000017-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "a3cf7072e465276748dd8522b1af92802c9f21b5",
+              "fork_repository": "PalomarArchive/dglasscockUML--NSF_LEAPS--0bc2bbd0e51f",
+              "source_repository": "dglasscockUML/NSF_LEAPS"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "6141e17c53dda57f79706fd009d15739cc9c937e911eca515093c74bdc6d63a3",
+          "version": 1
+        },
+        "published_at": "2026-10-20T12:17:00Z",
+        "source": {
+          "commit": "a3cf7072e465276748dd8522b1af92802c9f21b5",
+          "project_path": null,
+          "repository": "dglasscockUML/NSF_LEAPS"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The regionally proximal relation for commutative semigroup actions",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "This is a Lean 4 formalization of Theorems 1.1-1.4 from the paper \"Endpoint power weight inequalities for spherical maximal functions\" by M. Fraccaroli, J. Lee, N. Lei, J. Roos and A. Seeger. The theorem statements were human-written, while the proof was automatically generated directly from the paper using coding agents.",
+        "authors": [
+          {
+            "name": "Marco Fraccaroli"
+          },
+          {
+            "name": "Juyoung Lee"
+          },
+          {
+            "name": "Nikou Lei"
+          },
+          {
+            "name": "Joris Roos"
+          },
+          {
+            "name": "Andreas Seeger"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CA"
+          ],
+          "msc2020": [
+            "42B25",
+            "28A80"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Spherical.PowerWeights.eLpNorm_sphericalMaximal_powerWeight_critical_le_schwartzMap",
+            "Spherical.PowerWeights.eLpNorm_restrictedSphericalMaximal_powerWeight_critical_le_schwartzMap",
+            "Spherical.PowerWeights.convexSeq_powerWeight_iff",
+            "Spherical.PowerWeights.globalConvexSeq_powerWeight_iff"
+          ]
+        },
+        "id": "PALOMAR-2026-10-20-000016",
+        "path": "entries/PALOMAR-2026-10-20-000016-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "800b71afca91e42809c21e6e2fd9ae4f82467082",
+              "fork_repository": "PalomarArchive/roos-j--lean-spherical--f9129e76398c",
+              "source_repository": "roos-j/lean-spherical"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "1b2cbc70472f3418d69dac58282f53f2686bc2c08c875ec25b14aa5e4f1385e6",
+          "version": 1
+        },
+        "published_at": "2026-10-20T11:32:47Z",
+        "source": {
+          "commit": "800b71afca91e42809c21e6e2fd9ae4f82467082",
+          "project_path": null,
+          "repository": "roos-j/lean-spherical"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Endpoint power weight inequalities for spherical maximal functions in Lean",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Dual-Horn satisfiability and finite graph vertex covers are represented by physical bridge detection in finite priority controllers. The constructions preserve the declared variable or vertex universe, have linear counted decoder size, and count eligible detecting qualifier sets rather than primary-input assignments.",
+        "authors": [
+          {
+            "name": "Idris Ali Shaik"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "cs.DM"
+          ],
+          "msc2020": [
+            "06E30",
+            "68Q25"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Controller.Reductions.DualHorn.model_bridge_detectable_iff",
+            "Controller.Reductions.DualHorn.decoder_size_linear",
+            "Controller.Reductions.DualHorn.decoder_formulaForest",
+            "Controller.Reductions.coverDAG_size_linear",
+            "Controller.Reductions.cover_detection_count",
+            "Controller.Reductions.cover_physical_detects_only_covers",
+            "Controller.Reductions.cover_realizer_detects_iff"
+          ]
+        },
+        "id": "PALOMAR-2026-10-20-000015",
+        "path": "entries/PALOMAR-2026-10-20-000015-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "4defc1bfee6f82a50c5d48e6ad4fe6e01df73cc0",
+              "fork_repository": "PalomarArchive/shaikidris--priority-controller-phase1--d60f9fc1688f",
+              "source_repository": "shaikidris/priority-controller-phase1"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "296e12471b8abc6a0c6ccbb5aa91bdb091d84f89020d001884380395b7713edf",
+          "version": 1
+        },
+        "published_at": "2026-10-20T11:17:47Z",
+        "source": {
+          "commit": "4defc1bfee6f82a50c5d48e6ad4fe6e01df73cc0",
+          "project_path": null,
+          "repository": "shaikidris/priority-controller-phase1"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Dual-Horn models and vertex covers in priority controllers",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A minimal Lean 4 / Mathlib formalization of R. Stephan, Superlinear complexity of the (3/2)^n steering word (arXiv:2607.11648), built on the repository's libraries ArithmeticHeights and DiophantineApproximation, whose p-adic Subspace Theorem it uses. Write (3/2)^n = m_n + ε_n with m_n the nearest integer and t_n = 2 m_{n+1} − 3 m_n. The library Stephan2026a is sorry-free and within Lean's three standard axioms. It proves Theorem 1.1, the subword complexity p_T(k) of the steering word T = (t_n) satisfies p_T(k)/k → ∞, together with the numbered results on its proof path: the repetition identity and its corollaries (§2), the reduction to the Diophantine kernel (K) (§3), and the kernel itself, by Ridout-type and three-variable applications of the Subspace Theorem (§4). The open problems of §5 and Conjecture A.2 are stated in Stephan2026a/Problems.lean. Two statements are compared, both forms of Theorem 1.1.",
+        "authors": [
+          {
+            "name": "Ralf Stephan"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "68R15",
+            "11J87",
+            "11J54",
+            "11J71",
+            "37B10"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "SteeringWord.tendsto_complexity_div",
+            "SteeringWord.exists_forall_lt_complexity"
+          ]
+        },
+        "id": "PALOMAR-2026-10-20-000014",
+        "path": "entries/PALOMAR-2026-10-20-000014-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "09835cb23557ae5ae0cf55a9c4ab9055f5d60338",
+              "fork_repository": "PalomarArchive/rwst--Subspace-Theorems--9bd9bba330e8",
+              "source_repository": "rwst/Subspace-Theorems"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "cb1a8b8d670e744c594a6ce37aced7695a44ccc57befae6666b6a79d63c87008",
+          "version": 1
+        },
+        "published_at": "2026-10-20T10:57:34Z",
+        "source": {
+          "commit": "09835cb23557ae5ae0cf55a9c4ab9055f5d60338",
+          "project_path": null,
+          "repository": "rwst/Subspace-Theorems"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Stephan 2026: superlinear complexity of the (3/2)^n steering word",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Formula-forest detection execution and nonnegative-weight optimal detecting sets for healthy-zero observations. Complete source construction and word-storage proofs are supplied as checked companion modules.",
+        "authors": [
+          {
+            "name": "Idris Ali Shaik"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "cs.DM"
+          ],
+          "msc2020": [
+            "68Q25",
+            "68Q60"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Controller.Cost.ForestOriginalSemantics.original_physical_execution",
+            "Controller.Optimization.Weights.forest_maximum_weight",
+            "Controller.Optimization.Weights.forest_physical_maximum"
+          ]
+        },
+        "id": "PALOMAR-2026-10-20-000013",
+        "path": "entries/PALOMAR-2026-10-20-000013-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "4defc1bfee6f82a50c5d48e6ad4fe6e01df73cc0",
+              "fork_repository": "PalomarArchive/shaikidris--priority-controller-phase1--d60f9fc1688f",
+              "source_repository": "shaikidris/priority-controller-phase1"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "dbba29fc396682490078064d5ca707bc98cd4359c0457ab5d42bae34b9cf3603",
+          "version": 1
+        },
+        "published_at": "2026-10-20T10:11:12Z",
+        "source": {
+          "commit": "4defc1bfee6f82a50c5d48e6ad4fe6e01df73cc0",
+          "project_path": null,
+          "repository": "shaikidris/priority-controller-phase1"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Forest detection and attained healthy-zero maximum weight",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of Jin's theorem: a finite triangle-free graph on n vertices with minimum degree greater than 10n/29 is 3-colourable; and of its sharpness: for every m ≥ 1 the blow-up of the Grötzsch graph with weights 3m, 2m, 4m is a triangle-free 10m-regular graph on 29m vertices that is not 3-colourable (Häggkvist). This extends the case r = 2 of the Andrásfai–Erdős–Sós theorem, which is in Mathlib. Mathlib does not have Jin's theorem.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C15",
+            "05C35"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "JinTheorem.jin",
+            "JinTheorem.jin_sharp"
+          ]
+        },
+        "id": "PALOMAR-2026-10-20-000012",
+        "path": "entries/PALOMAR-2026-10-20-000012-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "ae47df0ddb29c58a71afed658f9bf74aef1b6e90",
+              "fork_repository": "PalomarArchive/jtraverso--jin-triangle-free--8d9fbb5efd5d",
+              "source_repository": "jtraverso/jin-triangle-free"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "6900396e50bc53c202b5698a03c70322ed8fb7807f949e86b482c8b8d7fd1157",
+          "version": 1
+        },
+        "published_at": "2026-10-20T08:37:44Z",
+        "source": {
+          "commit": "ae47df0ddb29c58a71afed658f9bf74aef1b6e90",
+          "project_path": null,
+          "repository": "jtraverso/jin-triangle-free"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Jin's theorem on dense triangle-free graphs",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
       {
         "abbreviated": false,
         "abstract": "Formal statements and proofs, in Lean 4 with Mathlib, about the normalizer in SL₂(ℝ) of Γ = Γ_{H₁}(N₁) ∩ Γ_{H₂}(N₂) for coprime N₁ and N₂, the group of the fibre product X_{H₁} ×_{X(1)} X_{H₂}, where H₁ ≤ SL₂(ℤ/N₁) is such that, at every p ∣ N₁, H₁ mod p fixes no line or H₁ mod p^{v_p(N₁)} lies in a split Cartan subgroup, and H₂ ≤ SL₂(ℤ/N₂) is arbitrary. Nor(Γ) ≤ Nor(Γ_{H₂}(N₂)); an element (det m)^{−1/2}·m of Nor(Γ_{H₂}(N₂)) normalizes Γ iff m mod N₁ normalizes H₁; and |Nor(Γ)/Γ| is [N(H₁) : H₁] times the number of classes of Nor(Γ_{H₂})/Γ_{H₂} whose determinant mod N₁ is the determinant of an element of the normalizer of H₁ in GL₂(ℤ/N₁). Explicit forms follow for Γ_Δ(N₂) (the class of an Atkin–Lehner involution w_Q contains an element of Nor(Γ) iff Q mod N₁ is such a determinant) and for H₂ of prime level fixing exactly one line; corollaries for Γ(N₁), Γ_ns⁺(p) and Γ_sp⁺(p); and an example: for the quaternion group Q₈ ≤ SL₂(F₇), the determinants are the squares, and Γ_{Q₈}(7) ∩ Γ₀(3) has 6 modular automorphisms, not 12, because the Fricke involution of X₀(3) does not lift. 18 theorems, no sorry, only the axioms propext, Classical.choice and Quot.sound.",
@@ -76,74 +1615,6 @@
         "source_omitted": false,
         "status": "registered",
         "title": "Normalizers of congruence subgroups at mixed level: Γ_{H₁}(N₁) ∩ Γ_{H₂}(N₂)",
-        "trust": {
-          "level": "high"
-        },
-        "version": 1,
-        "versions": 1
-      },
-      {
-        "abbreviated": false,
-        "abstract": "For an integer r >= 2 and a finite set N of primes, the random Euler product model for Dirichlet characters of order r replaces chi(q) by independent uniform r-th roots of unity. The development proves that the order-r local factor E|1 - z/q|^(-2) equals (1 + q^-r)/((1 - q^-2)(1 - q^-r)), that its ratio to the full-circle factor (1 - q^-2)^(-1), multiplied over the primes outside N, is zeta^(N)(r)^2 / zeta^(N)(2r), that this correction factor is also the sum of (ab)^-r over the coprime pairs of integers prime to N, and that the model mean is zeta^(N)(2) zeta^(N)(r)^2 / zeta^(N)(2r). The factor exceeds 1, decreases strictly in r and tends to 1; for r = 2k and N empty it equals -binom(4k,2k) B_{2k}^2/(2 B_{4k}). For r = 4 and N = {2} it is 35/34, the ratio by which the limit of Louboutin's mean square of L(1, chi) with the factor at 2 removed changes when the average is restricted to quartic characters; with the forced factor 4/5 at 2 the development also proves the constants pi^2/10, 7 pi^2/68, 7 pi^2/36 and 7/136 = (1/20)(35/34) = (7/72)(9/17).",
-        "authors": [
-          {
-            "name": "Joseph S. Farland"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.NT"
-          ],
-          "msc2020": [
-            "11M06",
-            "11M20",
-            "11R42",
-            "68V20"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "FixedOrderFactor.muAvg_eq",
-            "FixedOrderFactor.tendsto_muAvg",
-            "FixedOrderFactor.modelMean_eq",
-            "FixedOrderFactor.hasProd_correctionFactor",
-            "FixedOrderFactor.hasProd_muAvg",
-            "FixedOrderFactor.tendsto_modelMean",
-            "FixedOrderFactor.hasSum_coprime_pairs",
-            "FixedOrderFactor.correctionFactor_even",
-            "FixedOrderFactor.correctionFactor_eq_mul",
-            "FixedOrderFactor.one_lt_correctionFactor",
-            "FixedOrderFactor.correctionFactor_succ_lt",
-            "FixedOrderFactor.tendsto_correctionFactor",
-            "FixedOrderFactor.correctionFactor_four_two",
-            "FixedOrderFactor.localTerm_I_half",
-            "FixedOrderFactor.quartic_constants"
-          ]
-        },
-        "id": "PALOMAR-2026-10-20-000010",
-        "path": "entries/PALOMAR-2026-10-20-000010-v1.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "a2bd79e7be93d13fdc8125e55a3f983f5ea4f829",
-              "fork_repository": "PalomarArchive/jkfarland-bot--FixedOrderFactor-lean--c8161d9d4229",
-              "source_repository": "jkfarland-bot/FixedOrderFactor-lean"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "a69c974d1144085f125ef27eea60e7413a1657724a5f35c4a5563f4254069490",
-          "version": 1
-        },
-        "published_at": "2026-10-20T05:10:48Z",
-        "source": {
-          "commit": "a2bd79e7be93d13fdc8125e55a3f983f5ea4f829",
-          "project_path": null,
-          "repository": "jkfarland-bot/FixedOrderFactor-lean"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "FixedOrderFactor: the order-r correction factor for mean squares of L(1, chi), and the factor 35/34",
         "trust": {
           "level": "high"
         },
@@ -279,63 +1750,6 @@
         },
         "version": 1,
         "versions": 1
-      },
-      {
-        "abbreviated": false,
-        "abstract": "A Lean 4 / Mathlib formalization of Jaeger's 4-flow theorem: every finite 4-edge-connected simple graph has a nowhere-zero integer 4-flow, i.e. an antisymmetric function on darts with values in {±1, ±2, ±3} that is conserved at every vertex. Also proved: a graph with two edge-disjoint spanning trees has its edges covered by two even subgraphs (a nowhere-zero ℤ₂ × ℤ₂-flow) and has a nowhere-zero integer 4-flow. Version 2 adds Jaeger's 8-flow theorem: every finite bridgeless graph has its edges covered by three even subgraphs and has a nowhere-zero integer 8-flow; conversely a graph with a nowhere-zero flow has no bridge. Mathlib has no flows.",
-        "authors": [
-          {
-            "name": "Juan Pablo Traverso Gianini"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.CO"
-          ],
-          "msc2020": [
-            "05C21",
-            "05C40"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "JaegerFlow.exists_even_cover_of_trees",
-            "JaegerFlow.exists_flow_of_trees",
-            "JaegerFlow.jaeger_four_flow",
-            "EightFlowTheorem.exists_even_cover_three",
-            "EightFlowTheorem.jaeger_eight_flow",
-            "EightFlowTheorem.not_isBridge_of_flow"
-          ]
-        },
-        "id": "PALOMAR-2026-10-18-000009",
-        "path": "entries/PALOMAR-2026-10-18-000009-v2.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "fab4a8235df95dff73eb485fa04e31104fb22d17",
-              "fork_repository": "PalomarArchive/jtraverso--jaeger-four-flow--4443e53b8984",
-              "source_repository": "jtraverso/jaeger-four-flow"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "3a6272f3eaf0acd5ac598baffad8d6470303c466afba1a8e7d4a4707a968c210",
-          "version": 2
-        },
-        "published_at": "2026-10-20T03:33:00Z",
-        "source": {
-          "commit": "fab4a8235df95dff73eb485fa04e31104fb22d17",
-          "project_path": null,
-          "repository": "jtraverso/jaeger-four-flow"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "Jaeger's 4-flow and 8-flow theorems",
-        "trust": {
-          "level": "high"
-        },
-        "version": 2,
-        "versions": 2
       },
       {
         "abbreviated": false,
@@ -40084,48 +41498,40 @@
         "versions": 3
       }
     ],
-    "previous": "eyJyZXZpc2lvbiI6NDE2LCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTIwVDA1OjI4OjQxWiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTIwLTAwMDAwNCJ9",
+    "previous": "eyJyZXZpc2lvbiI6NDQyLCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTIwVDAwOjM2OjUxWiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTIwLTAwMDAwMiJ9",
     "next": null,
     "dropped": [],
     "message": null,
-    "pages_fetched": 27
+    "pages_fetched": 28
   },
   "changes": {
     "added": [
-      "PALOMAR-2026-10-20-000011",
-      "PALOMAR-2026-10-20-000010",
-      "PALOMAR-2026-10-20-000009",
-      "PALOMAR-2026-10-20-000008",
-      "PALOMAR-2026-10-20-000007",
-      "PALOMAR-2026-10-20-000006",
-      "PALOMAR-2026-10-20-000005",
-      "PALOMAR-2026-10-20-000004",
-      "PALOMAR-2026-10-20-000003",
-      "PALOMAR-2026-10-20-000002",
-      "PALOMAR-2026-10-20-000001",
-      "PALOMAR-2026-10-19-000019",
-      "PALOMAR-2026-10-19-000018",
-      "PALOMAR-2026-10-19-000017",
-      "PALOMAR-2026-10-19-000016",
-      "PALOMAR-2026-10-19-000015",
-      "PALOMAR-2026-10-19-000014",
-      "PALOMAR-2026-10-19-000013",
-      "PALOMAR-2026-10-19-000012",
-      "PALOMAR-2026-10-19-000011"
+      "PALOMAR-2026-10-21-000016",
+      "PALOMAR-2026-10-21-000015",
+      "PALOMAR-2026-10-21-000014",
+      "PALOMAR-2026-10-21-000002",
+      "PALOMAR-2026-10-21-000006",
+      "PALOMAR-2026-10-21-000013",
+      "PALOMAR-2026-10-21-000012",
+      "PALOMAR-2026-10-21-000011",
+      "PALOMAR-2026-10-21-000010",
+      "PALOMAR-2026-10-21-000009",
+      "PALOMAR-2026-10-21-000008",
+      "PALOMAR-2026-10-21-000007",
+      "PALOMAR-2026-10-21-000005",
+      "PALOMAR-2026-10-21-000004",
+      "PALOMAR-2026-10-21-000003",
+      "PALOMAR-2026-10-21-000001",
+      "PALOMAR-2026-10-20-000017",
+      "PALOMAR-2026-10-20-000016",
+      "PALOMAR-2026-10-20-000015",
+      "PALOMAR-2026-10-20-000014",
+      "PALOMAR-2026-10-20-000013",
+      "PALOMAR-2026-10-20-000012"
     ],
     "updated": [
-      "PALOMAR-2026-10-18-000009",
-      "PALOMAR-2026-10-18-000017",
-      "PALOMAR-2026-09-21-000005",
-      "PALOMAR-2026-10-18-000013",
-      "PALOMAR-2026-10-18-000012",
-      "PALOMAR-2026-10-14-000007",
-      "PALOMAR-2026-10-16-000011",
-      "PALOMAR-2026-10-18-000004",
-      "PALOMAR-2026-10-18-000023",
-      "PALOMAR-2026-10-18-000010",
-      "PALOMAR-2026-10-16-000003",
-      "PALOMAR-2026-10-15-000020"
+      "PALOMAR-2026-10-20-000010",
+      "PALOMAR-2026-10-18-000009"
     ],
     "absent": []
   },

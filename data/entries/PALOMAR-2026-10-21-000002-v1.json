@@ -1,0 +1,327 @@
+{
+  "abstract": "A Lean 4 proof of the combinatorial inequality (2.2) of J. Wu, Chen's double sieve, Goldbach's conjecture and the twin prime problem, 2, Acta Arith. 131 (2008), Lemma 2.2: 4 D_{1,2} >= 3 Y1 + Y2 - Y3 - Y4 + Y5 + Y6 - 2 Y7 - Y8 - Y9 - Y10 - Y11 - error, where the Y_i are Wu's sieve sums over the sequence A = {N - p}. The printed proof drops part of the range of the triple sum produced by Buchstab's identity, so the printed Y11, over p4 < N^{1/2-2 kappa1}/p3, is not justified; this formalization proves the inequality with the full range N^{kappa2} <= p4 < N^{1/2-3 kappa1}, for every N > 1, every pair kappa1, kappa2 meeting Wu's hypotheses, any finite A of integers 0 < a < N coprime to N, and with Wu's O(N^{1-kappa1}) made explicit as 4N/(N^{kappa1}-1) for A = {N - p}. Lean code written by an AI agent; the statement was checked against the paper by AI reviewers and is offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-21-000002-v1/41a3bc7fdec25ef8a165797d2a60a984c82d231c79b7b5775f87e742438ee5a2/",
+    "artifact_tree_sha256": "41a3bc7fdec25ef8a165797d2a60a984c82d231c79b7b5775f87e742438ee5a2",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-21T00:50:37Z",
+    "renderer_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11N35",
+      "11N36"
+    ]
+  },
+  "first_registered_on": "2026-10-21",
+  "formalization": {
+    "challenge_path": "entries/wu2008/ChallengeWu2008.lean",
+    "comparator_config_path": "entries/wu2008/comparator-wu2008.json",
+    "definition_names": [
+      "GoldbachLean.Wu2008.WuSieve.Sifted",
+      "GoldbachLean.Wu2008.WuSieve.S",
+      "GoldbachLean.Wu2008.WuSieve.PS",
+      "GoldbachLean.Wu2008.WuReal.wk1",
+      "GoldbachLean.Wu2008.WuReal.wk2",
+      "GoldbachLean.Wu2008.WuReal.em",
+      "GoldbachLean.Wu2008.WuReal.e13",
+      "GoldbachLean.Wu2008.WuReal.Admissible",
+      "GoldbachLean.Wu2008.WuSum.P2",
+      "GoldbachLean.Wu2008.WuSum.P4",
+      "GoldbachLean.Wu2008.WuSum.Y1",
+      "GoldbachLean.Wu2008.WuSum.Y2",
+      "GoldbachLean.Wu2008.WuSum.Y3",
+      "GoldbachLean.Wu2008.WuSum.Y4",
+      "GoldbachLean.Wu2008.WuSum.C5",
+      "GoldbachLean.Wu2008.WuSum.Y5",
+      "GoldbachLean.Wu2008.WuSum.C6",
+      "GoldbachLean.Wu2008.WuSum.Y6",
+      "GoldbachLean.Wu2008.WuSum.C7",
+      "GoldbachLean.Wu2008.WuSum.Y7",
+      "GoldbachLean.Wu2008.WuSum.C8",
+      "GoldbachLean.Wu2008.WuSum.Y8",
+      "GoldbachLean.Wu2008.WuSum.C9",
+      "GoldbachLean.Wu2008.WuSum.Y9",
+      "GoldbachLean.Wu2008.WuSum.C10",
+      "GoldbachLean.Wu2008.WuSum.Y10",
+      "GoldbachLean.Wu2008.WuSum.C11",
+      "GoldbachLean.Wu2008.WuSum.Y11",
+      "GoldbachLean.Wu2008.WuSum.D12",
+      "GoldbachLean.Wu2008.WuSum.Esq",
+      "GoldbachLean.Wu2008.WuSum.wuA"
+    ],
+    "formalization_metadata_path": "entries/wu2008/formalization.yaml",
+    "lakefile_path": "entries/wu2008/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/wu2008/SolutionWu2008.lean",
+    "theorem_names": [
+      "GoldbachLean.Wu2008.WuReal.wu_admissible",
+      "GoldbachLean.Wu2008.WuSum.lemma22_sum",
+      "GoldbachLean.Wu2008.WuSum.lemma22_wuA"
+    ]
+  },
+  "id": "PALOMAR-2026-10-21-000002",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-21T00:51:11Z",
+    "receipt_sha256": "d865d5197ccba74b771abd047b28dd58fdaf99c9e141165643c3ab9cae06ef3a",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000002-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000002-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000002-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000002-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000002-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000002-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000002-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000002-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000002-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "87fe1a898f852978ce43b9ce059e4fb47fd5e9e3",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000002-v1/87fe1a898f852978ce43b9ce059e4fb47fd5e9e3",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jie Wu"
+          }
+        ],
+        "identifier": "arXiv:0709.3764",
+        "license": "unknown",
+        "location": "Acta Arithmetica 131 (2008) 367-387, doi:10.4064/aa131-4-5",
+        "relationship": "adapts",
+        "title": "Chen's double sieve, Goldbach's conjecture and the twin prime problem, 2",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jie Wu"
+          }
+        ],
+        "identifier": "arXiv:0705.1652",
+        "license": "unknown",
+        "location": "Acta Arithmetica 114 (2004) 215-273",
+        "relationship": "background",
+        "title": "Chen's double sieve, Goldbach's conjecture and the twin prime problem",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-21T00:50:47Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "4c6867b423608b8d144e37110709a38ee865e96b67a76824cf7c465eb9a59f2c"
+    },
+    "reviewed_at": "2026-10-20T17:32:21Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "87fe1a898f852978ce43b9ce059e4fb47fd5e9e3",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/wu2008",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/87fe1a898f852978ce43b9ce059e4fb47fd5e9e3/entries/wu2008"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "wx6k7v3x4c41"
+  },
+  "title": "Wu 2008 Lemma 2.2, Chen's double sieve inequality, with the range of the last sum repaired",
+  "trust": {
+    "challenge_bytes": 9060,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 163,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "0657d2b3765168a03e1f2cf01658e4f439200ee8d27bcdde61666e216d830af0",
+    "evidence_path": "evidence/PALOMAR-2026-10-21-000002-v1/ba5a1f1c417d1b9a076c3fb9aa76438bce60446f4120c2594422f94f6ed165a3/",
+    "evidence_tree_sha256": "ba5a1f1c417d1b9a076c3fb9aa76438bce60446f4120c2594422f94f6ed165a3",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/con-ron",
+          "--jobs=2"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "e25ae3e8212e4aaddae3b2aded764de05406341250b1f50f36934772fd30410d",
+    "protected_config_sha256": "e9ac6efa684f380b1c186a4744d02085b54d5dd2e6579c7e93a6f67caf0bdaed",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 39460927441,
+    "solution_sha256": "be942bc92861639cea5e75e0b2c9a2e7d9affb4ba67ca8e5538b0c96157bce24",
+    "tool_digests": {
+      "bwrap": "1f03b5fbdbe1ab8afdfb01e406043eeca1cc67f90909a9e0d57d915780fb0b22",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-20T16:54:32Z",
+    "workflow_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/39460927441"
+  },
+  "version": 1
+}

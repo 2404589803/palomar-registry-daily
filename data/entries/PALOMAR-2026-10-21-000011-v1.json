@@ -1,0 +1,345 @@
+{
+  "abstract": "A sorry-free Lean 4 proof of Theorem 1A of A. Granville, Refinements of Goldbach's conjecture, and the generalized Riemann hypothesis, Funct. Approx. Comment. Math. 37 (2007): with G(n) the sum over m1 + m2 = n of Lambda(m1) Lambda(m2), Mathlib's RiemannHypothesis holds if and only if the sum of G(n) over n <= N is N^2/2 + O(N^{3/2+eps}) for every eps > 0. Both directions are proved with no hypothesis: RH implies the asymptotic through the von Koch bound for psi(x) - x, and the asymptotic implies RH by the route reconstructed in part by Bhowmik, Halupczok, Matsumoto, Suzuki (arXiv 1704.06103) and completed by Bhowmik and Ruzsa (arXiv 1711.06442). Binary Goldbach is not claimed. Lean code written by an AI agent; the statements were checked against the literature by an AI reviewer and are offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-21-000011-v1/15247782926710e228f413f1b2d789910802672990723d4691ee1a79daf4519e/",
+    "artifact_tree_sha256": "15247782926710e228f413f1b2d789910802672990723d4691ee1a79daf4519e",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-21T04:32:04Z",
+    "renderer_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11M26",
+      "11N05"
+    ]
+  },
+  "first_registered_on": "2026-10-21",
+  "formalization": {
+    "challenge_path": "entries/granville2007/ChallengeGranville2007.lean",
+    "comparator_config_path": "entries/granville2007/comparator-granville2007.json",
+    "definition_names": [
+      "LeanLab.GoldbachAverage.G",
+      "LeanLab.GoldbachAverage.AvgRH",
+      "LeanLab.GoldbachAverage.GranvilleEquiv"
+    ],
+    "formalization_metadata_path": "entries/granville2007/formalization.yaml",
+    "lakefile_path": "entries/granville2007/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/granville2007/SolutionGranville2007.lean",
+    "theorem_names": [
+      "LeanLab.GoldbachAverage.avgRH_of_RH",
+      "LeanLab.GoldbachAverage.Converse.rh_of_avgRH",
+      "LeanLab.GoldbachAverage.Converse.granville_equiv_proved"
+    ]
+  },
+  "id": "PALOMAR-2026-10-21-000011",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-21T04:32:36Z",
+    "receipt_sha256": "e6b9f3f7bab122fd3a7dff89fa6cb644805f9ddde48ee29cccd84bda8d3c0330",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000011-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000011-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000011-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000011-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000011-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000011-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000011-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000011-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000011-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "9cee15bce4cc89532440973263a0f2fe0bd115c0",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000011-v1/9cee15bce4cc89532440973263a0f2fe0bd115c0",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "A. Granville"
+          }
+        ],
+        "identifier": "doi:10.7169/facm/1229618748",
+        "license": "unknown",
+        "location": "Functiones et Approximatio Commentarii Mathematici 37 (2007) 159-173, Theorem 1A; Corrigendum, ibid. 38 (2008) 235-237",
+        "relationship": "formalizes",
+        "title": "Refinements of Goldbach's conjecture, and the generalized Riemann hypothesis",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "G. Bhowmik"
+          },
+          {
+            "name": "K. Halupczok"
+          },
+          {
+            "name": "K. Matsumoto"
+          },
+          {
+            "name": "Y. Suzuki"
+          }
+        ],
+        "identifier": "arXiv:1704.06103",
+        "license": "unknown",
+        "location": "Mathematika 65 (2019) 57-97",
+        "relationship": "background",
+        "title": "Goldbach representations in arithmetic progressions and zeros of Dirichlet L-functions",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "G. Bhowmik"
+          },
+          {
+            "name": "I. Z. Ruzsa"
+          }
+        ],
+        "identifier": "arXiv:1711.06442",
+        "license": "unknown",
+        "location": "arXiv preprint, 2017",
+        "relationship": "background",
+        "title": "Average Goldbach and the Quasi-Riemann Hypothesis",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "the PrimeNumberTheoremAnd project contributors"
+          }
+        ],
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "license": "Apache-2.0",
+        "location": "commit c39a751132c88b6e8080b74c74023fd95b3d8be0",
+        "relationship": "other",
+        "title": "PrimeNumberTheoremAnd",
+        "type": "formalization"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "note": "No prior Lean formalization of Granville's Theorem 1A was found in a web search and in the Palomar registry recent listing, 2026-10-20.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-21T04:32:15Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "490eefd88a1c1d778ed0f0bf7f78e633e99ddefe339eada0e1fe9b1e378dc7be"
+    },
+    "reviewed_at": "2026-10-20T23:42:38Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "9cee15bce4cc89532440973263a0f2fe0bd115c0",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/granville2007",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/9cee15bce4cc89532440973263a0f2fe0bd115c0/entries/granville2007"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "8btzw76zo5su"
+  },
+  "title": "The Riemann hypothesis is equivalent to an asymptotic for the average number of Goldbach representations, after Granville 2007",
+  "trust": {
+    "challenge_bytes": 3325,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 72,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "64e6d004428bffaf4ae5928eb1a366e4a30175a42d74741d8cffd2274033fccb",
+    "evidence_path": "evidence/PALOMAR-2026-10-21-000011-v1/e00d235c6ae80bc61876e538adf4595ab45a6602a1eb87371043ba5f7d35267a/",
+    "evidence_tree_sha256": "e00d235c6ae80bc61876e538adf4595ab45a6602a1eb87371043ba5f7d35267a",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/con-ron",
+          "--jobs=2"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "c2f2c0cd5a4ecbab2c6a748cd570b411bf27a93ac57b9d01d453d8a23383438d",
+    "protected_config_sha256": "e490b1e3b8794c3a02da4e83c2443fa15a7f4c2e9066749a39fe72ad778424d5",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 39496400143,
+    "solution_sha256": "ace80a15601afbccc09ac129f3be6e2dd01d606e81eb5f0f82e098dbb6381f96",
+    "tool_digests": {
+      "bwrap": "818e7417c17b0b4687d7e0bdce79bdca261cbe02e34dd3bd7eef452ed801e98d",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-20T21:32:44Z",
+    "workflow_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/39496400143"
+  },
+  "version": 1
+}

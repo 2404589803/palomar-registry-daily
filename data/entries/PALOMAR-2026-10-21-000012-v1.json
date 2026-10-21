@@ -1,0 +1,739 @@
+{
+  "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of six general theorems and twelve statements about one number field. General: (1) Hermite's signature theorem for every real polynomial f, degenerate case included and with no monic hypothesis: the power-sum Hankel (Hermite) form H_f has sigPos = #R + #C+, sigNeg = #C+, rank sigPos + sigNeg = #D and radical of dimension deg f - #D, where D, R, C+ are the distinct complex roots, the real ones, and those in the upper half plane; (2) its number-field form (classical, Hermite-Sylvester; in number-field form credited to O. Taussky 1968): the trace form Tr_{K/Q}(x^2) of a number field K has type (r1 + r2, r2), and is positive definite iff K is totally real; (3) the places of a linearly disjoint compositum L = K1 K2: r1(L) = r1(K1) r1(K2) and 2 r2(L) = [K1:Q][K2:Q] - r1(K1) r1(K2); (4) the signed discriminant of such a compositum with coprime discriminants, d_L = d_{K1}^[K2:Q] d_{K2}^[K1:Q], the sign included; (5) the trace projection [E:F]^-1 Tr_{E/F} onto a subfield F, the orthogonal decomposition E = F + F^perp for Tr_{E/Q}(xy) with F^perp = ker Tr_{E/F}, the restriction of the trace form of E to F as [E:F] times the trace form of F, and the type (r1(E) + r2(E) - r1(F) - r2(F), r2(E) - r2(F)) of its restriction to ker Tr_{E/F}; (6) the squarefree-discriminant criterion (a textbook exercise). The field: the compositum L of Q(rho) and Q(Q), rho and Q roots of x^3 - x - 1 and x^4 - x - 1, built as the tower K3 = Q[X]/(X^3 - X - 1), L = K3[Y]/(Y^4 - Y - 1), of degree 12: (7) the setting (degrees 3, 4, 12; linearly disjoint sectors); (8) O_{Q(rho)} = Z[rho], O_{Q(Q)} = Z[Q], discriminants -23 and -283, O_L = Z[rho, Q] with basis rho^i Q^j; (9) d_L = (-23)^4 (-283)^3 = -6342648595267; (10) places (1,1), (2,1), (2,5) and the trace-form type (7,5) of L, derived from (2) and (3) with no root located; (11) the relative traces on the product basis; (12) Tr(-alpha^-1) = 1 for alpha^n = alpha + 1 in degree n, the unit sections -Q^-1 and -rho^-1 of the relative traces, their surjectivity on rings of integers and the integral splittings of ranks 3 + 9 and 4 + 8; (13) the orthogonal decompositions of L along the two sectors, with restrictions 4 Tr and 3 Tr of types (2,1), (3,1) and complements of types (5,4), (4,4); (14) the covolume 2^-5 23^2 283 sqrt(283) of O_L in Mathlib's normalization, which is 4 times the product covol(O_{Q(rho)})^4 covol(O_{Q(Q)})^3; (15) the discriminant -23^4 53^2 283^3 of the degree-12 polynomial, which is the minimal polynomial of rho Q, and the index [O_L : Z[rho Q]] = 53; (16) the subfield lattice {Q, Q(rho), Q(Q), L}; (17) root-rigidity and circle-freeness of L; (18) Smyth's lower bound for the Mahler measure on O_L, with Smyth's theorem as an explicit hypothesis (cited, not proved). Eighteen compared theorems. The mathematics of (1)-(6) is classical and no novelty is claimed for it; the contribution is the kernel-checked proofs: (1), (2) and (5) from Mathlib's sigPos, sigNeg (D. Loeffler) and, for (2) and (5), Algebra.traceForm, between which Mathlib has no theorem at the pinned revision; (3) and (4) from Mathlib's infinite places and linear disjointness. The proof modules also prove, not compared, that sigPos and sigNeg are additive over orthogonal direct sums and invariant under positive scaling over any linearly ordered field, and that the signature of a rational matrix form is unchanged by base change to R; Mathlib at the pin has none of these. Mathlib prior art is used and not re-proved: X. Roblot's theorem on the absolute value of the discriminant of a coprime compositum (statement (4) adds the sign) and his theorem on its ring of integers (used in (8)). The definiteness corollary of (1) (real-rooted iff H_f positive semidefinite) was formalized in Lean 4 by P. Alexandersson (RealRooted, 2026-09-27) before this entry; (1) proves the full rank/signature/radical count, from which that corollary follows. No prior formalization of the rank and signature count of the Hermite form, or of the trace-form signature (r1 + r2, r2) of a number field, was found by a search on 2026-10-19 (Mathlib, the Isabelle AFP, Coq/MathComp, HOL Light, Lean 4 community repositories, Zenodo, arXiv); the existing root-counting formalizations use sign variations of remainder sequences. The sector inputs of the field at the level of Q are ported from the author's registered entry PALOMAR-2026-09-02-000014 and are not compared; (7) and the minimal-polynomial clause of (15) re-prove facts certified in the author's registered entry PALOMAR-2026-09-01-000005 and are not new. Application (cited, not a claim of the entry): In the author's Pisot Dimensional Theory, Q(rho) is the arithmetic of three-dimensional space and Q(Q) the arithmetic of four-dimensional spacetime, and their compositum K is the parent of both. Read through the theory, this entry's theorems make six conclusions exact.\nSpace and spacetime are the only worlds the parent contains. The fields between Q and K have degrees 3 and 4 and no others: Q(rho) and Q(Q) are K's only proper subfields other than Q (16). An intermediate sub-arithmetic of the parent has dimension 3 or 4, and nothing else; there is no 2-, 6- or other intermediate world.\nThe world is a product, not a sum. K is the tensor product of the two sectors, 12 = 3*4 (7), and its integers are exactly Z[rho] (x) Z[Q] (8). The parent's discrete structure is built from the two sectors' lattices and nothing else.\nThe parent's geometry is the product of space's and spacetime's. The trace form of K has type (7,5) (10), and it is the tensor product of the sectors' own forms (PALOMAR-2026-09-02-000014): (2,1) (x) (3,1), with 2*3 + 1*1 = 7 and 2*1 + 1*3 = 5. On the quartic sector the form is 3 times spacetime's own, of Lorentzian type (3,1); on the cubic sector, 4 times space's, of type (2,1) (13). The one time direction is not put in by hand: it is what the parent's form is on spacetime.\nAll of the parent's asymmetry between space and time is spacetime's. The parent's excess of positive over negative directions, 7 - 5 = 2, is exactly spacetime's 3 - 1 = 2. The eight dimensions orthogonal to spacetime are perfectly balanced, four positive and four negative (5, 13).\nBoth sectors are recovered from the parent. The relative traces, divided by the relative degrees [K:Q(rho)] = 4 and [K:Q(Q)] = 3, are the orthogonal projections onto the sectors (5), and the traces themselves carry the parent's lattice onto Z[rho] and Z[Q] (12). Every element of space and of spacetime is the shadow of an element of the parent.\nThe parent is built from minimizers, and joining them creates nothing smaller. Each sector's generator is a minimizer, certified in the author's registered entries: x^3 - x - 1 and x^4 - x - 1 attain the least Mahler measure above 1 among irreducible integer polynomials of degrees 3 and 4 (PALOMAR-2026-08-31-000004); rho is the least Pisot eigenvalue of any substitution on at most three letters, the slowest settling clock (PALOMAR-2026-10-18-000019), and the growth rate of the triangle group (2,3,infinity) = PGL(2,Z), the slowest of the hyperbolic triangle groups (p,q,infinity) (PALOMAR-2026-10-17-000013). K is the compositum of the two minimizers, and a single number generates all of it: rho*Q, the theory's coupling ruler (15; PALOMAR-2026-09-01-000005). Minimality survives the join. No element of K other than +/-1 has a conjugate on the unit circle (17), so the parent contains no Salem number, and with Smyth's theorem every nonzero integer of K other than +/-1 has Mahler measure at least rho (18), with equality at rho itself (PALOMAR-2026-08-31-000004). The 3D generator is the smallest nontrivial size in the whole twelve-dimensional arithmetic, exactly as in degree 3. In the theory, rho is the ground of minimality and therefore the ground of three-dimensional structure; joining space to spacetime keeps that ground.\nThe two sectors are the two sides of the Pisot boundary. rho is a Pisot number, and the Padovan substitution tiling, whose characteristic polynomial is x^3 - x - 1, is a regular model set with pure-point diffraction (Baake and Grimm 2020): the ordered, classical sector. It is handed, the arrow of time: its tiling flow is neither mutually locally derivable from nor topologically conjugate to its mirror image (Gaehler 2026, Example 10 and Remark 7, where the Padovan rule is varrho_R after renaming a <-> c), and in the factor language the author's registered entries PALOMAR-2026-08-19-000006, PALOMAR-2026-09-04-000004 and PALOMAR-2026-10-18-000019 certify it: ca occurs and ac never does. Q is not Pisot (PALOMAR-2026-09-01-000012), and every primitive self-similar tiling of the line with expansion Q has no non-trivial pure-point spectrum (Solomyak 1997): the quantum sector, which cannot settle on a line. This is the arithmetic of a quasicrystal (superspace crystallography: de Wolff 1974; Janner and Janssen 1977; cut-and-project: de Bruijn 1981; Kramer and Neri 1984; Duneau and Katz 1985; Elser 1986): a higher-dimensional lattice, O_K in R^2 x C^5, from which the sector lattices are recovered by the traces (12).",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-21-000012-v1/76dd0f56ef5799abf13dbf7ba80e55061155b056b55262d2fbb9ac399842b391/",
+    "artifact_tree_sha256": "76dd0f56ef5799abf13dbf7ba80e55061155b056b55262d2fbb9ac399842b391",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-21T04:45:40Z",
+    "renderer_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math-ph",
+      "gr-qc",
+      "cs.LO"
+    ],
+    "msc2020": [
+      "11E10",
+      "11E12",
+      "12D10",
+      "11R04",
+      "11R29",
+      "11R21",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-10-21",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "HermiteSignatureCompositum.hermite_signature",
+      "HermiteSignatureCompositum.traceForm_signature",
+      "HermiteSignatureCompositum.places_compositum",
+      "HermiteSignatureCompositum.discr_compositum",
+      "HermiteSignatureCompositum.trace_projection",
+      "HermiteSignatureCompositum.squarefree_discr_criterion",
+      "HermiteSignatureCompositum.setting",
+      "HermiteSignatureCompositum.integral_structure",
+      "HermiteSignatureCompositum.discr_L",
+      "HermiteSignatureCompositum.places_and_type",
+      "HermiteSignatureCompositum.relative_traces",
+      "HermiteSignatureCompositum.unit_sections",
+      "HermiteSignatureCompositum.orthogonal_decompositions",
+      "HermiteSignatureCompositum.covolume_L",
+      "HermiteSignatureCompositum.ruler_minpoly_index",
+      "HermiteSignatureCompositum.subfield_lattice",
+      "HermiteSignatureCompositum.rootRigid_circle_free",
+      "HermiteSignatureCompositum.mahlerMeasure_ge_of_smyth"
+    ]
+  },
+  "id": "PALOMAR-2026-10-21-000012",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-21T04:46:13Z",
+    "receipt_sha256": "810f5db1fb16e2338a1b86a7614ff54b33682aeafd915faca946014cf8f67399",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000012-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000012-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000012-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000012-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000012-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000012-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000012-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000012-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000012-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "5aa870e98236ba240561b798265c629df8c2d031",
+        "fork_repository": "PalomarArchive/stalex444--pdt-hermite-signature-compositum--de3680e74099",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-21-000012-v1/5aa870e98236ba240561b798265c629df8c2d031",
+        "source_repository": "stalex444/pdt-hermite-signature-compositum"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Charles Hermite"
+          }
+        ],
+        "identifier": "Journal für die reine und angewandte Mathematik 52 (1856), 39-51",
+        "license": "unknown",
+        "location": "https://doi.org/10.1515/crll.1856.52.39",
+        "relationship": "independently-proves",
+        "title": "Extrait d'une lettre de Mr. Ch. Hermite de Paris à Mr. Borchardt de Berlin sur le nombre des racines d'une équation algébrique comprises entre des limites données",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "James Joseph Sylvester"
+          }
+        ],
+        "identifier": "Philosophical Transactions of the Royal Society of London 143 (1853), 407-548",
+        "license": "unknown",
+        "location": "https://doi.org/10.1098/rstl.1853.0018",
+        "relationship": "independently-proves",
+        "title": "On a theory of the syzygetic relations of two rational integral functions, comprising an application to the theory of Sturm's functions, and that of the greatest algebraical common measure",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Olga Taussky"
+          }
+        ],
+        "identifier": "Journal of the London Mathematical Society s1-43 (1968), no. 1, 152-154",
+        "license": "unknown",
+        "location": "https://doi.org/10.1112/jlms/s1-43.1.152",
+        "relationship": "independently-proves",
+        "title": "The discriminant matrices of an algebraic number field",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Xavier Roblot"
+          },
+          {
+            "name": "Andrew Yang"
+          }
+        ],
+        "identifier": "Mathlib commit 065356127b1dc0016f66b7283ce0ce2c4055aa55 (2026-09-16); PRs #25792 (Yang, 2025-06), #29770, #29885, #29940, #29943 (Roblot, 2025-09..11)",
+        "license": "Apache-2.0",
+        "location": "https://github.com/leanprover-community/mathlib4/tree/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "relationship": "adapts",
+        "title": "Mathlib: NumberTheory/NumberField/Discriminant/Different.lean and RingTheory/DedekindDomain/LinearDisjoint.lean",
+        "type": "software"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "David Loeffler"
+          }
+        ],
+        "identifier": "Mathlib PR #34204 (2026-01), at commit 065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "license": "Apache-2.0",
+        "location": "https://github.com/leanprover-community/mathlib4/blob/065356127b1dc0016f66b7283ce0ce2c4055aa55/Mathlib/LinearAlgebra/QuadraticForm/Signature.lean",
+        "relationship": "background",
+        "title": "Mathlib: LinearAlgebra/QuadraticForm/Signature.lean",
+        "type": "software"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Per Alexandersson"
+          }
+        ],
+        "identifier": "GitHub PerAlexandersson/RealRooted, RealRooted/RootVieta/Newton.lean, formalized 2026-09-27 (catalog rev 7026e264; re-read at heads 11452ef9 and 38020bb4, 2026-10-19)",
+        "license": "Apache-2.0",
+        "location": "https://github.com/PerAlexandersson/RealRooted",
+        "relationship": "background",
+        "title": "RealRooted: Polynomial.splits_iff_hermiteMatrix_posSemidef (Hermite-Sylvester criterion)",
+        "type": "software"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Saugata Basu"
+          },
+          {
+            "name": "Richard Pollack"
+          },
+          {
+            "name": "Marie-Françoise Roy"
+          }
+        ],
+        "identifier": "Algorithms and Computation in Mathematics 10, 2nd ed., Springer, 2006",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/3-540-33099-2",
+        "relationship": "background",
+        "title": "Algorithms in Real Algebraic Geometry",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Papri Dey"
+          },
+          {
+            "name": "Daniel Plaumann"
+          }
+        ],
+        "identifier": "Mathematics in Computer Science 14 (2020), no. 1, 111-121; arXiv:1810.04055",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/s11786-019-00449-w",
+        "relationship": "background",
+        "title": "Testing hyperbolicity of real polynomials",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "M. G. Krein"
+          },
+          {
+            "name": "M. A. Naimark"
+          }
+        ],
+        "identifier": "Linear and Multilinear Algebra 10 (1981), no. 4, 265-308 (translation of the 1936 Kharkov monograph)",
+        "license": "unknown",
+        "location": "https://doi.org/10.1080/03081088108817420",
+        "relationship": "background",
+        "title": "The method of symmetric and Hermitian forms in the theory of the separation of the roots of algebraic equations",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Daniel A. Marcus"
+          }
+        ],
+        "identifier": "Universitext, 2nd ed., Springer, 2018",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/978-3-319-90233-3",
+        "relationship": "independently-proves",
+        "title": "Number Fields",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Jürgen Neukirch"
+          }
+        ],
+        "identifier": "Grundlehren der mathematischen Wissenschaften 322, Springer, 1999",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/978-3-662-03983-0",
+        "relationship": "background",
+        "title": "Algebraic Number Theory",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Manuel Eberl"
+          }
+        ],
+        "identifier": "Archive of Formal Proofs, 2014-01-11",
+        "license": "BSD-3-Clause",
+        "location": "https://www.isa-afp.org/entries/Sturm_Sequences.html",
+        "relationship": "background",
+        "title": "Sturm's Theorem (Archive of Formal Proofs)",
+        "type": "software"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Cyril Cohen"
+          },
+          {
+            "name": "Assia Mahboubi"
+          }
+        ],
+        "identifier": "Logical Methods in Computer Science 8 (2012), no. 1:2",
+        "license": "unknown",
+        "location": "https://doi.org/10.2168/lmcs-8(1:2)2012",
+        "relationship": "background",
+        "title": "Formal proofs in real algebraic geometry: from ordered fields to quantifier elimination",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Carles Marín Muñoz"
+          }
+        ],
+        "identifier": "Zenodo, 2026-06-15",
+        "license": "unknown",
+        "location": "https://doi.org/10.5281/zenodo.20707348",
+        "relationship": "background",
+        "title": "The Staircase of Signs: Sturm's Root-Counting Theorem, Machine-Checked in Lean 4",
+        "type": "software"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "C. J. Smyth"
+          }
+        ],
+        "identifier": "Bulletin of the London Mathematical Society 3 (1971), no. 2, 169-175",
+        "license": "unknown",
+        "location": "https://doi.org/10.1112/blms/3.2.169",
+        "relationship": "background",
+        "title": "On the product of the conjugates outside the unit circle of an algebraic integer",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Michael Baake"
+          },
+          {
+            "name": "Uwe Grimm"
+          }
+        ],
+        "identifier": "Journal of Physics: Conference Series 1458 (2020), 012006; arXiv:1904.08285",
+        "license": "unknown",
+        "location": "https://doi.org/10.1088/1742-6596/1458/1/012006",
+        "relationship": "background",
+        "title": "Diffraction of a model set with complex windows",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Boris Solomyak"
+          }
+        ],
+        "identifier": "Ergodic Theory and Dynamical Systems 17 (1997), no. 3, 695-738; corrections, ibid. 19 (1999), 1685",
+        "license": "unknown",
+        "location": "https://doi.org/10.1017/S0143385797084988",
+        "relationship": "background",
+        "title": "Dynamics of self-similar tilings",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Franz Gähler"
+          }
+        ],
+        "identifier": "arXiv:2602.18501 (2026)",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2602.18501",
+        "relationship": "background",
+        "title": "Dynamical Invariants from Asymptotic Composants",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "P. M. de Wolff"
+          }
+        ],
+        "identifier": "Acta Crystallographica Section A 30 (1974), 777-785",
+        "license": "unknown",
+        "location": "https://doi.org/10.1107/S0567739474010710",
+        "relationship": "background",
+        "title": "The pseudo-symmetry of modulated crystal structures",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "A. Janner"
+          },
+          {
+            "name": "T. Janssen"
+          }
+        ],
+        "identifier": "Physical Review B 15 (1977), 643-658",
+        "license": "unknown",
+        "location": "https://doi.org/10.1103/PhysRevB.15.643",
+        "relationship": "background",
+        "title": "Symmetry of periodically distorted crystals",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "N. G. de Bruijn"
+          }
+        ],
+        "identifier": "Indagationes Mathematicae 43 (1981), 39-52 and 53-66 (Proceedings KNAW Series A 84)",
+        "license": "unknown",
+        "location": "https://doi.org/10.1016/1385-7258(81)90016-0",
+        "relationship": "background",
+        "title": "Algebraic theory of Penrose's non-periodic tilings of the plane. I, II",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "P. Kramer"
+          },
+          {
+            "name": "R. Neri"
+          }
+        ],
+        "identifier": "Acta Crystallographica Section A 40 (1984), 580-587",
+        "license": "unknown",
+        "location": "https://doi.org/10.1107/S0108767384001203",
+        "relationship": "background",
+        "title": "On periodic and non-periodic space fillings of E^m obtained by projection",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Michel Duneau"
+          },
+          {
+            "name": "André Katz"
+          }
+        ],
+        "identifier": "Physical Review Letters 54 (1985), 2688-2691",
+        "license": "unknown",
+        "location": "https://doi.org/10.1103/PhysRevLett.54.2688",
+        "relationship": "background",
+        "title": "Quasiperiodic patterns",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "V. Elser"
+          }
+        ],
+        "identifier": "Acta Crystallographica Section A 42 (1986), 36-43",
+        "license": "unknown",
+        "location": "https://doi.org/10.1107/S0108767386099932",
+        "relationship": "background",
+        "title": "The diffraction pattern of projected structures",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Anne Baanen"
+          },
+          {
+            "name": "Alain Chavarri Villarello"
+          },
+          {
+            "name": "Sander R. Dahmen"
+          }
+        ],
+        "identifier": "Proceedings of the 14th ACM SIGPLAN International Conference on Certified Programs and Proofs (CPP 2025), ACM, 50-66",
+        "license": "unknown",
+        "location": "https://doi.org/10.1145/3703595.3705874",
+        "relationship": "background",
+        "title": "Certifying Rings of Integers in Number Fields",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Alain Chavarri Villarello"
+          },
+          {
+            "name": "Sander R. Dahmen"
+          }
+        ],
+        "identifier": "arXiv:2607.26230 (submitted 2026-07-28)",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2607.26230",
+        "relationship": "background",
+        "title": "Formally certifying number field invariants",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/alainchmt/RingOfIntegersProject and https://github.com/alainchmt/CertifyingInvariantsNF (the Baanen-Chavarri Villarello-Dahmen certification framework)",
+        "note": "PRIOR ART, NOT CONSUMED. The Lean 4 framework behind the two disclosed papers. Nothing from it is imported here; its examples contain none of this entry's three fields (checked 2026-10-20 at CertifyingInvariantsNF@6c035d71); its signature is the count of real and complex places, not the trace form's inertia indices compared in (2) and (10).",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4 (commit 065356127b1dc0016f66b7283ce0ce2c4055aa55)",
+        "note": "The compared statements use Mathlib's sigPos, sigNeg, QuadraticMap (radical, restrict, Equivalent, PosDef), LinearMap.BilinMap.toQuadraticMap, Matrix.toQuadraticForm', Algebra.traceForm, Algebra.trace, Algebra.discr, NumberField.discr, NumberField.RingOfIntegers, the infinite places, IsTotallyReal, IntermediateField.LinearDisjoint, IntermediateField.adjoin and the lattice of intermediate fields, Algebra.adjoin, AdjoinRoot, Module.finrank, Squarefree, IsCoprime, Polynomial.roots, Polynomial.discr, Polynomial.reverse, minpoly, Polynomial.mahlerMeasure and ZLattice.covolume of mixedEmbedding.integerLattice, quoted verbatim with permalinks in MATHLIB_DEFINITIONS.md. Consumed on the proof route, not re-proved: Roblot's coprime-compositum theorems (see sources), NumberField.sign_discr, card_add_two_mul_card_eq_rank, Sylvester uniqueness (QuadraticForm.sigPos_of_equiv_weightedSumSquares), Field.powerBasisOfFiniteOfSeparable, Selmer's irreducibility theorem X_pow_sub_X_sub_one_irreducible_rat and mixedEmbedding.covolume_integerLattice.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-09-02-000014 (stalex444/golden-family-trace-forms)",
+        "note": "The trace form of a tensor product of algebras and the signature product rule, with the trace forms of Q[x]/(x^3 - x - 1), Q[x]/(x^4 - x - 1) and their compositum as instances. Its Q-level instance theorems (irreducibility, Hankel Gram matrices, the signatures (2,1) and (3,1), the power-basis discriminants -23 and -283) are ported to this pin in HermiteCompositum/Port014.lean (the two polynomials and their irreducibility proofs in HermiteCompositum/Defs.lean, repeated in Challenge.lean, with three omega steps replaced by explicit terms; no statement changed) and used, not among the compared statements. That entry also proved the tensor-basis discriminant (-23)^4 (-283)^3 and the type (7,5) of the compositum from its tensor-product theorems, and did not formalize the general type (r1 + r2, r2), which is compared statement (2) here; (10) is a second derivation of (7,5), from (2) and (3).",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-09-01-000005, version 2 (stalex444/mahler-minimizer-compositum)",
+        "note": "Certifies, for the real numbers rho and Q, the degree-12 minimal polynomial of rho * Q, degree multiplicativity, and the linearly disjoint compositum Q(rho) join Q(Q) = Q(rho * Q) of degree 12, together with the Mahler measure, the unit-circle census and the E_m Coxeter bridge. Compared statement (7) and the minimal-polynomial clause of (15) restate those facts on the abstract tower L and are proved here independently (an ideal-membership certificate and the subfield lattice (16)); they are not new.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-09-01-000012 (stalex444/golden-family-boundary)",
+        "note": "The golden family's boundary at n = 3: general-n theorems for x^n = x + 1, including that the quartic root Q is not a Pisot number. Context for the application paragraph; nothing here depends on it.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-08-31-000004 (stalex444/mahler-measure-minima)",
+        "note": "x^d - x - 1 attains the least Mahler measure above 1 among monic irreducible integer polynomials of degree d, for d = 2, 3, 4. Cited in the application paragraph only; nothing here depends on it.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-10-17-000013 (stalex444/triangle-group-growth)",
+        "note": "Growth series of the triangle Coxeter groups (p, q, infinity); for (2, 3, infinity) = PGL(2, Z) the growth rate is rho, the minimum over the family. Cited in the application paragraph only; nothing here depends on it.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entries PALOMAR-2026-08-19-000006 (the Padovan language is not closed under reversal), PALOMAR-2026-09-04-000004 (chiral Padovan histories) and PALOMAR-2026-10-18-000019 (the slowest settling clock on at most three letters is the Padovan substitution)",
+        "note": "Certify the chirality of the Padovan substitution at the level of the factor language; 000019 also certifies that the least Pisot eigenvalue of a substitution on at most three letters is rho. Cited in the application paragraph only; nothing here depends on them.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/stalex444/pdt-lean (parent development)",
+        "note": "The broader public project this entry belongs to (PDT-Lean, the kernel-verified formal spine of the author's Pisot Dimensional Theory). This repository is a complete, self-contained proof development; nothing is imported from the parent except the port of PALOMAR-2026-09-02-000014 described above, which is included here as source.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-21T04:45:48Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "96b034cc31a72a63d4f4041911dce337a85c9a04",
+    "report": {
+      "sha256": "d6227ddfe7d3ba7e1692266d04d53268d5b24bf00da0a15065dadb4065662599"
+    },
+    "reviewed_at": "2026-10-21T00:39:12Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "5aa870e98236ba240561b798265c629df8c2d031",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/pdt-hermite-signature-compositum",
+    "repository_url": "https://github.com/stalex444/pdt-hermite-signature-compositum",
+    "tree_url": "https://github.com/stalex444/pdt-hermite-signature-compositum/tree/5aa870e98236ba240561b798265c629df8c2d031"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "t01g1qoglsor"
+  },
+  "title": "Hermite's signature theorem and the coprime compositum, with the degree-12 compositum of x^3 - x - 1 and x^4 - x - 1",
+  "trust": {
+    "challenge_bytes": 56050,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 941,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "468c2b66a2cae4548aaa1abaf90e22a3e6e19d8d7ffa3ed36b6efb271a44af87",
+    "evidence_path": "evidence/PALOMAR-2026-10-21-000012-v1/5bfffb833b9e056de51172ad7633ef34e64c7d40a5efba14852b110789106f38/",
+    "evidence_tree_sha256": "5bfffb833b9e056de51172ad7633ef34e64c7d40a5efba14852b110789106f38",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/con-ron",
+          "--jobs=2"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "9f6b826351dd3861d39dbdd5588d3f76266b761922f338d5e3ad35128c99bf75",
+    "protected_config_sha256": "83ecb55711b2ba130f1ac2a745ff660c5ed2274ae23e55cb3cd9746ec5f91140",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 39512279821,
+    "solution_sha256": "980de70a07020dfa55294e419fe8d1f0b9b27589096e26b606cd29c1c8617de3",
+    "tool_digests": {
+      "bwrap": "aac4fa8f61ca1dd6d33cb0dc8fc20e22e3d5d77b7b55fdff281ad464fbe5ac1c",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-20T23:31:23Z",
+    "workflow_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/39512279821"
+  },
+  "version": 1
+}
