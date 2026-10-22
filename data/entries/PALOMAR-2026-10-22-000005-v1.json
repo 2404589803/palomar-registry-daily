@@ -1,0 +1,334 @@
+{
+  "abstract": "A Lean 4 proof, with no unproved steps, of the theorem of L. Schnirelmann, Über additive Eigenschaften von Zahlen, Math. Ann. 107, 1933: the set of 0, 1 and the sums of two primes has positive Schnirelmann density, and so every integer n >= 2 is a sum of a bounded number of primes. The proof also gives an explicit bound: every n >= 2 is a sum of at most 30772 primes. Mathlib's file Mathlib/Combinatorics/Schnirelmann.lean lists the proof of Schnirelmann's theorem as a TODO; this entry gives it, for Mathlib's schnirelmannDensity, with an explicit constant. The constant 30772 is far weaker than the best known ones: Ramaré 1995 showed that every n >= 2 is a sum of at most 7 primes, and Helfgott's ternary Goldbach theorem gives at most 4. The point is a complete formal version of Schnirelmann's argument with every constant explicit. Binary Goldbach is open and is not claimed. The Lean code was written by an AI agent and is offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-22-000005-v1/a2983e9015bb69810932ef8282dbb3d989df31dca46ac67b1e69185fbdb4d4f3/",
+    "artifact_tree_sha256": "a2983e9015bb69810932ef8282dbb3d989df31dca46ac67b1e69185fbdb4d4f3",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-22T01:28:45Z",
+    "renderer_commit": "5cfaefe2f4c18f237c63d9635f9f54ab68785d89",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11B13",
+      "11N36"
+    ]
+  },
+  "first_registered_on": "2026-10-22",
+  "formalization": {
+    "challenge_path": "entries/schnirelmann1933/ChallengeSchnirelmann1933.lean",
+    "comparator_config_path": "entries/schnirelmann1933/comparator-schnirelmann1933.json",
+    "definition_names": [
+      "LeanLab.IsGoldbachSum",
+      "LeanLab.SchnirelmannGoldbach.G",
+      "LeanLab.SchnirelmannGoldbach.S4_schnirelmann_pos_stmt",
+      "LeanLab.SchnirelmannGoldbach.SumOfPrimes",
+      "LeanLab.SchnirelmannExplicit.Sharper6.K₆",
+      "LeanLab.SchnirelmannExplicit.Sharper6.H₆"
+    ],
+    "formalization_metadata_path": "entries/schnirelmann1933/formalization.yaml",
+    "lakefile_path": "entries/schnirelmann1933/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/schnirelmann1933/SolutionSchnirelmann1933.lean",
+    "theorem_names": [
+      "LeanLab.SchnirelmannGoldbach.S4_schnirelmann_pos",
+      "LeanLab.SchnirelmannGoldbach.schnirelmann_bounded_primes",
+      "LeanLab.SchnirelmannExplicit.Sharper6.schnirelmann_bounded_primes_H₆"
+    ]
+  },
+  "id": "PALOMAR-2026-10-22-000005",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-22T03:07:35Z",
+    "receipt_sha256": "fcf98577227447b9e2840ed1528f5706b23697e97e6fe1dbacdc0d5f564548f3",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000005-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000005-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000005-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000005-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000005-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000005-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000005-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000005-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000005-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "3ba1189ed38f0a913828af00d72196eebd68777f",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000005-v1/3ba1189ed38f0a913828af00d72196eebd68777f",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "L. Schnirelmann"
+          }
+        ],
+        "identifier": "doi:10.1007/BF01448914",
+        "license": "unknown",
+        "location": "Mathematische Annalen 107, 1933, pages 649-690",
+        "relationship": "formalizes",
+        "title": "Über additive Eigenschaften von Zahlen",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "M. B. Nathanson"
+          }
+        ],
+        "identifier": "doi:10.1007/978-1-4757-3845-2",
+        "license": "unknown",
+        "location": "Graduate Texts in Mathematics 164, Springer, 1996, Chapter 7",
+        "relationship": "adapts",
+        "title": "Additive Number Theory: The Classical Bases",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "O. Ramaré"
+          }
+        ],
+        "identifier": "https://numdam.org/item/ASNSP_1995_4_22_4_645_0/",
+        "license": "unknown",
+        "location": "Annali della Scuola Normale Superiore di Pisa, Classe di Scienze, Serie 4, 22, no. 4, 1995, pages 645-706, Section 9",
+        "relationship": "adapts",
+        "title": "On Šnirel'man's constant",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Arend Mellendijk"
+          },
+          {
+            "name": "the PrimeNumberTheoremAnd project contributors"
+          }
+        ],
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "license": "Apache-2.0",
+        "location": "commit c39a751132c88b6e8080b74c74023fd95b3d8be0, PrimeNumberTheoremAnd/Mathlib/NumberTheory/Sieve",
+        "relationship": "other",
+        "title": "PrimeNumberTheoremAnd",
+        "type": "formalization"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-22T03:07:13Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "6c8ae5a4254b6ff41872c0a25b9261f9eb06d114704389f3161728a6c2bf4718"
+    },
+    "reviewed_at": "2026-10-22T02:45:25Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "3ba1189ed38f0a913828af00d72196eebd68777f",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/schnirelmann1933",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/3ba1189ed38f0a913828af00d72196eebd68777f/entries/schnirelmann1933"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "mwd9otfs0z3k"
+  },
+  "title": "Schnirelmann's theorem: every integer n >= 2 is a sum of at most 30772 primes, after Schnirelmann 1933",
+  "trust": {
+    "challenge_bytes": 3068,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 81,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "c31e63518de553c44c5f8b861e2b8ffc673a6c87f95edca09ffe6c13836a6c7a",
+    "evidence_path": "evidence/PALOMAR-2026-10-22-000005-v1/cd8c5ba2545dffe147c2cc0358f51978f24a4248ebf1f28a5da6c91998bf489f/",
+    "evidence_tree_sha256": "cd8c5ba2545dffe147c2cc0358f51978f24a4248ebf1f28a5da6c91998bf489f",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "ca27bcf7acc80b4dd535203c77dcf2856b86f18023fa55d9207539c8fff52ed2",
+    "protected_config_sha256": "c871da4d591d6c42fa6df593bbccd337af4ac7fbd42e4a8b97894c42834ce65c",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 39682665969,
+    "solution_sha256": "2ad47804c8839a5441b01cfabfa94a1f82747c0419845a971d9ff8bb20788614",
+    "tool_digests": {
+      "bwrap": "e2937e820181cf79ca4dadaa6c322af0d0ba3782cd91cb35d2bde5f3e7c09161",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-21T22:51:57Z",
+    "workflow_commit": "7a08c1da8e0558d330b9b3c244896c175d373303",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/39682665969"
+  },
+  "version": 1
+}

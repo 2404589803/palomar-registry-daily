@@ -1,0 +1,352 @@
+{
+  "abstract": "For the classical Liénard system dx/dt = y − F(x), dy/dt = −x, every polynomial in an explicit coefficient box of radius 10^−40 around a rational sextic has at least six limit cycles. For every integer n ≥ 6, a real polynomial of degree exactly n with F(0) = 0 is shown to have at least floor((n − 1)/2) + 4 limit cycles. An explicit rational polynomial of degree seven, obtained by adding 10^−41 x^7 to the sextic, has at least seven limit cycles. The conclusions provide global nonconstant periodic solutions with pairwise disjoint images, prescribed positive-axis crossings and isolating neighborhoods for the same periodic orbits. The construction combines rational integration certificates, half-return maps and a degree-raising argument.",
+  "authors": [
+    {
+      "name": "Michael Mislan"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-22-000008-v1/d93e2361186ff6c72432fee3853f5f4c84d4815aa345c18c36f1ffe6b8d3ffb7/",
+    "artifact_tree_sha256": "d93e2361186ff6c72432fee3853f5f4c84d4815aa345c18c36f1ffe6b8d3ffb7",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-22T03:27:49Z",
+    "renderer_commit": "ad5db9e7ff8b17523d73aeb244aaeabcde810c64",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.DS"
+    ],
+    "msc2020": [
+      "34C07",
+      "34C25",
+      "68V15"
+    ]
+  },
+  "first_registered_on": "2026-10-22",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "PlanarCycles.Lienard.SexticSix.sextic_six_limit_cycles",
+      "PlanarCycles.Lienard.SexticSix.lienard_lower_bound",
+      "PlanarCycles.Lienard.SexticSix.seven_limit_cycles_explicit",
+      "PlanarCycles.Lienard.LimitCycles._proof_1",
+      "PlanarCycles.Lienard.SexticSix.SixLimitCycles._proof_1",
+      "PlanarCycles.Lienard.Witness.InBox._proof_1",
+      "PlanarCycles.Lienard.Witness.InBox._proof_2",
+      "PlanarCycles.Lienard.Witness.InBox._proof_3",
+      "PlanarCycles.Lienard.Witness.InBox._proof_4",
+      "PlanarCycles.Lienard.Witness.InBox._proof_5",
+      "PlanarCycles.Lienard.Witness.InBox._proof_6",
+      "PlanarCycles.Lienard.Witness.InBox._proof_7",
+      "PlanarCycles.Lienard.Witness.InBox._proof_8",
+      "PlanarCycles.Lienard.Witness.InBox._proof_9",
+      "PlanarCycles.Lienard.Witness.InBox._proof_10",
+      "PlanarCycles.Lienard.Witness.InBox._proof_11",
+      "PlanarCycles.Lienard.Witness.InBox._proof_12",
+      "PlanarCycles.Lienard.Witness.InBox._proof_13",
+      "PlanarCycles.Lienard.Witness.InBox._proof_14",
+      "PlanarCycles.Lienard.SexticSix.centre._proof_1",
+      "PlanarCycles.Lienard.SexticSix.centre._proof_2",
+      "PlanarCycles.Lienard.SexticSix.centre._proof_3",
+      "PlanarCycles.Lienard.SexticSix.centre._proof_4",
+      "PlanarCycles.Lienard.SexticSix.centre._proof_5",
+      "PlanarCycles.Lienard.SexticSix.centre._proof_6",
+      "PlanarCycles.Lienard.SexticSix.centre._proof_7",
+      "PlanarCycles.Lienard.SexticSix.centre._proof_8",
+      "PlanarCycles.Lienard.SexticSix.centre._proof_9",
+      "PlanarCycles.Lienard.SexticSix.centre._proof_10",
+      "PlanarCycles.Lienard.SexticSix.centre._proof_11",
+      "PlanarCycles.Lienard.SexticSix.centre._proof_12"
+    ]
+  },
+  "id": "PALOMAR-2026-10-22-000008",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-22T04:13:21Z",
+    "receipt_sha256": "b05f8a9e54c22203e3693f6aeff361fbff7e73f8873b0f4115deb1c202728567",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000008-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000008-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000008-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000008-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000008-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000008-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000008-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000008-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000008-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "7da225327c6cd62a3dc63926525377764ea8f454",
+        "fork_repository": "PalomarArchive/mmislan--palomar-lienard-limit-cycles--69a342c2f376",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000008-v1/7da225327c6cd62a3dc63926525377764ea8f454",
+        "source_repository": "mmislan/palomar-lienard-limit-cycles"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "identifier": "sha256:5db329356367f4b2f99c903d73c0eddd9abdd8845c623a94277cac2b8a96347b",
+        "location": "paper/main.pdf",
+        "relationship": "formalizes",
+        "title": "Classical Liénard equations of degree n ≥ 6 can have floor((n−1)/2)+4 limit cycles",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "identifier": "sha256:6577a06ff772d8706878bc934267d84daac497d7af2f7806a226b881a6d29a80",
+        "license": "CC-BY-4.0",
+        "location": "paper/predecessor/P160/Sextic_Lienard_Six_Limit_Cycles.pdf",
+        "relationship": "background",
+        "title": "A sextic classical Liénard system with at least six limit cycles",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "identifier": "git:fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "license": "Apache-2.0",
+        "location": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/OAI/Analysis/LienardCycles/SmoothFlow.lean",
+        "relationship": "adapts",
+        "title": "OpenAI math: polynomial local-flow prefix in SmoothFlow.lean",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Peter De Maesschalck"
+          },
+          {
+            "name": "Freddy Dumortier"
+          }
+        ],
+        "location": "https://doi.org/10.1016/j.jde.2010.12.003",
+        "relationship": "background",
+        "title": "Classical Liénard equations of degree n≥6 can have floor((n−1)/2)+2 limit cycles",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Peter De Maesschalck"
+          },
+          {
+            "name": "Renato Huzak"
+          }
+        ],
+        "location": "https://doi.org/10.1007/s10884-014-9358-1",
+        "relationship": "background",
+        "title": "Slow Divergence Integrals in Classical Liénard Equations Near Centers",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/OAI/Analysis/LienardCycles",
+        "note": "The selected polynomial-flow prefix only; the present sextic and degree-raising statements are different targets.",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Michael Mislan"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-22T04:12:57Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "09552655cebde4c8b071935c0cdbfd0828d42c00cca663641c62b33e403691d9"
+    },
+    "reviewed_at": "2026-10-22T03:49:10Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "7da225327c6cd62a3dc63926525377764ea8f454",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "mmislan/palomar-lienard-limit-cycles",
+    "repository_url": "https://github.com/mmislan/palomar-lienard-limit-cycles",
+    "tree_url": "https://github.com/mmislan/palomar-lienard-limit-cycles/tree/7da225327c6cd62a3dc63926525377764ea8f454"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "yb1pvem6lgzx"
+  },
+  "title": "Classical Liénard equations of degree n ≥ 6 can have floor((n−1)/2)+4 limit cycles",
+  "trust": {
+    "challenge_bytes": 10341,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Polynomial.Degree.Defs",
+      "Mathlib.Algebra.Polynomial.Eval.Defs",
+      "Mathlib.Algebra.Ring.Periodic",
+      "Mathlib.Analysis.Calculus.Deriv.Basic",
+      "Mathlib.Data.Fin.VecNotation",
+      "Mathlib.Topology.Algebra.Module.ModuleTopology"
+    ],
+    "challenge_lines": 168,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "1dcdc2c57fdc5acc0b0f9b2e11039f4e598e7878675c6588dd04b4b705660e6a",
+    "evidence_path": "evidence/PALOMAR-2026-10-22-000008-v1/81a5e3fda2d598cdc2b1146402432a4e97f3c2c7336999357f14e6a85817ad9a/",
+    "evidence_tree_sha256": "81a5e3fda2d598cdc2b1146402432a4e97f3c2c7336999357f14e6a85817ad9a",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      }
+    ],
+    "mechanical_report_sha256": "2732a15be793971a3a33c5f42314a1825234380b191cebc9cb37c5f61096caee",
+    "protected_config_sha256": "1c2005d95297c0f8a3c3ad4ddaa0c323f3cc020feb16d36b3370d0cfc869964c",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 39699901209,
+    "solution_sha256": "ed166e2efee3f6bf0dec6b6ea83a87c9a8b793d0221fe817e7f4ac12cb103fcd",
+    "tool_digests": {
+      "bwrap": "35f0e5b014027abefe47015d1e9fede3322d8f6f09faf5f96f6c6e5e43f3ad28",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-22T01:52:51Z",
+    "workflow_commit": "5cfaefe2f4c18f237c63d9635f9f54ab68785d89",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/39699901209"
+  },
+  "version": 1
+}
