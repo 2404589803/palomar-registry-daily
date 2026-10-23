@@ -1,0 +1,319 @@
+{
+  "abstract": "A sorry-free Lean 4 proof of Renyi's theorem: there is N0 such that every even N >= N0 is p + m with p prime, m >= 1 and Omega of m at most 8, where Omega counts prime factors with multiplicity, as Mathlib's ArithmeticFunction.cardFactors does. So the theorem is proved with the explicit constant K = 8. Also proved: a lower bound e^{-36} N / 2 log^2 N for the number of primes p < N with Omega of N - p at most 8; the same two statements with the weaker K = 13000; and the K = 8 statement written with Mathlib's Nat.IsAtMostAlmostPrime. The entry also proves twin_renyi_count, a derived analogue proved in this entry by the same sieve method, a twin-prime analogue of Renyi's theorem, not a result of Renyi 1948. The proof is a Brun type block sieve with Bonferroni levels whose remainders are bounded by the Bombieri-Vinogradov theorem proved in the same library; all thresholds are ineffective through Siegel's theorem. Nothing here is new mathematics: Pan has K = 4 and Chen 1973 has K = 2. Binary Goldbach is Omega of m equal to 1; it is open and is not claimed. The Lean code was written by an AI agent; the statements were checked against the literature by AI reviewers and are offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-22-000028-v1/130c20a0799ccb1c784c22dbd96130564d8e6ccbb9ac1ece2fca4ab238a313e3/",
+    "artifact_tree_sha256": "130c20a0799ccb1c784c22dbd96130564d8e6ccbb9ac1ece2fca4ab238a313e3",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-22T10:54:13Z",
+    "renderer_commit": "ad5db9e7ff8b17523d73aeb244aaeabcde810c64",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11N35",
+      "11N36"
+    ]
+  },
+  "first_registered_on": "2026-10-22",
+  "formalization": {
+    "challenge_path": "entries/renyi1948/ChallengeRenyi1948.lean",
+    "comparator_config_path": "entries/renyi1948/comparator-renyi1948.json",
+    "definition_names": [],
+    "formalization_metadata_path": "entries/renyi1948/formalization.yaml",
+    "lakefile_path": "entries/renyi1948/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/renyi1948/SolutionRenyi1948.lean",
+    "theorem_names": [
+      "LeanLab.PNTPort.BVMax.renyi8_fixedK",
+      "LeanLab.PNTPort.BVMax.renyi8_fixedK_count",
+      "LeanLab.PNTPort.BVMax.renyi_fixedK",
+      "LeanLab.PNTPort.BVMax.renyi_fixedK_count",
+      "LeanLab.PNTPort.BVMax.twin_renyi_count",
+      "LeanLab.PNTPort.BVMax.renyi8_isAtMostAlmostPrime"
+    ]
+  },
+  "id": "PALOMAR-2026-10-22-000028",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-22T11:47:41Z",
+    "receipt_sha256": "d144788a185dc4a4faae16fc1343e36a11dad98d622fa4144a0f6ac74b00d853",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000028-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000028-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000028-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000028-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000028-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000028-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000028-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000028-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000028-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "4d87394fed5e86a866ec2335621dc1b57f2e0c9d",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000028-v1/4d87394fed5e86a866ec2335621dc1b57f2e0c9d",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "A. Renyi"
+          }
+        ],
+        "identifier": "https://www.mathnet.ru/eng/im3018",
+        "license": "unknown",
+        "location": "Izvestiya Akademii Nauk SSSR, Seriya Matematicheskaya 12, no. 1, 1948, 57-78, received 31 March 1947, MR 23863, Zbl 0038.18601",
+        "relationship": "adapts",
+        "title": "On the representation of an even number as the sum of a single prime and a single almost-prime number",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "the PrimeNumberTheoremAnd project contributors"
+          }
+        ],
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "license": "Apache-2.0",
+        "location": "commit c39a751132c88b6e8080b74c74023fd95b3d8be0",
+        "relationship": "other",
+        "title": "PrimeNumberTheoremAnd",
+        "type": "formalization"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/blob/master/Mathlib/NumberTheory/AlmostPrime.lean",
+        "note": "Mathlib defines Nat.IsAtMostAlmostPrime k n as n not zero and Omega of n at most k, counted with multiplicity. It is equivalent to the condition of the lab's statement, and the entry compares renyi8_isAtMostAlmostPrime, the K = 8 theorem written with it. Mathlib has no Renyi type theorem. No prior Lean formalization of Renyi's theorem is known to us.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://lean-lang.org/eval/problems/chen_theorem/",
+        "note": "The lean-eval benchmark lists Chen's theorem in its twin form, infinitely many primes p with p + 2 a prime or a product of two primes, as problem chen_theorem, read on 2026-10-21. This entry's twin statement has 13000 in place of 2 and does not address that problem.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/sthubbar/goldbach-lean/tree/main/entries/bombierivinogradov1965",
+        "note": "The Bombieri-Vinogradov 1965 entry of this repository uses the same lab library and compares the Bombieri-Vinogradov theorem, which this entry uses for the sieve remainders. This entry adds 31 lab files for the sieve and the Renyi argument.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-22T11:47:15Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "84dc2428b59c0e313b6f0afb747b9804cbf53da7181ca7101804322eb4cfdb32"
+    },
+    "reviewed_at": "2026-10-22T11:05:46Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "4d87394fed5e86a866ec2335621dc1b57f2e0c9d",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/renyi1948",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/4d87394fed5e86a866ec2335621dc1b57f2e0c9d/entries/renyi1948"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "7p30r0rk2lm2"
+  },
+  "title": "Renyi's theorem, Renyi 1948: every large even number is a prime plus a number with at most 8 prime factors",
+  "trust": {
+    "challenge_bytes": 4199,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 86,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "db214a7e5ef595d9dfd83b7369eb9efb94a9066c533091c9350b7d2794558b70",
+    "evidence_path": "evidence/PALOMAR-2026-10-22-000028-v1/44716fd41805f00ef34d9bfbb795fb1c2a0978c4f305d4a5545085f614d6f331/",
+    "evidence_tree_sha256": "44716fd41805f00ef34d9bfbb795fb1c2a0978c4f305d4a5545085f614d6f331",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "0d8cfcff2785253f761fa18ca96db12c54b677a1cbeb5905b4675073423ba8d4",
+    "protected_config_sha256": "29ef6b3ee4d80645ec3825acca0b07c4bea7414de3a76afd7a18546f7a9b9520",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 39761688742,
+    "solution_sha256": "74f498dd9b3a66ab52db8087746945c27d51efc2ede0c5f806621c56dd6831e1",
+    "tool_digests": {
+      "bwrap": "2e6a31c74dd00688d5c348edc03407d7a3d131bd08c7ac2098aac98c95a158e5",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-22T10:34:05Z",
+    "workflow_commit": "ad5db9e7ff8b17523d73aeb244aaeabcde810c64",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/39761688742"
+  },
+  "version": 1
+}

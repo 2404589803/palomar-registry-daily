@@ -1,0 +1,428 @@
+{
+  "abstract": "A complete Lean 4 / Mathlib formalization of Theorems 1, 2 and 3 of Duminil-Copin, Sidoravicius and Tassion (arXiv:1505.04159v1). Theorem 3: for the random-cluster model on the square lattice with any real cluster weight q >= 1, at its critical point p_c, the following are equivalent: the origin lies in an infinite cluster with probability 0 under the wired measure; equality of the free and wired measures; infinite susceptibility of the free measure; sub-exponential decay of the free one-arm probability; and the RSW bound for free boundary conditions at distance n. Theorem 2: for 1 <= q <= 4 the wired measure at p_c gives probability 0 to the origin lying in an infinite cluster. Theorem 1: for the q-state Potts model with q = 2, 3, 4, the monochromatic Gibbs measure at beta_c gives its own colour at the origin probability exactly 1/q, so the phase transition is continuous. The critical points are the genuine phase-transition thresholds, whose existence the theorems assert; four further theorems prove that these critical points and the infinite-volume measures are unique; beyond this statement surface, the development also proves p_c = sqrt(q)/(1 + sqrt q) for every q >= 1 (PottsContinuity.BD12.isRCCriticalPoint_sqrt) and beta_c = log(1 + sqrt q) for every integer q >= 2 (PottsContinuity.Thm1.isPottsCriticalPoint_log_sqrt); these identifications are not checked by Comparator. The infinite-volume measures are limits along every exhaustion of the lattice, and their existence and uniqueness are proved. The external results that the paper cites and the proof uses (the value of p_c and the crossing estimates of Beffara-Duminil-Copin, the contour identity of the parafermionic observable in the form used in Section 4 of the paper, Theorem 4 of the paper, the Edwards-Sokal coupling, FKG and comparison inequalities, the domain Markov property, planar duality and topology) are proved here or taken from Mathlib; the Jordan-Schoenflies theorem and Brouwer's fixed-point theorem come from vendored libraries, and circle-degree and Jordan-curve facts from the Tau Ceti library. The only axioms are propext, Classical.choice and Quot.sound.",
+  "authors": [
+    {
+      "name": "Zijie Zhuang"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-22-000019-v1/c49ed3fda6e6a20cb44ca396050999abd47801797b6a7ec908fdee3df137caf3/",
+    "artifact_tree_sha256": "c49ed3fda6e6a20cb44ca396050999abd47801797b6a7ec908fdee3df137caf3",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-21T23:48:30Z",
+    "renderer_commit": "be7c1ad8f7c142dfd7a6abd65d40b5cbb310db0e",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.PR",
+      "math-ph"
+    ],
+    "msc2020": [
+      "82B20",
+      "82B26",
+      "82B43",
+      "60K35"
+    ]
+  },
+  "first_registered_on": "2026-10-22",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "b63f6e8a68d220e3b3bc4f3792bb53650d375f24"
+      },
+      {
+        "name": "TauCeti",
+        "repository": "TauCetiProject/TauCeti",
+        "revision": "3bed7e37f3c504a99e8c07e9f309540812a7aa90"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10a2cfff285e1c7c2ebc49c0ba22cab0f3c58ee5"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "33131f4fb10067cb3009bf4db615d9680c1ccd6b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "PottsContinuity.isPottsCriticalPoint_unique",
+      "PottsContinuity.isPottsInfiniteVolumeLimit_unique",
+      "PottsContinuity.isRCCriticalPoint_unique",
+      "PottsContinuity.isRCInfiniteVolumeLimit_unique",
+      "PottsContinuity.theorem_1",
+      "PottsContinuity.theorem_2",
+      "PottsContinuity.theorem_3"
+    ]
+  },
+  "id": "PALOMAR-2026-10-22-000019",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-22T09:03:41Z",
+    "receipt_sha256": "48e6d08625d0e7df2dec28600790f604ea896bb6773e7ac8e24776721ba8d3f4",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000019-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "33131f4fb10067cb3009bf4db615d9680c1ccd6b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000019-v1/33131f4fb10067cb3009bf4db615d9680c1ccd6b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10a2cfff285e1c7c2ebc49c0ba22cab0f3c58ee5",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000019-v1/10a2cfff285e1c7c2ebc49c0ba22cab0f3c58ee5",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000019-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "b63f6e8a68d220e3b3bc4f3792bb53650d375f24",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000019-v1/b63f6e8a68d220e3b3bc4f3792bb53650d375f24",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000019-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000019-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000019-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000019-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "3bed7e37f3c504a99e8c07e9f309540812a7aa90",
+        "fork_repository": "PalomarArchive/TauCetiProject--TauCeti--19ea3a09e7a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000019-v1/3bed7e37f3c504a99e8c07e9f309540812a7aa90",
+        "source_repository": "TauCetiProject/TauCeti"
+      },
+      {
+        "commit": "f458b1980a1a41ef5d7febc670fd16bdaadb48bf",
+        "fork_repository": "PalomarArchive/zijie123123--PottsContinuity-lean--faa19bd318be",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000019-v1/f458b1980a1a41ef5d7febc670fd16bdaadb48bf",
+        "source_repository": "zijie123123/PottsContinuity-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Hugo Duminil-Copin"
+          },
+          {
+            "name": "Vladas Sidoravicius"
+          },
+          {
+            "name": "Vincent Tassion"
+          }
+        ],
+        "identifier": "arXiv:1505.04159v1",
+        "license": "arXiv non-exclusive distribution licence (nonexclusive-distrib/1.0); not redistributed here",
+        "location": "Theorem 1 (p. 5), Theorem 2 (p. 6) and Theorem 3 (p. 7); Theorems 1 and 2 are deduced from Theorems 3 and 4 in Section 1, Theorem 3 is proved in Section 3 and Theorem 4 in Section 4",
+        "relationship": "formalizes",
+        "title": "Continuity of the phase transition for planar random-cluster and Potts models with 1 <= q <= 4",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Vincent Beffara"
+          },
+          {
+            "name": "Hugo Duminil-Copin"
+          }
+        ],
+        "identifier": "arXiv:1006.5073v2",
+        "license": "arXiv non-exclusive distribution licence; not redistributed here",
+        "location": "Theorem 1 (p_c(q) = sqrt(q)/(1 + sqrt q)), Theorem 3 (beta_c(q) = log(1 + sqrt q) for the q-state Potts model, q >= 2), Lemma 7 (two separately wired arcs of a symmetric domain with mixed boundary conditions are joined with probability at least 1/(1+q^2); eq. (3) of the main paper) and Corollary 9 (crossing estimates at p_c; Theorem 9 of the main paper)",
+        "relationship": "independently-proves",
+        "title": "The self-dual point of the two-dimensional random-cluster model is critical for q >= 1",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Hugo Duminil-Copin"
+          },
+          {
+            "name": "Aran Raoufi"
+          },
+          {
+            "name": "Vincent Tassion"
+          }
+        ],
+        "identifier": "arXiv:1705.03104v2",
+        "license": "arXiv non-exclusive distribution licence; not redistributed here",
+        "location": "Theorem 1.1 (the OSSS inequality for monotonic measures), Theorem 1.2, second item (exponential decay of the one-arm probability below the critical point), and Theorem 1.5 (non-coexistence of infinite primal and dual clusters for translation-invariant positively associated measures) with Lemma 4.1 of its proof, on the square lattice",
+        "relationship": "formalizes",
+        "title": "Sharp phase transition for the random-cluster and Potts models via decision trees",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Laurin Koehler-Schindler"
+          },
+          {
+            "name": "Vincent Tassion"
+          }
+        ],
+        "identifier": "arXiv:2011.04618v1",
+        "license": "arXiv non-exclusive distribution licence; not redistributed here",
+        "location": "Theorem 1 (crossing estimates for rectangles of every aspect ratio for invariant, positively associated planar percolation measures) with Lemmas 1-5 of its proof",
+        "relationship": "formalizes",
+        "title": "Crossing probabilities for planar percolation",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Hugo Duminil-Copin"
+          }
+        ],
+        "identifier": "arXiv:1208.3787v2",
+        "license": "arXiv non-exclusive distribution licence; not redistributed here",
+        "location": "Theorem 1 (for 1 <= q <= 4, the correlation length xi(p) tends to infinity as p increases to p_c(q)); the main paper attributes to this article its Theorem 4, lim (1/n) log phi^0_{p_c}[0 <-> boundary of Lambda_n] = 0",
+        "relationship": "background",
+        "title": "Divergence of the correlation length for critical planar FK percolation with 1 <= q <= 4 via parafermionic observables",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Hugo Duminil-Copin"
+          }
+        ],
+        "identifier": "Ensaios Matematicos, volume 25, Brazilian Mathematical Society, 2013",
+        "license": "not redistributed here",
+        "location": "the vanishing of discrete contour integrals of the parafermionic observable (Chapter 6), cited as [Dum13] for Theorem 10 of the main paper; Corollary 4.23, cited by the main paper for the implication P1 => P2 (the corollary number is taken from the main paper)",
+        "relationship": "background",
+        "title": "Parafermionic observables and their applications to planar statistical physics models",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Hugo Duminil-Copin"
+          }
+        ],
+        "identifier": "arXiv:1707.00520v1",
+        "license": "arXiv non-exclusive distribution licence; not redistributed here",
+        "location": "Sections 1.2 (domain Markov property, Section 1.2.1; Edwards-Sokal coupling, Section 1.2.2) and 1.3 (positive association and comparison between boundary conditions, Section 1.3.1; infinite-volume random-cluster measures, Section 1.3.2; uniqueness of the infinite cluster, ergodicity, and equality of the free and wired measures for all but countably many p, Section 1.3.3), and the planar duality of Sections 2.1 and 2.4",
+        "relationship": "background",
+        "title": "Lectures on the Ising and Potts models on the hypercubic lattice",
+        "type": "lecture-notes"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "FKconvergence: unpublished Lean 4 development by Zijie Zhuang (2026), not publicly accessible",
+        "note": "An earlier Lean 4 development by the same author on the critical planar FK (random-cluster) model on the square lattice with 1 <= q < 4. It has not been published and is not publicly accessible; there is no URL, release or commit that could be cited, so it is identified by its project name, FKconvergence. 739 of the 3007 modules under PottsContinuity/ (about 110,000 of 315,000 lines) are adapted from it, and each of them says so in its header: 642 in FKC/ (finite FK measures on graphs, boundary conditions, comparison and finite-energy inequalities, discrete domains and curves, medial graphs, the parafermionic observable and its contour identities), 53 in Thm4/ (the parafermionic route to Theorem 4), 37 in PlanarMixed/ (rectangle duality with mixed boundary conditions) and 7 elsewhere. 524 of them relocate modules and namespaces only (declarations not used here were removed; apart from the edits of the port described in the README), and 118 more also replace wrappers of the SLE development by PottsContinuity/FKC/SLEWrap/; the others reuse this development's carriers, extend the parameters (for example the cluster weight to the closed interval [1, 4], including q = 4) or adapt individual arguments. In addition, 101 of the 191 modules adapted from PottsDiscontinuity (next entry) had been adapted there, in whole or in part, from FKconvergence. The statements of the seven main theorems and their 22 definitions (PottsContinuity/Frozen/) were transcribed from the paper and are not taken from it.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/zijie123123/PottsDiscontinuity-lean at commit 435fb57856860eda7a65c8fec9e5fb29eff2b46b",
+        "note": "The author's formalization of Theorems 1.1 and 1.2 of arXiv:1611.09877 (discontinuity of the phase transition for q > 4), publicly available. 191 of the 3007 modules under PottsContinuity/ (about 25,800 lines; 190 in PD/ and 1 in Thm4/) are adapted from its development version: finite and infinite-volume FK measures, FKG and comparison inequalities, finite energy, box limits, planar duality on rectangles and 16 of its definitions (PD/Defs/, not part of the statement surface here). 165 of them come from files that the public repository contains at this commit (after a port to the module system). The other 26 (26 of the 44 modules of PottsContinuity/PD/RCInfinite/, the Burton-Keane uniqueness of the infinite cluster, about 4,300 lines) come from files of the development version that the public repository does not contain, so their source is not publicly accessible. All are relocated to the namespace PottsContinuity.PD, and declarations not used here were removed; 101 of them had been adapted there, in whole or in part, from FKconvergence. Each says so in its header. The statements of the main theorems are not taken from it. Eight of the 22 definitions of the statement surface (box, squareLattice, rcOpenGraph, rcFreeClusterCount, rcWiredClusterCount, rcWeight, rcProb, rcInfiniteOpenGraph) have the same Lean code as the definitions of the same names in that repository's Challenge.lean (their docstrings differ, and vertexBoundary, used by rcWiredClusterCount, is written differently there but equivalently), and IsRCInfiniteVolumeLimit uses its cylinder-event form with every exhaustion in place of boxes; all were checked against this paper before being frozen. The other definitions are not taken from it.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/openai/math at commit fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb, directory lean/OAI/Probability/SLE",
+        "note": "Three modules (PottsContinuity/FKC/SLEWrap/Geometry/: complex Jordan regions and transport of the inside of a Jordan curve under the Jordan-Schoenflies homeomorphism, about 190 lines) are taken from this public SLE development: the declarations used here are copied unchanged and keep the namespace OAI; the files were ported to the module system and three declarations not used here were omitted. The repository is licensed under the Apache License 2.0. In addition, the Lean v4.34.1 compatibility edits of the two vendored libraries are those of lean/patches/schoenflies-lean-lean4341.patch (SHA-256 4cbc255a2be785e6b617ecd61cdaf67e6d236d65a87f284380f2713670c8e350) and lean/patches/fixed-point-theorems-lean4341.patch (SHA-256 d70872e41e80b25191538d1659c4aa3a001349b5bd16f806c9e3833a502516e5) of this repository at the same commit, including their rewritten docstrings and the rename of Graph.IsBridge to Graph.IsSchoenfliesBridge. Nothing else is taken from it; the statements of the main theorems and their definitions are not.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/alonamaloh/schoenflies-lean at commit 05a43d29cde026618777db3d4e4316204ccca237",
+        "note": "Vendored library (vendor/schoenflies-lean/, Apache-2.0): the 128 modules of this formalization of the Jordan-Schoenflies theorem that the proof needs, with the Lean v4.34.1 compatibility edits of openai/math's lean/patches/schoenflies-lean-lean4341.patch (commit fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb, Apache-2.0), a port to the module system (with one private definition, farSide, made public) and four proofs repaired for it; no statement is changed apart from the rename of Graph.IsBridge and its lemmas to Graph.IsSchoenfliesBridge (see vendor/schoenflies-lean/PROVENANCE.md).",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/harfe/fixed-point-theorems-lean4 at commit 770940ddf9878cf61952ed53d910b92bca841838",
+        "note": "Vendored library (vendor/fixed-point-theorems/, MIT): the 5 modules that prove Brouwer's fixed-point theorem, with the Lean v4.34.1 compatibility edits of openai/math's lean/patches/fixed-point-theorems-lean4341.patch (commit fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb, Apache-2.0), further edits for Lean v4.35.0-rc3 and a port to the module system; no statement is changed (see vendor/fixed-point-theorems/PROVENANCE.md).",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Zijie Zhuang"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-22T09:03:15Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "8dea8315f7e29ed3d2d7851026d2bda4a4c3a3a7b94871b360d94a3e29650010"
+    },
+    "reviewed_at": "2026-10-21T23:52:00Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "f458b1980a1a41ef5d7febc670fd16bdaadb48bf",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "zijie123123/PottsContinuity-lean",
+    "repository_url": "https://github.com/zijie123123/PottsContinuity-lean",
+    "tree_url": "https://github.com/zijie123123/PottsContinuity-lean/tree/f458b1980a1a41ef5d7febc670fd16bdaadb48bf"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "578q95d872t4"
+  },
+  "title": "Continuity of the phase transition for planar random-cluster and Potts models with 1 <= q <= 4 (Theorems 1, 2 and 3)",
+  "trust": {
+    "challenge_bytes": 16266,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 366,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "f6d7c592ae663990fad6a9b7af3deeac9a35ed2d9024930fc26dda37457c4899",
+    "evidence_path": "evidence/PALOMAR-2026-10-22-000019-v1/429e2f6cbbf8889a3e63b62124e81aa1ab77882dc066dfaabf962b64c82aefd1/",
+    "evidence_tree_sha256": "429e2f6cbbf8889a3e63b62124e81aa1ab77882dc066dfaabf962b64c82aefd1",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "8876a1af0cbc54b789c61cd62f69eb84088de7717ea4920cb8231da9184122b9",
+    "protected_config_sha256": "54d29cad57387bc333e8bb0aaa23d302c7d17b81e189299b3924b72ec9fa1692",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 39634950628,
+    "solution_sha256": "c2a09a747a3284fe06e524e7cef28d840fd4ff02ba60e73fba7731824dc8d693",
+    "tool_digests": {
+      "bwrap": "e4739d38c024937634338bd9e4b96a5a6e7b5216afd28555a2873441c967a660",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-21T18:25:14Z",
+    "workflow_commit": "7a08c1da8e0558d330b9b3c244896c175d373303",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/39634950628"
+  },
+  "version": 1
+}

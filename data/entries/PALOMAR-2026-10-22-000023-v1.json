@@ -1,0 +1,312 @@
+{
+  "abstract": "Conditional on RH: a sorry-free Lean 4 proof of Theorem 2 of D. A. Goldston and L. Yang, The average number of Goldbach representations, arXiv 1601.06902, in Prime numbers and representation theory, Science Press 2017. With G(n) the sum over m1 + m2 = n of Lambda(m1) Lambda(m2), Mathlib's RiemannHypothesis, taken as an explicit hypothesis of the theorem and never as an axiom, implies that the sum over n <= N of 1 - n/N times G(n) equals N^2/6 - 2 times the sum over nontrivial zeros rho of N^{rho+1} divided by rho times rho+1 times rho+2, plus O(N), for N >= 2. The zero sum counts zeros with multiplicity, and its absolute convergence is proved unconditionally. Binary Goldbach is open and is not claimed; this is an average over n. An AI agent wrote the Lean code; the statements were checked against the paper by an AI agent and are offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-22-000023-v1/14ddcb6c2e22c5cbb5989ab6470dc6e3778eabe11c1f05f1e64a3ab304c84c0c/",
+    "artifact_tree_sha256": "14ddcb6c2e22c5cbb5989ab6470dc6e3778eabe11c1f05f1e64a3ab304c84c0c",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-22T03:33:13Z",
+    "renderer_commit": "ad5db9e7ff8b17523d73aeb244aaeabcde810c64",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11M26",
+      "11N05"
+    ]
+  },
+  "first_registered_on": "2026-10-22",
+  "formalization": {
+    "challenge_path": "entries/goldstonyang2016/ChallengeGoldstonYang2016.lean",
+    "comparator_config_path": "entries/goldstonyang2016/comparator-goldstonyang2016.json",
+    "definition_names": [
+      "LeanLab.GoldbachAverage.G",
+      "LeanLab.GoldbachAverage.NontrivialZero",
+      "LeanLab.GoldbachAverage.zeroSum"
+    ],
+    "formalization_metadata_path": "entries/goldstonyang2016/formalization.yaml",
+    "lakefile_path": "entries/goldstonyang2016/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/goldstonyang2016/SolutionGoldstonYang2016.lean",
+    "theorem_names": [
+      "LeanLab.GoldbachAverage.gy_theorem2_proved",
+      "LeanLab.GoldbachAverage.gy_zeroSum_summable"
+    ]
+  },
+  "id": "PALOMAR-2026-10-22-000023",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-22T10:45:57Z",
+    "receipt_sha256": "43af64e129d513772329a91cddade1be3927cdabccbcd8c8b32f0291207f23b6",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000023-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000023-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000023-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000023-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000023-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000023-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000023-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000023-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000023-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "3ba1189ed38f0a913828af00d72196eebd68777f",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000023-v1/3ba1189ed38f0a913828af00d72196eebd68777f",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "D. A. Goldston"
+          },
+          {
+            "name": "L. Yang"
+          }
+        ],
+        "identifier": "arXiv:1601.06902",
+        "license": "unknown",
+        "location": "Prime numbers and representation theory, edited by Ye Tian and Yangbo Ye, Science Press, Beijing, 2017, pages 1 to 12, Theorem 2, eq. 2.2",
+        "relationship": "formalizes",
+        "title": "The average number of Goldbach representations",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "the PrimeNumberTheoremAnd project contributors"
+          }
+        ],
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "license": "Apache-2.0",
+        "location": "commit c39a751132c88b6e8080b74c74023fd95b3d8be0",
+        "relationship": "other",
+        "title": "PrimeNumberTheoremAnd",
+        "type": "formalization"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-10-21-000011",
+        "note": "The Granville 2007 entry of this repository proves, with no hypothesis, that RH is equivalent to the sum of G(n) over n <= N being N^2/2 + O(N^{3/2+eps}). It uses the same definition of G but an unweighted sum, no zero sum, and a weaker error term.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-22T10:45:33Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "15bfc4f3c8f6d9e5a104a91f74ea6d02dc88b2ee09c3c4153f5eef65dccb04cd"
+    },
+    "reviewed_at": "2026-10-22T04:01:37Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "3ba1189ed38f0a913828af00d72196eebd68777f",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/goldstonyang2016",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/3ba1189ed38f0a913828af00d72196eebd68777f/entries/goldstonyang2016"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "djr1jfmd33vn"
+  },
+  "title": "Conditional on RH: the Cesàro average of the number of Goldbach representations, after Goldston and Yang",
+  "trust": {
+    "challenge_bytes": 3723,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 74,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "53edc2f6db2f8391f84c972b733b0c23a5f038228c9f9165f6568028835e7bfd",
+    "evidence_path": "evidence/PALOMAR-2026-10-22-000023-v1/9ff5005e47332e12d44483c93f4e08eeb4c38699aa228c141990aef96efefeb6/",
+    "evidence_tree_sha256": "9ff5005e47332e12d44483c93f4e08eeb4c38699aa228c141990aef96efefeb6",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "28559e792e75c105483f38576777390861878e971fe010b0ac4bb5b9fe1ed20a",
+    "protected_config_sha256": "bdf16f9a6ce8876aebbcbd32a394b44fe12443b7187071f6b52cbd118c40c980",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 39706812880,
+    "solution_sha256": "38fa70ee4f8b5aadba47dfca57fa5af4a36c6166b01bedd62c1d5ca5efd473fa",
+    "tool_digests": {
+      "bwrap": "e21b24d86a57daf5c6ae27fde2cb63d71e076705711010de465a9236efc9c9aa",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-22T02:11:46Z",
+    "workflow_commit": "5cfaefe2f4c18f237c63d9635f9f54ab68785d89",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/39706812880"
+  },
+  "version": 1
+}

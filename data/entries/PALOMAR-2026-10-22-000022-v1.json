@@ -1,0 +1,354 @@
+{
+  "abstract": "A sorry-free Lean 4 proof, with no hypothesis, of Theorems B, C, D, E and F of G. H. Hardy and J. E. Littlewood, Some problems of Partitio Numerorum III, Acta Math. 44, 1923. Hardy and Littlewood proved these theorems on their Hypothesis R, a form of the generalized Riemann hypothesis for Dirichlet L-functions; here they are proved unconditionally, from Vinogradov's estimate for exponential sums over primes and the Siegel-Walfisz theorem, so the argument is not Hardy and Littlewood's own for Theorems B, D and E. Formalized: Theorem B, the asymptotic for the weighted count nu_r of n as an ordered sum of r primes, for every r at least 3 and n of the parity of r, with the singular series written as the paper's product over the odd primes dividing n, and nu_r of n is o of n^{r-1} for unlike parity; Theorem C, N_r of n is asymptotic to nu_r of n over log^r n; Theorem D, the ternary asymptotic with the constant C_3 and every large odd number a sum of three odd primes; Theorem E, the asymptotic for four odd primes, every large even number a sum of four odd primes, one of which may be assigned; and Theorem F, that an asymptotic of Conjecture A's shape for binary Goldbach can only carry the constant 2 C_2, together with a check that the printed formula 4.23 has a misprint. Theorem A of the paper is not formalized. Ternary Goldbach is Helfgott's theorem; binary Goldbach is open and is not claimed. The Lean code was written by an AI agent; the statements were written from the paper's page images by AI agents and are offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-22-000022-v1/ad6c5e373e0fd267192a07a7a9bc5fcbd386b7556a4e91546d7e6d9327bce18c/",
+    "artifact_tree_sha256": "ad6c5e373e0fd267192a07a7a9bc5fcbd386b7556a4e91546d7e6d9327bce18c",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-22T03:32:10Z",
+    "renderer_commit": "ad5db9e7ff8b17523d73aeb244aaeabcde810c64",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11P55",
+      "11N13"
+    ]
+  },
+  "first_registered_on": "2026-10-22",
+  "formalization": {
+    "challenge_path": "entries/hardylittlewood1923/ChallengeHardyLittlewood1923.lean",
+    "comparator_config_path": "entries/hardylittlewood1923/comparator-hardylittlewood1923.json",
+    "definition_names": [
+      "LeanLab.HardyLittlewood1923.Nr",
+      "LeanLab.HardyLittlewood1923.nur",
+      "LeanLab.HardyLittlewood1923.theoremC_stmt",
+      "LeanLab.HardyLittlewood1923.N3bar",
+      "LeanLab.HardyLittlewood1923.C3",
+      "LeanLab.HardyLittlewood1923.Pi3",
+      "LeanLab.HardyLittlewood1923.theoremD_stmt",
+      "LeanLab.HardyLittlewood1923.N4bar",
+      "LeanLab.HardyLittlewood1923.C4",
+      "LeanLab.HardyLittlewood1923.Pi4",
+      "LeanLab.HardyLittlewood1923.theoremE_stmt",
+      "LeanLab.HardyLittlewood1923.Br",
+      "LeanLab.HardyLittlewood1923.Cr",
+      "LeanLab.HardyLittlewood1923.Mr",
+      "LeanLab.HardyLittlewood1923.theoremB_stmt",
+      "LeanLab.HardyLittlewood1923.M2",
+      "LeanLab.HardyLittlewood1923.hyp421",
+      "LeanLab.HardyLittlewood1923.hyp422"
+    ],
+    "formalization_metadata_path": "entries/hardylittlewood1923/formalization.yaml",
+    "lakefile_path": "entries/hardylittlewood1923/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/hardylittlewood1923/SolutionHardyLittlewood1923.lean",
+    "theorem_names": [
+      "LeanLab.HardyLittlewood1923.theoremB",
+      "LeanLab.HardyLittlewood1923.theoremB_unlike",
+      "LeanLab.HardyLittlewood1923.theoremB3",
+      "LeanLab.HardyLittlewood1923.theoremB4",
+      "LeanLab.HardyLittlewood1923.theoremC",
+      "LeanLab.HardyLittlewood1923.theoremD",
+      "LeanLab.HardyLittlewood1923.theoremD_ternary",
+      "LeanLab.HardyLittlewood1923.theoremE",
+      "LeanLab.HardyLittlewood1923.theoremE_four",
+      "LeanLab.HardyLittlewood1923.theoremE_assigned",
+      "LeanLab.HardyLittlewood1923.theoremF",
+      "LeanLab.HardyLittlewood1923.printed_423_false"
+    ]
+  },
+  "id": "PALOMAR-2026-10-22-000022",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-22T10:40:47Z",
+    "receipt_sha256": "603dafc97348433846d60378acda44e172f7341914c8b27233c63578ba989195",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000022-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000022-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000022-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000022-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000022-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000022-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000022-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000022-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000022-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "3ba1189ed38f0a913828af00d72196eebd68777f",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000022-v1/3ba1189ed38f0a913828af00d72196eebd68777f",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "G. H. Hardy"
+          },
+          {
+            "name": "J. E. Littlewood"
+          }
+        ],
+        "identifier": "doi:10.1007/BF02403921",
+        "license": "unknown",
+        "location": "Acta Mathematica 44 (1923) 1-70",
+        "relationship": "adapts",
+        "title": "Some problems of 'Partitio Numerorum'; III: On the expression of a number as a sum of primes",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "I. M. Vinogradov"
+          }
+        ],
+        "identifier": "Dokl. Akad. Nauk SSSR 15 (1937) 291-294",
+        "license": "unknown",
+        "location": "Comptes Rendus (Doklady) de l'Academie des Sciences de l'URSS 15 (1937)",
+        "relationship": "background",
+        "title": "Representation of an odd number as a sum of three primes",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "the PrimeNumberTheoremAnd project contributors"
+          },
+          {
+            "name": "Arend Mellendijk"
+          }
+        ],
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "license": "Apache-2.0",
+        "location": "commit c39a751132c88b6e8080b74c74023fd95b3d8be0",
+        "relationship": "other",
+        "title": "PrimeNumberTheoremAnd",
+        "type": "formalization"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-10-21-000005",
+        "note": "The Heath-Brown 1985 entry of this repository proves Vinogradov's three primes theorem, that every sufficiently large odd number is a sum of three primes, by Heath-Brown's route through Siegel-Walfisz and the binary Goldbach mean square. This entry proves more for three primes: the Hardy-Littlewood asymptotic with the constant C_3 for odd primes, Theorem D, by a separate circle method argument in LeanLab/PNTPort/Vinogradov and LeanLab/VanDerCorput1939, and builds Theorems B, C, E and F on it. Both entries share the Siegel-Walfisz theorem and the ported StrongPNT files; the three primes theorem itself also follows from theoremD_ternary here.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-22T10:40:19Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "2d53d7c3546c766234ba0760b401f1822e51984e2495a6203e7c83680c52afa5"
+    },
+    "reviewed_at": "2026-10-22T03:52:50Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "3ba1189ed38f0a913828af00d72196eebd68777f",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/hardylittlewood1923",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/3ba1189ed38f0a913828af00d72196eebd68777f/entries/hardylittlewood1923"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "ybw39n7tcja0"
+  },
+  "title": "Sums of primes, after Hardy and Littlewood 1923, Partitio Numerorum III, Theorems B to F proved without Hypothesis R",
+  "trust": {
+    "challenge_bytes": 11574,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 255,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "d7007d0ed587fea46b4b58cec2068cf0e21b45b41d60c0fe7b63574896b0b88d",
+    "evidence_path": "evidence/PALOMAR-2026-10-22-000022-v1/d3a7ed9a8d23dcb682a5d85c50a6132c7e2f32728791bbb8078cc693975849cb/",
+    "evidence_tree_sha256": "d3a7ed9a8d23dcb682a5d85c50a6132c7e2f32728791bbb8078cc693975849cb",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "9c2f14da141fac2b32c50b77bf9afa289c0f9f311145372ef8bf4a8c0df8c61b",
+    "protected_config_sha256": "59c26ad858ae2777ab083319e12e89c5ad38c67a814362a69a93ce349e49805a",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 39702224215,
+    "solution_sha256": "fc54dcf3808662294437d7a7c678d712cb7e284ceff03db67d27823dcbe336df",
+    "tool_digests": {
+      "bwrap": "5bdd41df781aa4537f105c828f5fa09a11c8705b7ac81495728fcd7a21becbae",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-22T01:31:40Z",
+    "workflow_commit": "5cfaefe2f4c18f237c63d9635f9f54ab68785d89",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/39702224215"
+  },
+  "version": 1
+}

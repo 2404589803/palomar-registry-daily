@@ -1,0 +1,722 @@
+{
+  "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, about cut-and-project schemes on a fixed integer lattice Z^iota invariant under an integer matrix A: splittings R^iota = E + H into A-invariant subspaces with Z^iota meeting H only in 0 and the projection of Z^iota to H dense in H, a window W in H (bounded, containing a relative ball), the model set Lambda(W) = {pi_E g : g in Z^iota, pi_H g in W}, and admissibility, some window with A Lambda(W) contained in Lambda(W) (inflation symmetry in Meyer's inclusion sense). The least physical dimension d(A) is the least dim E over admissible schemes. Thirteen compared theorems. (1) For every integer A, a scheme is admissible iff A is power-bounded on H; then the orbit window is a compact convex symmetric invariant window; the per-window criterion; and U(A) <= dim E, U(A) the number of eigenvalues of modulus > 1. (2) Kronecker's density criterion in cut-and-project form. (3) For every integer A with det A != 0, any chi_A: (a) d(A) is the sum over the distinct irreducible factors p of chi_A over Q of m_p u_p + c_p (m_p - r_1(p)), plus min(deg p, 2) when every root of p lies on the unit circle and r_1(p) = m_p, where m_p is the multiplicity, u_p and c_p count the roots of p of modulus > 1 and = 1, and r_1(p) = (2 dim ker p(A) - dim ker p(A)^2) / deg p (ranks over Q) is the number of Jordan blocks of size one at each root of p; (b) the value is an invariant of rational similarity; (c) the factors with all roots on the unit circle are the cyclotomic ones; and (d) for chi_A squarefree every invariant splitting is E = ker q_E(A), H = ker q_H(A) with chi_A = q_E q_H, it is admissible iff the roots of q_H lie in the closed unit disk and every irreducible rational factor of chi_A shares a root with q_E, and d(A) = U(A) + circleCount(A), counting 1 for each factor x - 1, x + 1 and 2 for each other cyclotomic factor, each with its multiplicity. (4) For det A != 0 and hyperbolic A, any chi_A and no diagonalizability: a scheme is admissible iff E contains the unstable set iff H lies in the stable set; an invariant splitting carries an admissible scheme iff E contains the unstable set; d(A) = U(A), attained only by the unstable/stable splitting. (5) For det A != 0, any chi_A: d(A) = 1 iff chi_A is irreducible with exactly one root of modulus > 1 (a real root, a Pisot or Salem number up to sign, or an integer on Z^1), or A = +-1 in any rank; in the irreducible case every admissible line is the eigenline. (6) If A^k = 1: every factor is cyclotomic and d = sum of min(deg p, 2) over the distinct factors; the same for chi_A squarefree with all roots on the unit circle; every integer matrix with chi_A = Phi_n, n >= 3 (multiplication by a primitive n-th root of unity), needs exactly a plane. (7) Jordan blocks on the circle: I_2 and the Jordan block J_2 both have chi = (x - 1)^2, for which the squarefree count of (3), with x - 1 counted twice, gives 2, but d = 1 and 2; 1 + J_2(1) and 1 + J_3(1) have d = 2 and 3. (8) Multiplication by rho, rho^-1, Q and theta = -Q^-1 = 1 - Q^3 on Z[rho] and Z[Q] (rho^3 = rho + 1, Q^4 = Q + 1): d = 1, 2, 3, 1. (9) On Z[rho] (x) Z[Q] (degree 12), multiplication by every alpha other than 0, +-1 is nonsingular (det != 0) and hyperbolic with d = U; for rho, theta, rho Q and Q the values are 4, 3, 5, 9. (10) rho and theta act on their unstable spaces as real scalars, and the spectral projection carries the quartic (resp. cubic) sector onto them with the Gram pairing GramRho (x) GramQ equal to that of GramQ (resp. GramRho), of types (3,1) and (2,1). (11) The scheme of Q on Z^4 with an interval window: a segment, an explicit Q-invariant model set in R^3, determinant -1/q' on E, non-real moduli, and the types (2,1) and (1,0) of the trace form on E and H. (12) A Salem witness, the companion of x^4 - x^3 - x^2 - x + 1: not hyperbolic, d = 1. (13) Every model set is a Delone set (Mathlib's Delone.DeloneSet) with uniformly discrete difference set. The mathematics of (1), (2), (4), (5) for irreducible chi_A, and (13), and of (6) for chi_A = Phi_n, is known in other formulations (Masakova-Mazac-Pelantova 2021; Kronecker, Pleasants 2000; Harriss-Koivusalo-Walton 2025, preprint; Meyer 1972, 1995; Lagarias 1999; Solomyak 2020; the classical cyclotomic model sets; Moody 1997); (1) and (4) are stated with no diagonalizability hypothesis. The scheme and model set of (11) are, in substance, instances of Masakova-Mazac-Pelantova Thm 13.1 and of Harriss-Koivusalo-Walton Section 3.4, and are not new. For squarefree chi_A the count of (3) also follows from the arguments of Masakova-Mazac-Pelantova (Lemma 5.1, Prop. 8.1(iii), Cor. 13.4), stated there for generic (aperiodic) schemes; the lattice-first least physical dimension was not found stated in the sources read (search completed 2026-10-20). Beyond the cited cases, the entry proves the least physical dimension for every nonsingular integer matrix (3), including what lies outside the diagonalizable class of Masakova-Mazac-Pelantova: a Jordan block of size >= 2 at an eigenvalue on the unit circle counts in full (the terms c_p (m_p - r_1(p)), which vanish for diagonalizable A), and at a cyclotomic factor with such a block the blocks of size one cost nothing, the internal space being tilted into the socle of the larger blocks; the witnesses are J_2, 1 + J_2(1) and 1 + J_3(1) (7). Every admissible scheme of an A with such a block at a root of unity has Z^iota meeting E in a nonzero vector. It also proves the characterization of every admissible splitting for squarefree chi_A ((3)(d)), non-generic splittings included (its necessity half is the injectivity argument of Masakova-Mazac-Pelantova, Lemma 5.1), and (1) for every integer matrix and (4) for every nonsingular hyperbolic integer matrix, with no diagonalizability hypothesis; for diagonalizable A and generic schemes, the uniqueness of the minimal scheme in (4) and of the minimal physical line in (5) is immediate from Masakova-Mazac-Pelantova, Cor. 13.4. For det A != 0 and squarefree chi_A with a factor Phi_n, n not in {1, 2, 3, 4, 6}, the minimal scheme is not unique, by (3)(d). The companion matrices are multiplication by rho and Q in the power bases by definition, so Crho^i (x) CQ^j is multiplication by rho^i Q^j in the product basis. That the rho^i Q^j are a Z-basis of the ring of integers of Q(rho, Q) is statement (8) of the author's registered entry PALOMAR-2026-10-21-000012 (stalex444/pdt-hermite-signature-compositum@5aa870e98236ba240561b798265c629df8c2d031); that GramRho, GramQ and GramRho (x) GramQ are the Gram matrices of the trace forms in these bases is statements (8), (9) and (19) of the author's registered entry PALOMAR-2026-09-02-000014, in which Q(rho) (x) Q(Q) is the field Q(rho, Q) (its (23)). These are cited, not compared. Application (cited, not a claim of the entry): In the author's Pisot Dimensional Theory, Q(rho) is the arithmetic of three-dimensional space and Q(Q) the arithmetic of four-dimensional spacetime, and their compositum K, whose integers are Z[rho] (x) Z[Q], is the parent of both (the author's registered entry PALOMAR-2026-10-21-000012 (stalex444/pdt-hermite-signature-compositum@5aa870e98236ba240561b798265c629df8c2d031), statements (7), (8)). A model set is the shadow of a lattice cut through a window, a standard mathematical model of a quasicrystal (Moody 2000). Read through the theory, this entry's theorems fix how many dimensions each of the theory's inflations needs to be the symmetry of one, and which ones.\nSpace inflates the parent through spacetime, and spacetime inflates it through space. On the parent's lattice the plastic inflation rho needs exactly four physical dimensions, and only one scheme attains four (4, 9). Those four are a copy of spacetime's: rho has a single expanding embedding in Q(rho), the real one, and the spectral projection maps the quartic sector onto them, carrying Z[Q] with its trace form unchanged, of Lorentzian type (3,1) (10). rho acts on them as a pure dilation by rho = 1.3247..., the same stretch in every direction (10). Symmetrically, the unit theta = -Q^-1 = 1 - Q^3 needs exactly three, and those three are a copy of space's: Q(rho)'s real space with its form of type (2,1) unchanged, dilated by t = -1/q' = 1.3803... (8, 9, 10). Taken over all three embeddings of Q(rho) instead of the one expanding embedding, the form on the quartic sector is tripled: the factor 3 of statement (13) of PALOMAR-2026-10-21-000012.\nThe clock needs one dimension; the ruler needs five. On Z[rho] the plastic inflation needs exactly one: the line, over a two-dimensional window at the complex place (8). The plastic substitution's control-point sets are regular model sets in this scheme, with Rauzy-fractal windows in C (Baake and Grimm 2020), and in the theory the line is time and its points are the ticks (PALOMAR-2026-08-19-000006, PALOMAR-2026-10-18-000019). The coupling ruler rho Q, which generates the parent field (Q(rho Q) = K; statement (15) of PALOMAR-2026-10-21-000012, where Z[rho Q] has index 53 in the integers; PALOMAR-2026-09-01-000005), needs exactly five, over a seven-dimensional window (9): one real and two complex expanding places, a dimension neither sector has.\nThe parent holds no circle, so every minimal scheme is forced. Off the parent, eigenvalues on the unit circle can change the count: a Salem inflation's circle eigendirections lie in the internal space and cost nothing, so it still needs only a line (5, 12), but multiplication by a primitive n-th root of unity, n >= 3, needs exactly a plane, and every element of finite order n >= 3 needs at least one (6). The parent has none. No element of K other than +-1 has a conjugate on the unit circle (statement (17) of PALOMAR-2026-10-21-000012), so every inflation of the parent by an element other than 0 and +-1 is hyperbolic, needs exactly as many dimensions as it has expanding embeddings (a complex place counts twice), and has a unique minimal scheme (4, 9).",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-22-000030-v1/cb55a83f03a2badb3cc989e42f8e203e2bee88d1ff40bbe4f369dd73212c87ad/",
+    "artifact_tree_sha256": "cb55a83f03a2badb3cc989e42f8e203e2bee88d1ff40bbe4f369dd73212c87ad",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-22T00:58:02Z",
+    "renderer_commit": "5cfaefe2f4c18f237c63d9635f9f54ab68785d89",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.MG",
+      "math.DS",
+      "math.NT",
+      "math-ph",
+      "gr-qc",
+      "cs.LO"
+    ],
+    "msc2020": [
+      "52C23",
+      "37D20",
+      "11R06",
+      "11J71",
+      "11R04",
+      "15A21",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-10-22",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "ModelSetDimension.admissibility_criterion",
+      "ModelSetDimension.kronecker_density_criterion",
+      "ModelSetDimension.least_physical_dimension",
+      "ModelSetDimension.hyperbolic_case",
+      "ModelSetDimension.dimension_one_pisot_or_salem",
+      "ModelSetDimension.finite_order_case",
+      "ModelSetDimension.jordan_block_witnesses",
+      "ModelSetDimension.sector_rings",
+      "ModelSetDimension.compositum_lattice",
+      "ModelSetDimension.compositum_dilations",
+      "ModelSetDimension.quartic_model_set",
+      "ModelSetDimension.salem_witness",
+      "ModelSetDimension.modelSet_isMeyer"
+    ]
+  },
+  "id": "PALOMAR-2026-10-22-000030",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-22T11:58:04Z",
+    "receipt_sha256": "9cd5b927a1beb81f8f0acd225e57edc481001ce2d3ac536a15bbc6c044840689",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000030-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000030-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000030-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000030-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000030-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000030-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000030-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000030-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000030-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "c41d9d29f9c86fb0f849df79b03e713d3405a5eb",
+        "fork_repository": "PalomarArchive/stalex444--pdt-inflation-model-set-dimension--6934a2b28ed6",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-22-000030-v1/c41d9d29f9c86fb0f849df79b03e713d3405a5eb",
+        "source_repository": "stalex444/pdt-inflation-model-set-dimension"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Zuzana Masakova"
+          },
+          {
+            "name": "Jan Mazac"
+          },
+          {
+            "name": "Edita Pelantova"
+          }
+        ],
+        "identifier": "Linear Algebra and its Applications 625 (2021), 279-321; arXiv:1909.10753",
+        "license": "unknown",
+        "location": "https://doi.org/10.1016/j.laa.2021.05.010",
+        "relationship": "independently-proves",
+        "title": "On generalized self-similarities of cut-and-project sets",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Edmund Harriss"
+          },
+          {
+            "name": "Henna Koivusalo"
+          },
+          {
+            "name": "James J. Walton"
+          }
+        ],
+        "identifier": "arXiv:2512.13659 (v1, 2025-12-15; preprint)",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2512.13659",
+        "relationship": "other",
+        "title": "When is a cut and project set substitutional?",
+        "type": "preprint"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "P. A. B. Pleasants"
+          }
+        ],
+        "identifier": "Directions in Mathematical Quasicrystals, CRM Monograph Series 13, American Mathematical Society (2000), 95-141",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/crmm/013/04",
+        "relationship": "independently-proves",
+        "title": "Designer quasicrystals: cut-and-project sets with pre-assigned properties",
+        "type": "incollection"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Yves Meyer"
+          }
+        ],
+        "identifier": "Beyond Quasicrystals (Les Houches, 1994), Springer (1995), 3-16",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/978-3-662-03130-8_1",
+        "relationship": "independently-proves",
+        "title": "Quasicrystals, Diophantine approximation and algebraic numbers",
+        "type": "incollection"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "J. C. Lagarias"
+          }
+        ],
+        "identifier": "Discrete and Computational Geometry 21 (1999), 161-191",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/PL00009413",
+        "relationship": "background",
+        "title": "Geometric Models for Quasicrystals I. Delone Sets of Finite Type",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Boris Solomyak"
+          }
+        ],
+        "identifier": "Substitution and Tiling Dynamics: Introduction to Self-inducing Structures, Lecture Notes in Mathematics 2273, Springer (2020), 1-32; arXiv:1802.02370",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/978-3-030-57666-0_1",
+        "relationship": "background",
+        "title": "Delone Sets and Dynamical Systems",
+        "type": "incollection"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Leopold Kronecker"
+          }
+        ],
+        "identifier": "Journal fuer die reine und angewandte Mathematik 53 (1857), 173-175",
+        "license": "unknown",
+        "location": "https://doi.org/10.1515/crll.1857.53.173",
+        "relationship": "background",
+        "title": "Zwei Saetze ueber Gleichungen mit ganzzahligen Coefficienten",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Leopold Kronecker"
+          }
+        ],
+        "identifier": "Sitzungsberichte der Koeniglich Preussischen Akademie der Wissenschaften zu Berlin (1884), 1179-1193, continued 1271-1300; JFM 16.0083.02, 17.0073.01",
+        "license": "unknown",
+        "location": "https://zbmath.org/?q=an%3A16.0083.02",
+        "relationship": "background",
+        "title": "Naeherungsweise ganzzahlige Aufloesung linearer Gleichungen",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Christian Huck"
+          }
+        ],
+        "identifier": "arXiv:math/0701141",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/math/0701141",
+        "relationship": "background",
+        "title": "Uniqueness in Discrete Tomography of Planar Model Sets",
+        "type": "preprint"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Michael Baake"
+          },
+          {
+            "name": "Uwe Grimm"
+          }
+        ],
+        "identifier": "Cambridge University Press (2013)",
+        "license": "unknown",
+        "location": "https://doi.org/10.1017/CBO9781139025256",
+        "relationship": "background",
+        "title": "Aperiodic Order, Vol. 1: A Mathematical Invitation",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Michael Baake"
+          },
+          {
+            "name": "D. Joseph"
+          },
+          {
+            "name": "Martin Schlottmann"
+          }
+        ],
+        "identifier": "International Journal of Modern Physics B 5 (1991), 1927-1953",
+        "license": "unknown",
+        "location": "https://doi.org/10.1142/S0217979291000754",
+        "relationship": "background",
+        "title": "The root lattice D4 and planar quasilattices with octagonal and dodecagonal symmetry",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "H. Hiller"
+          }
+        ],
+        "identifier": "Acta Crystallographica Section A 41 (1985), 541-544",
+        "license": "unknown",
+        "location": "https://doi.org/10.1107/S0108767385001180",
+        "relationship": "background",
+        "title": "The crystallographic restriction in higher dimensions",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Robert V. Moody"
+          }
+        ],
+        "identifier": "The Mathematics of Long-Range Aperiodic Order, NATO ASI Series C 489, Kluwer (1997), 403-441",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/978-94-015-8784-6_16",
+        "relationship": "background",
+        "title": "Meyer Sets and Their Duals",
+        "type": "incollection"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Michael Baake"
+          },
+          {
+            "name": "Robert V. Moody"
+          }
+        ],
+        "identifier": "Algebraic Methods in Physics, Springer (2001), 1-15; arXiv:math-ph/9809006",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/978-1-4613-0119-6_1",
+        "relationship": "background",
+        "title": "Self-Similarities and Invariant Densities for Model Sets",
+        "type": "incollection"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Michael Baake"
+          },
+          {
+            "name": "Robert V. Moody"
+          },
+          {
+            "name": "Martin Schlottmann"
+          }
+        ],
+        "identifier": "Journal of Physics A: Mathematical and General 31 (1998), 5755-5765; arXiv:math-ph/9901008",
+        "license": "unknown",
+        "location": "https://doi.org/10.1088/0305-4470/31/27/006",
+        "relationship": "background",
+        "title": "Limit-(quasi)periodic point sets as quasicrystals with p-adic internal spaces",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Jeong-Yup Lee"
+          },
+          {
+            "name": "Robert V. Moody"
+          }
+        ],
+        "identifier": "Discrete and Computational Geometry 25 (2001), 173-201; arXiv:math/0002019",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/s004540010083",
+        "relationship": "background",
+        "title": "Lattice substitution systems and model sets",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Charlene Kalle"
+          },
+          {
+            "name": "Wolfgang Steiner"
+          }
+        ],
+        "identifier": "Transactions of the American Mathematical Society 364 (2012), 2281-2318",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/S0002-9947-2012-05362-1",
+        "relationship": "background",
+        "title": "Beta-expansions, natural extensions and multiple tilings associated with Pisot units",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Robert V. Moody"
+          }
+        ],
+        "identifier": "From Quasicrystals to More Complex Systems, Springer (2000), 145-166; arXiv:math/0002020",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/978-3-662-04253-3_6",
+        "relationship": "background",
+        "title": "Model Sets: A Survey",
+        "type": "incollection"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Michael Baake"
+          },
+          {
+            "name": "Daniel Lenz"
+          },
+          {
+            "name": "Robert V. Moody"
+          }
+        ],
+        "identifier": "Ergodic Theory and Dynamical Systems 27 (2007), 341-382",
+        "license": "unknown",
+        "location": "https://doi.org/10.1017/S0143385706000800",
+        "relationship": "background",
+        "title": "Characterization of model sets by dynamical systems",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Jean-Baptiste Aujogue"
+          }
+        ],
+        "identifier": "Proceedings of the American Mathematical Society 144 (2016), 1277-1288",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/proc/12790",
+        "relationship": "background",
+        "title": "Optimal embedding of Meyer sets into model sets",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "A. Hof"
+          }
+        ],
+        "identifier": "Communications in Mathematical Physics 169 (1995), 25-43",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/BF02101595",
+        "relationship": "background",
+        "title": "On diffraction by aperiodic structures",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Martin Schlottmann"
+          }
+        ],
+        "identifier": "Directions in Mathematical Quasicrystals, CRM Monograph Series 13, American Mathematical Society (2000), 143-159",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/crmm/013/05",
+        "relationship": "background",
+        "title": "Generalized model sets and dynamical systems",
+        "type": "incollection"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "D. A. Lind"
+          }
+        ],
+        "identifier": "Ergodic Theory and Dynamical Systems 4 (1984), 283-300",
+        "license": "unknown",
+        "location": "https://doi.org/10.1017/S0143385700002443",
+        "relationship": "background",
+        "title": "The entropies of topological Markov shifts and a related class of algebraic integers",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Richard Kenyon"
+          },
+          {
+            "name": "Boris Solomyak"
+          }
+        ],
+        "identifier": "Discrete and Computational Geometry 43 (2010), 577-593; arXiv:0801.1993",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/s00454-009-9199-6",
+        "relationship": "background",
+        "title": "On the Characterization of Expansion Maps for Self-Affine Tilings",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Michael Baake"
+          },
+          {
+            "name": "Uwe Grimm"
+          }
+        ],
+        "identifier": "Journal of Physics: Conference Series 1458 (2020), 012006; arXiv:1904.08285",
+        "license": "unknown",
+        "location": "https://doi.org/10.1088/1742-6596/1458/1/012006",
+        "relationship": "background",
+        "title": "Diffraction of a model set with complex windows",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4 (commit 065356127b1dc0016f66b7283ce0ce2c4055aa55)",
+        "note": "The compared statements use Mathlib's Matrix.toLin', Pi.basisFun, Submodule.projection, the sup norm, Matrix.charpoly, LinearMap.charpoly, Matrix.det, LinearMap.det, Polynomial.roots, UniqueFactorizationMonoid.normalizedFactors, Polynomial.cyclotomic, Squarefree, the Kronecker product, Matrix.toQuadraticForm', QuadraticMap.comp, sigPos, sigNeg, Delone.DeloneSet, segment and IsLeast, quoted verbatim with permalinks in MATHLIB_DEFINITIONS.md. Consumed on the proof route, not re-proved: Kronecker's theorem (NumberField.Embeddings.pow_eq_one_of_norm_eq_one), Gelfand's formula, Sylvester's law of inertia (QuadraticForm.sigPos_of_equiv_weightedSumSquares, D. Loeffler), Selmer's irreducibility of x^n - x - 1 (X_pow_sub_X_sub_one_irreducible_rat), the ZSpan floor and Mathlib's Delone sets (N. Jensen).",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-10-21-000012 (stalex444/pdt-hermite-signature-compositum, commit 5aa870e98236ba240561b798265c629df8c2d031)",
+        "note": "The author's entry on the degree-12 compositum L of Q(rho) and Q(Q). Its tower L = K3[Y]/(Y^4 - Y - 1), K3 = Q[X]/(X^3 - X - 1), and the circle-freeness of L (statement (17) there: no element other than +-1 has a conjugate on the unit circle) are ported to this repository in InflationDimension/Compositum/Tower.lean and InflationDimension/Compositum/CircleFree.lean, statements unchanged, in the namespace InflationDimension.Compositum (so no declaration name of that entry is declared again), and used in the proof of compared statement (9). Its statement (8), that the rho^i Q^j are a Z-basis of O_L = Z[rho] (x) Z[Q], is cited here and not compared: with it, the matrices of (9) are multiplication on O_L in that basis.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-09-02-000014 (stalex444/golden-family-trace-forms, commit 9528df064df58318213b541048e05ff4c0d9cb67)",
+        "note": "The Q-level inputs of the ported tower (the two polynomials and their basic facts) come from this entry through the port in PALOMAR-2026-10-21-000012; the irreducibility of x^3 - x - 1 and x^4 - x - 1 is taken here from Mathlib's Selmer theorem. Its statements (8), (9) and (19), that GramRho, GramQ and GramRho (x) GramQ are the Gram matrices of the trace forms in the power and tensor power bases, and (23), that Q(rho) (x) Q(Q) is a field, are cited for compared statements (10) and (11) and not compared.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-09-04-000004 (stalex444/chiral-padovan-histories, commit 14711e6cffdc74669d15f808d4aec8cbb373d71f)",
+        "note": "The registered entry this one overlaps most. Its cubic_record_windows proves the Meyer property of the cubic record window by norm arguments, with no model-set definition; its quartic_record_obstruction shows that a window on the real expanding place of Z[Q], observed at the complex place, gives a set that is not uniformly discrete, and quartic_escaping_coordinate that the omitted coordinate at q' is unbounded along the units Q^-n. Keeping the dropped coordinate at q' gives the model set of the Q-invariant scheme whose window line is the expanding real place; it is a Delone set by compared statement (13), but it is not Q-admissible by (4), since every admissible Q-invariant scheme on Z^4 has H in E^s, the line of q'. Dropping that coordinate, unbounded along Q^-n, is what destroys uniform discreteness; (11) is the admissible scheme.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entries PALOMAR-2026-08-19-000006, PALOMAR-2026-10-18-000019 and PALOMAR-2026-09-01-000005 (version 2)",
+        "note": "The Padovan substitution and the slowest settling clock (000006, 000019), and the degree-12 minimal polynomial of rho Q (000005). Cited in the application paragraph only; nothing here depends on them.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/dkunert/cut-and-project (D. Kunert, 2026)",
+        "note": "A one-dimensional strip projection of Z^2 with period formulas for rational slope and no finite period for irrational slope; narrower than the general-dimension schemes here. Nothing is imported.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-10-18-000015",
+        "note": "Bohr_0 sets; a related, narrower development. Nothing is imported.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-22T11:57:42Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "6c198c276cb21a1a08b8c8bb28f166dcf22a66fe3933bb3f5fc3e19ccbf49428"
+    },
+    "reviewed_at": "2026-10-22T02:42:22Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "c41d9d29f9c86fb0f849df79b03e713d3405a5eb",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/pdt-inflation-model-set-dimension",
+    "repository_url": "https://github.com/stalex444/pdt-inflation-model-set-dimension",
+    "tree_url": "https://github.com/stalex444/pdt-inflation-model-set-dimension/tree/c41d9d29f9c86fb0f849df79b03e713d3405a5eb"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "qmal4y5h53br"
+  },
+  "title": "The least physical dimension of an inflation-symmetric model set, with the cubic, quartic and degree-12 inflations of x^3 - x - 1 and x^4 - x - 1",
+  "trust": {
+    "challenge_bytes": 51634,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 745,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "f88392c6ae5253028126f3d23381b2dd8037bab8a54ac972514d037fd1b94f0a",
+    "evidence_path": "evidence/PALOMAR-2026-10-22-000030-v1/ebc9dc1f6fff811632e21118578b24b808c052e9dc7808f629e45e0be09bccef/",
+    "evidence_tree_sha256": "ebc9dc1f6fff811632e21118578b24b808c052e9dc7808f629e45e0be09bccef",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "08ea5f71a468667adbaae9b724f2a9c68fbe3763b398d744af34162150332e33",
+    "protected_config_sha256": "e3a6ece5e301c603b9837828afb3547be0a0112723a4f5a0adfd695b45f6d46f",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 39682220880,
+    "solution_sha256": "e92faeec6ed3d9a155c76f3a16b5a0ca8757f29ef92118bad15e4334417c39d4",
+    "tool_digests": {
+      "bwrap": "33d71cf2b37c418ddfc8acb1af3feb38e1eec7c639caa2af283bacc62e06bc61",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-21T22:45:21Z",
+    "workflow_commit": "7a08c1da8e0558d330b9b3c244896c175d373303",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/39682220880"
+  },
+  "version": 1
+}
