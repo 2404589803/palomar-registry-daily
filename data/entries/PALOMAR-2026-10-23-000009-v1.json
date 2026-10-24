@@ -1,0 +1,366 @@
+{
+  "abstract": "Lean 4 / Mathlib formalization of the theorem that every temporal clique on n vertices admits a temporal spanner with O(n log n) edges. A temporal clique is the complete graph on a finite vertex set whose edges carry natural-number time labels, locally injective (two edges sharing an endpoint have distinct labels); a temporal spanner is a set of edges in which every vertex reaches every other one by a journey with non-decreasing labels. The result is due to Casteigts, Peters and Schoeters (ICALP 2019, JCSS 2021); the formal proof follows the dismountability-only proof of Carnevale, Casteigts and Corsini (SAND 2025, §§2–4), which reduces cliques to bi-cliques and concludes with the one-sided dismountability of Angrick et al. (ESA 2024). The compared statements give an explicit bound of 2n⌈log₂ n⌉ + 4n edges and the asymptotic O(n log n) form with a bound function chosen uniformly for all cliques. The work is supervised by Arnaud Casteigts and Karine Altisen.",
+  "authors": [
+    {
+      "name": "Ethan Bargaud-Arm"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-23-000009-v1/711148e1d610238de253ee5b8f47c1e3c8c54dd1a74c3515d65e249ac892446e/",
+    "artifact_tree_sha256": "711148e1d610238de253ee5b8f47c1e3c8c54dd1a74c3515d65e249ac892446e",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-23T07:59:16Z",
+    "renderer_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.DM",
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C85",
+      "05C40",
+      "05C38",
+      "68R10"
+    ]
+  },
+  "first_registered_on": "2026-10-23",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "checkdecls",
+        "repository": "PatrickMassot/checkdecls",
+        "revision": "3d425859e73fcfbef85b9638c2a91708ef4a22d4"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "72e4c7171434a6437ee233ca79dd4db7a4703f72"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "TemporalCliqueSpanners.exists_isTemporalSpanner_card_le",
+      "TemporalCliqueSpanners.exists_isBigO_isTemporalSpanner"
+    ]
+  },
+  "id": "PALOMAR-2026-10-23-000009",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-23T10:58:13Z",
+    "receipt_sha256": "1b492e3d710d4e3baa51e2408ce83eaba77351ea59c8903fd69269d844ea445b",
+    "repositories": [
+      {
+        "commit": "79214ea8379246e8705cfeee95fb9dca090112e9",
+        "fork_repository": "PalomarArchive/dracoanguis--temporal-graphs--4bb3060d8f06",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000009-v1/79214ea8379246e8705cfeee95fb9dca090112e9",
+        "source_repository": "dracoanguis/temporal-graphs"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000009-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000009-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000009-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000009-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "72e4c7171434a6437ee233ca79dd4db7a4703f72",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000009-v1/72e4c7171434a6437ee233ca79dd4db7a4703f72",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000009-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000009-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000009-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000009-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "3d425859e73fcfbef85b9638c2a91708ef4a22d4",
+        "fork_repository": "PalomarArchive/PatrickMassot--checkdecls--17681c736a92",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000009-v1/3d425859e73fcfbef85b9638c2a91708ef4a22d4",
+        "source_repository": "PatrickMassot/checkdecls"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Daniele Carnevale"
+          },
+          {
+            "name": "Arnaud Casteigts"
+          },
+          {
+            "name": "Timothée Corsini"
+          }
+        ],
+        "identifier": "doi:10.4230/LIPIcs.SAND.2025.6",
+        "location": "4th Symposium on Algorithmic Foundations of Dynamic Networks (SAND 2025), LIPIcs 330, article 6; arXiv:2502.01321",
+        "relationship": "formalizes",
+        "title": "Dismountability in Temporal Cliques Revisited",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Sebastian Angrick"
+          },
+          {
+            "name": "Ben Bals"
+          },
+          {
+            "name": "Tobias Friedrich"
+          },
+          {
+            "name": "Hans Gawendowicz"
+          },
+          {
+            "name": "Niko Hastrich"
+          },
+          {
+            "name": "Nicolas Klodt"
+          },
+          {
+            "name": "Pascal Lenzner"
+          },
+          {
+            "name": "Jonas Schmidt"
+          },
+          {
+            "name": "George Skretas"
+          },
+          {
+            "name": "Armin Wells"
+          }
+        ],
+        "identifier": "doi:10.4230/LIPIcs.ESA.2024.11",
+        "location": "32nd European Symposium on Algorithms (ESA 2024), LIPIcs 308, article 11",
+        "relationship": "formalizes",
+        "title": "How to Reduce Temporal Cliques to Find Sparse Spanners",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Arnaud Casteigts"
+          },
+          {
+            "name": "Joseph G. Peters"
+          },
+          {
+            "name": "Jason Schoeters"
+          }
+        ],
+        "identifier": "doi:10.4230/LIPIcs.ICALP.2019.134",
+        "location": "ICALP 2019, LIPIcs 132, article 134; journal version doi:10.1016/j.jcss.2021.04.004 (JCSS 2021); arXiv:1810.00104",
+        "relationship": "background",
+        "title": "Temporal Cliques Admit Sparse Spanners",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover/cslib (Cslib/Algorithms/Lean/MergeSort/MergeSort.lean, commit 9a99cbb)",
+        "note": "The explicit solution of the spanner-size recurrence follows the merge-sort analysis of CSLib (recurrence on the halves, halving lemma for Nat.clog 2, closed form n⌈log₂ n⌉). No previous formalization of temporal spanners is known to the author; no systematic search was made.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ethan Bargaud-Arm"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-23T10:57:47Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "592383345f0619e71ae7eba5a25633f82d031d6d7b0ffacd8d74f09f6bd30698"
+    },
+    "reviewed_at": "2026-10-23T08:15:48Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "79214ea8379246e8705cfeee95fb9dca090112e9",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "dracoanguis/temporal-graphs",
+    "repository_url": "https://github.com/dracoanguis/temporal-graphs",
+    "tree_url": "https://github.com/dracoanguis/temporal-graphs/tree/79214ea8379246e8705cfeee95fb9dca090112e9"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "1vf3pdza0hn0"
+  },
+  "title": "Temporal cliques admit spanners of size O(n log n)",
+  "trust": {
+    "challenge_bytes": 4841,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Asymptotics.Defs",
+      "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+      "Mathlib.Data.Nat.Log",
+      "Mathlib.Data.Sym.Sym2",
+      "Mathlib.SetTheory.Cardinal.Finite"
+    ],
+    "challenge_lines": 91,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "21ac549123b415c799a40ab324009145db8cfe4d7cc07cdc90bd16b8573370c2",
+    "evidence_path": "evidence/PALOMAR-2026-10-23-000009-v1/c9c1cb38dd37702411798ff13808901b85c1aac9194e5f085a0a605d0890adad/",
+    "evidence_tree_sha256": "c9c1cb38dd37702411798ff13808901b85c1aac9194e5f085a0a605d0890adad",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/con-ron",
+          "--jobs=2"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "4665e5ab7fa6e78a779c9895fdf54da0bb92fbdc460d48b332e8877e5c4de4cb",
+    "protected_config_sha256": "0046f1adf6e2c7337774c2a9075ff323a0704b121220b67e3b22142cd81d0d16",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 39449040860,
+    "solution_sha256": "4afb9aa304ab48537c9b1c698a7bc6ce97bf005291a9e47eee317cefa09e86f1",
+    "tool_digests": {
+      "bwrap": "702ba150cd213d5f01c79d0000875cee774eb0df1cc644bfb606f98c14b21821",
+      "con-ron": "60f4ca9fb9436c323789fa49aae33af6dcd1b9b54b43a66b461779ce79fd8eec",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-10-20T15:33:46Z",
+    "workflow_commit": "d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/39449040860"
+  },
+  "version": 1
+}

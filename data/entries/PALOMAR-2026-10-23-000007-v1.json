@@ -1,0 +1,340 @@
+{
+  "abstract": "Lean 4 / Mathlib formalization accompanying S. Vorobev, \"On the inclusion D_5(G) ⊆ γ_4(G): reductions, the Lie-ring proof, and evidence\" (preprint, 2026; submitted to arXiv math.GR on 2026-10-22). The integral dimension subgroups D_n(G) = {g ∈ G : g − 1 ∈ Δ(G)^n} are defined from the augmentation ideal of Mathlib's integral group ring. Kourovka Problem 20.84 asks whether D_5(G) ⊆ γ_4(G) for every group; it is open and is not claimed here. Unconditional results: D_5(G) = γ_5(G) whenever G/γ_2(G) is finite of exponent 3, and more generally whenever G/γ_2(G) is a finite 3-group whose cubes form a cyclic group (paper, Theorems 6.6 and 6.8; the inclusion part of Tahara's 1981 description of D_5 is formalized for this); D_5(G) lies in the Jennings product M_5(G) for finite 2-groups of class at most 3; and, for \"candidates\" (the paper's minimal-counterexample shape among finite 2-groups of class 3), there is no candidate of order 2^11 with Q/P_3 ≅ Z/4 × (Z/2)^7 and none of order 2^11 and rank at least 8 (paper, Lemma 5.6 and Proposition 5.7). Conditional results, with every assumption an explicit hypothesis: the reduction of Problem 20.84 to finite 2-groups of class exactly 3 assuming D_3 = γ_3, Passi's D_4^2 ⊆ γ_4 and Gruenberg's residual theorem (Proposition 2.1); a minimal counterexample is a candidate assuming D_3 = γ_3 (Lemma 5.2); and D_5 = 1 for groups of order 2^11, class at most 3 and rank at least 8, assuming D_3 = γ_3 and the paper's computer result for order 2^10 (Proposition 5.7, D_5 form).",
+  "authors": [
+    {
+      "name": "Stanislav Vorobev"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-23-000007-v1/160d05e7cae9d5c2e560f55e0fcc9f0446dc049e9560169e5e1158ff802ad508/",
+    "artifact_tree_sha256": "160d05e7cae9d5c2e560f55e0fcc9f0446dc049e9560169e5e1158ff802ad508",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-23T08:20:41Z",
+    "renderer_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.GR"
+    ],
+    "msc2020": [
+      "20F14",
+      "20D15",
+      "20C05",
+      "16S34"
+    ]
+  },
+  "first_registered_on": "2026-10-23",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "GroupDimension.Palomar.D_five_eq_gamma_five_of_exp_three",
+      "GroupDimension.Palomar.D_five_eq_gamma_five_of_cubes_cyclic",
+      "GroupDimension.Palomar.D_five_le_jennings",
+      "GroupDimension.Palomar.not_isCandidate_of_quotient_z4",
+      "GroupDimension.Palomar.false_of_card_expCentral_two_le",
+      "GroupDimension.Palomar.not_isCandidate_of_rank",
+      "GroupDimension.Palomar.dimensionQuestion5_iff_class_three",
+      "GroupDimension.Palomar.isCandidate_of_minimal",
+      "GroupDimension.Palomar.D_five_eq_bot_of_rank"
+    ]
+  },
+  "id": "PALOMAR-2026-10-23-000007",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-23T09:02:57Z",
+    "receipt_sha256": "2a6eab57ab642a6f6682cc58363a685c308c5815fd72b8a36a76d43a9c819c78",
+    "repositories": [
+      {
+        "commit": "533dc1c66d26de4863983fc303382151a593df3a",
+        "fork_repository": "PalomarArchive/ispacex--group-dimension--061786557a7a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000007-v1/533dc1c66d26de4863983fc303382151a593df3a",
+        "source_repository": "ispacex/group-dimension"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000007-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000007-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000007-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000007-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000007-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000007-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000007-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000007-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000007-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Stanislav Vorobev"
+          }
+        ],
+        "identifier": "https://ispacex.github.io/d5/paper/d5.pdf",
+        "location": "Theorems 6.6 and 6.8; Lemmas 5.2 (a)-(c) and 5.6; Proposition 5.7 (candidate form and D_5 form); Proposition 2.1 (1) ⇔ (3)",
+        "relationship": "formalizes",
+        "title": "On the inclusion D_5(G) ⊆ γ_4(G): reductions, the Lie-ring proof, and evidence",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "S. A. Jennings"
+          }
+        ],
+        "relationship": "adapts",
+        "title": "S. A. Jennings, The structure of the group ring of a p-group over a modular field, Trans. Amer. Math. Soc. 50 (1941) 175-185",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Ken-Ichi Tahara"
+          }
+        ],
+        "location": "Theorem 6.1 (the inclusion part)",
+        "relationship": "other",
+        "title": "K.-I. Tahara, The augmentation quotients of group rings and the fifth dimension subgroups, J. Algebra 71 (1981) 141-173",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "relationship": "background",
+        "title": "Kourovka notebook, Problem 20.84 (E. I. Khukhro, V. D. Mazurov, eds., Unsolved problems in group theory, arXiv:1401.0300)",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "I. B. S. Passi"
+          }
+        ],
+        "relationship": "background",
+        "title": "I. B. S. Passi, Dimension subgroups, J. Algebra 9 (1968) 152-182; Group rings and their augmentation ideals, LNM 715 (1979)",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "K. W. Gruenberg"
+          }
+        ],
+        "relationship": "background",
+        "title": "K. W. Gruenberg, Residual properties of infinite soluble groups, Proc. London Math. Soc. (3) 7 (1957) 29-62",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/TimmPeterson/lie-algebras",
+        "note": "Lean formalization by V. Ionin, R. Mikhailov and T. Petrov of the Lie-ring analogue (D_5(L) ⊆ γ_4(L) for Lie rings, arXiv:2610.02042). Earlier versions of this repository (up to commit e58aa2b, Lean 4.29) imported it for a side-by-side comparison; it has no licence file and is on Lean 4.29, so it is not a dependency of this commit, and nothing here uses it.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stanislav Vorobev"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-23T09:02:30Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "4cc25181454e8d280aa1e9ef39fdf47ead303c224735d7ff9ba0baee7db02e5b"
+    },
+    "reviewed_at": "2026-10-23T08:45:49Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "533dc1c66d26de4863983fc303382151a593df3a",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "e7f930315f7596b09f1d4acd67ba194446f2f92fdd5d4c2320fe2ef174165b1b"
+    },
+    "repository": "ispacex/group-dimension",
+    "repository_url": "https://github.com/ispacex/group-dimension",
+    "tree_url": "https://github.com/ispacex/group-dimension/tree/533dc1c66d26de4863983fc303382151a593df3a"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "vj8sgrodzg8v"
+  },
+  "title": "Fifth dimension subgroups: D₅ = γ₅ when G/γ₂ is finite of exponent 3, candidates for a counterexample, and a reduction of Kourovka 20.84",
+  "trust": {
+    "challenge_bytes": 13607,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 224,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "65ec31daac7a018b9475db6522b6aac6150c8cf53496c92c524994355a9c48cb",
+    "evidence_path": "evidence/PALOMAR-2026-10-23-000007-v1/2e96a3ac5fd2f48bddabfd58ad64943581fa76cb5d5e1ed8f5e5820f83926541/",
+    "evidence_tree_sha256": "2e96a3ac5fd2f48bddabfd58ad64943581fa76cb5d5e1ed8f5e5820f83926541",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "d3a1ff74940555c1f1409e5ad56860bab595533c7e9b5cc63b5f0609f0936e3e",
+    "protected_config_sha256": "cf7626e43ca3600a2569e572b267c4e9c5d0a8669d7988d444cbf8cb9de52b2b",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 39921078288,
+    "solution_sha256": "4c407403a472fb435eb649ab865a6460118d2a26ba76f3206edeede69710370d",
+    "tool_digests": {
+      "bwrap": "aa8fcab5e4e3113b709cae8d164200bc439fb79244999048d9891d7e7746ced7",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-10-23T08:03:32Z",
+    "workflow_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/39921078288"
+  },
+  "version": 1
+}
