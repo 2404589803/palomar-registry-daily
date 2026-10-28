@@ -1,0 +1,765 @@
+{
+  "abstract": "Machine-checked proofs of conjectures recorded in 29 entries of the On-Line Encyclopedia of Integer Sequences (OEIS), together with corrections of the four conjectured statements that turn out to be false. Most of the sequences are coefficients of formal power series defined by functional equations, and most of the results describe their residues modulo small integers. The results form six families and a group of further results: the equation A(x*A - m*x*A^2) = x^2 (parity, residues modulo m^2, binary-digit divisibility and prime exponents for every m, with corrected residue classifications modulo 9 and 16 for A396843 and A396844); consecutive iterates F = x + F^{o r}*F^{o(r+1)} (every integer iterate modulo 2r, A396099, A396798, A396807); scaled inverses A(x - x*A(qx)/q) = x (every coefficient is 1 modulo q+1, and for even q the odd coefficients are exactly at the powers of 2, A393856-A393859); theta-series substitutions and theta-type sums (square patterns modulo 4, corrected for A380680, and a congruence modulo 16 for A355872); Catalan-type equations (residues modulo 2, 4 and 8 governed by powers of 2, A393172, A393171, A389536, A397588, A195194); equations with an exact halving step (residues modulo 4, 9 and 3, A389537, A389542, A389474, A389475); and further results on A396093, A392210, A396102 and its family F^{o r} = (1+x)*F^{o(r-1)}, A380056, A397346 and the greedy sequence A394576. Each family has its own Comparator configuration, and each OEIS entry has a self-contained paper in the repository.",
+  "authors": [
+    {
+      "name": "Dev D. Goyal"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-27-000006-v1/e1f45ab45f8018e8d4acd4d92d0ae33cbffe4a1fc5e32d9e441e74305dcf929c/",
+    "artifact_tree_sha256": "e1f45ab45f8018e8d4acd4d92d0ae33cbffe4a1fc5e32d9e441e74305dcf929c",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-26T18:36:33Z",
+    "renderer_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.CO"
+    ],
+    "msc2020": [
+      "11B50",
+      "05A15",
+      "13F25",
+      "11B83",
+      "68V15"
+    ]
+  },
+  "first_registered_on": "2026-10-27",
+  "formalization": {
+    "challenge_path": "lean/Challenges/HannaFamily.lean",
+    "comparator_config_path": "lean/comparator/hanna-family.json",
+    "definition_names": [],
+    "formalization_metadata_path": "lean/formalization.yaml",
+    "lakefile_path": "lean/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "lean/Solutions/HannaFamily.lean",
+    "theorem_names": [
+      "OEISProofs.HannaFamily.existsUnique",
+      "OEISProofs.HannaFamily.odd_coeff",
+      "OEISProofs.HannaFamily.even_coeff",
+      "OEISProofs.HannaFamily.modEq_sq",
+      "OEISProofs.HannaFamily.pow_digitSum_dvd",
+      "OEISProofs.HannaFamily.prime_pow_dvd",
+      "OEISProofs.HannaFamily.residues_mod_nine",
+      "OEISProofs.HannaFamily.residues_mod_sixteen"
+    ]
+  },
+  "id": "PALOMAR-2026-10-27-000006",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-27T15:09:31Z",
+    "receipt_sha256": "ac446cb7220199666ab6bcc1b13f6990f5deb289bdf2daa527003a0a512eb145",
+    "repositories": [
+      {
+        "commit": "55ad2bd4804b6bcefeeb6c21eb06eac8b09c45d8",
+        "fork_repository": "PalomarArchive/dvgyl--oeis-proofs--bfcab5911989",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000006-v1/55ad2bd4804b6bcefeeb6c21eb06eac8b09c45d8",
+        "source_repository": "dvgyl/oeis-proofs"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000006-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000006-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000006-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000006-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000006-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000006-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000006-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000006-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000006-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Dev D. Goyal"
+          }
+        ],
+        "location": "https://github.com/dvgyl/oeis-proofs/tree/main/preprints",
+        "relationship": "other",
+        "title": "Proofs and corrections of conjectures recorded in 29 OEIS entries, presented in the papers of this repository",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjectures on parity and residues modulo 9)"
+          }
+        ],
+        "identifier": "https://oeis.org/A396843",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A396843: G.f. A(x) satisfies A(x*A(x) - 3*x*A(x)^2) = x^2",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjecture on residues modulo 16)"
+          }
+        ],
+        "identifier": "https://oeis.org/A396844",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A396844: G.f. A(x) satisfies A(x*A(x) - 4*x*A(x)^2) = x^2",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (four conjectures modulo 4)"
+          }
+        ],
+        "identifier": "https://oeis.org/A396099",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A396099: G.f. satisfies A(x) = x + A^2(x)*A^3(x) (compositional iterates)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (eight conjectures modulo 8)"
+          }
+        ],
+        "identifier": "https://oeis.org/A396798",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A396798: G.f. satisfies A(x) = x + A^4(x)*A^5(x) (compositional iterates)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjectures modulo 10)"
+          }
+        ],
+        "identifier": "https://oeis.org/A396807",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A396807: G.f. satisfies A(x) = x + A^5(x)*A^6(x) (compositional iterates)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjectures modulo 5 and modulo 2)"
+          }
+        ],
+        "identifier": "https://oeis.org/A393856",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A393856: G.f. A(x) satisfies A(x - x*A(4*x)/4) = x",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjecture modulo 6)"
+          }
+        ],
+        "identifier": "https://oeis.org/A393857",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A393857: G.f. A(x) satisfies A(x - x*A(5*x)/5) = x",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjectures modulo 7 and modulo 2)"
+          }
+        ],
+        "identifier": "https://oeis.org/A393858",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A393858: G.f. A(x) satisfies A(x - x*A(6*x)/6) = x",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjecture modulo 8)"
+          }
+        ],
+        "identifier": "https://oeis.org/A393859",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A393859: G.f. A(x) satisfies A(x - x*A(7*x)/7) = x",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjecture modulo 4)"
+          }
+        ],
+        "identifier": "https://oeis.org/A378580",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A378580: G.f. A(x) satisfies A(x/A(x)) = theta_3(x)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjecture modulo 4)"
+          }
+        ],
+        "identifier": "https://oeis.org/A378581",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A378581: G.f. A(x) satisfies A(x*A(x)) = theta_3(x)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjecture modulo 4)"
+          }
+        ],
+        "identifier": "https://oeis.org/A380060",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A380060: G.f. A(x) satisfies A(x) = Sum_{n=-oo..oo} x^(n^2)*(A(x) - x^n)^n/(1 - x^n*A(x))^n",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjecture modulo 4 (false; corrected))"
+          }
+        ],
+        "identifier": "https://oeis.org/A380680",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A380680: G.f. A(x) = Sum_{n=-oo..oo} x^(n^2)*(2 - x^n)^n/(1 - 2*x^n)^n",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (three congruences modulo 4 and 8)"
+          }
+        ],
+        "identifier": "https://oeis.org/A355872",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A355872: G.f. A(x) satisfies x = Sum_{n=-oo..oo} (-x)^(n^2)*A(x)^((n-1)^2)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjecture modulo 4)"
+          }
+        ],
+        "identifier": "https://oeis.org/A393172",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A393172: G.f. A(x) satisfies A(x - x^2) = x + A(x)^2",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjecture modulo 8)"
+          }
+        ],
+        "identifier": "https://oeis.org/A393171",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A393171: G.f. satisfies A(x) = x + A(C(x))^2, where C(x) = x + C(x)^2",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjecture modulo 4)"
+          }
+        ],
+        "identifier": "https://oeis.org/A389536",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A389536: G.f. A(x) satisfies A(x) = A(x^2 + 2*x^3)/x",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjecture modulo 2 and the stated divisibility by 3)"
+          }
+        ],
+        "identifier": "https://oeis.org/A397588",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A397588: G.f. A(x) satisfies A(x) = x + (x*A(x)^2)'",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjecture modulo 2)"
+          }
+        ],
+        "identifier": "https://oeis.org/A195194",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A195194: G.f. A(x) = Series_Reversion(x - x*Series_Reversion(x - 2*x*Series_Reversion(x - 3*x*...)))",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjecture modulo 4)"
+          }
+        ],
+        "identifier": "https://oeis.org/A389537",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A389537: G.f. A(x) satisfies A(A(x) - x) = A(x)^2",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjecture modulo 4)"
+          }
+        ],
+        "identifier": "https://oeis.org/A389542",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A389542: G.f. A(x) satisfies A(A(x)^2 - x^2) = 4*A(x)^3",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjectures modulo 9 and modulo 3)"
+          }
+        ],
+        "identifier": "https://oeis.org/A389474",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A389474: G.f. A(x) satisfies A(x^2 + 2*x^3 + 2*A(x)^2) = 3*A(x)^2",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (two conjectures modulo 3)"
+          }
+        ],
+        "identifier": "https://oeis.org/A389475",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A389475: G.f. A(x) satisfies A(3*x^2) = 2*x^2 + A(x)^2 - 2*A(x)^3",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (two parity conjectures)"
+          }
+        ],
+        "identifier": "https://oeis.org/A396093",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A396093: Third iteration of x/(1-x)^2",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (parity observation)"
+          }
+        ],
+        "identifier": "https://oeis.org/A392210",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A392210: G.f.: x + sq(x/(1-x) + sq(x/(1-2*x) + sq(x/(1-3*x) + ...))), an infinitely nested square",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjecture modulo 3)"
+          }
+        ],
+        "identifier": "https://oeis.org/A396102",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A396102: G.f. A(x) satisfies A(A(A(x))) = (1+x)*A(A(x))",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjectures modulo 4 and 5)"
+          }
+        ],
+        "identifier": "https://oeis.org/A380056",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A380056: E.g.f. (exp(x) - 1)/cos(2*x)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Paul D. Hanna",
+            "role": "contributed the sequence and the statements treated (conjecture modulo 8)"
+          }
+        ],
+        "identifier": "https://oeis.org/A397346",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A397346: O.g.f. satisfies A(x) = exp(x + Sum_{n>=2} (2*n^2-1)*a(n)*x^n/(2*n^2))",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Hoang Xuan Thanh",
+            "role": "contributed the sequence and the statements treated (first conjecture (upper bound))"
+          }
+        ],
+        "identifier": "https://oeis.org/A394576",
+        "license": "CC-BY-SA-4.0",
+        "relationship": "other",
+        "title": "OEIS A394576: a(1) = 1; a(n+1) is the smallest integer greater than a(n) that is not a sum of three consecutive terms",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Danial Asaria"
+          }
+        ],
+        "identifier": "https://oeis.org/A396843",
+        "relationship": "background",
+        "title": "Counterexample to the conjecture modulo 9, recorded in OEIS A396843"
+      },
+      {
+        "authors": [
+          {
+            "name": "Shiva Priyan Shanmuga Sundaram"
+          }
+        ],
+        "identifier": "https://oeis.org/A396797",
+        "relationship": "background",
+        "title": "Proof of the conjectures of OEIS A396797"
+      },
+      {
+        "authors": [
+          {
+            "name": "Amol Bhave"
+          }
+        ],
+        "identifier": "https://oeis.org/A196523",
+        "relationship": "background",
+        "title": "Comment in OEIS A196523 on congruences for a related family"
+      },
+      {
+        "authors": [
+          {
+            "name": "Hoang Xuan Thanh"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.22674326",
+        "relationship": "background",
+        "title": "Algorithm for OEIS A394576, A394676 and generalized forbidden sums"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Dev D. Goyal"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-10-27T15:09:10Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "69936674125bcf080589a5c76fe742ceec8676a3f1c024714c666639b17d726d"
+    },
+    "reviewed_at": "2026-10-26T20:32:23Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "55ad2bd4804b6bcefeeb6c21eb06eac8b09c45d8",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "lean",
+    "repository": "dvgyl/oeis-proofs",
+    "repository_url": "https://github.com/dvgyl/oeis-proofs",
+    "tree_url": "https://github.com/dvgyl/oeis-proofs/tree/55ad2bd4804b6bcefeeb6c21eb06eac8b09c45d8/lean"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "ftb2lssc35so"
+  },
+  "title": "Proofs and corrections of OEIS conjectures",
+  "trust": {
+    "challenge_bytes": 5140,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Group.Nat.Even",
+      "Mathlib.Data.Int.ModEq",
+      "Mathlib.Data.Nat.Digits.Defs",
+      "Mathlib.RingTheory.PowerSeries.Substitution"
+    ],
+    "challenge_lines": 105,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "25b95caa7604deb0a1c2047db5f6d5e2ab6ff541a3ab6ec940b26bca4252bd8a",
+    "evidence_path": "evidence/PALOMAR-2026-10-27-000006-v1/8e280a7bd93f8996a8584bc9620b741e6edea678996d99ac51193ea0459c7f49/",
+    "evidence_tree_sha256": "8e280a7bd93f8996a8584bc9620b741e6edea678996d99ac51193ea0459c7f49",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "48b8f0cd1d3c3e817a52d000cd0cf8d3a5efb597f87bbdf22f30470942cf4ce7",
+    "protected_config_sha256": "67858fdeab2f500f686797728e2f6b5ced2b7236dde9056709838cc78b118ec1",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40155635489,
+    "solution_sha256": "d7c4fc9ce0df6425dc9322ac550eefb83527bf280a0bed40731bdd13a073ff73",
+    "tool_digests": {
+      "bwrap": "6b6de3d4bbc4ffcab6a2d80c99259767f0c8906ffef7d98e871c208f5ae4d497",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-10-25T02:48:36Z",
+    "workflow_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40155635489"
+  },
+  "version": 1
+}

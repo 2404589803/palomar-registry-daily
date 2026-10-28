@@ -1,0 +1,310 @@
+{
+  "abstract": "A Lean formalization of the Barendregt-Geuvers-Klop conjecture, \"weak normalization implies strong normalization\", for the pure type systems PTS_βη of Geuvers (Logics and Type Systems, 1993), whose conversion rule uses βη-conversion. For every PTS specification, with no functionality assumption, it proves two theorems about the legal terms of PTS_βη. If every legal term is weakly βη-normalizing, then every legal term is strongly βη-normalizing. If every legal term is weakly β-normalizing, then every legal term is strongly βη-normalizing. The proof adapts OpenAI's 2026 proof of the β case for PTS_β, whose Lean files are included. An η-step can delete a λ-annotation, so the proof works from a weaker hypothesis, that every legal term has a β-reduct with no β-redex outside its λ-domains. Conversion is handled through domain erasure, candidates are indexed by βη-normal forms of erased types, and observation values are made η-canonical.",
+  "authors": [
+    {
+      "name": "Ankit Pradhan"
+    },
+    {
+      "name": "Cole Vick"
+    },
+    {
+      "name": "Ruijie Fang"
+    },
+    {
+      "name": "Carl Kwan"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-27-000027-v1/c9a24252c7d6245e58536d8c4a97c8c2955fe5de2f26ffd267591ca65d8c6aba/",
+    "artifact_tree_sha256": "c9a24252c7d6245e58536d8c4a97c8c2955fe5de2f26ffd267591ca65d8c6aba",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-27T16:19:18Z",
+    "renderer_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.LO",
+      "math.LO"
+    ],
+    "msc2020": [
+      "03B40",
+      "03B38",
+      "68N18",
+      "03B35"
+    ]
+  },
+  "first_registered_on": "2026-10-27",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "PureTypeSystem.weak_implies_strong_betaEta",
+      "PureTypeSystem.weak_beta_implies_strong_betaEta"
+    ]
+  },
+  "id": "PALOMAR-2026-10-27-000027",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-27T22:34:08Z",
+    "receipt_sha256": "c131d892df4e4bfe401f065d185ad387ce960247b933462d2008d18aaa9908b0",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000027-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000027-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000027-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000027-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000027-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000027-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000027-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000027-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000027-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "9d0b54a7d5f6747410212c40acf53d12544eb2e6",
+        "fork_repository": "PalomarArchive/localmotiveproofs--PTS-beta-eta--3b8074510794",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000027-v1/9d0b54a7d5f6747410212c40acf53d12544eb2e6",
+        "source_repository": "localmotiveproofs/PTS-beta-eta"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "OpenAI"
+          }
+        ],
+        "identifier": "https://github.com/openai/math/tree/main/preprints/Weak-and-strong-normalization-in-pure-type-systems-September-25-2026",
+        "license": "Apache-2.0",
+        "location": "Preprint dated September 25, 2026, with a Lean formalization in https://github.com/openai/math (lean/OAI/Computability/TypeSystem/)",
+        "relationship": "adapts",
+        "title": "Weak and strong normalization in pure type systems",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jan Herman Geuvers"
+          }
+        ],
+        "identifier": "PhD thesis, Katholieke Universiteit Nijmegen, 1993",
+        "location": "https://www.cs.ru.nl/~herman/PUBS/Proefschrift.pdf",
+        "relationship": "background",
+        "title": "Logics and Type Systems",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/openai/math/tree/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/OAI/Computability/TypeSystem",
+        "note": "OpenAI's Lean formalization of the β case. Its 33 files are copied into PTSBetaEta/Beta and ported to the Lean module system and Lean/Mathlib v4.35.0. Several of them are adapted in PTSBetaEta/Normalization.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ankit Pradhan"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-27T22:33:47Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "f762aebd25570c2822d6650c57fb6c99a08b7f54f59b0d0f0ee79acad9e2679a"
+    },
+    "reviewed_at": "2026-10-27T17:11:45Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "9d0b54a7d5f6747410212c40acf53d12544eb2e6",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1"
+    },
+    "repository": "localmotiveproofs/PTS-beta-eta",
+    "repository_url": "https://github.com/localmotiveproofs/PTS-beta-eta",
+    "tree_url": "https://github.com/localmotiveproofs/PTS-beta-eta/tree/9d0b54a7d5f6747410212c40acf53d12544eb2e6"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "cydco2k20dlw"
+  },
+  "title": "Weak and strong βη-normalization in pure type systems with βη-conversion",
+  "trust": {
+    "challenge_bytes": 11882,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 232,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "7bc53b589b5a889c994c77f0010deee62b287c2fb884bad44c8a5401d8078dc0",
+    "evidence_path": "evidence/PALOMAR-2026-10-27-000027-v1/b841f5be0e73bcce82f4b2110c1c817b5bbed4a24d5acfe3a41551c185a0fc92/",
+    "evidence_tree_sha256": "b841f5be0e73bcce82f4b2110c1c817b5bbed4a24d5acfe3a41551c185a0fc92",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "1f1fbcdc7a082847e855805042bc3712e73493ce38152a26d24591a835d1114c",
+    "protected_config_sha256": "536dbe0d365f1e612919d2faf07ae72ef606a2cba7f4d5cc4211b133c496ea6d",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40535384953,
+    "solution_sha256": "b471456ff5fad8844435314580b6d6d31d1c9fd4978808155f401b4a5c305cd9",
+    "tool_digests": {
+      "bwrap": "adc9b70bfa49b262d53053c176017eb6098aef2819f8122b5a2a3102d1552d44",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-10-27T15:59:43Z",
+    "workflow_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40535384953"
+  },
+  "version": 1
+}

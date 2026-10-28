@@ -1,0 +1,336 @@
+{
+  "abstract": "In graph pebbling, a move removes two pebbles from a vertex and adds one to a neighbour; a configuration is stackable if moves can bring all pebbles onto one vertex and clearable if moves can leave exactly one pebble. The stacking (clearing) number of a connected (connected non-bipartite) graph is the least t >= 2 such that every configuration of t pebbles is stackable (clearable). The Almost Stacked Hypothesis, in its critical form, says that this number equals the least t0 >= 2 such that every almost stacked configuration (one vertex arbitrary, every other vertex at most one pebble) of every size at least t0 is stackable (clearable). We formalise a counterexample to both clauses: on the nine-vertex graph G9 (graph6 HCQTaXi) the stacking and clearing numbers are 15, the only non-stackable and non-clearable configurations of size 14 are (0,0,1,0,0,5,0,8,0) and its automorphic image, neither almost stacked, while every almost stacked configuration of size at least 14 is stackable and clearable. Hence neither clause holds for all finite connected (respectively connected non-bipartite) graphs. The finite facts are proved by kernel evaluation (decide +kernel) of a verified exact losing-layer checker on certificate data; general lemmas (clearable implies stackable; monotonicity above the order) are proved by hand.",
+  "authors": [
+    {
+      "name": "John Fairfax-Ball"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-27-000023-v1/45df1f27deeb9df3ff4a5d311d7dc491063bac906a2108c5777fdddec45b7244/",
+    "artifact_tree_sha256": "45df1f27deeb9df3ff4a5d311d7dc491063bac906a2108c5777fdddec45b7244",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-27T10:08:13Z",
+    "renderer_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C57",
+      "05C85"
+    ]
+  },
+  "first_registered_on": "2026-10-27",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "AlmostStacked.G9_connected",
+      "AlmostStacked.G9_not_bipartite",
+      "AlmostStacked.G9_stack_14",
+      "AlmostStacked.cStar_not_AS",
+      "AlmostStacked.cStarImage_not_AS",
+      "AlmostStacked.G9_stack_large",
+      "AlmostStacked.G9_stack_losers",
+      "AlmostStacked.G9_stackNumber",
+      "AlmostStacked.G9_stack_AS_threshold",
+      "AlmostStacked.G9_stack_Lall",
+      "AlmostStacked.G9_stack_LAS",
+      "AlmostStacked.G9_not_ASHStarStack",
+      "AlmostStacked.not_forall_ASHStarStack",
+      "AlmostStacked.G9_clear_14",
+      "AlmostStacked.G9_clear_large",
+      "AlmostStacked.G9_clear_losers",
+      "AlmostStacked.G9_clearNumber",
+      "AlmostStacked.G9_clear_AS_threshold",
+      "AlmostStacked.G9_clear_Lall",
+      "AlmostStacked.G9_clear_LAS",
+      "AlmostStacked.G9_not_ASHStarClear",
+      "AlmostStacked.not_forall_ASHStarClear",
+      "AlmostStacked.clearable_stackable",
+      "AlmostStacked.stackable_above",
+      "AlmostStacked.clearable_above"
+    ]
+  },
+  "id": "PALOMAR-2026-10-27-000023",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-27T20:25:07Z",
+    "receipt_sha256": "8a3f3eb9d502c78914e4c17f51a4502fd71355cf4ed2e1f8b4ce31dee955eefc",
+    "repositories": [
+      {
+        "commit": "358729c65c198db3a6a6973c666d3d9de4009bb7",
+        "fork_repository": "PalomarArchive/jfairfaxball-348--Almost-Stacked-Proof--fcf0203eb772",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000023-v1/358729c65c198db3a6a6973c666d3d9de4009bb7",
+        "source_repository": "jfairfaxball-348/Almost-Stacked-Proof"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000023-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000023-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000023-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000023-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000023-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000023-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000023-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000023-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000023-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "relationship": "other",
+        "title": "Counterexample on the graph HCQTaXi to the critical form of the Almost Stacked Hypothesis, for stacking and for clearing",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "Tamás Csernák"
+          },
+          {
+            "name": "Lajos Soukup"
+          }
+        ],
+        "identifier": "arXiv:2610.09650v1",
+        "location": "https://arxiv.org/abs/2610.09650",
+        "relationship": "background",
+        "title": "The Almost Stacked Hypothesis: A Conjectural Analogue of Sjöstrand's Cover Pebbling Theorem",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Tamás Csernák"
+          },
+          {
+            "name": "Lajos Soukup"
+          }
+        ],
+        "identifier": "arXiv:2604.22341v1",
+        "location": "https://arxiv.org/abs/2604.22341",
+        "relationship": "background",
+        "title": "Stacking and clearing in graph pebbling",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://palomar-registry.org/entry.html?id=PALOMAR-2026-09-25-000010&version=1",
+        "note": "Earlier result stack(T) = estim(T) for trees (arXiv:2609.31811), with its own Lean package; not used, not reproved here.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "John Fairfax-Ball"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-10-27T20:24:42Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "d96b073825bd5b15ced295893689aece542d19ea3093754cfd8724d6d5d27296"
+    },
+    "reviewed_at": "2026-10-27T10:20:41Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "358729c65c198db3a6a6973c666d3d9de4009bb7",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "jfairfaxball-348/Almost-Stacked-Proof",
+    "repository_url": "https://github.com/jfairfaxball-348/Almost-Stacked-Proof",
+    "tree_url": "https://github.com/jfairfaxball-348/Almost-Stacked-Proof/tree/358729c65c198db3a6a6973c666d3d9de4009bb7"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "g9di9ts8y3bu"
+  },
+  "title": "The critical Almost Stacked Hypothesis fails on a nine-vertex graph",
+  "trust": {
+    "challenge_bytes": 8659,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.BigOperators.Fin",
+      "Mathlib.Combinatorics.SimpleGraph.Basic",
+      "Mathlib.Combinatorics.SimpleGraph.Coloring.Vertex",
+      "Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected",
+      "Mathlib.Data.Fin.VecNotation",
+      "Mathlib.Logic.Relation",
+      "Mathlib.Order.Bounds.Defs"
+    ],
+    "challenge_lines": 197,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "52f81682836ee711ac350f45ce37b738bb49868b138319b3821de620b29a4ee6",
+    "evidence_path": "evidence/PALOMAR-2026-10-27-000023-v1/d10513b633fee7b66ee26641f2db35b1e597565bbcfb862c1f9f6abb8173414d/",
+    "evidence_tree_sha256": "d10513b633fee7b66ee26641f2db35b1e597565bbcfb862c1f9f6abb8173414d",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "65d5b0e5aa645824e445b8ce0ec117782a1bd46df112b82e63cfc482c9f81e78",
+    "protected_config_sha256": "d41d21ae9a9119666a6123f0f1f646682d134efa6274ae3fb223ec8a0fa6d5d9",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40480601155,
+    "solution_sha256": "5b79b75ee2e3efe82568f53d484ba86fd02d8a10578c2a97af0c6ca64b6f224f",
+    "tool_digests": {
+      "bwrap": "74244bf72e546e55f77005fa09529f6e964870f8ed8e839c05016a54399994b8",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-10-27T09:51:19Z",
+    "workflow_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40480601155"
+  },
+  "version": 1
+}

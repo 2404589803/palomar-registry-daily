@@ -1,0 +1,337 @@
+{
+  "abstract": "Prove explicit general lower bounds for the shortest superpermutation length S(n), valid for every n >= 8. The exact-order and quadratic-order formulas refine the lower-order terms while retaining leading correction (2+o(1))(n-4)! above n!+(n-1)!+(n-2)!. The development also proves asymptotic comparisons with earlier general formulas; the selected theorem statements specify their exact scope. Separate finite refinements prove S(10) >= 4033379 and S(14) >= 93891141150.",
+  "authors": [
+    {
+      "name": "Jay Pantone"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-27-000005-v1/e0fcedcb19dc5f2fad9b2667479ebb3227ac389b59ed5762c338027a7e1ba33a/",
+    "artifact_tree_sha256": "e0fcedcb19dc5f2fad9b2667479ebb3227ac389b59ed5762c338027a7e1ba33a",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-26T18:37:38Z",
+    "renderer_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05A05",
+      "68R15",
+      "03B35"
+    ]
+  },
+  "first_registered_on": "2026-10-27",
+  "formalization": {
+    "challenge_path": "Submissions/Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Submissions/Solution.lean",
+    "theorem_names": [
+      "SuperpermutationPalomar.GeneralLower.exact_word_bound",
+      "SuperpermutationPalomar.GeneralLower.quadratic_word_bound",
+      "SuperpermutationPalomar.LowerAsymptotics.exact_leading_limit",
+      "SuperpermutationPalomar.LowerAsymptotics.quadratic_leading_limit",
+      "SuperpermutationPalomar.LowerAsymptotics.word_lower_bound_two_sub_epsilon",
+      "SuperpermutationPalomar.LowerAsymptotics.exact_reference_limit_zero",
+      "SuperpermutationPalomar.LowerAsymptotics.exact_reference_limit_one",
+      "SuperpermutationPalomar.LowerAsymptotics.exact_reference_limit_two",
+      "SuperpermutationPalomar.LowerAsymptotics.quadratic_reference_limit_zero",
+      "SuperpermutationPalomar.LowerAsymptotics.quadratic_reference_limit_one",
+      "SuperpermutationPalomar.LowerAsymptotics.quadratic_reference_limit_two",
+      "SuperpermutationPalomar.LowerAsymptotics.quadratic_gain_zero_limit",
+      "SuperpermutationPalomar.LowerAsymptotics.quadratic_gain_one_limit",
+      "SuperpermutationPalomar.LowerAsymptotics.exact_gain_zero_asymptotic_lower",
+      "SuperpermutationPalomar.LowerAsymptotics.exact_gain_one_asymptotic_lower",
+      "SuperpermutationPalomar.Lower10.word_lower_bound",
+      "SuperpermutationPalomar.Lower14.word_lower_bound"
+    ]
+  },
+  "id": "PALOMAR-2026-10-27-000005",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-27T14:56:58Z",
+    "receipt_sha256": "d2cd867103e5279f70ff016f4e21acfd518f8691f0377952396fefff518a5f5d",
+    "repositories": [
+      {
+        "commit": "8cc371be7ad7dc47252e45ffbda633a85776d596",
+        "fork_repository": "PalomarArchive/jaypantone--2026-10-superpermutation-lower-palomar--ed75f4cc7687",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000005-v1/8cc371be7ad7dc47252e45ffbda633a85776d596",
+        "source_repository": "jaypantone/2026-10-superpermutation-lower-palomar"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000005-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000005-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000005-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000005-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000005-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000005-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000005-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000005-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000005-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Jay Pantone"
+          }
+        ],
+        "identifier": "https://github.com/jaypantone/2026-10-superpermutation-bounds/tree/c9ccb6a0d9ddd1007fdce6efab50807ec47464b9/papers/lower/lower-bounds.tex",
+        "license": "Apache-2.0",
+        "location": "Also included at papers/lower/lower-bounds.tex.",
+        "relationship": "formalizes",
+        "title": "Chain returns and lower bounds for superpermutations",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jay Pantone"
+          }
+        ],
+        "identifier": "https://github.com/jaypantone/2026-10-superpermutation-bounds/tree/c9ccb6a0d9ddd1007fdce6efab50807ec47464b9/papers/finite/finite-lower-bounds.tex",
+        "license": "Apache-2.0",
+        "location": "Ten-symbol and fourteen-symbol results only; also included at papers/finite/finite-lower-bounds.tex.",
+        "relationship": "formalizes",
+        "title": "Three finite lower bounds for superpermutations",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jakub Halfar"
+          }
+        ],
+        "identifier": "https://github.com/jhalfar/superpermutations/tree/cc5c763bd5854317b20dadb138990802656e6f03/proofs/lean/lower",
+        "relationship": "background",
+        "title": "Three lower bounds in Lean: Theorems A, B and C",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jakub Halfar"
+          }
+        ],
+        "identifier": "https://groups.google.com/g/superpermutators/c/6ozhk3faHDA",
+        "relationship": "background",
+        "title": "New upper bound with 1771/3456 and new lower bounds for n = 8 to 14, both in Lean",
+        "type": "web discussion"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/jaypantone/2026-10-superpermutation-bounds/tree/c9ccb6a0d9ddd1007fdce6efab50807ec47464b9",
+        "note": "Source snapshot for the present curated and ported proof development. The source repository is private at preparation time; no build dependency on it is required.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/jhalfar/superpermutations/tree/cc5c763bd5854317b20dadb138990802656e6f03/proofs/lean/lower",
+        "note": "The ten-symbol result uses the credited chain-piece search framework; retained source notices record the exact reused modules.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Jay Pantone"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-27T14:56:31Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "5f562c6871f7cc9ae017540d9f244bbff8fbb798011e6b360bc63ecb445a67f2"
+    },
+    "reviewed_at": "2026-10-26T20:16:34Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "8cc371be7ad7dc47252e45ffbda633a85776d596",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    "repository": "jaypantone/2026-10-superpermutation-lower-palomar",
+    "repository_url": "https://github.com/jaypantone/2026-10-superpermutation-lower-palomar",
+    "tree_url": "https://github.com/jaypantone/2026-10-superpermutation-lower-palomar/tree/8cc371be7ad7dc47252e45ffbda633a85776d596"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "r9j3z47rf95i"
+  },
+  "title": "Chain returns and lower bounds for superpermutations",
+  "trust": {
+    "challenge_bytes": 9649,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.SpecificLimits.Basic",
+      "Mathlib.Data.Fin.Basic",
+      "Mathlib.Data.List.Nodup",
+      "Mathlib.Data.Nat.Factorial.Basic",
+      "Mathlib.Data.Rat.Defs",
+      "Mathlib.Data.Rat.Floor"
+    ],
+    "challenge_lines": 277,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "57e1a1580016f940ebdc8f093d7f09b37d97df03977df037621c3186ea79a5d6",
+    "evidence_path": "evidence/PALOMAR-2026-10-27-000005-v1/ce823aba7bc79c404db4783c2866c87b2bf4cd1e0bb9b203ae57b721430d6e6f/",
+    "evidence_tree_sha256": "ce823aba7bc79c404db4783c2866c87b2bf4cd1e0bb9b203ae57b721430d6e6f",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      }
+    ],
+    "mechanical_report_sha256": "39091531206c7e8bb17e954e204d74f7ff3827673751f39f2ca84937041dbe14",
+    "protected_config_sha256": "a0ff370dadd26fdbc570d9637838ada8a90c7d257940b0fcea8099db243a66d1",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40138957528,
+    "solution_sha256": "a83a036ab0d8b5a20e85980e455107ca57e70d33b5e5e01f9ec3730cc3e652e1",
+    "tool_digests": {
+      "bwrap": "279e5069405f7b1986c95f5db5d45349348514c76ef5e0ba68459029231d4b3b",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-10-25T00:33:52Z",
+    "workflow_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40138957528"
+  },
+  "version": 1
+}

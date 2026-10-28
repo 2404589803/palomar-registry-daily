@@ -1,0 +1,434 @@
+{
+  "abstract": "For integers 0 < b < a, let P(a,b) count the positive terms obtained by repeatedly replacing x by a mod x, starting at b. This development proves the uniform bound P(a,b) ≤ C_ε a^((41301 - 3 sqrt(82849))/137480 + ε) for every ε > 0, including the external coefficient-uniform affine-curve theorem and the effective Hilbert specialisation sieve, and its rational instance 4317/14677. It also proves the exterior-lattice exponents 471/1559 - 6 sqrt(105)/7795 and 153/520, the joint-invariant exponents (1310-sqrt(655))/4365, 2201/7480 and 128/435 and the earlier exponents 45/152, 8/27, 11/37, 23/77, and 3/10. It also proves a bound O(a^(1/4) sqrt R), where R minus one counts rises in the quotient increments, and positivity and integrality of the orbit's Hankel invariants. A separate conditional theorem gives O(a^(3/10) sqrt(log log(3a))) assuming two explicitly stated analytic estimates whose proofs are not formalised. The polar bound uses the proved orbit identity, actual common-base bound of four, degree-twelve residue labels, uniform arithmetic specialisation count, and full-pattern completion count with arbitrary common divisors. These establish the six-term local estimate without additional hypotheses. The conjectured O((log a)^2) bound remains open.",
+  "authors": [
+    {
+      "name": "Jason Davies"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-27-000017-v1/eb744a257ffaafea057efa394048af8cdcc6df63cc2deb845fc7701de1bc467f/",
+    "artifact_tree_sha256": "eb744a257ffaafea057efa394048af8cdcc6df63cc2deb845fc7701de1bc467f",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-27T00:02:58Z",
+    "renderer_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11A67",
+      "11N37",
+      "11H06"
+    ]
+  },
+  "first_registered_on": "2026-10-27",
+  "formalization": {
+    "challenge_path": "PierceLengthBoundPalomar/Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "ccdn_dimension_growth",
+        "repository": "jasondavies/ccdn-dimension-growth",
+        "revision": "bb025e7207f3a35a21b898629f5678b72aa7e44f"
+      },
+      {
+        "name": "openai_math",
+        "path": "vendor/openai-math"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "PierceLengthBoundPalomar/Solution.lean",
+    "theorem_names": [
+      "PierceLengthBound.P_le_polar_optimal",
+      "PierceLengthBound.P_le_4317_14677",
+      "PierceLengthBound.P_le_lattice_optimal",
+      "PierceLengthBound.P_le_153_520",
+      "PierceLengthBound.P_le_joint_optimal",
+      "PierceLengthBound.P_le_2201_7480",
+      "PierceLengthBound.P_le_128_435",
+      "PierceLengthBound.P_le_45_152",
+      "PierceLengthBound.P_le_8_27",
+      "PierceLengthBound.P_le_11_37",
+      "PierceLengthBound.P_le_23_77",
+      "PierceLengthBound.P_le",
+      "PierceLengthBound.P_le_loglog",
+      "PierceLengthBound.P_le_rises",
+      "PierceLengthBound.hankelInv_pos_int",
+      "PierceLengthBound.hankelInv_first_four"
+    ]
+  },
+  "id": "PALOMAR-2026-10-27-000017",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-27T19:12:53Z",
+    "receipt_sha256": "8b8ccdf7478dcab333882861e21c4f35ba9bb82cd56c39f258c598bbc7b2d978",
+    "repositories": [
+      {
+        "commit": "bb025e7207f3a35a21b898629f5678b72aa7e44f",
+        "fork_repository": "PalomarArchive/jasondavies--ccdn-dimension-growth--ffcad32f3870",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000017-v1/bb025e7207f3a35a21b898629f5678b72aa7e44f",
+        "source_repository": "jasondavies/ccdn-dimension-growth"
+      },
+      {
+        "commit": "6da6511cea9f8526054dd5ad60d77164f45de52e",
+        "fork_repository": "PalomarArchive/jasondavies--pierce-length-bound--4a53bbe4aa12",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000017-v1/6da6511cea9f8526054dd5ad60d77164f45de52e",
+        "source_repository": "jasondavies/pierce-length-bound"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000017-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000017-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000017-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000017-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000017-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000017-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000017-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000017-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000017-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Jason Davies"
+          }
+        ],
+        "location": "paper/pierce_length_bound.tex and paper/pierce_length_bound.pdf in this repository",
+        "relationship": "other",
+        "title": "Hankel Determinants and the Length of Finite Pierce Expansions",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jeffrey O. Shallit"
+          }
+        ],
+        "identifier": "https://www.openproblemgarden.org/op/a_discrete_iteration_related_to_pierce_expansions",
+        "relationship": "background",
+        "title": "A discrete iteration related to Pierce expansions",
+        "type": "web post"
+      },
+      {
+        "authors": [
+          {
+            "name": "Zachary Chase"
+          },
+          {
+            "name": "Mayank Pandey"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2211.08374",
+        "relationship": "background",
+        "title": "On the length of Pierce expansions",
+        "type": "preprint"
+      },
+      {
+        "authors": [
+          {
+            "name": "Wouter Castryck"
+          },
+          {
+            "name": "Raf Cluckers"
+          },
+          {
+            "name": "Philip Dittmann"
+          },
+          {
+            "name": "Kien Huu Nguyen"
+          }
+        ],
+        "identifier": "https://doi.org/10.2140/ant.2020.14.2261",
+        "location": "Algebra & Number Theory 14 (2020), no. 8, 2261–2294, Theorem 3",
+        "relationship": "other",
+        "title": "The dimension growth conjecture, polynomial in the degree and without logarithmic factors",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Raf Cluckers"
+          },
+          {
+            "name": "Pierre Dèbes"
+          },
+          {
+            "name": "Yotam I. Hendel"
+          },
+          {
+            "name": "Kien Huu Nguyen"
+          },
+          {
+            "name": "Floris Vermeulen"
+          }
+        ],
+        "identifier": "https://doi.org/10.1017/fms.2025.10096",
+        "location": "Forum of Mathematics, Sigma 13 (2025), e153, Theorem 1.10",
+        "relationship": "background",
+        "title": "Improvements on dimension growth results and effective Hilbert's irreducibility theorem",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "M. Nair"
+          },
+          {
+            "name": "Gérald Tenenbaum"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/BF02392880",
+        "location": "Acta Mathematica 180 (1998), 119–144",
+        "relationship": "other",
+        "title": "Short sums of certain arithmetic functions",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Omkar Baraskar"
+          },
+          {
+            "name": "Ingrid Vukusic"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2508.20853",
+        "relationship": "background",
+        "title": "Bounds for sets of remainders",
+        "type": "preprint"
+      },
+      {
+        "authors": [
+          {
+            "name": "Régis de la Bretèche"
+          },
+          {
+            "name": "Gérald Tenenbaum"
+          }
+        ],
+        "identifier": "https://doi.org/10.4064/aa250107-13-2",
+        "location": "Acta Arithmetica 219 (2025), no. 4, 379–394, Theorem 1.1",
+        "relationship": "other",
+        "title": "Note on the mean value of the Erdős–Hooley Delta-function",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jeffrey O. Shallit"
+          }
+        ],
+        "identifier": "https://cs.uwaterloo.ca/~shallit/talks.html",
+        "relationship": "background",
+        "title": "Talks",
+        "type": "web page"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/jasondavies/ccdn-dimension-growth/tree/bb025e7207f3a35a21b898629f5678b72aa7e44f",
+        "note": "The coefficient-uniform affine-curve theorem CCDN.affineCurveBound, imported as the pinned Lake dependency ccdn_dimension_growth. The pinned commit is the one registered in the Palomar registry as PALOMAR-2026-10-22-000015, version 1 (https://palomar-registry.org/entry?id=PALOMAR-2026-10-22-000015&version=1). That project itself vendors the Bombieri–Vaaler development of rwst/Subspace-Theorems at commit 09835cb23557ae5ae0cf55a9c4ab9055f5d60338 and adapts Mertens' first theorem from PrimeNumberTheoremAnd at commit c39a751132c88b6e8080b74c74023fd95b3d8be0, with provenance recorded in its vendor directory.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/openai/math/tree/1581d4cbdd69a0faf34b2089614fe2a814316a6a",
+        "note": "The divisor bound exists_divisors_power_bound is vendored from OAI/NumberTheory/Ostmann/Preliminaries/DivisorPowerBound.lean at this immutable revision. Imports and module visibility have been adapted; proof bodies are unchanged. See vendor/openai-math/UPSTREAM.md.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Jason Davies"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-10-27T19:12:29Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "00ed7d1680272c8170770435b846aec01c6b31b8ea5f96f3c9a63aa60063838f"
+    },
+    "reviewed_at": "2026-10-27T02:36:46Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "6da6511cea9f8526054dd5ad60d77164f45de52e",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jasondavies/pierce-length-bound",
+    "repository_url": "https://github.com/jasondavies/pierce-length-bound",
+    "tree_url": "https://github.com/jasondavies/pierce-length-bound/tree/6da6511cea9f8526054dd5ad60d77164f45de52e"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "fzdy3fnh1a7l"
+  },
+  "title": "Bounds for the iteration x ↦ a mod x",
+  "trust": {
+    "challenge_bytes": 10118,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 225,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "579ad1b8f47e698a3e1dcebc8412bfa16f429ce72c91cc43dadd80536fa5fdbc",
+    "evidence_path": "evidence/PALOMAR-2026-10-27-000017-v1/333fbf5dd93a6f1709d3a4149338421d2e38c36c7cd2d86ffdf9672b251da6af/",
+    "evidence_tree_sha256": "333fbf5dd93a6f1709d3a4149338421d2e38c36c7cd2d86ffdf9672b251da6af",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      }
+    ],
+    "mechanical_report_sha256": "a69a6ebf2c9c7d6f41b1c1471490f914cc121e5beecd369210905a887d281cf6",
+    "protected_config_sha256": "45d21c1f86032df05abdd4425f5d79752a7450eed76cc2ad27400d0e0d6c5fcb",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40377473046,
+    "solution_sha256": "e2a00204b06efc8a0e531e76f15da0eaa6116e73a61087d686ad92e47a792dd0",
+    "tool_digests": {
+      "bwrap": "147ebd21524b77c18df48ef6a9fbaa45ce8295a21a020bb3f84eb50a06774230",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-10-26T18:49:59Z",
+    "workflow_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40377473046"
+  },
+  "version": 1
+}

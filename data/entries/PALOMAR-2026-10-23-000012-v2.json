@@ -1,0 +1,359 @@
+{
+  "abstract": "For every pair a ≥ b ≥ 1 there is a straight-line derivation of gcd(a, b) that uses only the remainder operation on available values and makes at most (3 + o(1)) log₂ a / log₂ log₂ a remainder calls, uniformly in b ≤ a; Euclid's algorithm needs about 1.44 log₂ a calls in the worst case. The proof stores a prefix of the Euclidean remainder sequence, shows that modulo every sufficiently large modulus at most three of its values share a residue class, and uses close residues to shrink the modulus by three remainder calls at a time. Consequently the intrinsic calls(rem)-complexities of the gcd and of coprimeness, in the sense of Moschovakis's Abstract Recursion and Intrinsic Complexity, are O(log a / log log a). This refutes Conjecture 3.4 of Moschovakis's 2012 notes \"Absolute lower bounds for uniform processes\" and the version (4F-5) of the Main Conjecture in the book, both for the structure (ℕ, rem, eq0) and for Nε = (ℕ, rem, eq0, eq1). The same bound answers negatively the closure-depth question of van den Dries and Moschovakis (2009): there are no positive integers aₙ → ∞, bₙ and C > 0 whose closure depth g(aₙ, bₙ) exceeds C log₂ aₙ for all n. For algorithms, the library gives fixed nondeterministic register programs over (ℕ, rem, eq0) with arbitrarily small logarithmic coefficients: for each ε > 0, one program with 3·2^p + 6 registers (any p > 3/ε) and no recursion stack has, on every input a ≥ b ≥ 1, a convergent computation returning gcd(a, b) with at most ε log₂ a + B remainder calls, and the same program written one function per line is a tail-recursive program with bounded stacks. These programs depend on ε, so the Main Conjecture for algorithms (deterministic or nondeterministic recursive programs) is not settled and remains open. Lower bounds are also formalized: every gcd certificate needs at least as many remainder facts as the shortest derivation, and the coprimeness complexity is at least (1 − ε) log₂ log₂ N on all but o(N²) coprime pairs below N.",
+  "authors": [
+    {
+      "name": "Jason Davies"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-23-000012-v2/71592fea8ed46895d68ffab27fa69d45ef482c0fe6e93a975910c45fdfd84a44/",
+    "artifact_tree_sha256": "71592fea8ed46895d68ffab27fa69d45ef482c0fe6e93a975910c45fdfd84a44",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-27T12:58:34Z",
+    "renderer_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.LO",
+      "cs.CC"
+    ],
+    "msc2020": [
+      "03D15",
+      "68Q17",
+      "11A05",
+      "11Y16"
+    ]
+  },
+  "first_registered_on": "2026-10-23",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "ShortGCD.generates_G",
+      "ShortGCD.uniform_real_bound_three",
+      "ShortGCD.uniform_intrinsic_bound_three",
+      "ShortGCD.not_conjecture_3_4",
+      "ShortGCD.not_conjecture_3_4_literal",
+      "ShortGCD.not_main_conjecture_4F5",
+      "ShortGCD.not_main_conjecture_4F5_Neps",
+      "ShortGCD.not_main_conjecture_4F5_literal",
+      "ShortGCD.exists_certifiesCoprimeness",
+      "ShortGCD.exists_certifiesGcd",
+      "ShortGCD.G_le_callsRemGcd",
+      "ShortGCD.G_le_callsGcd",
+      "ShortGCD.callsCoprimeness_eq_G",
+      "ShortGCD.tendsto_card_callsCoprimeness_loglog",
+      "ShortGCD.TailSource.executes_correct",
+      "ShortGCD.TailSource.executes_total",
+      "ShortGCD.TailSource.arbitrarily_small_coefficient",
+      "ShortGCD.ClosureDepth.depth_mem",
+      "ShortGCD.ClosureDepth.no_logarithmic_sequences",
+      "ShortGCD.Book.callsCoprimeness_eq",
+      "ShortGCD.Book.callsRemGcd_eq",
+      "ShortGCD.Book.callsGcd_eq"
+    ]
+  },
+  "id": "PALOMAR-2026-10-23-000012",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-27T21:12:50Z",
+    "receipt_sha256": "db5ce47f0eddb14c580ff8ce9eb4debb1c36ed8e1534a7b35bd106262695b34e",
+    "repositories": [
+      {
+        "commit": "2548681524c7d0d606fa3a4cff00b495157e948f",
+        "fork_repository": "PalomarArchive/jasondavies--euclid-uniform-processes--bdc1e4418483",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000012-v2/2548681524c7d0d606fa3a4cff00b495157e948f",
+        "source_repository": "jasondavies/euclid-uniform-processes"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000012-v2/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000012-v2/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000012-v2/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000012-v2/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000012-v2/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000012-v2/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000012-v2/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000012-v2/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-23-000012-v2/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Jason Davies"
+          }
+        ],
+        "location": "paper/euclid-uniform-processes.tex in this repository",
+        "relationship": "other",
+        "title": "The Euclidean algorithm is not optimal among uniform processes (J. Davies)",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Yiannis N. Moschovakis"
+          }
+        ],
+        "identifier": "doi:10.1017/9781108234238",
+        "location": "Lecture Notes in Logic 48, Cambridge University Press / Association for Symbolic Logic, 2019",
+        "relationship": "background",
+        "title": "Abstract Recursion and Intrinsic Complexity",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Yiannis N. Moschovakis"
+          }
+        ],
+        "identifier": "https://www.math.ucla.edu/~ynm/nadalb.pdf",
+        "location": "Unpublished lecture notes (first draft), January 25, 2012; Conjecture 3.4 on p. 19",
+        "relationship": "background",
+        "title": "Absolute lower bounds for uniform processes",
+        "type": "lecture notes"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Lou van den Dries"
+          },
+          {
+            "name": "Yiannis N. Moschovakis"
+          }
+        ],
+        "identifier": "doi:10.2178/bsl/1102022663",
+        "location": "Bulletin of Symbolic Logic 10(3) (2004), 390–418",
+        "relationship": "background",
+        "title": "Is the Euclidean algorithm optimal among its peers?",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Lou van den Dries"
+          },
+          {
+            "name": "Yiannis N. Moschovakis"
+          }
+        ],
+        "identifier": "doi:10.1145/1459010.1459012",
+        "location": "ACM Transactions on Computational Logic 10(1) (2009), Article 2; closure depth g on p. 2:6, Open Problem on p. 2:11",
+        "relationship": "background",
+        "title": "Arithmetic complexity",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Jason Davies"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-10-27T21:12:20Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "36c7e3f1d8bd13144fa67f9535813d836849d23f0fe76a4557e6390100ed818a"
+    },
+    "reviewed_at": "2026-10-27T14:11:15Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "2548681524c7d0d606fa3a4cff00b495157e948f",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jasondavies/euclid-uniform-processes",
+    "repository_url": "https://github.com/jasondavies/euclid-uniform-processes",
+    "tree_url": "https://github.com/jasondavies/euclid-uniform-processes/tree/2548681524c7d0d606fa3a4cff00b495157e948f"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "rgpeui4fjssh"
+  },
+  "title": "The Euclidean algorithm is not optimal among uniform processes",
+  "trust": {
+    "challenge_bytes": 26695,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 572,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "3dcfa1e24547b24c40153da11f141fd25d98cd0441c342e9c8779e4e42c5f08e",
+    "evidence_path": "evidence/PALOMAR-2026-10-23-000012-v2/c22bd2bd4ffb3b8320e934bcff2bd55bfe3bc70364b2a57f12a0aa51eb4e819b/",
+    "evidence_tree_sha256": "c22bd2bd4ffb3b8320e934bcff2bd55bfe3bc70364b2a57f12a0aa51eb4e819b",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "8de6700f086d451337b0bd2f884382d5c6e44c0f307512c90eec92345d347cf3",
+    "protected_config_sha256": "9a9c9969f81dc6013ca5b59680d7ba28e0e1560d7e79963400f9ab534c4fa967",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40503056883,
+    "solution_sha256": "9f766f6cb75242d401b45742eb9d28439b506a4891415d293bed85f6b4b8a5f5",
+    "tool_digests": {
+      "bwrap": "1618dcb56ec6eb023b55861cf33cae37a4a628b95cd9f5d1bc1dfd27d74a52c3",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-10-27T12:26:36Z",
+    "workflow_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40503056883"
+  },
+  "version": 2
+}

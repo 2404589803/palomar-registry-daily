@@ -1,0 +1,394 @@
+{
+  "abstract": "A Lean 4 formalization of the main results of Abedin, Feldman and Stinson on Perron's extremal solutions of the one-phase Bernoulli free boundary problem Δu = 0 in {u > 0} ∩ U, |∇u| = Q on ∂{u > 0} ∩ U. Let U ⊂ ℝᵈ, d ≥ 2, be open, bounded and connected with C² boundary, and let Q be Lipschitz on the closure of U with 0 < Q_min ≤ Q ≤ Q_max. Theorem 1.1: the smallest supersolution above a smooth strict subsolution g with g > 0 on ∂U is (i) a viscosity solution in U, (ii) an inner variational solution in U for some χ (the first domain variation of the Alt–Caffarelli energy ∫ |∇u|² + Q² χ vanishes), and (iii) a downward minimizer of that energy on a ball around each free boundary point; the largest subsolution below a smooth strict supersolution g has the same three properties, with upward minimality in (iii). Corollary 1.2, in ℝ²: (i) the free boundary of the smallest supersolution is the disjoint union of a relatively open set, near each point of which u is a classical solution (a C^{1,γ} free boundary, u harmonic in {u > 0}, ∇u continuous up to the free boundary with |∇u| = Q there), and a set at each point x₀ of which every blow-up limit of u is the two-plane function Q(x₀)|y · e| for some unit vector e; (ii) the largest subsolution is a classical solution near every free boundary point. Every notion, including viscosity solutions, smooth strict sub- and supersolutions, Perron's classes, inner variational solutions, Sobolev functions, the one-sided minimizers, blow-up limits and classical solutions, is written out from Mathlib definitions. A fifth statement is the necklace example, a rigorous version, with different parameters, of the numerical example in Figure 1 of the paper: in ℝ² with Q ≡ 1 there are a domain and data, with the same boundary values for both problems, whose smallest supersolution and largest subsolution are both nontrivial and differ on a set of positive measure, the smallest supersolution has a two-plane point, and a minimizer of the Alt–Caffarelli energy with the same boundary data exists and differs from both extremal solutions on sets of positive measure. It also shows that the hypotheses of the other statements can be met and that their conclusions are not degenerate.",
+  "authors": [
+    {
+      "name": "William M. Feldman"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-27-000028-v1/7827181da8966470f96046532c556f24c55db4bbfbd710f8d7a3f30bb691ba7f/",
+    "artifact_tree_sha256": "7827181da8966470f96046532c556f24c55db4bbfbd710f8d7a3f30bb691ba7f",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-27T17:33:29Z",
+    "renderer_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.AP"
+    ],
+    "msc2020": [
+      "35R35",
+      "35D40",
+      "49Q10",
+      "35J25",
+      "35B65"
+    ]
+  },
+  "first_registered_on": "2026-10-27",
+  "formalization": {
+    "challenge_path": "challenges/main-results/Challenge.lean",
+    "comparator_config_path": "challenges/main-results/config.json",
+    "definition_names": [],
+    "formalization_metadata_path": "challenges/main-results/formalization.yaml",
+    "lakefile_path": "challenges/main-results/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "perron_variational",
+        "path": "."
+      },
+      {
+        "name": "inner_variational",
+        "repository": "willmfeldman/bernoulli-rectifiability",
+        "revision": "fa255a8b5f2b904a0f4c23e19b52538e5d2b2c88"
+      },
+      {
+        "name": "gmt_foundations",
+        "repository": "willmfeldman/gmt-foundations",
+        "revision": "45847e7fce2ff1c78a19a048befc3c418dd8b1fb"
+      },
+      {
+        "name": "elliptic_bernoulli_foundations",
+        "repository": "willmfeldman/elliptic-bernoulli-foundations",
+        "revision": "07a60a6f1849d6af6aff34561bcad2fbc1801190"
+      },
+      {
+        "name": "bernoulli_parabolic_comparison",
+        "repository": "willmfeldman/bernoulli-parabolic-comparison",
+        "revision": "fb1cbd1a28042da4c88091f804a707462682a93a"
+      },
+      {
+        "name": "parabolic_basic_theory",
+        "repository": "willmfeldman/parabolic-basic-theory",
+        "revision": "1f685e27f2c8882b3f7bf3122436068a0c7f2584"
+      },
+      {
+        "name": "viscosity_solns",
+        "repository": "willmfeldman/viscosity-solution-theory",
+        "revision": "b9dc82d59e19c5689b6669b41e0c59168c1cdc84"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "basic_elliptic_theory",
+        "repository": "willmfeldman/elliptic-schauder-theory",
+        "revision": "7f27afc285ef78cd54b28e036827c3e8308f3f5f"
+      },
+      {
+        "name": "AleksandrovDifferentiability",
+        "repository": "willmfeldman/aleksandrov-differentiability",
+        "revision": "5e5c2ec4cee4f8851387e9bb309eeb703cd72a25"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "challenges/main-results/Solution.lean",
+    "theorem_names": [
+      "challenge_main_smallest",
+      "challenge_main_largest",
+      "challenge_corollary_2d_smallest",
+      "challenge_corollary_2d_largest",
+      "challenge_necklace_example"
+    ]
+  },
+  "id": "PALOMAR-2026-10-27-000028",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-27T22:39:48Z",
+    "receipt_sha256": "d6bcf187108483c8753070d5fe3325d6a3eb0847114d07b77cdeb7fff21fc29c",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "5e5c2ec4cee4f8851387e9bb309eeb703cd72a25",
+        "fork_repository": "PalomarArchive/willmfeldman--aleksandrov-differentiability--9ac37bb0b968",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/5e5c2ec4cee4f8851387e9bb309eeb703cd72a25",
+        "source_repository": "willmfeldman/aleksandrov-differentiability"
+      },
+      {
+        "commit": "fb1cbd1a28042da4c88091f804a707462682a93a",
+        "fork_repository": "PalomarArchive/willmfeldman--bernoulli-parabolic-comparison--83518e3e64a7",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/fb1cbd1a28042da4c88091f804a707462682a93a",
+        "source_repository": "willmfeldman/bernoulli-parabolic-comparison"
+      },
+      {
+        "commit": "2abc33271f023fcb309e6c8cd07e229a352ed911",
+        "fork_repository": "PalomarArchive/willmfeldman--bernoulli-perron-variational--092f2994d791",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/2abc33271f023fcb309e6c8cd07e229a352ed911",
+        "source_repository": "willmfeldman/bernoulli-perron-variational"
+      },
+      {
+        "commit": "fa255a8b5f2b904a0f4c23e19b52538e5d2b2c88",
+        "fork_repository": "PalomarArchive/willmfeldman--bernoulli-rectifiability--4e540f80d259",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/fa255a8b5f2b904a0f4c23e19b52538e5d2b2c88",
+        "source_repository": "willmfeldman/bernoulli-rectifiability"
+      },
+      {
+        "commit": "07a60a6f1849d6af6aff34561bcad2fbc1801190",
+        "fork_repository": "PalomarArchive/willmfeldman--elliptic-bernoulli-foundations--1d79dd3bd758",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/07a60a6f1849d6af6aff34561bcad2fbc1801190",
+        "source_repository": "willmfeldman/elliptic-bernoulli-foundations"
+      },
+      {
+        "commit": "7f27afc285ef78cd54b28e036827c3e8308f3f5f",
+        "fork_repository": "PalomarArchive/willmfeldman--elliptic-schauder-theory--31a2869ed205",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/7f27afc285ef78cd54b28e036827c3e8308f3f5f",
+        "source_repository": "willmfeldman/elliptic-schauder-theory"
+      },
+      {
+        "commit": "45847e7fce2ff1c78a19a048befc3c418dd8b1fb",
+        "fork_repository": "PalomarArchive/willmfeldman--gmt-foundations--5a973e55283f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/45847e7fce2ff1c78a19a048befc3c418dd8b1fb",
+        "source_repository": "willmfeldman/gmt-foundations"
+      },
+      {
+        "commit": "1f685e27f2c8882b3f7bf3122436068a0c7f2584",
+        "fork_repository": "PalomarArchive/willmfeldman--parabolic-basic-theory--a0e358e1367f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/1f685e27f2c8882b3f7bf3122436068a0c7f2584",
+        "source_repository": "willmfeldman/parabolic-basic-theory"
+      },
+      {
+        "commit": "b9dc82d59e19c5689b6669b41e0c59168c1cdc84",
+        "fork_repository": "PalomarArchive/willmfeldman--viscosity-solution-theory--8d508aef7c3a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000028-v1/b9dc82d59e19c5689b6669b41e0c59168c1cdc84",
+        "source_repository": "willmfeldman/viscosity-solution-theory"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Farhan Abedin"
+          },
+          {
+            "name": "William M. Feldman"
+          },
+          {
+            "name": "Kerrek Stinson"
+          }
+        ],
+        "identifier": "arXiv:2609.14981",
+        "location": "Theorem 1.1, both cases, and Corollary 1.2 (i) and (ii) (arXiv:2609.14981v2)",
+        "relationship": "formalizes",
+        "title": "Variational properties of Perron's extremal solutions in the Bernoulli one-phase problem",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "William M. Feldman"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-27T22:39:17Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "c93e6f425c863954d15cee82331712fd89005ea1074398c7442676f267845f40"
+    },
+    "reviewed_at": "2026-10-27T19:03:42Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "2abc33271f023fcb309e6c8cd07e229a352ed911",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "project_path": "challenges/main-results",
+    "repository": "willmfeldman/bernoulli-perron-variational",
+    "repository_url": "https://github.com/willmfeldman/bernoulli-perron-variational",
+    "tree_url": "https://github.com/willmfeldman/bernoulli-perron-variational/tree/2abc33271f023fcb309e6c8cd07e229a352ed911/challenges/main-results"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "mi44g3wm78ks"
+  },
+  "title": "Perron's extremal solutions of the Bernoulli one-phase problem: viscosity, inner variational and one-sided minimizing solutions, and free boundary structure in the plane",
+  "trust": {
+    "challenge_bytes": 32584,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Calculus.Gradient.Basic",
+      "Mathlib.Analysis.InnerProductSpace.Laplacian",
+      "Mathlib.Analysis.InnerProductSpace.PiL2",
+      "Mathlib.LinearAlgebra.Trace",
+      "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+      "Mathlib.MeasureTheory.Function.LpSeminorm.Basic",
+      "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+      "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace",
+      "Mathlib.Topology.EMetricSpace.Lipschitz",
+      "Mathlib.Topology.MetricSpace.Holder",
+      "Mathlib.Topology.UniformSpace.LocallyUniformConvergence"
+    ],
+    "challenge_lines": 530,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "0ed4437c0f0f7e3808fe64e37e59c010ebcb42bb02529d57d35d6b7c3ff2ba74",
+    "evidence_path": "evidence/PALOMAR-2026-10-27-000028-v1/d14eedc3e37606f4b36debb3323f2802f555055d9f7981655e313c47e3dc81ce/",
+    "evidence_tree_sha256": "d14eedc3e37606f4b36debb3323f2802f555055d9f7981655e313c47e3dc81ce",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "a64daa9655def0d5d3e295b9301449d513a94c1d1a4089e3a2012294473b25d5",
+    "protected_config_sha256": "4683bf449b813f21f1a7357c030dce09872ccdce0a9b8b7ca9af568c86e71609",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40544289070,
+    "solution_sha256": "74e896b3aab557e454a09730c1623124493d63987b18f6137ae4018ce69a6c56",
+    "tool_digests": {
+      "bwrap": "64f45d40e733a18810fa69106b1eca8349810e7ebd1871be49c4dd5aa2cf3fa2",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-27T17:07:23Z",
+    "workflow_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40544289070"
+  },
+  "version": 1
+}

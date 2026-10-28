@@ -1,0 +1,369 @@
+{
+  "abstract": "For a prime p = 5 (mod 8) let chi be the quartic Dirichlet character with chi(2) = i, with values in the Gaussian integers, and let C(p) = f + i e be the sum of chi(n) (-1)^floor(n^2/p) over 0 < n < p/2. The development proves that f = (p-1)/4 (mod 4) and e = kappa (mod 4) for every such p, where kappa is the sum of the Legendre symbols (n/p) over 0 < n < p/4. The mechanism is a matching lemma: for sign functions sigma, tau and a bijection pi, the correlation sum sigma(x) tau(pi x) is congruent modulo 4 to the sum of the two marginals minus the number of terms, so it does not depend on pi. Along the way it proves the parity dictionary (-1)^floor(n^2/p) = s(n) s(n^2) with s(x) = (-1)^<x>, the coset form f = sum over the fourth powers H of s(u) s(u^2) and e = the same sum over 2H, the lag identity sum over 2H of s(u) s(2u) = kappa exactly, the exact coset parities sum_H s = k + 2t and sum_{2H} s = t - 2k where B_{1,chi} = k + i t, and the Coordinate Congruence kappa = (p-1)/4 + k + t (mod 4). It also proves the odd-subgroup congruence: for an odd modulus N >= 3, a subgroup H of (Z/N)^x of odd order h, a coset X = xH and an even exponent e >= 2, the band-parity sum of X and -X over (0, N/2) equals sum over X of s(u) s(u^e) and is congruent to h - 2 alpha(X) - 2 alpha(X^e) modulo 4, where alpha counts elements with odd least residue.",
+  "authors": [
+    {
+      "name": "Joseph S. Farland"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-27-000018-v1/70bdc0f0f1782c2350f7037da2c1c89d47988787373cbf4747e967f9673c6505/",
+    "artifact_tree_sha256": "70bdc0f0f1782c2350f7037da2c1c89d47988787373cbf4747e967f9673c6505",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-27T00:07:27Z",
+    "renderer_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11A15",
+      "11L40",
+      "11R29",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-10-27",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "BandParity.gi",
+      "BandParity.cosetSum",
+      "BandParity.S",
+      "BandParity.k",
+      "BandParity.t",
+      "BandParity.T",
+      "BandParity.parSign",
+      "BandParity.band",
+      "BandParity.bandSum",
+      "BandParity.Q",
+      "BandParity.kappa",
+      "BandParity.cls",
+      "BandParity.uSign",
+      "BandParity.bandSignPow",
+      "BandParity.coset",
+      "BandParity.oddCount",
+      "BandParity.cosetBandSum"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "BandParity.matching",
+      "BandParity.matching_indep",
+      "BandParity.existsUnique_pinned",
+      "BandParity.neg_one_pow_band",
+      "BandParity.T_eq",
+      "BandParity.odd_k",
+      "BandParity.odd_t",
+      "BandParity.bandSum_re",
+      "BandParity.bandSum_im",
+      "BandParity.lag_identity",
+      "BandParity.bandSum_re_modEq",
+      "BandParity.bandSum_im_modEq",
+      "BandParity.coset_parities",
+      "BandParity.bandSum_im_modEq_coords",
+      "BandParity.coordinate_congruence",
+      "BandParity.cosetBandSum_eq",
+      "BandParity.odd_subgroup_congruence"
+    ]
+  },
+  "id": "PALOMAR-2026-10-27-000018",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-27T19:19:29Z",
+    "receipt_sha256": "ad031b20540ea3995016e91ceff34104f13866eab680f12dcec17ef5a4c143f8",
+    "repositories": [
+      {
+        "commit": "890a306dcb94aaf290ca390e553f9c2ba39de246",
+        "fork_repository": "PalomarArchive/jkfarland-bot--Bandparity--4643317fd5e0",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000018-v1/890a306dcb94aaf290ca390e553f9c2ba39de246",
+        "source_repository": "jkfarland-bot/Bandparity"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000018-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000018-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000018-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000018-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000018-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000018-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000018-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000018-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000018-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.23673418",
+        "license": "CC-BY-4.0",
+        "location": "Preprint, Zenodo, 2026, https://doi.org/10.5281/zenodo.23673419 (v1.0); all versions https://doi.org/10.5281/zenodo.23673418",
+        "relationship": "formalizes",
+        "title": "The band-parity sum of a quartic character: two laws modulo four, formalized in Lean",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.23624516",
+        "license": "CC-BY-4.0",
+        "location": "Preprint, Zenodo, 2026, https://doi.org/10.5281/zenodo.23624516",
+        "relationship": "background",
+        "title": "The coordinates of a quartic L-value: a formalized survey of the classical facts",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "P. Barkan"
+          }
+        ],
+        "license": "unknown",
+        "location": "C. R. Acad. Sci. Paris Sér. A-B 281 (1975), 887-890",
+        "relationship": "background",
+        "title": "Sur des sommes de caractères liées aux nombres de classes des corps abéliens imaginaires",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "J. Bourgain"
+          },
+          {
+            "name": "T. Cochrane"
+          },
+          {
+            "name": "J. Paulhus"
+          },
+          {
+            "name": "C. Pinner"
+          }
+        ],
+        "license": "CC-BY-4.0",
+        "location": "Acta Arith. 147 (2011), 173-203",
+        "relationship": "background",
+        "title": "On the parity of k-th powers modulo p. A generalization of a problem of Lehmer",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://doi.org/10.5281/zenodo.23624363",
+        "note": "KSurvey (QuarticSurvey), the formalized survey of the classical facts by the same author. Its files Basic, Pin, FixedBase and CosetSums are copied here, converted to the module system and renamed into the BandParity namespace.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Joseph S. Farland"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-27T19:19:02Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "bb2cbbb1f19acdd8973dc378d4e4d94f7f76901ddc6d26c50b92ea5312306383"
+    },
+    "reviewed_at": "2026-10-27T02:52:09Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "890a306dcb94aaf290ca390e553f9c2ba39de246",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "2a8e159a9d264f4b9ae5de5a195b7d7df6e63d4882a2a72da9fd9ed8242666db"
+    },
+    "repository": "jkfarland-bot/Bandparity",
+    "repository_url": "https://github.com/jkfarland-bot/Bandparity",
+    "tree_url": "https://github.com/jkfarland-bot/Bandparity/tree/890a306dcb94aaf290ca390e553f9c2ba39de246"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "sltjmegbe0kw"
+  },
+  "title": "BandParity: the band-parity sum of a quartic character, two laws modulo 4",
+  "trust": {
+    "challenge_bytes": 9567,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 234,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "821ae894cab413777774756f178af403790fec612ece6d8d87c8a91f1a9b7a81",
+    "evidence_path": "evidence/PALOMAR-2026-10-27-000018-v1/4ead177fb41eb91e04ad12301bdc30f3afa99aac446bc4305278e2ac3bc692f1/",
+    "evidence_tree_sha256": "4ead177fb41eb91e04ad12301bdc30f3afa99aac446bc4305278e2ac3bc692f1",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "8171463c6cc5805d4e0baf514ec802a406f63c7fed9df095c95af164d24d5db0",
+    "protected_config_sha256": "6b0512e1cda49db8d366affcf2e25ae804f9742a1c9fd575f6f0421a2fe02101",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40384447620,
+    "solution_sha256": "c680e06e5b4756d08b160e34ae2a7fe7eae79cdc36af1ce047ead2af822b4cf7",
+    "tool_digests": {
+      "bwrap": "9615313c5585d20f49cfb3281863ee4553ba6f5cc8f38d26749fe49bb56ebe4d",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-10-26T19:15:33Z",
+    "workflow_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40384447620"
+  },
+  "version": 1
+}

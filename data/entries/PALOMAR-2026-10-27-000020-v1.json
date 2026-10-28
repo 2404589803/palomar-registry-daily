@@ -1,0 +1,297 @@
+{
+  "abstract": "Erdős Problem 699 (Erdős and Szekeres 1978) asks whether for every 1 ≤ i < j ≤ n/2 there is a prime p ≥ i dividing gcd(C(n, i), C(n, j)). The problem is open. Using the statement from google-deepmind/formal-conjectures with the single extra hypothesis j² < n, this project proves in Lean 4 with Mathlib that the answer is yes whenever j² < n; equivalently, every counterexample (n, i, j) has n ≤ j². The proof combines the Erdős–Szekeres inequality gcd(C(n, i), C(n, j)) ≥ C(n, i)/C(j, i) ≥ (n/j)^i, which follows from the identity C(n, j) C(j, i) = C(n, i) C(n − i, j − i), with an upper bound for a gcd whose prime factors are all below i: each prime power in C(n, i) is at most n (Kummer), and there are at most i/2 primes below i, so such a gcd is at most n^(i/2). The bound reduces the problem to j ≥ √n. With a computer search of every n < 10^12 (not part of this formalization) it rules out counterexamples with j ≤ 10^6. The argument is short and may well be folklore; formal-conjectures records the problem but no partial result of this kind.",
+  "authors": [
+    {
+      "name": "Paul Lee"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-27-000020-v1/9a2cf15d340c791ce4275fd1fa916baa50c82df2c2cac90a6d1c82468f9bcf66/",
+    "artifact_tree_sha256": "9a2cf15d340c791ce4275fd1fa916baa50c82df2c2cac90a6d1c82468f9bcf66",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-27T03:07:49Z",
+    "renderer_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "verso_commit": "f7a4dc6867f8df27778b2b320763ec9e3b7be070"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11B65",
+      "11A05"
+    ]
+  },
+  "first_registered_on": "2026-10-27",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc1",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "625d8914199bc567cca9b91f90e8e5afafa5ae51"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "c2d7840c65673533e15b499f25beecdc6227f7d8"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "9d39f9bb0c30aa2f6200808805ff16e6ce950890"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "b3cc36c295aa5e3e3c0197b09a6556298e710447"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "17137fad38a2cc782ff00b323a13c3a991d085ab"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "cbdde3aa2665915fb286c48bcd4cdf885c629511"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "6d26f8bb4b2bb78f929ad160feac508866821316"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4453b52d2468f4c346a8711d728c0742e7483c9b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "34d2efffcb6dc8d5f3537cf6a7f88bfaa999ec49"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Erdos699.erdos_699.variants.of_sq_lt"
+    ]
+  },
+  "id": "PALOMAR-2026-10-27-000020",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-27T20:02:07Z",
+    "receipt_sha256": "6a2153dbd9df3728d03b74010eb79f831bb3955b7ee7d51b0f378f7d1b8494b5",
+    "repositories": [
+      {
+        "commit": "cbdde3aa2665915fb286c48bcd4cdf885c629511",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000020-v1/cbdde3aa2665915fb286c48bcd4cdf885c629511",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4453b52d2468f4c346a8711d728c0742e7483c9b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000020-v1/4453b52d2468f4c346a8711d728c0742e7483c9b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "b3cc36c295aa5e3e3c0197b09a6556298e710447",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000020-v1/b3cc36c295aa5e3e3c0197b09a6556298e710447",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "9d39f9bb0c30aa2f6200808805ff16e6ce950890",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000020-v1/9d39f9bb0c30aa2f6200808805ff16e6ce950890",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "625d8914199bc567cca9b91f90e8e5afafa5ae51",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000020-v1/625d8914199bc567cca9b91f90e8e5afafa5ae51",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "c2d7840c65673533e15b499f25beecdc6227f7d8",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000020-v1/c2d7840c65673533e15b499f25beecdc6227f7d8",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "17137fad38a2cc782ff00b323a13c3a991d085ab",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000020-v1/17137fad38a2cc782ff00b323a13c3a991d085ab",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "6d26f8bb4b2bb78f929ad160feac508866821316",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000020-v1/6d26f8bb4b2bb78f929ad160feac508866821316",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "34d2efffcb6dc8d5f3537cf6a7f88bfaa999ec49",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000020-v1/34d2efffcb6dc8d5f3537cf6a7f88bfaa999ec49",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "814f545f5f6475786aa5a04e4e795a25cda3670c",
+        "fork_repository": "PalomarArchive/Paulee314--erdos699-lean--2e4307e15153",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-27-000020-v1/814f545f5f6475786aa5a04e4e795a25cda3670c",
+        "source_repository": "Paulee314/erdos699-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Paul Erdős"
+          },
+          {
+            "name": "George Szekeres"
+          }
+        ],
+        "location": "Austral. Math. Soc. Gaz. 5 (1978), 97–99",
+        "relationship": "background",
+        "title": "Some number theoretic problems on binomial coefficients",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Paul Lee"
+          }
+        ],
+        "license": "MIT",
+        "location": "https://github.com/Paulee314/erdos699",
+        "relationship": "formalizes",
+        "title": "Erdős Problem 699: search to 10^12 and the bound n ≤ j²",
+        "type": "web post"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/blob/f153efa8fdc078131e214547781d631e2d257daf/FormalConjectures/ErdosProblems/699.lean",
+        "note": "The compared statement is erdos_699 from this file with the extra hypothesis j ^ 2 < n.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Paul Lee"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-27T20:01:42Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "d4d13d00d2758f4fd22ec1bbc25704ba40fd950009b3503513b0d538b0d30199"
+    },
+    "reviewed_at": "2026-10-27T03:23:58Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "814f545f5f6475786aa5a04e4e795a25cda3670c",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "Paulee314/erdos699-lean",
+    "repository_url": "https://github.com/Paulee314/erdos699-lean",
+    "tree_url": "https://github.com/Paulee314/erdos699-lean/tree/814f545f5f6475786aa5a04e4e795a25cda3670c"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "eloe4d6261oz"
+  },
+  "title": "Erdős Problem 699: every counterexample has n ≤ j²",
+  "trust": {
+    "challenge_bytes": 1960,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 55,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "0694fc6f397cd4c957f67bbc8f4e60af5a27496aede0eef88562c9b37b230468",
+    "evidence_path": "evidence/PALOMAR-2026-10-27-000020-v1/d14980de22ae7ed1f3deb04bac464f247bc29ff4feed15a86e59f079f3383b55/",
+    "evidence_tree_sha256": "d14980de22ae7ed1f3deb04bac464f247bc29ff4feed15a86e59f079f3383b55",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc1/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc1/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "789cf18ed528cab39a548672135fa2bfc0a2d4758db322a9bf829ce1bcfb2a90",
+    "protected_config_sha256": "87a80ceee555c0f8da5136087b038304cd8de05302f2e45484a8d7ed2202d242",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40439422018,
+    "solution_sha256": "ffabbb43c4c29424bb1ba10afd158fa697e821728bb3d2f594d0d2385d362453",
+    "tool_digests": {
+      "bwrap": "0a165422f1bbcae586f3588a5606139af3f8f4b43d3ca170260ec68c1f8de46f",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "c9afcddf514a6772bd4d649f7cfc04eff0b9f15e",
+    "verified_at": "2026-10-27T02:39:51Z",
+    "workflow_commit": "c02bbeaed888df45c4e28c4e99dba540ad21552a",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40439422018"
+  },
+  "version": 1
+}

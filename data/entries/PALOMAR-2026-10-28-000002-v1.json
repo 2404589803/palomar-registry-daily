@@ -1,0 +1,334 @@
+{
+  "abstract": "CONDITIONAL. A Lean 4 proof that, under the Riemann Hypothesis, for every real x at least 3 there is a Goldbach number n, a sum of two odd primes, with x < n < x + 4.45 (log x)^2. This improves the constant 123 of A. Chirre and M. V. Hagen, On Goldbach numbers in short intervals, arXiv 2512.23534, by their method. RH is the paper's own hypothesis. The theorem is CONDITIONAL ON seven cited inputs taken as explicit hypotheses, never as axioms, all stated for gZ, the ordinates of the nontrivial zeros of the Riemann zeta function counted with multiplicity: ExplicitA, the truncated explicit formula of Montgomery and Vaughan, Multiplicative Number Theory I, display 12.1, under RH; HadamardK, the bound sum over gamma' of 4/(4 + (gamma - gamma')^2) at most log |gamma|, a consequence of the Hadamard product, under RH; Ordinates14, every ordinate at least 14 in absolute value; BPTN, the zero count of Brent, Platt and Trudgian, J. Number Theory 238, 2022, Lemma 1, for T at least 10^13; HSWN70 and HSWHead14, the zero count of Hasanalizade, Shen and Wong, arXiv 2107.06506, Corollary 1.2, for T at least 70 and T at least 14; and EvenGoldbachUpTo 4*10^18, the verification of the even Goldbach conjecture to 4*10^18 by Oliveira e Silva, Herzog and Pardi, Math. Comp. 83, 2014. These are the Lean Lab's transcriptions, not Mathlib results. Everything else in the argument is proved: Theorem 2 of Chirre and Hagen with the diagonal constant lowered to 1.0068, the passage from psi to theta, and their Section 5. Binary Goldbach is open and is not claimed. An AI agent, Claude, wrote the Lean code, with the ported PrimeNumberTheoremAnd files credited to their authors in PORTING.md; the statements were checked against the papers by AI agents and are offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-28-000002-v1/fdb3e9aa7f999a971073aa8673014b1f0ac37cb2b8fbdc17ae1cea1c1688b404/",
+    "artifact_tree_sha256": "fdb3e9aa7f999a971073aa8673014b1f0ac37cb2b8fbdc17ae1cea1c1688b404",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-27T23:21:31Z",
+    "renderer_commit": "a93fc88c092faeef1a92b1c905e688aab8e80795",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11M26",
+      "11N05"
+    ]
+  },
+  "first_registered_on": "2026-10-28",
+  "formalization": {
+    "challenge_path": "entries/goldbachintervalsrh445/ChallengeGoldbachIntervalsRH445.lean",
+    "comparator_config_path": "entries/goldbachintervalsrh445/comparator-goldbachintervalsrh445.json",
+    "definition_names": [
+      "LeanLab.IsGoldbachSum",
+      "LeanLab.EvenGoldbachUpTo",
+      "LeanLab.ChirreHagen2025.IsGoldbachNumber",
+      "LeanLab.PNTPort.ExplicitPsi1.Zall",
+      "LeanLab.PNTPort.ExplicitPsi1.Trivial.ZIdx",
+      "LeanLab.PNTPort.ExplicitPsi1.Trivial.gZ",
+      "LeanLab.ChirreHagen2025.SmoothKernel.K",
+      "LeanLab.ChirreHagen2025.SmoothKernel.P",
+      "LeanLab.ChirreHagen2025.Local36.V",
+      "LeanLab.ChirreHagen2025.SmoothT2.Bf",
+      "LeanLab.ChirreHagen2025.SmoothT2.rho",
+      "LeanLab.ChirreHagen2025.SmoothT2.cδ",
+      "LeanLab.ChirreHagen2025.SmoothT2.ExplicitA",
+      "LeanLab.ChirreHagen2025.SmoothT2.HadamardK",
+      "LeanLab.ChirreHagen2025.SmoothT2.Ordinates14",
+      "LeanLab.ChirreHagen2025.Lemma26B.Mt",
+      "LeanLab.ChirreHagen2025.Lemma26B.Rt",
+      "LeanLab.ChirreHagen2025.Lemma26B.BPTN",
+      "LeanLab.ChirreHagen2025.Lemma26H.Mt",
+      "LeanLab.ChirreHagen2025.Lemma26H.Rt",
+      "LeanLab.Dudek2014.SigmaH.HSWN70",
+      "LeanLab.PNTPort.ExplicitPsi1.FirstDiff.HSWHead14"
+    ],
+    "formalization_metadata_path": "entries/goldbachintervalsrh445/formalization.yaml",
+    "lakefile_path": "entries/goldbachintervalsrh445/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/goldbachintervalsrh445/SolutionGoldbachIntervalsRH445.lean",
+    "theorem_names": [
+      "LeanLab.Routes.U1508.goldbach_445_hsw_gZ"
+    ]
+  },
+  "id": "PALOMAR-2026-10-28-000002",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-28T00:30:14Z",
+    "receipt_sha256": "4bb51c7f902e64943df102c9b42acdecf5282b04effd8715d82b090531cc2935",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000002-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000002-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000002-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000002-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000002-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000002-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000002-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000002-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000002-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "e5e1b8a514d1bc5cd4f2b3f8a3c05b250a54e611",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000002-v1/e5e1b8a514d1bc5cd4f2b3f8a3c05b250a54e611",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Steve Hubbard"
+          }
+        ],
+        "identifier": "aiXiv.online 2610.02672",
+        "license": "unknown",
+        "location": "aiXiv.online 2610.02672; also aiXiv.science aixiv.261025.000001 and Hexagon 2610.00542; main theorem",
+        "relationship": "formalizes",
+        "title": "Goldbach numbers in intervals of length 4.45 log^2 x under the Riemann Hypothesis",
+        "type": "preprint"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "A. Chirre"
+          },
+          {
+            "name": "M. V. Hagen"
+          }
+        ],
+        "identifier": "arXiv:2512.23534",
+        "license": "unknown",
+        "location": "arXiv 2512.23534v1: Theorem 1, Theorem 2, Lemmas 2.1 to 2.6, Section 5",
+        "relationship": "adapts",
+        "title": "On Goldbach numbers in short intervals",
+        "type": "preprint"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "the PrimeNumberTheoremAnd project contributors"
+          }
+        ],
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "license": "Apache-2.0",
+        "location": "commit c39a751132c88b6e8080b74c74023fd95b3d8be0, files under LeanLab/PNTPort/StrongPNT/",
+        "relationship": "other",
+        "title": "PrimeNumberTheoremAnd",
+        "type": "formalization"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-28T00:29:52Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "5247f91e3f3da3b3a11641aa20bc7d0b7bf4de0375ad7bcf4d8669f9bcb98410"
+    },
+    "reviewed_at": "2026-10-27T23:34:36Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "e5e1b8a514d1bc5cd4f2b3f8a3c05b250a54e611",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/goldbachintervalsrh445",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/e5e1b8a514d1bc5cd4f2b3f8a3c05b250a54e611/entries/goldbachintervalsrh445"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "pqpvjnd9pbzp"
+  },
+  "title": "CONDITIONAL on RH and cited zero counts: Goldbach numbers in intervals of length 4.45 log^2 x",
+  "trust": {
+    "challenge_bytes": 11430,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 255,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "c81a4c83656677e2bcbf061d6146f15c5f0ffc310abfe5cb36d39ad55d5bb1cf",
+    "evidence_path": "evidence/PALOMAR-2026-10-28-000002-v1/eb97d58e2fcf789c74ddcbb36d8d4f43c31354bf722f4d78ff168548ec1428c1/",
+    "evidence_tree_sha256": "eb97d58e2fcf789c74ddcbb36d8d4f43c31354bf722f4d78ff168548ec1428c1",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "bdf09d1e14df948faff7bfee95e01121c96aa50c52165f4d82c6e80c197ed02a",
+    "protected_config_sha256": "1bac5c5026a5a31291516ff383c25d3413b63cc4a7723bd51b6f42919e3f0bde",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40590547045,
+    "solution_sha256": "e9ddbee0c89da6db6f0f6508f091e5950ad12c702e7d8c08651908521c339e66",
+    "tool_digests": {
+      "bwrap": "8a451699540eadc57e18a7a0f197f52bc299db90b20ee8567a5c7ddc5edfa771",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-27T22:35:40Z",
+    "workflow_commit": "a93fc88c092faeef1a92b1c905e688aab8e80795",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40590547045"
+  },
+  "version": 1
+}
