@@ -1,0 +1,346 @@
+{
+  "abstract": "CONDITIONAL. A Lean 4 proof that, under the Generalized Riemann Hypothesis, every even integer N at least exp(exp 13.375) is the sum of a prime and a square-free number greater than 1 with at most two prime factors, CONDITIONAL ON four cited results taken as explicit hypotheses of the theorem, never as axioms: Thm5J, Thm6J and Thm7J, the Lean Lab's transcriptions of Theorems 5, 6 and 7 of M. Bordignon and V. Starichkova, An explicit version of Chen's theorem assuming the Generalized Riemann Hypothesis, Ramanujan J. 64, 2024, 1213 to 1242; and LinearSieveT4 1/8349 112 114, the transcription of their Theorem 4, the explicit linear sieve of Bordignon, Johnston and Starichkova with the Table 1 row epsilon inverse 6100, C1 = 112, C2 = 114. These transcriptions use the Lean normalisation U_N = 2 e^{-gamma} times the product over p > 2 of 1 - 1/(p-1)^2 times the product over p > 2 dividing N of (p-1)/(p-2), while the journal prints U_N without the factor 2; see the fidelity section. GRH for Dirichlet L-functions is the premise inside the conclusion ChenThreshold13375. The journal's own Corollary 1 has the threshold exp(exp 14); the threshold exp(exp 13.375) comes from re-choosing the Section 5.4 parameters inside the authors' method, alpha = 0.00256, A = 10, u = 1500, epsilon = 1/8349, epsilon1 = 10^-20. The numeric inputs are PROVED here: epsilon(1500) is below 1/8349 by a kernel certificate, decide +kernel in eleven window modules, and the Section 5.4 bracket combination is at least the main-term constant minus 10^-5, a one-sided lower bound. Chen's weighted inequality, the journal's Lemma 9, is PROVED unconditionally. Binary Goldbach is open and is not claimed. An AI agent, Claude, wrote all the Lean code; the statements were checked against the paper by AI agents and are offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-28-000016-v1/65d3e6655849f9040efc7bbc1a680a740e84e9f34f16159ac9189ff8da8dcbe6/",
+    "artifact_tree_sha256": "65d3e6655849f9040efc7bbc1a680a740e84e9f34f16159ac9189ff8da8dcbe6",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-28T07:14:42Z",
+    "renderer_commit": "a93fc88c092faeef1a92b1c905e688aab8e80795",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11N36",
+      "11M26",
+      "11Y35"
+    ]
+  },
+  "first_registered_on": "2026-10-28",
+  "formalization": {
+    "challenge_path": "entries/bordignonstarichkova2024grh/ChallengeBordignonStarichkova2024GRH.lean",
+    "comparator_config_path": "entries/bordignonstarichkova2024grh/comparator-bordignonstarichkova2024grh.json",
+    "definition_names": [
+      "LeanLab.DERZ1997.GRH",
+      "LeanLab.ChenExplicit.twinC",
+      "LeanLab.ChenExplicit.U",
+      "LeanLab.ChenExplicit.BJS.cbar",
+      "LeanLab.BS2022GRH.qG",
+      "LeanLab.BS2022GRH.kA",
+      "LeanLab.BS2022GRH.hS",
+      "LeanLab.BS2022GRH.rX",
+      "LeanLab.BS2022GRH.liPart",
+      "LeanLab.BS2022GRH.liPV",
+      "LeanLab.BS2022GRH.UNfull",
+      "LeanLab.BS2022GRH.Journal.K3J",
+      "LeanLab.BS2022GRH.U7153.zz",
+      "LeanLab.BS2022GRH.U7153.yy",
+      "LeanLab.BS2022GRH.U7153.NoSmallP",
+      "LeanLab.BS2022GRH.U7153.Aset",
+      "LeanLab.BS2022GRH.U7153.SA",
+      "LeanLab.BS2022GRH.U7153.SAq",
+      "LeanLab.BS2022GRH.U7153.Qset",
+      "LeanLab.BS2022GRH.U7153.Triples",
+      "LeanLab.BS2022GRH.U7153.Bset",
+      "LeanLab.BS2022GRH.U7153.SB",
+      "LeanLab.BS2022GRH.U7153.IsP2",
+      "LeanLab.BS2022GRH.U7153.pi2",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.GRH",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.IsSqfreeP2",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.ChenSqfreeRep",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.ChenThreshold13375",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.epsJ",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.Eps1500",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.LinearSieveT4",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.pGJ",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.cGJ",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.Mphi",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.Mphi0",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.mbarJ",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.invTw",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.B5J",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.l1J",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.l2J",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.l3J",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.B6J",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.B7J",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.Cond19",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.Cond25",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.Thm5J",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.Thm6J",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.Thm7J",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.Lemma9J",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.Bracket13375"
+    ],
+    "formalization_metadata_path": "entries/bordignonstarichkova2024grh/formalization.yaml",
+    "lakefile_path": "entries/bordignonstarichkova2024grh/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/bordignonstarichkova2024grh/SolutionBordignonStarichkova2024GRH.lean",
+    "theorem_names": [
+      "LeanLab.BS2022GRH.Cert1575.chenThreshold13375_of_deep_closed",
+      "LeanLab.BS2022GRH.Cert1575.eps1500",
+      "LeanLab.BS2022GRH.Cert1567.bracket13375_holds",
+      "LeanLab.BS2022GRH.ChenThresholdGRH.lemma9J_holds"
+    ]
+  },
+  "id": "PALOMAR-2026-10-28-000016",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-28T08:15:32Z",
+    "receipt_sha256": "2d44c77da68e038d7364b7ccf2aef4e39bf3fd1a992824ab4e232668c8fd4ec6",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000016-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000016-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000016-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000016-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000016-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000016-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000016-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000016-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000016-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "79f0a9c960083e7497d7217132b59ffc24f6558f",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000016-v1/79f0a9c960083e7497d7217132b59ffc24f6558f",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "M. Bordignon"
+          },
+          {
+            "name": "V. Starichkova"
+          }
+        ],
+        "identifier": "doi:10.1007/s11139-024-00866-x",
+        "license": "unknown",
+        "location": "The Ramanujan Journal 64, 2024, pages 1213 to 1242: Corollary 1 p. 1214, Theorem 4 p. 1218 with Table 1, display 6 and Lemma 7 p. 1221, Lemma 9 p. 1227, Theorems 5, 6, 7 pp. 1228 to 1235, Sections 5.4 and 5.5 pp. 1239 to 1241",
+        "relationship": "adapts",
+        "title": "An explicit version of Chen's theorem assuming the Generalized Riemann Hypothesis",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Steve Hubbard"
+          }
+        ],
+        "identifier": "aiXiv.online 2610.02760",
+        "license": "unknown",
+        "location": "aiXiv.online 2610.02760; also aiXiv.science aixiv.261026.000001 and Hexagon 2610.00560",
+        "relationship": "formalizes",
+        "title": "A lower explicit threshold for Chen's theorem under GRH",
+        "type": "preprint"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-28T08:15:09Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "6ff4337612103c989210b9371e911fd48d70fd7122679420b0dbad1a295a394f"
+    },
+    "reviewed_at": "2026-10-28T07:57:29Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "79f0a9c960083e7497d7217132b59ffc24f6558f",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/bordignonstarichkova2024grh",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/79f0a9c960083e7497d7217132b59ffc24f6558f/entries/bordignonstarichkova2024grh"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "a1kwdo9k2rjs"
+  },
+  "title": "CONDITIONAL on GRH and four cited theorems: an explicit Chen threshold exp(exp 13.375), after Bordignon and Starichkova",
+  "trust": {
+    "challenge_bytes": 20814,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 438,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "e5c8619f2e7cc179bff35b0fe60a7a6a1ace83a8dd9b164a4bff9b8df527d5ff",
+    "evidence_path": "evidence/PALOMAR-2026-10-28-000016-v1/22e6ced2ee3792d2ab0a5b4020004932153c30d99d33ff4d5e322ae101cda711/",
+    "evidence_tree_sha256": "22e6ced2ee3792d2ab0a5b4020004932153c30d99d33ff4d5e322ae101cda711",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      }
+    ],
+    "mechanical_report_sha256": "c1532afa63ada47c3a784cc4bae20cea3080250b711ea576d200d7ac9b9cf198",
+    "protected_config_sha256": "a51a9021f1d6fe27ef3f7693ef5c89d1b6765f457a408283c8ab5732bc7b3677",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40642467348,
+    "solution_sha256": "3e17c5c5006fafd9756321f6d03f19185d3f6ab8db1874d21dae8cb3e402bfa0",
+    "tool_digests": {
+      "bwrap": "b2f8791d07aba70e2095d16f62aecfeeca3fdb3e59fd2064ab01841186a69ed1",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-28T07:02:51Z",
+    "workflow_commit": "a93fc88c092faeef1a92b1c905e688aab8e80795",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40642467348"
+  },
+  "version": 1
+}

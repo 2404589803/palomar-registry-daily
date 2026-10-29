@@ -1,0 +1,347 @@
+{
+  "abstract": "CONDITIONAL on two cited results, both taken as explicit hypotheses of the theorems and never as axioms: PPS1984Remark, the printed Remark on p. 530 of A. Perelli, J. Pintz and S. Salerno, Bombieri's theorem in short intervals, 1984, and PP1993Goldbach, the Goldbach analogue of Theorem 3 of A. Perelli and J. Pintz, On the exceptional set for Goldbach's problem in short intervals, 1993, established in its sections 3 to 5 but not printed as a numbered theorem. These are the inputs that the paper's own proof quotes as its Theorems 2.1 and 2.3. PP1993Goldbach is therefore a weaker citation than a numbered theorem: it is the unnumbered Goldbach analogue that Halupczok says the proof of Perelli and Pintz can be adapted to give, stated here in the general form that argument yields. Under the two hypotheses, a complete Lean 4 proof of a repaired form of Theorem 1.2 of K. Halupczok, Goldbach's problem with primes in arithmetic progressions and in short intervals, J. Theor. Nombres Bordeaux 25, 2013, 331 to 351: summed over moduli q <= Q, the weighted count of p1 + p2 + p3 = n with p1 = a mod q and p1, p2 in short intervals differs from its singular series main term T(n, q, a) Y1 Y2 by << Y1 Y2 L^-A. As printed, the theorem sums over all q <= Q with the printed T, which does not vanish when a and q have a common factor, while the prime sum then is empty, so the printed statement fails, for example at a = 3, q = 3. The repair takes the main term to be 0 for such q, or equivalently restricts to q coprime to a. The entry also proves that the two hypotheses imply the paper's Theorems 2.1 and 2.3, as derived results of this entry. Binary Goldbach is open and is not claimed; ternary Goldbach is a theorem of Helfgott. An AI agent wrote the Lean code; the statements were checked against the sources by an AI agent and are offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-28-000026-v1/bafd7228139558528ada74eafa607b6e298d86cae8ab95b408494996eafa4628/",
+    "artifact_tree_sha256": "bafd7228139558528ada74eafa607b6e298d86cae8ab95b408494996eafa4628",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-28T13:10:30Z",
+    "renderer_commit": "a93fc88c092faeef1a92b1c905e688aab8e80795",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11N13",
+      "11P55"
+    ]
+  },
+  "first_registered_on": "2026-10-28",
+  "formalization": {
+    "challenge_path": "entries/halupczok2012/ChallengeHalupczok2012.lean",
+    "comparator_config_path": "entries/halupczok2012/comparator-halupczok2012.json",
+    "definition_names": [
+      "LeanLab.Halupczok2012.kRange",
+      "LeanLab.Halupczok2012.binSumAP",
+      "LeanLab.Halupczok2012.binSum",
+      "LeanLab.Halupczok2012.twinC",
+      "LeanLab.Halupczok2012.S",
+      "LeanLab.Halupczok2012.T",
+      "LeanLab.Halupczok2012.ternSum",
+      "LeanLab.Halupczok2012.Thm2Hyp",
+      "LeanLab.Halupczok2012.Theorem2",
+      "LeanLab.Halupczok2012.T0",
+      "LeanLab.Halupczok2012.Theorem2Zeroed",
+      "LeanLab.Halupczok2012.Theorem5",
+      "LeanLab.Halupczok2012.thetaAP",
+      "LeanLab.Halupczok2012.Theorem3",
+      "LeanLab.Halupczok2012.psiAP",
+      "LeanLab.Halupczok2012.ppsTerm",
+      "LeanLab.Halupczok2012.PPS1984Remark",
+      "LeanLab.Halupczok2012.ppCond",
+      "LeanLab.Halupczok2012.ppR",
+      "LeanLab.Halupczok2012.ppM",
+      "LeanLab.Halupczok2012.PP1993Goldbach"
+    ],
+    "formalization_metadata_path": "entries/halupczok2012/formalization.yaml",
+    "lakefile_path": "entries/halupczok2012/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/halupczok2012/SolutionHalupczok2012.lean",
+    "theorem_names": [
+      "LeanLab.Halupczok2012.theorem2Zeroed_U1510",
+      "LeanLab.Halupczok2012.theorem2_U1510",
+      "LeanLab.Halupczok2012.theorem3_of_remark",
+      "LeanLab.Halupczok2012.theorem5_of_PP1993"
+    ]
+  },
+  "id": "PALOMAR-2026-10-28-000026",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-28T14:10:03Z",
+    "receipt_sha256": "f8958bb2b2eb4c14409ca553cd75fafa51ee39db9ea09c02a992e43b96b56fc5",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000026-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000026-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000026-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000026-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000026-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000026-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000026-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000026-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000026-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "12f09bfeca2ae00988fa039e2e82c6de4d147108",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000026-v1/12f09bfeca2ae00988fa039e2e82c6de4d147108",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Karin Halupczok"
+          }
+        ],
+        "identifier": "arXiv:1212.4406",
+        "license": "unknown",
+        "location": "J. Theor. Nombres Bordeaux 25, 2013, no. 2, pages 331 to 351, doi 10.5802/jtnb.839, Theorem 1.2, pages 333 to 334, Theorem 2 of the arXiv version; Theorems 2.1 and 2.3, pages 338 and 339",
+        "relationship": "adapts",
+        "title": "Goldbach's problem with primes in arithmetic progressions and in short intervals",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "A. Perelli"
+          },
+          {
+            "name": "J. Pintz"
+          },
+          {
+            "name": "S. Salerno"
+          }
+        ],
+        "identifier": "https://www.numdam.org/item/ASNSP_1984_4_11_4_529_0/",
+        "license": "unknown",
+        "location": "Ann. Scuola Norm. Sup. Pisa Cl. Sci. 4, 11, 1984, no. 4, pages 529 to 539, the Remark on page 530 with display 2 of page 529",
+        "relationship": "background",
+        "title": "Bombieri's theorem in short intervals",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "A. Perelli"
+          },
+          {
+            "name": "J. Pintz"
+          }
+        ],
+        "identifier": "doi:10.1112/jlms/s2-47.1.41",
+        "license": "unknown",
+        "location": "J. London Math. Soc. 2, 47, 1993, pages 41 to 49, sections 3 to 5, displays 1, 3, 4 and 5, pages 43 to 46",
+        "relationship": "background",
+        "title": "On the exceptional set for Goldbach's problem in short intervals",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/sthubbar/goldbach-lean/tree/main/entries/bombierivinogradov1965",
+        "note": "The Bombieri-Vinogradov 1965 entry of this repository proves the classical theorem for psi over 1 to x. It does not give intervals of length x^3/5+eps and is not used here; this entry shares no Lean file with it. A search on 2026-10-25 of Mathlib v4.35.0-rc3 and of the web found no earlier Lean formalization of any result of Halupczok 2012, of Bombieri's theorem in short intervals, or of a short interval Goldbach mean square.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-28T14:09:38Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "0edb775d7ea369e567e461e089d43083670242696586c1054d47ada0bce5c73d"
+    },
+    "reviewed_at": "2026-10-28T14:04:03Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "12f09bfeca2ae00988fa039e2e82c6de4d147108",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/halupczok2012",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/12f09bfeca2ae00988fa039e2e82c6de4d147108/entries/halupczok2012"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "knya391ue46w"
+  },
+  "title": "CONDITIONAL on Perelli-Pintz-Salerno 1984 and Perelli-Pintz 1993: Halupczok's ternary Goldbach mean value theorem with primes in progressions and short intervals, repaired",
+  "trust": {
+    "challenge_bytes": 15223,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 269,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "d07185cad663398ce1b8e42006cddb075c0a10a329cc86caab59c77877fcb6a7",
+    "evidence_path": "evidence/PALOMAR-2026-10-28-000026-v1/03407e4e14bff4ea7adf56c2f6de445db8adb5952d74bcbcba06d157d2aea340/",
+    "evidence_tree_sha256": "03407e4e14bff4ea7adf56c2f6de445db8adb5952d74bcbcba06d157d2aea340",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "596a213b4570ea44b81bd125c217ac6cd9bac75221acc93306dab356a7d75c00",
+    "protected_config_sha256": "b72039fed6660e2d2cff9b696bcf56c7a11636cab13327383c252cab3689ef37",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40690923123,
+    "solution_sha256": "65fdc5a8f7578eb92d3b7351ea44815c3adaad233eff86024423146ddd03dfb3",
+    "tool_digests": {
+      "bwrap": "b4e94087013d4ca64ddfe5ab115e014a83ccef54d6c7e01ae7500575633fc4c6",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-28T12:55:32Z",
+    "workflow_commit": "a93fc88c092faeef1a92b1c905e688aab8e80795",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40690923123"
+  },
+  "version": 1
+}

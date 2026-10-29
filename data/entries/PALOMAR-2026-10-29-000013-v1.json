@@ -1,0 +1,413 @@
+{
+  "abstract": "For an odd prime p and integers A, B, C, the alternating floor sum S_{A,B,C}(p) is the sum over 0 <= n < p of (-1)^floor((A n^2 + B n + C)/p). The development proves the root-count reduction of S_{A,B,C}(p) to a sum of Legendre symbols over an arithmetic progression when A + B is even, and, for a positive odd A, an odd prime p not dividing A and an admissible pair (B odd, prime to A, 1 <= B^2 - 4AC < 4A), the square-class decomposition: S_{A,B,C}(p) equals (-1)^C minus the average over the Dirichlet characters psi modulo A of conj(psi(B))^2 times the first Bernoulli number, at modulus 8Ap, of the odd character eta_p chi_{-4}^{delta} psi, where eta_p is the Kronecker character of discriminant -8p. Consequently the sum depends only on the square class of B modulo A. At A = 1 and A = 3 this gives the floor sums in terms of Bernoulli numbers of quadratic characters (which are class numbers by Dirichlet's formula, not formalized). At A = 5 the difference S_{5,3,0}(p) - S_{5,1,0}(p) is the real part of the first Bernoulli number of the quartic character Theta_p = eta_p chi_{-4} xi of conductor 40p, with xi(2) = i; this real part is an even integer whose residue modulo 4 is given by an explicit indicator z_1 - z_3. Finally the sums with A = 1 and fixed shifts a, b are classified: for odd a in terms of S_{1,1,0}(p) and an oriented sum of Legendre symbols, for even a by an explicit finite formula that is bounded and eventually constant in p.",
+  "authors": [
+    {
+      "name": "Joseph S. Farland"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-29-000013-v1/ee11898cf9df3e534d9c1033a3418ce98ddc5d644b168655880d9084c70291f1/",
+    "artifact_tree_sha256": "ee11898cf9df3e534d9c1033a3418ce98ddc5d644b168655880d9084c70291f1",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-29T03:49:16Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11A15",
+      "11B68",
+      "11R29",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-10-29",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "QuadraticFloor.floorSum",
+      "QuadraticFloor.Admissible",
+      "QuadraticFloor.eta",
+      "QuadraticFloor.bern",
+      "QuadraticFloor.vartheta",
+      "QuadraticFloor.lg5",
+      "QuadraticFloor.xiFun",
+      "QuadraticFloor.xi",
+      "QuadraticFloor.Theta",
+      "QuadraticFloor.zB",
+      "QuadraticFloor.osum",
+      "QuadraticFloor.kap"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "QuadraticFloor.root_count",
+      "QuadraticFloor.eta_eq",
+      "QuadraticFloor.window_form",
+      "QuadraticFloor.half_sum_zero_of_periodic",
+      "QuadraticFloor.half_sum_zero_of_even",
+      "QuadraticFloor.bern_antiperiodic",
+      "QuadraticFloor.square_class_decomposition",
+      "QuadraticFloor.floorSum_universal",
+      "QuadraticFloor.floorSum_eq_of_sq_modEq",
+      "QuadraticFloor.exists_admissible",
+      "QuadraticFloor.floorSum_one",
+      "QuadraticFloor.floorSum_three",
+      "QuadraticFloor.quadratic_half",
+      "QuadraticFloor.quartic_split",
+      "QuadraticFloor.quartic_mod_four",
+      "QuadraticFloor.monic_odd",
+      "QuadraticFloor.monic_even",
+      "QuadraticFloor.monic_even_bound",
+      "QuadraticFloor.monic_even_eventually_const"
+    ]
+  },
+  "id": "PALOMAR-2026-10-29-000013",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-29T07:19:08Z",
+    "receipt_sha256": "1c8ee166300b77d8d2953ed94d3e9d727c5a71dff149fcbed3edf6a7af9f0241",
+    "repositories": [
+      {
+        "commit": "7e51a19db5a27cf064bf5d2f8845812fe1070077",
+        "fork_repository": "PalomarArchive/jkfarland-bot--QuadraticFloor--5b8de45d541a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000013-v1/7e51a19db5a27cf064bf5d2f8845812fe1070077",
+        "source_repository": "jkfarland-bot/QuadraticFloor"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000013-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000013-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000013-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000013-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000013-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000013-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000013-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000013-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000013-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.23752228",
+        "license": "CC-BY-4.0",
+        "location": "Preprint, Zenodo, 2026, https://doi.org/10.5281/zenodo.23752229 (v1.0); all versions https://doi.org/10.5281/zenodo.23752228",
+        "relationship": "formalizes",
+        "title": "Quadratic floor sums and the trace of a quartic Bernoulli number, formalized in Lean",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "license": "CC-BY-4.0",
+        "location": "Unpublished manuscript (revised research draft), 2026",
+        "relationship": "formalizes",
+        "title": "Quadratic Floor Sums, Class Numbers, and the Trace of a Quartic Bernoulli Number",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "S. Godin"
+          },
+          {
+            "name": "K. S. Williams"
+          }
+        ],
+        "license": "unknown",
+        "location": "Far East J. Math. Sci. 16 (2005), 1-16",
+        "relationship": "background",
+        "title": "Two term class number formulae of Dirichlet type",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "R. H. Hudson"
+          },
+          {
+            "name": "K. S. Williams"
+          }
+        ],
+        "license": "unknown",
+        "location": "Math. Comp. 39 (1982), 725-732",
+        "relationship": "background",
+        "title": "Class number formulae of Dirichlet type",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "J. Szmidt"
+          },
+          {
+            "name": "J. Urbanowicz"
+          },
+          {
+            "name": "D. Zagier"
+          }
+        ],
+        "license": "unknown",
+        "location": "Acta Arith. 71 (1995), 273-278",
+        "relationship": "background",
+        "title": "Congruences among generalized Bernoulli numbers",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "M. Chamberland"
+          },
+          {
+            "name": "K. Dilcher"
+          }
+        ],
+        "license": "unknown",
+        "location": "arXiv:2510.04387",
+        "relationship": "background",
+        "title": "Sums of the floor function related to class numbers of imaginary quadratic fields",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "M. Chamberland"
+          },
+          {
+            "name": "K. Dilcher"
+          }
+        ],
+        "license": "unknown",
+        "location": "J. Integer Seq. 29 (2026), Article 26.2.1; arXiv:2510.26291",
+        "relationship": "background",
+        "title": "An alternating sum of the floor function of square roots",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://doi.org/10.5281/zenodo.23673067",
+        "note": "BandParity (Palomar PALOMAR-2026-10-27-000018), by the same author, on band-parity sums of a quartic character; no code is shared.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Joseph S. Farland"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-29T07:18:48Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "41fc920ca6715fb1065fc30eaa0f5b3b495e883f45a723d4857df8fbd960ad24"
+    },
+    "reviewed_at": "2026-10-29T05:04:16Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "7e51a19db5a27cf064bf5d2f8845812fe1070077",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jkfarland-bot/QuadraticFloor",
+    "repository_url": "https://github.com/jkfarland-bot/QuadraticFloor",
+    "tree_url": "https://github.com/jkfarland-bot/QuadraticFloor/tree/7e51a19db5a27cf064bf5d2f8845812fe1070077"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "j7k710g7l69s"
+  },
+  "title": "QuadraticFloor: quadratic floor sums and the trace of a quartic Bernoulli number",
+  "trust": {
+    "challenge_bytes": 13731,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 258,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "e3b701d2129fc79501210699aa38ed62b67fa8a7bdfdf117e675f57d854a07c1",
+    "evidence_path": "evidence/PALOMAR-2026-10-29-000013-v1/be112fea5f44803cd19e73a5f999dc52aa3689fcdda93fb8e7f17f59d7cfc587/",
+    "evidence_tree_sha256": "be112fea5f44803cd19e73a5f999dc52aa3689fcdda93fb8e7f17f59d7cfc587",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "03d4bef7a311f5e213970daa87ff5e3d1a94dfa80245e34eca6c2abbc9b6a561",
+    "protected_config_sha256": "2d365e0effe2dd06a6e6dcad607d128594b624eb59efee1abc6c81d86ecfff12",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40812182338,
+    "solution_sha256": "bfa526bdcd4fe6737e13b9459c665fe8c23b9093c0c1e41b7433d50296d5c05e",
+    "tool_digests": {
+      "bwrap": "b2b328bc8f0a6dc5253a6779db8abd727e116cce625043762a788d1c6617286a",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-10-29T03:32:28Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40812182338"
+  },
+  "version": 1
+}

@@ -1,0 +1,295 @@
+{
+  "abstract": "Pratt (STOC 2024, arXiv:2311.02774, Corollary 1.12) showed that if the Set Cover Conjecture holds, then for every k the asymptotic rank of the balanced tripartitioning tensor T_k is at least tau_k = 8^k * C(3k,k) * C(2k,k) / 27^k. A natural way to bound this rank, and Pratt's own route to rank at most 8^k/2, is a group construction: maps f1, f2, f3 from k-subsets of a 3k-set to a group G with f1(A) f2(B) f3(C) = 1 exactly when A, B, C are pairwise disjoint (a partition analogue of the Cohn-Umans triple product property). We formalise that no such construction, in any finite group, abelian or not, can refute the conjecture: |G| > tau_k for every k >= 2. The same holds for Strassen combinatorial degenerations of group tensors (border-rank constructions), via |G| >= C(3k, floor(3k/2)) > tau_k. The proof formalises a rigidity theorem: the triple products always factor through pairwise commuting elements, f1(A) f2(B) f3(C) = prod_i g_i^(m_i - 1) with m the multiplicity vector, so non-abelian groups give no advantage, unlike in the Cohn-Umans approach to matrix multiplication. It also formalises a lift lemma giving |G| >= 2^(3k-1), which shows Pratt's 8^k/2 is exactly optimal among group restrictions. Pratt's Corollary 1.12 and the passage from a group embedding to a rank bound are cited, not formalised. The bounds concern the group size needed by such constructions, not the rank of T_k itself. Joint constructions for tensor powers are covered: a degeneration of a group tensor onto T_k^(tensor m) needs |G| >= C(3k, floor(3k/2))^m > tau_k^m, so the induced asymptotic-rank bound |G|^(1/m) stays above tau_k.",
+  "authors": [
+    {
+      "name": "Eyal Merhavi"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-28-000017-v1/cd27942153c5eb89776c6b395442d788935be3d116d42096fc84ac5f94046a3f/",
+    "artifact_tree_sha256": "cd27942153c5eb89776c6b395442d788935be3d116d42096fc84ac5f94046a3f",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-28T06:50:56Z",
+    "renderer_commit": "a93fc88c092faeef1a92b1c905e688aab8e80795",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.CC",
+      "math.CO",
+      "math.GR"
+    ],
+    "msc2020": [
+      "68Q17",
+      "15A69",
+      "20D60"
+    ]
+  },
+  "first_registered_on": "2026-10-28",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "group_constructions_cannot_refute_SCC",
+      "group_degeneration_exceeds_SCC_threshold",
+      "group_construction_exceeds_SCC_threshold",
+      "ppp_card_ge",
+      "ppp_factors_through_commuting"
+    ]
+  },
+  "id": "PALOMAR-2026-10-28-000017",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-28T08:29:09Z",
+    "receipt_sha256": "696eaeee860f2c9d2eb6a5ff0e4ec19426af3302549a7888b97b320373063cf8",
+    "repositories": [
+      {
+        "commit": "6e572ed4367b37cfd89830f2fa99f4705d300c93",
+        "fork_repository": "PalomarArchive/Eyali1001--scc-group-barrier--270e060b428b",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000017-v1/6e572ed4367b37cfd89830f2fa99f4705d300c93",
+        "source_repository": "Eyali1001/scc-group-barrier"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000017-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000017-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000017-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000017-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000017-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000017-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000017-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000017-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000017-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "relationship": "other",
+        "title": "This work: rigidity of partition products, a lift lemma and a degeneration bound. The informal proofs and the Lean proofs were produced by AI agents (Anthropic Claude). Eyal Merhavi chose the problem, directed the work and is responsible for the submission.",
+        "type": "original-proof"
+      },
+      {
+        "authors": [],
+        "relationship": "background",
+        "title": "K. Pratt, A stronger connection between the asymptotic rank conjecture and the set cover conjecture, STOC 2024, arXiv:2311.02774",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "relationship": "background",
+        "title": "A. Bjorklund, P. Kaski, The asymptotic rank conjecture and the set cover conjecture are not both true, STOC 2024, arXiv:2310.11926",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "relationship": "background",
+        "title": "H. Cohn, C. Umans, A group-theoretic approach to fast matrix multiplication, FOCS 2003",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Eyal Merhavi"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-10-28T08:28:44Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "78ffbb376638ae7ddb3920eeab262f4587db477e3626b2b1b8266689ab8fcb2f"
+    },
+    "reviewed_at": "2026-10-28T07:06:33Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "6e572ed4367b37cfd89830f2fa99f4705d300c93",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "Eyali1001/scc-group-barrier",
+    "repository_url": "https://github.com/Eyali1001/scc-group-barrier",
+    "tree_url": "https://github.com/Eyali1001/scc-group-barrier/tree/6e572ed4367b37cfd89830f2fa99f4705d300c93"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "z0vjw1i8z3ar"
+  },
+  "title": "Group constructions cannot refute the Set Cover Conjecture, including tensor powers",
+  "trust": {
+    "challenge_bytes": 8449,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 138,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "9372a7086ce93830ecbdbbd2f7324ba14ada1d8955abfec84eb87e75aa1ca01a",
+    "evidence_path": "evidence/PALOMAR-2026-10-28-000017-v1/343e5413d3b6ae68c77d0e219b2ed6a906b183b7bd93b41da475f97bd491c273/",
+    "evidence_tree_sha256": "343e5413d3b6ae68c77d0e219b2ed6a906b183b7bd93b41da475f97bd491c273",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "285468663bf37851691ea8cef857e15b0d3fb9a1f82bf9b99e07573aa71db715",
+    "protected_config_sha256": "c786f2355ee795a33a5cb95ec18f25767320b663d9b6409f82747ffb225e070e",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40645431904,
+    "solution_sha256": "00c901e1b40f9cd4faeac7095d5acbd5a269176dda44a835ed09fc279620cbb0",
+    "tool_digests": {
+      "bwrap": "b9e50b6815eb6f4b7afeffc5508e1da7e86c8caa0e399f3f54106825c506018d",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-10-28T06:45:50Z",
+    "workflow_commit": "a93fc88c092faeef1a92b1c905e688aab8e80795",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40645431904"
+  },
+  "version": 1
+}

@@ -1,0 +1,496 @@
+{
+  "abstract": "One assembled Lean formalization of principal refined absorption results and their consequences. The selected results include refined omni-absorbers and refiners, labelled reserve matchings, dense compatible decompositions, an additive compatible-absorber interface retaining independence of the entire old ambient vertex set, and existence of simple designs for every fixed q > r ≥ 2 and index λ ≥ 1 at all sufficiently large admissible orders. The literal global embedding conclusion of the survey is refuted separately from a proved piecewise replacement. The research-note endpoints give completion avoiding an arbitrary forbidden partial Steiner system, sparse prescribed and finite embedded exact intersections, an initial polynomial intersection interval, and polynomial excess in partial parallel classes and Nash–Williams schedule rounds. Both external inputs are supplied by pinned proved theorems. The single comparison selects eighteen declarations from the existing aggregate proof root.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-29-000005-v1/9776638475432163093caa3b3468401b288598289786ef844b4c2980ffa3bf5c/",
+    "artifact_tree_sha256": "9776638475432163093caa3b3468401b288598289786ef844b4c2980ffa3bf5c",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-28T17:02:32Z",
+    "renderer_commit": "a93fc88c092faeef1a92b1c905e688aab8e80795",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05B05",
+      "05B07",
+      "05C15",
+      "05C70"
+    ]
+  },
+  "first_registered_on": "2026-10-29",
+  "formalization": {
+    "challenge_path": "Palomar/UnifiedChallenge.lean",
+    "comparator_config_path": "Palomar/Unified.comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "Palomar/Unified/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      },
+      {
+        "name": "nash_williams_paper_i",
+        "repository": "jtraverso/nash-williams-lean",
+        "revision": "2603197abdbf0a600ec663f6f046f70fbd209d4a"
+      }
+    ],
+    "solution_path": "Palomar/UnifiedSolution.lean",
+    "theorem_names": [
+      "RefinedAbsorption.Faithful2024.theorem_1_7",
+      "RefinedAbsorption.Faithful2024.theorem_1_11",
+      "RefinedAbsorption.Original2024.theorem_6_1",
+      "RefinedAbsorption.Pending.theorem_2_8",
+      "RefinedAbsorption.Faithful2024.theorem_6_2_ambient",
+      "RefinedAbsorption.Pending.theorem_6_3",
+      "RefinedAbsorption.Final.theorem_1_10_faithful",
+      "RefinedAbsorption.existenceConjecture_proved",
+      "RefinedAbsorption.Final.existenceConjecture_steiner",
+      "RefinedAbsorption.FaithfulSurvey2025.not_generalEmbeddingLemmaLiteral",
+      "RefinedAbsorption.FaithfulSurvey2025.generalEmbedding_piecewise",
+      "RefinedAbsorption.Extensions.steiner_completion_avoiding",
+      "RefinedAbsorption.Extensions.steiner_intersection_prescribed",
+      "RefinedAbsorption.Extensions.partialSteiner_intersection_embedding",
+      "RefinedAbsorption.Extensions.steiner_intersection_spectrum_poly",
+      "RefinedAbsorption.Assembly.steiner_quantitatively_almost_resolvable",
+      "RefinedAbsorption.Assembly.exists_quantitatively_almost_resolvable_steiner",
+      "RefinedAbsorption.Assembly.nash_williams_scheduled_decomposition"
+    ]
+  },
+  "id": "PALOMAR-2026-10-29-000005",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-29T03:11:33Z",
+    "receipt_sha256": "a1b7111c53c40d72e7d3d7bc3ff62aec6b86248249056198c7a25696233730ee",
+    "repositories": [
+      {
+        "commit": "2603197abdbf0a600ec663f6f046f70fbd209d4a",
+        "fork_repository": "PalomarArchive/jtraverso--nash-williams-lean--252fc7828395",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000005-v1/2603197abdbf0a600ec663f6f046f70fbd209d4a",
+        "source_repository": "jtraverso/nash-williams-lean"
+      },
+      {
+        "commit": "5bfe5c7346a7b245581152dccebe363e22f072b6",
+        "fork_repository": "PalomarArchive/jtraverso--refined-absorption-lean--6accc6d51192",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000005-v1/5bfe5c7346a7b245581152dccebe363e22f072b6",
+        "source_repository": "jtraverso/refined-absorption-lean"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000005-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000005-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000005-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000005-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000005-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000005-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000005-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000005-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000005-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Michelle Delcourt"
+          },
+          {
+            "name": "Luke Postle"
+          }
+        ],
+        "identifier": "doi:10.48550/arXiv.2402.17855",
+        "location": "arXiv:2402.17855v1 (2024)",
+        "relationship": "formalizes",
+        "title": "Refined Absorption: A New Proof of the Existence Conjecture",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Luke Postle"
+          }
+        ],
+        "identifier": "doi:10.1137/25M1805977",
+        "location": "ICM 2026, Volume 6, pp. 212–231; statement baseline arXiv:2510.19978v1",
+        "relationship": "adapts",
+        "title": "Refined Absorption: A New Proof of the Existence Conjecture and Its Applications to Extremal and Probabilistic Design Theory",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.23715622",
+        "license": "CC-BY-4.0",
+        "location": "Research note, version 1.0.1 (2026); editorial update, unchanged proof sources",
+        "relationship": "formalizes",
+        "title": "Formalizing Delcourt–Postle’s refined absorption in Lean",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Stefan Ehard"
+          },
+          {
+            "name": "Stefan Glock"
+          },
+          {
+            "name": "Felix Joos"
+          }
+        ],
+        "identifier": "doi:10.1017/S0963548320000280",
+        "relationship": "adapts",
+        "title": "Pseudorandom hypergraph matchings",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Nicholas Pippenger"
+          },
+          {
+            "name": "Joel Spencer"
+          }
+        ],
+        "identifier": "doi:10.1016/0097-3165(89)90074-5",
+        "relationship": "background",
+        "title": "Asymptotic behavior of the chromatic index for hypergraphs",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Michelle Delcourt"
+          },
+          {
+            "name": "Luke Postle"
+          }
+        ],
+        "identifier": "doi:10.48550/arXiv.2606.11178",
+        "relationship": "adapts",
+        "title": "A Proof of Nash-Williams' Conjecture",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.23428173",
+        "relationship": "background",
+        "title": "Triangle decompositions I: Formalizing the Nash–Williams theorem in Lean",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.23502224",
+        "relationship": "background",
+        "title": "Triangle decompositions II: Robust absorption for typed triangles",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "C. C. Lindner"
+          },
+          {
+            "name": "A. Rosa"
+          }
+        ],
+        "identifier": "doi:10.4153/CJM-1975-122-4",
+        "relationship": "background",
+        "title": "Steiner triple systems having a prescribed number of triples in common",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "C. C. Lindner"
+          },
+          {
+            "name": "A. Rosa"
+          }
+        ],
+        "identifier": "doi:10.4153/CJM-1978-077-9",
+        "location": "Canadian Journal of Mathematics 30 (1978), p. 896",
+        "relationship": "background",
+        "title": "Steiner triple systems having a prescribed number of triples in common (corrigendum)",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Michelle Delcourt"
+          },
+          {
+            "name": "Cicely (Cece) Henderson"
+          },
+          {
+            "name": "Thomas Lesgourgues"
+          },
+          {
+            "name": "Luke Postle"
+          }
+        ],
+        "identifier": "doi:10.48550/arXiv.2507.23624",
+        "location": "arXiv:2507.23624v1, Appendix B",
+        "relationship": "background",
+        "title": "Erdős meets Nash-Williams",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/jtraverso/pippenger-spencer/tree/b19273396d369332fb489fe07e61e27c9e7f9233",
+        "note": "Pinned three-file polynomial-colouring proof cut, sharing nineteen source-identical matching modules with the Nash–Williams dependency.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/jtraverso/nash-williams-lean/tree/2603197abdbf0a600ec663f6f046f70fbd209d4a",
+        "note": "The proved large-order decomposition endpoint via Papers I–II; source graph theorem remains attributed to Delcourt–Postle.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-29T03:11:14Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "f330dd9d46600d4ee022009de2530a84bf8c07decff6925881f09d1822d0e5d7"
+    },
+    "reviewed_at": "2026-10-28T17:15:59Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "5bfe5c7346a7b245581152dccebe363e22f072b6",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "jtraverso/refined-absorption-lean",
+    "repository_url": "https://github.com/jtraverso/refined-absorption-lean",
+    "tree_url": "https://github.com/jtraverso/refined-absorption-lean/tree/5bfe5c7346a7b245581152dccebe363e22f072b6"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "e82gon08falz"
+  },
+  "title": "Formalizing Delcourt–Postle’s refined absorption in Lean",
+  "trust": {
+    "challenge_bytes": 44579,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics",
+      "Mathlib.Combinatorics.SimpleGraph.Clique",
+      "Mathlib.Combinatorics.SimpleGraph.DegreeSum",
+      "Mathlib.Data.Finset.Powerset",
+      "Mathlib.Data.Nat.Choose.Multinomial",
+      "Mathlib.Data.ZMod.Basic",
+      "Mathlib.LinearAlgebra.Dimension.Constructions",
+      "Mathlib.LinearAlgebra.Lagrange",
+      "Mathlib.LinearAlgebra.Matrix.NonsingularInverse",
+      "Mathlib.RingTheory.Polynomial.DegreeLT",
+      "Mathlib.Tactic.ApplyFun",
+      "Mathlib.Tactic.Choose",
+      "Mathlib.Tactic.Convert",
+      "Mathlib.Tactic.Ext",
+      "Mathlib.Tactic.FieldSimp",
+      "Mathlib.Tactic.FinCases",
+      "Mathlib.Tactic.GCongr",
+      "Mathlib.Tactic.IntervalCases",
+      "Mathlib.Tactic.Linarith",
+      "Mathlib.Tactic.LinearCombination",
+      "Mathlib.Tactic.Positivity",
+      "Mathlib.Tactic.Push",
+      "Mathlib.Tactic.Rify",
+      "Mathlib.Tactic.Ring",
+      "Mathlib.Tactic.SimpRw",
+      "Mathlib.Tactic.SplitIfs",
+      "Mathlib.Tactic.Tauto",
+      "Mathlib.Tactic.Use",
+      "Mathlib.Tactic.Zify"
+    ],
+    "challenge_lines": 733,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "7c22ca060bd0f3efc8016973b8f4fd2e7750726c00ca330a23ae9bb2d189b266",
+    "evidence_path": "evidence/PALOMAR-2026-10-29-000005-v1/32bd09468175ea4349de74b98c80d64d598e073282ad50d89a0d457dc28c8d89/",
+    "evidence_tree_sha256": "32bd09468175ea4349de74b98c80d64d598e073282ad50d89a0d457dc28c8d89",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "8bfb364ca3aba951b78aa2bb9043ce7d17750972ce7fe90d49041936258138b7",
+    "protected_config_sha256": "e1321fd95ea100f6ce5d96177d6c813f7733d9141b7387f7a19dc3dd0ef5404a",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40725007461,
+    "solution_sha256": "8df357cb9ee5efb74cebe6c687c7debe8d30ed93b70e8634490e89d56c895913",
+    "tool_digests": {
+      "bwrap": "1e123ec7b2961d7014758a6c2ca95eefb10805fc497e2442328a79b8ed534b08",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-28T16:39:46Z",
+    "workflow_commit": "a93fc88c092faeef1a92b1c905e688aab8e80795",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40725007461"
+  },
+  "version": 1
+}

@@ -1,0 +1,520 @@
+{
+  "abstract": "Kernel-checked transfer of the exact CHSH constants for self-adjoint involutions (Mathlib's IsCHSHTuple in a C*-normed ring: the norm of the CHSH operator T = A0 B0 + A0 B1 + A1 B0 - A1 B1 is at most 2*sqrt(2), equals 2 under a commuting party (the equality in a nontrivial real C*-normed algebra; the <= forms in every C*-normed ring), and exceeds 2 only if both parties are noncommuting) to self-adjoint CONTRACTIONS, together with the state corollary. A CHSH contraction tuple is four self-adjoint operators of norm at most 1 with the four cross-party commutations - IsCHSHTuple with the involution relations relaxed to norm bounds. The route is the Halmos dilation A -> A (x) Z + sqrt(1 - A^2) (x) X (Halmos 1950), applied with ONE ANCILLA PER OBSERVABLE: the four dilations form a Mathlib IsCHSHTuple on n (x) (C^2)^(x)4, every commutation relation among the four observables transfers to the dilations, the dilated CHSH operator compresses to T, and compression does not increase the operator norm, so every involution bound transfers. One ancilla per party would not do: for B0 = 1, B1 = 0 the single-ancilla dilations 1 (x) Z and 1 (x) X anticommute, so the commuting-party bound would not transfer. Nine compared statements: for n x n complex matrices (l2-operator norm), norm T <= 2*sqrt(2), norm T <= 2 if either party commutes, and 2 < norm T forces both parties noncommuting; for every density matrix rho, (1/2)|Re tr(rho T)| <= sqrt(2), and <= 1 under a commuting party; the same three norm bounds for bounded operators on a complete complex inner-product space (ampliation on the Hilbert sum WithLp 2 (E x E)); and, RESTATED, the parallelogram bound norm(A0 (B0 + B1) + A1 (B0 - B1)) <= 2*sqrt(2) for four operators of norm at most 1 with no self-adjointness and no commutation (folklore; formalized in Lean by Physical Superintelligence, 2026-10-23; proved independently here). The involution constants are the author's registered entry PALOMAR-2026-08-19-000007, re-proved here as library support and not compared. The bounds themselves are classical (Tsirelson 1980; the commuting-algebra bound as used by Summers and Werner 1987); new in this entry, relative to the Lean prior art recorded under sources (PSI's parallelogram and Hilbert-space state bounds; Lean-QIT's Kronecker-form state bound for contractions), are the contraction statements in the forms stated and their derivation from the involution constants by dilation (statements 1 and 6 are, as statements, the self-adjoint cross-commuting case of the parallelogram bound; their novelty is the route). The Challenge imports Mathlib only; the three structures it uses (IsCHSHContractionTuple for matrices, IsDensityMatrix, Hilbert.IsCHSHContractionTuple for operators) are verbatim copies of the library's, checked byte for byte by scripts/check_challenge_definitions.py. The Mathlib definitions the statements import (the scoped l2-operator norm on matrices, PosSemidef under ComplexOrder, IsSelfAdjoint and the adjoint, the trace, the operator norm, WithLp 2, IsCHSHTuple) are quoted verbatim from the pinned source with permalinks in MATHLIB_DEFINITIONS.md and kernel-checked in DefinitionAudit.lean, a default build target that is not compared.",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-28-000030-v1/577f898d594acf823e547be069f3452cacc4bc261488133dca64a73618d977f4/",
+    "artifact_tree_sha256": "577f898d594acf823e547be069f3452cacc4bc261488133dca64a73618d977f4",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-28T14:09:54Z",
+    "renderer_commit": "a93fc88c092faeef1a92b1c905e688aab8e80795",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "quant-ph",
+      "math-ph",
+      "math.OA"
+    ],
+    "msc2020": [
+      "81P40",
+      "81P15",
+      "47A20",
+      "46L05"
+    ]
+  },
+  "first_registered_on": "2026-10-28",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "TsirelsonContractions.Entry.chsh_norm_le_of_contractions",
+      "TsirelsonContractions.Entry.chsh_norm_le_two_of_contractions_of_comm",
+      "TsirelsonContractions.Entry.noncomm_of_chsh_norm_gt_two_of_contractions",
+      "TsirelsonContractions.Entry.bell_correlation_le_sqrt_two",
+      "TsirelsonContractions.Entry.bell_correlation_le_one_of_comm",
+      "TsirelsonContractions.Entry.Hilbert.chsh_norm_le_of_contractions",
+      "TsirelsonContractions.Entry.Hilbert.chsh_norm_le_two_of_contractions_of_comm",
+      "TsirelsonContractions.Entry.Hilbert.noncomm_of_chsh_norm_gt_two_of_contractions",
+      "TsirelsonContractions.Entry.chsh_norm_le_two_sqrt_two_of_contractions"
+    ]
+  },
+  "id": "PALOMAR-2026-10-28-000030",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-28T19:22:50Z",
+    "receipt_sha256": "37fe12cc4cd7e91a8cea76b0eda9974a9f96f388e521c2d194d8be6f771250bf",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000030-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000030-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000030-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000030-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000030-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000030-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000030-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000030-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000030-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "ef7bd3b81c4cda7030329bc1057df7b00e9efb9b",
+        "fork_repository": "PalomarArchive/stalex444--tsirelson-contractions--1b92abc56697",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-28-000030-v1/ef7bd3b81c4cda7030329bc1057df7b00e9efb9b",
+        "source_repository": "stalex444/tsirelson-contractions"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "B. S. Cirel'son (Tsirelson)"
+          }
+        ],
+        "identifier": "Letters in Mathematical Physics 4 (1980) 93-100",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/BF00417500",
+        "relationship": "formalizes",
+        "title": "Quantum generalizations of Bell's inequality",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Stephen J. Summers"
+          },
+          {
+            "name": "Reinhard F. Werner"
+          }
+        ],
+        "identifier": "Journal of Mathematical Physics 28 (1987) 2440-2447",
+        "license": "unknown",
+        "location": "https://doi.org/10.1063/1.527733",
+        "relationship": "background",
+        "title": "Bell's inequalities and quantum field theory. I. General setting",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "B. S. Tsirel'son"
+          }
+        ],
+        "identifier": "Journal of Soviet Mathematics 36 (1987) 557-570",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/BF01663472",
+        "relationship": "background",
+        "title": "Quantum analogues of the Bell inequalities. The case of two spatially separated domains",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Lawrence J. Landau"
+          }
+        ],
+        "identifier": "Physics Letters A 120 (1987) 54-56",
+        "license": "unknown",
+        "location": "https://doi.org/10.1016/0375-9601(87)90075-2",
+        "relationship": "background",
+        "title": "On the violation of Bell's inequality in quantum theory",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Stephen J. Summers"
+          },
+          {
+            "name": "Reinhard F. Werner"
+          }
+        ],
+        "identifier": "Communications in Mathematical Physics 110 (1987) 247-259",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/BF01207366",
+        "relationship": "background",
+        "title": "Maximal violation of Bell's inequalities is generic in quantum field theory",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Paul R. Halmos"
+          }
+        ],
+        "identifier": "Summa Brasiliensis Mathematicae 2 (1950) 125-134",
+        "license": "unknown",
+        "location": "https://mathscinet.ams.org/mathscinet-getitem?mr=44036",
+        "relationship": "background",
+        "title": "Normal dilations and extensions of operators",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Mnacho Echenim"
+          },
+          {
+            "name": "Mehdi Mhalla"
+          },
+          {
+            "name": "Coraline Mori"
+          }
+        ],
+        "identifier": "Archive of Formal Proofs, entry TsirelsonBound (Echenim, Mhalla, Mori), 2023-04-18; companion paper: M. Echenim and M. Mhalla, J. Autom. Reason. 68 (2024) art. 2, DOI 10.1007/s10817-023-09689-9, arXiv:2306.12535",
+        "license": "BSD-3-Clause",
+        "location": "https://www.isa-afp.org/entries/TsirelsonBound.html",
+        "relationship": "background",
+        "title": "The CHSH inequality: Tsirelson's upper-bound and other results",
+        "type": "software"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Physical Superintelligence (PSI)"
+          }
+        ],
+        "identifier": "github.com/physical-superintelligence/oqp-batch-2026, release 2026-10-23, HEAD da37af2 (2026-10-26)",
+        "license": "Apache-2.0",
+        "location": "https://github.com/physical-superintelligence/oqp-batch-2026",
+        "relationship": "background",
+        "title": "oqp-batch-2026, result oqp12 (VacuumBellSeparation library)",
+        "type": "software"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "QuAIR Team (Chengkai Zhu, Ziao Tang, Guocheng Zhen, Yimeng Cao, Yusheng Zhao, Ranyiliu Chen, Xuanqiang Zhao, Lei Zhang, Xin Wang)"
+          }
+        ],
+        "identifier": "github.com/QuAIR/Lean-QIT, QIT/Nonlocality/Tsirelson.lean; file first committed 9ae9f8ac25 (2026-06-21), tag v0.2.0 a081b343 (2026-10-22), HEAD 8a931d4 (2026-10-22); library paper arXiv:2607.09632 (2026-07-10), which does not mention CHSH",
+        "license": "Apache-2.0",
+        "location": "https://github.com/QuAIR/Lean-QIT/blob/8a931d4bda61ba503cfc0728704cfef5dedf2cff/QIT/Nonlocality/Tsirelson.lean",
+        "relationship": "background",
+        "title": "Lean-QIT: QIT/Nonlocality/Tsirelson.lean (ContractionModel; value_le_two_mul_sqrt_two)",
+        "type": "software"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Thomas Vidick"
+          }
+        ],
+        "identifier": "github.com/vidick/MIPRE-formalization, MIPRE/Foundations/HalmosDilation.lean and MIPRE/Foundations/CommutingDilation.lean; both first committed 3d2cc92c93 (2026-09-29), HEAD 5926bdf (2026-10-15); the repository is registered as PALOMAR-2026-10-09-000012",
+        "license": "Apache-2.0",
+        "location": "https://github.com/vidick/MIPRE-formalization/blob/5926bdff5db621f44682a101007ef2fe3ae8d970/MIPRE/Foundations/CommutingDilation.lean",
+        "relationship": "background",
+        "title": "MIPRE-formalization: MIPRE/Foundations/HalmosDilation.lean and CommutingDilation.lean (commutation-preserving Halmos-Naimark dilation of POVMs)",
+        "type": "software"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "J. G. A. Caribe"
+          },
+          {
+            "name": "M. S. Guimaraes"
+          },
+          {
+            "name": "I. Roditi"
+          },
+          {
+            "name": "S. P. Sorella"
+          }
+        ],
+        "identifier": "arXiv:2608.20926 (2026-08-21)",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2608.20926",
+        "relationship": "background",
+        "title": "Finite Weyl polynomials and the approach to Tsirelson's bound in relativistic scalar quantum field theory",
+        "type": "preprint"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Farzin Salek"
+          },
+          {
+            "name": "Masahito Hayashi"
+          }
+        ],
+        "identifier": "arXiv:2608.11122 (2026-08-11)",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2608.11122",
+        "relationship": "background",
+        "title": "Robust CHSH Self-Testing with Finite-Energy GKP States",
+        "type": "preprint"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Kim Morrison"
+          }
+        ],
+        "identifier": "Mathlib, Mathlib/Algebra/Star/CHSH.lean at revision 065356127b1dc0016f66b7283ce0ce2c4055aa55 (the package's pin)",
+        "license": "Apache-2.0",
+        "location": "https://github.com/leanprover-community/mathlib4/blob/065356127b1dc0016f66b7283ce0ce2c4055aa55/Mathlib/Algebra/Star/CHSH.lean",
+        "relationship": "background",
+        "title": "Mathlib: Algebra/Star/CHSH.lean (IsCHSHTuple; tsirelson_inequality)",
+        "type": "source code"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "Isabelle/AFP TsirelsonBound (Echenim, Mhalla, Mori; 2023-04-18)",
+        "note": "An independent formalization, in Isabelle/HOL, of the involution matrix case: CHSH_op_L2_op_nrm_le (norm at most 2*sqrt(2)), CHSH_op_commute_L2_op_nrm_eq (norm equal to 2 under a commuting party), CHSH_op_square (the Landau identity), CHSH_expect_gen_leq and CHSH_expect_commute_leq (density-matrix bounds). Its CHSH_cond requires A0 * A0 = 1 and the three analogues, so none of its theorems covers self-adjoint contractions, and none covers infinite dimension; the compared statements here are the contraction forms.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "PSI oqp-batch-2026, oqp12 VacuumBellSeparation (release 2026-10-23)",
+        "note": "An independent Lean formalization of the parallelogram bound for contractions (norm_chshOp_le_two_sqrt_two; the restated statement 9 of this entry) and of the state-level bound sqrt(2) for commuting von Neumann algebras (chshValue_le_sqrt_two, bellCorrelation_le_sqrt_two). Its convexity transfer from reflections to self-adjoint contractions (chsh_bound_of_reflections) is a different mechanism at state level; PSI states none of statements 2-3 and 7-8, and its parallelogram theorem implies 1 and 6 as statements (the novelty of 1 and 6 here is the dilation proof); its contractionDilation is the defect-operator isometry used for Hansen's inequality, not an involutive dilation.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "QuAIR/Lean-QIT, QIT.Bell.CHSH.ContractionModel.value_le_two_mul_sqrt_two (2026-06-21)",
+        "note": "An independent Lean formalization of the matrix, Kronecker-form, state-level bound Re tr(rho T) <= 2*sqrt(2) for Hermitian contractions (1 - A^2 positive semidefinite) by a sum-of-squares certificate with defect terms, predating PSI's state bound by four months; it has no operator-norm statement, no general cross-commuting form, no absolute value, no commuting-party bound, no necessity of noncommutativity and no infinite dimension, and the compared statement bell_correlation_le_sqrt_two differs from it in all of these.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "vidick/MIPRE-formalization, MIPRE/Foundations/CommutingDilation.lean and HalmosDilation.lean (2026-09-29; HEAD 5926bdf 2026-10-15; registered PALOMAR-2026-10-09-000012)",
+        "note": "A commutation-preserving Halmos-Naimark dilation of POVMs to projection-valued measures, one measurement per ancilla, for commuting-operator strategies; the same mechanism as the package's four-ancilla design, applied to a different object (POVMs to PVMs, not self-adjoint contractions to involutions) and without CHSH bounds or intra-party commutation transfer.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Mathlib Mathlib/Algebra/Star/CHSH.lean (IsCHSHTuple)",
+        "note": "IsCHSHTuple is the target of the dilation: the four dilated operators form a Mathlib IsCHSHTuple, to which the involution constants apply.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "leanprover-community/physlib, PhyslibAlpha/QuantumMechanics/StinespringDilation.lean",
+        "note": "A unitary dilation of a Kraus channel with an ancilla; a different dilation, recorded for completeness (physlib also carries Stinespring's theorem for CP maps in PhyslibAlpha/ProbabilisticTheory/CStarAlgebra/Stinespring/Dilation.lean, likewise a channel dilation, not an involutive dilation of a contraction).",
+        "relationship": "other"
+      },
+      {
+        "identifier": "PALOMAR-2026-08-19-000007 (https://palomar-registry.org/entry.html?id=PALOMAR-2026-08-19-000007; stalex444/pdt-lean, PdtTsirelsonExact.lean)",
+        "note": "The author's registered entry on the exact CHSH constants for involutions (registered Challenge namespace TsirelsonTightness, compared names chsh_norm_le, chsh_norm_of_comm, noncomm_of_chsh_norm_gt_two among others; v1 commit 22b7d810, v2 commit 0dae307f; library PdtTsirelsonExact.lean, namespace PDT, branch norm-entry): for any Mathlib IsCHSHTuple in a C*-normed ring, norm T <= 2*sqrt(2); norm T = 2 if either party's pair commutes (the equality in a nontrivial real C*-normed algebra, i.e. under Nontrivial R and NormedAlgebra over the reals; the <= forms in every C*-normed ring); and norm T > 2 forces both parties noncommuting (the Landau/Tsirelson C*-argument through the identity T^2 = 4 + [A0,A1][B1,B0]). This entry extends it from involutions to contractions: Involutions.lean re-proves those results at this package's Mathlib pin (with the <= forms stated without a Nontrivial hypothesis, so that the transfer allows the empty index type), and the compared statements are their contraction forms obtained by the four-ancilla Halmos dilation, plus the state corollary and the Hilbert-space form. The involution results themselves are not compared here.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-28T19:22:20Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "4b4625f3bc1562b698637faedf842211c0eb23d808ff888cfea06c35b7d8c3aa"
+    },
+    "reviewed_at": "2026-10-28T15:08:17Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "ef7bd3b81c4cda7030329bc1057df7b00e9efb9b",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/tsirelson-contractions",
+    "repository_url": "https://github.com/stalex444/tsirelson-contractions",
+    "tree_url": "https://github.com/stalex444/tsirelson-contractions/tree/ef7bd3b81c4cda7030329bc1057df7b00e9efb9b"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "dw56nik4ni40"
+  },
+  "title": "CHSH bounds for contractions by dilation: Tsirelson's bound, the classical bound under a commuting party, and the necessity of noncommutativity",
+  "trust": {
+    "challenge_bytes": 17360,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 313,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "f8623060169e14f5b52129dbe6b1365c59bd60a2c22a1e2dc7707f4fcea4280e",
+    "evidence_path": "evidence/PALOMAR-2026-10-28-000030-v1/d57d8e8a9c58b3786fcf57c164992cf4303fe0e7b97ce40962eedeeb45dfadb9/",
+    "evidence_tree_sha256": "d57d8e8a9c58b3786fcf57c164992cf4303fe0e7b97ce40962eedeeb45dfadb9",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "8e3b7dffdf500067061534eb55319d667b9e15cdc184ae57c9078749ddbca755",
+    "protected_config_sha256": "01133db747ff47481d7138c8be86c9669034a74e05d2a12a749312a7ee8fc2ff",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40699961415,
+    "solution_sha256": "9f7c683c84f859e1cd7b127a0fe33fb7645f5bc98e2a26a3778f45dff75b664b",
+    "tool_digests": {
+      "bwrap": "2472c45a53f358d9d80c1f37a717479e8981b7f89ed3207b3e16fb2b559e2612",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-28T13:55:57Z",
+    "workflow_commit": "a93fc88c092faeef1a92b1c905e688aab8e80795",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40699961415"
+  },
+  "version": 1
+}
