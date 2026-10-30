@@ -1,0 +1,384 @@
+{
+  "abstract": "Cohn, Kumar and Minton constructed a universally optimal code of thirty-nine points in the octonionic projective plane 𝕆P², whose existence was conjectured by Hoggar. Its points form thirteen mutually unbiased Jordan frames, and a four-parameter phase family deforms the code through such configurations. This Lean development describes their local geometry under the automorphism group F₄. At every nonresonant phase, every nearby real solution of the defining equations belongs to one of four smooth families of labelled configurations. In a local slice for F₄, their union has normal form R⁴ × ⋃ᵢ₌₁⁴ R⁶ᵢ, with the R⁶ᵢ in direct sum. The distance to the localized family union is bounded by a phase-dependent constant times the square root of the residual, and the exponent 1/2 is sharp in the ambient configuration space. On an explicit open dense subset of the nonresonant phases, the complexified families are exactly the top-dimensional components of the complex solution germ, each generically reduced. Every neighbourhood of the original code in the space of unlabelled tight 39-point codes modulo F₄ contains points of local dimension 10.\n\nThe results are local, the resonant germ at the original code is not classified, and lower-dimensional complex components are not excluded. For exact frames and strongly convex C² overlap potentials, we prove a two-sided comparison of the energy gap with squared overlap errors and, near each nonresonant orbit, a quartic lower bound in distance to the localized family union. Except for attributed third-party material, all text and code are AI-generated under Robert R. MacGregor’s direction. Robert is an amateur who welcomes collaboration (macgregor@gmail.com).",
+  "authors": [
+    {
+      "name": "Robert R. MacGregor"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-29-000034-v1/259e226017db4bde15d40a22221ab1d528667151a1b696a43837de05189b64fd/",
+    "artifact_tree_sha256": "259e226017db4bde15d40a22221ab1d528667151a1b696a43837de05189b64fd",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-29T16:16:41Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.DG",
+      "math.CO",
+      "math.RA"
+    ],
+    "msc2020": []
+  },
+  "first_registered_on": "2026-10-29",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "CKM.NativeTightCodeConsumer.code_bound",
+      "CKM.NativeTightCodeConsumer.code_bound_sharp",
+      "CKM.NativeTightCodeConsumer.tight_code_iff_frames",
+      "SupportedStress.supported_stress_local_criterion",
+      "CKM.NativeExactFrameEnergy.native_energy_sandwich",
+      "CompactAlbert.native_idempotent_iff_scaled_specialUnitary_of_literal_quartet_readouts",
+      "CompactAlbert.nativeComplementaryPoint_scaled_hidden_inverse",
+      "CompactAlbert.native_complementary_frame_iff_exists_central_order",
+      "CompactAlbert.native_ordered_central_triples_overlap_iff_hilbertSchmidt",
+      "CKM.NativeUnlabelledSlice.literalCfg_mem_tightLocus",
+      "Option2StatementCode.exists_goodAvoid_codeClass_mem_nhds_one",
+      "Option2StatementA1.state_equivalence",
+      "Option2StatementA1.quartet_fixer_classification",
+      "Option2StatementA1.quartet_fixer_converse",
+      "Option2StatementCode.originalCode_no_open24_chart",
+      "Option2StatementCode.originalCode_no_charted24_neighborhood",
+      "Option2StatementA3.finrank_original_derivative_kernel",
+      "Option2StatementA1.nine_frame_array",
+      "Option2StatementA3Matrix.unrestricted_matrix_normal_form",
+      "Option2StatementA3Matrix.firstOrder_dimension",
+      "Option2StatementA3Matrix.resonance_count_cases",
+      "Option2StatementA2.full_A2",
+      "Option2StatementA5Slice.native_A5_geometry",
+      "Option2StatementA4.full_A4",
+      "Option2StatementA6.native_A6",
+      "Option2StatementCode.native_A7_local_dimension",
+      "Option2StatementR.native_real_endpoint",
+      "Option2StatementR.normal_form_exists",
+      "Option2StatementR.native_exact_frame_quartic_stability_near_orbit"
+    ]
+  },
+  "id": "PALOMAR-2026-10-29-000034",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-29T17:30:45Z",
+    "receipt_sha256": "db088c3d4936ab479bba09f1086575338d25c1a24be7012d71e27509b38b6765",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000034-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000034-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000034-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000034-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000034-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000034-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000034-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000034-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000034-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "46f01c135aacea9003435e7f1dc99b4a69568e83",
+        "fork_repository": "PalomarArchive/macgregor-sudo--tight-39-code--ae805be97afb",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000034-v1/46f01c135aacea9003435e7f1dc99b4a69568e83",
+        "source_repository": "macgregor-sudo/tight-39-code"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "location": "README.md and the separately implemented Solution.lean proof closure",
+        "relationship": "other",
+        "title": "On the local geometry of the tight 39-point code in 𝕆P²",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "Henry Cohn"
+          },
+          {
+            "name": "Abhinav Kumar"
+          },
+          {
+            "name": "Gregory Minton"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1308.3188",
+        "location": "Section 8.2, configuration, phase family and Conjecture 8.4",
+        "relationship": "background",
+        "title": "Optimal simplices and codes in projective spaces",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Reinhard F. Werner"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/quant-ph/0003070",
+        "relationship": "background",
+        "title": "All teleportation and dense coding schemes",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Stephen Boyd"
+          },
+          {
+            "name": "Lieven Vandenberghe"
+          }
+        ],
+        "location": "Section 9.1.2, equations (9.8) and (9.13)",
+        "relationship": "background",
+        "title": "Convex Optimization",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Ryszard Engelking"
+          }
+        ],
+        "location": "1978; Theorem 1.5.3, Corollary 1.5.4, Theorems 1.8.1–1.8.2",
+        "relationship": "background",
+        "title": "Dimension Theory",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/macgregor-sudo/compact-albert-recognition/tree/40d3b344180d9ddb78aaa2876873377c1e631515",
+        "note": "Finite Observations and Recognition of the Compact Albert Algebra. Reuses the native real division-octonion/Albert carrier, product and trace, Hermitian coordinate and sector-action adapters, and adapted algebra-law, cubic-identity, inner-derivation and flow lemmas. Selected components are extracted and adapted to this project’s module layout and conventions; this does not import the prior recognition conclusions as assumptions. Exact component mappings, modifications and Apache-2.0 notices are retained in THIRD_PARTY_NOTICES.md and source headers.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/macgregor-sudo/albert-frame-triple-invariants/tree/dd06ef5d423a0e4a5d814d2c221e999b98887ee1",
+        "note": "Rational invariants of three frames in the split Albert algebra (PALOMAR-2026-09-13-000001, version 1). The general cubic-trace-identity implication in AlbertLean/CubicJordan.lean is an ancestor of Proofs/NativeTrialityReuseCubicJordan.lean, adapted through compact-albert-recognition from rational to real scalar/API form and renamed for this closure. The native compact cubic identity is proved separately; neither the split-Albert invariant-field result nor its model-identification theorem is reused as a compact-Albert result. Apache-2.0 ancestry and retained notices are described in THIRD_PARTY_NOTICES.md.",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Robert R. MacGregor"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-10-29T17:30:19Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "8999268d85c7bb11d7f630c40205702902484f402e909496fbd71d94eb6a09fd"
+    },
+    "reviewed_at": "2026-10-29T17:06:17Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "46f01c135aacea9003435e7f1dc99b4a69568e83",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "macgregor-sudo/tight-39-code",
+    "repository_url": "https://github.com/macgregor-sudo/tight-39-code",
+    "tree_url": "https://github.com/macgregor-sudo/tight-39-code/tree/46f01c135aacea9003435e7f1dc99b4a69568e83"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "rj7pz1ie2n2w"
+  },
+  "title": "On the local geometry of the tight 39-point code in 𝕆P²",
+  "trust": {
+    "challenge_bytes": 96298,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Group.Even",
+      "Mathlib.Algebra.Module.Submodule.EqLocus",
+      "Mathlib.Algebra.Module.TransferInstance",
+      "Mathlib.Algebra.Quaternion",
+      "Mathlib.Analysis.Analytic.Constructions",
+      "Mathlib.Analysis.Complex.Circle",
+      "Mathlib.Analysis.Complex.Trigonometric",
+      "Mathlib.Analysis.InnerProductSpace.PiL2",
+      "Mathlib.Analysis.InnerProductSpace.Projection.FiniteDimensional",
+      "Mathlib.Analysis.Matrix.Normed",
+      "Mathlib.Analysis.Normed.Algebra.MatrixExponential",
+      "Mathlib.Data.ZMod.Basic",
+      "Mathlib.Geometry.Manifold.Immersion",
+      "Mathlib.Geometry.Manifold.MFDeriv.NormedSpace",
+      "Mathlib.LinearAlgebra.Complex.FiniteDimensional",
+      "Mathlib.LinearAlgebra.Quotient.Basic",
+      "Mathlib.Logic.Equiv.Fin.Basic",
+      "Mathlib.RingTheory.Ideal.MinimalPrime.Basic",
+      "Mathlib.RingTheory.Ideal.Quotient.Operations",
+      "Mathlib.RingTheory.KrullDimension.Basic",
+      "Mathlib.RingTheory.Length",
+      "Mathlib.RingTheory.Localization.AtPrime.Basic",
+      "Mathlib.RingTheory.Spectrum.Prime.RingHom",
+      "Mathlib.Tactic.FieldSimp",
+      "Mathlib.Tactic.FinCases",
+      "Mathlib.Topology.Germ",
+      "Mathlib.Topology.MetricSpace.HausdorffDistance",
+      "Mathlib.Topology.SmallInductiveDimension"
+    ],
+    "challenge_lines": 993,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "14ff35f7d75e424f34cd9860045bfc57d058d127ca8bc5ddc07a456a4681c95a",
+    "evidence_path": "evidence/PALOMAR-2026-10-29-000034-v1/de200b69407e21a54334fc5b39aa9387fdfa224efc6aaf27a36e2a7674b97e64/",
+    "evidence_tree_sha256": "de200b69407e21a54334fc5b39aa9387fdfa224efc6aaf27a36e2a7674b97e64",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      }
+    ],
+    "mechanical_report_sha256": "7393887a044b1a4ef753a091aad15c51666b0c2acb222b45d7edbc1666e379e6",
+    "protected_config_sha256": "cd22cc29f19de0cbd4ec106664c9edbc430159641bd6f3cdac8fea5604e1ac5b",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40885402065,
+    "solution_sha256": "d5dc8d4d3119153491c7e4cca710b782f127f8ab9de5682dd4bfe2e6aaea9184",
+    "tool_digests": {
+      "bwrap": "f0b17f89912d2569aa97adbdc296b947611ef96e370b7351147a070738d9efbc",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-29T15:36:05Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40885402065"
+  },
+  "version": 1
+}

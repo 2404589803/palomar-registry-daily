@@ -1,0 +1,377 @@
+{
+  "abstract": "This entry formalizes the mean and variance of three statistics for a sample of size n ≥ 2 under Kingman's coalescent, with time scaled so that each pair of lineages coalesces at rate 1 and with mutations placed on each branch as a Poisson process of rate θ/2 per unit length (infinite sites, so every mutation is a segregating site). The genealogy is Kingman's coalescent on set partitions of the labelled sample, realized as a jump chain with independent exponential holding times, and the mutation counts on its branch segments are conditionally independent Poisson variables given the genealogy. The statistics are the number S of segregating sites, Watterson's estimator S/a₁, and the average number π of pairwise differences. The mean of S is θa₁ and its variance is θa₁ + θ²a₂, where a₁ = Σ_{i=1}^{n−1} 1/i and a₂ = Σ_{i=1}^{n−1} 1/i². Watterson's estimator has mean θ and variance θ/a₁ + θ²a₂/a₁². The mean of π is θ, and its variance is b₁θ + b₂θ² with b₁ = (n + 1)/(3(n − 1)) and b₂ = 2(n² + n + 3)/(9n(n − 1)).",
+  "authors": [
+    {
+      "name": "X. Lee"
+    },
+    {
+      "name": "N. Volkov"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-29-000019-v1/0431167751d743246b3d74528e66766adeedfd8a987340752fc4478321c24f28/",
+    "artifact_tree_sha256": "0431167751d743246b3d74528e66766adeedfd8a987340752fc4478321c24f28",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-29T06:20:19Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "q-bio.PE",
+      "math.PR"
+    ],
+    "msc2020": [
+      "92D10",
+      "60J90",
+      "62F10"
+    ]
+  },
+  "first_registered_on": "2026-10-29",
+  "formalization": {
+    "challenge_path": "Rhone/Unproved/Palomar/KingmanSegregatingSites/Challenge.lean",
+    "comparator_config_path": "Palomar/KingmanSegregatingSites/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "Palomar/KingmanSegregatingSites/formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "ADR11",
+        "repository": "vltanh/lean4-adr11",
+        "revision": "2db7f81359758bc49f52bc13c51f2640f8f2a7fd"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Palomar/KingmanSegregatingSites/Solution.lean",
+    "theorem_names": [
+      "Rhone.Palomar.KingmanSegregatingSites.markedKingmanSegregating_mean",
+      "Rhone.Palomar.KingmanSegregatingSites.markedKingmanSegregating_variance",
+      "Rhone.Palomar.KingmanSegregatingSites.markedKingmanWatterson_mean",
+      "Rhone.Palomar.KingmanSegregatingSites.markedKingmanWatterson_variance",
+      "Rhone.Palomar.KingmanSegregatingSites.markedKingmanPi_mean",
+      "Rhone.Palomar.KingmanSegregatingSites.markedKingmanPi_variance"
+    ]
+  },
+  "id": "PALOMAR-2026-10-29-000019",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-29T11:50:39Z",
+    "receipt_sha256": "6525986bae51c4e4e3dbd7ec44d0fa3a06607bb17e73f60543c3ae8b7f12c6cb",
+    "repositories": [
+      {
+        "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+        "fork_repository": "PalomarArchive/cenozoic-works--rhone-theory--fb903f3fec24",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000019-v1/babec8449a724c270450c7c0e2cd3985ccc2a989",
+        "source_repository": "cenozoic-works/rhone-theory"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000019-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000019-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000019-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000019-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000019-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000019-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000019-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000019-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000019-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "2db7f81359758bc49f52bc13c51f2640f8f2a7fd",
+        "fork_repository": "PalomarArchive/vltanh--lean4-adr11--aeb74929e5e0",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000019-v1/2db7f81359758bc49f52bc13c51f2640f8f2a7fd",
+        "source_repository": "vltanh/lean4-adr11"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "G. A. Watterson"
+          }
+        ],
+        "identifier": "doi:10.1016/0040-5809(75)90020-9",
+        "relationship": "background",
+        "title": "On the number of segregating sites in genetical models without recombination"
+      },
+      {
+        "authors": [
+          {
+            "name": "J. F. C. Kingman"
+          }
+        ],
+        "identifier": "doi:10.1016/0304-4149(82)90011-4",
+        "relationship": "background",
+        "title": "The coalescent"
+      },
+      {
+        "authors": [
+          {
+            "name": "Fumio Tajima"
+          }
+        ],
+        "identifier": "doi:10.1093/genetics/123.3.585",
+        "relationship": "background",
+        "title": "Statistical method for testing the neutral mutation hypothesis by DNA polymorphism"
+      },
+      {
+        "authors": [
+          {
+            "name": "Fumio Tajima"
+          }
+        ],
+        "identifier": "doi:10.1093/genetics/105.2.437",
+        "relationship": "background",
+        "title": "Evolutionary relationship of DNA sequences in finite populations"
+      },
+      {
+        "authors": [
+          {
+            "name": "Richard Durrett"
+          }
+        ],
+        "identifier": "doi:10.1007/978-0-387-78168-6",
+        "relationship": "formalizes",
+        "title": "Probability Models for DNA Sequence Evolution"
+      },
+      {
+        "authors": [
+          {
+            "name": "SauersML"
+          }
+        ],
+        "identifier": "https://github.com/SauersML/Descent/tree/28bbf4915b40b80e84ec9354e0bf450b0e4c7120",
+        "license": "Apache-2.0",
+        "location": "Descent/Coalescent/SegregatingSites.lean: wattersonEstimator_unbiased; Descent/Coalescent/SpectrumMoments.lean: varSegregatingSites_eq_totalVariance; Descent/Coalescent/BranchLength.lean: expectedTotalBranchLength_eq_harmonic (files first committed 2026-08-05)",
+        "relationship": "other",
+        "title": "Descent",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "chaoszhang"
+          }
+        ],
+        "identifier": "https://github.com/chaoszhang/lean4phylo/tree/565bf6757999ff9f667835b8ca0cf376548545b9",
+        "license": "Apache-2.0",
+        "location": "Phylo/Stat/CoalescentStats.lean: totalTreeLengthMean_eq, wattersonTheta_unbiased (file first committed 2026-10-08)",
+        "relationship": "other",
+        "title": "lean4phylo",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/SauersML/Descent",
+        "note": "Independent formalization (Lean 4, Apache-2.0); the overlap is described under sources.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/chaoszhang/lean4phylo",
+        "note": "Independent formalization (Lean 4, Apache-2.0); the overlap is described under sources.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "X. Lee"
+      },
+      {
+        "name": "N. Volkov"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-29T11:50:18Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "13a76b1d48ab90ba50771667a25fc716c335f59bf1f561dc1bc9312ef770b81b"
+    },
+    "reviewed_at": "2026-10-29T08:19:15Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "d8a7b66008acc4cfaaa4ac8bba587d2c6aa17f636a584fbfe642ddb22ebc1423"
+    },
+    "repository": "cenozoic-works/rhone-theory",
+    "repository_url": "https://github.com/cenozoic-works/rhone-theory",
+    "tree_url": "https://github.com/cenozoic-works/rhone-theory/tree/babec8449a724c270450c7c0e2cd3985ccc2a989"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "no2olceodrg2"
+  },
+  "title": "Mean and variance of segregating sites, Watterson's estimator, and pairwise differences under Kingman's coalescent",
+  "trust": {
+    "challenge_bytes": 18094,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 528,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "07a6bb58b0be4f23c93b53773c45507082884dbc695fa1cead8fdba5b5190a7c",
+    "evidence_path": "evidence/PALOMAR-2026-10-29-000019-v1/10ddf536f167fcad453ae46dadf6a1a8544b3bed08fbde1912a6cad5e2b8afea/",
+    "evidence_tree_sha256": "10ddf536f167fcad453ae46dadf6a1a8544b3bed08fbde1912a6cad5e2b8afea",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "2f82fa23f3d9b16195fbb524266bc4e20783fd0ac480066eac0a4fd8852ae1bc",
+    "protected_config_sha256": "64d622317701c0310a0215d6de18f742099e99b443eb3dc4e3629217d71d0924",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40825924787,
+    "solution_sha256": "ee77b918d9f78465422e07e779712bc1fd615f8e7e1321342b8ccdedcfc8681d",
+    "tool_digests": {
+      "bwrap": "a6634b11d2413bffe1a4b7e7b34dba31c80726c7aa1e6fb8707397fffa5fda2f",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-29T05:58:06Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40825924787"
+  },
+  "version": 1
+}

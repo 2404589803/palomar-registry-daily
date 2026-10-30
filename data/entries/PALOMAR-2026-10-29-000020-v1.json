@@ -1,0 +1,472 @@
+{
+  "abstract": "This entry formalizes combinatorics and probabilities of trees under Kingman's coalescent, through its embedded jump chain, in which each pair of the k current lineages is the next to merge with probability 1/binomial(k, 2). A ranked labelled history on n leaves is a sequence of n − 1 merges starting from n singletons; there are n!(n − 1)!/2^(n−1) of them, and each has probability 2^(n−1)/(n!(n − 1)!). Ranked and unranked tree shapes are defined as classes of histories under relabelling of the leaves; their numbers satisfy André's recurrence for alternating permutations, shifted by one, and the Wedderburn–Etherington recurrence, respectively, with the cases n = 1 and n = 2. The probability of a labelled rooted binary topology T is 2^(n−1)/(n! ∏(|C| − 1)), the product running over the clades C of T with at least two leaves. The probability that the root splits the leaves into a given set A and its complement is 2/((n − 1) binomial(n, |A|)). The probability that a sample S of a population of N leaves has the population root as its most recent common ancestor is (|S| − 1)(N + 1)/((|S| + 1)(N − 1)), which tends to (n − 1)/(n + 1) for a sample of fixed size n as N tends to infinity. The expected Colless and Sackin indices are n H_{⌊n/2⌋} − 2⌊n/2⌋ and 2n(H_n − 1), where H_m is the m-th harmonic number. Finally, the process of roots of the forest histories is identified with the jump chain of Kingman's partition-valued coalescent, for one step and for t steps.",
+  "authors": [
+    {
+      "name": "X. Lee"
+    },
+    {
+      "name": "N. Volkov"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-29-000020-v1/11952c05aaf986da1b92834583a5da973ee542815d7ccfd38ae2c49313e943b5/",
+    "artifact_tree_sha256": "11952c05aaf986da1b92834583a5da973ee542815d7ccfd38ae2c49313e943b5",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-29T06:23:14Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "q-bio.PE",
+      "math.CO"
+    ],
+    "msc2020": [
+      "92D15",
+      "60J90",
+      "05C05",
+      "05A15"
+    ]
+  },
+  "first_registered_on": "2026-10-29",
+  "formalization": {
+    "challenge_path": "Rhone/Unproved/Palomar/KingmanTrees/Challenge.lean",
+    "comparator_config_path": "Palomar/KingmanTrees/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "Palomar/KingmanTrees/formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "ADR11",
+        "repository": "vltanh/lean4-adr11",
+        "revision": "2db7f81359758bc49f52bc13c51f2640f8f2a7fd"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Palomar/KingmanTrees/Solution.lean",
+    "theorem_names": [
+      "Rhone.Palomar.KingmanTrees.card_ranked_labelled_history",
+      "Rhone.Palomar.KingmanTrees.ranked_labelled_history_mass",
+      "Rhone.Palomar.KingmanTrees.card_ranked_shape_one",
+      "Rhone.Palomar.KingmanTrees.card_ranked_shape_two",
+      "Rhone.Palomar.KingmanTrees.card_unranked_shape_one",
+      "Rhone.Palomar.KingmanTrees.card_unranked_shape_two",
+      "Rhone.Palomar.KingmanTrees.card_ranked_shape_recurrence",
+      "Rhone.Palomar.KingmanTrees.card_unranked_shape_recurrence",
+      "Rhone.Palomar.KingmanTrees.kingman_topology_probability_of_clade_factors",
+      "Rhone.Palomar.KingmanTrees.root_split_mass",
+      "Rhone.Palomar.KingmanTrees.sample_population_root_probability",
+      "Rhone.Palomar.KingmanTrees.tendsto_sample_population_root_probability",
+      "Rhone.Palomar.KingmanTrees.kingman_colless_expectation",
+      "Rhone.Palomar.KingmanTrees.kingman_sackin_expectation",
+      "Rhone.Palomar.KingmanTrees.historyPayoff_roots_eq_partition_stepN",
+      "Rhone.Palomar.KingmanTrees.sum_jumpMatrix_roots_eq_partitionJump"
+    ]
+  },
+  "id": "PALOMAR-2026-10-29-000020",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-29T12:05:49Z",
+    "receipt_sha256": "f2c41a77bf12ce66c572930d080cd75a599e4c8b06dfcd0b139898ea26293b82",
+    "repositories": [
+      {
+        "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+        "fork_repository": "PalomarArchive/cenozoic-works--rhone-theory--fb903f3fec24",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000020-v1/babec8449a724c270450c7c0e2cd3985ccc2a989",
+        "source_repository": "cenozoic-works/rhone-theory"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000020-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000020-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000020-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000020-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000020-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000020-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000020-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000020-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000020-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "2db7f81359758bc49f52bc13c51f2640f8f2a7fd",
+        "fork_repository": "PalomarArchive/vltanh--lean4-adr11--aeb74929e5e0",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000020-v1/2db7f81359758bc49f52bc13c51f2640f8f2a7fd",
+        "source_repository": "vltanh/lean4-adr11"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "J. F. C. Kingman"
+          }
+        ],
+        "identifier": "doi:10.1016/0304-4149(82)90011-4",
+        "relationship": "background",
+        "title": "The coalescent"
+      },
+      {
+        "authors": [
+          {
+            "name": "Richard Durrett"
+          }
+        ],
+        "identifier": "doi:10.1007/978-0-387-78168-6",
+        "relationship": "adapts",
+        "title": "Probability Models for DNA Sequence Evolution"
+      },
+      {
+        "authors": [
+          {
+            "name": "Thomas Wiehe"
+          }
+        ],
+        "identifier": "doi:10.4171/ECR/17-1/20",
+        "relationship": "background",
+        "title": "Counting, grafting and evolving binary trees"
+      },
+      {
+        "authors": [
+          {
+            "name": "Desire Andre"
+          }
+        ],
+        "location": "Journal de mathematiques pures et appliquees (3) 7:167-184, 1881, section II no. 6, pp. 170-171",
+        "relationship": "adapts",
+        "title": "Sur les permutations alternees"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. G. Kuznetsov"
+          },
+          {
+            "name": "I. M. Pak"
+          },
+          {
+            "name": "A. E. Postnikov"
+          }
+        ],
+        "identifier": "doi:10.1070/RM1994v049n06ABEH002448",
+        "relationship": "background",
+        "title": "Increasing trees and alternating permutations"
+      },
+      {
+        "authors": [
+          {
+            "name": "E. F. Harding"
+          }
+        ],
+        "identifier": "doi:10.2307/1426329",
+        "relationship": "background",
+        "title": "The probabilities of rooted tree-shapes generated by random bifurcation"
+      },
+      {
+        "authors": [
+          {
+            "name": "J. H. M. Wedderburn"
+          }
+        ],
+        "identifier": "doi:10.2307/1967710",
+        "relationship": "formalizes",
+        "title": "The functional equation g(x^2) = 2 alpha x + [g(x)]^2"
+      },
+      {
+        "authors": [
+          {
+            "name": "Gabriel Cardona"
+          },
+          {
+            "name": "Arnau Mir"
+          },
+          {
+            "name": "Francesc Rossello"
+          }
+        ],
+        "identifier": "doi:10.1007/s00285-012-0615-9",
+        "location": "Secs. 1 and 7 (arXiv:1202.6573v2)",
+        "relationship": "adapts",
+        "title": "Exact formulas for the variance of several balance indices under the Yule model"
+      },
+      {
+        "authors": [
+          {
+            "name": "Stephen B. Heard"
+          }
+        ],
+        "identifier": "doi:10.1111/j.1558-5646.1992.tb01171.x",
+        "relationship": "background",
+        "title": "Patterns in tree balance among cladistic, phenetic, and randomly generated phylogenetic trees"
+      },
+      {
+        "authors": [
+          {
+            "name": "Mark Kirkpatrick"
+          },
+          {
+            "name": "Montgomery Slatkin"
+          }
+        ],
+        "identifier": "doi:10.1111/j.1558-5646.1993.tb02144.x",
+        "relationship": "background",
+        "title": "Searching for evolutionary patterns in the shape of a phylogenetic tree"
+      },
+      {
+        "authors": [
+          {
+            "name": "Ian W. Saunders"
+          },
+          {
+            "name": "Simon Tavare"
+          },
+          {
+            "name": "G. A. Watterson"
+          }
+        ],
+        "identifier": "doi:10.2307/1427285",
+        "relationship": "formalizes",
+        "title": "On the genealogy of nested subsamples from a haploid population"
+      },
+      {
+        "authors": [
+          {
+            "name": "The-Anh Vu-Le"
+          }
+        ],
+        "identifier": "https://github.com/vltanh/lean4-adr11",
+        "relationship": "adapts",
+        "title": "Lean 4 formalization of the multispecies coalescent identifiability results of Allman, Degnan and Rhodes (ADR11)"
+      },
+      {
+        "authors": [
+          {
+            "name": "chaoszhang"
+          }
+        ],
+        "identifier": "https://github.com/chaoszhang/lean4phylo/tree/565bf6757999ff9f667835b8ca0cf376548545b9",
+        "license": "Apache-2.0",
+        "location": "Phylo/Stat/RankedGeneTree.lean: H_eq_factorial; Phylo/Stat/CoalescentHistoryCount.lean: card_mergeHistories_eq_H (files first committed 2026-10-08); Phylo/Stat/CladeCount.lean: cladeCount_univ (file first committed 2026-10-24)",
+        "relationship": "other",
+        "title": "lean4phylo",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-10-04-000005",
+        "note": "The Palomar record of the lean4-adr11 formalization (identifiability of the rooted species tree from gene trees under the multispecies coalescent). This entry builds on it: the compared statements are phrased in its definitions of forests, roots, merges, the forest jump matrix, and binary hierarchies, the proofs use its lemmas, and two compared theorems relate its forest chain to the partition-valued Kingman jump chain of this library.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://www.isa-afp.org/entries/Random_BSTs.html",
+        "note": "An Isabelle/HOL Archive of Formal Proofs entry on random binary search trees, a model of random binary trees closely related to the random tree shapes treated here. Nothing from it is used, and the exact overlap with the Sackin and Colless results of this entry has not been checked.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/chaoszhang/lean4phylo",
+        "note": "Independent formalization (Lean 4, Apache-2.0); the overlap is described under sources.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "X. Lee"
+      },
+      {
+        "name": "N. Volkov"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-29T12:05:22Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "b9069b8f070b123f286f7fa522881840c499f108ceebd01c387fc1767e70ca04"
+    },
+    "reviewed_at": "2026-10-29T08:22:40Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "d8a7b66008acc4cfaaa4ac8bba587d2c6aa17f636a584fbfe642ddb22ebc1423"
+    },
+    "repository": "cenozoic-works/rhone-theory",
+    "repository_url": "https://github.com/cenozoic-works/rhone-theory",
+    "tree_url": "https://github.com/cenozoic-works/rhone-theory/tree/babec8449a724c270450c7c0e2cd3985ccc2a989"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "z44saos4kjf0"
+  },
+  "title": "Combinatorics and probabilities of Kingman coalescent trees: histories, shapes, topologies, root splits, Colless, and Sackin",
+  "trust": {
+    "challenge_bytes": 18848,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 557,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "98f344c76353b392279b4e1939d4ac35dff051831505b4e380e78f06403a46d9",
+    "evidence_path": "evidence/PALOMAR-2026-10-29-000020-v1/64df4fecbd00907784b9879b87c0ab24be2c749d37675637483f4535dcd4a41e/",
+    "evidence_tree_sha256": "64df4fecbd00907784b9879b87c0ab24be2c749d37675637483f4535dcd4a41e",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "40f549b7d54fc4ab03ad653f872d140b87b0b6a9a665222bd7effbe41bb15a40",
+    "protected_config_sha256": "6b63b282f940dbe27efb5e8affb54f0dfbdd62b5141d80f0ca4a6e34078808a5",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40826486351,
+    "solution_sha256": "8027e70d2148107c1a5849a31bb0e7db4e7c7197a99e4eae3dc01b8ad0f98725",
+    "tool_digests": {
+      "bwrap": "f95e0d0d1089f4590bfccb15c2706594561c596464fb6f483fa147881a9cd113",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-29T06:04:32Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40826486351"
+  },
+  "version": 1
+}

@@ -1,0 +1,399 @@
+{
+  "abstract": "This entry formalizes a total variation bound between the pairwise coalescence-time process of an unpruned ancestral recombination graph and the SMC' approximation, for N ≥ 1 samples, a unit-length genome, and scaled recombination rate R ≥ 0. The observed object is the collection of pairwise coalescence times of all sample pairs at every rational position in [0, 1). The total variation distance is at most an explicit double bound, which is at most min(1, R² times a quadratic coefficient in N − 1). The distance is 0 for one sample and for zero recombination. Supporting statements show that the event kernels of both processes are Markov, the two laws are probability measures, the number of live lineages of the backward process reaches at most one almost surely, the observed coalescence times are almost surely finite, and the expected number of active events, the expected total time, and the expected largest observed coalescence time are bounded by an explicit absorption budget.",
+  "authors": [
+    {
+      "name": "X. Lee"
+    },
+    {
+      "name": "N. Volkov"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-29-000029-v1/bdfd7660cf230f8a90c519a05b586359809cdd3c37d187590cb0542b4397bbae/",
+    "artifact_tree_sha256": "bdfd7660cf230f8a90c519a05b586359809cdd3c37d187590cb0542b4397bbae",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-29T13:04:14Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "q-bio.PE",
+      "math.PR"
+    ],
+    "msc2020": [
+      "92D10",
+      "60J90",
+      "60J05",
+      "60F05"
+    ]
+  },
+  "first_registered_on": "2026-10-29",
+  "formalization": {
+    "challenge_path": "Rhone/Unproved/Palomar/SmcPrimeBound/Challenge.lean",
+    "comparator_config_path": "Palomar/SmcPrimeBound/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "Palomar/SmcPrimeBound/formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "ADR11",
+        "repository": "vltanh/lean4-adr11",
+        "revision": "2db7f81359758bc49f52bc13c51f2640f8f2a7fd"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Palomar/SmcPrimeBound/Solution.lean",
+    "theorem_names": [
+      "Rhone.Palomar.SmcPrimeBound.eventKernel_isMarkovKernel",
+      "Rhone.Palomar.SmcPrimeBound.spatialKernel_isMarkovKernel",
+      "Rhone.Palomar.SmcPrimeBound.fullARG_smcPrime_tv_bound",
+      "Rhone.Palomar.SmcPrimeBound.fullARG_smcPrime_tv_quadratic",
+      "Rhone.Palomar.SmcPrimeBound.fullARG_smcPrime_tv_one_sample",
+      "Rhone.Palomar.SmcPrimeBound.fullARG_smcPrime_tv_zero_recombination",
+      "Rhone.Palomar.SmcPrimeBound.fullARGGenealogyLaw_probability",
+      "Rhone.Palomar.SmcPrimeBound.smcPrimeGenealogyLaw_probability",
+      "Rhone.Palomar.SmcPrimeBound.eventProcess_liveCount_reaches_one",
+      "Rhone.Palomar.SmcPrimeBound.eventProcess_active_events_le",
+      "Rhone.Palomar.SmcPrimeBound.eventProcess_total_time_le",
+      "Rhone.Palomar.SmcPrimeBound.fullARGGenealogyLaw_ae_finite",
+      "Rhone.Palomar.SmcPrimeBound.fullARGGenealogyLaw_lintegral_iSup_le"
+    ]
+  },
+  "id": "PALOMAR-2026-10-29-000029",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-29T15:19:52Z",
+    "receipt_sha256": "d3e84a4ab5121410550cc4ae5c73c832e74a7671120035108d21e6cb69a1d267",
+    "repositories": [
+      {
+        "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+        "fork_repository": "PalomarArchive/cenozoic-works--rhone-theory--fb903f3fec24",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000029-v1/babec8449a724c270450c7c0e2cd3985ccc2a989",
+        "source_repository": "cenozoic-works/rhone-theory"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000029-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000029-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000029-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000029-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000029-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000029-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000029-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000029-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000029-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "2db7f81359758bc49f52bc13c51f2640f8f2a7fd",
+        "fork_repository": "PalomarArchive/vltanh--lean4-adr11--aeb74929e5e0",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000029-v1/2db7f81359758bc49f52bc13c51f2640f8f2a7fd",
+        "source_repository": "vltanh/lean4-adr11"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "relationship": "other",
+        "title": "Total variation bound between the unpruned ancestral recombination process and the SMC' chain, on pairwise coalescence times",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "Richard Durrett"
+          }
+        ],
+        "location": "2nd edition, Springer, 2008, section 3.4, pp. 102–103, Theorem 3.10",
+        "relationship": "background",
+        "title": "Probability Models for DNA Sequence Evolution"
+      },
+      {
+        "authors": [
+          {
+            "name": "Robert C. Griffiths"
+          }
+        ],
+        "identifier": "doi:10.1214/lnms/1215459289",
+        "relationship": "background",
+        "title": "The two-locus ancestral graph"
+      },
+      {
+        "authors": [
+          {
+            "name": "Paul Marjoram"
+          },
+          {
+            "name": "Jeff D. Wall"
+          }
+        ],
+        "identifier": "doi:10.1186/1471-2156-7-16",
+        "relationship": "background",
+        "title": "Fast \"coalescent\" simulation"
+      },
+      {
+        "authors": [
+          {
+            "name": "Peter R. Wilton"
+          },
+          {
+            "name": "Shai Carmi"
+          },
+          {
+            "name": "Asger Hobolth"
+          }
+        ],
+        "identifier": "doi:10.1534/genetics.114.173898",
+        "relationship": "background",
+        "title": "The SMC' is a highly accurate approximation to the ancestral recombination graph"
+      },
+      {
+        "authors": [
+          {
+            "name": "V. Shchur"
+          }
+        ],
+        "identifier": "doi:10.1134/S1995080222150264",
+        "relationship": "background",
+        "title": "Accuracy of the SMC' approximation of structured coalescent"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. V. Dudkovskaia"
+          },
+          {
+            "name": "M. A. Shishkin"
+          }
+        ],
+        "identifier": "doi:10.1134/S1995080225609452",
+        "relationship": "background",
+        "title": "Evaluating the accuracy of sequentially Markov coalescent approximations for structured population models"
+      },
+      {
+        "authors": [
+          {
+            "name": "Katy L. Simonsen"
+          },
+          {
+            "name": "Gary A. Churchill"
+          }
+        ],
+        "identifier": "doi:10.1006/tpbi.1997.1307",
+        "relationship": "background",
+        "title": "A Markov chain model of coalescence with recombination"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jonathan Terhorst"
+          }
+        ],
+        "identifier": "arXiv:2604.20629",
+        "relationship": "background",
+        "title": "Rates of forgetting for the sequentially Markov coalescent"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "X. Lee"
+      },
+      {
+        "name": "N. Volkov"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-10-29T15:19:29Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "7b7de0b896203cba36e93169d4ee56a38e4106c1d658919dfece2e7cf067631d"
+    },
+    "reviewed_at": "2026-10-29T13:22:35Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "d8a7b66008acc4cfaaa4ac8bba587d2c6aa17f636a584fbfe642ddb22ebc1423"
+    },
+    "repository": "cenozoic-works/rhone-theory",
+    "repository_url": "https://github.com/cenozoic-works/rhone-theory",
+    "tree_url": "https://github.com/cenozoic-works/rhone-theory/tree/babec8449a724c270450c7c0e2cd3985ccc2a989"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "u7bvkmvv8jmt"
+  },
+  "title": "Total variation bound between an unpruned ancestral recombination process and SMC' on pairwise coalescence times",
+  "trust": {
+    "challenge_bytes": 21723,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 629,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "cf4d41e9599d73a1f966cb92a073add31578c285b2b8eec80304f06040689f8a",
+    "evidence_path": "evidence/PALOMAR-2026-10-29-000029-v1/4d0bfabd83110ab3fc26960d4b114ae548d81cb0eef60ac0c697079a4cd83665/",
+    "evidence_tree_sha256": "4d0bfabd83110ab3fc26960d4b114ae548d81cb0eef60ac0c697079a4cd83665",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "177eb6613a9ac773c6d6491aa3967dcedbb428d8aaa912c7dd5f43866058f12d",
+    "protected_config_sha256": "165823489ad24f7e70b0f243e707830cd16a6c6ae744cb678bc0b5b8a8724106",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40872689203,
+    "solution_sha256": "bde22dcf758a67c53aacb35f08ebfaa77f7e0b2fbbc25b08ff5a028b131d62c1",
+    "tool_digests": {
+      "bwrap": "9bf160b4cdb5a4151b4e21f06db675e4fd55e99b48892bad32f37a22c0a8b957",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-29T12:30:21Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40872689203"
+  },
+  "version": 1
+}

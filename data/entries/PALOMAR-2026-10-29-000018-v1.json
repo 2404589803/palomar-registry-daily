@@ -1,0 +1,399 @@
+{
+  "abstract": "This entry formalizes algebraic properties of the block determinants E(i, j) of the two-locus sampling recursion, viewed as polynomials in the recombination rate ρ. E(i, j) is the determinant of an explicit (min(i, j) + 1)-square tridiagonal matrix whose entries depend on i, j, the mutation rates θ_A and θ_B, and ρ. Its degree in ρ is min(i, j) under a stated nondegeneracy condition, and it is positive for i, j ≥ 2 with nonnegative parameters. For nonnegative real mutation rates, every root in ρ of E(5, 5) and of E(7, 7) is real and negative. At explicit rational parameters with negative θ_A, E(5, 5) and E(7, 7) are irreducible over the rationals, have 3 and 5 real roots, have Galois groups of orders 120 and 5040 (the full symmetric groups), and have roots that are not expressible by radicals. E(5, 5) and E(7, 7) are irreducible over the field of rational functions in the mutation rate, and their Galois groups over the field of rational functions in two independent mutation rates are the full symmetric groups; a general specialization lemma used for this is also stated. Squarefreeness, and coprimality for distinct index pairs, of the determinants with i, j ≥ 1 are stated over a field of rational functions in two independent mutation rates and over a field of Laurent series in which both mutation rates are large with a ratio that is not rational.",
+  "authors": [
+    {
+      "name": "X. Lee"
+    },
+    {
+      "name": "N. Volkov"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-29-000018-v1/4ddc4a553852c4d2d983b87067e54c2a44685946a5392afe506095a35a6ca411/",
+    "artifact_tree_sha256": "4ddc4a553852c4d2d983b87067e54c2a44685946a5392afe506095a35a6ca411",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-29T06:19:28Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.AC",
+      "math.NT"
+    ],
+    "msc2020": [
+      "12F10",
+      "11R32",
+      "12E05",
+      "92D10"
+    ]
+  },
+  "first_registered_on": "2026-10-29",
+  "formalization": {
+    "challenge_path": "Rhone/Unproved/Palomar/GaloisObstruction/Challenge.lean",
+    "comparator_config_path": "Palomar/GaloisObstruction/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "Palomar/GaloisObstruction/formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "ADR11",
+        "repository": "vltanh/lean4-adr11",
+        "revision": "2db7f81359758bc49f52bc13c51f2640f8f2a7fd"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Palomar/GaloisObstruction/Solution.lean",
+    "theorem_names": [
+      "Rhone.Palomar.GaloisObstruction.natDegree_E",
+      "Rhone.Palomar.GaloisObstruction.E_pos",
+      "Rhone.Palomar.GaloisObstruction.E55pt_irreducible",
+      "Rhone.Palomar.GaloisObstruction.card_rootSet_E55pt_real",
+      "Rhone.Palomar.GaloisObstruction.card_gal_E55pt",
+      "Rhone.Palomar.GaloisObstruction.E55pt_root_not_solvableByRad",
+      "Rhone.Palomar.GaloisObstruction.E77pt_irreducible",
+      "Rhone.Palomar.GaloisObstruction.card_rootSet_E77pt_real",
+      "Rhone.Palomar.GaloisObstruction.card_gal_E77pt",
+      "Rhone.Palomar.GaloisObstruction.E77pt_root_not_solvableByRad",
+      "Rhone.Palomar.GaloisObstruction.E55gen_irreducible_ratFunc",
+      "Rhone.Palomar.GaloisObstruction.E55gen_irreducible_two_var",
+      "Rhone.Palomar.GaloisObstruction.E77gen_irreducible_ratFunc",
+      "Rhone.Palomar.GaloisObstruction.E77gen_irreducible_two_var",
+      "Rhone.Palomar.GaloisObstruction.E55_splits",
+      "Rhone.Palomar.GaloisObstruction.card_roots_E55",
+      "Rhone.Palomar.GaloisObstruction.roots_neg_E55",
+      "Rhone.Palomar.GaloisObstruction.E77_splits",
+      "Rhone.Palomar.GaloisObstruction.card_roots_E77",
+      "Rhone.Palomar.GaloisObstruction.roots_neg_E77",
+      "Rhone.Palomar.GaloisObstruction.E_squarefree_laurent",
+      "Rhone.Palomar.GaloisObstruction.E_coprime_of_ne_laurent",
+      "Rhone.Palomar.GaloisObstruction.E_squarefree_generic",
+      "Rhone.Palomar.GaloisObstruction.E_coprime_generic",
+      "Rhone.Palomar.GaloisObstruction.E55_galois_full",
+      "Rhone.Palomar.GaloisObstruction.E77_galois_full",
+      "Rhone.Palomar.GaloisObstruction.generic_galois_full_of_specialization"
+    ]
+  },
+  "id": "PALOMAR-2026-10-29-000018",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-29T11:29:23Z",
+    "receipt_sha256": "3360d56968a75f7a472230f91a24bf5c7870301d5ac7840c22da4d6399bc8e24",
+    "repositories": [
+      {
+        "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+        "fork_repository": "PalomarArchive/cenozoic-works--rhone-theory--fb903f3fec24",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000018-v1/babec8449a724c270450c7c0e2cd3985ccc2a989",
+        "source_repository": "cenozoic-works/rhone-theory"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000018-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000018-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000018-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000018-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000018-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000018-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000018-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000018-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000018-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "2db7f81359758bc49f52bc13c51f2640f8f2a7fd",
+        "fork_repository": "PalomarArchive/vltanh--lean4-adr11--aeb74929e5e0",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000018-v1/2db7f81359758bc49f52bc13c51f2640f8f2a7fd",
+        "source_repository": "vltanh/lean4-adr11"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "relationship": "other",
+        "title": "Irreducibility, real-rootedness, squarefreeness, coprimality, and Galois groups of the block determinants E_{i,j} of the two-locus sampling recursion",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "Abraham Berman"
+          },
+          {
+            "name": "Robert J. Plemmons"
+          }
+        ],
+        "identifier": "doi:10.1137/1.9781611971262",
+        "relationship": "background",
+        "title": "Nonnegative Matrices in the Mathematical Sciences"
+      },
+      {
+        "authors": [
+          {
+            "name": "Shuhei Mano"
+          }
+        ],
+        "identifier": "doi:10.1239/jap/1363784437",
+        "location": "Sec. 4, after eq. (4.1) (arXiv:1201.5557, p. 15)",
+        "relationship": "background",
+        "title": "Duality between the two-locus Wright-Fisher diffusion model and the ancestral process with recombination"
+      },
+      {
+        "authors": [
+          {
+            "name": "Lior Bary-Soroker"
+          },
+          {
+            "name": "Daniele Garzoni"
+          },
+          {
+            "name": "Sasha Sodin"
+          }
+        ],
+        "identifier": "arXiv:2502.17218",
+        "relationship": "background",
+        "title": "Irreducibility of the characteristic polynomials of random tridiagonal matrices"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/blob/c55e6e786f49471c72fbddbec5415808896aec1e/Mathlib/Analysis/Complex/Polynomial/Basic.lean",
+        "note": "Mathlib file containing Gal.galActionHom_bijective_of_prime_degree: an irreducible rational polynomial of prime degree p with exactly p − 2 real roots has the full symmetric Galois group. The proofs of card_gal_E55pt and card_gal_E77pt apply it after counting real and complex roots.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/blob/c55e6e786f49471c72fbddbec5415808896aec1e/Mathlib/FieldTheory/AbelRuffini.lean",
+        "note": "Mathlib's Abel–Ruffini development. The proofs of E55pt_root_not_solvableByRad and E77pt_root_not_solvableByRad apply its criterion that a root of an irreducible polynomial expressible by radicals forces a solvable Galois group (isSolvable_gal_of_irreducible), together with the non-solvability of S_5 and S_7.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/blob/c55e6e786f49471c72fbddbec5415808896aec1e/Mathlib/RingTheory/Invariant/Basic.lean",
+        "note": "Mathlib's results on invariant ring extensions, including surjectivity of the map from a decomposition group to the residue-field automorphisms (Ideal.Quotient.stabilizerHom_surjective). The specialization argument behind generic_galois_full_of_specialization, E55_galois_full, and E77_galois_full uses it to embed the Galois group of a specialization into the generic Galois group.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "X. Lee"
+      },
+      {
+        "name": "N. Volkov"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-10-29T11:29:00Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "2962f25b67c21172e0b20425f90e00fd07cba6c66d8d5a58a828dfb3845f47b1"
+    },
+    "reviewed_at": "2026-10-29T07:40:14Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "babec8449a724c270450c7c0e2cd3985ccc2a989",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "d8a7b66008acc4cfaaa4ac8bba587d2c6aa17f636a584fbfe642ddb22ebc1423"
+    },
+    "repository": "cenozoic-works/rhone-theory",
+    "repository_url": "https://github.com/cenozoic-works/rhone-theory",
+    "tree_url": "https://github.com/cenozoic-works/rhone-theory/tree/babec8449a724c270450c7c0e2cd3985ccc2a989"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "8xy1e37ohr9x"
+  },
+  "title": "Block determinants of the two-locus sampling recursion: degree, positivity, squarefreeness, coprimality, and Galois groups",
+  "trust": {
+    "challenge_bytes": 11457,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.BigOperators.Intervals",
+      "Mathlib.Algebra.CharP.Algebra",
+      "Mathlib.Algebra.Order.BigOperators.Group.LocallyFinite",
+      "Mathlib.Algebra.Order.Ring.Defs",
+      "Mathlib.Algebra.Polynomial.Degree.Lemmas",
+      "Mathlib.Algebra.Polynomial.FieldDivision",
+      "Mathlib.Algebra.Polynomial.Identities",
+      "Mathlib.Analysis.Complex.Polynomial.Basic",
+      "Mathlib.Data.Nat.Factorial.BigOperators",
+      "Mathlib.FieldTheory.AbelRuffini",
+      "Mathlib.FieldTheory.RatFunc.AsPolynomial",
+      "Mathlib.FieldTheory.RatFunc.Basic",
+      "Mathlib.FieldTheory.Separable",
+      "Mathlib.LinearAlgebra.Matrix.Block",
+      "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+      "Mathlib.LinearAlgebra.Matrix.Nondegenerate",
+      "Mathlib.LinearAlgebra.Matrix.NonsingularInverse",
+      "Mathlib.RingTheory.AdicCompletion.Completeness",
+      "Mathlib.RingTheory.Henselian",
+      "Mathlib.RingTheory.Localization.FractionRing",
+      "Mathlib.RingTheory.Polynomial.GaussLemma",
+      "Mathlib.RingTheory.PowerSeries.Inverse",
+      "Mathlib.RingTheory.PrincipalIdealDomain",
+      "Mathlib.Tactic.LinearCombination",
+      "Mathlib.Topology.Algebra.Polynomial",
+      "Mathlib.Topology.Order.IntermediateValue"
+    ],
+    "challenge_lines": 348,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "133ea80ec6f1626a476aab67bf2e5f0e5052fd0a92b74d036023e29aa5586be6",
+    "evidence_path": "evidence/PALOMAR-2026-10-29-000018-v1/3958790d5d0dc178266c1d625bb92c9cb77d14bd5c619c53d4f6813527ecba7c/",
+    "evidence_tree_sha256": "3958790d5d0dc178266c1d625bb92c9cb77d14bd5c619c53d4f6813527ecba7c",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "3b61d1378064b71e3468d0e3ca9c498308cbf38f73bdd2718ce074d5ffc69049",
+    "protected_config_sha256": "58817c7869aa8b05eea5e8a5a9121f99e5648ff288c5f61a4f758de23b89832a",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40823200680,
+    "solution_sha256": "e435757a99536303e4e2c97071e845721741b7ccb947723845271a678dc08b56",
+    "tool_digests": {
+      "bwrap": "60438cac7afc78239c0659193f42709899b604cbec5a28ed504cf66b10ba5917",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-29T05:31:27Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40823200680"
+  },
+  "version": 1
+}

@@ -1,0 +1,308 @@
+{
+  "abstract": "Lean 4 / Mathlib statements of the theorem M(n,k) = sum_{i=1}^{n-1} ceil(i/k) for k = 1 or n <= k+3 (Lipin-Volkov k-game on automata with a sink), rendered as an upper and a lower bound, with the headline case M(5,2) = 6, proved in Solution.lean from the development SinkReset.Plan written in the conductor formalize run 2026-10-25_formalize-sinkresetthresholds. The endpoints k = 1 (Rystsov's tight bound n(n-1)/2) and k = n-1 were known from Lipin-Volkov; the new content is M(k+2,k) = k+2 and M(k+3,k) = k+4 for k >= 2, including the non-divisible pairs (4,2) and (5,3), which the Lipin-Volkov conjecture (stated for k | n-1 only) does not cover; (5,2) is the first pair that is neither endpoint.",
+  "authors": [
+    {
+      "name": "Ben Keene"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-30-000003-v1/1df281a48a577d1de2c27a99ce84400088d124e7d7cd4c8658986d3d859dcaf3/",
+    "artifact_tree_sha256": "1df281a48a577d1de2c27a99ce84400088d124e7d7cd4c8658986d3d859dcaf3",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-29T19:03:56Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.FL",
+      "math.CO"
+    ],
+    "msc2020": [
+      "68Q45",
+      "68Q70"
+    ]
+  },
+  "first_registered_on": "2026-10-30",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "SinkReset.reset_word_le_of_isAk",
+      "SinkReset.exists_isAk_reset_ge",
+      "SinkReset.five_two_reset_word_le",
+      "SinkReset.five_two_exists_isAk_reset_ge"
+    ]
+  },
+  "id": "PALOMAR-2026-10-30-000003",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-30T00:52:15Z",
+    "receipt_sha256": "eebad4e16323f203eb4b8526206e2b57b8ff4d0aca86f803e8d4e8d620331fcd",
+    "repositories": [
+      {
+        "commit": "517b2cd82a8f3ee66476b90ee38a34d6cb9843f6",
+        "fork_repository": "PalomarArchive/benkeene--sink-reset-thresholds--5ab2cff24b71",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000003-v1/517b2cd82a8f3ee66476b90ee38a34d6cb9843f6",
+        "source_repository": "benkeene/sink-reset-thresholds"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000003-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000003-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000003-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000003-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000003-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000003-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000003-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000003-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000003-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Ben Keene"
+          }
+        ],
+        "relationship": "other",
+        "title": "Sharp reset thresholds for bounded-response synchronization games with a sink (proof of record, unpublished; docs/PROOF.md)",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "Anton E. Lipin"
+          },
+          {
+            "name": "Mikhail V. Volkov"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2601.18362",
+        "relationship": "background",
+        "title": "Adversarial Synchronization",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Anton E. Lipin"
+          },
+          {
+            "name": "Mikhail V. Volkov"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/978-3-032-31348-5_24",
+        "relationship": "background",
+        "title": "Adversarial Synchronization and Reset Length (CiE 2026)",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ben Keene"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-10-30T00:51:53Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "73ced91e724c74c5c61b03f499f6ed96dc40893204efc3de408ee336c2405c9a"
+    },
+    "reviewed_at": "2026-10-29T19:31:27Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "The claim that (5,2) is the first pair that is neither settled endpoint is incorrect: (4,2) is already neither k = 1 nor k = n − 1, and the project itself lists it among the new cases. This misstates the headline case's priority. Qualify (5,2) as the first divisible, non-endpoint pair if that is the intended distinction."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "517b2cd82a8f3ee66476b90ee38a34d6cb9843f6",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "8e1cfec4fd0b77e0fa0f7f9b185a630e26afcf9d85ad949b0c6ef8ddc378254c"
+    },
+    "repository": "benkeene/sink-reset-thresholds",
+    "repository_url": "https://github.com/benkeene/sink-reset-thresholds",
+    "tree_url": "https://github.com/benkeene/sink-reset-thresholds/tree/517b2cd82a8f3ee66476b90ee38a34d6cb9843f6"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "yc30ev5ics6q"
+  },
+  "title": "Sharp reset thresholds for bounded-response synchronization games with a sink",
+  "trust": {
+    "challenge_bytes": 7928,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 121,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "fa6e136244b8b4b07657f099ac85be1ba6591af2a3ebcad4f8dc6212fe430be0",
+    "evidence_path": "evidence/PALOMAR-2026-10-30-000003-v1/e28ebe3b62a9ffb9c26be3d152d5eeb3ee5188cd9b443bb3aaf122dbd89977b4/",
+    "evidence_tree_sha256": "e28ebe3b62a9ffb9c26be3d152d5eeb3ee5188cd9b443bb3aaf122dbd89977b4",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "400dcb328935dc6541d88afa9ccd0e3c2ef1dd6c60a80a89e91fd3a2276caea3",
+    "protected_config_sha256": "7062465eb1a8877dd689cb60954eb494b43e3336e5c161db79e958ae031249d7",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40934159003,
+    "solution_sha256": "41f75ba14acef9b0fb385ae0a3ce4865b72024fecd7d689b6191a9f4bb7c1ee5",
+    "tool_digests": {
+      "bwrap": "8a51c059733a9b1a4b1315a0ecb635b792ba1d3fb2120e93d7bd00804eb2ea9b",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-29T18:51:49Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40934159003"
+  },
+  "version": 1
+}

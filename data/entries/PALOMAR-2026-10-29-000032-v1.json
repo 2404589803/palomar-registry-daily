@@ -1,0 +1,411 @@
+{
+  "abstract": "This entry collects classical identities and a limit theorem from selection theory. The identities are stated for finite populations; Geiringer's limit theorem is stated for the deterministic infinite-population recombination model on finitely many loci with a common finite allele set. Fisher's fundamental theorem is stated, in Ewens' interpretation, as the equality of the partial change in mean fitness (the change in allele frequencies under selection, weighted by least-squares average effects) with the additive genetic variance divided by mean fitness, for arbitrary genotype frequencies and any number of loci, together with nonnegativity of that change. A grouped covariance decomposition and a multilevel Price equation are stated as identities for arbitrary weights. Hamilton's rule is derived from the least-squares regression of fitness on own and social genotypes, and the existence of the Lande–Arnold gradient, equal to the inverse phenotypic covariance matrix applied to the vector of selection differentials, is stated under a nonsingular phenotypic covariance. Geiringer's theorem is stated as convergence of repeated recombination to the product of the single-locus marginals, under the condition that every pair of loci is separated with positive probability.",
+  "authors": [
+    {
+      "name": "X. Lee"
+    },
+    {
+      "name": "N. Volkov"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-29-000032-v1/7ca5bdde083fc4c5bcb63161e8b608f91e7c2d45f3323c31d3412f14a64fd4d1/",
+    "artifact_tree_sha256": "7ca5bdde083fc4c5bcb63161e8b608f91e7c2d45f3323c31d3412f14a64fd4d1",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-29T14:21:46Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "q-bio.PE",
+      "math.PR"
+    ],
+    "msc2020": [
+      "92D15",
+      "92D10",
+      "60J10",
+      "62J05"
+    ]
+  },
+  "first_registered_on": "2026-10-29",
+  "formalization": {
+    "challenge_path": "Rhone/Unproved/Palomar/SelectionTheorems/Challenge.lean",
+    "comparator_config_path": "Palomar/SelectionTheorems/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "Palomar/SelectionTheorems/formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "ADR11",
+        "repository": "vltanh/lean4-adr11",
+        "revision": "2db7f81359758bc49f52bc13c51f2640f8f2a7fd"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Palomar/SelectionTheorems/Solution.lean",
+    "theorem_names": [
+      "Rhone.Palomar.SelectionTheorems.fisher_fundamental_theorem",
+      "Rhone.Palomar.SelectionTheorems.fisher_partial_nonneg",
+      "Rhone.Palomar.SelectionTheorems.grouped_covariance_decomposition",
+      "Rhone.Palomar.SelectionTheorems.multilevel_price_equation",
+      "Rhone.Palomar.SelectionTheorems.hamilton_from_leastSquares",
+      "Rhone.Palomar.SelectionTheorems.lande_arnold_gradient_exists",
+      "Rhone.Palomar.SelectionTheorems.geiringer_recombination_converges"
+    ]
+  },
+  "id": "PALOMAR-2026-10-29-000032",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-29T16:57:55Z",
+    "receipt_sha256": "f102f0453ac9c6b5b6779dba1f598220fe46bf5b1a66604c6697425d5d4c5389",
+    "repositories": [
+      {
+        "commit": "40430cc1c60bb35b2b4872a6c9583b71cc363e7a",
+        "fork_repository": "PalomarArchive/cenozoic-works--rhone-theory--fb903f3fec24",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000032-v1/40430cc1c60bb35b2b4872a6c9583b71cc363e7a",
+        "source_repository": "cenozoic-works/rhone-theory"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000032-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000032-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000032-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000032-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000032-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000032-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000032-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000032-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000032-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "2db7f81359758bc49f52bc13c51f2640f8f2a7fd",
+        "fork_repository": "PalomarArchive/vltanh--lean4-adr11--aeb74929e5e0",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-29-000032-v1/2db7f81359758bc49f52bc13c51f2640f8f2a7fd",
+        "source_repository": "vltanh/lean4-adr11"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Warren J. Ewens"
+          }
+        ],
+        "identifier": "doi:10.1016/0040-5809(89)90028-2",
+        "relationship": "formalizes",
+        "title": "An interpretation and proof of the fundamental theorem of natural selection"
+      },
+      {
+        "authors": [
+          {
+            "name": "Warren J. Ewens"
+          },
+          {
+            "name": "Sabin Lessard"
+          }
+        ],
+        "identifier": "doi:10.1016/j.tpb.2015.07.002",
+        "relationship": "formalizes",
+        "title": "On the interpretation and relevance of the Fundamental Theorem of Natural Selection"
+      },
+      {
+        "authors": [
+          {
+            "name": "George R. Price"
+          }
+        ],
+        "identifier": "doi:10.1111/j.1469-1809.1972.tb00764.x",
+        "location": "Annals of Human Genetics 36:129-140, 1972",
+        "relationship": "background",
+        "title": "Fisher's 'fundamental theorem' made clear"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. M. Castilloux"
+          },
+          {
+            "name": "Sabin Lessard"
+          }
+        ],
+        "identifier": "doi:10.1006/tpbi.1995.1031",
+        "relationship": "background",
+        "title": "The Fundamental Theorem of Natural Selection in Ewens' Sense (Case of Many Loci)"
+      },
+      {
+        "authors": [
+          {
+            "name": "Ronald A. Fisher"
+          }
+        ],
+        "location": "Clarendon Press, Oxford, 1930",
+        "relationship": "background",
+        "title": "The Genetical Theory of Natural Selection"
+      },
+      {
+        "authors": [
+          {
+            "name": "George R. Price"
+          }
+        ],
+        "identifier": "doi:10.1111/j.1469-1809.1957.tb01874.x",
+        "location": "Annals of Human Genetics 35:485-490, 1972 (the DOI contains 1957)",
+        "relationship": "formalizes",
+        "title": "Extension of covariance selection mathematics"
+      },
+      {
+        "authors": [
+          {
+            "name": "Steven A. Frank"
+          }
+        ],
+        "identifier": "doi:10.1006/jtbi.1995.0148",
+        "relationship": "background",
+        "title": "George Price's contributions to evolutionary genetics"
+      },
+      {
+        "authors": [
+          {
+            "name": "W. D. Hamilton"
+          }
+        ],
+        "identifier": "doi:10.1016/0022-5193(64)90038-4",
+        "relationship": "background",
+        "title": "The genetical evolution of social behaviour. I"
+      },
+      {
+        "authors": [
+          {
+            "name": "David C. Queller"
+          }
+        ],
+        "identifier": "doi:10.1111/j.1558-5646.1992.tb02045.x",
+        "relationship": "background",
+        "title": "A general model for kin selection"
+      },
+      {
+        "authors": [
+          {
+            "name": "Russell Lande"
+          },
+          {
+            "name": "Stevan J. Arnold"
+          }
+        ],
+        "identifier": "doi:10.2307/2408842",
+        "relationship": "formalizes",
+        "title": "The measurement of selection on correlated characters"
+      },
+      {
+        "authors": [
+          {
+            "name": "Hilda Geiringer"
+          }
+        ],
+        "identifier": "doi:10.1214/aoms/1177731313",
+        "relationship": "adapts",
+        "title": "On the Probability Theory of Linkage in Mendelian Heredity"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "X. Lee"
+      },
+      {
+        "name": "N. Volkov"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-29T16:57:32Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "3e8344e6a72a9b918ad3cf28c520ce1b08a4f81708cd59557b71023f3a7904ce"
+    },
+    "reviewed_at": "2026-10-29T15:01:55Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "40430cc1c60bb35b2b4872a6c9583b71cc363e7a",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "d8a7b66008acc4cfaaa4ac8bba587d2c6aa17f636a584fbfe642ddb22ebc1423"
+    },
+    "repository": "cenozoic-works/rhone-theory",
+    "repository_url": "https://github.com/cenozoic-works/rhone-theory",
+    "tree_url": "https://github.com/cenozoic-works/rhone-theory/tree/40430cc1c60bb35b2b4872a6c9583b71cc363e7a"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "olk0r2nb61rw"
+  },
+  "title": "Classical identities and a limit theorem of selection theory",
+  "trust": {
+    "challenge_bytes": 8508,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 255,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "eb037d2cdfe63e4ae6bf449bf2c0c2795235d67218be9f69620ddf25050573f6",
+    "evidence_path": "evidence/PALOMAR-2026-10-29-000032-v1/e5637a4a8602565ea4d31a3eea7f054505d599935a709011d128dee17a3ab94e/",
+    "evidence_tree_sha256": "e5637a4a8602565ea4d31a3eea7f054505d599935a709011d128dee17a3ab94e",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "c897ed09ea0270d319a79caf4bd271ba7a64abcb1964de6bc8cb5f01eaa4cd6e",
+    "protected_config_sha256": "2104728120e60421053c99698f9df9cc331ac7731da6c0ceac87414bb35fe9b2",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40879798182,
+    "solution_sha256": "4033304b94926432de4b1558cecb6c7b98e33d9752f228ce40e3cc4f7e6574ba",
+    "tool_digests": {
+      "bwrap": "cf222cc306785d9e9fa6b1916a5cda8552fbe36298251ad64ac5f19507b0bffe",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-29T13:16:12Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40879798182"
+  },
+  "version": 1
+}

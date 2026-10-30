@@ -1,0 +1,682 @@
+{
+  "abstract": "Kernel-checked optimum of Hardy's K-step ladder for two qubits (Hardy 1993; Hardy 1997; Boschi, Branca, De Martini and Hardy 1997), for a real Schmidt state c0|00> + c1|11> and real projective settings, the probabilities written out as squared real amplitudes. For every K: under the ladder constraints P(A_K = 1, B_K = 1) <= q^2 (1 - q^{2K})^2 / ((1 + q^2)(1 + q^{2K+1})^2), q = c1/c0, with equality attained (Cereceda 2002, eqs. (18)-(19)); the probability is below 1/2 (the two-qubit, real-settings case of a bound that follows in every dimension from Cereceda 2016, eq. (9), with Wehner 2006), and for every eps > 0 and every large enough K some state and settings exceed 1/2 - eps (the \"(50 - delta)%\" of Hardy 1997 and Boschi et al. 1997). For every K >= 1 the maximiser of the closed form on (0, 1) is the unique zero there of Cereceda's polynomial m_K (Cereceda 2002, eq. (20), stated there without proof): the derivative of the closed form, the existence and uniqueness of the zero, the maximum and its uniqueness, and, over all Schmidt states and real settings, the optimum, its attainment at the Schmidt ratio r, and that every optimal configuration has Schmidt ratio r or 1/r (attainment at 1/r follows from the uncompared symmetry). Worked instances: the K = 1 optimum is phi^{-5} = (5 sqrt 5 - 11)/2 (Hardy 1993), attained at a state with 2 c0 c1 = 3 - sqrt 5 and only where 2 c0 c1 = 3 - sqrt 5 (Hardy's condition); the K = 2 optimum is (8 rho^2 + rho - 11)/25 = 0.17455..., rho the plastic number (the real root of x^3 - x - 1), attained at Schmidt weights c0^2 = rho^{-1}, c1^2 = rho^{-5} (c1/c0 = rho^{-2}) and only where {c0^2, c1^2} = {rho^{-1}, rho^{-5}}. The value 0.17455 is in print numerically; the closed form, the maximiser rho^{-2}, the weights and the minimal polynomial 25x^3 + 17x^2 + 2x - 1 of the value were not found in the literature searched (2026-10-28) and are the entry's new content. Also: the K = 2 value is not totally real (its minimal polynomial has a non-real complex root). Optimality over complex settings is not formalised. Thirty compared statements.",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-30-000005-v1/1cea834be1c6c241c854fcf5e85fd30121437fcc69c3d3376a981ede11099892/",
+    "artifact_tree_sha256": "1cea834be1c6c241c854fcf5e85fd30121437fcc69c3d3376a981ede11099892",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-30T00:59:45Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "quant-ph",
+      "math.NT",
+      "math-ph"
+    ],
+    "msc2020": [
+      "81P40",
+      "81P13",
+      "11R16",
+      "26C10"
+    ]
+  },
+  "first_registered_on": "2026-10-30",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "HardyLadder.Entry.ladder_prob_le",
+      "HardyLadder.Entry.ladder_prob_attained",
+      "HardyLadder.Entry.ladder_prob_lt_half",
+      "HardyLadder.Entry.ladder_prob_approaches_half",
+      "HardyLadder.Entry.hasDerivAt_ladder_value",
+      "HardyLadder.Entry.existsUnique_mK_root",
+      "HardyLadder.Entry.ladder_value_isGreatest_of_mK_root",
+      "HardyLadder.Entry.eq_of_ladder_value_eq_of_mK_root",
+      "HardyLadder.Entry.ladder_prob_le_of_mK_root",
+      "HardyLadder.Entry.ladder_prob_attained_of_ratio",
+      "HardyLadder.Entry.ratio_of_ladder_prob_eq_of_mK_root",
+      "HardyLadder.Entry.hardy_K1_isGreatest",
+      "HardyLadder.Entry.hardy_value_eq",
+      "HardyLadder.Entry.hardy_K1_eq_iff_quartic",
+      "HardyLadder.Entry.hardy_K1_existsUnique",
+      "HardyLadder.Entry.ladder_K1_le",
+      "HardyLadder.Entry.ladder_K1_attained",
+      "HardyLadder.Entry.ladder_K1_hardy_condition_of_eq",
+      "HardyLadder.Entry.existsUnique_cubic",
+      "HardyLadder.Entry.hardy_K2_isGreatest",
+      "HardyLadder.Entry.hardy_K2_eq_iff_inv_sq",
+      "HardyLadder.Entry.hardy_K2_eq_iff_cubic",
+      "HardyLadder.Entry.hardy_K2_existsUnique",
+      "HardyLadder.Entry.ladder_K2_le",
+      "HardyLadder.Entry.ladder_K2_attained",
+      "HardyLadder.Entry.ladder_K2_weights_of_eq",
+      "HardyLadder.Entry.minpoly_value",
+      "HardyLadder.Entry.finrank_adjoin_value",
+      "HardyLadder.Entry.irreducible_25",
+      "HardyLadder.Entry.exists_nonreal_root_minpoly_value"
+    ]
+  },
+  "id": "PALOMAR-2026-10-30-000005",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-30T06:29:43Z",
+    "receipt_sha256": "e75aee7fb74b8cdcb4448e55a7db5b75b39d98fd4f6d37f348326a90ecb03e76",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000005-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000005-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000005-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000005-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000005-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000005-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000005-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000005-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000005-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "5764ec4a239fcb14f8de263372fc906bd217f349",
+        "fork_repository": "PalomarArchive/stalex444--hardy-ladder--2d054ded5cc9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000005-v1/5764ec4a239fcb14f8de263372fc906bd217f349",
+        "source_repository": "stalex444/hardy-ladder"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Lucien Hardy"
+          }
+        ],
+        "identifier": "https://doi.org/10.1103/PhysRevLett.71.1665; Physical Review Letters 71 (1993) 1665-1668",
+        "license": "unknown",
+        "location": "p. 1667",
+        "relationship": "formalizes",
+        "title": "Nonlocality for two particles without inequalities for almost all entangled states",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "D. Boschi"
+          },
+          {
+            "name": "S. Branca"
+          },
+          {
+            "name": "F. De Martini"
+          },
+          {
+            "name": "L. Hardy"
+          }
+        ],
+        "identifier": "https://doi.org/10.1103/PhysRevLett.79.2755; Physical Review Letters 79 (1997) 2755-2758",
+        "license": "unknown",
+        "location": "not opened",
+        "relationship": "formalizes",
+        "title": "Ladder Proof of Nonlocality without Inequalities: Theoretical and Experimental Results",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "José L. Cereceda"
+          }
+        ],
+        "identifier": "https://doi.org/10.1088/0305-4470/35/43/309; Journal of Physics A: Mathematical and General 35 (2002) 9105-9111; arXiv:quant-ph/0206015",
+        "license": "unknown",
+        "location": "eqs. (6)-(9), (18)-(20), (33); Table 1; pp. 3, 4 and 6 of arXiv v4: p. 3 after eq. (19); p. 4 below Table 1 and footnote; p. 6",
+        "relationship": "formalizes",
+        "title": "Ladder proof of nonlocality for two spin-half particles revisited",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Rafael Rabelo"
+          },
+          {
+            "name": "Law Yun Zhi"
+          },
+          {
+            "name": "Valerio Scarani"
+          }
+        ],
+        "identifier": "https://doi.org/10.1103/PhysRevLett.109.180401; Physical Review Letters 109 (2012) 180401; arXiv:1205.3280",
+        "license": "unknown",
+        "location": "abstract; Theorem 2 (arXiv v2)",
+        "relationship": "independently-proves",
+        "title": "Device-Independent Bounds for Hardy's Experiment",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Lucien Hardy"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/978-94-011-5886-2_22; In: New Developments on Fundamental Problems in Quantum Physics (M. Ferrero, A. van der Merwe, eds.), Kluwer (1997), pp. 163-170",
+        "license": "unknown",
+        "location": "pp. 163-170 (not opened)",
+        "relationship": "formalizes",
+        "title": "A Bigger Contradiction Between Quantum Theory and Locality for Two Particles Without Inequalities",
+        "type": "book chapter"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "N. David Mermin"
+          }
+        ],
+        "identifier": "https://doi.org/10.1063/1.2808514; Physics Today 47(6) (1994) 9-11",
+        "license": "unknown",
+        "location": "p. 11",
+        "relationship": "background",
+        "title": "What's Wrong with this Temptation?",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "José L. Cereceda"
+          }
+        ],
+        "identifier": "https://doi.org/10.1023/A:1015520603468; Foundations of Physics Letters 14 (2001) 401-424; arXiv:quant-ph/0101143",
+        "license": "unknown",
+        "location": "Sec. 4",
+        "relationship": "background",
+        "title": "Identification of All Hardy-Type Correlations for Two Photons or Particles with Spin 1/2",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Adán Cabello"
+          }
+        ],
+        "identifier": "https://doi.org/10.1103/PhysRevA.58.1687; Physical Review A 58 (1998) 1687-1693; arXiv:quant-ph/9712055",
+        "license": "unknown",
+        "location": "abstract; Sec. 2 (arXiv v2, p. 3)",
+        "relationship": "background",
+        "title": "Ladder proof of nonlocality without inequalities and without probabilities",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Hui-Xian Meng"
+          },
+          {
+            "name": "Jie Zhou"
+          },
+          {
+            "name": "Zhen-Peng Xu"
+          },
+          {
+            "name": "Hong-Yi Su"
+          },
+          {
+            "name": "Ting Gao"
+          },
+          {
+            "name": "Feng-Li Yan"
+          },
+          {
+            "name": "Jing-Ling Chen"
+          }
+        ],
+        "identifier": "https://doi.org/10.1103/PhysRevA.98.062103; Physical Review A 98 (2018) 062103; arXiv:1805.04651",
+        "license": "unknown",
+        "location": "Table I",
+        "relationship": "background",
+        "title": "Hardy's paradox for multisetting high-dimensional systems",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Kai-Siang Chen"
+          },
+          {
+            "name": "Shiladitya Mal"
+          },
+          {
+            "name": "Gelo Noel M. Tabia"
+          },
+          {
+            "name": "Yeong-Cherng Liang"
+          }
+        ],
+        "identifier": "https://doi.org/10.1103/PhysRevA.109.042206; Physical Review A 109 (2024) 042206; arXiv:2311.02045",
+        "license": "unknown",
+        "location": "Table I(a), row Boschi [15] (arXiv v2)",
+        "relationship": "background",
+        "title": "Hardy-type paradoxes for an arbitrary symmetric bipartite Bell scenario",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "José Luis Cereceda"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/s11128-015-1217-4; Quantum Information Processing 15 (2016) 1779-1792; arXiv:1508.06317",
+        "license": "unknown",
+        "location": "eqs. (8)-(9); p. 4 (arXiv v1)",
+        "relationship": "independently-proves",
+        "title": "Chained Clauser-Horne-Shimony-Holt inequality for Hardy's ladder test of nonlocality",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Stephanie Wehner"
+          }
+        ],
+        "identifier": "https://doi.org/10.1103/PhysRevA.73.022110; Physical Review A 73 (2006) 022110; arXiv:quant-ph/0510076",
+        "license": "unknown",
+        "location": "abstract",
+        "relationship": "background",
+        "title": "Tsirelson bounds for generalized Clauser-Horne-Shimony-Holt inequalities",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "José Luis Cereceda"
+          }
+        ],
+        "identifier": "https://doi.org/10.12988/astp.2015.5456; Advanced Studies in Theoretical Physics 9 (2015) 433-448",
+        "license": "unknown",
+        "location": "abstract",
+        "relationship": "background",
+        "title": "Causal communication constraint for two qubits in Hardy's ladder proof of non-locality",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Yeong-Cherng Liang"
+          },
+          {
+            "name": "Robert W. Spekkens"
+          },
+          {
+            "name": "Howard M. Wiseman"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/j.physrep.2011.05.001; Physics Reports 506 (2011) 1-39; arXiv:1010.1273",
+        "license": "unknown",
+        "location": "Sec. IV.E (arXiv v4)",
+        "relationship": "background",
+        "title": "Specker's parable of the overprotective seer: A road to contextuality, nonlocality and complementarity",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "José Luis Cereceda"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/s40509-016-0093-7; Quantum Studies: Mathematics and Foundations 4 (2017) 205-215; arXiv:1609.04763",
+        "license": "unknown",
+        "location": "Table 1 (arXiv v2)",
+        "relationship": "background",
+        "title": "Cabello's nonlocality for generalized three-qubit GHZ states",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "José L. Cereceda"
+          }
+        ],
+        "identifier": "https://doi.org/10.1103/PhysRevA.57.659; Physical Review A 57 (1998) 659-662",
+        "license": "unknown",
+        "location": "not opened",
+        "relationship": "background",
+        "title": "Generalized probability for Hardy's nonlocality contradiction",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Mu Yang"
+          },
+          {
+            "name": "Hui-Xian Meng"
+          },
+          {
+            "name": "Jie Zhou"
+          },
+          {
+            "name": "Zhen-Peng Xu"
+          },
+          {
+            "name": "Ya Xiao"
+          },
+          {
+            "name": "Kai Sun"
+          },
+          {
+            "name": "Jing-Ling Chen"
+          },
+          {
+            "name": "Jin-Shi Xu"
+          },
+          {
+            "name": "Chuan-Feng Li"
+          },
+          {
+            "name": "Guang-Can Guo"
+          }
+        ],
+        "identifier": "https://doi.org/10.1103/PhysRevA.99.032103; Physical Review A 99 (2019) 032103; arXiv:1809.04289",
+        "license": "unknown",
+        "location": "Supplement, Table I (arXiv v1)",
+        "relationship": "background",
+        "title": "Stronger Hardy-type paradox based on the Bell inequality and its experimental test",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ming Yang"
+          },
+          {
+            "name": "Dongkai Zhang"
+          },
+          {
+            "name": "Lixiang Chen"
+          }
+        ],
+        "identifier": "https://doi.org/10.1103/PhysRevA.110.012441; Physical Review A 110 (2024) 012441; arXiv:2403.07417",
+        "license": "unknown",
+        "location": "Table I (k = 3)",
+        "relationship": "background",
+        "title": "Cabello's nonlocality argument for multisetting high-dimensional systems and its experimental test",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Stephanie Alexander"
+          }
+        ],
+        "identifier": "this repository: statements 20-22 and 24-30 of Challenge.lean",
+        "license": "MIT",
+        "location": "HardyLadder/HardyK2.lean, HardyLadder/Minpoly.lean, HardyLadder/Optimum.lean, HardyLadder/TotallyReal.lean",
+        "relationship": "other",
+        "title": "The two-step (K = 2) two-qubit Hardy ladder optimum in closed form: maximiser q = rho^{-2}, value (8 rho^2 + rho - 11)/25 with minimal polynomial 25x^3 + 17x^2 + 2x - 1, optimal Schmidt weights {rho^{-1}, rho^{-5}}",
+        "type": "this formalization"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "Mathlib Mathlib/NumberTheory/Real/GoldenRatio.lean (Real.goldenRatio)",
+        "note": "The K = 1 value is stated as phi^{-5} with Mathlib's golden ratio phi = (1 + sqrt 5)/2 (Real.goldenRatio, file authors Anatole Dedecker, Alexey Soloyev, Junyan Xu and Kamila Szewczyk; quoted in MATHLIB_DEFINITIONS.md); statement 13 identifies it with (5 sqrt 5 - 11)/2. The facts about it used are its definition, phi^2 = phi + 1 (Real.goldenRatio_sq), 0 < phi (Real.goldenRatio_pos), 1 < phi (Real.one_lt_goldenRatio), phi < 2 (Real.goldenRatio_lt_two) and phi /= 0 (Real.goldenRatio_ne_zero).",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "Mathlib Mathlib/FieldTheory/Minpoly/Basic.lean (minpoly), Mathlib/FieldTheory/Minpoly/Field.lean (minpoly.eq_of_irreducible_of_monic) and Mathlib/FieldTheory/IntermediateField/Adjoin (adjoin, adjoin.finrank)",
+        "note": "Statements 27-30 are stated with Mathlib's minimal polynomial (and statement 28 with intermediate fields); the proofs use minpoly.eq_of_irreducible_of_monic, Gauss's lemma (Monic.irreducible_iff_irreducible_map_fraction_map), reduction modulo 2 (Monic.irreducible_of_irreducible_map), and for statement 30 the count of roots of a separable polynomial in an algebraically closed field (card_rootSet_eq_natDegree, with Irreducible.separable).",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "Mathlib Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean (NumberField.IsTotallyReal) and InfinitePlace/Embeddings.lean (range_eval_eq_rootSet_minpoly)",
+        "note": "The uncompared library lemmas HardyLadder.totallyReal_subfield_eq_bot and HardyLadder.mem_bot_of_isTotallyReal_adjoin (every totally real subfield of a number field of degree 3 containing a root of x^3 - x - 1 is Q) are stated with Mathlib's IsTotallyReal (every infinite place real) and proved through the correspondence between embeddings into C and roots of the minimal polynomial, the count of roots of a separable polynomial in an algebraically closed field (card_rootSet_eq_natDegree), and IntermediateField.isSimpleOrder_of_finrank_prime.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "Mathlib Mathlib/Analysis/Calculus/Deriv (HasDerivAt and its algebra), Mathlib/Analysis/Calculus/Deriv/MeanValue.lean (strictMonoOn_of_deriv_pos, strictAntiOn_of_deriv_neg) and Mathlib/Topology/Order/IntermediateValue.lean (intermediate_value_Ioo')",
+        "note": "Statement 5 is stated with Mathlib's HasDerivAt and proved by composing hasDerivAt_pow, HasDerivAt.fun_mul, fun_add, fun_sub, fun_pow and fun_div; statements 6-8 use strictMonoOn_of_deriv_pos and strictAntiOn_of_deriv_neg on [0, 1], (0, r] and [r, 1), and the intermediate value theorem intermediate_value_Ioo' for the zero of m_K.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/zblore/csd-lean4/blob/1aa340c28dae7817b10d0db47d05190613c38aee/CsdLean4/Empirical/QM/Hardy.lean",
+        "note": "Prior Lean 4 formalisation of Hardy's K = 1 paradox: the local-realism no-go (CSD.Empirical.Hardy.no_lhv_hardy), realisations with probability 1/12 and with the golden-ratio state, and attainment of the value (CSD.Empirical.Hardy.HardyQMMax.hardyMax_probability_eq: probability (5 sqrt 5 - 11)/2; hardyMax_value: 1/(5 phi + 3) = (5 sqrt 5 - 11)/2). It states no upper bound (hardyMax_probability_eq evaluates the probability at the golden-ratio state, which the repository's prose calls the maximum), and nothing on uniqueness, the ladder bound or K = 2; statements 1-11, the upper-bound half of 12, 14-16 and 18-30 here are not in it (statement 17, the attainment of the K = 1 value, overlaps hardyMax_probability_eq, as does the attainment half of 12). At HEAD 329276a5 (2026-10-28) no Hardy file had changed; the repository also has CsdLean4/Empirical/CSD/HardyVolume.lean (hardy_max_volume_probability: the same value as a Kähler volume, an evaluation), CsdLean4/Empirical/CSD/Hardy.lean (no_csd_hardy_assignment, a CSD-model no-go), CsdLean4/LF4/HardyKahler.lean (Born-frequency convergence for the 1/12 state, hardy_freq_convergence) and CsdLean4/Mathlib/Probability/ChainedBell.lean (the Colbeck-Renner chained walk; a no-signalling marginal bound; not the ladder, and not the Braunstein-Caves inequality).",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/primaryhosting/brockian-mathematics/tree/29426ff65b6f1fd68d594e529632eb79b5be3089/aristotle/mined_lemmas/QI_hardy_paradox",
+        "note": "Lean 4 files (headers: \"Verification: pending\") for Hardy's K = 1 paradox: the local-realism no-go (QI.hardy_paradox, QI.hardy_paradox_measure, QI.lhv_hardy_zero) and the probability 1/12 (QI.hardy_pos_A0_B0, for the state (|00> + |01> + |10> - 3|11>)/sqrt 12; the docstring of QI.hardy_paradox uses |00> + |01> + |10>). No optimum, no ladder.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/inventor1975/ZTL/blob/77a6890e871def3cb13f9e7114e4bd9dd926fdd3/lean/Hardy.lean",
+        "note": "Self-contained Lean 4 file (no Mathlib) checking the 1/12 instance of Hardy's K = 1 paradox in integer arithmetic (Hardy.contested_occurs, Hardy.certainties). No optimum, no ladder.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-30T06:29:14Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "27f34ce78c9455e67ee06220ad88380900624d52f6de717c43f2a8d04d1f0b03"
+    },
+    "reviewed_at": "2026-10-30T01:15:24Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "5764ec4a239fcb14f8de263372fc906bd217f349",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/hardy-ladder",
+    "repository_url": "https://github.com/stalex444/hardy-ladder",
+    "tree_url": "https://github.com/stalex444/hardy-ladder/tree/5764ec4a239fcb14f8de263372fc906bd217f349"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "q00o10y5lb0s"
+  },
+  "title": "The two-qubit Hardy ladder: the closed form P_K*(q) and its unique maximiser for every K, Hardy's optimum at K = 1, and the optimum (8 rho^2 + rho - 11)/25 in the cubic field Q(rho) at K = 2",
+  "trust": {
+    "challenge_bytes": 36031,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 555,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "3997028b88594b07d633b7c10972f43fcb68d1cdb3e3ec47f1e4a7a56b2380b0",
+    "evidence_path": "evidence/PALOMAR-2026-10-30-000005-v1/ed6e13a1583e9d2ab03db4f93b88427a7946d44af0b73e883b4e6dc67f5a836b/",
+    "evidence_tree_sha256": "ed6e13a1583e9d2ab03db4f93b88427a7946d44af0b73e883b4e6dc67f5a836b",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "6b1a95dc56f75bc2f88cb6a55c791356752d952d38902f3c0560688844d08cff",
+    "protected_config_sha256": "65a3e98b64abd6d6277704dc470f9a4741a45593fc132506661782a2b502b7c9",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 40978815456,
+    "solution_sha256": "4116519b3a632829b9ba3b22e4cf3de83e3d496ceb036e07c660d3fe03e7a7e3",
+    "tool_digests": {
+      "bwrap": "fec690220b4a112204945d6c51eba2105b59200c4c0009c6b95594d3af1d2563",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-30T00:24:49Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/40978815456"
+  },
+  "version": 1
+}
