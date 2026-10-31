@@ -1,0 +1,328 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of the Hajnal–Szemerédi theorem (1970), conjectured by Erdős in 1964: every finite graph with maximum degree at most r has an equitable proper colouring with r + 1 colours, i.e. a proper colouring whose colour classes differ in size by at most one. The exact form is also proved: if the number of vertices is s(r + 1), every colour class has exactly s vertices (the colouring form of Erdős Problem #914). Version 2 adds the form with any number k > Δ(G) of colours (Mathlib's SimpleGraph.maxDegree), deduced from the theorem with r = k − 1. The proof follows the short argument of Kierstead and Kostochka (2008): induction on the number of edges; after deleting an edge, a nearly equitable colouring is repaired by moving vertices along paths of an auxiliary digraph on the colour classes (Lemma 2.1); when the large class is inaccessible, a family of terminal classes, solo edges and a discharging count with weights q/|S_z| (Lemmas 2.2–2.3) produce a recolouring that either finishes the colouring or strictly increases the number of accessible classes, using the induction hypothesis on the inaccessible part. The general case is reduced to the divisible one by adding a disjoint complete graph.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-13-000007-v2/7b413180ac45f4b80f87caa1373cad680d668d0cbd4fb73a859f996a71d64fba/",
+    "artifact_tree_sha256": "7b413180ac45f4b80f87caa1373cad680d668d0cbd4fb73a859f996a71d64fba",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-30T13:22:19Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C15",
+      "05C35"
+    ]
+  },
+  "first_registered_on": "2026-10-13",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "HajnalSzemeredi.hajnal_szemeredi",
+      "HajnalSzemeredi.hajnal_szemeredi_exact",
+      "HajnalSzemeredi.hajnal_szemeredi_of_maxDegree_lt"
+    ]
+  },
+  "id": "PALOMAR-2026-10-13-000007",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-30T15:33:53Z",
+    "receipt_sha256": "5ff1141f1cf61e15487dd7ba6bc9a886c8bc46b4bdf7679ca310a6a6a5cb2785",
+    "repositories": [
+      {
+        "commit": "2a71de73134d10cdfecfe52cec652a386f1aa356",
+        "fork_repository": "PalomarArchive/jtraverso--hajnal-szemeredi--c11276c44bab",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000007-v2/2a71de73134d10cdfecfe52cec652a386f1aa356",
+        "source_repository": "jtraverso/hajnal-szemeredi"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000007-v2/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000007-v2/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000007-v2/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000007-v2/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000007-v2/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000007-v2/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000007-v2/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000007-v2/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-13-000007-v2/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "H. A. Kierstead"
+          },
+          {
+            "name": "A. V. Kostochka"
+          }
+        ],
+        "identifier": "doi:10.1017/S0963548307008619",
+        "license": "unknown",
+        "location": "Combinatorics, Probability and Computing 17 (2008), 265–270",
+        "relationship": "formalizes",
+        "title": "A short proof of the Hajnal–Szemerédi theorem on equitable colouring",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "András Hajnal"
+          },
+          {
+            "name": "Endre Szemerédi"
+          }
+        ],
+        "license": "unknown",
+        "location": "Combinatorial Theory and its Applications II (P. Erdős, A. Rényi, V. T. Sós, eds.), North-Holland, 1970, 601–623",
+        "relationship": "formalizes",
+        "title": "Proof of a conjecture of P. Erdős",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Paul Erdős"
+          }
+        ],
+        "license": "unknown",
+        "location": "Theory of Graphs and its Applications (M. Fiedler, ed.), Czech. Academy of Sciences, Prague, 1964, p. 159",
+        "relationship": "background",
+        "title": "Problem 9",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [],
+        "license": "unknown",
+        "location": "https://www.erdosproblems.com/914",
+        "relationship": "background",
+        "title": "Erdős Problem #914",
+        "type": "web discussion"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/914.lean",
+        "note": "Lean statement of Erdős Problem #914 without proof; this project proves the colouring form.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-30T14:24:00Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "3b61cef08f8083917ae8b0e494a571483a35be8a8ca68c0f16eaad97a246b9dc"
+    },
+    "reviewed_at": "2026-10-30T13:32:35Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "2a71de73134d10cdfecfe52cec652a386f1aa356",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jtraverso/hajnal-szemeredi",
+    "repository_url": "https://github.com/jtraverso/hajnal-szemeredi",
+    "tree_url": "https://github.com/jtraverso/hajnal-szemeredi/tree/2a71de73134d10cdfecfe52cec652a386f1aa356"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "t5kl8l0r2ii5"
+  },
+  "title": "The Hajnal–Szemerédi theorem on equitable colourings",
+  "trust": {
+    "challenge_bytes": 2976,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Combinatorics.SimpleGraph.Coloring.Vertex",
+      "Mathlib.Combinatorics.SimpleGraph.Finite"
+    ],
+    "challenge_lines": 63,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "fe0b43367c1c9974a29fae189c67a397e0cda57604861a894320a8ac8dcf94ba",
+    "evidence_path": "evidence/PALOMAR-2026-10-13-000007-v2/2344bc83cfab1c66ef82b154da0677c7eecd0116d7d890f849ad08336c2fd73f/",
+    "evidence_tree_sha256": "2344bc83cfab1c66ef82b154da0677c7eecd0116d7d890f849ad08336c2fd73f",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "8bfb2cda416c3aa678bac9b76c5feb4a21c9aa4e8d24b9bf85ee2cb8cf782cb9",
+    "protected_config_sha256": "0170e97ff87858e9e326455f755149a8055b5c1c1d4a062eb63f2155f69058b8",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41059307588,
+    "solution_sha256": "97f47362fc849d5fb1c5574815b1a35f6c01cdd065cede0b4deee8f31190d97b",
+    "tool_digests": {
+      "bwrap": "700e237f3b3bdb2d67690eb86835c4138bc417d31b566dfc95acfc40bad53d6f",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-10-30T13:03:58Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41059307588"
+  },
+  "version": 2
+}

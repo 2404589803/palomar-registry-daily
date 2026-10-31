@@ -1,0 +1,383 @@
+{
+  "abstract": "For a prime p and 0 < h < p, the Dedekind sum s(h,p) is determined, up to an explicit error of order log p, by the fractions of small height congruent to plus or minus h: with the sum over the coprime pairs u, v >= 1 with uv < p/2, |12 s(h,p) - p sum ([hv = u mod p] - [hv = -u mod p])/(uv)| <= 6n <= 12 log_2 p + 6, where n is the length of Euclid's algorithm on (p, h). Summed over any set H of residues, in particular over a subgroup of odd order, this gives |12 sum_{h in H} s(h,p) - p S_H(p)| <= |H| (12 log_2 p + 6), where S_H(p) is the signed sum of 1/(uv) over the coprime pairs with uv < p/2 and u/v in H or -H. The development proves Dedekind reciprocity from scratch (by counting lattice points), the identities of Euclid's algorithm and the bound n <= 2 log_2 k + 1, the alternating-sum form 12 s(h,k) = sum (-1)^{j+1} k/(r_j q_{j-1}) + E with |E| <= 4n, and Legendre's pairing of the small coprime pairs with the steps of the algorithm, by a lattice-basis argument instead of continued fractions.",
+  "authors": [
+    {
+      "name": "Joseph S. Farland"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-30-000011-v1/a699cea2c0e5f93be90b7576abe9e851b207eabadd461a3aac23f8caa6f7c140/",
+    "artifact_tree_sha256": "a699cea2c0e5f93be90b7576abe9e851b207eabadd461a3aac23f8caa6f7c140",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-30T12:35:14Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11F20",
+      "11A55",
+      "11M20",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-10-30",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "SmallRatio.sawtooth",
+      "SmallRatio.dedekindSum",
+      "SmallRatio.rem",
+      "SmallRatio.den",
+      "SmallRatio.steps",
+      "SmallRatio.smallRatioSum",
+      "SmallRatio.subgroupSmallRatio"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "SmallRatio.reciprocity",
+      "SmallRatio.euclid_terminates",
+      "SmallRatio.euclid_identity",
+      "SmallRatio.euclid_congruence",
+      "SmallRatio.euclid_length",
+      "SmallRatio.along_euclid",
+      "SmallRatio.pairing",
+      "SmallRatio.pairs_coprime",
+      "SmallRatio.small_ratio",
+      "SmallRatio.small_ratio_log",
+      "SmallRatio.sum_over_set",
+      "SmallRatio.small_ratio_subgroup"
+    ]
+  },
+  "id": "PALOMAR-2026-10-30-000011",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-10-30T14:02:10Z",
+    "receipt_sha256": "03b6753677ed47c59c3abcdc714edf3c2550cc784e23800992818a9c9fd9657b",
+    "repositories": [
+      {
+        "commit": "7e757a973e1297239400c90182e1b507ea48b7c0",
+        "fork_repository": "PalomarArchive/jkfarland-bot--SmallRatios--f4f4c3f555bc",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000011-v1/7e757a973e1297239400c90182e1b507ea48b7c0",
+        "source_repository": "jkfarland-bot/SmallRatios"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000011-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000011-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000011-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000011-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000011-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000011-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000011-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000011-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-30-000011-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "license": "CC-BY-4.0",
+        "location": "Preprint, Zenodo, 2026, https://doi.org/10.5281/zenodo.23801363 (v1.0); all versions https://doi.org/10.5281/zenodo.23801362",
+        "relationship": "formalizes",
+        "title": "The small-ratio formula for Dedekind sums, formalized in Lean",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "license": "CC-BY-4.0",
+        "location": "Unpublished manuscript, 2026",
+        "relationship": "formalizes",
+        "title": "Mean squares of Dirichlet L-functions at s=1 over characters of fixed order and over subgroups",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "H. Rademacher"
+          },
+          {
+            "name": "E. Grosswald"
+          }
+        ],
+        "license": "unknown",
+        "location": "Carus Mathematical Monographs 16, Mathematical Association of America, 1972",
+        "relationship": "background",
+        "title": "Dedekind Sums",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "R. R. Hall"
+          },
+          {
+            "name": "M. N. Huxley"
+          }
+        ],
+        "license": "unknown",
+        "location": "Acta Arith. 63 (1993), 79-90",
+        "relationship": "background",
+        "title": "Dedekind sums and continued fractions",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "K. Girstmair"
+          }
+        ],
+        "license": "unknown",
+        "location": "Acta Arith. 109 (2003), 299-308",
+        "relationship": "background",
+        "title": "Zones of large and small values for Dedekind sums",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "M. Munsch"
+          },
+          {
+            "name": "I. E. Shparlinski"
+          }
+        ],
+        "license": "unknown",
+        "location": "Forum Math. 38 (2026), 1469-1490; arXiv:2309.10207",
+        "relationship": "background",
+        "title": "Moments and non-vanishing of L-functions over subgroups of optimal index",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://doi.org/10.5281/zenodo.23424615",
+        "note": "DedekindSubgroups by the same author. The definitions sawtooth and dedekindSum are copied from it verbatim.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://isa-afp.org/entries/Dedekind_Sums.html",
+        "note": "Dedekind sums in Isabelle/HOL (Eberl, Bordg, Paulson and Li, Archive of Formal Proofs, 2025), including reciprocity.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Joseph S. Farland"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-10-30T14:01:51Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "98ae7b59cbe9481827e96ada45144acb7bfcdb86f3f5f0493578212e41e04836"
+    },
+    "reviewed_at": "2026-10-30T12:56:35Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "7e757a973e1297239400c90182e1b507ea48b7c0",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "2a8e159a9d264f4b9ae5de5a195b7d7df6e63d4882a2a72da9fd9ed8242666db"
+    },
+    "repository": "jkfarland-bot/SmallRatios",
+    "repository_url": "https://github.com/jkfarland-bot/SmallRatios",
+    "tree_url": "https://github.com/jkfarland-bot/SmallRatios/tree/7e757a973e1297239400c90182e1b507ea48b7c0"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "y1unmkbqlsz5"
+  },
+  "title": "SmallRatio: Dedekind sums along Euclid's algorithm and the small-ratio formula",
+  "trust": {
+    "challenge_bytes": 7044,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 156,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "6833c309c0e13fb43422ea3c5dc2b660dbe5d101de9c10afb8c8ce51319f2407",
+    "evidence_path": "evidence/PALOMAR-2026-10-30-000011-v1/fdd7a56fa8ba9b0407e8c27156caacce48dc496a2c2e94134e0ecdd5e390ef64/",
+    "evidence_tree_sha256": "fdd7a56fa8ba9b0407e8c27156caacce48dc496a2c2e94134e0ecdd5e390ef64",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "126dc4277fa1253e5f5f877f46f1ae39f4e40f0294be2f535929582476a5476a",
+    "protected_config_sha256": "9bcf5bcc4c86af4e6b3759f33f5abae9b611ba53f76e9af65fcb76ae09af4b43",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41049040318,
+    "solution_sha256": "86dc977a9d65067023a2b3ffd7f4a3d0f60560ea7a3925af24ca4fb8ceb3125d",
+    "tool_digests": {
+      "bwrap": "57b9890f609caa666c1f3b4d3b67212ade3f6866b379c9562f98b3de2388c33e",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-10-30T12:13:55Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41049040318"
+  },
+  "version": 1
+}
