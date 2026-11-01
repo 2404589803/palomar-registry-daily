@@ -1,14 +1,352 @@
 {
-  "fetched_at": "2026-10-31T08:22:21.799330+00:00",
+  "fetched_at": "2026-11-01T09:10:17.136943+00:00",
   "results": {
     "schema_version": 1,
-    "revision": 651,
-    "release": "ff01fa2bd3240170cedf26fba4b146111e3b132a8c11fe533e5cea0a9fe75287",
+    "revision": 657,
+    "release": "b9bf88f48b861ec3c8a5186711f01b5231c14e454d2e3baa4f65f3d5e0c7b146",
     "totals": {
-      "results": 880,
-      "projects": 679
+      "results": 886,
+      "projects": 685
     },
     "entries": [
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of the main results of the author's preprint \"Optimal Clique Partitions under Local Perturbations\" (Erdős #81 series, Paper VI). For a graph G on n vertices with a core P of size p = ⌊(n+1)/3⌋, h = Δ(G △ (K_P ∨ I_O)) and u, s, m the numbers of core, crossing and exterior edges: if p ≥ 18h + 1 then cp(G) = cp_{≤4}(G) = s − u − 2m = M(n) + C − A − 2m with M(n) = ⌊n(n+1)/6⌋ (Theorem A), and cp_{≤3}(G) − cp(G) = m (Theorem B); if p ≥ 63h, every assignment of the orders 4 or 5 to the exterior edges is realized by an optimal partition (Theorem C); for p ≥ 16 each assignment has at least p^{⌊p²/64⌋} optimal partitions and 2^m p^{⌊p²/64⌋} ≤ N(G) ≤ (n+1)^{5e(G)} (Theorem E). Also: the formula for other core sizes in an explicit window (Proposition 2.1), the intrinsic maximum over all cores (§8.1), the exact optimum with one exceptional vertex, cp = cp_{≤4} = cp*_= = s − u − 2m + D(a,b), ν₃ = ν₃* = u + min(a,b) and the restriction gap (Theorem D), and the complete-join variant cp(G) = M(n) − 2m (Theorem A.1). Twelve statements in all. The constants 18, 63, 16 and 24 are those of the paper; their optimality is not claimed.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C70",
+            "05C35"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "ErdosPaperVI.theorem_A",
+            "ErdosPaperVI.theorem_B",
+            "ErdosPaperVI.theorem_C",
+            "ErdosPaperVI.proposition_2_1",
+            "ErdosPaperVI.intrinsic_maximum",
+            "ErdosPaperVI.theorem_D",
+            "ErdosPaperVI.theorem_D_fractional",
+            "ErdosPaperVI.theorem_D_triangles",
+            "ErdosPaperVI.theorem_D_gap",
+            "ErdosPaperVI.theorem_E_prescription",
+            "ErdosPaperVI.theorem_E",
+            "ErdosPaperVI.theorem_A_1"
+          ]
+        },
+        "id": "PALOMAR-2026-11-01-000006",
+        "path": "entries/PALOMAR-2026-11-01-000006-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "719e39baf9d0e356a13f6bfe36b60b4ad5e910d6",
+              "fork_repository": "PalomarArchive/jtraverso--erdos81-optimal-clique-partitions--2ba058ab4ee3",
+              "source_repository": "jtraverso/erdos81-optimal-clique-partitions"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "e8bf72c46a6b3e7377fb2f4a78ad7bc0e320a8be59bda9fea139a5fbade24aeb",
+          "version": 1
+        },
+        "published_at": "2026-11-01T08:21:19Z",
+        "source": {
+          "commit": "719e39baf9d0e356a13f6bfe36b60b4ad5e910d6",
+          "project_path": null,
+          "repository": "jtraverso/erdos81-optimal-clique-partitions"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Optimal clique partitions under local perturbations",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of Corollary 1.6 for r = 3 of Barber, Kühn, Lo, Osthus and Taylor, \"Clique decompositions of multipartite graphs and completion of Latin squares\" (J. Combin. Theory Ser. A 151 (2017), arXiv:1603.01043): fractional triangle decompositions above a threshold give triangle decompositions above the same threshold. Precisely: if δ ≥ 3/4 and, for every ε > 0, every K₃-divisible tripartite graph with three parts of size n ≥ n₀(ε) and minimum partite degree at least (δ + ε)n has a fractional triangle decomposition, then for every ε > 0 there is n₀ such that every K₃-divisible tripartite graph with parts of size n ≥ n₀ and minimum partite degree at least (δ + ε)n has a triangle decomposition (BKLOT2017.corollary_1_6). The hypothesis δ ≥ 3/4 is an extra assumption of the Lean statement: the article does not need it because the fractional threshold is known to be at least 3/4, which is not formalized here. Combined with the fractional bound of Allsop, Bowtell, Lesgourgues and Petrova (pinned entry PALOMAR-2026-10-30-000008), this gives the unconditional statement with threshold 0.769 − 1/20000 (BKLOT2017.corollary_1_6_ablp). The proof follows the iterative absorption of the article (absorbers, vortex of partitions with random reserves, cover-down, balancing graph, assembly) but replaces the regularity-based Section 8 by a route through the fractional threshold and the Haxell–Rödl transfer.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C70",
+            "05B15"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "BKLOT2017.corollary_1_6",
+            "BKLOT2017.corollary_1_6_ablp"
+          ]
+        },
+        "id": "PALOMAR-2026-11-01-000005",
+        "path": "entries/PALOMAR-2026-11-01-000005-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "57e6f36ab132e0f559c43f689eb757e3848696b4",
+              "fork_repository": "PalomarArchive/jtraverso--triangle-decompositions-tripartite--9560d1b43409",
+              "source_repository": "jtraverso/triangle-decompositions-tripartite"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "ebe79c22ec34dc381dddb120074f3c33e9f696f6589921dd235ffc1719da09cf",
+          "version": 1
+        },
+        "published_at": "2026-11-01T08:10:51Z",
+        "source": {
+          "commit": "57e6f36ab132e0f559c43f689eb757e3848696b4",
+          "project_path": null,
+          "repository": "jtraverso/triangle-decompositions-tripartite"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Triangle decompositions of dense tripartite graphs",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 formalization of material in a forthcoming manuscript entitled \"The Orthogonal Art Gallery Problem is ∃ℝ-complete\". A Lean 4 and Mathlib proof, for an explicit single-tape Turing machine model, that deciding whether an orthogonal simple polygon (every edge horizontal or vertical) with rational corners can be guarded by g guards is ∃ℝ-complete under polynomial-time many-one reductions, both when the guards must see the whole polygon (point-point) and when they must see only its boundary (point-boundary). Both problems also reduce to ETR by formulas whose only variables are the 2g coordinates of the guards. As far as we could determine, hardness for orthogonal polygons was open: it is treated neither by Abrahamsen, Adamaszek and Miltzow (J. ACM 2021) nor by Stade (SoCG 2025). The hardness proof is a new construction derived from Stade's polygon: needles become corridors, wedges become rectangles with needle cutters, the slanted mouths of the copy nooks are kept through helper guards pinned by four-armed crosses, and the addition gadgets are replaced by new orthogonal rooms. Its visibility, pinning and coverage facts are checked by the kernel as certificates (cone propagation with a symbolic height parameter, polynomial sign tests for the copy nooks, coverage by convex items). The proofs use only the axioms propext, Classical.choice and Quot.sound.",
+        "authors": [
+          {
+            "name": "Robert D. Barish"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "cs.CG",
+            "cs.CC"
+          ],
+          "msc2020": [
+            "68U05",
+            "68Q17",
+            "14P10",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "ArtGallery.agpOrth_inER",
+            "ArtGallery.agpOrth_inER_guard_variables",
+            "ArtGallery.agpOrth_erComplete",
+            "ArtGallery.agpOrthPointBoundary_inER",
+            "ArtGallery.agpOrthPointBoundary_inER_guard_variables",
+            "ArtGallery.agpOrthPointBoundary_erComplete"
+          ]
+        },
+        "id": "PALOMAR-2026-11-01-000004",
+        "path": "entries/PALOMAR-2026-11-01-000004-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "88aa383397d3c8a896ba127307a6073cf9765f2b",
+              "fork_repository": "PalomarArchive/RBarish-UTokyo--OrthogonalArtGalleryProblem-ExistsR-Lean4--e79dd810627e",
+              "source_repository": "RBarish-UTokyo/OrthogonalArtGalleryProblem-ExistsR-Lean4"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "34d828a88ca5d4d50b101decc49bd894ae0f9d56614f76f3fb65dc0d7c675ced",
+          "version": 1
+        },
+        "published_at": "2026-11-01T08:04:05Z",
+        "source": {
+          "commit": "88aa383397d3c8a896ba127307a6073cf9765f2b",
+          "project_path": null,
+          "repository": "RBarish-UTokyo/OrthogonalArtGalleryProblem-ExistsR-Lean4"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The orthogonal art gallery problem is ∃ℝ-complete (point-point and point-boundary), in Lean 4",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Erdős Problem 919 asks for a graph on the ordinal omega_2 squared with chromatic number aleph_2, or aleph_1, such that every subgraph on a vertex set of smaller order type has chromatic number at most aleph_0. This formalization proves in ZFC that the aleph_2 question is equivalent to the first question of Erdős Problem 918, that the aleph_1 question is equivalent to the existence of a graph on aleph_2 vertices that is not countably chromatic although all its subgraphs on aleph_1 vertices are, that the aleph_2 question implies the aleph_1 question, and that the aleph_1 question has a positive answer under the continuum hypothesis. The proof blows a graph on omega_2 up to a graph on omega_2 times omega_2 in the lexicographic order. It does not settle either question in ZFC.",
+        "authors": [
+          {
+            "name": "Manan Gupta"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "math.LO"
+          ],
+          "msc2020": [
+            "05C15",
+            "03E05"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Erdos919.erdos_919.variants.iff_erdos_918_i",
+            "Erdos919.erdos_919.variants.aleph_1_iff",
+            "Erdos919.erdos_919.variants.aleph_2_imp_aleph_1",
+            "Erdos919.erdos_919.variants.aleph_1_of_CH"
+          ]
+        },
+        "id": "PALOMAR-2026-11-01-000003",
+        "path": "entries/PALOMAR-2026-11-01-000003-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "b1aababb75cd555fab236a2217ec8ada6ce047cf",
+              "fork_repository": "PalomarArchive/mnn31--erdos-919-palomar--c8f0a00ed613",
+              "source_repository": "mnn31/erdos-919-palomar"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "b93bbc59be8ecfd1f30756235a20e4314f9b197ec3015a156bcaa582c992957f",
+          "version": 1
+        },
+        "published_at": "2026-11-01T07:52:39Z",
+        "source": {
+          "commit": "b1aababb75cd555fab236a2217ec8ada6ce047cf",
+          "project_path": null,
+          "repository": "mnn31/erdos-919-palomar"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Reductions for Erdős Problem 919",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A machine-checked proof that the Poisson conjecture fails for two canonical pairs, and hence for every n >= 2, following the explicit counterexample of C. D. Long (2026). The statements and definitions are Formal Conjectures' (PoissonConjecture.lean, arXiv math/0608009), copied verbatim into Challenge.lean, so this entry proves Formal Conjectures' own statements.",
+        "authors": [
+          {
+            "name": "Zayn Blore"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.RA"
+          ],
+          "msc2020": [
+            "17B63",
+            "14R15"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PoissonConjecture.poisson_conjecture",
+            "PoissonConjecture.poisson_conjecture.variants.dimension_two",
+            "PoissonConjecture.poisson_conjecture.variants.dimension_three",
+            "PoissonConjecture.poisson_conjecture.variants.dimension_ge_two"
+          ]
+        },
+        "id": "PALOMAR-2026-11-01-000002",
+        "path": "entries/PALOMAR-2026-11-01-000002-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "aa723b8e6d5d5fcc8b87ea7116816c0f29ed6312",
+              "fork_repository": "PalomarArchive/zblore--fc-poisson-2--d5df9c01ad01",
+              "source_repository": "zblore/fc-poisson-2"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "c7ca84e497797ead524f3510c37e399afbe9ab91dbc68136b9d77e687fec51ae",
+          "version": 1
+        },
+        "published_at": "2026-11-01T06:34:56Z",
+        "source": {
+          "commit": "aa723b8e6d5d5fcc8b87ea7116816c0f29ed6312",
+          "project_path": null,
+          "repository": "zblore/fc-poisson-2"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "fc-poisson-2",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "There is no universal Fσ equivalence relation. This is the main result of arxiv:2610.31052. More detail: An equivalence relation E on a Polish space X is said to be Fσ if it is a countable union of closed subsets of X × X. For equivalence relations E and F on Polish spaces X and Y, we say that E is Borel reducible to F, written E ≤_B F, if there exists a Borel function f : X → Y such that for all x, y ∈ X, we have x E y if and only if f(x) F f(y). An Fσ equivalence relation E is universal if for every Fσ equivalence relation F, we have F ≤_B E. The theorem states that there's no such relation.",
+        "authors": [
+          {
+            "name": "Konrad Deka"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.LO"
+          ],
+          "msc2020": [
+            "03E15"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "NoUniversalFSigma.not_isUniversalFSigma"
+          ]
+        },
+        "id": "PALOMAR-2026-11-01-000001",
+        "path": "entries/PALOMAR-2026-11-01-000001-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "310d90d3553ccf01c4e7276262df6d687db82bb7",
+              "fork_repository": "PalomarArchive/konrad-012--no-universal-fsigma--3c484f5fcb28",
+              "source_repository": "konrad-012/no-universal-fsigma"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "1bd60350a9f399d806a603c7a12835e5ad47b0fda7dcfa3e9a9e972f15e560b0",
+          "version": 1
+        },
+        "published_at": "2026-11-01T06:23:19Z",
+        "source": {
+          "commit": "310d90d3553ccf01c4e7276262df6d687db82bb7",
+          "project_path": null,
+          "repository": "konrad-012/no-universal-fsigma"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "There is no universal Fσ equivalence relation",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
       {
         "abbreviated": false,
         "abstract": "Lean 4 / Mathlib statements of the theorem M(n,k) = sum_{i=1}^{n-1} ceil(i/k) for k = 1 or n <= k+3 (Lipin-Volkov k-game on automata with a sink), rendered as an upper and a lower bound, with the headline case M(5,2) = 6, proved in Solution.lean from the development SinkReset.Plan written in the conductor formalize run 2026-10-25_formalize-sinkresetthresholds. The endpoints k = 1 (Rystsov's tight bound n(n-1)/2) and k = n-1 were known from Lipin-Volkov; the new content is M(k+2,k) = k+2 and M(k+3,k) = k+4 for k >= 2, including the non-divisible pairs (4,2) and (5,3), which the Lipin-Volkov conjecture (stated for k | n-1 only) does not cover; (5,2) is the first pair with k | n-1 that is neither endpoint, i.e. the first pair on which the Lipin-Volkov conjecture itself was open ((4,2) is the first non-endpoint pair of all).",
@@ -53022,7 +53360,7 @@
         "versions": 3
       }
     ],
-    "previous": "eyJyZXZpc2lvbiI6NjUxLCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTE3VDIzOjUxOjM0WiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTE3LTAwMDAwNCJ9",
+    "previous": "eyJyZXZpc2lvbiI6NjU3LCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTE5VDIzOjAyOjIyWiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTE5LTAwMDAwNSJ9",
     "next": null,
     "dropped": [],
     "message": null,
@@ -53030,19 +53368,14 @@
   },
   "changes": {
     "added": [
-      "PALOMAR-2026-10-30-000014",
-      "PALOMAR-2026-10-30-000013",
-      "PALOMAR-2026-10-30-000012",
-      "PALOMAR-2026-10-30-000011",
-      "PALOMAR-2026-10-30-000010",
-      "PALOMAR-2026-10-30-000009",
-      "PALOMAR-2026-10-30-000008",
-      "PALOMAR-2026-10-30-000007"
+      "PALOMAR-2026-11-01-000006",
+      "PALOMAR-2026-11-01-000005",
+      "PALOMAR-2026-11-01-000004",
+      "PALOMAR-2026-11-01-000003",
+      "PALOMAR-2026-11-01-000002",
+      "PALOMAR-2026-11-01-000001"
     ],
-    "updated": [
-      "PALOMAR-2026-10-30-000003",
-      "PALOMAR-2026-10-13-000007"
-    ],
+    "updated": [],
     "absent": []
   },
   "warnings": []
