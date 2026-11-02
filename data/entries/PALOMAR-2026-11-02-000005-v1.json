@@ -1,0 +1,393 @@
+{
+  "abstract": "For a prime p let a = v_2(p-1), m = (p-1)/2^a, H_a the subgroup of (Z/p)^x of order m and s(x) = (-1)^<x>. The development proves the tower of band-parity laws of Paper I of the author's series: the cyclotomic tower (every coordinate of the band-parity sum of the character of order 2^a is congruent modulo 4 to an explicit count), the band-parity tower f_a = sum over H_a of s(u) s(u^2) = m (mod 4) at every odd prime, the doubling count sum over 2H_a of s(u) s(2u) = 2 N_a - m, the imaginary law e_a = 2 N_a - m (mod 4) at every prime p = 1 (mod 4) with its level-3 form, the collapse e_a = +-f_a when 2 is a 2^(a-1)-th power residue, and E. Lehmer's criterion for 2 to be a 2k-th power residue. It also proves the power-map family, the companion law Re C = Im C = kappa (mod 4) at p = 1 (mod 8), and Lehmer-type invariants of the inversion map modulo 4; and, modulo 8, the joint-parity form, the dichotomy, squaring cycles and the order-three pair, the defect lemma, odd multipliers as floor sums and the fifth-interval formula linking M_H(5) to B_{1,theta_p}.",
+  "authors": [
+    {
+      "name": "Joseph S. Farland"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-02-000005-v1/a223db9882f5dc7721f314fe16e6ab2c5a48ed10fca23aea3a9887e32ee66f8a/",
+    "artifact_tree_sha256": "a223db9882f5dc7721f314fe16e6ab2c5a48ed10fca23aea3a9887e32ee66f8a",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-31T23:29:46Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11A15",
+      "11L40",
+      "11R29",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-02",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "BandParityTower.gi",
+      "BandParityTower.twoVal",
+      "BandParityTower.oddPart",
+      "BandParityTower.cosetSum",
+      "BandParityTower.S",
+      "BandParityTower.k",
+      "BandParityTower.t",
+      "BandParityTower.T",
+      "BandParityTower.parSign",
+      "BandParityTower.band",
+      "BandParityTower.bandSum",
+      "BandParityTower.Q",
+      "BandParityTower.kappa",
+      "BandParityTower.Ha",
+      "BandParityTower.cosetOf",
+      "BandParityTower.fTower",
+      "BandParityTower.eTower",
+      "BandParityTower.powResCount",
+      "BandParityTower.Na",
+      "BandParityTower.bandSignE",
+      "BandParityTower.pairBandSum",
+      "BandParityTower.oddCountZ",
+      "BandParityTower.bandSumPow",
+      "BandParityTower.jointOdd",
+      "BandParityTower.multCorr",
+      "BandParityTower.multCount",
+      "BandParityTower.oddInd",
+      "BandParityTower.defect",
+      "BandParityTower.xi5",
+      "BandParityTower.thetaSum",
+      "BandParityTower.fifthCount"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "BandParityTower.Ha_spec",
+      "BandParityTower.coordinates_exact",
+      "BandParityTower.lag_identity_level_four",
+      "BandParityTower.cyclotomic_tower",
+      "BandParityTower.band_parity_tower",
+      "BandParityTower.doubling_count",
+      "BandParityTower.imaginary_law",
+      "BandParityTower.imaginary_law_three",
+      "BandParityTower.imaginary_law_two",
+      "BandParityTower.collapse_criterion",
+      "BandParityTower.lehmer_theorem_five",
+      "BandParityTower.power_map_family",
+      "BandParityTower.companion_law_one_mod_eight",
+      "BandParityTower.lehmer_invariants",
+      "BandParityTower.joint_parity_form",
+      "BandParityTower.hminus_mod_eight",
+      "BandParityTower.mod_eight_dichotomy",
+      "BandParityTower.squaring_cycles",
+      "BandParityTower.squaring_on_H",
+      "BandParityTower.cube_root_cycle",
+      "BandParityTower.e_as_correlation",
+      "BandParityTower.order_three_pair",
+      "BandParityTower.real_part_eq_fTower",
+      "BandParityTower.multiplier_identity",
+      "BandParityTower.multiplier_count_sum",
+      "BandParityTower.defect_congruence",
+      "BandParityTower.odd_multipliers",
+      "BandParityTower.fifth_interval_formula"
+    ]
+  },
+  "id": "PALOMAR-2026-11-02-000005",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-02T06:53:45Z",
+    "receipt_sha256": "bb214940a83fa4534b88258375021fceefed74b1bab55af160901e7642b6a639",
+    "repositories": [
+      {
+        "commit": "5eb71672dcda927c4b76a76bd955eb80dc724a50",
+        "fork_repository": "PalomarArchive/jkfarland-bot--Bandparitytower--5c24f1f12bf3",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000005-v1/5eb71672dcda927c4b76a76bd955eb80dc724a50",
+        "source_repository": "jkfarland-bot/Bandparitytower"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000005-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000005-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000005-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000005-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000005-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000005-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000005-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000005-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000005-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.23752472",
+        "license": "CC-BY-4.0",
+        "location": "Preprint, Zenodo, 2026, https://doi.org/10.5281/zenodo.23752473 (v1.0); all versions https://doi.org/10.5281/zenodo.23752472",
+        "relationship": "formalizes",
+        "title": "The band-parity tower and its limit modulo eight, formalized in Lean",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "license": "CC-BY-4.0",
+        "location": "Preprint (Paper I of the author's series), 2026",
+        "relationship": "formalizes",
+        "title": "The band-parity companion of a quartic L-value: a congruence law, its tower, and its limit modulo eight",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "E. Lehmer"
+          }
+        ],
+        "license": "unknown",
+        "location": "Number Theory and Algebra (H. Zassenhaus, ed.), Academic Press, New York, 1977, 187-194",
+        "relationship": "background",
+        "title": "Generalizations of Gauss's lemma",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Z.-W. Sun"
+          }
+        ],
+        "license": "unknown",
+        "location": "Finite Fields Appl. 59 (2019), 246-283",
+        "relationship": "background",
+        "title": "Quadratic residues and related permutations and identities",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://doi.org/10.5281/zenodo.23673067",
+        "note": "BandParity v1.0 by the same author (Theorem A, the matching lemma, Theorem B). Its files are copied here and renamed into the BandParityTower namespace.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://doi.org/10.5281/zenodo.23624363",
+        "note": "KSurvey (QuarticSurvey) by the same author; its files Basic, Pin, FixedBase and CosetSums reach this repository through BandParity.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Joseph S. Farland"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-02T06:53:23Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "1466cc7e4f83d19993c7c3f627e32354b0d226ba9ed77eb6ac980169cd44dcc4"
+    },
+    "reviewed_at": "2026-11-01T06:28:13Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "The source relationship understates direct prior work on a selected result. Mark Lehmer's paper as “formalizes” for Theorem 5 rather than “background,” while retaining the distinction between this classical result and the paper's other results."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "5eb71672dcda927c4b76a76bd955eb80dc724a50",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "2a8e159a9d264f4b9ae5de5a195b7d7df6e63d4882a2a72da9fd9ed8242666db"
+    },
+    "repository": "jkfarland-bot/Bandparitytower",
+    "repository_url": "https://github.com/jkfarland-bot/Bandparitytower",
+    "tree_url": "https://github.com/jkfarland-bot/Bandparitytower/tree/5eb71672dcda927c4b76a76bd955eb80dc724a50"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "3mlrj6e3h8hk"
+  },
+  "title": "BandParityTower: the band-parity tower and its limit modulo eight",
+  "trust": {
+    "challenge_bytes": 20966,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 399,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "a92b54f2dcb49b830417afcd2cb2c2f853296d1c185ce0a93126acdcefb4b66e",
+    "evidence_path": "evidence/PALOMAR-2026-11-02-000005-v1/d48b6275e51e655df96231f45666e4c68fa84314f1d2a32ad1bb9549b27153c2/",
+    "evidence_tree_sha256": "d48b6275e51e655df96231f45666e4c68fa84314f1d2a32ad1bb9549b27153c2",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "305cf06748a4df6ba816348f2c95f9c6617ddcd8ac6e76b7a870735690cc18f4",
+    "protected_config_sha256": "73e4cd7e43b6e9d2012281543e93fbb9b5b2611c76cb154bbd7534ce37e40f7f",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41246801632,
+    "solution_sha256": "3b650a9d1077ee0a5537fa3a734b922d14e07f6a7d4ebb941340dcb9b9846fa1",
+    "tool_digests": {
+      "bwrap": "bc587e2fd411517f8d5fbb414ba6e9481b0b7df4bc25cd16b7b0668cb6a2dd98",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-10-31T23:07:56Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41246801632"
+  },
+  "version": 1
+}

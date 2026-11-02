@@ -1,0 +1,301 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of S. Lavery, \"Discrete Beurling number systems with integer error below every power of x and no zero-free half-plane\". The headline theorem, BModel.one_zero_system_exists, constructs a discrete Beurling generalized number system whose integer counting function satisfies N(x) = x + O_ε(x^ε) for every ε > 0, while its zeta function is zero-free on no half-plane Re s > 1 − ε (a discrete [1, 0]-system in the sense of Broucke–Debruyne–Révész). The second theorem, BModel.corollary_2_2_complete, is Corollary 2.2: the answer to Question Q (must N(x) = Ax + O(x^θ) with θ < 1/2 force a zero-free half-plane?) is negative. The project also proves Theorem A for every θ ∈ (0, 1/2 − 10⁻⁴]: a system with N(x) = x + O(x^θ log* x) whose zeta function has zeros ρ_k with 1 − Re ρ_k = (log log x_k + O(1))/log x_k, i.e. at distance 1·log log x_k / log x_k from the line Re s = 1. The method is integer-first: a randomised greedy rule chooses each generalized prime so that the integer count tracks a target x + R(x) whose oscillation R plants the zeros; the main work is a positive drift for the queue of composites at every scale, using a Beurling–Saias-type resolvent bound, a local prime number theorem for the realised system and a cluster-counting theorem, with numerical certificates checked by the Lean kernel (decide +kernel). In Lean both theorems are conditional on one explicit hypothesis, BaseRange.Huxley84, eq. (84) of the paper: a short-interval prime number theorem for the rational primes (relative error ≤ (log q)⁻³ on every interval of length ≥ (2q)^{7/12} in [q, 2q], for large q). This is a known theorem (Heath-Brown 1988 with the de la Vallée Poussin error term) that is not in Mathlib; it is a hypothesis of the theorems, not an axiom. The paper and the formalization were produced with heavy AI assistance (Claude agents; the Lean development was started by Aristotle, Harmonic) and have had no human expert review.",
+  "authors": [
+    {
+      "name": "Samuel Lavery"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-02-000003-v1/296ffeb057573e1ecbcd50624d306676658959a25df97e998ae0d4a4fd4ce3eb/",
+    "artifact_tree_sha256": "296ffeb057573e1ecbcd50624d306676658959a25df97e998ae0d4a4fd4ce3eb",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-02T04:50:34Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11N80",
+      "11M41",
+      "03B35"
+    ]
+  },
+  "first_registered_on": "2026-11-02",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "BModel.one_zero_system_exists",
+      "BModel.corollary_2_2_complete"
+    ]
+  },
+  "id": "PALOMAR-2026-11-02-000003",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-02T05:54:16Z",
+    "receipt_sha256": "3b931627b9a5010373a808592034a16703b8ca9d90b990d6390fd479949d59b4",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000003-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000003-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000003-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000003-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000003-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000003-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000003-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000003-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000003-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "c5dcd1dda76ddf95119d1fc6a0470786e8f0d3e8",
+        "fork_repository": "PalomarArchive/samlavery--Beurling--e0dcf0ff884f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000003-v1/c5dcd1dda76ddf95119d1fc6a0470786e8f0d3e8",
+        "source_repository": "samlavery/Beurling"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Samuel Lavery"
+          }
+        ],
+        "license": "CC-BY-4.0",
+        "location": "https://github.com/samlavery/Beurling (beurling-paper.pdf; LaTeX sources in paper/)",
+        "relationship": "formalizes",
+        "title": "Discrete Beurling number systems with integer error below every power of x and no zero-free half-plane",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Frederik Broucke"
+          },
+          {
+            "name": "Gregory Debruyne"
+          },
+          {
+            "name": "Szilárd Gy. Révész"
+          }
+        ],
+        "identifier": "arXiv:2309.01567",
+        "location": "Trans. Amer. Math. Soc. 378 (2025), 477–501",
+        "relationship": "background",
+        "title": "Some examples of well-behaved Beurling number systems",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "D. R. Heath-Brown"
+          }
+        ],
+        "identifier": "doi:10.1515/crll.1988.389.22",
+        "location": "J. Reine Angew. Math. 389 (1988), 22–63",
+        "relationship": "background",
+        "title": "The number of primes in a short interval",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Samuel Lavery"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-02T05:53:49Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "a4ffbd75aa905891a9f6cca15932135cc9fcd221dac9defb476bcd7beb266c29"
+    },
+    "reviewed_at": "2026-11-02T05:39:14Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "c5dcd1dda76ddf95119d1fc6a0470786e8f0d3e8",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "4ef6503ac22254ac381bf368c18371730f5ba9622539638c0cfb5a76f47c23c5"
+    },
+    "repository": "samlavery/Beurling",
+    "repository_url": "https://github.com/samlavery/Beurling",
+    "tree_url": "https://github.com/samlavery/Beurling/tree/c5dcd1dda76ddf95119d1fc6a0470786e8f0d3e8"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "9ydu81nz3wdj"
+  },
+  "title": "Discrete Beurling number systems with integer error below every power, without a zero-free half-plane (assuming the short-interval prime number theorem (84))",
+  "trust": {
+    "challenge_bytes": 9245,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 175,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "32ce5fd3905e51fb11199974519f0273904b9c30c94b6a26479c80a4322b2e04",
+    "evidence_path": "evidence/PALOMAR-2026-11-02-000003-v1/b030cc50e77cb19dd3ce9ec3a788bddf1acad758beb6e7c63e6f48a97d89542d/",
+    "evidence_tree_sha256": "b030cc50e77cb19dd3ce9ec3a788bddf1acad758beb6e7c63e6f48a97d89542d",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      }
+    ],
+    "mechanical_report_sha256": "dc09529a87ae55df4d482e2f780ed16d0322607173a9880c827150bf6b509a5e",
+    "protected_config_sha256": "4f4b99480c19def080ccfa805ea3c1fd615d6f907e1d1f533f713bd39f2dc28d",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41367390801,
+    "solution_sha256": "a248fdcb6c5edd154e8f10cf1db86a7855d28fcab21f845c95f8ebb5c901e235",
+    "tool_digests": {
+      "bwrap": "8ba76a41ef6a596b5ca6f054a964dd7929838e99d4fec82d3f5b5b9e5ad96629",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-02T04:24:13Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41367390801"
+  },
+  "version": 1
+}

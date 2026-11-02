@@ -1,0 +1,331 @@
+{
+  "abstract": "Lean 4 formalization of linearity bounds for almost perfect nonlinear (APN) maps F: 𝔽₂ⁿ → 𝔽₂ⁿ. Write N = 2ⁿ and let L(F) denote the maximum Walsh magnitude over components indexed by nonzero vectors. For n ≥ 5, the formalization establishes L(F) ≤ N − 6, together with L(F) ≤ N − √N/4 − 2 when n is even. For n ≥ 4, ordering the Walsh magnitudes in nonincreasing order as L_k(F) gives L_k(F) ≤ (N/√k)√(1 + (2^(k−1) − 1)/N) for 1 ≤ k ≤ N(N − 1). In particular, L₂(F) ≤ 2⌊N/3⌋ and L₄(F) ≤ N/2. Further bounds relate linearity to the count q of nonplateaued components with nonzero indices. In odd dimension, q > 0 implies L(F)² ≤ N(1 + √(q(N − 1))). In even dimension, whenever 1/2 ≤ C < 1, the condition q ≤ (4C − C² − 1)N/4 + 1 implies L(F) ≤ CN. Additional results sharpen the upper bound on the linearity in certain odd dimensions and constrain the second-largest Walsh magnitude when the linearity is close to N.",
+  "authors": [
+    {
+      "name": "Christof Beierle"
+    },
+    {
+      "name": "Lukas Kölsch"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-01-000013-v1/82bd948668cbbb289923869dbc5501c75f72a9f8263044faf0961a61855b6eed/",
+    "artifact_tree_sha256": "82bd948668cbbb289923869dbc5501c75f72a9f8263044faf0961a61855b6eed",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-31T16:02:28Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "cs.IT"
+    ],
+    "msc2020": [
+      "06E30",
+      "05B10",
+      "11B13",
+      "11T71"
+    ]
+  },
+  "first_registered_on": "2026-11-01",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "APNLinearity.linearity_upper_bounds",
+      "APNLinearity.linearity_bound_of_odd_dimension_and_exact_two_power",
+      "APNLinearity.ranked_walsh_coefficient_bounds",
+      "APNLinearity.second_linearity_bound_of_near_maximal_linearity",
+      "APNLinearity.linearity_bounds_of_nonplateaued_component_count"
+    ]
+  },
+  "id": "PALOMAR-2026-11-01-000013",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-01T10:16:46Z",
+    "receipt_sha256": "ae33b56f1033ca42516161000210584e5e660db02d39f3dc88c633aa4ab84db3",
+    "repositories": [
+      {
+        "commit": "d470936098c6cb9671da7eae0dacd1871eeba262",
+        "fork_repository": "PalomarArchive/cbe90--Linearity-bounds-for-APN-functions--5adccdc1401a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000013-v1/d470936098c6cb9671da7eae0dacd1871eeba262",
+        "source_repository": "cbe90/Linearity-bounds-for-APN-functions"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000013-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000013-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000013-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000013-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000013-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000013-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000013-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000013-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000013-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Christof Beierle"
+          },
+          {
+            "name": "Lukas Kölsch"
+          }
+        ],
+        "identifier": "arXiv:2609.35689",
+        "location": "https://arxiv.org/abs/2609.35689",
+        "relationship": "formalizes",
+        "title": "Linearity bounds for APN functions",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Ingo Czerwinski"
+          },
+          {
+            "name": "Alexander Pott"
+          }
+        ],
+        "identifier": "j.jcta.2025.106129",
+        "location": "https://doi.org/10.1016/j.jcta.2025.106129",
+        "relationship": "background",
+        "title": "On large Sidon sets",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Darrion Thornburgh"
+          }
+        ],
+        "identifier": "arXiv:2609.27731",
+        "location": "https://arxiv.org/abs/2609.27731",
+        "relationship": "background",
+        "title": "A new upper bound for Sidon sets in F_2^{4k+3}",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Claude Carlet"
+          }
+        ],
+        "identifier": "TIT.2021.3081139",
+        "location": "https://doi.org/10.1109/TIT.2021.3081139",
+        "relationship": "background",
+        "title": "On the properties of the Boolean functions associated to the differential spectrum of general APN functions and their consequences",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Christof Beierle"
+      },
+      {
+        "name": "Lukas Kölsch"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-01T10:16:25Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "862b9165b51f31514c70d7709d89c6a5611c11fb369637e7cbd59e2e88b90eab"
+    },
+    "reviewed_at": "2026-10-31T18:16:28Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "d470936098c6cb9671da7eae0dacd1871eeba262",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "cbe90/Linearity-bounds-for-APN-functions",
+    "repository_url": "https://github.com/cbe90/Linearity-bounds-for-APN-functions",
+    "tree_url": "https://github.com/cbe90/Linearity-bounds-for-APN-functions/tree/d470936098c6cb9671da7eae0dacd1871eeba262"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "05kik6d44d8o"
+  },
+  "title": "Linearity bounds for APN functions",
+  "trust": {
+    "challenge_bytes": 8504,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 212,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "9abf66a9548460e0f4735be4ac074182db807a859719075b5eee96a1720f4e7e",
+    "evidence_path": "evidence/PALOMAR-2026-11-01-000013-v1/ff814725d482678070ae7f19ec59597bb8e76cc2b9ecd45fabcd64a81978a4f9/",
+    "evidence_tree_sha256": "ff814725d482678070ae7f19ec59597bb8e76cc2b9ecd45fabcd64a81978a4f9",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "b0c0e0986205fe9a728e85caff0f62dfa4cbc256c56a3d04f610913e476965bf",
+    "protected_config_sha256": "94e7a578e577ee683b1e8c8d3e953c29dcfd1f1abd4e5df15358a1d7121e035d",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41214513256,
+    "solution_sha256": "c37aa93aa3b0340b2aa44397a71dbb7225919d4a5cdf754bdb95ea17da5b93b6",
+    "tool_digests": {
+      "bwrap": "3466ba219d6b158545f1da3e3ca137d4d69609f33c4d5a7112c88db2551cb862",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-10-31T15:38:40Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41214513256"
+  },
+  "version": 1
+}

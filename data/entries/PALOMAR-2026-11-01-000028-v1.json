@@ -1,0 +1,325 @@
+{
+  "abstract": "A Lean 4 proof of Theorems 1, 2 and 3 of A. W. Dudek, On the Riemann hypothesis and the difference between primes, Int. J. Number Theory 11, 2015, arXiv 1402.6417. Each theorem is conditional on the Riemann hypothesis, the paper's own hypothesis, stated with Mathlib's RiemannHypothesis. Theorem 2: for every real x at least 2 there is a prime in the interval from x - (4/pi) sqrt(x) log x to x. Theorem 1: there is c > 0 such that the interval from x to x + c sqrt(x) log x holds more than sqrt(x) primes for every real x at least 2. Theorem 3: for every epsilon > 0 and all large x there is a prime in the interval from x - (1 + epsilon) sqrt(x) log x to x. Each theorem also takes one cited input as an explicit hypothesis, never as an axiom: HSWN70 gZ, the zero count of Hasanalizade, Shen and Wong, arXiv 2107.06506, Corollary 1.2, for T at least 70, stated for gZ, the ordinates of the nontrivial zeros of the Riemann zeta function counted with multiplicity. The paper cites the zero count of Trudgian 2014 at this point, whose constant Hasanalizade, Shen and Wong report to be in error; the corrected count is used instead. The bounds of Schoenfeld 1976 for psi - theta, which the paper also cites, are not an input here: the needed estimate is proved. Dudek's Lemma 4 and the explicit formula for psi_1 are proved as well. An AI agent, Claude, wrote the Lean code, with the ported PrimeNumberTheoremAnd files credited to their authors in PORTING.md; the statements were checked against the paper by AI agents and are offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-01-000028-v1/3bb25b968250724a6b006b0dcc3e322209c00f49cfd44ef808edf7c12451ad2c/",
+    "artifact_tree_sha256": "3bb25b968250724a6b006b0dcc3e322209c00f49cfd44ef808edf7c12451ad2c",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-01T15:19:22Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11N05",
+      "11M26"
+    ]
+  },
+  "first_registered_on": "2026-11-01",
+  "formalization": {
+    "challenge_path": "entries/dudek2014/ChallengeDudek2014.lean",
+    "comparator_config_path": "entries/dudek2014/comparator-dudek2014.json",
+    "definition_names": [
+      "LeanLab.Dudek2014.dudekH",
+      "LeanLab.Dudek2014.PrimeInDudekInterval",
+      "LeanLab.Dudek2014.primesIn",
+      "LeanLab.PNTPort.ExplicitPsi1.Zall",
+      "LeanLab.PNTPort.ExplicitPsi1.Trivial.ZIdx",
+      "LeanLab.PNTPort.ExplicitPsi1.Trivial.gZ",
+      "LeanLab.ChirreHagen2025.Lemma26H.Mt",
+      "LeanLab.ChirreHagen2025.Lemma26H.Rt",
+      "LeanLab.Dudek2014.SigmaH.HSWN70"
+    ],
+    "formalization_metadata_path": "entries/dudek2014/formalization.yaml",
+    "lakefile_path": "entries/dudek2014/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/dudek2014/SolutionDudek2014.lean",
+    "theorem_names": [
+      "LeanLab.PNTPort.ExplicitPsi1.Trivial.theorem2_of_RH_hsw",
+      "LeanLab.Dudek2014.Theorem1H.theorem1_of_RH_hsw",
+      "LeanLab.Dudek2014.AbstractC3.theorem3_of_RH_hsw"
+    ]
+  },
+  "id": "PALOMAR-2026-11-01-000028",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-01T16:55:56Z",
+    "receipt_sha256": "2d8abdec235a7b7276e9b82aceae0e4f7688d2b6e1933eaeda1a1c71797a7b83",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000028-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000028-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000028-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000028-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000028-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000028-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000028-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000028-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000028-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "da5cf9edad7896290771dfcab8feee2906399e3d",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000028-v1/da5cf9edad7896290771dfcab8feee2906399e3d",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Adrian W. Dudek"
+          }
+        ],
+        "identifier": "arXiv:1402.6417",
+        "license": "unknown",
+        "location": "Int. J. Number Theory 11, 2015; arXiv 1402.6417: Theorems 1, 2 and 3, Lemma 4, Section 2",
+        "relationship": "formalizes",
+        "title": "On the Riemann hypothesis and the difference between primes",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Elchin Hasanalizade"
+          },
+          {
+            "name": "Quanli Shen"
+          },
+          {
+            "name": "Peng-Jie Wong"
+          }
+        ],
+        "identifier": "arXiv:2107.06506",
+        "license": "unknown",
+        "location": "arXiv 2107.06506, Corollary 1.2",
+        "relationship": "other",
+        "title": "Counting zeros of the Riemann zeta function",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "the PrimeNumberTheoremAnd project contributors"
+          }
+        ],
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "license": "Apache-2.0",
+        "location": "commit c39a751132c88b6e8080b74c74023fd95b3d8be0, files under LeanLab/PNTPort/StrongPNT/",
+        "relationship": "other",
+        "title": "PrimeNumberTheoremAnd",
+        "type": "formalization"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-01T16:23:50Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "45e0379c37cca5045d171fd7a57c3147883f5956a8ff5f0dbb8acff2cef16df5"
+    },
+    "reviewed_at": "2026-11-01T16:00:56Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "da5cf9edad7896290771dfcab8feee2906399e3d",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/dudek2014",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/da5cf9edad7896290771dfcab8feee2906399e3d/entries/dudek2014"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "50g3uwvqaxvy"
+  },
+  "title": "On the Riemann hypothesis and the difference between primes",
+  "trust": {
+    "challenge_bytes": 6682,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 163,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "9371f0ddf3cbc23e5d39fd4e07a9de014cf962aeca6abdb4de7adfce6be60a0c",
+    "evidence_path": "evidence/PALOMAR-2026-11-01-000028-v1/c2eff06f6d9fae2db8526c89d7f68e307b4d7003cbd6ac518c127c806a5e6b37/",
+    "evidence_tree_sha256": "c2eff06f6d9fae2db8526c89d7f68e307b4d7003cbd6ac518c127c806a5e6b37",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "b5d4b808c17572eb375c29a1253f3be607703f5d0fcc629eaf2fcd5bcdd6a755",
+    "protected_config_sha256": "f8cad868677a6db3a5663e5aa40ea380adc165620d1e5fefcfb98605d4646641",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41309167416,
+    "solution_sha256": "f89286a68788d3d0d4e6a16ded129fd29073e78957a1b93e834421b6573e14c0",
+    "tool_digests": {
+      "bwrap": "95b67cd93b305baa1230e59e6c4c1f336b609d1d1b4a76f4971131c19498fbc7",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-01T13:25:12Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41309167416"
+  },
+  "version": 1
+}

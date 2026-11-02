@@ -1,0 +1,366 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of two papers of S. Armstrong and A. Bou-Rabee on the fluctuations of passage times in first-passage percolation. \"Curvature and variance in lattice first-passage percolation\": for independent, identically distributed edge weights on Z^d, d >= 2, whose law nu has an exponential moment and nu({0}) below the critical probability of bond percolation (Assumption (W)), and for constants delta in (0, 1], r > 0, Lambda >= 0 and lambda > 0, there are epsilon > 0 and C such that E exp(|T(0, x) - mu(x)| / (C |x|^((1 - epsilon)/2))) <= 2 for every unit vector xi in R^d, rational or not, at which the time constant mu has a quadratic expansion on the orthogonal hyperplane with these constants (Assumption (Curv): a linear term, a quadratic form at least lambda |h|^2, and a remainder at most Lambda |h|^(2 + delta) for |h| <= r), and every x in Z^d other than 0 within distance |x|^(3/4) of the ray through xi; epsilon and C do not depend on the direction (Theorem 1.1). The repository also proves the variance bound that follows, Var T(0, x) <= 2 C^2 |x|^(1 - epsilon), and Var T(0, floor(n xi)) <= n^(1 - epsilon) for every sufficiently large integer n, uniformly in the direction, the floor taken coordinatewise. \"Fluctuation bounds for rotationally invariant first-passage percolation\": for the random density psi(chi * W) of Gaussian white noise W on R^d, d >= 2, with chi smooth, radial and supported in the closed unit ball and psi continuous with values between two positive constants, the passage time T over rectifiable curves has a time constant mu = lim t^(-1) E T(0, t e_1), and there are epsilon > 0 and C such that E exp(|T(0, x) - mu |x|| / (C |x|^((1 - epsilon)/2))) <= 2 for every point x with |x| >= 1 (Theorem 1.1); the same holds for every density of white noise or of a homogeneous Poisson process that is jointly measurable, determined by the noise in the closed unit ball around each point, bounded between two positive constants and equivariant under rotations and translations (Assumption A, Theorem 1.2). The repository also proves the variance bounds that follow, Var T(0, t e_1) <= t^(1 - epsilon) for every sufficiently large t and Var T(0, x) <= |x|^(1 - epsilon) for every point x with |x| sufficiently large. Every result of the literature that the proofs cite is stated and proved in the repository.",
+  "authors": [
+    {
+      "name": "Scott Armstrong"
+    },
+    {
+      "name": "Ahmed Bou-Rabee"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-01-000017-v1/aa5a887153992e14ce84adbed64eac309f361388be3480879727b604855017dd/",
+    "artifact_tree_sha256": "aa5a887153992e14ce84adbed64eac309f361388be3480879727b604855017dd",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-10-31T20:28:08Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.PR"
+    ],
+    "msc2020": [
+      "60K35",
+      "82B43",
+      "60K37"
+    ]
+  },
+  "first_registered_on": "2026-11-01",
+  "formalization": {
+    "challenge_path": "Audit/IsotropicMetric/Challenge.lean",
+    "comparator_config_path": "Audit/IsotropicMetric/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Audit/IsotropicMetric/Solution.lean",
+    "theorem_names": [
+      "IsotropicMetric.lintegral_exp_passageTime_le",
+      "IsotropicMetric.variance_passageTime_le",
+      "IsotropicMetric.variance_passageTime_le_norm",
+      "IsotropicMetric.exists_isWhiteNoise"
+    ]
+  },
+  "id": "PALOMAR-2026-11-01-000017",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-01T11:19:56Z",
+    "receipt_sha256": "0975d3393cc98dba59f47374b2a411e59272b43882f6acf6ba23969d8514b160",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000017-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000017-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000017-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000017-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000017-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000017-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000017-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000017-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000017-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "cfe58d1d241d86bd831c2e1b3c61273200fb780b",
+        "fork_repository": "PalomarArchive/nitromannitol--FPP-variance--3142b5c4e24c",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000017-v1/cfe58d1d241d86bd831c2e1b3c61273200fb780b",
+        "source_repository": "nitromannitol/FPP-variance"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Scott Armstrong"
+          },
+          {
+            "name": "Ahmed Bou-Rabee"
+          }
+        ],
+        "license": "© the authors, all rights reserved; included as papers/CurvatureVariance.pdf for reference, not covered by the Apache-2.0 license of the code",
+        "location": "papers/CurvatureVariance.pdf (the version of October 31, 2026; 18 pages): Theorem 1.1, and every result of the literature its proof cites",
+        "relationship": "formalizes",
+        "title": "Curvature and variance in lattice first-passage percolation",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Scott Armstrong"
+          },
+          {
+            "name": "Ahmed Bou-Rabee"
+          }
+        ],
+        "license": "© the authors, all rights reserved; included as papers/IsotropicVariance.pdf for reference, not covered by the Apache-2.0 license of the code",
+        "location": "papers/IsotropicVariance.pdf (the version submitted to arXiv on October 30, 2026; 19 pages): Theorem 1.1, Theorem 1.2 for white noise and for the Poisson process, and every result of the literature their proofs cite",
+        "relationship": "formalizes",
+        "title": "Fluctuation bounds for rotationally invariant first-passage percolation",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Riddhipratim Basu"
+          },
+          {
+            "name": "Vladas Sidoravicius"
+          },
+          {
+            "name": "Allan Sly"
+          }
+        ],
+        "identifier": "arXiv:2312.14143",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2312.14143",
+        "relationship": "background",
+        "title": "Rotationally invariant first passage percolation: Concentration and scaling relations",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Riddhipratim Basu"
+          },
+          {
+            "name": "Vladas Sidoravicius"
+          },
+          {
+            "name": "Allan Sly"
+          }
+        ],
+        "identifier": "arXiv:2604.01214",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2604.01214",
+        "relationship": "background",
+        "title": "Rotationally invariant first passage percolation: Breaking the n/log n variance barrier",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Scott Armstrong"
+      },
+      {
+        "name": "Ahmed Bou-Rabee"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-01T11:19:28Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "060dfd4159962950d3498071b3a34d43513d2e8483124ffaacd4be494f24aaed"
+    },
+    "reviewed_at": "2026-10-31T20:58:23Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "cfe58d1d241d86bd831c2e1b3c61273200fb780b",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "44f6508a76ef379c6632f9042361bde48fc0d6cd085c2528deb703e2a4effe8f"
+    },
+    "repository": "nitromannitol/FPP-variance",
+    "repository_url": "https://github.com/nitromannitol/FPP-variance",
+    "tree_url": "https://github.com/nitromannitol/FPP-variance/tree/cfe58d1d241d86bd831c2e1b3c61273200fb780b"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "gnf5ks4nd7ae"
+  },
+  "title": "Fluctuation bounds for first-passage percolation",
+  "trust": {
+    "challenge_bytes": 14954,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Distribution.Distribution",
+      "Mathlib.Analysis.InnerProductSpace.PiL2",
+      "Mathlib.Analysis.InnerProductSpace.ProdL2",
+      "Mathlib.Analysis.Normed.Affine.Isometry",
+      "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.LinearAlgebra.Determinant",
+      "Mathlib.MeasureTheory.Constructions.Pi",
+      "Mathlib.MeasureTheory.Constructions.Polish.Basic",
+      "Mathlib.MeasureTheory.Function.LpSeminorm.Basic",
+      "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+      "Mathlib.MeasureTheory.Integral.Lebesgue.Basic",
+      "Mathlib.MeasureTheory.Measure.GiryMonad",
+      "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace",
+      "Mathlib.MeasureTheory.Measure.Stieltjes",
+      "Mathlib.Probability.Distributions.Gaussian.Real",
+      "Mathlib.Probability.Distributions.Poisson.Basic",
+      "Mathlib.Probability.HasLaw",
+      "Mathlib.Probability.Independence.Basic",
+      "Mathlib.Probability.Moments.Variance",
+      "Mathlib.Probability.ProductMeasure",
+      "Mathlib.Topology.EMetricSpace.VariationOnFromTo",
+      "Mathlib.Topology.Order.ProjIcc"
+    ],
+    "challenge_lines": 256,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "e9cd1a2c0788d7128c9079e36cc2e53027aac042a2682c566371e56167ba4f1a",
+    "evidence_path": "evidence/PALOMAR-2026-11-01-000017-v1/05666001438f7f998a1f41ce56c3b6e6dc6f82e79f36e927fb1163fb75ed7a2f/",
+    "evidence_tree_sha256": "05666001438f7f998a1f41ce56c3b6e6dc6f82e79f36e927fb1163fb75ed7a2f",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "7e3563c21246f9042cc31b567e5d13d6f421dcaaf3a5b0565621b1e4d8f4b560",
+    "protected_config_sha256": "3a340eecd5b4244e9ac88ca3e282976b79a01c0576ef97d9a5927efd770398eb",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41231521814,
+    "solution_sha256": "f879c1023d96fc5fe4ff073b1761741c6fc7dbc0608db34e71cd68b8ec94d834",
+    "tool_digests": {
+      "bwrap": "207befe30315e7c29d2ac2ea7b86a52c47ba3552952a61418bb70d2f535eff42",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-10-31T19:55:58Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41231521814"
+  },
+  "version": 1
+}

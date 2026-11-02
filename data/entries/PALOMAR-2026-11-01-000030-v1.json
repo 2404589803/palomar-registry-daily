@@ -1,0 +1,328 @@
+{
+  "abstract": "Lean proof that the forward uniform-attachment/freezing construction and the reversed growth-coalescent construction give the same distribution of labelled rooted trees, after the prescribed erasure of active reverse labels. The equality includes the extinction endpoint. It is stated on a canonical encoding that retains the complete graph and relevant labels. The dictionary to literal isomorphism-class language is mathematically reviewed but is not an additional Lean quotient-law equivalence theorem. This entry covers T05 and shares its proof repository with the companion asymptotic and SIR entries.",
+  "authors": [
+    {
+      "name": "Igor Kortchemski"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-01-000030-v1/f0924184787fc8e5abee74e2f5a76f6759bcce3731c7c2e9996a37e4a91985a9/",
+    "artifact_tree_sha256": "f0924184787fc8e5abee74e2f5a76f6759bcce3731c7c2e9996a37e4a91985a9",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-01T15:22:12Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.PR",
+      "math.CO"
+    ],
+    "msc2020": [
+      "60C05",
+      "05C80",
+      "60F05"
+    ]
+  },
+  "first_registered_on": "2026-11-01",
+  "formalization": {
+    "challenge_path": "Challenge/SameLaw.lean",
+    "comparator_config_path": "comparator/samelaw.json",
+    "definition_names": [],
+    "formalization_metadata_path": "metadata/samelaw/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution/SameLaw.lean",
+    "theorem_names": [
+      "Freezing1.CanonicalTree.construction_laws_eq",
+      "Freezing1.CanonicalTree.forwardLaw_probability",
+      "Freezing1.CanonicalTree.reverseLaw_probability",
+      "Freezing1.CanonicalTree.forwardLaw_vertices",
+      "Freezing1.CanonicalTree.reverseLaw_vertices",
+      "Freezing1.CanonicalTree.treeLaw_reverse_graph_isomorphic",
+      "Freezing1.CanonicalTree.forward_frozen_iff",
+      "Freezing1.CanonicalTree.reverse_frozen_iff",
+      "Freezing1.CanonicalTree.reverse_adj_iff",
+      "Freezing1.CanonicalTree.forward_edge_time",
+      "Freezing1.CanonicalTree.transportGraph_adj_iff",
+      "Freezing1.Forward.transitionLaw_apply",
+      "Freezing1.Forward.treeLaw_valid",
+      "Freezing1.Forward.treeLaw_isTree",
+      "Freezing1.Forward.treeLaw_counts",
+      "Freezing1.ReverseStamped.joinChoice_edgeTime",
+      "Freezing1.ReverseStamped.treeLaw_canonical_ids",
+      "Freezing1.ReverseStamped.treeLaw_forest_isTree",
+      "Freezing1.RootedForest.join_roots",
+      "Freezing1.RootedForest.join_graph",
+      "Freezing1.RootedForest.adjoin_roots",
+      "Freezing1.RootedForest.adjoin_graph",
+      "Freezing1.uniformRootPair_isProbabilityMeasure",
+      "Freezing1.extinctionTime_le_iff"
+    ]
+  },
+  "id": "PALOMAR-2026-11-01-000030",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-01T18:13:16Z",
+    "receipt_sha256": "bb5bc09a7fe08bdd118ec2141dae3e195e45b289e49d63e79af546b8f54a545f",
+    "repositories": [
+      {
+        "commit": "48410b254fbc5d8c1a483acb8309338baa479a6f",
+        "fork_repository": "PalomarArchive/igor-kortchemski--uniform-attachment-with-freezing--cb6c42153258",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000030-v1/48410b254fbc5d8c1a483acb8309338baa479a6f",
+        "source_repository": "igor-kortchemski/uniform-attachment-with-freezing"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000030-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000030-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000030-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000030-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000030-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000030-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000030-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000030-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000030-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Étienne Bellin"
+          },
+          {
+            "name": "Arthur Blanc-Renaudie"
+          },
+          {
+            "name": "Emmanuel Kammerer"
+          },
+          {
+            "name": "Igor Kortchemski"
+          }
+        ],
+        "identifier": "sha256:88953dd87165a14b0e643c5b3d0075d8ce5ec39cdcfc0c25d313570fc3ab00df",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2308.00493",
+        "relationship": "formalizes",
+        "title": "Uniform attachment with freezing",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Igor Kortchemski"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-01T18:12:54Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "6ed7d9bd243d2c195cdd27cbb12437c7a730b71826cb42203dc3c77648fa29af"
+    },
+    "reviewed_at": "2026-11-01T16:04:02Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "48410b254fbc5d8c1a483acb8309338baa479a6f",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "igor-kortchemski/uniform-attachment-with-freezing",
+    "repository_url": "https://github.com/igor-kortchemski/uniform-attachment-with-freezing",
+    "tree_url": "https://github.com/igor-kortchemski/uniform-attachment-with-freezing/tree/48410b254fbc5d8c1a483acb8309338baa479a6f"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "0dbiddh69gve"
+  },
+  "title": "Uniform attachment with freezing: equivalence in law of the forward and reversed constructions",
+  "trust": {
+    "challenge_bytes": 31331,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.Combinatorics.SimpleGraph.Acyclic",
+      "Mathlib.Combinatorics.SimpleGraph.Metric",
+      "Mathlib.Data.ENat.Lattice",
+      "Mathlib.Data.Finset.Prod",
+      "Mathlib.Data.Finset.Sum",
+      "Mathlib.Data.Fintype.Perm",
+      "Mathlib.Data.Nat.Choose.Cast",
+      "Mathlib.Data.Nat.Factorial.Basic",
+      "Mathlib.Logic.Equiv.Basic",
+      "Mathlib.MeasureTheory.Measure.Dirac.Basic",
+      "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
+      "Mathlib.MeasureTheory.Measure.Typeclasses.Probability",
+      "Mathlib.Probability.Distributions.Uniform",
+      "Mathlib.Tactic"
+    ],
+    "challenge_lines": 680,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "761c465b0b54f408be6e6720505e9a2b466dc88bbdd72e5718d8cec1fa68e73b",
+    "evidence_path": "evidence/PALOMAR-2026-11-01-000030-v1/a24f7f16599821f7d25239fdd071d3f1a7688a48c2f90dc3fed5dcb98659e224/",
+    "evidence_tree_sha256": "a24f7f16599821f7d25239fdd071d3f1a7688a48c2f90dc3fed5dcb98659e224",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "a96ba4241b9f975aaa8ca892e835debdf271f9d0a961e47a98609c14f46223e5",
+    "protected_config_sha256": "049dbe0671005ed84933378562e5cdf9a453007cc78b788d7af78b99834df5d0",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41313937444,
+    "solution_sha256": "138fe10559091e7d0916b6b669b56d282666517e2c903181dc31d4b6d3fbe5af",
+    "tool_digests": {
+      "bwrap": "e8ff57675d1e7385abcc4a6f4db0e435ae68e441216ae8707b369c519758b8ce",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-01T14:36:49Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41313937444"
+  },
+  "version": 1
+}

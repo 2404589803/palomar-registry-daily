@@ -1,0 +1,355 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of the two research notes of the author's Erdős #81 series, in one package. Note I, \"From realizability certificates to the Erdős 81 bound\": a realizability certificate of Paper V for an auxiliary conflict system whose target is the physical system of copies of K₃ and K₄ in G (conflict when they share an edge, gain C(|K|,2) − 1), with q ≥ 1 classes and budget q·e(G) + cost ≤ q·T + w(X), gives a clique partition of G into pieces of order at most four with at most T pieces (note_I_partition_of_certificate; no chordality); a physical packing with e(G) − g(P) ≤ T does the same (note_I_partition_of_paid_packing); with a certified fractional optimum w, the far branch (e(G) − w < n²/6 − ηn², every η > 0, large n, no chordality) and the near branch (chordal, n ≥ 4·10¹², η = 10⁻¹⁶) give partitions with at most M(n) = ⌊n(n+1)/6⌋ pieces (note_I_far_certificate, note_I_near_certificate); assembled through the transfer, every large chordal graph has such a partition (note_I_erdos81_eventual) and every chordal graph one with at most M(n) + b pieces for an absolute b (note_I_erdos81_all_orders). Note II, \"Exact stability for nearly extremal chordal clique partitions\": for n large, every chordal graph on n vertices with cp(G) ≤ M(n) and 2000 (M(n) − cp(G)) ≤ n has the root P = {v : n < 2 deg v}, which is a clique, with cp(G) = B(n,|P|) − A − 2m = cp_{≤4}(G), M − cp = (M − B) + A + 2m, edit distance to K_P ∨ I_O equal to A + m and at most M − cp, and (6|P| − 2n − 1)² ≤ 24(M − cp) + 25 (note_II_eventual_root_stability). Seven statements; the thresholds N and the constant b are existential.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-01-000022-v1/b3e43d7c25a1f72a5f9ac7008abd5569f89257ff21dd227a85465549280aacce/",
+    "artifact_tree_sha256": "b3e43d7c25a1f72a5f9ac7008abd5569f89257ff21dd227a85465549280aacce",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-01T10:20:58Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C70",
+      "05C35",
+      "05C75"
+    ]
+  },
+  "first_registered_on": "2026-11-01",
+  "formalization": {
+    "challenge_path": "ErdosNotesChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      },
+      {
+        "name": "asymptotic_triangle_packing",
+        "repository": "jtraverso/asymptotic-triangle-packing",
+        "revision": "760e503972aad8ca9da7904ce72e5cce405f5991"
+      },
+      {
+        "name": "chordal_classes",
+        "repository": "jtraverso/chordal-split-threshold-graphs",
+        "revision": "ed65dcdc7339767d3e8e412420abbf54eae65ddb"
+      },
+      {
+        "name": "erdos81_paper_iv",
+        "repository": "jtraverso/erdos81-chordal-quantitative-stability",
+        "revision": "0e1cd910f2e77955cd8165e80fffb6d8dae91378"
+      }
+    ],
+    "solution_path": "ErdosNotesSolution.lean",
+    "theorem_names": [
+      "ErdosSeriesNotes.note_I_partition_of_certificate",
+      "ErdosSeriesNotes.note_I_partition_of_paid_packing",
+      "ErdosSeriesNotes.note_I_far_certificate",
+      "ErdosSeriesNotes.note_I_near_certificate",
+      "ErdosSeriesNotes.note_I_erdos81_eventual",
+      "ErdosSeriesNotes.note_I_erdos81_all_orders",
+      "ErdosSeriesNotes.note_II_eventual_root_stability"
+    ]
+  },
+  "id": "PALOMAR-2026-11-01-000022",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-01T15:02:04Z",
+    "receipt_sha256": "88a4aab190220208e50f056e025687b46a76902efdcfb264bba923a089ab2f09",
+    "repositories": [
+      {
+        "commit": "760e503972aad8ca9da7904ce72e5cce405f5991",
+        "fork_repository": "PalomarArchive/jtraverso--asymptotic-triangle-packing--a2c3300bc8ff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000022-v1/760e503972aad8ca9da7904ce72e5cce405f5991",
+        "source_repository": "jtraverso/asymptotic-triangle-packing"
+      },
+      {
+        "commit": "ed65dcdc7339767d3e8e412420abbf54eae65ddb",
+        "fork_repository": "PalomarArchive/jtraverso--chordal-split-threshold-graphs--600d961f6749",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000022-v1/ed65dcdc7339767d3e8e412420abbf54eae65ddb",
+        "source_repository": "jtraverso/chordal-split-threshold-graphs"
+      },
+      {
+        "commit": "0e1cd910f2e77955cd8165e80fffb6d8dae91378",
+        "fork_repository": "PalomarArchive/jtraverso--erdos81-chordal-quantitative-stability--77dfe98a72ff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000022-v1/0e1cd910f2e77955cd8165e80fffb6d8dae91378",
+        "source_repository": "jtraverso/erdos81-chordal-quantitative-stability"
+      },
+      {
+        "commit": "01be11e33fc4f416d5ef5df4d71aec936bc48023",
+        "fork_repository": "PalomarArchive/jtraverso--erdos81-series-notes--4dbca61df10f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000022-v1/01be11e33fc4f416d5ef5df4d71aec936bc48023",
+        "source_repository": "jtraverso/erdos81-series-notes"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000022-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000022-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000022-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000022-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000022-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000022-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000022-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000022-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000022-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.23458871",
+        "license": "unknown",
+        "location": "Erdős #81 series, research note I, version 1.0 (18 October 2026); formal companion v0.4 (the six public interfaces of §3). In github.com/jtraverso/erdos-81-chordal-clique-partitions (series_notes/NOTE_I_ERDOS81_TRANSFER).",
+        "relationship": "formalizes",
+        "title": "From realizability certificates to the Erdős 81 bound",
+        "type": "preprint"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.23458871",
+        "license": "unknown",
+        "location": "Erdős #81 series, research note II, version 1.0 (18 October 2026); formal companion v0.3 (public endpoint eventual_root_stability). In github.com/jtraverso/erdos-81-chordal-clique-partitions (series_notes/NOTE_II_CHORDAL_STABILITY).",
+        "relationship": "formalizes",
+        "title": "Exact stability for nearly extremal chordal clique partitions",
+        "type": "preprint"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "Paper IV: jtraverso/erdos81-chordal-quantitative-stability @ 0e1cd91 (Palomar submission under review)",
+        "note": "Pinned dependency: the physical packings and clique partitions, the certified fractional optimum, uniform rounding, the near-structure witness by descent localization, and through it the registered entries asymptotic-triangle-packing v2 (PALOMAR-2026-10-15-000011) and chordal-split-threshold-graphs (PALOMAR-2026-10-18-000006). Neither note uses Paper IV's final global-bound module.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "Paper V: jtraverso/erdos81-colorability-realizability-defects (Palomar submission under review)",
+        "note": "Vendored: its four modules PaperV.Core, ConflictGraph, Realizer and WeightedTransfer (the realizable-class transfer used by Note I), copied unchanged from the Palomar port. They cannot be required as a package: Paper V's dependency galvin-dinitz declares a library LeanPool, as does asymptotic-triangle-packing.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "Paper VI: jtraverso/erdos81-optimal-clique-partitions (Palomar, registration requested)",
+        "note": "Vendored: the 18 modules of its parametric exact construction used by Note II (PaperVI.*, PaperVIOpt.Parametric, PaperVIResearch.Intrinsic and the vendored Häggkvist–Janssen theorem PaperVIVendor.*), copied unchanged from the Palomar port; Paper VI requires the vizing entry, whose library LeanPool also collides with asymptotic-triangle-packing.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-10-29-000006 (jtraverso/erdos81-split-clique-partitions, Paper III)",
+        "note": "The definition of cp is copied verbatim from that entry's Challenge and proved equal to Paper VI's.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-01T15:01:43Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "90386d4fec2a2c70f658466dc4aebd7b7d4b45e2a84405ec3c81014bea2735c7"
+    },
+    "reviewed_at": "2026-11-01T10:58:36Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "01be11e33fc4f416d5ef5df4d71aec936bc48023",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+    },
+    "repository": "jtraverso/erdos81-series-notes",
+    "repository_url": "https://github.com/jtraverso/erdos81-series-notes",
+    "tree_url": "https://github.com/jtraverso/erdos81-series-notes/tree/01be11e33fc4f416d5ef5df4d71aec936bc48023"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "lquriglo8ey4"
+  },
+  "title": "Two application notes of the Erdős #81 series: realizability transfer and exact chordal stability",
+  "trust": {
+    "challenge_bytes": 17068,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 381,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "a4e3a8976563803e461048aa08b154397a1d020d6ce78b3a9a1361ae0a5d70fc",
+    "evidence_path": "evidence/PALOMAR-2026-11-01-000022-v1/554f6e09ae94f7f2b40da686cf3ca9865aec357164ae9f5c93d1c6d562d0d125/",
+    "evidence_tree_sha256": "554f6e09ae94f7f2b40da686cf3ca9865aec357164ae9f5c93d1c6d562d0d125",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "b1b3218f25737b3e45da30857c30cd7c4cf86967e90a9df392c920de9ff619fa",
+    "protected_config_sha256": "df286930ea8c27326d8732cac6f8387669754c491871dc1563760d1a9c08625f",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41291484897,
+    "solution_sha256": "3635d358a34c2fa1f432570d8a2f5211602d17df9306fb47930bbdd683fe7189",
+    "tool_digests": {
+      "bwrap": "f0b2c554014a1af873fbba2e9a78b881ce1c63fd18e24b0cd08dc81f960f7ba4",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-01T09:19:11Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41291484897"
+  },
+  "version": 1
+}
