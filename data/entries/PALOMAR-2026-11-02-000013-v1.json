@@ -1,0 +1,355 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of the two theorems of Fabrici and Jendrol' (1997), for finite simple graphs with the combinatorial planarity (genus-zero rotation systems) of the registered entry Kuratowski's theorem. Theorem 1 (light_path): a 3-connected planar graph that contains a path on k ≥ 1 vertices contains such a path whose vertices all have degree at most 5k. Theorem 2 (only_paths_light): for every connected planar graph H that is not a path (not isomorphic to pathGraph on its vertex count) and every m, there is a 3-connected planar graph containing a copy of H in which every copy of H (an injective edge-preserving map) has a vertex of degree at least m. Two statements. Theorem 1 follows the proof reproduced in the Jendrol'–Voss survey (maximal counterexample, chords at major vertices, a major vertex with at most five major neighbours). Theorem 2 uses a different construction from the article's: H is completed to an edge-maximal planar graph, whose faces are triangles, and two chains of repeated stellations are inserted in every face, so that the light vertices induce disjoint paths; the result is a plane triangulation, hence 3-connected. The extremal example for 5k is not formalized.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-02-000013-v1/ccbb16089446cfdeb8a46e777b66eddf33deaa17e9018d7f2fff92b93ead6ea8/",
+    "artifact_tree_sha256": "ccbb16089446cfdeb8a46e777b66eddf33deaa17e9018d7f2fff92b93ead6ea8",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-02T14:35:56Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C10",
+      "05C38",
+      "05C07"
+    ]
+  },
+  "first_registered_on": "2026-11-02",
+  "formalization": {
+    "challenge_path": "FabriciJendrolChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "lebesgue_star",
+        "repository": "jtraverso/lebesgue-light-stars",
+        "revision": "76c43b645dc6dbf14dbf6d5151fac448a1c34835"
+      },
+      {
+        "name": "borodin_triangle",
+        "repository": "jtraverso/borodin-light-triangles",
+        "revision": "c85ca2ea4051646c0a4eaa1e03943a44cce11f35"
+      },
+      {
+        "name": "kotzig",
+        "repository": "jtraverso/kotzig-light-edges",
+        "revision": "0e9f2a26985134c48841b5b1ce3220c3e257df28"
+      },
+      {
+        "name": "kuratowski",
+        "repository": "jtraverso/kuratowski",
+        "revision": "696ec897a9b91933037767d897670aa30ba3683a"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "FabriciJendrolSolution.lean",
+    "theorem_names": [
+      "FabriciJendrolTheorem.light_path",
+      "FabriciJendrolTheorem.only_paths_light"
+    ]
+  },
+  "id": "PALOMAR-2026-11-02-000013",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-02T15:30:15Z",
+    "receipt_sha256": "7ea86b0a11a5630e1db26069c673c1bfa885c1ae79773702da33fc2a2126dcb3",
+    "repositories": [
+      {
+        "commit": "c85ca2ea4051646c0a4eaa1e03943a44cce11f35",
+        "fork_repository": "PalomarArchive/jtraverso--borodin-light-triangles--5777cc51dc6e",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000013-v1/c85ca2ea4051646c0a4eaa1e03943a44cce11f35",
+        "source_repository": "jtraverso/borodin-light-triangles"
+      },
+      {
+        "commit": "00ea06f84dc1b2b33d58a2b17361fc3a58189814",
+        "fork_repository": "PalomarArchive/jtraverso--fabrici-jendrol-light-paths--422e9fe618e5",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000013-v1/00ea06f84dc1b2b33d58a2b17361fc3a58189814",
+        "source_repository": "jtraverso/fabrici-jendrol-light-paths"
+      },
+      {
+        "commit": "0e9f2a26985134c48841b5b1ce3220c3e257df28",
+        "fork_repository": "PalomarArchive/jtraverso--kotzig-light-edges--9922bf0b4bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000013-v1/0e9f2a26985134c48841b5b1ce3220c3e257df28",
+        "source_repository": "jtraverso/kotzig-light-edges"
+      },
+      {
+        "commit": "696ec897a9b91933037767d897670aa30ba3683a",
+        "fork_repository": "PalomarArchive/jtraverso--kuratowski--c5380f41889a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000013-v1/696ec897a9b91933037767d897670aa30ba3683a",
+        "source_repository": "jtraverso/kuratowski"
+      },
+      {
+        "commit": "76c43b645dc6dbf14dbf6d5151fac448a1c34835",
+        "fork_repository": "PalomarArchive/jtraverso--lebesgue-light-stars--768fd26189ef",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000013-v1/76c43b645dc6dbf14dbf6d5151fac448a1c34835",
+        "source_repository": "jtraverso/lebesgue-light-stars"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000013-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000013-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000013-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000013-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000013-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000013-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000013-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000013-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000013-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Igor Fabrici"
+          },
+          {
+            "name": "Stanislav Jendrol'"
+          }
+        ],
+        "identifier": "doi:10.1007/BF03353001",
+        "license": "unknown",
+        "location": "Graphs and Combinatorics 13 (1997) 245–250: the 5k theorem for paths and the theorem that only paths are light.",
+        "relationship": "formalizes",
+        "title": "Subgraphs with restricted degrees of their vertices in planar 3-connected graphs",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Stanislav Jendrol'"
+          },
+          {
+            "name": "Heinz-Jürgen Voss"
+          }
+        ],
+        "identifier": "doi:10.1016/j.disc.2012.11.007",
+        "license": "unknown",
+        "location": "Section 5, Theorems 5.1 and 5.2 and their proofs.",
+        "relationship": "other",
+        "title": "Light subgraphs of graphs embedded in the plane and in the projective plane — a survey",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-11-01-000025 (jtraverso/lebesgue-light-stars @ 76c43b6)",
+        "note": "Pinned dependency, and through it the registered entries Borodin's light triangles (PALOMAR-2026-11-01-000024, orbit lemmas) and Kotzig's light edges (PALOMAR-2026-11-01-000023: the definition of 3-connectivity, face lengths, light edges in planar graphs of minimum degree four).",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-10-15-000018 (jtraverso/kuratowski @ 696ec89)",
+        "note": "The definitions of planarity (numClasses to PlaneMap) are copied verbatim from its Challenge; its library supplies plane maps, Euler's formula, adding an edge inside a face, the facial lemmas of 3-connected plane maps, planarity of minors and the non-planarity of K5.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-02T15:29:48Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "264789634e862402d4f17d824559b687507cc35af9921389607605535121078d"
+    },
+    "reviewed_at": "2026-11-02T15:08:21Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "00ea06f84dc1b2b33d58a2b17361fc3a58189814",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+    },
+    "repository": "jtraverso/fabrici-jendrol-light-paths",
+    "repository_url": "https://github.com/jtraverso/fabrici-jendrol-light-paths",
+    "tree_url": "https://github.com/jtraverso/fabrici-jendrol-light-paths/tree/00ea06f84dc1b2b33d58a2b17361fc3a58189814"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "tdcycooycuwe"
+  },
+  "title": "Light paths and only paths in 3-connected planar graphs (Fabrici–Jendrol')",
+  "trust": {
+    "challenge_bytes": 6046,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 136,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "c48a116e1b506191e8ef1ad8f546388a789171e0c6b8cb7c695b8bf8e8f84b97",
+    "evidence_path": "evidence/PALOMAR-2026-11-02-000013-v1/30c2f08159085e9ab951bfa8d70804ce90aebbd8ca426b6e508d41477ebadbe2/",
+    "evidence_tree_sha256": "30c2f08159085e9ab951bfa8d70804ce90aebbd8ca426b6e508d41477ebadbe2",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "8dab45c037e953d4a5d21c67108a6f9ea7204eabfe2034d88688f41ffc8ba9af",
+    "protected_config_sha256": "1da5be54c17b85df498ace111141d2bfb0d4bfaa8b4acf839ca9a5735335e872",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41444630354,
+    "solution_sha256": "e666f9d4c59bd98e8d1c0b8be1f4851354e0d183dffac5cc65c32a0cb7752788",
+    "tool_digests": {
+      "bwrap": "da2819eb59b6d87a5d8774fa5f3b3495425524cb753f4658aea52af5ba08f6e7",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-02T13:13:08Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41444630354"
+  },
+  "version": 1
+}

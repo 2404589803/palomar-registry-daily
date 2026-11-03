@@ -1,0 +1,386 @@
+{
+  "abstract": "A Lean 4 formalization of the mathematics of Y. Saouter, Checking the odd Goldbach conjecture up to 10^20, Math. Comp. 67, 1998, 863 to 866. Proved with no hypothesis: Lemma 1, the paper's form of Theorem 5 of Brillhart, Lehmer and Selfridge 1975, for every even F; Theorem 1, the primality criterion for N = 2^22 R + 1 below 10^20 with R odd and any base a with a^((N-1)/2) = -1 modulo N; Lemma 2 by quadratic reciprocity; Theorem 2, the case of base 5; the primality of the 100 rungs of Table 1 and of the first and last primes printed in the paper. The printed ladder constant 1258213 is a misprint for 12582913, and this repair is proved. The entry does not reverify Saouter's computation: his ladder of about 250 million rungs is checked only through its first 100 rungs. As a derived result, not a theorem of the paper, every odd number from 7 to 10^20 is a sum of three primes, conditional on one cited input taken as an explicit hypothesis, never as an axiom: EvenGoldbachUpTo of 4 * 10^18, the published computation of T. Oliveira e Silva, S. Herzog and S. Pardi, Math. Comp. 83, 2014, not proved here. That proof uses Saouter's prime ladder with 25 Proth rungs as in Helfgott and Platt, so the paper's range is reproduced by a different ladder on a much larger even input than Saouter's 4 * 10^11. Ternary Goldbach for all odd numbers is Helfgott's theorem, from his 2013 preprint, and is not formalized here. Binary Goldbach is open and is not claimed. AI agents wrote the Lean code, which is offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-02-000012-v1/496eff3496d56f4721dcdd579518f10764686fdfb32d8e610e3f35625b85ac9a/",
+    "artifact_tree_sha256": "496eff3496d56f4721dcdd579518f10764686fdfb32d8e610e3f35625b85ac9a",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-02T14:23:47Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11Y11",
+      "11A51"
+    ]
+  },
+  "first_registered_on": "2026-11-02",
+  "formalization": {
+    "challenge_path": "entries/saouter1998/ChallengeSaouter1998.lean",
+    "comparator_config_path": "entries/saouter1998/comparator-saouter1998.json",
+    "definition_names": [
+      "GoldbachLean.IsGoldbachSum",
+      "GoldbachLean.IsTernarySum",
+      "GoldbachLean.EvenGoldbachUpTo",
+      "GoldbachLean.TernaryGoldbachUpTo",
+      "GoldbachLean.Saouter1998.Paper.N",
+      "GoldbachLean.Saouter1998.Paper.Nprinted",
+      "GoldbachLean.Saouter1998.Paper.Theorem2",
+      "GoldbachLean.Saouter1998.BLS.Lemma1",
+      "GoldbachLean.Saouter1998.Table1.T1"
+    ],
+    "formalization_metadata_path": "entries/saouter1998/formalization.yaml",
+    "lakefile_path": "entries/saouter1998/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/saouter1998/SolutionSaouter1998.lean",
+    "theorem_names": [
+      "GoldbachLean.Saouter1998.Paper.N_form",
+      "GoldbachLean.Saouter1998.Paper.N_three",
+      "GoldbachLean.Saouter1998.Paper.printed_three_ne",
+      "GoldbachLean.Saouter1998.Paper.printed_not_form",
+      "GoldbachLean.Saouter1998.Paper.printed_gap",
+      "GoldbachLean.Saouter1998.Paper.last_prime_form",
+      "GoldbachLean.Saouter1998.Paper.lemma2",
+      "GoldbachLean.Saouter1998.BLS.lemma1",
+      "GoldbachLean.Saouter1998.Thm2.theorem2",
+      "GoldbachLean.Saouter1998.Thm2.last_prime",
+      "GoldbachLean.Saouter1998.Thm2.first_prime",
+      "GoldbachLean.Saouter1998.Thm1.theorem1",
+      "GoldbachLean.Saouter1998.Thm1.theorem1_int",
+      "GoldbachLean.Saouter1998.Table1.table1_head",
+      "GoldbachLean.Saouter1998.Table1.table1_gaps",
+      "GoldbachLean.Saouter1998.Table1.printed_three_composite",
+      "GoldbachLean.Saouter1998.Table1Thm2.table1_prime_thm2",
+      "GoldbachLean.Saouter1998.ProthLadder.ternaryGoldbachUpTo_1e20_of_even",
+      "GoldbachLean.Saouter1998.ProthLadder.ternaryGoldbachUpTo_293_vacuity"
+    ]
+  },
+  "id": "PALOMAR-2026-11-02-000012",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-02T15:12:56Z",
+    "receipt_sha256": "5c33898f016f9658b94eec9dcfa753eda0d1cdf752bca1ab90618669b0386bf9",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000012-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000012-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000012-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000012-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000012-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000012-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000012-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000012-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000012-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "39d1ce6db8b634233ed29c2aa3e3dcf1218400dc",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000012-v1/39d1ce6db8b634233ed29c2aa3e3dcf1218400dc",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Yannick Saouter"
+          }
+        ],
+        "identifier": "doi:10.1090/S0025-5718-98-00928-4",
+        "license": "unknown",
+        "location": "Math. Comp. 67, 1998, 863-866: Lemma 1, Theorem 1, Lemma 2, Theorem 2 on page 864, the formula and Table 1 on page 865",
+        "relationship": "formalizes",
+        "title": "Checking the odd Goldbach conjecture up to 10^20",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Tomás Oliveira e Silva"
+          },
+          {
+            "name": "Siegfried Herzog"
+          },
+          {
+            "name": "Silvio Pardi"
+          }
+        ],
+        "identifier": "doi:10.1090/S0025-5718-2013-02787-1",
+        "license": "unknown",
+        "location": "Math. Comp. 83, 2014, 2033-2060",
+        "relationship": "other",
+        "title": "Empirical verification of the even Goldbach conjecture and computation of prime gaps up to 4·10^18",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "H. A. Helfgott"
+          },
+          {
+            "name": "David J. Platt"
+          }
+        ],
+        "identifier": "arXiv:1305.3062",
+        "license": "unknown",
+        "location": "Experimental Mathematics 22, 2013, 406-409: Theorem 2.3, Proth's theorem, and Section 3, the prime ladder algorithm",
+        "relationship": "adapts",
+        "title": "Numerical verification of the ternary Goldbach conjecture up to 8.875·10^30",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "John Brillhart"
+          },
+          {
+            "name": "D. H. Lehmer"
+          },
+          {
+            "name": "J. L. Selfridge"
+          }
+        ],
+        "identifier": "doi:10.1090/S0025-5718-1975-0384673-1",
+        "license": "unknown",
+        "location": "Math. Comp. 29, 1975, 620-647, Theorem 5",
+        "relationship": "background",
+        "title": "New primality criteria and factorizations of 2^m ± 1",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/blob/v4.35.0-rc3/Mathlib/NumberTheory/LucasPrimality.lean",
+        "note": "Mathlib has lucas_primality and, in NumberTheory/Fermat.lean, pepin_primality for Fermat numbers. A search of Mathlib v4.35.0-rc3 found no statement of Proth's theorem, Pocklington's criterion or Brillhart, Lehmer and Selfridge's theorems, and nothing on the Goldbach conjecture. A web search of Mathlib pull requests on 2026-11-02 found none on these criteria; that search is not exhaustive. The proofs here do not use lucas_primality.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/b-mehta/PrimeCert",
+        "note": "PrimeCert by Bhavik Mehta and Kenny Lau proves Pocklington's test and pocklington3_test, the sufficient direction of a cube root variant with the same test on r^2 - 8s, with an extra parameter m and a primality certificate tactic. It proves primality only, so it does not give the if and only if of Saouter's Lemma 1, and it has no Proth test or Goldbach content. It was found after the code here was written; no code of it is used.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://lean-lang.org/eval/problems/weak_goldbach/",
+        "note": "States Helfgott's theorem as an open formalization challenge, with no proof in Lean. No Lean formalization of ternary Goldbach or of a numerical check of it was found. Palomar searches on 2026-11-02 for Saouter, Proth, Pocklington, Lucas and Brillhart returned no entries.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/sthubbar/goldbach-lean/tree/main/entries/heathbrown1985",
+        "note": "Proves Vinogradov's three primes theorem for large odd numbers, ineffectively, so it does not overlap this numerical range. No code is shared.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-02T15:12:32Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "a282aec520831a12a88dd0e4b6e6d0703f3a44340624ab7ad3bcb15cbd6dabfa"
+    },
+    "reviewed_at": "2026-11-02T15:05:46Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "39d1ce6db8b634233ed29c2aa3e3dcf1218400dc",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/saouter1998",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/39d1ce6db8b634233ed29c2aa3e3dcf1218400dc/entries/saouter1998"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "tmboa41jfml5"
+  },
+  "title": "Checking the odd Goldbach conjecture up to 10^20",
+  "trust": {
+    "challenge_bytes": 10120,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 210,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "bed007b64dff449ae1b78360f527804e7f0d4b6596b34222a587cea674fed001",
+    "evidence_path": "evidence/PALOMAR-2026-11-02-000012-v1/c373ca9fe155143a80f98308c2de8046a2841ded834e6f382dde346155bd9572/",
+    "evidence_tree_sha256": "c373ca9fe155143a80f98308c2de8046a2841ded834e6f382dde346155bd9572",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "7c89facdc7275b3ef48e6d3e9875dab7ad86b6a03214f498424a7bbf7fea9cf6",
+    "protected_config_sha256": "c7c6b78379d961d8fc3f5f3526ec0abb9420cb6501d934c93bd3b9f7edcc6814",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41442009540,
+    "solution_sha256": "826bc664764bad1dc243cfee7f652bbaacde79a306c2a613afb1049e9dc6d6db",
+    "tool_digests": {
+      "bwrap": "97bad7983dfeabf91d8d941bc3142922f649c14693dcc34cb88ccd91ed242afd",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-02T13:12:10Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41442009540"
+  },
+  "version": 1
+}

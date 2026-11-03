@@ -1,0 +1,310 @@
+{
+  "abstract": "Lean 4 formalization of Green's paper Counting sets with small sumset, and the clique number of random Cayley graphs. For a finite abelian group Γ, let S_k^m(Γ) be the family of the sets X in Γ with |X| = k whose restricted sumset X ∔ X = {x + y : x, y in X, x ≠ y} has m elements. The paper bounds |S_k^m(Γ)| for Γ = Z/NZ and Γ = F_2^n, through a bound for the number of Freiman isomorphism classes of sets with small restricted sumset in a vector space. It deduces that the Cayley sum graph of a random subset of Z/NZ almost surely has clique number at most 160 log_2 N, and that the Cayley graph of a random subset of F_2^n almost surely has clique number between C_1 n log_2 n and C_2 n log_2 n. The formalization proves these results with C_1 = 1/4 and C_2 = 308, both as limits and as explicit bounds on the number of exceptional sets.",
+  "authors": [
+    {
+      "name": "Gabriel Dahia"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-03-000013-v1/6fe6da9f1f6783ff0f582aa56d3b4da2383aa555c71e6a5f2cb47fe0c5b31cc2/",
+    "artifact_tree_sha256": "6fe6da9f1f6783ff0f582aa56d3b4da2383aa555c71e6a5f2cb47fe0c5b31cc2",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-02T20:46:48Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P70",
+      "11B13",
+      "11B30",
+      "05C80",
+      "05C55"
+    ]
+  },
+  "first_registered_on": "2026-11-03",
+  "formalization": {
+    "challenge_path": "CountingSetsWithSmallSumsetPalomar/Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "SumOfSetsInSeveralDimensions",
+        "repository": "gdahia/SumOfSetsInSeveralDimensions",
+        "revision": "3e3daad85c81610605c39c48b8f68eec41e57319"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "CountingSetsWithSmallSumsetPalomar/Solution.lean",
+    "theorem_names": [
+      "CountingSetsWithSmallSumset.card_cliqueNum_cayleySumGraph_gt_le'",
+      "CountingSetsWithSmallSumset.tendsto_card_cliqueNum_cayleySumGraph_le'",
+      "CountingSetsWithSmallSumset.exists_cliqueNum_le_and_indepNum_le'",
+      "CountingSetsWithSmallSumset.card_cliqueNum_addCayley_lt_or_gt_le'",
+      "CountingSetsWithSmallSumset.tendsto_card_le_cliqueNum_addCayley_le'"
+    ]
+  },
+  "id": "PALOMAR-2026-11-03-000013",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-03T04:59:39Z",
+    "receipt_sha256": "d8d1f1e360c7397d1f1d51c6e00afcd5cdd65ae4770ce08462a86ec08726433d",
+    "repositories": [
+      {
+        "commit": "8d89dcad03b9b4e5f50336300c9bee4dcfc2cff2",
+        "fork_repository": "PalomarArchive/gdahia--CountingSetsWithSmallSumset--cf69438b9516",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-03-000013-v1/8d89dcad03b9b4e5f50336300c9bee4dcfc2cff2",
+        "source_repository": "gdahia/CountingSetsWithSmallSumset"
+      },
+      {
+        "commit": "3e3daad85c81610605c39c48b8f68eec41e57319",
+        "fork_repository": "PalomarArchive/gdahia--SumOfSetsInSeveralDimensions--b6eb5931139c",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-03-000013-v1/3e3daad85c81610605c39c48b8f68eec41e57319",
+        "source_repository": "gdahia/SumOfSetsInSeveralDimensions"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-03-000013-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-03-000013-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-03-000013-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-03-000013-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-03-000013-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-03-000013-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-03-000013-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-03-000013-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-03-000013-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ben Green"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/math/0304183v2",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/math/0304183v2",
+        "relationship": "formalizes",
+        "title": "Counting sets with small sumset, and the clique number of random Cayley graphs",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4",
+        "note": "The statements use Freiman isomorphisms (IsAddFreimanIso), Module.finrank, vectorSpan, kernels of linear maps, the clique and independence numbers of a simple graph and the Cayley graph SimpleGraph.addCayley, which is the Cayley sum graph in F_2^n, from Mathlib. The proofs use its Freiman homomorphisms, affine independence, finite dimensional linear algebra and the Plünnecke–Ruzsa inequality, which is Theorem 24 of the paper and is used for Lemma 25. Mathlib has no restricted sumset, no Cayley sum graph, no space of Freiman homomorphisms and none of the results of the paper.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/gdahia/SumOfSetsInSeveralDimensions",
+        "note": "A Lake dependency. It provides the affine dimension of a finite set (Finset.affineDim), Freiman's definition of the Freiman dimension (freimanDim), which Corollary 14 compares with Green's, and Freiman's lemma |A + A| ≥ (d + 1)|A| - d(d + 1)/2, from which Lemma 21 is proved.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Gabriel Dahia"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-03T04:59:19Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "26e771a23e2d14d778447e0d53eef5e22d54d9f1ce78d995d1f5615d09dd1a04"
+    },
+    "reviewed_at": "2026-11-02T21:03:00Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "8d89dcad03b9b4e5f50336300c9bee4dcfc2cff2",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "gdahia/CountingSetsWithSmallSumset",
+    "repository_url": "https://github.com/gdahia/CountingSetsWithSmallSumset",
+    "tree_url": "https://github.com/gdahia/CountingSetsWithSmallSumset/tree/8d89dcad03b9b4e5f50336300c9bee4dcfc2cff2"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "1ydjt99wo5t1"
+  },
+  "title": "Counting sets with small sumset",
+  "trust": {
+    "challenge_bytes": 3475,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.SpecialFunctions.Log.Base",
+      "Mathlib.Combinatorics.SimpleGraph.Cayley",
+      "Mathlib.Combinatorics.SimpleGraph.Clique"
+    ],
+    "challenge_lines": 78,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "b308d2d32f4526b33d789059f01db0c8cf76342877e0fa2ee49877d94dfa80bb",
+    "evidence_path": "evidence/PALOMAR-2026-11-03-000013-v1/e843c058ec4fb174d83384c1af209621bd0e4641c0fccc63ae9ed0562acf38d5/",
+    "evidence_tree_sha256": "e843c058ec4fb174d83384c1af209621bd0e4641c0fccc63ae9ed0562acf38d5",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "75c9578754a9277b90e99f3d5ebb61f699337443041adb4bff115cfea1b75275",
+    "protected_config_sha256": "9bf9838826c38cdff8a524f66a0a2cc992e497e324d500a3b46ba2440378dea4",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41485454146,
+    "solution_sha256": "eec2c981f0d0554cd9822f8849bad33453ad456cd6a736c5caed93b0b40906ee",
+    "tool_digests": {
+      "bwrap": "2586abf47ad5024875ca58e78a43c9938fccb5ce65dfe2e7cb2c7d5c706667ca",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-02T19:24:46Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41485454146"
+  },
+  "version": 1
+}

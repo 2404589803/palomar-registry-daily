@@ -1,0 +1,334 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of Theorems 1.1 and 1.3 of Madaras (2004), for finite simple graphs with the combinatorial planarity (genus-zero rotation systems) of the registered entry Kuratowski's theorem. In every plane map of a finite simple graph of minimum degree at least three whose faces all have length at least five, some vertex x of degree three has three distinct neighbours a, b, c with deg a = deg b = 3 and deg c ≤ 4 (light_star3); in particular the star K1,3 is light, with degree sum at most 13. In the same setting, some face of length five shares an edge with a face of length at most six such that all vertices of both faces have degree at most nine (light_pair; the two faces may coincide when the graph is not 2-connected). Two statements. The proof of Theorem 1.1 is a discharging argument on the rotation system with charges deg − 4 and ℓ − 4 in which every face gives each corner at a 3-vertex a weight depending only on the degrees of the two neighbours along the face, and vertices of degree at least five give 1/5 to each 3-neighbour; the local inequalities are checked by decide in the kernel. This replaces the article's transfer of charge between adjacent 3-vertices. Theorem 1.3 is proved by a second discharging with charges 2 deg − 6 and ℓ − 6: vertices give their charge to their corners, and every face gives 1/5 across each edge to an adjacent poor face (length five, all degrees at most five, at most one of degree at least four).",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-01-000033-v2/94b7d816e346af1b6e66f9187eb9ce5bb2f09ae21be3949eff4ad34527f806e3/",
+    "artifact_tree_sha256": "94b7d816e346af1b6e66f9187eb9ce5bb2f09ae21be3949eff4ad34527f806e3",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-02T10:15:00Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C10",
+      "05C07"
+    ]
+  },
+  "first_registered_on": "2026-11-01",
+  "formalization": {
+    "challenge_path": "MadarasChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "lebesgue_star",
+        "repository": "jtraverso/lebesgue-light-stars",
+        "revision": "76c43b645dc6dbf14dbf6d5151fac448a1c34835"
+      },
+      {
+        "name": "borodin_triangle",
+        "repository": "jtraverso/borodin-light-triangles",
+        "revision": "c85ca2ea4051646c0a4eaa1e03943a44cce11f35"
+      },
+      {
+        "name": "kotzig",
+        "repository": "jtraverso/kotzig-light-edges",
+        "revision": "0e9f2a26985134c48841b5b1ce3220c3e257df28"
+      },
+      {
+        "name": "kuratowski",
+        "repository": "jtraverso/kuratowski",
+        "revision": "696ec897a9b91933037767d897670aa30ba3683a"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "MadarasSolution.lean",
+    "theorem_names": [
+      "MadarasTheorem.light_star3",
+      "MadarasTheorem.light_pair"
+    ]
+  },
+  "id": "PALOMAR-2026-11-01-000033",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-02T12:27:45Z",
+    "receipt_sha256": "3c1ee2c134fd61a93b7bfa53f784b2f247b228760a3be067124c0b4c7ee834d1",
+    "repositories": [
+      {
+        "commit": "c85ca2ea4051646c0a4eaa1e03943a44cce11f35",
+        "fork_repository": "PalomarArchive/jtraverso--borodin-light-triangles--5777cc51dc6e",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000033-v2/c85ca2ea4051646c0a4eaa1e03943a44cce11f35",
+        "source_repository": "jtraverso/borodin-light-triangles"
+      },
+      {
+        "commit": "0e9f2a26985134c48841b5b1ce3220c3e257df28",
+        "fork_repository": "PalomarArchive/jtraverso--kotzig-light-edges--9922bf0b4bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000033-v2/0e9f2a26985134c48841b5b1ce3220c3e257df28",
+        "source_repository": "jtraverso/kotzig-light-edges"
+      },
+      {
+        "commit": "696ec897a9b91933037767d897670aa30ba3683a",
+        "fork_repository": "PalomarArchive/jtraverso--kuratowski--c5380f41889a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000033-v2/696ec897a9b91933037767d897670aa30ba3683a",
+        "source_repository": "jtraverso/kuratowski"
+      },
+      {
+        "commit": "76c43b645dc6dbf14dbf6d5151fac448a1c34835",
+        "fork_repository": "PalomarArchive/jtraverso--lebesgue-light-stars--768fd26189ef",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000033-v2/76c43b645dc6dbf14dbf6d5151fac448a1c34835",
+        "source_repository": "jtraverso/lebesgue-light-stars"
+      },
+      {
+        "commit": "4d897b00e73b0742ce0ef346a0a5dd2482ff3048",
+        "fork_repository": "PalomarArchive/jtraverso--madaras-light-stars--fec46a2c19c6",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000033-v2/4d897b00e73b0742ce0ef346a0a5dd2482ff3048",
+        "source_repository": "jtraverso/madaras-light-stars"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000033-v2/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000033-v2/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000033-v2/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000033-v2/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000033-v2/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000033-v2/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000033-v2/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000033-v2/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-01-000033-v2/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Tomáš Madaras"
+          }
+        ],
+        "identifier": "doi:10.7151/dmgt.1239",
+        "license": "unknown",
+        "location": "Discuss. Math. Graph Theory 24 (2004) 403–411: Theorems 1.1 and 1.3 and their proofs.",
+        "relationship": "formalizes",
+        "title": "On the structure of plane graphs of minimum face size 5",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-11-01-000025 (jtraverso/lebesgue-light-stars @ 76c43b6)",
+        "note": "Pinned dependency: the enumeration of the darts around a vertex, and through it the registered entries Borodin's light triangles (PALOMAR-2026-11-01-000024, orbit lemmas) and Kotzig's light edges (PALOMAR-2026-11-01-000023, the dart-level form of Euler's formula, face lengths, sums over orbits).",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-10-15-000018 (jtraverso/kuratowski @ 696ec89)",
+        "note": "Through the Kotzig package. The definitions of planarity (numClasses to PlaneMap) are copied verbatim from its Challenge, and its library supplies plane maps, the face permutation and Euler's formula.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-02T12:27:17Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "409b165c84dfda1fc9911768d250ce1fde19be9f9c0f622ae673af81f16a9180"
+    },
+    "reviewed_at": "2026-11-02T10:23:08Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "4d897b00e73b0742ce0ef346a0a5dd2482ff3048",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+    },
+    "repository": "jtraverso/madaras-light-stars",
+    "repository_url": "https://github.com/jtraverso/madaras-light-stars",
+    "tree_url": "https://github.com/jtraverso/madaras-light-stars/tree/4d897b00e73b0742ce0ef346a0a5dd2482ff3048"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "bvm1eaz7e6hn"
+  },
+  "title": "Light 3-stars and light pairs of faces in plane graphs of minimum face size five (Madaras)",
+  "trust": {
+    "challenge_bytes": 5350,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 121,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "e6434f569ad58df88ad122a94b44f1d3d345d11dfab5c8cf8988915a39f8bdd5",
+    "evidence_path": "evidence/PALOMAR-2026-11-01-000033-v2/afe7034337fad8f19ebe95feb2b0121e57d8589c650581beb925458b3bd6fbaf/",
+    "evidence_tree_sha256": "afe7034337fad8f19ebe95feb2b0121e57d8589c650581beb925458b3bd6fbaf",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "1f32e5eaed1c98c10a78d3c39b9c2f280ed8b8821c81728f2686676cfc827e89",
+    "protected_config_sha256": "15c22518612110f42a6fc2da0e0fdf99e63231c2ecef2fc956786678f73f3557",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41419037511,
+    "solution_sha256": "c06e65fa8bd488d666047a4795c243d6be7ed06f8e9880f8d2cd44f933842bab",
+    "tool_digests": {
+      "bwrap": "f89b3558d917d3a579cd22c7de381d3172d8d0ea620972c7c2b66a6fccd1a288",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-02T09:57:15Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41419037511"
+  },
+  "version": 2
+}

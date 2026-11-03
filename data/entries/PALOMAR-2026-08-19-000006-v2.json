@@ -1,0 +1,438 @@
+{
+  "abstract": "A kernel-checked chirality package for the Padovan substitution (0 ↦ 1, 1 ↦ 2, 2 ↦ 01 on Fin 3; its incidence matrix has characteristic polynomial x³ − x − 1, an orientation fact that is not used or compared). Three compared theorems, all at the iterate-factor level — they quantify over factors of the concrete words S^[n] [x], never over an abstract subshift. (1) The successor invariant: in every positive iterate from any seed, the letter 0 (\"a\") is immediately followed by 1 (\"b\"). (2) Chirality: the word 20 (\"ca\") is a factor of an iterate while its reversal 02 (\"ac\") is a factor of no iterate from any seed — the factor language reads differently backwards — proved from the invariant, with no enumeration on the ac side. (3) No palindromic factor: no factor of length ≥ 4 of any iterate from any seed (including the zeroth iterate) is a palindrome, via a complete length-≤5 window certificate for the seed a together with the index shift S [0] = [1], S [1] = [2], which exhibits every seed's iterate as a seed-a iterate. These are the three compared statements of the registered record (PALOMAR-2026-08-19-000006 at revision c48eb12), unchanged in this revision. The uniqueness results proved in this repository (Supplement.lean: padovan_minimal_unique, padovan_eigenvalue_unique, padovan_matrix_unique, pisot_ge_plastic, padovan_rules_chiral) are registered separately as PALOMAR-2026-10-18-000019 (stalex444/arithmetic-of-time-slowest-clock, revision 49eafbab4af8899b2a66469697bf74683a88ce87), which compares them over s, mir, inc and sub. Everything else in this repository is public and kernel-checked but not compared: among it the exact orientation threshold (padovan_exact_orientation_threshold_four), the irrationality of the distinguished slope (Time.beta_irrational), mirror identities for arbitrary substitutions, a rate identity, and the characteristic polynomial and chirality of a twelve-letter substitution for ρQ.",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-08-19-000006-v2/4bfccf8809b6d0844b5ad06d23dba744c44b3402fa05a2e728eedef8c8bac0ef/",
+    "artifact_tree_sha256": "4bfccf8809b6d0844b5ad06d23dba744c44b3402fa05a2e728eedef8c8bac0ef",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-02T02:26:26Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.DS",
+      "physics.hist-ph"
+    ],
+    "msc2020": [
+      "68R15",
+      "37B10",
+      "00A79"
+    ]
+  },
+  "first_registered_on": "2026-08-19",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "ArithmeticOfTime.s",
+      "ArithmeticOfTime.S"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "ArithmeticOfTime.padovan_a_forces_b",
+      "ArithmeticOfTime.padovan_chirality",
+      "ArithmeticOfTime.padovan_no_long_palindrome"
+    ]
+  },
+  "id": "PALOMAR-2026-08-19-000006",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-02T13:22:11Z",
+    "receipt_sha256": "480ac4b3355d43a285b732d46183753226411a324ba282aed44302be1d017bcf",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000006-v2/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000006-v2/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000006-v2/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000006-v2/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000006-v2/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000006-v2/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000006-v2/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000006-v2/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000006-v2/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "dff259119db097947f946f44620b42d0bd242b7d",
+        "fork_repository": "PalomarArchive/stalex444--arithmetic-of-time--b101f6bdb410",
+        "ref": "refs/tags/palomar/PALOMAR-2026-08-19-000006-v2/dff259119db097947f946f44620b42d0bd242b7d",
+        "source_repository": "stalex444/arithmetic-of-time"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Carl Ludwig Siegel"
+          }
+        ],
+        "identifier": "Duke Mathematical Journal 11 (1944), 597-602",
+        "license": "unknown",
+        "location": "https://doi.org/10.1215/S0012-7094-44-01152-X",
+        "relationship": "independently-proves",
+        "title": "Algebraic integers whose conjugates lie in the unit circle",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Paul Mercat"
+          }
+        ],
+        "identifier": "Experimental Mathematics 29 (2020), 163-182",
+        "license": "unknown",
+        "location": "https://doi.org/10.1080/10586458.2018.1446063",
+        "relationship": "independently-proves",
+        "title": "Rauzy Fractal of the Smallest Substitution Associated with the Smallest Pisot Number",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Douglas A. Lind"
+          }
+        ],
+        "identifier": "Bulletin of the American Mathematical Society (N.S.) 9 (1983), 219-222",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/S0273-0979-1983-15162-5",
+        "relationship": "background",
+        "title": "Entropies and factorizations of topological Markov shifts",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Franz Gähler"
+          }
+        ],
+        "identifier": "arXiv:2602.18501",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2602.18501",
+        "relationship": "background",
+        "title": "Dynamical Invariants from Asymptotic Composants",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "M. Lothaire"
+          }
+        ],
+        "identifier": "Cambridge University Press, 2002. ISBN 978-0521812207",
+        "license": "unknown",
+        "location": "https://doi.org/10.1017/CBO9781107326019",
+        "relationship": "background",
+        "title": "Algebraic Combinatorics on Words",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ľubomíra Balková"
+          },
+          {
+            "name": "Edita Pelantová"
+          },
+          {
+            "name": "Štěpán Starosta"
+          }
+        ],
+        "identifier": "RAIRO Theoretical Informatics and Applications 44 (2010), 443-470",
+        "license": "unknown",
+        "location": "https://doi.org/10.1051/ita/2011002",
+        "relationship": "background",
+        "title": "Sturmian jungle (or garden?) on multiliteral alphabets",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Michael Baake"
+          },
+          {
+            "name": "John A. G. Roberts"
+          },
+          {
+            "name": "Reem Yassawi"
+          }
+        ],
+        "identifier": "Discrete and Continuous Dynamical Systems A 38 (2018), 835-866",
+        "license": "unknown",
+        "location": "https://doi.org/10.3934/dcds.2018036",
+        "relationship": "background",
+        "title": "Reversing and extended symmetries of shift spaces",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Sebastián Barbieri"
+          },
+          {
+            "name": "Sébastien Labbé"
+          },
+          {
+            "name": "Štěpán Starosta"
+          }
+        ],
+        "identifier": "European Journal of Combinatorics 95 (2021), 103318",
+        "license": "unknown",
+        "location": "https://doi.org/10.1016/j.ejc.2021.103318",
+        "relationship": "background",
+        "title": "A characterization of Sturmian sequences by indistinguishable asymptotic pairs",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "Registered entry PALOMAR-2026-08-19-000006, version 1 (stalex444/arithmetic-of-time, registered revision c48eb12817dd1d7ff3dc4d92306c7a4f249e6d7d)",
+        "note": "THE REGISTERED RECORD OF THIS REPOSITORY. This revision is version 2 of the same repository, new commits submitted as version 2 of the same entry; the version-1 record stays pinned to c48eb12. Its compared surface is unchanged: comparator.json is that revision's file, and Challenge.lean and Solution.lean are that revision's files apart from the module-system header (module / public import / @[expose] public section) the current toolchain requires. The ten version-1 proof modules are identical to the registered revision apart from the same header, except for one proof repair in Irreducibility (quartic_irred_zmod2, linear case: simp no longer closes the goal at the new toolchain; the simp call drops neg_add_cancel and zero_mul and is followed by `exact mul_eq_zero_of_left (neg_add_cancel a) _`), statement unchanged. Everything else in this repository is new in version 2, public and not compared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-10-18-000019 (stalex444/arithmetic-of-time-slowest-clock, registered revision 49eafbab4af8899b2a66469697bf74683a88ce87)",
+        "note": "SEPARATELY REGISTERED COMPANION. Its five compared statements, padovan_minimal_unique, padovan_eigenvalue_unique, padovan_matrix_unique, pisot_ge_plastic and padovan_rules_chiral, over the definitions s, mir, inc and sub, are stated and proved here in Supplement.lean with the same statements over the same definitions, and are not compared here. The proof module SlowestClock is the same file in both repositories.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-08-31-000004 (stalex444/mahler-measure-minima, registered revision ca3df22ba91ce60e5199aee4a0c35a6ca8ee559d)",
+        "note": "PROOF-MODULE REUSE, NOT COMPARED CONTENT. The minimal Mahler measures in degrees 2 and 3 (quadratic_mahler_min', cubic_mahler_min') are the engine of the module theorem pisot_ge_plastic and hence of the bound in padovan_minimal_unique (Supplement.lean, not compared here). The five modules PdtMahler, PdtMahlerBox, PdtMahlerMain, PdtMahlerTheta and PdtMahlerWindow are that revision's files with every statement and proof unchanged: PdtMahlerBox differs from it only in the module-system header; the other four differ in the header and in docstrings (module docstrings, and in PdtMahlerMain the docstring of quartic_mahler_min), from which internal cross-references of the author's working notes were removed. None of that entry's statements is re-compared here.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-09-04-000004 (stalex444/chiral-padovan-histories, registered revision 14711e6cffdc74669d15f808d4aec8cbb373d71f)",
+        "note": "CONTEXT. That entry's compared statements concern the infinite Padovan prefix path, its arithmetic record windows and a chiral timelike history in the quartic trace geometry, and it draws on the version-1 repository of this entry. No statement of it is re-compared here; the supporting modules here on trace forms and record windows (PdtSignature, PdtTraceLink, PdtRecordBoundary and others) serve the companion paper and are not compared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-09-01-000005, version 1 (stalex444/mahler-minimizer-compositum, registered revision d78ce1610608cf4a90d5580c267110c96d2f9af5)",
+        "note": "CONTEXT. That entry compares the minimal polynomial of ρQ and the Bedford-Kim plastic family. Copies of the corresponding modules (PdtRulerMinpoly, PdtSalemFamily) are supporting modules here; no compared statement here uses them, and the module theorem rhoQ_substitution_charpoly (Supplement.lean, not compared) states only the integer characteristic polynomial.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/stalex444/pdt-lean (parent development; pinned reference revision: commit 34f7b0a8238c3260d73086d2a7e1f7d086f897d7)",
+        "note": "The public project this entry belongs to. This repository is the complete, self-contained proof development for the compared statements, with no imports from the parent. The modules PdtCommitment, PdtIrreducible, PdtPisotBoundary, PdtSignature, PdtSignatureRho, PdtTraceLink, PdtTraceSignature, PdtTraceCompositum and the five PdtMahler modules also appear in the parent at the pinned revision; SlowestClock (the same file) and a version of PdtMirrorTensor also appear in PALOMAR-2026-10-18-000019; this repository's Supplement, BetaIrrational, PdtFourTickThreshold, PdtArrowRate, PdtRhoQChirality and PdtCharpolyTensor appear first here.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4 (List.IsInfix, List.Palindrome, Nat.iterate; in the module theorems also Polynomial.mahlerMeasure, minpoly, Polynomial.aroots, Matrix.charpoly, Matrix.kronecker, Irrational)",
+        "note": "The compared statements use Mathlib and core Lean vocabulary plus two short definitions in Challenge.lean (s and S), each a one-line list construction stated in full there and repeated verbatim in Solution.lean; they are this entry's. Mathlib contains no Pisot theory at the pin (the word does not occur in its sources), so Siegel's theorem is not in Mathlib.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-02T13:21:48Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "de455c05d67a79607ec4b242d20ad2a252592e52c3364705e3a70462fd07170c"
+    },
+    "reviewed_at": "2026-11-02T03:24:35Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "dff259119db097947f946f44620b42d0bd242b7d",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/arithmetic-of-time",
+    "repository_url": "https://github.com/stalex444/arithmetic-of-time",
+    "tree_url": "https://github.com/stalex444/arithmetic-of-time/tree/dff259119db097947f946f44620b42d0bd242b7d"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "z8tj39lsjcoz"
+  },
+  "title": "The Arithmetic of Time: chirality of the Padovan substitution",
+  "trust": {
+    "challenge_bytes": 2596,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 64,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "0481be972b3e634816e6016d7cc9f8d8f4a86fc772a22ede7853711fe7df8f21",
+    "evidence_path": "evidence/PALOMAR-2026-08-19-000006-v2/8ebe0f3e91890fcb78a8cd9ffbdc73538a2d86a185bf51edde2d235541fcbc21/",
+    "evidence_tree_sha256": "8ebe0f3e91890fcb78a8cd9ffbdc73538a2d86a185bf51edde2d235541fcbc21",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "e5c2aab12379c2d964786b3aeba88cad2b89ab4e6f3067744bc9da59a8247506",
+    "protected_config_sha256": "a20ed7cef1c41fee181c664029a695d4d4ca978f3c93ac85e4acd6cfb62c732b",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41373270661,
+    "solution_sha256": "75a6aa16ad2deefd249f05a70823b38449412a6b47d702246eefc74f36344f27",
+    "tool_digests": {
+      "bwrap": "08c443092a2722bc14faf6d2c1e41e1a10381ccac64689f8b76ead6a7ec1b955",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-02T01:47:41Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41373270661"
+  },
+  "version": 2
+}

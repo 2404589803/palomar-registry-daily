@@ -1,0 +1,402 @@
+{
+  "abstract": "For an integer r >= 2 and a finite set N of primes, the random Euler product model for Dirichlet characters of order r replaces chi(q) by independent uniform r-th roots of unity. The development proves that the order-r local factor E|1 - z/q|^(-2) equals (1 + q^-r)/((1 - q^-2)(1 - q^-r)), that its ratio to the full-circle factor (1 - q^-2)^(-1), multiplied over the primes outside N, is zeta^(N)(r)^2 / zeta^(N)(2r), that this correction factor is also the sum of (ab)^-r over the coprime pairs of integers prime to N, and that the model mean is zeta^(N)(2) zeta^(N)(r)^2 / zeta^(N)(2r). The factor exceeds 1, decreases strictly in r and tends to 1; for r = 2k and N empty it equals -binom(4k,2k) B_{2k}^2/(2 B_{4k}). For r = 4 and N = {2} it is 35/34, the ratio by which the limit of Louboutin's mean square of L(1, chi) with the factor at 2 removed changes when the average is restricted to quartic characters; with the forced factor 4/5 at 2 the development also proves the constants pi^2/10, 7 pi^2/68, 7 pi^2/36 and 7/136 = (1/20)(35/34) = (7/72)(9/17). It also identifies the pairs the model keeps: for positive m, n the average of z^m conj(z^n) is 1 exactly when m/n is an r-th power in Q, that is when (m, n) = (d a^r, d b^r) with a, b coprime, and 0 otherwise. Modulo a single prime p with r | p - 1 it proves the finite-character counterpart: there are exactly r Dirichlet characters mod p with chi^r = 1, the sum of chi(a) conj(chi(b)) over them is r when a/b is a nonzero r-th power mod p and 0 otherwise, so every pair (d a^r, d b^r) prime to p survives with sum r; by contrast, summed over all characters mod p, chi(m) conj(chi(n)) has sum 0 for distinct m, n < p. Release v1.2 adds the finite part of the Chebyshev bias in families p = a (mod M) of fixed order r: with rho_s(t) the average of exp(2 pi i u t/s) over the units u mod s, the sum over t < s of rho_s(c t) is s when s | c and 0 otherwise; for M > 0 and s | M the squares in Z/s x| (Z/M)^x give the prime-square term of the explicit formula as s times the square-root count beta(M, a, s) = #{y in (Z/M)^x : y^2 = a, y = -1 (mod s)}, a count of residue classes (the same finite-sum identity over the representatives 0 <= x < M holds for all M and s > 0, but is only an arithmetic identity there: vacuous at M = 0, representative-dependent when s does not divide M); beta does not decrease as s decreases along divisibility, at s = r it is 0 unless a is a square in H = ker((Z/M)^x -> (Z/r)^x) and is then the number of square roots of 1 in H; and for the imaginary families (r even, M = 2r, a = 1 + r) beta vanishes for every s unless 8 | r, and for s = r/d with d odd in every case.",
+  "authors": [
+    {
+      "name": "Joseph S. Farland"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-20-000010-v3/38b2e925e86c5ee46d9f83615baf60a7da37f1cbb5e24b4f23b3b4c92f8bc736/",
+    "artifact_tree_sha256": "38b2e925e86c5ee46d9f83615baf60a7da37f1cbb5e24b4f23b3b4c92f8bc736",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-03T04:05:01Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11M06",
+      "11M20",
+      "11R42",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-10-20",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "FixedOrderFactor.PrimeTo",
+      "FixedOrderFactor.instDecidablePrimeTo",
+      "FixedOrderFactor.zetaN",
+      "FixedOrderFactor.correctionFactor",
+      "FixedOrderFactor.rootOfUnity",
+      "FixedOrderFactor.localTerm",
+      "FixedOrderFactor.muAvg",
+      "FixedOrderFactor.modelMean",
+      "FixedOrderFactor.primesUpTo",
+      "FixedOrderFactor.zPow",
+      "FixedOrderFactor.two",
+      "FixedOrderFactor.sqrtCount",
+      "FixedOrderFactor.orbitAvg"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "FixedOrderFactor.muAvg_eq",
+      "FixedOrderFactor.tendsto_muAvg",
+      "FixedOrderFactor.modelMean_eq",
+      "FixedOrderFactor.hasProd_correctionFactor",
+      "FixedOrderFactor.hasProd_muAvg",
+      "FixedOrderFactor.tendsto_modelMean",
+      "FixedOrderFactor.hasSum_coprime_pairs",
+      "FixedOrderFactor.correctionFactor_even",
+      "FixedOrderFactor.correctionFactor_eq_mul",
+      "FixedOrderFactor.one_lt_correctionFactor",
+      "FixedOrderFactor.correctionFactor_succ_lt",
+      "FixedOrderFactor.tendsto_correctionFactor",
+      "FixedOrderFactor.correctionFactor_four_two",
+      "FixedOrderFactor.localTerm_I_half",
+      "FixedOrderFactor.quartic_constants",
+      "FixedOrderFactor.sum_char_pow_eq_one",
+      "FixedOrderFactor.card_char_pow_eq_one",
+      "FixedOrderFactor.sum_char_pow_eq_one_of_pow",
+      "FixedOrderFactor.sum_char_all",
+      "FixedOrderFactor.div_eq_pow_iff",
+      "FixedOrderFactor.model_pair_average",
+      "FixedOrderFactor.sum_orbitAvg_mul",
+      "FixedOrderFactor.sum_orbitAvg_eq_zero",
+      "FixedOrderFactor.sum_orbitAvg_square_finite",
+      "FixedOrderFactor.sqrtCount_eq_card_zmod",
+      "FixedOrderFactor.sum_orbitAvg_square",
+      "FixedOrderFactor.sqrtCount_le_of_dvd",
+      "FixedOrderFactor.sqrtCount_top",
+      "FixedOrderFactor.sqrtCount_top_dichotomy",
+      "FixedOrderFactor.sqrtCount_imaginary",
+      "FixedOrderFactor.sqrtCount_table"
+    ]
+  },
+  "id": "PALOMAR-2026-10-20-000010",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-03T05:22:37Z",
+    "receipt_sha256": "ee89180183e2c4d974cb6a5208c5dd90b5a0a5f6cb3aa5a9081d9f8a510eed8c",
+    "repositories": [
+      {
+        "commit": "74f4fc5b5253c181a2ba67bf3220a7c0b5fcf6fd",
+        "fork_repository": "PalomarArchive/jkfarland-bot--FixedOrderFactor-lean--c8161d9d4229",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-20-000010-v3/74f4fc5b5253c181a2ba67bf3220a7c0b5fcf6fd",
+        "source_repository": "jkfarland-bot/FixedOrderFactor-lean"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-20-000010-v3/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-20-000010-v3/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-20-000010-v3/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-20-000010-v3/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-20-000010-v3/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-20-000010-v3/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-20-000010-v3/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-20-000010-v3/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-20-000010-v3/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.23849628",
+        "license": "CC-BY-4.0",
+        "location": "Preprint, Zenodo, 2026, all versions https://doi.org/10.5281/zenodo.23488965 (version 1: https://doi.org/10.5281/zenodo.23488966; version 2: https://doi.org/10.5281/zenodo.23491467; version 3, which adds Section 7: https://doi.org/10.5281/zenodo.23849628)",
+        "relationship": "formalizes",
+        "title": "The factor 35/34: fourth powers in the mean square of L(1, chi) over quartic characters",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "license": "CC-BY-4.0",
+        "location": "Manuscript (Paper XI of the author's series), 2026",
+        "relationship": "formalizes",
+        "title": "Fixed-order families: local laws, family conditions, and mean values of L(1, chi)",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Stéphane Louboutin"
+          }
+        ],
+        "license": "unknown",
+        "location": "Canad. Math. Bull. 36 (1993), 190-196; corrections, ibid. 37 (1994), 89",
+        "relationship": "background",
+        "title": "Quelques formules exactes pour des moyennes de fonctions L de Dirichlet",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "H. Walum"
+          }
+        ],
+        "license": "unknown",
+        "location": "Illinois J. Math. 26 (1982), 1-3",
+        "relationship": "background",
+        "title": "An exact formula for an average of L-series",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "P. D. T. A. Elliott"
+          }
+        ],
+        "license": "unknown",
+        "location": "Proc. London Math. Soc. (3) 21 (1970), 28-96",
+        "relationship": "background",
+        "title": "On the mean value of f(p)",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Youness Lamzouri"
+          }
+        ],
+        "license": "unknown",
+        "location": "Mathematika 63 (2017), 53-71",
+        "relationship": "background",
+        "title": "Large values of L(1, chi) for k-th order characters chi and applications to character sums",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://doi.org/10.5281/zenodo.23489278",
+        "note": "Release v1.0 of this repository. Version 1.1 adds Proposition 3.3, Theorem 5.1 and Corollary 5.2 of the paper's version 2, and version 1.2 adds Section 7 of version 3; the statements and proofs of v1.0 are unchanged.",
+        "relationship": "supersedes"
+      },
+      {
+        "identifier": "https://github.com/jkfarland-bot/DedekindSubgroups-lean",
+        "note": "Companion formalization by the same author on Dedekind sums over subgroups, related to Louboutin's mean values over subgroups; it shares no code with this one.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Joseph S. Farland"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-03T05:22:19Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "2fc92eed4d48d67f11abcc0637cc9ef4e9521a4125ac2fc289bfa9c0ddb15c7f"
+    },
+    "reviewed_at": "2026-11-03T04:25:48Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "74f4fc5b5253c181a2ba67bf3220a7c0b5fcf6fd",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "2a8e159a9d264f4b9ae5de5a195b7d7df6e63d4882a2a72da9fd9ed8242666db"
+    },
+    "repository": "jkfarland-bot/FixedOrderFactor-lean",
+    "repository_url": "https://github.com/jkfarland-bot/FixedOrderFactor-lean",
+    "tree_url": "https://github.com/jkfarland-bot/FixedOrderFactor-lean/tree/74f4fc5b5253c181a2ba67bf3220a7c0b5fcf6fd"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "cmc2z9alzko6"
+  },
+  "title": "FixedOrderFactor: the order-r correction factor for mean squares of L(1, chi), and the factor 35/34",
+  "trust": {
+    "challenge_bytes": 18110,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 307,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "f0a5a65697b474096b9f71f82e75d2389cddd8e30b62c3634fa8e75f729d6a84",
+    "evidence_path": "evidence/PALOMAR-2026-10-20-000010-v3/47b0924d92434fb8d4f5a8b4e41ec1b5a116d111f93e17806c118d64e18ef2ec/",
+    "evidence_tree_sha256": "47b0924d92434fb8d4f5a8b4e41ec1b5a116d111f93e17806c118d64e18ef2ec",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "63c9233e72f220ce075e655caae1f2bd2d9fd901d03ac28829d3ad4791f5f244",
+    "protected_config_sha256": "8bf5a1947982c1c88666e8247bcae946222f05b59eefc64ee46b51f0d339c6c2",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41572615479,
+    "solution_sha256": "8cdc5ff4ac034fe41012145a6754b67e182dda438e97c45df8c7a369924c539d",
+    "tool_digests": {
+      "bwrap": "389839632bff2ef99b1f0bea950906a51be85069538ad94a5297d08486897a8c",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-03T03:36:19Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41572615479"
+  },
+  "version": 3
+}

@@ -1,0 +1,437 @@
+{
+  "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of ten statements. Let K be a number field of degree 9 containing a totally real cubic field L and a cubic field M with one real place. Then K = LM has signature (3, 3), and its nine embeddings are the pairs (lambda, mu). A slot assignment, fixed by a labelling of L's embeddings and a non-real embedding mu_1 of M, places the nine conjugates of x in K in a 3 x 3 Hermitian array, the symbol of x; the symbol of x^-1 is its entrywise (Hadamard) inverse. (1) For every finite index type, a positive semidefinite complex matrix with no zero entry has positive semidefinite Hadamard inverse iff it is w w* (rank one); (2) for every complex matrix with no zero entry (positive semidefiniteness not assumed), the Schur multipliers of the matrix and of its Hadamard inverse are both completely positive iff it is w w*. Statements 1-2 are supporting lemmas. (3) The setting: L and M are linearly disjoint, L M = K, and K has 3 real and 3 complex places. (4) The slot assignment exists, is a bijection Fin 3 x Fin 3 ~ (K -> C) with real diagonal and conjugate-symmetric slots, and is unique. (5) For x != 0 in K, the symbol of x is rank one iff N_{K/L}(x) and N_{K/M}(x) are one and the same positive rational number. (6) For a unit u, the symbol is rank one iff N_{K/L}(u) = N_{K/M}(u) = 1. (7) These units H are torsion-free and their logarithmic embedding spans a Z-module of rank 2, so H is isomorphic to Z^2 (the isomorphism is not itself a Lean term). (8) For a unit u, the Schur multipliers of the symbols of u and of u^-1 are both completely positive iff u is in H. (9) There is a unit of infinite order all of whose powers run both ways. (10) The degree-four contrast: in a field with two real places and one complex place, both Schur multipliers of the 2 x 2 place symbol of a unit u and of u^-1 are completely positive iff u is positive at both real places and |sigma(u)| = 1. Statements 4-6, 8 and 9 hold for every labelling and every non-real mu_1. The compositum place bookkeeping is ported, with citation, from the registered entry PALOMAR-2026-10-21-000012; it is not re-proved. Application to time (no compared statement asserts it): in the arithmetic of time the tick is multiplication by a unit; if a unit acts by multiplication on a Hermitian register of its places and an admissible tick must be completely positive, then in degree four a tick u != 1 runs both ways only through a conjugate on the unit circle (Salem type); in a field such as Q(Q), Q^4 = Q + 1, the only such elements are +-1 (not proved in this entry; it follows from statement 17 of the registered entry PALOMAR-2026-10-21-000012, since Q(Q) is contained in Q(rho, Q)), so there the arithmetic gives time a direction; in degree nine a rank-two group of units runs both ways, so the direction is not a property of arithmetic in general: it rests on the degree-four shape and on Q(Q) having no conjugate on the unit circle. The ticks are completely positive, not trace-non-increasing. Companion of the registered entry PALOMAR-2026-08-19-000006 (the arithmetic of time), whose README Scope section is reproduced verbatim in this entry's README.",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-02-000018-v1/c0c37d7056f79d99d58d1ac04df17881d3016c7a4eb0a97877a52a3e661e0cab/",
+    "artifact_tree_sha256": "c0c37d7056f79d99d58d1ac04df17881d3016c7a4eb0a97877a52a3e661e0cab",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-02T18:04:09Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.OA",
+      "math.RA",
+      "quant-ph",
+      "math-ph",
+      "physics.hist-ph"
+    ],
+    "msc2020": [
+      "11R27",
+      "11R16",
+      "11R06",
+      "15B48",
+      "47B49",
+      "81P47",
+      "00A79"
+    ]
+  },
+  "first_registered_on": "2026-11-02",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "DegreeNine.IsPositiveMap",
+      "DegreeNine.schurAmp",
+      "DegreeNine.IsCPSchur",
+      "DegreeNine.IsSlotAssignment"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "DegreeNine.hadamardInv_posSemidef_iff",
+      "DegreeNine.cp_both_iff_rankOne",
+      "DegreeNine.compositum_setting",
+      "DegreeNine.slot_assignment_exists_unique",
+      "DegreeNine.rankOne_iff_relNorm_eq_ratCast",
+      "DegreeNine.unit_rankOne_iff",
+      "DegreeNine.relNormKernel_torsionFree_rank_two",
+      "DegreeNine.reversible_iff",
+      "DegreeNine.exists_reversible",
+      "DegreeNine.quartic_reversible_iff"
+    ]
+  },
+  "id": "PALOMAR-2026-11-02-000018",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-02T20:25:40Z",
+    "receipt_sha256": "3b476160936a18375fee7bb28c17bbd0ab24355ba705e3f4b19e8b0b67b349c7",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000018-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000018-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000018-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000018-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000018-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000018-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000018-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000018-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000018-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "723197b0d1d48fbe12bf19e81683de0090c5ce5c",
+        "fork_repository": "PalomarArchive/stalex444--arithmetic-of-time-reversible-units-degree-nine--30ddb83bb682",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000018-v1/723197b0d1d48fbe12bf19e81683de0090c5ce5c",
+        "source_repository": "stalex444/arithmetic-of-time-reversible-units-degree-nine"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Stephanie Alexander"
+          }
+        ],
+        "license": "MIT",
+        "location": "README.md, sections 'The compared statements', 'The proof in five lines' and 'Relation to the literature'",
+        "relationship": "other",
+        "title": "Reversible units of a degree-nine field (the ten compared statements)",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Vern Paulsen"
+          }
+        ],
+        "identifier": "Cambridge Studies in Advanced Mathematics 78, Cambridge University Press (2002)",
+        "license": "unknown",
+        "location": "https://doi.org/10.1017/CBO9780511546631",
+        "relationship": "other",
+        "title": "Completely Bounded Maps and Operator Algebras",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Robert Reams"
+          }
+        ],
+        "identifier": "Linear Algebra and its Applications 288 (1999), 35-43",
+        "license": "unknown",
+        "location": "https://doi.org/10.1016/S0024-3795(98)10162-3",
+        "relationship": "background",
+        "title": "Hadamard inverses, square roots and products of almost semidefinite matrices",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Y. Lim"
+          }
+        ],
+        "identifier": "Journal of Lie Theory 30 (2020), no. 2, 473-488",
+        "license": "unknown",
+        "location": "https://doi.org/10.5802/jolt.1126",
+        "relationship": "background",
+        "title": "Hadamard Semigroups of Off-Diagonal Constant Matrices",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Eknath Ghate"
+          },
+          {
+            "name": "Eriko Hironaka"
+          }
+        ],
+        "identifier": "Bulletin of the American Mathematical Society 38 (2001), no. 3, 293-314",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/S0273-0979-01-00902-8",
+        "relationship": "background",
+        "title": "The arithmetic and geometry of Salem numbers",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Chris Smyth"
+          }
+        ],
+        "identifier": "Bulletin of the London Mathematical Society 47 (2015), no. 3, 379-395",
+        "license": "unknown",
+        "location": "https://doi.org/10.1112/blms/bdv027",
+        "relationship": "background",
+        "title": "Seventy years of Salem numbers",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "C. J. Smyth"
+          }
+        ],
+        "identifier": "Journal of Number Theory 23 (1986), no. 2, 243-254",
+        "license": "unknown",
+        "location": "https://doi.org/10.1016/0022-314X(86)90094-6",
+        "relationship": "background",
+        "title": "Additive and multiplicative relations connecting conjugate algebraic numbers",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Artūras Dubickas"
+          }
+        ],
+        "identifier": "New York Journal of Mathematics 20 (2014), 257-274",
+        "license": "unknown",
+        "location": "https://nyjm.albany.edu/j/2014/20-16.html",
+        "relationship": "background",
+        "title": "Nonreciprocal units in a number field with an application to Oeljeklaus-Toma manifolds",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Mohamed Kerada"
+          }
+        ],
+        "identifier": "Acta Arithmetica 72 (1995), no. 1, 55-65",
+        "license": "unknown",
+        "location": "https://doi.org/10.4064/aa-72-1-55-65",
+        "relationship": "background",
+        "title": "Une caractérisation de certaines classes d'entiers algébriques généralisant les nombres de Salem",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "Registered entry PALOMAR-2026-08-19-000006 (stalex444/arithmetic-of-time, registered revision c48eb12817dd1d7ff3dc4d92306c7a4f249e6d7d)",
+        "note": "COMPANION ENTRY. Its compared statements include the chirality of the Padovan substitution (the arrow at the level of the settled word); this entry gives it at the level of the tick in Q(Q), as complete positivity in one direction only, and shows it is not forced by arithmetic in general: in the degree-nine shape a rank-two group of units runs both ways. The README's Scope section is that entry's, verbatim; its one relative link, to the paper directory, now points into the companion repository at the registered revision. No statement or module is shared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entries PALOMAR-2026-09-04-000004 (stalex444/chiral-padovan-histories) and PALOMAR-2026-10-18-000019 (stalex444/arithmetic-of-time-slowest-clock)",
+        "note": "The other registered arrow-of-time entries of the same project, cited for context. No statement or module is shared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entry PALOMAR-2026-10-21-000012 (stalex444/pdt-hermite-signature-compositum, registered revision 5aa870e98236ba240561b798265c629df8c2d031)",
+        "note": "PROOF-MODULE REUSE, CITED. Its compared statement (3), places_compositum, and the supporting declarations listed in BUILD.txt (Module provenance; HermiteCompositum/Places.lean) are copied into ReversibleUnits/Compositum.lean with the namespace and the ambient field's name changed and every statement and proof otherwise unchanged; each carries a docstring citing that entry. Statement 3 here applies places_compositum; it is not a re-comparison of it.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4 (Matrix.PosSemidef, Matrix.vecMulVec, Algebra.norm, IntermediateField.LinearDisjoint, NumberField.InfinitePlace, NumberField.ComplexEmbedding, NumberField.Units.torsion, NumberField.Units.logEmbedding)",
+        "note": "The compared statements use Mathlib vocabulary plus four definitions in Challenge.lean (IsPositiveMap, schurAmp, IsCPSchur, IsSlotAssignment), repeated verbatim in Solution.lean. DefinitionAudit.lean kernel-checks the facts the statements rely on. Mathlib at the pin has no Schur-multiplier complete-positivity criterion, no Salem predicate and no relative-norm product formula for a compositum; the entry proves the latter from Algebra.norm_eq_prod_embeddings.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-02T20:25:10Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "45057f7e116c017adf80ff9416c3eb5dd28d08d328d59790ff1433d9c89656eb"
+    },
+    "reviewed_at": "2026-11-02T19:20:09Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "723197b0d1d48fbe12bf19e81683de0090c5ce5c",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/arithmetic-of-time-reversible-units-degree-nine",
+    "repository_url": "https://github.com/stalex444/arithmetic-of-time-reversible-units-degree-nine",
+    "tree_url": "https://github.com/stalex444/arithmetic-of-time-reversible-units-degree-nine/tree/723197b0d1d48fbe12bf19e81683de0090c5ce5c"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "cja5pjhcfp5j"
+  },
+  "title": "The Arithmetic of Time: reversible units of a degree-nine field. The units of K = LM (L, M cubic) with rank-one Hermitian symbol are exactly those of trivial relative norm to L and to M, a group of rank two, and exactly those whose Schur multipliers run both ways",
+  "trust": {
+    "challenge_bytes": 13620,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 213,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "9743dbba3952e10a9652a1f616eae1315df42e9fe6815ad6420d659297f5b290",
+    "evidence_path": "evidence/PALOMAR-2026-11-02-000018-v1/074d4e400eb9f2a8d2e9d47e294fad46f5f7fb51327b27d64b87d01d87b834a8/",
+    "evidence_tree_sha256": "074d4e400eb9f2a8d2e9d47e294fad46f5f7fb51327b27d64b87d01d87b834a8",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "2554c841df5e0e3b0e6cd789a7278debee9d4f2fc3c6b65d38d7312ffa23e3ee",
+    "protected_config_sha256": "6eec5c511be8e3f0732fb11741ea9ac6bbc06673aea3b11c261d5eea839e5438",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41478051043,
+    "solution_sha256": "2b87758335a258a2f8c087b54476fc931d6299b383f16d5b263789cda5c51899",
+    "tool_digests": {
+      "bwrap": "e237b06d6f3a97a6d40da9fee40bb4f32d335d7f3e224c227f23255de3c847ce",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-02T16:42:55Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41478051043"
+  },
+  "version": 1
+}

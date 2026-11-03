@@ -1,0 +1,368 @@
+{
+  "abstract": "For an odd prime p, an odd character chi modulo p and m >= 0, the multiplier family C(a) = sum over 0 < n < p/2 of chi(n) (-1)^(n + <a n^(2m)>) has Fourier transform over the characters 2 sum_a conj(psi)(a) C(a) = G(conj psi) G(chi psi^(2m)), with the multiplier constant G(psi) = sum_m psi(m) (-1)^m = 2 (1 - 2 psi(2)) B_(1,psi). The development proves this Mellin duality over any commutative ring, its inversion over the odd complex characters and its form bilinear in first Bernoulli numbers, the half-sum identity, the exponent family and its two collapses. At p = 5 (mod 8), for the quartic character, it proves the coset decomposition of the family, its exact sums over the cosets of the fourth powers, conjugate dynamics, the two second-moment identities, the decomposition of the second-order products of the band-parity companion by coprime pairs, and Parseval's identity for the band weight. Through the inversion and Parseval's identity over the odd characters it proves, for every a not divisible by p, the exact second moment sum over odd chi of |sum over odd psi of psi(a) (1 - 2 conj(psi)(2)) (1 - 2 chi(2) psi(2)^2) B_(1,conj psi) B_(1,chi psi^2)|^2 = ((p - 1)/2)^4.",
+  "authors": [
+    {
+      "name": "Joseph S. Farland"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-02-000019-v1/04bb64c7f21c04097fc8571959da790523dafe82eac6a508c313a80d80918c64/",
+    "artifact_tree_sha256": "04bb64c7f21c04097fc8571959da790523dafe82eac6a508c313a80d80918c64",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-02T20:50:43Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11L40",
+      "11A15",
+      "11B68",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-02",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "MellinDuality.gi",
+      "MellinDuality.parSign",
+      "MellinDuality.half",
+      "MellinDuality.fam",
+      "MellinDuality.G",
+      "MellinDuality.T",
+      "MellinDuality.bern",
+      "MellinDuality.bandSignE",
+      "MellinDuality.bandSumPow",
+      "MellinDuality.oddChars",
+      "MellinDuality.fiber",
+      "MellinDuality.sigma",
+      "MellinDuality.gamma",
+      "MellinDuality.multCorr",
+      "MellinDuality.eps",
+      "MellinDuality.quadR",
+      "MellinDuality.halfSum",
+      "MellinDuality.coprimePairs",
+      "MellinDuality.pairRange"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "MellinDuality.multiplier_constant_half",
+      "MellinDuality.multiplier_constant_even",
+      "MellinDuality.half_sum_identity",
+      "MellinDuality.multiplier_constant_bern",
+      "MellinDuality.mellin_duality",
+      "MellinDuality.mellin_duality_inverse",
+      "MellinDuality.mellin_duality_bernoulli",
+      "MellinDuality.mellin_duality_quartic",
+      "MellinDuality.parity_dictionary",
+      "MellinDuality.exponent_family_dual",
+      "MellinDuality.exponent_collapse_first",
+      "MellinDuality.exponent_collapse_second",
+      "MellinDuality.cosets_as_fibers",
+      "MellinDuality.coset_decomposition",
+      "MellinDuality.gamma_identities",
+      "MellinDuality.exponent_terminal_values",
+      "MellinDuality.coset_trace_values",
+      "MellinDuality.coset_trace_second",
+      "MellinDuality.family_mean_values",
+      "MellinDuality.conjugate_dynamics_squaring",
+      "MellinDuality.second_moments",
+      "MellinDuality.gcd_decomposition",
+      "MellinDuality.band_sum_interval",
+      "MellinDuality.pair_structure_identities",
+      "MellinDuality.parseval_identity",
+      "MellinDuality.parseval_any_weight",
+      "MellinDuality.multiplier_family_interval",
+      "MellinDuality.parseval_odd_characters",
+      "MellinDuality.bernoulli_mean_square_identity"
+    ]
+  },
+  "id": "PALOMAR-2026-11-02-000019",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-02T21:07:59Z",
+    "receipt_sha256": "536f1454d79b0d6f70b6ce8ae7d213784efefa8d211de53807d108551b9eb7d4",
+    "repositories": [
+      {
+        "commit": "1a5228293f894c9779404d39808b250705e30137",
+        "fork_repository": "PalomarArchive/jkfarland-bot--MellinDuality--0105682cec7c",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000019-v1/1a5228293f894c9779404d39808b250705e30137",
+        "source_repository": "jkfarland-bot/MellinDuality"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000019-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000019-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000019-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000019-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000019-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000019-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000019-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000019-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000019-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "license": "CC-BY-4.0",
+        "location": "Preprint, Zenodo, 2026, all versions https://doi.org/10.5281/zenodo.23796262 (v1.0 is https://doi.org/10.5281/zenodo.23796263; version 2, which adds Section 7, is https://doi.org/10.5281/zenodo.23850482)",
+        "relationship": "formalizes",
+        "title": "Mellin duality for the band-parity companion, formalized in Lean",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "license": "CC-BY-4.0",
+        "location": "Preprint (Paper II of the author's series), 2026",
+        "relationship": "formalizes",
+        "title": "What the band-parity companion is: Mellin duality, Weil sums, and the Gauss-sum axis",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "S. Louboutin"
+          }
+        ],
+        "license": "unknown",
+        "location": "arXiv:2406.02802, 2024",
+        "relationship": "background",
+        "title": "Dedekind sums and mean square value of L(1, chi) over subgroups",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://doi.org/10.5281/zenodo.23752170",
+        "note": "BandParityTower by the same author (Paper I, Sections 4 and 5). Its file Basic is copied here and renamed into the MellinDuality namespace.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://doi.org/10.5281/zenodo.23673067",
+        "note": "BandParity by the same author (Paper I, Theorem A), where the parity dictionary and the band-parity sum first appear.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Joseph S. Farland"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-02T21:07:35Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "c071f04739f32d46a00e838f75b61dfcdccabbe2ebec161f6633706ca62be7e0"
+    },
+    "reviewed_at": "2026-11-02T21:00:22Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "The public abstract presents G(ψ) = 2(1 − 2ψ(2)) B₁,ψ for an unrestricted character ψ, but the formula is proved only for odd ψ and is false for even ψ. For example, the trivial character modulo 5 has G(ψ) = 0 while the displayed Bernoulli expression equals −4. Qualify ψ as odd in the abstract; the Lean statements need no change."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "1a5228293f894c9779404d39808b250705e30137",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "2a8e159a9d264f4b9ae5de5a195b7d7df6e63d4882a2a72da9fd9ed8242666db"
+    },
+    "repository": "jkfarland-bot/MellinDuality",
+    "repository_url": "https://github.com/jkfarland-bot/MellinDuality",
+    "tree_url": "https://github.com/jkfarland-bot/MellinDuality/tree/1a5228293f894c9779404d39808b250705e30137"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "fbwzy3tiz4if"
+  },
+  "title": "MellinDuality: Mellin duality for the band-parity companion",
+  "trust": {
+    "challenge_bytes": 16653,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 321,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "4506b1b787b8775ccbf87aa7e96218c052154e8b20afe5cf459554840823c8f1",
+    "evidence_path": "evidence/PALOMAR-2026-11-02-000019-v1/5411edc0e11806466caaafd0044124359543fc6d33cf497599134e379f24c083/",
+    "evidence_tree_sha256": "5411edc0e11806466caaafd0044124359543fc6d33cf497599134e379f24c083",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "e1a4e073077b853b65a394a0c024a37fe9f1c8399b0188ccad1cfc262638ebca",
+    "protected_config_sha256": "cefc89230e03ef700f883712ea118fbfffd3e9e7e1d8023f0bd63af11617efa6",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41481353442,
+    "solution_sha256": "427d639b95b30412f452b3b54a99cde95249c277524aef90be3255f2dd5e5d1e",
+    "tool_digests": {
+      "bwrap": "d3067424a8bda6b4a7abf4f942b9eb3a92fe36a8fe7907d7e0a29c15e5440943",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-02T19:19:20Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41481353442"
+  },
+  "version": 1
+}

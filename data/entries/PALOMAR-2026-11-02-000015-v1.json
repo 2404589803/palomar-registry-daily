@@ -1,0 +1,332 @@
+{
+  "abstract": "Conjecture 1.2 of C. David, A. Dunn, A. Hamieh and H. Lin (arXiv:2306.11875) asserts that the sums S_beta(X; l) of normalized quartic Gauss sums g(c) over primary primes c of Z[i] with N(c) <= X and c = beta (mod 4), twisted by (conj(c)/|c|)^l and weighted by the von Mangoldt function, are b_beta X^(3/4) + O(X^(1/2+eps)) with b_beta nonzero when l = 0 and O(X^(1/2+eps)) when l is nonzero. The development proves that if g(c)^2 = -kappa c/|c| for a fixed unit kappa on the support of the weight (the identity (1.2) of the same paper), then g(c) conj(c)/|c| = -kappa conj(g(c)), so S_beta(X; 1) = -kappa conj(S_beta(X; 0)), and the cases l = 0 and l = 1 of the conjecture force b_beta = 0, which the conjecture excludes; the same holds when the identity fails on an exceptional set of weight O(X^(1/2+eps)). More generally S_beta(X; 1 - l) = -kappa conj(S_beta(X; l)) for every l. The corrected conjecture, with main term -kappa conj(b_beta) X^(3/4) at l = 1, is shown equivalent under the identity to its cases l <= 0, and that main term is shown to be the only one compatible with the case l = 0. It also proves the pairing identities A(nu^3, -m) = -kappa conj A(nu, m) for the twisted moments and the fact behind the special role of order four: if |g| = 1 and g^k = xi then conj(g) = g^(k-1) conj(xi). The Gauss sum and the von Mangoldt function are abstract functions on the Gaussian integers, so no quartic residue symbol is defined.",
+  "authors": [
+    {
+      "name": "Joseph S. Farland"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-02-000015-v1/d7bde6706a4ba0b612560a278b84176488639a22ea9bce4641be65069e8d4626/",
+    "artifact_tree_sha256": "d7bde6706a4ba0b612560a278b84176488639a22ea9bce4641be65069e8d4626",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-02T11:44:56Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11L05",
+      "11R18",
+      "11N13",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-02",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "QuarticPairing.unitDir",
+      "QuarticPairing.normBall",
+      "QuarticPairing.twistedSum",
+      "QuarticPairing.Conjecture12",
+      "QuarticPairing.defectSum",
+      "QuarticPairing.twistedAvg",
+      "QuarticPairing.amendedMain",
+      "QuarticPairing.Conjecture12Amended"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "QuarticPairing.pointwise_pairing",
+      "QuarticPairing.pairing_of_twists",
+      "QuarticPairing.pairing_of_twists_defect",
+      "QuarticPairing.pairing_identities",
+      "QuarticPairing.why_quartic",
+      "QuarticPairing.conjecture12_inconsistent",
+      "QuarticPairing.conjecture12_inconsistent_of_defect",
+      "QuarticPairing.reflection_of_twists",
+      "QuarticPairing.amended_conjecture_consistent",
+      "QuarticPairing.main_term_one_forced"
+    ]
+  },
+  "id": "PALOMAR-2026-11-02-000015",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-02T16:14:53Z",
+    "receipt_sha256": "917597bc466d512828cc318e3003e5fd74bb8ae264a639f8cc3893bcba96eadc",
+    "repositories": [
+      {
+        "commit": "7ad815405be5e161e2c48dd9d4413ae5a214b9b8",
+        "fork_repository": "PalomarArchive/jkfarland-bot--QuarticPairing--f9e7ccd774c6",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000015-v1/7ad815405be5e161e2c48dd9d4413ae5a214b9b8",
+        "source_repository": "jkfarland-bot/QuarticPairing"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000015-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000015-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000015-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000015-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000015-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000015-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000015-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000015-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-02-000015-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "license": "CC-BY-4.0",
+        "location": "Preprint, Zenodo, 2026, doi:10.5281/zenodo.23848955 (all versions)",
+        "relationship": "formalizes",
+        "title": "The twists l = 0 and l = 1 in a conjecture on quartic Gauss sums, formalized in Lean",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "license": "CC-BY-4.0",
+        "location": "Manuscript (Paper IX of the author's series), 2026",
+        "relationship": "formalizes",
+        "title": "A note on Conjecture 1.2 of David, Dunn, Hamieh and Lin: the pairing of the twists, Suzuki's vanishing law, and a repair",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Chantal David"
+          },
+          {
+            "name": "Alexander Dunn"
+          },
+          {
+            "name": "Alia Hamieh"
+          },
+          {
+            "name": "Hua Lin"
+          }
+        ],
+        "license": "unknown",
+        "location": "arXiv:2306.11875v5, 2026; to appear in Algebra & Number Theory",
+        "relationship": "background",
+        "title": "Quartic Gauss sums over primes and metaplectic theta functions",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Joseph S. Farland"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-02T16:14:27Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "c45806e6e97e0118b98c591f4885ff5ca4457d4c4a8e0fd8b55e1528396cf3b0"
+    },
+    "reviewed_at": "2026-11-02T12:36:25Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "7ad815405be5e161e2c48dd9d4413ae5a214b9b8",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "2a8e159a9d264f4b9ae5de5a195b7d7df6e63d4882a2a72da9fd9ed8242666db"
+    },
+    "repository": "jkfarland-bot/QuarticPairing",
+    "repository_url": "https://github.com/jkfarland-bot/QuarticPairing",
+    "tree_url": "https://github.com/jkfarland-bot/QuarticPairing/tree/7ad815405be5e161e2c48dd9d4413ae5a214b9b8"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "sfjizpum4u0x"
+  },
+  "title": "QuarticPairing: the pairing of the twists in Conjecture 1.2 of David, Dunn, Hamieh and Lin",
+  "trust": {
+    "challenge_bytes": 10402,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 180,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "5fa75c54c3a833d182afd189f20a131757e5885d4457cd92d4791f4bf17483fd",
+    "evidence_path": "evidence/PALOMAR-2026-11-02-000015-v1/8b7048e035c4b51f5253b63a8903095b38ee533240bacf16c52a794fbfd9cdf1/",
+    "evidence_tree_sha256": "8b7048e035c4b51f5253b63a8903095b38ee533240bacf16c52a794fbfd9cdf1",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "7155fe774b4f1935ba70de82ff6ae6561a095ac36394e4a7dcfa8fbdc4e5b3d4",
+    "protected_config_sha256": "8a6ade965aa41c39424c4cdc78963b98a0e950460b7b1a8ed2363ac55af3f526",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41429915703,
+    "solution_sha256": "62beddd0ac2f50dc0f465e45735d5bb218120cc56df727d0c7f2c6662e7bb2f2",
+    "tool_digests": {
+      "bwrap": "9f2ee4b542fbd13d821305b199933e54b232fe5f919a651c31e779b598d830fd",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-02T11:04:26Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41429915703"
+  },
+  "version": 1
+}
