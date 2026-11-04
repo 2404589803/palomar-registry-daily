@@ -1,0 +1,325 @@
+{
+  "abstract": "Theorem 1.1 of C. David, A. Dunn, A. Hamieh and H. Lin (arXiv:2306.11875) bounds the sums of normalized quartic Gauss sums g(c) over primary primes c of Z[i] in a class modulo 4, twisted by (c/|c|)^l. The companion note extends it to g(nu, c) with any fixed numerator nu. The only new ingredient is a local identity that splits off the primes dividing nu from the coprimality conditions of the Type I Dirichlet series. This development formalizes that step from the identities of DDHL Section 3, taken as hypotheses on an abstract symbol and Gauss sum: the splitting identity g(mu, pi^k c') = (-1)^C(c', pi^k) g(mu, pi^k) g(mu pi^(2k), c') with no condition linking mu and pi, and DDHL (3.6). It proves the identity for the truncated series as an exact finite identity (Lemma 2.2), and removes pi from the coprimality condition for every valuation e = ord_pi(mu) (Corollary 2.3): on the series prime to pi the valuation reduces modulo 4; for every e the splitting has the terms k = 4j <= e and k = e + 1; and for the four exact valuations e = 1, 3 it gives single equations with an explicit finite inverse, for e = 0, 2 the coupled pair of DDHL (8.6)-(8.7). It also proves lower bounds for the determinants on Re s >= 1 and the 2-adic facts behind the signs.",
+  "authors": [
+    {
+      "name": "Joseph S. Farland"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-04-000003-v1/5ae4742c5c49a91934fa10ed4714a27d5ae0f74f45c0818df49c9dca1c7ced4e/",
+    "artifact_tree_sha256": "5ae4742c5c49a91934fa10ed4714a27d5ae0f74f45c0818df49c9dca1c7ced4e",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-04T00:36:59Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11L05",
+      "11R18",
+      "11N13",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-04",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "FixedNumerator.lam3",
+      "FixedNumerator.IsPrimary",
+      "FixedNumerator.C",
+      "FixedNumerator.normBall",
+      "FixedNumerator.truncSum"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "FixedNumerator.ddhl_3_6",
+      "FixedNumerator.splitting_identity",
+      "FixedNumerator.numerator_period",
+      "FixedNumerator.primary_sq_mod_four",
+      "FixedNumerator.sign_class_invariant",
+      "FixedNumerator.sign_even_power",
+      "FixedNumerator.lemma_2_2",
+      "FixedNumerator.two_term_split",
+      "FixedNumerator.corollary_2_3_odd",
+      "FixedNumerator.corollary_2_3_odd_inverse",
+      "FixedNumerator.corollary_2_3_coupled",
+      "FixedNumerator.corollary_2_3_reduce",
+      "FixedNumerator.corollary_2_3_general",
+      "FixedNumerator.determinant_lower",
+      "FixedNumerator.determinant_ne_zero",
+      "FixedNumerator.determinant_r1",
+      "FixedNumerator.determinant_r3",
+      "FixedNumerator.determinant_coupled"
+    ]
+  },
+  "id": "PALOMAR-2026-11-04-000003",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-04T01:57:06Z",
+    "receipt_sha256": "d4a6f86a30611d301813819afecbcdc138959a0c9e33facb32d40e290c448295",
+    "repositories": [
+      {
+        "commit": "817fb1416c9d54140c6bbdd9b2d08f37b481d934",
+        "fork_repository": "PalomarArchive/jkfarland-bot--FixedNumerator--e1e50d0a0024",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000003-v1/817fb1416c9d54140c6bbdd9b2d08f37b481d934",
+        "source_repository": "jkfarland-bot/FixedNumerator"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000003-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000003-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000003-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000003-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000003-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000003-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000003-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000003-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000003-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.23882882",
+        "license": "CC-BY-4.0",
+        "location": "Preprint, Zenodo, 2026, https://doi.org/10.5281/zenodo.23882882",
+        "relationship": "formalizes",
+        "title": "Quartic Gauss sums over primes with a fixed numerator",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Chantal David"
+          },
+          {
+            "name": "Alexander Dunn"
+          },
+          {
+            "name": "Alia Hamieh"
+          },
+          {
+            "name": "Hua Lin"
+          }
+        ],
+        "license": "unknown",
+        "location": "arXiv:2306.11875v5, 2026; to appear in Algebra & Number Theory",
+        "relationship": "background",
+        "title": "Quartic Gauss sums over primes and metaplectic theta functions",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Joseph S. Farland"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-04T01:56:44Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "db7e0390641ee4964d0f3c2a07f960007a38f2226e34d485208ae506bd8055a8"
+    },
+    "reviewed_at": "2026-11-04T01:00:22Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "817fb1416c9d54140c6bbdd9b2d08f37b481d934",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "2a8e159a9d264f4b9ae5de5a195b7d7df6e63d4882a2a72da9fd9ed8242666db"
+    },
+    "repository": "jkfarland-bot/FixedNumerator",
+    "repository_url": "https://github.com/jkfarland-bot/FixedNumerator",
+    "tree_url": "https://github.com/jkfarland-bot/FixedNumerator/tree/817fb1416c9d54140c6bbdd9b2d08f37b481d934"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "alu4gwkh6w5b"
+  },
+  "title": "FixedNumerator: the local step in extending a theorem on quartic Gauss sums over primes to a fixed numerator",
+  "trust": {
+    "challenge_bytes": 14187,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 251,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "87406535811dec9d5983ca9d5f57e597b9e16d076e3422f8f843e9c908b2a6df",
+    "evidence_path": "evidence/PALOMAR-2026-11-04-000003-v1/c62558da0d05a6a641c9725f8f92bc968de6d92cb6c018a7563be4327d945a79/",
+    "evidence_tree_sha256": "c62558da0d05a6a641c9725f8f92bc968de6d92cb6c018a7563be4327d945a79",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "8435cfd815c995acc1261aebe8f895c6bc4c86232b5872061107876ef95bf751",
+    "protected_config_sha256": "ecb87e8b2648fb71c3a8b0e6342d9a89d7e4fdfb011b2578b6dcd7eb32b9b836",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41735308490,
+    "solution_sha256": "dc43c1f95a9300322c6b4d230f35cce4657768765973df9f2f868072a76e6923",
+    "tool_digests": {
+      "bwrap": "b57e0c27838653d862437240b133269ec27164f52d87725b401ca6a1cd38f5a7",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-03T23:03:45Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41735308490"
+  },
+  "version": 1
+}

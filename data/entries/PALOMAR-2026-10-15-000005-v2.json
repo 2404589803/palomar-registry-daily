@@ -1,0 +1,413 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of classical results on planar graphs and graphs without a K5 minor. (1) Wagner's theorem (1937): a finite graph is planar if and only if it has neither K5 nor K3,3 as a minor. (2) Škrekovski's theorem (1998): every finite graph without a K5 minor is 5-choosable, proved along the route of Wood and Linusson, and Thomassen's theorem (1994) that every finite planar graph is 5-choosable, as a corollary. (3) DP-colouring: every finite graph without a K5 minor (Li–Wang, 2022), hence every finite planar graph (Dvořák–Postle, 2018), is DP-5-colourable. (4) Voigt's theorem (1993): an explicit planar graph on 238 vertices with lists of four colours has no proper list colouring, so 5 cannot be lowered to 4; its planarity and non-colourability are checked by kernel reduction. (5) Wagner's equivalence of the Four Colour Theorem with Hadwiger's conjecture for K5 (neither side is proved). (6) Wagner's structure theorem (1937, added in version 2): a finite graph has no K5 minor if and only if it is a spanning subgraph of a graph obtained by clique-sums of order at most three, keeping the clique edges, from planar graphs and copies of the Wagner graph V8. Planarity is defined combinatorially, by rotation systems of genus zero (Euler defect 0); as sanity checks K4 is planar and K5, K3,3 are not.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-10-15-000005-v2/a2ab147b3ca5fb739c6aa73ee667efd94c6194b323dca2b1e428525b38516adc/",
+    "artifact_tree_sha256": "a2ab147b3ca5fb739c6aa73ee667efd94c6194b323dca2b1e428525b38516adc",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-03T19:54:13Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C10",
+      "05C15",
+      "05C83"
+    ]
+  },
+  "first_registered_on": "2026-10-15",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "PlanarChoosability.isPlanar_iff_minorFree",
+      "PlanarChoosability.k5MinorFree_iff_exists_k5Decomp",
+      "PlanarChoosability.choosableWith_five_of_k5MinorFree",
+      "PlanarChoosability.choosableWith_five_of_isPlanar",
+      "PlanarChoosability.dpColourableWith_five_of_k5MinorFree",
+      "PlanarChoosability.dpColourableWith_five_of_isPlanar",
+      "PlanarChoosability.exists_isPlanar_not_choosableWith_four",
+      "PlanarChoosability.fourColour_iff_hadwigerFive",
+      "PlanarChoosability.isPlanar_K4",
+      "PlanarChoosability.not_isPlanar_K5",
+      "PlanarChoosability.not_isPlanar_K33"
+    ]
+  },
+  "id": "PALOMAR-2026-10-15-000005",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-03T23:18:28Z",
+    "receipt_sha256": "fc5d03f71478d7456cc67a27f742eceff477fd9a8517f220d9d91bcfae7f06c2",
+    "repositories": [
+      {
+        "commit": "5b262124ae6c99661cf1e75bd0351cc7faab80c5",
+        "fork_repository": "PalomarArchive/jtraverso--planar-list-colouring--03a15f1929ab",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-15-000005-v2/5b262124ae6c99661cf1e75bd0351cc7faab80c5",
+        "source_repository": "jtraverso/planar-list-colouring"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-15-000005-v2/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-15-000005-v2/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-15-000005-v2/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-15-000005-v2/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-15-000005-v2/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-15-000005-v2/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-15-000005-v2/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-15-000005-v2/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-10-15-000005-v2/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Klaus Wagner"
+          }
+        ],
+        "license": "unknown",
+        "location": "Mathematische Annalen 114 (1937), 570–590",
+        "relationship": "formalizes",
+        "title": "Über eine Eigenschaft der ebenen Komplexe",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Kazimierz Kuratowski"
+          }
+        ],
+        "license": "unknown",
+        "location": "Fundamenta Mathematicae 15 (1930), 271–283",
+        "relationship": "background",
+        "title": "Sur le problème des courbes gauches en topologie",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Riste Škrekovski"
+          }
+        ],
+        "identifier": "doi:10.1016/S0012-365X(98)00158-7",
+        "license": "unknown",
+        "location": "Discrete Mathematics 190 (1998), 223–226",
+        "relationship": "formalizes",
+        "title": "Choosability of K5-minor-free graphs",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "David R. Wood"
+          },
+          {
+            "name": "Svante Linusson"
+          }
+        ],
+        "identifier": "arXiv:1005.5194",
+        "license": "unknown",
+        "location": "SIAM Journal on Discrete Mathematics 24 (2010), no. 4, 1632–1637",
+        "relationship": "formalizes",
+        "title": "Thomassen's Choosability Argument Revisited",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Carsten Thomassen"
+          }
+        ],
+        "license": "unknown",
+        "location": "Journal of Combinatorial Theory, Series B 62 (1994), 180–181",
+        "relationship": "formalizes",
+        "title": "Every planar graph is 5-choosable",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Zdeněk Dvořák"
+          },
+          {
+            "name": "Luke Postle"
+          }
+        ],
+        "license": "unknown",
+        "location": "Journal of Combinatorial Theory, Series B 129 (2018), 38–54",
+        "relationship": "formalizes",
+        "title": "Correspondence coloring and its application to list-coloring planar graphs without cycles of lengths 4 to 8",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Lingxi Li"
+          },
+          {
+            "name": "Tao Wang"
+          }
+        ],
+        "identifier": "arXiv:2111.15220",
+        "license": "unknown",
+        "location": "Applied Mathematics and Computation 425 (2022), 127100",
+        "relationship": "formalizes",
+        "title": "An extension of Thomassen's result on choosability",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Margit Voigt"
+          }
+        ],
+        "identifier": "doi:10.1016/0012-365X(93)90579-I",
+        "license": "unknown",
+        "location": "Discrete Mathematics 120 (1993), 215–219",
+        "relationship": "formalizes",
+        "title": "List colourings of planar graphs",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Jack Edmonds"
+          }
+        ],
+        "license": "unknown",
+        "location": "Notices of the American Mathematical Society 7 (1960), 646",
+        "relationship": "background",
+        "title": "A combinatorial representation for polyhedral surfaces",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-10-13-000005 (jtraverso/grotzsch-ore)",
+        "note": "The same author's Grötzsch / Grünbaum–Aksenov entry uses 22 modules of the same planarity library and the same definition of planarity (rotation systems of genus zero).",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-03T23:18:06Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "98a73d46bb8f52b80778b8dc9a7bb4f8f85a0d4f230c78d4d64f3fe6d6d3f81e"
+    },
+    "reviewed_at": "2026-11-03T21:13:56Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "5b262124ae6c99661cf1e75bd0351cc7faab80c5",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jtraverso/planar-list-colouring",
+    "repository_url": "https://github.com/jtraverso/planar-list-colouring",
+    "tree_url": "https://github.com/jtraverso/planar-list-colouring/tree/5b262124ae6c99661cf1e75bd0351cc7faab80c5"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "shf4vu2qeppb"
+  },
+  "title": "Wagner's planarity criterion and list colouring of planar and K5-minor-free graphs",
+  "trust": {
+    "challenge_bytes": 13783,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 304,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "1935f4b70bb271b2b6feda953cffb1a6120381ff3a10903dc65ae92acb7e5da8",
+    "evidence_path": "evidence/PALOMAR-2026-10-15-000005-v2/9337ec5620cf371885b465236fe5d66ff4fe528358d41ae78cb818af01235b6f/",
+    "evidence_tree_sha256": "9337ec5620cf371885b465236fe5d66ff4fe528358d41ae78cb818af01235b6f",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "c5206c5938dcd175285598b1e401b1c3de89f3604c721f590f35b111f2ee9fdd",
+    "protected_config_sha256": "009520d65bdb5f241d68d23c1c874653fc5175b5ba9d2ee5a26d3ab259d73539",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41698106381,
+    "solution_sha256": "9a708ac222cba91360e8526e75b0ba59c2dfdd3c8d8988a4ab24ce2d360bb783",
+    "tool_digests": {
+      "bwrap": "1b5a07f7311dc71efdfc5967acc34382ed71138d38396a9850d60d5a5bb7e667",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-03T19:11:38Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41698106381"
+  },
+  "version": 2
+}
