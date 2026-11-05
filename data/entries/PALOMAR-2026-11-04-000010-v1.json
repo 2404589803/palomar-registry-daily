@@ -1,0 +1,390 @@
+{
+  "abstract": "A machine-checked proof of the Osterwalder-Schrader correspondence between Euclidean Schwinger functions and relativistic Wightman distributions, in both directions, for every spatial dimension d >= 1. The Euclidean side is a family of Schwinger functions on the zero-diagonal Schwartz space (OS II's test space) satisfying E0-E4; the relativistic side is a family of tempered distributions satisfying the Wightman function axioms (Poincare covariance, spectrum condition, locality, positivity, Hermiticity, clustering). They are linked by a Wick pairing: one holomorphic kernel on the forward tube whose boundary values give the Wightman distribution and whose restriction to Wick- rotated points gives the Schwinger function. Three theorems are verified: E'->R (OS axioms plus linear growth yield Wick-paired Wightman distributions); E'->R' in OS II's form (with growth E0' (4.1), the Wightman distributions exist, satisfy the output bound R0' (4.3), and are unique among Wick-paired families; the two growth conditions are proved equivalent); and R->E (every Wightman family yields, via an explicit constructor, Schwinger functions satisfying E0-E4, with no growth hypothesis). The asymmetry is OS II's correction of OS I and is reproduced faithfully: growth is assumed on the Euclidean side and not recovered, so the two directions do not compose to a biconditional. Scope: theorems about Wightman functions, not the GNS reconstruction of operators. Four conventions are weaker than the textbook ones and are visible in the Challenge: the forward tube carries the extra condition Im z_0 in the open forward cone; locality is stated for adjacent transpositions; reflection positivity goes through a totalized coercion onto zero-diagonal tests; growth is a hypothesis, not a conclusion. To our knowledge this is the first machine-checked proof of the OS reconstruction theorem; its audience is constructive and axiomatic QFT, where it is the bridge every Euclidean construction crosses. The companion formalization of the massive free field and the Proca Wick square inhabits its hypotheses.",
+  "authors": [
+    {
+      "name": "Xi Yin"
+    },
+    {
+      "name": "Michael R. Douglas"
+    },
+    {
+      "name": "Anna Mei"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-04-000010-v1/08af1519acec7c4192b90d01d97cad720263b6d75c9a28d407b63c9384bb79af/",
+    "artifact_tree_sha256": "08af1519acec7c4192b90d01d97cad720263b6d75c9a28d407b63c9384bb79af",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-04T05:15:07Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "01a09f320122475119588526857a07d218aef600"
+  },
+  "classification": {
+    "arxiv": [
+      "math-ph",
+      "hep-th"
+    ],
+    "msc2020": [
+      "81T05",
+      "81T08",
+      "46F12"
+    ]
+  },
+  "first_registered_on": "2026-11-04",
+  "formalization": {
+    "challenge_path": "RegistryChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc4",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "OSReconstruction",
+        "repository": "mrdouglasny/os-reconstruction",
+        "revision": "a63f143281ef1810f6acbf90f6959cf579639f1b"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "1f414401f69059aa7eead47b53ee40bd38455eeb"
+      },
+      {
+        "name": "GaussianField",
+        "repository": "mrdouglasny/gaussian-field",
+        "revision": "e28a381288f0c6cdd275f9fd84cfb1b20feea957"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "aef59637faa9e85fa2486acaaf906ce3f572af7c"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "234d9e074fbd6e911b920baf32db5291c3125be0"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "579f558774c4ac6840e715ba60dabf3030619349"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "d5ad4a0b79fa7f9818fe1380d05a3f6143823c09"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "04879b1e1de744d5c9777c8cf63fa55a8f652e5e"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "e7c4cdd2f1bf9df361ef7f621b4d6867012ab65e"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "b71aaf60877e673fdb921f06f20987d12ee8a290"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "82c11b9717083154aefc5fe8d4cba4bbf046298f"
+      }
+    ],
+    "solution_path": "RegistrySolution.lean",
+    "theorem_names": [
+      "OSReconstructionAudit.e_to_r",
+      "OSReconstructionAudit.e_to_r_osii",
+      "OSReconstructionAudit.r_to_e"
+    ]
+  },
+  "id": "PALOMAR-2026-11-04-000010",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-04T13:05:51Z",
+    "receipt_sha256": "796fbcb1793ba02893eef73796b035972f53022d45d534fb79842f0555de071d",
+    "repositories": [
+      {
+        "commit": "04879b1e1de744d5c9777c8cf63fa55a8f652e5e",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000010-v1/04879b1e1de744d5c9777c8cf63fa55a8f652e5e",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "b71aaf60877e673fdb921f06f20987d12ee8a290",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000010-v1/b71aaf60877e673fdb921f06f20987d12ee8a290",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "579f558774c4ac6840e715ba60dabf3030619349",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000010-v1/579f558774c4ac6840e715ba60dabf3030619349",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "234d9e074fbd6e911b920baf32db5291c3125be0",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000010-v1/234d9e074fbd6e911b920baf32db5291c3125be0",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "1f414401f69059aa7eead47b53ee40bd38455eeb",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000010-v1/1f414401f69059aa7eead47b53ee40bd38455eeb",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "aef59637faa9e85fa2486acaaf906ce3f572af7c",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000010-v1/aef59637faa9e85fa2486acaaf906ce3f572af7c",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "d5ad4a0b79fa7f9818fe1380d05a3f6143823c09",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000010-v1/d5ad4a0b79fa7f9818fe1380d05a3f6143823c09",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "e7c4cdd2f1bf9df361ef7f621b4d6867012ab65e",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000010-v1/e7c4cdd2f1bf9df361ef7f621b4d6867012ab65e",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "82c11b9717083154aefc5fe8d4cba4bbf046298f",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000010-v1/82c11b9717083154aefc5fe8d4cba4bbf046298f",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "e28a381288f0c6cdd275f9fd84cfb1b20feea957",
+        "fork_repository": "PalomarArchive/mrdouglasny--gaussian-field--3e3e3806dda5",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000010-v1/e28a381288f0c6cdd275f9fd84cfb1b20feea957",
+        "source_repository": "mrdouglasny/gaussian-field"
+      },
+      {
+        "commit": "a63f143281ef1810f6acbf90f6959cf579639f1b",
+        "fork_repository": "PalomarArchive/mrdouglasny--os-reconstruction--47b43d0220fd",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000010-v1/a63f143281ef1810f6acbf90f6959cf579639f1b",
+        "source_repository": "mrdouglasny/os-reconstruction"
+      },
+      {
+        "commit": "93cdb40e728ba27b7b1b55efc30d57f7b43de9aa",
+        "fork_repository": "PalomarArchive/mrdouglasny--OSreconstruction-comparator--c95d4150d61b",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000010-v1/93cdb40e728ba27b7b1b55efc30d57f7b43de9aa",
+        "source_repository": "mrdouglasny/OSreconstruction-comparator"
+      },
+      {
+        "commit": "cf0904e34a7c146a9f312f601e3707dca4a87697",
+        "fork_repository": "PalomarArchive/xiyin137--OSreconstruction--4fdc4f7bd129",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000010-v1/cf0904e34a7c146a9f312f601e3707dca4a87697",
+        "source_repository": "xiyin137/OSreconstruction"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Konrad Osterwalder"
+          },
+          {
+            "name": "Robert Schrader"
+          }
+        ],
+        "identifier": "10.1007/BF01645738",
+        "license": "proprietary",
+        "relationship": "formalizes",
+        "title": "Axioms for Euclidean Green's functions",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Konrad Osterwalder"
+          },
+          {
+            "name": "Robert Schrader"
+          }
+        ],
+        "identifier": "10.1007/BF01608978",
+        "license": "proprietary",
+        "relationship": "formalizes",
+        "title": "Axioms for Euclidean Green's functions II",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Raymond F. Streater"
+          },
+          {
+            "name": "Arthur S. Wightman"
+          }
+        ],
+        "identifier": "ISBN:978-0-691-07062-9",
+        "license": "proprietary",
+        "relationship": "background",
+        "title": "PCT, Spin and Statistics, and All That",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "James Glimm"
+          },
+          {
+            "name": "Arthur Jaffe"
+          }
+        ],
+        "identifier": "ISBN:978-0-387-96477-7",
+        "license": "proprietary",
+        "relationship": "background",
+        "title": "Quantum Physics: A Functional Integral Point of View",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/mrdouglasny/OSforGFF",
+        "note": "The massive Gaussian free field satisfying the OS axioms (probability-measure formulation).",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/math-commons/yang-mills",
+        "note": "Vendors this package's axiom records and inhabits them: the massive free field and the Proca Wick square satisfy E0-E4 with the corrected growth condition.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "thin-wrapper",
+    "responsible_maintainers": [
+      {
+        "name": "Xi Yin"
+      },
+      {
+        "name": "Michael R. Douglas"
+      }
+    ],
+    "result_origin": "source-based",
+    "substantive_formalization": {
+      "commit": "cf0904e34a7c146a9f312f601e3707dca4a87697",
+      "repository": "xiyin137/OSreconstruction",
+      "repository_url": "https://github.com/xiyin137/OSreconstruction",
+      "tree_url": "https://github.com/xiyin137/OSreconstruction/tree/cf0904e34a7c146a9f312f601e3707dca4a87697"
+    }
+  },
+  "registered_at": "2026-11-04T13:05:23Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "961b08d50d7260ce8b286513b52c9917ba67b4fd82919d9430ebfc69f85054f7"
+    },
+    "reviewed_at": "2026-11-04T05:24:57Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "The public priority claim lacks a documented basis. Give the scope and results of a credible search, or state that priority is unknown."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "93cdb40e728ba27b7b1b55efc30d57f7b43de9aa",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "mrdouglasny/OSreconstruction-comparator",
+    "repository_url": "https://github.com/mrdouglasny/OSreconstruction-comparator",
+    "tree_url": "https://github.com/mrdouglasny/OSreconstruction-comparator/tree/93cdb40e728ba27b7b1b55efc30d57f7b43de9aa"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "uyfwg5grj615"
+  },
+  "title": "OSreconstruction",
+  "trust": {
+    "challenge_bytes": 23409,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 511,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "f465704e22b94eea6703e7a115bffd5e922f7002234f2a2b5435ee94bcf60067",
+    "evidence_path": "evidence/PALOMAR-2026-11-04-000010-v1/34a0e4b03d3db0c73824259155206ff64f02a083e294845ac767c06f151e54f0/",
+    "evidence_tree_sha256": "34a0e4b03d3db0c73824259155206ff64f02a083e294845ac767c06f151e54f0",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "b790d21d507cb5c98cb85562b6110c554f31c20d569391748c2f9da3f562f403",
+    "protected_config_sha256": "d968d42d645a9372736dc43ebf3189f4bb05944778a4c1f25c129530cc132a96",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41773570860,
+    "solution_sha256": "4419327882cb6a54142760b582792db27389631186caefe824cf3f4f3c0c4914",
+    "tool_digests": {
+      "bwrap": "aa2c7cbd309a37c1f176efd5fa6caf20d71721da1ef2b2d6458949eadf0e6fa8",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "c7c33370e238b31a7eb763c9c3f42f17677112d2c3e443a9155432480d791375",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "c29b6dda4f7c20e3eeaa717c4e565663c5cfa364",
+    "verified_at": "2026-11-04T04:55:30Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41773570860"
+  },
+  "version": 1
+}

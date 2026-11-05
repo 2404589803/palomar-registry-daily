@@ -1,0 +1,325 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of Theorem 1.2 of M. Plantholt, Overfull conjecture for graphs with high minimum degree (J. Graph Theory 47, 2004), and of a 1-factorization theorem for dense regular graphs in the style of Chetwynd and Hilton (1989). theorem_1_2: if c ≥ 3/4 is such that every regular graph of even order n and degree at least c n is 1-factorizable, and G has even order n with (3δ − Δ)/2 ≥ c n, then G is Class 1 (χ′ = Δ) if and only if G has no Δ-overfull subgraph. lineGraph_colorable_of_isRegular: a d-regular graph of even order 2n with 11 n ≤ 6 d is d-edge-colourable, i.e. 1-factorizable; this is a weaker form of Chetwynd–Hilton 1989, Theorem 2 (d ≥ ½(√7 − 1)|V|), proved with the same architecture. overfull_criterion: Plantholt's theorem with c = 11/12, i.e. if G has even order n and 11 n ≤ 6 (3δ − Δ), then G is Class 1 if and only if it has no Δ-overfull subgraph. Three statements. A Δ-overfull subgraph has an odd number ≥ 3 of vertices and more than Δ ⌊|V(H)|/2⌋ edges; edge colourings are colourings of the line graph.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-04-000016-v1/a5262363f33f81ef60d58d4c18d3f0b46f23a507b6515b867a18c76508861d79/",
+    "artifact_tree_sha256": "a5262363f33f81ef60d58d4c18d3f0b46f23a507b6515b867a18c76508861d79",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-04T17:13:59Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C15",
+      "05C70"
+    ]
+  },
+  "first_registered_on": "2026-11-04",
+  "formalization": {
+    "challenge_path": "PlantholtChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "ccjs_overfull",
+        "repository": "jtraverso/overfull-critical-graphs",
+        "revision": "b85da9ac66e0fb8b9873a8bea0c057f78c9d186c"
+      },
+      {
+        "name": "vizing",
+        "repository": "jtraverso/vizing",
+        "revision": "33b2de836095cf92bc1dec33b6f8787e4036bbc6"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "PlantholtSolution.lean",
+    "theorem_names": [
+      "Plantholt.theorem_1_2",
+      "OneFactor.lineGraph_colorable_of_isRegular",
+      "OneFactor.overfull_criterion"
+    ]
+  },
+  "id": "PALOMAR-2026-11-04-000016",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-04T18:15:01Z",
+    "receipt_sha256": "0b4136f00b72e10f5c0a41431af7718f6b1f4761d5f4b5eeec5f45f041b52741",
+    "repositories": [
+      {
+        "commit": "b85da9ac66e0fb8b9873a8bea0c057f78c9d186c",
+        "fork_repository": "PalomarArchive/jtraverso--overfull-critical-graphs--d8fd3a0c3ee4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000016-v1/b85da9ac66e0fb8b9873a8bea0c057f78c9d186c",
+        "source_repository": "jtraverso/overfull-critical-graphs"
+      },
+      {
+        "commit": "28ff33dd73fc858056ff0db75d5a6d6cef15c8b5",
+        "fork_repository": "PalomarArchive/jtraverso--plantholt-overfull-criterion--d61ff43b5134",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000016-v1/28ff33dd73fc858056ff0db75d5a6d6cef15c8b5",
+        "source_repository": "jtraverso/plantholt-overfull-criterion"
+      },
+      {
+        "commit": "33b2de836095cf92bc1dec33b6f8787e4036bbc6",
+        "fork_repository": "PalomarArchive/jtraverso--vizing--01fa5f875100",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000016-v1/33b2de836095cf92bc1dec33b6f8787e4036bbc6",
+        "source_repository": "jtraverso/vizing"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000016-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000016-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000016-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000016-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000016-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000016-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000016-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000016-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000016-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Michael J. Plantholt"
+          }
+        ],
+        "identifier": "doi:10.1002/jgt.20013",
+        "license": "unknown",
+        "location": "Journal of Graph Theory 47 (2004), 73–80: Theorem 1.2, Lemma 2.1.",
+        "relationship": "formalizes",
+        "title": "Overfull conjecture for graphs with high minimum degree",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "A. G. Chetwynd"
+          },
+          {
+            "name": "A. J. W. Hilton"
+          }
+        ],
+        "identifier": "doi:10.1016/0012-365X(89)90082-4",
+        "license": "unknown",
+        "location": "Discrete Mathematics 75 (1989), 103–112: §§2–4 (Lemma 1, Lemma 2, Theorems 4–5, proof of Theorem 1).",
+        "relationship": "adapts",
+        "title": "1-factorizing regular graphs of high degree—an improved bound",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-11-04-000009 v2 (jtraverso/overfull-critical-graphs @ b85da9a)",
+        "note": "Pinned dependency: Vizing's adjacency lemma (Overfull.VAL) and the parity count (Overfull.Counting). It depends in turn on PALOMAR-2026-10-15-000004 (jtraverso/vizing @ 33b2de8) for partial edge colourings and Vizing's theorem. The compared statements use only Mathlib.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-04T18:14:34Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "108f33cdd3a6b2fe34b9b6c7b1b9f0af36dea7599a2724396dc2bc66de131075"
+    },
+    "reviewed_at": "2026-11-04T18:06:39Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "28ff33dd73fc858056ff0db75d5a6d6cef15c8b5",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+    },
+    "repository": "jtraverso/plantholt-overfull-criterion",
+    "repository_url": "https://github.com/jtraverso/plantholt-overfull-criterion",
+    "tree_url": "https://github.com/jtraverso/plantholt-overfull-criterion/tree/28ff33dd73fc858056ff0db75d5a6d6cef15c8b5"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "kxdnrh61ypup"
+  },
+  "title": "Plantholt's overfull criterion for graphs of high minimum degree, with a 1-factorization theorem for dense regular graphs",
+  "trust": {
+    "challenge_bytes": 3590,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 78,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "487fb031d62112be4d78c855c4da1c148679fe0c345d6d54e08545238a0aa1b1",
+    "evidence_path": "evidence/PALOMAR-2026-11-04-000016-v1/d969fb0bf4169ec42686b28ef8818a114bd0f33ccb33b2f11e6fcd10fc810894/",
+    "evidence_tree_sha256": "d969fb0bf4169ec42686b28ef8818a114bd0f33ccb33b2f11e6fcd10fc810894",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "7f4579343e928a4940fefa1766a69a70b4188f4b2ae05474a4db0a9566a58b27",
+    "protected_config_sha256": "0159a757f8f07da2861ce623203f310bfe9038972dcd0b8cccd98f1c42bbd1e3",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41868108402,
+    "solution_sha256": "ba6a3fcd7a32dca1e90ca0fd52ab5569d4e60d7ca7c03c96e61610c0b4a70e5b",
+    "tool_digests": {
+      "bwrap": "4acfb0f30b351c11b7b7808e548260524acc878f23eb56213821e2f1f210119e",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-04T16:37:21Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41868108402"
+  },
+  "version": 1
+}

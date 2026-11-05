@@ -1,0 +1,335 @@
+{
+  "abstract": "Lean proofs of the local-limit criterion and geometric Bienaymé limit for uniform attachment trees with freezing. The selected conclusions characterize convergence by the divergence of the freezing reciprocal sum, identify the common limit for approximating schedules, and identify the iid-sign limit as a Bienaymé tree with offspring probabilities (1-p)p^k for 0 <= p < 1. The compared carrier is chronological; the full ambient transport is proved in the library outside these selected targets. This entry covers T01–T02 and shares its proof repository with the other result groups.",
+  "authors": [
+    {
+      "name": "Igor Kortchemski"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-04-000008-v1/32e1afbc406b970c16e6828fd61e76df3c2cecb9ef7c7d755fac5cddeee0c896/",
+    "artifact_tree_sha256": "32e1afbc406b970c16e6828fd61e76df3c2cecb9ef7c7d755fac5cddeee0c896",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-04T07:44:41Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.PR",
+      "math.CO"
+    ],
+    "msc2020": [
+      "60C05",
+      "05C80",
+      "60F05"
+    ]
+  },
+  "first_registered_on": "2026-11-04",
+  "formalization": {
+    "challenge_path": "Challenge/LocalLimits.lean",
+    "comparator_config_path": "comparator/locallimits.json",
+    "definition_names": [],
+    "formalization_metadata_path": "metadata/locallimits/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution/LocalLimits.lean",
+    "theorem_names": [
+      "Freezing1.local_convergence_equivalences",
+      "Freezing1.local_convergence_common_limit",
+      "Freezing1.ForwardAnnealed.iid_signs_geometric_local_limit",
+      "Freezing1.ForwardAnnealed.planeLimitLaw_isBienayme",
+      "Freezing1.ForwardAnnealed.planeLimitLaw_eq_geometricBienaymeLaw",
+      "Freezing1.ForwardAnnealed.planeLimitLaw_offspring_mass",
+      "Freezing1.Forward.transitionLaw_probability",
+      "Freezing1.Forward.treeLaw_valid",
+      "Freezing1.LocalTree.tendsto_iff_balls",
+      "Freezing1.Forward.ValidAt.localBall_graph_distance",
+      "Freezing1.Forward.ValidAt.localBalls_valid",
+      "Freezing1.Forward.ValidAt.localTreeOfState_balls",
+      "Freezing1.ForwardInfiniteHistory.map_eval",
+      "Freezing1.ForwardInfiniteHistory.tendsto_localLimit_of_exists",
+      "Freezing1.ForwardInfiniteHistory.map_eval_localTree",
+      "Freezing1.PlaneTree.bienaymeLaw_map_degree",
+      "Freezing1.PlaneTree.geometricBienaymeLaw_probability",
+      "Freezing1.PlaneTree.exists_unique_bienaymeLaw",
+      "Freezing1.LocalTree.canonical_planeOffspring",
+      "Freezing1.LocalTree.degree_toPlaneTree",
+      "Freezing1.LocalTree.continuous_toPlaneTree",
+      "Freezing1.ForwardAnnealed.treeLaw_zero_parameter",
+      "Freezing1.ForwardAnnealed.treeLaw_one_parameter",
+      "Freezing1.ForwardAnnealed.map_eval",
+      "Freezing1.ForwardAnnealed.transitionLaw_apply_split",
+      "Freezing1.ForwardAnnealed.fullLaw_tendsto_localLimit",
+      "Freezing1.ForwardAnnealed.aemeasurable_localLimit",
+      "Freezing1.extinctionTime_le_iff"
+    ]
+  },
+  "id": "PALOMAR-2026-11-04-000008",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-04T12:01:18Z",
+    "receipt_sha256": "073b3b5d4122c1a74605ce89f4a07a7c2b559f5d5a81e47cdf7b00a0d1bb14e6",
+    "repositories": [
+      {
+        "commit": "48410b254fbc5d8c1a483acb8309338baa479a6f",
+        "fork_repository": "PalomarArchive/igor-kortchemski--uniform-attachment-with-freezing--cb6c42153258",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000008-v1/48410b254fbc5d8c1a483acb8309338baa479a6f",
+        "source_repository": "igor-kortchemski/uniform-attachment-with-freezing"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000008-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000008-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000008-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000008-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000008-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000008-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000008-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000008-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000008-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Étienne Bellin"
+          },
+          {
+            "name": "Arthur Blanc-Renaudie"
+          },
+          {
+            "name": "Emmanuel Kammerer"
+          },
+          {
+            "name": "Igor Kortchemski"
+          }
+        ],
+        "identifier": "sha256:88953dd87165a14b0e643c5b3d0075d8ce5ec39cdcfc0c25d313570fc3ab00df",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2308.00493",
+        "relationship": "formalizes",
+        "title": "Uniform attachment with freezing",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Igor Kortchemski"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-04T12:00:54Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "84e61f32d0e4bfc12eb977c07675e442b8978d4a3942d1bda14bf8c8768ed5c0"
+    },
+    "reviewed_at": "2026-11-04T08:01:15Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "48410b254fbc5d8c1a483acb8309338baa479a6f",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "igor-kortchemski/uniform-attachment-with-freezing",
+    "repository_url": "https://github.com/igor-kortchemski/uniform-attachment-with-freezing",
+    "tree_url": "https://github.com/igor-kortchemski/uniform-attachment-with-freezing/tree/48410b254fbc5d8c1a483acb8309338baa479a6f"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "gp3pyff2dw48"
+  },
+  "title": "Uniform attachment with freezing: local limits and geometric Bienaymé trees",
+  "trust": {
+    "challenge_bytes": 36772,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.Combinatorics.SimpleGraph.Acyclic",
+      "Mathlib.Combinatorics.SimpleGraph.Metric",
+      "Mathlib.Data.ENat.Lattice",
+      "Mathlib.Data.Finset.Sort",
+      "Mathlib.MeasureTheory.Constructions.BorelSpace.Basic",
+      "Mathlib.MeasureTheory.Constructions.BorelSpace.Metrizable",
+      "Mathlib.MeasureTheory.Constructions.Pi",
+      "Mathlib.MeasureTheory.Integral.DominatedConvergence",
+      "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
+      "Mathlib.Probability.Distributions.Bernoulli",
+      "Mathlib.Probability.Distributions.Geometric",
+      "Mathlib.Probability.Distributions.Uniform",
+      "Mathlib.Probability.Independence.InfinitePi",
+      "Mathlib.Probability.Kernel.IonescuTulcea.Traj",
+      "Mathlib.Tactic",
+      "Mathlib.Tactic.DeriveCountable",
+      "Mathlib.Topology.MetricSpace.Polish"
+    ],
+    "challenge_lines": 846,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "dac7b298e9807b023be9f58f79695648db23f19967a4f59d964f04028b07416a",
+    "evidence_path": "evidence/PALOMAR-2026-11-04-000008-v1/3c8ed1da9f6d819c221cac147242d7ebdd456f9a14600e914397de4812dfd2c9/",
+    "evidence_tree_sha256": "3c8ed1da9f6d819c221cac147242d7ebdd456f9a14600e914397de4812dfd2c9",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "4d7b473e5d8c22a44a026d947a28bef46e0f1322b0b9248893bd492b255d24f6",
+    "protected_config_sha256": "f1613eb4a46d5269687ff5be7fd018ac0d3be77a402b87987d1e6645e085af77",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41787584094,
+    "solution_sha256": "5999240c58bb6dcef3b50a13294bf0f7d2fced054876a86c67f0f8dd3c2d0690",
+    "tool_digests": {
+      "bwrap": "ff66b6e937281e91c2062983879e800491c1817f67b8162f9c75038f4450ef85",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-04T06:53:31Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41787584094"
+  },
+  "version": 1
+}

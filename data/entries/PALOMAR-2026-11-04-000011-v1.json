@@ -1,0 +1,339 @@
+{
+  "abstract": "A complete Lean 4 formalization of D. Elboim and A. Sly, Infinite cycles in the interchange process in five dimensions (arXiv:2211.17023v3). In the interchange process on Z^d, each edge carries an independent rate-one Poisson clock and swaps the particles at its endpoints when it rings; run for time beta, it yields a random permutation pi_beta of Z^d. Toth conjectured that pi_beta has infinite cycles for d >= 3 and beta large; Elboim and Sly proved this for d >= 5. The library proves their Theorem 1 (for d >= 5 and beta large, pi_beta almost surely has an infinite cycle), the quantitative bound from its proof (the cycle of the origin is finite with probability less than 2/beta), and the multiscale induction behind both, Theorem 3.2, whose hypotheses (H1)-(H5) control relaxed times, local probabilities, displacement, a Brownian coupling and the proximity of two walks for the cyclic random walk at every scale. The model is constructed on the infinite lattice (Poisson clocks, existence and uniqueness of particle trajectories, bijectivity of pi_s), and nothing the paper cites is assumed: Poisson point processes and their exploration, the zero-one law, continuous-time random walk estimates, Brownian motion and its hitting and escape estimates, Freedman's inequality and the strong approximations are proved from Mathlib. Zaitsev's multidimensional KMT theorem, the paper's one external input, is replaced by two couplings proved in the library: a KMT coupling for Poisson increments and a strong approximation for bounded sign-symmetric vectors; the exponent of the Brownian coupling in (H4) becomes 41/100 instead of 2/5, and Theorem 1 is unchanged. Every statement is checked against a Mathlib-only restatement with leanprover/comparator, and the library uses only Lean's standard axioms.",
+  "authors": [
+    {
+      "name": "Scott Armstrong"
+    },
+    {
+      "name": "Ahmed Bou-Rabee"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-04-000011-v1/1444d82cf972f869eb75ce8ab06dd248d4eb0f57ffb43fa3da23965c11289ee3/",
+    "artifact_tree_sha256": "1444d82cf972f869eb75ce8ab06dd248d4eb0f57ffb43fa3da23965c11289ee3",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-04T09:51:17Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.PR",
+      "math-ph"
+    ],
+    "msc2020": [
+      "60K35",
+      "82B20",
+      "60G50",
+      "60J65"
+    ]
+  },
+  "first_registered_on": "2026-11-04",
+  "formalization": {
+    "challenge_path": "ElboimSlyChallenges/ElboimSly/Challenge.lean",
+    "comparator_config_path": "ElboimSlyChallenges/ElboimSly/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.lean",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "ElboimSlyChallenges/ElboimSly/Solution.lean",
+    "theorem_names": [
+      "ElboimSly.Challenge.existsUnique_trajectories",
+      "ElboimSly.Challenge.interchangePi_bijective",
+      "ElboimSly.Challenge.poisson_kmt_coupling",
+      "ElboimSly.Challenge.x1theta_coupling",
+      "ElboimSly.Challenge.ind_main",
+      "ElboimSly.Challenge.root_R1",
+      "ElboimSly.Challenge.root_R2"
+    ]
+  },
+  "id": "PALOMAR-2026-11-04-000011",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-04T13:21:45Z",
+    "receipt_sha256": "09b37cf078fbcc8cbe46f0a506e5d7c20dfd3c01dce955a8258c06e5437c8b05",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000011-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000011-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000011-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000011-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000011-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000011-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000011-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000011-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000011-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "3191c5f9c55c0662ee0bc92b8c79ff27f22f7d46",
+        "fork_repository": "PalomarArchive/scottnarmstrong--elboim-sly--d81692a9777a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-04-000011-v1/3191c5f9c55c0662ee0bc92b8c79ff27f22f7d46",
+        "source_repository": "scottnarmstrong/elboim-sly"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Dor Elboim"
+          },
+          {
+            "name": "Allan Sly"
+          }
+        ],
+        "relationship": "formalizes",
+        "title": "Infinite cycles in the interchange process in five dimensions",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Janos Komlos"
+          },
+          {
+            "name": "Peter Major"
+          },
+          {
+            "name": "Gabor Tusnady"
+          }
+        ],
+        "relationship": "background",
+        "title": "An approximation of partial sums of independent RV'-s, and the sample DF. I",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Andrei Yu. Zaitsev"
+          }
+        ],
+        "relationship": "background",
+        "title": "Multidimensional version of the results of Komlos, Major and Tusnady for vectors with finite exponential moments",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Gregory F. Lawler"
+          },
+          {
+            "name": "Vlada Limic"
+          }
+        ],
+        "relationship": "background",
+        "title": "Random Walk: A Modern Introduction",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Scott Armstrong"
+      },
+      {
+        "name": "Ahmed Bou-Rabee"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-04T13:21:17Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "70a0a5c4ae83a0dad43fc7a0b5e97409e9a57640a57f58612a4820da2d17cb11"
+    },
+    "reviewed_at": "2026-11-04T11:16:32Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "The KMT source is classified as background, but the selected submission proves a special case of its Theorem 1 by a different route. This understates the provenance of a compared result. Change its relationship to independently-proves, retaining the note that identifies the special case and distinct proof."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "3191c5f9c55c0662ee0bc92b8c79ff27f22f7d46",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "scottnarmstrong/elboim-sly",
+    "repository_url": "https://github.com/scottnarmstrong/elboim-sly",
+    "tree_url": "https://github.com/scottnarmstrong/elboim-sly/tree/3191c5f9c55c0662ee0bc92b8c79ff27f22f7d46"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "cjuyt0fstje4"
+  },
+  "title": "Infinite cycles in the interchange process in five dimensions (Elboim-Sly), formalized in Lean 4",
+  "trust": {
+    "challenge_bytes": 38950,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 848,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "e579e58c7112488a3a66b94bf19b45c3c8dc3ff385e213cfd3b7364c4cae2215",
+    "evidence_path": "evidence/PALOMAR-2026-11-04-000011-v1/910db55fc5d51e5ad91b2fd4bed199b654e5e87e0ac6a2c223491a22687e3df6/",
+    "evidence_tree_sha256": "910db55fc5d51e5ad91b2fd4bed199b654e5e87e0ac6a2c223491a22687e3df6",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "5b94fdee4361be5f75d566482e162119551a3968d44369224dda90a8ea616205",
+    "protected_config_sha256": "4c1e56f6559f093f2a950537a87ed16118ce91c092e60b03e27dcb822670abe7",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 41805708002,
+    "solution_sha256": "305bf6b694064fe5b4d04b63d5650e240410b37566c8f0ccbbea6096b6771863",
+    "tool_digests": {
+      "bwrap": "bd7f0ea1d9aaaa619ad3bf04326aa0e24c30d0f17f8a2290908b28181d01bf63",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-04T09:32:49Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/41805708002"
+  },
+  "version": 1
+}
