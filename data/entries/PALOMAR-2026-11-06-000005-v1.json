@@ -1,0 +1,376 @@
+{
+  "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of six statements. Write ||x|| = |x - round x| for the distance from a real number to the nearest integer, and let rho be the plastic number, the real root of x^3 = x + 1 and the smallest Pisot number (Siegel 1944). Convergence of sum_{n >= 1} ||theta^n||^2 for a Pisot number theta is elementary, and Pisot (1938) proved the converse; neither gives the value. (1) For every real rho with rho^3 = rho + 1, sum_{n >= 1} ||rho^n||^2 = rho (as a HasSum). (2) The tsum form of (1). (3) For every complex alpha != rho with alpha^3 = alpha + 1 (one of the two conjugates inside the unit disc), sum_{n >= 0} (alpha^(2n) + conj(alpha)^(2n)) = rho: the even-power trace of the hidden pair is the generator, the mechanism behind (1), because x^3 - x - 1 = (x - 1) x (x + 1) - 1 makes the resolvent trace sum_{roots} 1/(1 - r^2) vanish. (4) For a real theta, a complex alpha with ||alpha|| < 1, and integers a, b, c that are the elementary symmetric functions of (theta, alpha, conj alpha): sum_{n >= 1} (S_n - theta^n)^2 = Re(geo alpha), where S_n are the Newton power sums of x^3 - a x^2 + b x - c and geo alpha = alpha^2/(1 - alpha^2) + conj(alpha)^2/(1 - conj(alpha)^2) + 2 alpha conj(alpha)/(1 - alpha conj(alpha)). (5) Under the same hypotheses, for every N with ||alpha||^N < 1/4, sum_{n >= 1} ||theta^n||^2 = Re(geo alpha) + sum_{n = 1}^{N} (||theta^n||^2 - (S_n - theta^n)^2): Pisot's convergence in quantitative form for the cubic complex-pair case; (1) is the case a = 0, b = -1, c = 1, N = 10 (the smallest N with rho^(-N/2) < 1/4; the n = 10 correction term is zero), with Re(geo alpha) = 2 rho^2 + 3 rho - 2 and correction 2 - 2 rho - 2 rho^2. (6) x^3 = x + 1 has exactly one real solution. Statements 4-5 assume neither theta > 1 nor irreducibility. Pisot's theorem itself is not formalized. Not compared, proved in the repository's library only: the threshold from which the Perrin numbers are the nearest integers to rho^n (n >= 10, sharp at n = 9), a claim previously stated without proof at OEIS A001608 (R. Stephan, 2002); it was a compared statement in the withdrawn submissions of 2026-11-03/04 and was removed from the compared set on 2026-11-05 so that every compared result is one first presented here. Application to time (no compared statement asserts it): in the arithmetic of time the tick is multiplication by rho on Q(rho) and the record is the integer lattice; statement 1 says the total squared distance by which the tick history falls short of its record is exactly one tick's unit, rho, and statement 3 says that unit is returned by the two conjugates that are not seen; the quartic companion Q, Q^4 = Q + 1, is not Pisot, so by Pisot's theorem its series diverges (not proved here). That physical time is this arithmetic is the identification stated in the companion entry PALOMAR-2026-08-19-000006 (the arithmetic of time), as an identification; the theorems here are its arithmetic content. That entry's README Scope section is reproduced verbatim in this entry's README.",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-06-000005-v1/adfb3b8401e9503fb68e107d7c3fce3b62261c9debe26788b2a94371ade93c52/",
+    "artifact_tree_sha256": "adfb3b8401e9503fb68e107d7c3fce3b62261c9debe26788b2a94371ade93c52",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-05T20:06:09Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math-ph",
+      "physics.hist-ph"
+    ],
+    "msc2020": [
+      "11R06",
+      "11J71",
+      "11B39",
+      "00A79"
+    ]
+  },
+  "first_registered_on": "2026-11-06",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "SettlingSum.distInt",
+      "SettlingSum.powerSum",
+      "SettlingSum.geo"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "SettlingSum.plastic_settling_sum",
+      "SettlingSum.plastic_tsum",
+      "SettlingSum.plastic_even_trace",
+      "SettlingSum.cubic_trace_sum",
+      "SettlingSum.cubic_settling_sum",
+      "SettlingSum.existsUnique_root"
+    ]
+  },
+  "id": "PALOMAR-2026-11-06-000005",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-06T02:56:07Z",
+    "receipt_sha256": "a70801a9cd0c2a21bd91cff78427eee7cda2e5db0cb972cc022af4d69339b768",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000005-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000005-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000005-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000005-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000005-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000005-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000005-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000005-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000005-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "a0f3d9903e91e4e99f80b70d1eeade39b82d7d3e",
+        "fork_repository": "PalomarArchive/stalex444--arithmetic-of-time-settling-sum--82edf6e366e4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000005-v1/a0f3d9903e91e4e99f80b70d1eeade39b82d7d3e",
+        "source_repository": "stalex444/arithmetic-of-time-settling-sum"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Stephanie Alexander"
+          }
+        ],
+        "license": "MIT",
+        "location": "README.md, sections 'The compared statements', 'The proof in five lines' and 'Relation to the literature'",
+        "relationship": "other",
+        "title": "The settling sum of the plastic number (the six compared statements)",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Charles Pisot"
+          }
+        ],
+        "identifier": "Annali della Scuola Normale Superiore di Pisa, Classe di Scienze, 2e série, 7 (1938), no. 3-4, 205-248",
+        "license": "unknown",
+        "location": "https://www.numdam.org/item/ASNSP_1938_2_7_3-4_205_0/",
+        "relationship": "background",
+        "title": "La répartition modulo 1 et les nombres algébriques",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Carl Ludwig Siegel"
+          }
+        ],
+        "identifier": "Duke Mathematical Journal 11 (1944), 597-602",
+        "license": "unknown",
+        "location": "https://doi.org/10.1215/S0012-7094-44-01152-X",
+        "relationship": "background",
+        "title": "Algebraic integers whose conjugates lie in the unit circle",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Raphaël Salem"
+          }
+        ],
+        "identifier": "Duke Mathematical Journal 11 (1944), 103-108",
+        "license": "unknown",
+        "location": "https://doi.org/10.1215/S0012-7094-44-01111-7",
+        "relationship": "background",
+        "title": "A remarkable class of algebraic integers. Proof of a conjecture of Vijayaraghavan",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "The OEIS Foundation (sequence); Ralf Stephan (comment)"
+          }
+        ],
+        "identifier": "OEIS A001608",
+        "license": "unknown",
+        "location": "https://oeis.org/A001608",
+        "relationship": "background",
+        "title": "OEIS A001608, Perrin sequence (comment of Ralf Stephan, Dec 13 2002: 'If n>9 then a(n)=round(r^n)')",
+        "type": "web post"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "The OEIS Foundation (sequence); Henry Bottomley (2003)"
+          }
+        ],
+        "identifier": "OEIS A084252",
+        "license": "unknown",
+        "location": "https://oeis.org/A084252",
+        "relationship": "background",
+        "title": "OEIS A084252, round(1/(r^n - round(r^n))) for the plastic number r",
+        "type": "web post"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "Registered entry PALOMAR-2026-08-19-000006 (stalex444/arithmetic-of-time, registered revision c48eb12817dd1d7ff3dc4d92306c7a4f249e6d7d)",
+        "note": "COMPANION ENTRY. Its compared statements include the tick's exact contraction rate and the chirality of the Padovan substitution; this entry gives the settling of the tick history onto its record as an exact value, sum ||rho^n||^2 = rho. The README's Scope section is that entry's, verbatim; its one relative link, to the paper directory, now points into the companion repository at the registered revision. No statement or module is shared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "Registered entries PALOMAR-2026-09-04-000004 (stalex444/chiral-padovan-histories) and PALOMAR-2026-10-18-000019 (stalex444/arithmetic-of-time-slowest-clock)",
+        "note": "The other registered arrow-of-time entries of the same project, cited for context. No statement or module is shared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4 (round, HasSum, tsum, hasSum_geometric_of_norm_lt_one, Complex, ComplexConjugate)",
+        "note": "The compared statements use Mathlib vocabulary plus three definitions in Challenge.lean (distInt, powerSum, geo), repeated verbatim in Solution.lean. The three geometric series are Mathlib's hasSum_geometric_of_norm_lt_one; Mathlib at the pin has no Pisot predicate and no distance-to-nearest-integer function, which is why distInt is defined here.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-06T02:55:42Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "26f9c5262903dbbafcd16d96f415ecea0401df2f1a64f70b9114fe7e68227e91"
+    },
+    "reviewed_at": "2026-11-05T20:23:18Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "a0f3d9903e91e4e99f80b70d1eeade39b82d7d3e",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/arithmetic-of-time-settling-sum",
+    "repository_url": "https://github.com/stalex444/arithmetic-of-time-settling-sum",
+    "tree_url": "https://github.com/stalex444/arithmetic-of-time-settling-sum/tree/a0f3d9903e91e4e99f80b70d1eeade39b82d7d3e"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "z2x7cfuqglg3"
+  },
+  "title": "The settling sum of the plastic number: sum_{n >= 1} ||rho^n||^2 = rho. The squared distances from the powers of the plastic number to the nearest integers sum to the plastic number itself; the even-power trace of its two hidden conjugates is rho; with the general cubic complex-pair form",
+  "trust": {
+    "challenge_bytes": 8966,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 142,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "042c53cb7eca81d9338fd0b4346ee638dd76caf8d7080fc320efcc3c62e7e885",
+    "evidence_path": "evidence/PALOMAR-2026-11-06-000005-v1/2c4a6256eaef3f7a2bb295f669e4a1e5f27456c265c371e2133b86fc093d3f45/",
+    "evidence_tree_sha256": "2c4a6256eaef3f7a2bb295f669e4a1e5f27456c265c371e2133b86fc093d3f45",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "54007475a451e36d9d12a459920c5a95ad179ab6e6f1d84d252de954b3385875",
+    "protected_config_sha256": "434ef7207ad43b12c0fd94891a82d59c70a931347211510640a34f1f18605ecf",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 42080222059,
+    "solution_sha256": "ce9e7d16ff227c7cfeef0410655a9fde62e9806d95c5bbd212d53a6dc166d378",
+    "tool_digests": {
+      "bwrap": "7ebaba6a2801d5e47f86405e360020fda9ea599a9c4bd61fcef7af0f01e3059f",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-05T18:07:55Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/42080222059"
+  },
+  "version": 1
+}
