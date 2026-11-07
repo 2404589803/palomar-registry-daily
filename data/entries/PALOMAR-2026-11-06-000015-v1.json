@@ -1,0 +1,381 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of D. Gale, A theorem on flows in networks (Pacific J. Math. 7, 1957) and of Hoffman's circulation theorem (A. J. Hoffman, 1960, in the form of A. Schrijver, A Course in Combinatorial Optimization, Theorems 4.6 and 4.7). A network is a finite node type N with capacities c : N → N → ℝ, c ≥ 0 (finite capacities only); a flow is f : N → N → ℝ with f x y + f y x = 0 and f ≤ c; a demand d : N → ℝ is feasible if some flow has net inflow ∑_y f y x ≥ d x at every node. feasibility: d is feasible if and only if d(Sᶜ) ≤ c(S, Sᶜ) for every S ⊆ N (Gale's Feasibility Theorem). feasibility_int: the same for integer c and d with an integer flow (Gale's remark). feasibility_second: Gale's second formulation (for every set Y of nodes of positive demand, some flow meets the demand at all nodes of nonpositive demand and the aggregate demand of Y). gale_ryser_unsorted, gale_ryser: for a : Fin m → ℕ and b : Fin n → ℕ, a 0-1 matrix with row sums at most a i and column sums b j exists if and only if ∑_{j∈Y} b j ≤ ∑_i min(a i, |Y|) for all column sets Y, equivalently, for b nonincreasing, ∑_{j<k} b j ≤ ∑_{j<k} #{i | j < a i} for all k ≤ n (Gale's Problem I, §3). gale_ryser_exact: if moreover ∑ a = ∑ b, the row sums can be made exactly a (the Gale–Ryser theorem). hoffman, hoffman_int: on a finite directed multigraph (arc type A, tail and head maps src, tgt : A → V) with bounds d ≤ c on the arcs (real, respectively integer), there is a circulation f (real, respectively integer) with d ≤ f ≤ c if and only if d(δ^in(U)) ≤ c(δ^out(U)) for every U ⊆ V. Eight statements; no definitions beyond Mathlib's.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-06-000015-v1/be842c977f39ddef23813e4ce437cae40bff50a6cbb1b60efb539c69da2607bc/",
+    "artifact_tree_sha256": "be842c977f39ddef23813e4ce437cae40bff50a6cbb1b60efb539c69da2607bc",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-06T15:11:14Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.OC"
+    ],
+    "msc2020": [
+      "90B10",
+      "05C21",
+      "05B20",
+      "90C35"
+    ]
+  },
+  "first_registered_on": "2026-11-06",
+  "formalization": {
+    "challenge_path": "GaleHoffmanChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "dross",
+        "repository": "jtraverso/dross-fractional-triangle-decomposition",
+        "revision": "7720b7b591e606d5a56f1d935d8be650dcbf6c6f"
+      },
+      {
+        "name": "baranyai_factorization",
+        "repository": "jtraverso/baranyai-theorem",
+        "revision": "0ff6d6f4005b0b68114e0b99e6d342742918b629"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "GaleHoffmanSolution.lean",
+    "theorem_names": [
+      "GaleHoffman.feasibility",
+      "GaleHoffman.feasibility_int",
+      "GaleHoffman.feasibility_second",
+      "GaleHoffman.gale_ryser_unsorted",
+      "GaleHoffman.gale_ryser",
+      "GaleHoffman.gale_ryser_exact",
+      "GaleHoffman.hoffman",
+      "GaleHoffman.hoffman_int"
+    ]
+  },
+  "id": "PALOMAR-2026-11-06-000015",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-06T15:59:10Z",
+    "receipt_sha256": "ffc26ac6c9ab5be42bc875ab504bc293e6e91fe4d49b7e34a6c80c87b4f3ee12",
+    "repositories": [
+      {
+        "commit": "0ff6d6f4005b0b68114e0b99e6d342742918b629",
+        "fork_repository": "PalomarArchive/jtraverso--baranyai-theorem--0fb5997ac7ea",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000015-v1/0ff6d6f4005b0b68114e0b99e6d342742918b629",
+        "source_repository": "jtraverso/baranyai-theorem"
+      },
+      {
+        "commit": "7720b7b591e606d5a56f1d935d8be650dcbf6c6f",
+        "fork_repository": "PalomarArchive/jtraverso--dross-fractional-triangle-decomposition--f57504b1525c",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000015-v1/7720b7b591e606d5a56f1d935d8be650dcbf6c6f",
+        "source_repository": "jtraverso/dross-fractional-triangle-decomposition"
+      },
+      {
+        "commit": "fa52c29c24edf7e9afdb487df3764affd43c51c7",
+        "fork_repository": "PalomarArchive/jtraverso--gale-hoffman-feasibility--31485ec5ef29",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000015-v1/fa52c29c24edf7e9afdb487df3764affd43c51c7",
+        "source_repository": "jtraverso/gale-hoffman-feasibility"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000015-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000015-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000015-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000015-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000015-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000015-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000015-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000015-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-06-000015-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "David Gale"
+          }
+        ],
+        "identifier": "doi:10.2140/pjm.1957.7.1073",
+        "license": "unknown",
+        "location": "Pacific Journal of Mathematics 7 (1957), 1073–1082; Feasibility Theorem, Remark, second formulation (§2) and the theorem on Problem I (§3).",
+        "relationship": "formalizes",
+        "title": "A theorem on flows in networks",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "A. J. Hoffman"
+          }
+        ],
+        "identifier": "doi:10.1090/psapm/010/0114759",
+        "license": "unknown",
+        "location": "Combinatorial Analysis, Proceedings of Symposia in Applied Mathematics 10, American Mathematical Society (1960), 113–127",
+        "relationship": "formalizes",
+        "title": "Some recent applications of the theory of linear inequalities to extremal combinatorial analysis",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Alexander Schrijver"
+          }
+        ],
+        "license": "all rights reserved",
+        "location": "Lecture notes, version of 23 March 2017, https://homepages.cwi.nl/~lex/files/dict.pdf, Section 4.5, Theorems 4.6 and 4.7",
+        "relationship": "formalizes",
+        "title": "A Course in Combinatorial Optimization",
+        "type": "web"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "H. J. Ryser"
+          }
+        ],
+        "identifier": "doi:10.4153/CJM-1957-044-3",
+        "license": "unknown",
+        "location": "Canadian Journal of Mathematics 9 (1957), 371–377",
+        "relationship": "background",
+        "title": "Combinatorial properties of matrices of zeros and ones",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "L. R. Ford"
+          },
+          {
+            "name": "D. R. Fulkerson"
+          }
+        ],
+        "identifier": "doi:10.4153/CJM-1956-045-5",
+        "license": "unknown",
+        "location": "Canadian Journal of Mathematics 8 (1956), 399–404",
+        "relationship": "background",
+        "title": "Maximal flow through a network",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-10-15-000008 (jtraverso/dross-fractional-triangle-decomposition @ 7720b7b)",
+        "note": "Pinned dependency: its finite max-flow/min-cut theorem (module LeanPool.MaxFlowMinCut, namespace Contrib.MaxFlowMinCut: Network, Flow, Cut, maxflow_eq_mincut, Flow.value_eq_flow_across) is imported, not copied, for the Feasibility Theorem.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-06-000003 (jtraverso/baranyai-theorem @ 0ff6d6f)",
+        "note": "Pinned dependency: its integral max-flow theorem (module BaranyaiLib.IntegralFlow, Baranyai.exists_integral_maxflow) is imported, not copied, for the integral Feasibility Theorem.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-06T15:58:45Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "d52ce137c485e3bbac62b38a3f8d517b58f83f8600574692d2438e7dd0f669af"
+    },
+    "reviewed_at": "2026-11-06T15:38:26Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "fa52c29c24edf7e9afdb487df3764affd43c51c7",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jtraverso/gale-hoffman-feasibility",
+    "repository_url": "https://github.com/jtraverso/gale-hoffman-feasibility",
+    "tree_url": "https://github.com/jtraverso/gale-hoffman-feasibility/tree/fa52c29c24edf7e9afdb487df3764affd43c51c7"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "c98iss9v3gua"
+  },
+  "title": "Gale's feasibility theorem, the Gale–Ryser theorem and Hoffman's circulation theorem",
+  "trust": {
+    "challenge_bytes": 7578,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.Data.Fintype.BigOperators"
+    ],
+    "challenge_lines": 129,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "20dd7538c3e1dfcca7338affe22a9148621a5bc6bd554e9c826fd055c7e5ceeb",
+    "evidence_path": "evidence/PALOMAR-2026-11-06-000015-v1/c35266ac03ec84d6efc9fe46852dd4f09cb872ae0c848150a0a18c895a709655/",
+    "evidence_tree_sha256": "c35266ac03ec84d6efc9fe46852dd4f09cb872ae0c848150a0a18c895a709655",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "917b61a4a9d5a0d54ea3e7914c0914f81df6e12a3feeac56eecdac5cbbc6a7b9",
+    "protected_config_sha256": "d7da43db2db73ff37f70ebf5b7408d9c8e40cac158528f0848e6a19c2e627f79",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 42238271251,
+    "solution_sha256": "19f4e1c12956393ec3fbe3a229a8c9438c7d1cb91f29eac45bfecb0d17dd40c4",
+    "tool_digests": {
+      "bwrap": "66c1a8475a85384cc20b8ebc6779ab39ce00d502670136a8aa96e38936a88691",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-06T14:58:37Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/42238271251"
+  },
+  "version": 1
+}

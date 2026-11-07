@@ -1,14 +1,1132 @@
 {
-  "fetched_at": "2026-11-06T09:19:19.816043+00:00",
+  "fetched_at": "2026-11-07T08:42:40.237837+00:00",
   "results": {
     "schema_version": 1,
-    "revision": 783,
-    "release": "1609419dd7479949b5e3974199ee94acb8bb133b96349f6843c8e24d1740260a",
+    "revision": 804,
+    "release": "572ac597ed7e44adc8a17120c395bd713ab1a292eca8aa06b1246de9e336eb15",
     "totals": {
-      "results": 991,
-      "projects": 761
+      "results": 1009,
+      "projects": 779
     },
     "entries": [
+      {
+        "abbreviated": false,
+        "abstract": "Lean 4 / Mathlib formalization accompanying S. Vorobev, \"On the inclusion D_5(G) ⊆ γ_4(G): reductions, the Lie-ring proof, and evidence\" (preprint, 2026; submitted to arXiv math.GR on 2026-10-22). The integral dimension subgroups D_n(G) = {g ∈ G : g − 1 ∈ Δ(G)^n} are defined from the augmentation ideal of Mathlib's integral group ring. Kourovka Problem 20.84 asks whether D_5(G) ⊆ γ_4(G) for every group; it is open and is not claimed here. Unconditional results: D_5(G) = γ_5(G) whenever G/γ_2(G) is finite of exponent 3, and more generally whenever G/γ_2(G) is a finite 3-group whose cubes form a cyclic group, and still more generally whenever G/γ_2(G) is a finite 3-group and γ_2(G)/γ_3(G) has exponent at most 3 (paper, Theorems 6.6, 6.8 and 6.9; the inclusion part of Tahara's 1981 description of D_5 is formalized for this); D_5(G) lies in the Jennings product M_5(G) for finite 2-groups of class at most 3; and, for \"candidates\" (the paper's minimal-counterexample shape among finite 2-groups of class 3), there is no candidate of order 2^11 with Q/P_3 ≅ Z/4 × (Z/2)^7 and none of order 2^11 and rank at least 8 (paper, Lemma 5.6 and Proposition 5.7); the reduction of Problem 20.84 to finite 2-groups of class exactly 3 (Proposition 2.1); and a minimal counterexample is a candidate (Lemma 5.2). The proofs of the last two use D_3 = γ_3, Passi's D_4^2 ⊆ γ_4 and Gruenberg's residual theorem, all proved in the development (dThreeEqGammaThree, passiDFourSquare, gruenbergResidualTwo). One conditional result, with the assumption an explicit hypothesis: D_5 = 1 for groups of order 2^11, class at most 3 and rank at least 8, assuming the paper's computer result for order 2^10 (Proposition 5.7, D_5 form, assuming Proposition 5.3).",
+        "authors": [
+          {
+            "name": "Stanislav Vorobev"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.GR"
+          ],
+          "msc2020": [
+            "20F14",
+            "20D15",
+            "20C05",
+            "16S34"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "GroupDimension.Palomar.D_five_eq_gamma_five_of_exp_three",
+            "GroupDimension.Palomar.D_five_eq_gamma_five_of_cubes_cyclic",
+            "GroupDimension.Palomar.D_five_eq_gamma_five_of_exp_L1_three",
+            "GroupDimension.Palomar.D_five_le_jennings",
+            "GroupDimension.Palomar.not_isCandidate_of_quotient_z4",
+            "GroupDimension.Palomar.false_of_card_expCentral_two_le",
+            "GroupDimension.Palomar.not_isCandidate_of_rank",
+            "GroupDimension.Palomar.dimensionQuestion5_iff_class_three",
+            "GroupDimension.Palomar.isCandidate_of_minimal",
+            "GroupDimension.Palomar.D_five_eq_bot_of_rank"
+          ]
+        },
+        "id": "PALOMAR-2026-10-23-000007",
+        "path": "entries/PALOMAR-2026-10-23-000007-v2.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "508a336eb7d17cb09d725d882814c0c25692268a",
+              "fork_repository": "PalomarArchive/ispacex--group-dimension--061786557a7a",
+              "source_repository": "ispacex/group-dimension"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "f1c3a708ef8f7571a123e63469ccd965f4063facc2bc193255013ad88d7c59d0",
+          "version": 2
+        },
+        "published_at": "2026-11-07T08:32:42Z",
+        "source": {
+          "commit": "508a336eb7d17cb09d725d882814c0c25692268a",
+          "project_path": null,
+          "repository": "ispacex/group-dimension"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Fifth dimension subgroups: D₅ = γ₅ when G/γ₂ is finite of exponent 3, candidates for a counterexample, and a reduction of Kourovka 20.84",
+        "trust": {
+          "level": "high"
+        },
+        "version": 2,
+        "versions": 2
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib library for Poincare inequalities, log-concave probability measures and stochastic localization. Its dimension-free KLS theorem bounds the intrinsic local-slope Poincare constant by one universal constant times the covariance operator norm, including dimension zero and singular affine supports, for log-concave probability laws with finite second moment. The proof follows Bizeul-Klartag-Lehec through finite-horizon cutoff localization, the compact Letwin constant-8 quadratic variance bound and approximation. Supporting results include Cheeger-Buser comparisons, covariance and energy interfaces and moment-map calculus. This Palomar configuration compares two density statements. Each asserts the existence of a positive constant C that works in every dimension n >= 1 and for every measurable isotropic log-concave probability density. The pinned OpenAI statement gives Var(f) <= C * E|grad f|^2 for smooth compactly supported tests and is the statement registered in PALOMAR-2026-11-01-000014 v1. The density-coordinate formulation of Bizeul-Klartag-Lehec Theorem 1.1 applies to every locally Lipschitz f in L^2 and uses an extended nonnegative squared-gradient integral that may be infinite. The locally Lipschitz definitions and bridge are new project code, not part of the OpenAI model. No numerical final KLS constant or uncut Eldan construction is claimed.",
+        "authors": [
+          {
+            "name": "Lazyfill"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.PR",
+            "math.FA",
+            "math.MG"
+          ],
+          "msc2020": [
+            "60E15",
+            "52A40",
+            "46E35"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "KLSOpenAI.kls",
+            "KLSOpenAI.kls_locallyLipschitz"
+          ]
+        },
+        "id": "PALOMAR-2026-11-01-000014",
+        "path": "entries/PALOMAR-2026-11-01-000014-v2.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "e60bc39b18ef691263c66e2dba8d64726f18060d",
+              "fork_repository": "PalomarArchive/human-ai-mathematics--kls-lean--8718ac61eac9",
+              "source_repository": "human-ai-mathematics/kls-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "861ca13b966cc0a713cf1331f59505f786f8e90cda41d00bf1e2f6cc0e756eb9",
+          "version": 2
+        },
+        "published_at": "2026-11-07T08:03:02Z",
+        "source": {
+          "commit": "e60bc39b18ef691263c66e2dba8d64726f18060d",
+          "project_path": "integrations/palomar",
+          "repository": "human-ai-mathematics/kls-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Dimension-free KLS Poincare bound for isotropic log-concave densities",
+        "trust": {
+          "level": "high"
+        },
+        "version": 2,
+        "versions": 2
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Lean 4 proofs of the main results of Addario-Berry, Donderwinkel and Kortchemski, \"Critical trees are neither too short nor too fat\" (arXiv:2311.06163). For every critical offspring law, the height of the size-conditioned Bienaymé tree divided by log n tends to infinity and its width divided by n tends to zero in probability, along admissible sizes. These bounds are sharp: for every function f tending to infinity, a single critical offspring law has limsup P(height < f(n) log n) = 1 and limsup P(width > n/f(n)) = 1. For critical offspring laws in the local domain of attraction of the asymmetric Cauchy law (mu_n = L(n)/n^2 with L slowly varying), the height divided by an explicit scale h_n and the width divided by n E[Y 1{Y >= a_n}] both converge to 1 in probability, and height times width is O_P(n log n). The entry also includes the stochastic ordering of heights of uniform labelled trees with given degree sequences (Addario-Berry and Donderwinkel, Theorem 9), used in the paper. All 23 named results of the paper (its theorem, proposition, lemma and corollary environments) are proved in the repository; this Palomar entry compares the headline results.",
+        "authors": [
+          {
+            "name": "Igor Kortchemski"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.PR",
+            "math.CO"
+          ],
+          "msc2020": [
+            "60J80",
+            "60C05",
+            "05C05",
+            "60F05"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "CriticalTrees.Universal.critical_height_width",
+            "CriticalTrees.Optimality.critical_short_wide",
+            "CriticalTrees.Cauchy.cauchy_height_width",
+            "CriticalTrees.Cauchy.cauchy_height_mul_width",
+            "CriticalTrees.Optimality.stochastic_order_height",
+            "CriticalTrees.LabeledTree.instFinite",
+            "CriticalTrees.Law.ennreal_isScalarTower",
+            "CriticalTrees.Law.isProbabilityMeasure_sizeLaw",
+            "CriticalTrees.Cauchy.IsLocalCauchy.admissibleAtTop_eq_atTop"
+          ]
+        },
+        "id": "PALOMAR-2026-11-07-000010",
+        "path": "entries/PALOMAR-2026-11-07-000010-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "96b7595cda3a0dedf6f97af3dbcae2ed694c0b11",
+              "fork_repository": "PalomarArchive/igor-kortchemski--critical-trees-height-width--9e15c313896f",
+              "source_repository": "igor-kortchemski/critical-trees-height-width"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "38263b65b8acffe75de0a1a9e97096def5c84b36479c139ec2a84e389bcf1472",
+          "version": 1
+        },
+        "published_at": "2026-11-07T07:38:13Z",
+        "source": {
+          "commit": "96b7595cda3a0dedf6f97af3dbcae2ed694c0b11",
+          "project_path": null,
+          "repository": "igor-kortchemski/critical-trees-height-width"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Critical trees are neither too short nor too fat",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A combinatorial arrangement of pseudolines in the real projective plane, given as a generalised map with flags labelled by lines, in which no line carries fewer than three vertices, is four lines in general position or contains five lines in general position, a pencil of three and a pencil of two in which none of these five lines joins the two centres, or the complete quadrangle.",
+        "authors": [
+          {
+            "name": "Michel Hua"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "math.MG"
+          ],
+          "msc2020": [
+            "52C30",
+            "52C40",
+            "05C10"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Grothendieck.Folder80Maps2.PseudolineMap.map_dichotomy"
+          ]
+        },
+        "id": "PALOMAR-2026-11-07-000003",
+        "path": "entries/PALOMAR-2026-11-07-000003-v2.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "b07575971433706a6aa9769cd6053b9cd57e8bfc",
+              "fork_repository": "PalomarArchive/Commutator-IO--grothendieck-project-palomar--0467237398c3",
+              "source_repository": "Commutator-IO/grothendieck-project-palomar"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "0213e54dee7153fd09f819eecf54cbd9775bd3260f78f97555c63d2182bf10b5",
+          "version": 2
+        },
+        "published_at": "2026-11-07T06:27:46Z",
+        "source": {
+          "commit": "b07575971433706a6aa9769cd6053b9cd57e8bfc",
+          "project_path": null,
+          "repository": "Commutator-IO/grothendieck-project-palomar"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Bigon-free dichotomy for combinatorial pseudoline arrangements",
+        "trust": {
+          "level": "high"
+        },
+        "version": 2,
+        "versions": 2
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of C. Thomassen, Exponentially many 5-list-colorings of planar graphs (J. Combin. Theory Ser. B 97, 2007): a finite planar graph with n vertices, every vertex of which has a list of at least five colours, has at least 2^{n/9} distinct list colourings (two_rpow_card_div_nine_le_ncard_listColourings: (2 : ℝ) ^ (n / 9) ≤ the number of maps f : V → C with f v ∈ L v and f u ≠ f v on every edge). Planarity is combinatorial: a plane map is a rotation system whose hypermap with the dart reversal has Euler defect 0 (definitions copied verbatim from the registered entry thomassen-girth-five, PALOMAR-2026-10-28-000023, so that the Challenge depends on Mathlib only). The proof follows the paper: Theorems 1–4, Claims 8–13 and the lemmas on generalized wheels they use are proved for an abstract interface of near-triangulations, which is realised by plane near-triangulations using the separation theorems of the dependency; every planar graph is a spanning subgraph of a plane near-triangulation. One statement; the definitions of the Challenge are compared with those of the Solution.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C15",
+            "05C10",
+            "05C30"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "ThomassenManyColourings.two_rpow_card_div_nine_le_ncard_listColourings"
+          ]
+        },
+        "id": "PALOMAR-2026-11-07-000009",
+        "path": "entries/PALOMAR-2026-11-07-000009-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "109f88ec9084d00e523bbc7fc558faa86428da52",
+              "fork_repository": "PalomarArchive/jtraverso--thomassen-many-list-colourings--2e1f89cb92de",
+              "source_repository": "jtraverso/thomassen-many-list-colourings"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "ee95440beb64267f8296015bf273c8bee8947be0fbafc4d5166bed00a3921297",
+          "version": 1
+        },
+        "published_at": "2026-11-07T05:28:31Z",
+        "source": {
+          "commit": "109f88ec9084d00e523bbc7fc558faa86428da52",
+          "project_path": null,
+          "repository": "jtraverso/thomassen-many-list-colourings"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Thomassen: exponentially many 5-list-colourings of planar graphs",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A qualified actual-trial history theorem for convex MINLP, with full source definitions, pre-discovery exactness and fixed-fiber NLP polishing.",
+        "authors": [
+          {
+            "name": "David E. Bernal Neira"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.OC"
+          ],
+          "msc2020": [
+            "90C11",
+            "90C25",
+            "90C30"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PalomarCenterCut.finite_optimal_polish"
+          ]
+        },
+        "id": "PALOMAR-2026-11-07-000008",
+        "path": "entries/PALOMAR-2026-11-07-000008-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "9e758271673df45b9ea7c6205d2c36d45e6f1e5e",
+              "fork_repository": "PalomarArchive/bernalde--center-cut-discovery--42489b741fc3",
+              "source_repository": "bernalde/center-cut-discovery"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "11d4bcd58a73c6fe55f38a6cbec1f032e03d3597a3b7ec169e47ffe2d056b55d",
+          "version": 1
+        },
+        "published_at": "2026-11-07T04:27:04Z",
+        "source": {
+          "commit": "9e758271673df45b9ea7c6205d2c36d45e6f1e5e",
+          "project_path": null,
+          "repository": "bernalde/center-cut-discovery"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Finite optimal-polish discovery for center-cut histories",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization around W. Duke and R. Schulze-Pillot, Representation of integers by positive ternary quadratic forms and equidistribution of lattice points on ellipsoids (Invent. Math. 99, 1990). q(x) = ½ xᵗAx for a symmetric integer 3 × 3 matrix A with q > 0 on ℚ³ \\ {0}, h ∈ ℚ³, r(q, h, n) = #{x ∈ h + ℤ³ : q(x) = n} and, for F ⊆ ℝ³, r(q, F, h, n) = #{x ∈ h + ℤ³ : q(x) = n, x/√n ∈ F}. Unconditional results: card_divisors_le_rpow (d(n) ≤ C_ε n^ε); repCount_le (r(q, h, n) ≤ C_ε n^{1/2+ε} for n ≥ 1); average_le (the same bound for every nonnegatively weighted average of such counts, which includes r(spn_N q, h, n): this is the upper half of Lemma 5(ii)). Conditional results: thm3_ii (Theorem 3(ii), r(q, F, h, n) = R(n) μ(F) + O(n^{1/2 − 1/175 + ε}) for n ≥ 1 in a set S) and spn_upper (R(n) ≤ C_ε n^{1/2+ε}) are proved under two hypotheses that are NOT proved here: hThm1, the estimate of Theorem 1 of the paper (|r(q, F, h, n) − r(q, h, n) μ(F)| ≤ C (n^{−1/175} r(q, h, n) + n^{1/2−1/175+ε}) on S), and hThm3i, the estimate of Theorem 3(i) (|r(q, h, n) − R(n)| ≤ C n^{1/2−1/28+ε} on S); R stands for r(spn_N q, h, n), μF ∈ [0, 1] for μ(F), and S for the restricted set of n. The lower bound n^{1/2−ε} ≪ r(spn_N q, h, n) of Lemma 5(ii) (Siegel's ineffective bound) is not formalized.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11E20",
+            "11E12",
+            "11P21",
+            "11N56"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "DukeSchulzePillot.card_divisors_le_rpow",
+            "DukeSchulzePillot.repCount_le",
+            "DukeSchulzePillot.average_le",
+            "DukeSchulzePillot.thm3_ii",
+            "DukeSchulzePillot.spn_upper"
+          ]
+        },
+        "id": "PALOMAR-2026-11-07-000007",
+        "path": "entries/PALOMAR-2026-11-07-000007-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "4b684f4624fcd9ca4f7fb1e281d6e92024979465",
+              "fork_repository": "PalomarArchive/jtraverso--duke-schulze-pillot-ternary--b885fd33e73a",
+              "source_repository": "jtraverso/duke-schulze-pillot-ternary"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "2405a31f6be5460f7f614d0b95bf05ccdf3a91e813982092e510ee61f29e0fb0",
+          "version": 1
+        },
+        "published_at": "2026-11-07T04:14:12Z",
+        "source": {
+          "commit": "4b684f4624fcd9ca4f7fb1e281d6e92024979465",
+          "project_path": null,
+          "repository": "jtraverso/duke-schulze-pillot-ternary"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Duke–Schulze-Pillot: the upper bound of Lemma 5(ii) and a conditional Theorem 3(ii)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "The boxed finite conic-union continuous hull and compact lift. Finite bounds, explicit dependent residual dimensions and cone hypotheses are retained. Empty branches/index sets are allowed; this is not a general whole-GDP ideality theorem.",
+        "authors": [
+          {
+            "name": "David E. Bernal Neira"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.OC"
+          ],
+          "msc2020": [
+            "90C30",
+            "90C11"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PalomarConicHull.exact_hull",
+            "PalomarConicHull.compact_lift",
+            "PalomarConicHull.closed_hull"
+          ]
+        },
+        "id": "PALOMAR-2026-11-07-000006",
+        "path": "entries/PALOMAR-2026-11-07-000006-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "83eab15081781a8316a57b561b02a705e822adf9",
+              "fork_repository": "PalomarArchive/bernalde--bounded-conic-hulls--98c094f50ef5",
+              "source_repository": "bernalde/bounded-conic-hulls"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "0f33647a9e2c3960a337afbb51f95296be8d52edbaf0a00bd99c736267152118",
+          "version": 1
+        },
+        "published_at": "2026-11-07T03:27:26Z",
+        "source": {
+          "commit": "83eab15081781a8316a57b561b02a705e822adf9",
+          "project_path": null,
+          "repository": "bernalde/bounded-conic-hulls"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Bounded finite conic-union hulls",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Lean 4 formalisation of the main results of Jacob Fox and László Miklós Lovász, A tight bound for Green's arithmetic triangle removal lemma in vector spaces (arXiv:1606.01230): the arithmetic triangle removal lemma in F_p^n with a polynomial bound (Theorem 1), the Kleinberg–Sawin–Speyer bound on multicolored sum-free families (Theorem 2), the count of triangles spanned by vertex-disjoint triangles (Theorem 3), and the tightness of the exponent in Theorem 1 (the second part of Theorem 1).",
+        "authors": [
+          {
+            "name": "Gabriel Dahia"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "math.NT"
+          ],
+          "msc2020": [
+            "11B30",
+            "05D40",
+            "11T99"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "ArithmeticTriangleRemovalInVectorSpaces.exists_subset_card_sdiff_add_le_forall_add_ne_zero'",
+            "ArithmeticTriangleRemovalInVectorSpaces.card_le_rpow_one_sub_c_mul'",
+            "ArithmeticTriangleRemovalInVectorSpaces.div_pow_rpow_C_mul_sq_le_card_triangles'",
+            "ArithmeticTriangleRemovalInVectorSpaces.le_rpow_C_sub_of_forall_exists_subset'"
+          ]
+        },
+        "id": "PALOMAR-2026-11-07-000005",
+        "path": "entries/PALOMAR-2026-11-07-000005-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "d85eab5aefb2828e020effd49d94ce61f1052a66",
+              "fork_repository": "PalomarArchive/gdahia--ArithmeticTriangleRemovalInVectorSpaces--1c243b7207c3",
+              "source_repository": "gdahia/ArithmeticTriangleRemovalInVectorSpaces"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "9915cfc8878b82e37cd452f55c44904137c30de5e2bfc8f40e2ec4759c4f974e",
+          "version": 1
+        },
+        "published_at": "2026-11-07T03:21:20Z",
+        "source": {
+          "commit": "d85eab5aefb2828e020effd49d94ce61f1052a66",
+          "project_path": null,
+          "repository": "gdahia/ArithmeticTriangleRemovalInVectorSpaces"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "A tight bound for Green's arithmetic triangle removal lemma in vector spaces",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Finite quantitative sparse-kernel and necessary expected-row bounds for independently subsampled binary Walsh matrices, with uniform asymptotic and recovery/RIP consequences.",
+        "authors": [
+          {
+            "name": "Patrick Lopatto"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.PR",
+            "math.FA"
+          ],
+          "msc2020": [
+            "42C10",
+            "60B20",
+            "94A20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Paper.finiteKernel",
+            "Paper.uniformKernel",
+            "Paper.finiteRecovery",
+            "Paper.necessarySampling",
+            "Paper.boundedOrthonormalExample",
+            "Paper.finiteDecoderComplex"
+          ]
+        },
+        "id": "PALOMAR-2026-11-07-000004",
+        "path": "entries/PALOMAR-2026-11-07-000004-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "eda7f225c99611efa2fd0ee3547ce8ffbb913f2e",
+              "fork_repository": "PalomarArchive/lopatto--fourier-formalization-public--597ad0c5f1d9",
+              "source_repository": "lopatto/fourier-formalization-public"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "4b7feb361513a1def913a243d5eb4f82d3910e1c02ea825bed6f72b240def0c4",
+          "version": 1
+        },
+        "published_at": "2026-11-07T03:14:21Z",
+        "source": {
+          "commit": "eda7f225c99611efa2fd0ee3547ce8ffbb913f2e",
+          "project_path": null,
+          "repository": "lopatto/fourier-formalization-public"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Sparse kernels and necessary sampling for binary Walsh matrices",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 formalization of two results on strictly 3-bicolored Steiner triple systems. For every positive triple of class sizes a,b,c, existence is equivalent to n=a+b+c being 1 or 3 modulo 6, the identity a²+b²+c²-ab-ac-bc=n, and the exclusion of two classes of size 2. For every sufficiently large admissible profile, the number of AAC blocks is characterized exactly by two explicit arithmetic tests. The first result settles the class-size conjecture posed by Colbourn, Dinitz and Rosa in 1999; the second applies the typed absorption theorems of Triangle decompositions III. Both statements are compared in one shared development.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05B07",
+            "05C15"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "CDRBicolour.cdr_conjecture",
+            "CDRBicolour.cdr_characterization",
+            "CDRBicolour.Absorption.Corners.cdr_type_spectrum"
+          ]
+        },
+        "id": "PALOMAR-2026-11-07-000002",
+        "path": "entries/PALOMAR-2026-11-07-000002-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "5d1e6fe301e5fc01c92f6145aa34fddfe9c2bd10",
+              "fork_repository": "PalomarArchive/jtraverso--cdr-palomar-kernel--853fb49173b4",
+              "source_repository": "jtraverso/cdr-palomar-kernel"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "20b9c608387c7361e00e750337a0ef361dc994e565c774accdab268b8d790bfe",
+          "version": 1
+        },
+        "published_at": "2026-11-07T02:21:32Z",
+        "source": {
+          "commit": "5d1e6fe301e5fc01c92f6145aa34fddfe9c2bd10",
+          "project_path": null,
+          "repository": "jtraverso/cdr-palomar-kernel"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The Colbourn–Dinitz–Rosa conjecture and the exact block-type spectrum",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "We prove the Lennon–Pittel conjecture for balanced stable marriage with independent, uniform strict preferences. Let S_n count the stable complete matchings between two sides of size n. For every positive nonincreasing sequence epsilon_n tending to zero, the probability that S_n is at least epsilon_n times its expectation tends to one. This gives a lower-tail estimate at the scale of Pittel's first-moment asymptotic.",
+        "authors": [
+          {
+            "name": "Bo Cowgill"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "math.PR"
+          ],
+          "msc2020": [
+            "05C70",
+            "60C05"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "LennonPittel.lennon_pittel_conjecture"
+          ]
+        },
+        "id": "PALOMAR-2026-11-07-000001",
+        "path": "entries/PALOMAR-2026-11-07-000001-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "74c5030bb54995035028e11ca8806890c2e9a6b7",
+              "fork_repository": "PalomarArchive/bocowgill--lennon-pittel--98843913db2b",
+              "source_repository": "bocowgill/lennon-pittel"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "5617331d7a78282e3c6baf3de0e21ebd795b981c847fbc6b04ee428c9917cfda",
+          "version": 1
+        },
+        "published_at": "2026-11-07T02:11:28Z",
+        "source": {
+          "commit": "74c5030bb54995035028e11ca8806890c2e9a6b7",
+          "project_path": null,
+          "repository": "bocowgill/lennon-pittel"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The Lennon–Pittel conjecture on random stable matchings",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "An adapted finite nonlinear QUBO formalization for the maximum k-colorable vertex-subset problem: binary-domain attainment, ordered color-pair normalization, weak optimal-value equality with auxiliary repair, strict optimizer feasibility, the one-color exception and attained boundary ties.",
+        "authors": [
+          {
+            "name": "David E. Bernal Neira"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.OC",
+            "math.CO"
+          ],
+          "msc2020": [
+            "90C27",
+            "90C20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PalomarMkCS.solution"
+          ]
+        },
+        "id": "PALOMAR-2026-11-06-000016",
+        "path": "entries/PALOMAR-2026-11-06-000016-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "9a7a1a98809aeda6f5fcd67a262aa4a3f482ab6c",
+              "fork_repository": "PalomarArchive/bernalde--finite-mkcs-penalties--7675c9280d97",
+              "source_repository": "bernalde/finite-mkcs-penalties"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "e90915e4b905175edcf2b0476fc284a284aad8d0caf21ac67df594da93c0647b",
+          "version": 1
+        },
+        "published_at": "2026-11-06T18:32:41Z",
+        "source": {
+          "commit": "9a7a1a98809aeda6f5fcd67a262aa4a3f482ab6c",
+          "project_path": null,
+          "repository": "bernalde/finite-mkcs-penalties"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Finite nonlinear MkCS exact penalty thresholds",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of D. Gale, A theorem on flows in networks (Pacific J. Math. 7, 1957) and of Hoffman's circulation theorem (A. J. Hoffman, 1960, in the form of A. Schrijver, A Course in Combinatorial Optimization, Theorems 4.6 and 4.7). A network is a finite node type N with capacities c : N → N → ℝ, c ≥ 0 (finite capacities only); a flow is f : N → N → ℝ with f x y + f y x = 0 and f ≤ c; a demand d : N → ℝ is feasible if some flow has net inflow ∑_y f y x ≥ d x at every node. feasibility: d is feasible if and only if d(Sᶜ) ≤ c(S, Sᶜ) for every S ⊆ N (Gale's Feasibility Theorem). feasibility_int: the same for integer c and d with an integer flow (Gale's remark). feasibility_second: Gale's second formulation (for every set Y of nodes of positive demand, some flow meets the demand at all nodes of nonpositive demand and the aggregate demand of Y). gale_ryser_unsorted, gale_ryser: for a : Fin m → ℕ and b : Fin n → ℕ, a 0-1 matrix with row sums at most a i and column sums b j exists if and only if ∑_{j∈Y} b j ≤ ∑_i min(a i, |Y|) for all column sets Y, equivalently, for b nonincreasing, ∑_{j<k} b j ≤ ∑_{j<k} #{i | j < a i} for all k ≤ n (Gale's Problem I, §3). gale_ryser_exact: if moreover ∑ a = ∑ b, the row sums can be made exactly a (the Gale–Ryser theorem). hoffman, hoffman_int: on a finite directed multigraph (arc type A, tail and head maps src, tgt : A → V) with bounds d ≤ c on the arcs (real, respectively integer), there is a circulation f (real, respectively integer) with d ≤ f ≤ c if and only if d(δ^in(U)) ≤ c(δ^out(U)) for every U ⊆ V. Eight statements; no definitions beyond Mathlib's.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "math.OC"
+          ],
+          "msc2020": [
+            "90B10",
+            "05C21",
+            "05B20",
+            "90C35"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "GaleHoffman.feasibility",
+            "GaleHoffman.feasibility_int",
+            "GaleHoffman.feasibility_second",
+            "GaleHoffman.gale_ryser_unsorted",
+            "GaleHoffman.gale_ryser",
+            "GaleHoffman.gale_ryser_exact",
+            "GaleHoffman.hoffman",
+            "GaleHoffman.hoffman_int"
+          ]
+        },
+        "id": "PALOMAR-2026-11-06-000015",
+        "path": "entries/PALOMAR-2026-11-06-000015-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "fa52c29c24edf7e9afdb487df3764affd43c51c7",
+              "fork_repository": "PalomarArchive/jtraverso--gale-hoffman-feasibility--31485ec5ef29",
+              "source_repository": "jtraverso/gale-hoffman-feasibility"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "be842c977f39ddef23813e4ce437cae40bff50a6cbb1b60efb539c69da2607bc",
+          "version": 1
+        },
+        "published_at": "2026-11-06T15:58:45Z",
+        "source": {
+          "commit": "fa52c29c24edf7e9afdb487df3764affd43c51c7",
+          "project_path": null,
+          "repository": "jtraverso/gale-hoffman-feasibility"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Gale's feasibility theorem, the Gale–Ryser theorem and Hoffman's circulation theorem",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A complete Lean 4 / Mathlib formalization of Theorem 1.1 of Burgin, Fragkos, Kruzel, Lacey and Stokolosa (arXiv:2610.12831). For k ≥ 2 there are M_k ≤ exp(7 k log k) and P_k ≤ exp exp(25 k² log k), and an absolute constant C₁, such that for every prime p ≥ P_k there are C, c > 0 with the following property. Every A ⊆ F_p^n with n > exp^{(K)}(1) and density at least C / (log^{(K)} n)^c, where K = k^{C₁ k}, contains a restricted polynomial progression x, x + P_1(y), …, x + P_{k-1}(y), with P_j(y) = (y_1^j, …, y_n^j) and y ∈ {0, 2, 3, …, M_k}^n \\ {0}. Moreover, the k points of any such progression are pairwise distinct. The formalization also proves the two theorems that the paper cites from the literature and does not prove. The first is the inverse theorem of Bhangale, Khot, Liu and Minzer for noise stability under distributions with no abelian embedding (Theorem 1.4 of the paper, which is Theorem 1 of their \"On approximability of satisfiable k-CSPs: VII\"), in full generality. The second is Dimitrov's theorem on the Schinzel–Zassenhaus conjecture (Theorem 5.11 of the paper). Only Lean's standard axioms are used.",
+        "authors": [
+          {
+            "name": "Michael Lacey"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT",
+            "math.CO"
+          ],
+          "msc2020": [
+            "11B30",
+            "05D10",
+            "11T06",
+            "11R06"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "RestrictedPolynomials.main_theorem"
+          ]
+        },
+        "id": "PALOMAR-2026-11-06-000014",
+        "path": "entries/PALOMAR-2026-11-06-000014-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "74d50a348e889711901a77defee87b92f94c89db",
+              "fork_repository": "PalomarArchive/lacey-gatech--restricted-polynomials-lean--6ab22760b885",
+              "source_repository": "lacey-gatech/restricted-polynomials-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "f0bad53a0e1ac6941b4c7e43604f9df034424f9eae5b5cdc82e5f58eb1ffd952",
+          "version": 1
+        },
+        "published_at": "2026-11-06T15:32:47Z",
+        "source": {
+          "commit": "74d50a348e889711901a77defee87b92f94c89db",
+          "project_path": null,
+          "repository": "lacey-gatech/restricted-polynomials-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Reasonable bounds for restricted polynomial progressions in F_p^n",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "The Johnson graph J(n, k) has the k-subsets of an n-set as vertices, two of them adjacent when they share k - 1 elements; an independent set is a constant-weight binary code of length n, weight k and minimum distance 4. This Lean 4 formalization proves Johnson's 1962 bound α(J(n, k)) ≤ johnsonBound n 4 k, where johnsonBound is the recursive bound A(n, d, w) ≤ ⌊n/w · A(n - 1, d, w - 1)⌋, as stated in google-deepmind/formal-conjectures (Erdős Problem 835), where it is a solved statement left without proof. The proof is by recursion on (n, k): double counting the pairs (point, member) and shortening the members through a point. No new mathematics is claimed.",
+        "authors": [
+          {
+            "name": "Carles Marín"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C69",
+            "94B65"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Erdos835.indepNum_johnson_le_johnsonBound"
+          ]
+        },
+        "id": "PALOMAR-2026-11-06-000013",
+        "path": "entries/PALOMAR-2026-11-06-000013-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "6eb8dad56bc31d0e5b0b64ad0931281bcbd71703",
+              "fork_repository": "PalomarArchive/karlesmarin--johnson-bound-palomar--8922f511b953",
+              "source_repository": "karlesmarin/johnson-bound-palomar"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "94e58a1926b79588e163048454e6d93e665e32510df930db2be25677185ce1e6",
+          "version": 1
+        },
+        "published_at": "2026-11-06T13:26:20Z",
+        "source": {
+          "commit": "6eb8dad56bc31d0e5b0b64ad0931281bcbd71703",
+          "project_path": null,
+          "repository": "karlesmarin/johnson-bound-palomar"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The Johnson bound for the independence number of the Johnson graph",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "On the real square-summable states of the infinite centered octagonal cut-and-project vertex graph, take the graph Laplacian with edge weight 1/16, onsite potential V(x)=1+|p(x)|² and natural domain D(V). Add t times the coordinate projection onto the eight neighbors of the origin. At t*=17/16+√2 the two alternating ring modes meet at E*=13/4+√2. The full eigenspace at E* has real dimension exactly two. Every solution of the eigenvector equation is its amplitude at the lift (1,0,0,0) times the first compact state plus its amplitude at (1,1,0,0) times the second. No support restriction is assumed. Locality, symmetry and a strictly positive exterior energy force the exterior part to vanish; the complete central kernel supplies the two ring patterns.",
+        "authors": [
+          {
+            "name": "Alessandro Odasso"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.SP",
+            "math.FA"
+          ],
+          "msc2020": [
+            "47A10"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "SpectralGeometry.AmmannBeenker.admitted_zero",
+            "SpectralGeometry.AmmannBeenker.mate_involutive",
+            "SpectralGeometry.AmmannBeenker.centralLift_admitted",
+            "SpectralGeometry.AmmannBeenker.crossing_eigenvector_representation",
+            "SpectralGeometry.AmmannBeenker.crossingEigenspace_finrank"
+          ]
+        },
+        "id": "PALOMAR-2026-11-06-000012",
+        "path": "entries/PALOMAR-2026-11-06-000012-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "624da4b3805930db8023fa8c61fdc83193efc306",
+              "fork_repository": "PalomarArchive/alexodas--spectral_geometry--d3c275959859",
+              "source_repository": "alexodas/spectral_geometry"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "a00d10c7b6aa9a030b70a2ba76d29697cbd9d54455cc55dbb330a9a7c69ba277",
+          "version": 1
+        },
+        "published_at": "2026-11-06T12:31:22Z",
+        "source": {
+          "commit": "624da4b3805930db8023fa8c61fdc83193efc306",
+          "project_path": null,
+          "repository": "alexodas/spectral_geometry"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Spectral Geometry — exact multiplicity of a compact crossing on an infinite octagonal graph",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of a weaker, fixed-density form of Theorem 2.1 of P. Keevash, Counting designs (J. Eur. Math. Soc. 20, 2018). density G is |E(G)| / C(n, 2); IsTypical G c h says that every nonempty set S of at most h vertices has (1 ± |S| c) d(G)^|S| n common neighbours; Tridivisible G says that every degree is even and 3 divides |E(G)|; IsTriangleDecomposition G D says that D is a family of triangles of G and every edge lies in exactly one of them. typical_triangle_decomposition: there is h such that for every d0 > 0 there are c0 > 0 and n0 such that every (c0, h)-typical tridivisible graph on n ≥ n0 vertices with density at least d0 has a triangle decomposition. This is weaker than the article in two ways: the density is bounded below by a fixed constant (the article allows d(G) > n^(-10^-7) with c < c0 d(G)^(10^6)), and the typicality is (c, h)-typicality for an absolute, not explicit, h (the article assumes c-typicality, which concerns only degrees and pairs). One statement.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C70",
+            "05B07"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "KeevashCounting.typical_triangle_decomposition"
+          ]
+        },
+        "id": "PALOMAR-2026-11-06-000011",
+        "path": "entries/PALOMAR-2026-11-06-000011-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "6eb072d132ff300374286b314a4ae7ef6512a8b4",
+              "fork_repository": "PalomarArchive/jtraverso--keevash-typical-triangle-decompositions--6ac21d20076b",
+              "source_repository": "jtraverso/keevash-typical-triangle-decompositions"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "ba5a107b6be75ec7595f294f56e0ee78c85573145b870dccc9bd3ab15bdb6833",
+          "version": 1
+        },
+        "published_at": "2026-11-06T12:24:59Z",
+        "source": {
+          "commit": "6eb072d132ff300374286b314a4ae7ef6512a8b4",
+          "project_path": null,
+          "repository": "jtraverso/keevash-typical-triangle-decompositions"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Triangle decompositions of typical graphs of fixed density (Keevash, Counting designs, Theorem 2.1, weaker form)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Motivated by Alpöge's generic-degree-three counterexample to JC(3), we formalize the collision geometry of complex three-dimensional Keller maps of that degree. Using classical Keller–Galois rigidity, we identify the residual generic collision factor with the normal closure of the induced function-field extension, whose Galois group is S3. The decomposition separates the diagonal and proves nonvanishing of the collision obstruction.",
+        "authors": [
+          {
+            "name": "Chloe van der Vlugt"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.AG",
+            "math.GR"
+          ],
+          "msc2020": [
+            "14R15",
+            "12F10"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "CollisionIdeals.Palomar.PaperOne.genericDegreeThreeS3Collision"
+          ]
+        },
+        "id": "PALOMAR-2026-11-06-000010",
+        "path": "entries/PALOMAR-2026-11-06-000010-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "67872a1b3e6c6a85e6c93ac0079b023282bc1510",
+              "fork_repository": "PalomarArchive/what-social-construct--jacobian-collision-geometry--7f1cf30d8794",
+              "source_repository": "what-social-construct/jacobian-collision-geometry"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "ed27e301e3f469c7a6283540edaf1a08277959ac5eb627c8efdcf4966dd997e9",
+          "version": 1
+        },
+        "published_at": "2026-11-06T11:28:32Z",
+        "source": {
+          "commit": "67872a1b3e6c6a85e6c93ac0079b023282bc1510",
+          "project_path": null,
+          "repository": "what-social-construct/jacobian-collision-geometry"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Generic Degree Three in JC(3): Collision Geometry and Galois Group S3",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 formalization, built on Mathlib, of the principal results of the paper Representation embeddings and the third Brauer–Thrall conjecture. Over an algebraically closed field, every representation-infinite finite-dimensional algebra admits a faithful representation embedding of a colimit-closed category of Kronecker modules that preserves infinite dimensions (Theorem A). Hence, for every infinite cardinal κ, it has 2^κ pairwise non-isomorphic indecomposable modules of dimension κ whose endomorphism rings are local with residue field k and whose radicals satisfy (rad End M)^n = 0 for one n ≤ max(30, 4 dim A) independent of κ; for κ ≥ |k| this is the largest possible number (Corollary 1.1, in full). Weaker parts of the corollary are also compared: modules of every infinite dimension, the endomorphism control without the count and the bound, and the count without the bound. The cited inputs are proved in the library: Bongartz's Theorem 6 and Göbel and Simson's rigid families over infinite fields.",
+        "authors": [
+          {
+            "name": "Haruhisa Enomoto"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.RT",
+            "math.RA"
+          ],
+          "msc2020": [
+            "16G20",
+            "16G60",
+            "16G10"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "LargeIndecomposable.Challenge.theoremA",
+            "LargeIndecomposable.Challenge.corollaryDimension",
+            "LargeIndecomposable.Challenge.corollaryRadical",
+            "LargeIndecomposable.Challenge.corollaryCount",
+            "LargeIndecomposable.Challenge.corollaryCountBounded"
+          ]
+        },
+        "id": "PALOMAR-2026-11-06-000009",
+        "path": "entries/PALOMAR-2026-11-06-000009-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "26160bbb12b9b1af0cfb3094fedfeda6a019bc4a",
+              "fork_repository": "PalomarArchive/haruhisa-enomoto--third-brauer-thrall-conjecture--34e355fd96c9",
+              "source_repository": "haruhisa-enomoto/third-brauer-thrall-conjecture"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "130923d40a6ca5c4c75e213281f0f167d14a70c01f4928d749da5c0302177d6f",
+          "version": 1
+        },
+        "published_at": "2026-11-06T09:14:09Z",
+        "source": {
+          "commit": "26160bbb12b9b1af0cfb3094fedfeda6a019bc4a",
+          "project_path": null,
+          "repository": "haruhisa-enomoto/third-brauer-thrall-conjecture"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Representation embeddings and the third Brauer–Thrall conjecture",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
       {
         "abbreviated": false,
         "abstract": "A machine-checked proof that, over a field of characteristic zero, the Dixmier conjecture in dimension n implies the Jacobian conjecture in dimension n (Bass, Connell and Wright, 1982), and so, with an explicit counterexample to the Jacobian conjecture padded to every dimension n >= 3 and proved here, that the Dixmier conjecture is false in every dimension n >= 3. The four statements and their definitions are Formal Conjectures' (DixmierConjecture.lean, arXiv math/0608009), copied verbatim into Challenge.lean, so this entry proves Formal Conjectures' own statements. The proof builds the polynomial representation of the Weyl algebra, shows it faithful in characteristic zero, and uses the classical Weyl-algebra lift described by Bass, Connell and Wright (1982, p. 297), who credit Vaserstein and Kac.",
@@ -6411,61 +7529,6 @@
         "source_omitted": false,
         "status": "registered",
         "title": "Odd zeta values and powers of pi",
-        "trust": {
-          "level": "high"
-        },
-        "version": 1,
-        "versions": 1
-      },
-      {
-        "abbreviated": false,
-        "abstract": "A Lean 4 / Mathlib library for Poincare inequalities, log-concave probability measures and stochastic localization. Its dimension-free KLS theorem bounds the intrinsic local-slope Poincare constant by one universal constant times the covariance operator norm, including dimension zero and singular affine supports, for log-concave probability laws with finite second moment. The proof follows Bizeul-Klartag-Lehec through finite-horizon cutoff localization, the compact Letwin constant-8 quadratic variance bound and approximation. Supporting results include Cheeger-Buser comparisons, covariance and energy interfaces and moment-map calculus. This entry checks the pinned OpenAI density formulation: for every n >= 1 and isotropic measurable log-concave probability density, Var(f) <= C * E|grad f|^2 for every smooth compactly supported real test, with one positive C before all dimensions and laws. No numerical final KLS constant, formal equivalence with the paper's locally Lipschitz L^2 test class, or uncut Eldan construction is claimed.",
-        "authors": [
-          {
-            "name": "Lazyfill"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.PR",
-            "math.FA",
-            "math.MG"
-          ],
-          "msc2020": [
-            "60E15",
-            "52A40",
-            "46E35"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "KLSOpenAI.kls"
-          ]
-        },
-        "id": "PALOMAR-2026-11-01-000014",
-        "path": "entries/PALOMAR-2026-11-01-000014-v1.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "33fff6ea218ae07e42115bd1eacfcf7d39c534cb",
-              "fork_repository": "PalomarArchive/human-ai-mathematics--kls-lean--8718ac61eac9",
-              "source_repository": "human-ai-mathematics/kls-lean"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "2a27e958a9d750cb359f38dc717b9e3807612230a575748e098a74f90ef98aa0",
-          "version": 1
-        },
-        "published_at": "2026-11-01T10:53:13Z",
-        "source": {
-          "commit": "33fff6ea218ae07e42115bd1eacfcf7d39c534cb",
-          "project_path": "integrations/palomar",
-          "repository": "human-ai-mathematics/kls-lean"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "Dimension-free KLS Poincare bound for isotropic log-concave densities (smooth compactly supported tests)",
         "trust": {
           "level": "high"
         },
@@ -15390,68 +16453,6 @@
         "source_omitted": false,
         "status": "registered",
         "title": "Control flow obfuscation with irreducible loops and self-modifying code",
-        "trust": {
-          "level": "high"
-        },
-        "version": 1,
-        "versions": 1
-      },
-      {
-        "abbreviated": false,
-        "abstract": "Lean 4 / Mathlib formalization accompanying S. Vorobev, \"On the inclusion D_5(G) ⊆ γ_4(G): reductions, the Lie-ring proof, and evidence\" (preprint, 2026; submitted to arXiv math.GR on 2026-10-22). The integral dimension subgroups D_n(G) = {g ∈ G : g − 1 ∈ Δ(G)^n} are defined from the augmentation ideal of Mathlib's integral group ring. Kourovka Problem 20.84 asks whether D_5(G) ⊆ γ_4(G) for every group; it is open and is not claimed here. Unconditional results: D_5(G) = γ_5(G) whenever G/γ_2(G) is finite of exponent 3, and more generally whenever G/γ_2(G) is a finite 3-group whose cubes form a cyclic group (paper, Theorems 6.6 and 6.8; the inclusion part of Tahara's 1981 description of D_5 is formalized for this); D_5(G) lies in the Jennings product M_5(G) for finite 2-groups of class at most 3; and, for \"candidates\" (the paper's minimal-counterexample shape among finite 2-groups of class 3), there is no candidate of order 2^11 with Q/P_3 ≅ Z/4 × (Z/2)^7 and none of order 2^11 and rank at least 8 (paper, Lemma 5.6 and Proposition 5.7). Conditional results, with every assumption an explicit hypothesis: the reduction of Problem 20.84 to finite 2-groups of class exactly 3 assuming D_3 = γ_3, Passi's D_4^2 ⊆ γ_4 and Gruenberg's residual theorem (Proposition 2.1); a minimal counterexample is a candidate assuming D_3 = γ_3 (Lemma 5.2); and D_5 = 1 for groups of order 2^11, class at most 3 and rank at least 8, assuming D_3 = γ_3 and the paper's computer result for order 2^10 (Proposition 5.7, D_5 form).",
-        "authors": [
-          {
-            "name": "Stanislav Vorobev"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.GR"
-          ],
-          "msc2020": [
-            "20F14",
-            "20D15",
-            "20C05",
-            "16S34"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "GroupDimension.Palomar.D_five_eq_gamma_five_of_exp_three",
-            "GroupDimension.Palomar.D_five_eq_gamma_five_of_cubes_cyclic",
-            "GroupDimension.Palomar.D_five_le_jennings",
-            "GroupDimension.Palomar.not_isCandidate_of_quotient_z4",
-            "GroupDimension.Palomar.false_of_card_expCentral_two_le",
-            "GroupDimension.Palomar.not_isCandidate_of_rank",
-            "GroupDimension.Palomar.dimensionQuestion5_iff_class_three",
-            "GroupDimension.Palomar.isCandidate_of_minimal",
-            "GroupDimension.Palomar.D_five_eq_bot_of_rank"
-          ]
-        },
-        "id": "PALOMAR-2026-10-23-000007",
-        "path": "entries/PALOMAR-2026-10-23-000007-v1.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "533dc1c66d26de4863983fc303382151a593df3a",
-              "fork_repository": "PalomarArchive/ispacex--group-dimension--061786557a7a",
-              "source_repository": "ispacex/group-dimension"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "160d05e7cae9d5c2e560f55e0fcc9f0446dc049e9560169e5e1158ff802ad508",
-          "version": 1
-        },
-        "published_at": "2026-10-23T09:02:30Z",
-        "source": {
-          "commit": "533dc1c66d26de4863983fc303382151a593df3a",
-          "project_path": null,
-          "repository": "ispacex/group-dimension"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "Fifth dimension subgroups: D₅ = γ₅ when G/γ₂ is finite of exponent 3, candidates for a counterexample, and a reduction of Kourovka 20.84",
         "trust": {
           "level": "high"
         },
@@ -59688,26 +60689,36 @@
         "versions": 3
       }
     ],
-    "previous": "eyJyZXZpc2lvbiI6NzgzLCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTIwVDAxOjIzOjU0WiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTIwLTAwMDAwMyJ9",
+    "previous": "eyJyZXZpc2lvbiI6ODA0LCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTE5VDAxOjU0OjM2WiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTE5LTAwMDAwMSJ9",
     "next": null,
     "dropped": [],
     "message": null,
-    "pages_fetched": 40
+    "pages_fetched": 41
   },
   "changes": {
     "added": [
-      "PALOMAR-2026-11-06-000008",
-      "PALOMAR-2026-11-06-000007",
-      "PALOMAR-2026-11-06-000006",
-      "PALOMAR-2026-11-06-000005",
-      "PALOMAR-2026-11-06-000004",
-      "PALOMAR-2026-11-06-000003",
-      "PALOMAR-2026-11-06-000002",
-      "PALOMAR-2026-11-06-000001"
+      "PALOMAR-2026-11-07-000010",
+      "PALOMAR-2026-11-07-000003",
+      "PALOMAR-2026-11-07-000009",
+      "PALOMAR-2026-11-07-000008",
+      "PALOMAR-2026-11-07-000007",
+      "PALOMAR-2026-11-07-000006",
+      "PALOMAR-2026-11-07-000005",
+      "PALOMAR-2026-11-07-000004",
+      "PALOMAR-2026-11-07-000002",
+      "PALOMAR-2026-11-07-000001",
+      "PALOMAR-2026-11-06-000016",
+      "PALOMAR-2026-11-06-000015",
+      "PALOMAR-2026-11-06-000014",
+      "PALOMAR-2026-11-06-000013",
+      "PALOMAR-2026-11-06-000012",
+      "PALOMAR-2026-11-06-000011",
+      "PALOMAR-2026-11-06-000010",
+      "PALOMAR-2026-11-06-000009"
     ],
     "updated": [
-      "PALOMAR-2026-10-11-000004",
-      "PALOMAR-2026-10-23-000009"
+      "PALOMAR-2026-10-23-000007",
+      "PALOMAR-2026-11-01-000014"
     ],
     "absent": []
   },

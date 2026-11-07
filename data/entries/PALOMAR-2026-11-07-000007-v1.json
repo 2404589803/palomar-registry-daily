@@ -1,0 +1,294 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization around W. Duke and R. Schulze-Pillot, Representation of integers by positive ternary quadratic forms and equidistribution of lattice points on ellipsoids (Invent. Math. 99, 1990). q(x) = ½ xᵗAx for a symmetric integer 3 × 3 matrix A with q > 0 on ℚ³ \\ {0}, h ∈ ℚ³, r(q, h, n) = #{x ∈ h + ℤ³ : q(x) = n} and, for F ⊆ ℝ³, r(q, F, h, n) = #{x ∈ h + ℤ³ : q(x) = n, x/√n ∈ F}. Unconditional results: card_divisors_le_rpow (d(n) ≤ C_ε n^ε); repCount_le (r(q, h, n) ≤ C_ε n^{1/2+ε} for n ≥ 1); average_le (the same bound for every nonnegatively weighted average of such counts, which includes r(spn_N q, h, n): this is the upper half of Lemma 5(ii)). Conditional results: thm3_ii (Theorem 3(ii), r(q, F, h, n) = R(n) μ(F) + O(n^{1/2 − 1/175 + ε}) for n ≥ 1 in a set S) and spn_upper (R(n) ≤ C_ε n^{1/2+ε}) are proved under two hypotheses that are NOT proved here: hThm1, the estimate of Theorem 1 of the paper (|r(q, F, h, n) − r(q, h, n) μ(F)| ≤ C (n^{−1/175} r(q, h, n) + n^{1/2−1/175+ε}) on S), and hThm3i, the estimate of Theorem 3(i) (|r(q, h, n) − R(n)| ≤ C n^{1/2−1/28+ε} on S); R stands for r(spn_N q, h, n), μF ∈ [0, 1] for μ(F), and S for the restricted set of n. The lower bound n^{1/2−ε} ≪ r(spn_N q, h, n) of Lemma 5(ii) (Siegel's ineffective bound) is not formalized.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-07-000007-v1/2405a31f6be5460f7f614d0b95bf05ccdf3a91e813982092e510ee61f29e0fb0/",
+    "artifact_tree_sha256": "2405a31f6be5460f7f614d0b95bf05ccdf3a91e813982092e510ee61f29e0fb0",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-06T21:14:21Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11E20",
+      "11E12",
+      "11P21",
+      "11N56"
+    ]
+  },
+  "first_registered_on": "2026-11-07",
+  "formalization": {
+    "challenge_path": "DSPChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "DukeSchulzePillot.qform",
+      "DukeSchulzePillot.repCount",
+      "DukeSchulzePillot.repCountF"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "DSPSolution.lean",
+    "theorem_names": [
+      "DukeSchulzePillot.card_divisors_le_rpow",
+      "DukeSchulzePillot.repCount_le",
+      "DukeSchulzePillot.average_le",
+      "DukeSchulzePillot.thm3_ii",
+      "DukeSchulzePillot.spn_upper"
+    ]
+  },
+  "id": "PALOMAR-2026-11-07-000007",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-07T04:14:36Z",
+    "receipt_sha256": "f2e1dd21f351dc1834bcf92d5fa6891f8a8a1183b76ae93a974cac3527c8b533",
+    "repositories": [
+      {
+        "commit": "4b684f4624fcd9ca4f7fb1e281d6e92024979465",
+        "fork_repository": "PalomarArchive/jtraverso--duke-schulze-pillot-ternary--b885fd33e73a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v1/4b684f4624fcd9ca4f7fb1e281d6e92024979465",
+        "source_repository": "jtraverso/duke-schulze-pillot-ternary"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "W. Duke"
+          },
+          {
+            "name": "R. Schulze-Pillot"
+          }
+        ],
+        "identifier": "doi:10.1007/BF01234411",
+        "license": "unknown",
+        "location": "Inventiones Mathematicae 99 (1990), 49–57; Lemma 5(ii) and Theorem 3(ii).",
+        "relationship": "formalizes",
+        "title": "Representation of integers by positive ternary quadratic forms and equidistribution of lattice points on ellipsoids",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-07T04:14:12Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "23d542684c462fcb25c1f996addd327f40bfe51de48884dc765ad60493f4b6ae"
+    },
+    "reviewed_at": "2026-11-06T21:32:31Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "4b684f4624fcd9ca4f7fb1e281d6e92024979465",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jtraverso/duke-schulze-pillot-ternary",
+    "repository_url": "https://github.com/jtraverso/duke-schulze-pillot-ternary",
+    "tree_url": "https://github.com/jtraverso/duke-schulze-pillot-ternary/tree/4b684f4624fcd9ca4f7fb1e281d6e92024979465"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "uip38djss0h3"
+  },
+  "title": "Duke–Schulze-Pillot: the upper bound of Lemma 5(ii) and a conditional Theorem 3(ii)",
+  "trust": {
+    "challenge_bytes": 5358,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.LinearAlgebra.Matrix.Symmetric",
+      "Mathlib.NumberTheory.Divisors",
+      "Mathlib.SetTheory.Cardinal.Finite"
+    ],
+    "challenge_lines": 99,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "fb8b56fedb8220d2af8d9882b50367b2d258213aee76a6cc0a0637bb1e510941",
+    "evidence_path": "evidence/PALOMAR-2026-11-07-000007-v1/1dee5b8085c97f181e1c81fbd24b12fe0c59c6207a30eaf0f763e748b5c03f1a/",
+    "evidence_tree_sha256": "1dee5b8085c97f181e1c81fbd24b12fe0c59c6207a30eaf0f763e748b5c03f1a",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "728df664c312036efebde2b15af5c6dede252595ce9f558442dcee40fcf50bd2",
+    "protected_config_sha256": "20794436cd79bf6d5107cf3a02bf64c8f94fcc97639b7f3f300551286614f854",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 42278722946,
+    "solution_sha256": "be0472fda6f6a9b4b5d3588e8058862566c8f95aaffee99e383970bbcd69dd80",
+    "tool_digests": {
+      "bwrap": "e8bdaf6a8219f32760a35590125339fa9b3abc319d3a3955b23008edda882853",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-06T19:24:04Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/42278722946"
+  },
+  "version": 1
+}

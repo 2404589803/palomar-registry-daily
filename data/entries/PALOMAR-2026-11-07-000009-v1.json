@@ -1,0 +1,339 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of C. Thomassen, Exponentially many 5-list-colorings of planar graphs (J. Combin. Theory Ser. B 97, 2007): a finite planar graph with n vertices, every vertex of which has a list of at least five colours, has at least 2^{n/9} distinct list colourings (two_rpow_card_div_nine_le_ncard_listColourings: (2 : ℝ) ^ (n / 9) ≤ the number of maps f : V → C with f v ∈ L v and f u ≠ f v on every edge). Planarity is combinatorial: a plane map is a rotation system whose hypermap with the dart reversal has Euler defect 0 (definitions copied verbatim from the registered entry thomassen-girth-five, PALOMAR-2026-10-28-000023, so that the Challenge depends on Mathlib only). The proof follows the paper: Theorems 1–4, Claims 8–13 and the lemmas on generalized wheels they use are proved for an abstract interface of near-triangulations, which is realised by plane near-triangulations using the separation theorems of the dependency; every planar graph is a spanning subgraph of a plane near-triangulation. One statement; the definitions of the Challenge are compared with those of the Solution.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-07-000009-v1/ee95440beb64267f8296015bf273c8bee8947be0fbafc4d5166bed00a3921297/",
+    "artifact_tree_sha256": "ee95440beb64267f8296015bf273c8bee8947be0fbafc4d5166bed00a3921297",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-07T03:31:19Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C15",
+      "05C10",
+      "05C30"
+    ]
+  },
+  "first_registered_on": "2026-11-07",
+  "formalization": {
+    "challenge_path": "ThomassenManyColouringsChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "ThomassenManyColourings.numClasses",
+      "ThomassenManyColourings.cycleCount",
+      "ThomassenManyColourings.compSetoid",
+      "ThomassenManyColourings.numComponents",
+      "ThomassenManyColourings.eulerDefect",
+      "ThomassenManyColourings.dartSymm",
+      "ThomassenManyColourings.IsPlanar",
+      "ThomassenManyColourings.listColourings"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "thomassen_girth_five",
+        "repository": "jtraverso/thomassen-girth-five",
+        "revision": "12765f3362b48fbae04ac467d33873a4f2234083"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "ThomassenManyColouringsSolution.lean",
+    "theorem_names": [
+      "ThomassenManyColourings.two_rpow_card_div_nine_le_ncard_listColourings"
+    ]
+  },
+  "id": "PALOMAR-2026-11-07-000009",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-07T05:28:55Z",
+    "receipt_sha256": "57628a469ba1e53a18f73994ce77a9d9ffa8797927965728b2a44b70cc828569",
+    "repositories": [
+      {
+        "commit": "12765f3362b48fbae04ac467d33873a4f2234083",
+        "fork_repository": "PalomarArchive/jtraverso--thomassen-girth-five--a221bbfeb126",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000009-v1/12765f3362b48fbae04ac467d33873a4f2234083",
+        "source_repository": "jtraverso/thomassen-girth-five"
+      },
+      {
+        "commit": "109f88ec9084d00e523bbc7fc558faa86428da52",
+        "fork_repository": "PalomarArchive/jtraverso--thomassen-many-list-colourings--2e1f89cb92de",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000009-v1/109f88ec9084d00e523bbc7fc558faa86428da52",
+        "source_repository": "jtraverso/thomassen-many-list-colourings"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000009-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000009-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000009-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000009-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000009-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000009-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000009-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000009-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000009-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Carsten Thomassen"
+          }
+        ],
+        "identifier": "doi:10.1016/j.jctb.2006.09.002",
+        "license": "all rights reserved",
+        "location": "Journal of Combinatorial Theory, Series B 97 (2007), 571–583; the main result (abstract and Section 6), with Theorems 1–4, Lemmas 1, 3, 4, 5 and Claims 8–13.",
+        "relationship": "formalizes",
+        "title": "Exponentially many 5-list-colorings of planar graphs",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Rikke Langhede"
+          },
+          {
+            "name": "Carsten Thomassen"
+          }
+        ],
+        "identifier": "arXiv:2011.12163",
+        "license": "CC-BY-4.0",
+        "location": "arXiv:2011.12163",
+        "relationship": "background",
+        "title": "Exponentially many Z5-colorings in simple planar graphs",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Carsten Thomassen"
+          }
+        ],
+        "identifier": "doi:10.1006/jctb.1994.1062",
+        "license": "unknown",
+        "location": "Journal of Combinatorial Theory, Series B 62 (1994), 180–181",
+        "relationship": "background",
+        "title": "Every planar graph is 5-choosable",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-10-28-000023 (jtraverso/thomassen-girth-five @ 12765f3)",
+        "note": "Pinned dependency, imported and not copied: plane maps and Euler's formula (LeanPool.K5MinorFreeChoosability.Planar), restriction of plane maps (Grotzsch.restrictMap), the separation theorems Thomassen.facial_arc_chord_separation, Thomassen.facial_arc_path_separation and Thomassen.cycle_sides_cover / cycle_sides_inter / cycle_sides_no_crossing, the addition of an edge inside a face (exists_planeMap_addEdge) and the gluing of plane maps along one vertex (isPlanar_sup_of_le_one). Only the definitions of combinatorial planarity are repeated, in the Challenge, so that the statement depends on Mathlib only.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-07T05:28:31Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "7f5814a8345522027793183586bb2d1960c4ca154fa8871005763e7966adb36c"
+    },
+    "reviewed_at": "2026-11-07T04:19:30Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "109f88ec9084d00e523bbc7fc558faa86428da52",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jtraverso/thomassen-many-list-colourings",
+    "repository_url": "https://github.com/jtraverso/thomassen-many-list-colourings",
+    "tree_url": "https://github.com/jtraverso/thomassen-many-list-colourings/tree/109f88ec9084d00e523bbc7fc558faa86428da52"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "0itloxhwyujb"
+  },
+  "title": "Thomassen: exponentially many 5-list-colourings of planar graphs",
+  "trust": {
+    "challenge_bytes": 3820,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected",
+      "Mathlib.Data.Set.Card",
+      "Mathlib.GroupTheory.Perm.Cycle.Basic"
+    ],
+    "challenge_lines": 100,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "40043ca85afad1d9589f8c470bdb9307a2805268baf04f6e650c35344a5d7ec7",
+    "evidence_path": "evidence/PALOMAR-2026-11-07-000009-v1/89842ad17cf9a192431e2c8876ccced205e33acb9fe9ca82f1f3d72b33dabb30/",
+    "evidence_tree_sha256": "89842ad17cf9a192431e2c8876ccced205e33acb9fe9ca82f1f3d72b33dabb30",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "85b1557c9b70731fae8660cae309fba6c502c01f5f31ba7d8ab8944fb2696b25",
+    "protected_config_sha256": "6a7f7e3e73a700a5b44c2c6a05e0783e92a480020403c3ba4dda0a4e2f359433",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 42329499727,
+    "solution_sha256": "5f3dfa43068e1950dc587aadf4224c32dc059872043b96b29aafc9c51afdee1a",
+    "tool_digests": {
+      "bwrap": "7efed8b8ca357bd69fa954741ee3c94d52e9c91de59ba0381cce6e0585c8a582",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-07T03:16:04Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/42329499727"
+  },
+  "version": 1
+}
