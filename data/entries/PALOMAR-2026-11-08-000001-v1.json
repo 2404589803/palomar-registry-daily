@@ -1,0 +1,374 @@
+{
+  "abstract": "For every transcendental r > 2, the seven points (0, 0) and (j, ±√(j(2r − j))), j ∈ {1, 3, 4}, lie on the circle of centre (r, 0) and radius r and are not Euclidean Ramsey (Pálvölgyi, A cyclic non-Ramsey heptagon, arXiv:2609.23327, Theorem 1); consequently not every finite cospherical subset of a Euclidean space is Ramsey. The second statement is the negation of the conjecture that every finite spherical set is Ramsey (posed by Erdős, Graham, Montgomery, Rothschild, Spencer and Straus in 1973), in exactly the form in which google-deepmind/formal-conjectures states it as erdos_174.variants.graham (formal-conjectures PR #7706, which re-tags that statement as solved and links this proof). Ramsey is formal-conjectures' definition, Erdos174.IsRamsey, copied byte for byte: a finite set A in R^n such that for every number k ≥ 1 of colours there is a dimension d for which every k-colouring of R^d has a monochromatic distance-preserving copy of A. All four compared statements use only Mathlib and that definition. The conjecture was refuted in September 2026 by Pálvölgyi's paper (whose proofs it attributes to ChatGPT) and by OpenAI's classification of finite Euclidean Ramsey configurations, whose Lean proof (openai/math) already exhibits non-Ramsey twelve- and nine-point sets on a circle in OpenAI's own vocabulary. The proof here is Pálvölgyi's derivation-energy argument run against OpenAI's tensor criterion: a derivation D of R with D r = 1, the pairing x ⊗ y ↦ D x · D y on OpenAI's coefficient tensor ring, the weights 2, −2, −2, 2, 2, −1, −1 and the energy −24/((2r − 1)(2r − 3)(2r − 4)) ≠ 0 show that the heptagon fails OpenAI's field criterion, and the necessity half of OpenAI's classification (proved in their Lean) turns that into not Ramsey; formal-conjectures' IsRamsey, which also allows the dimension d = 0, is then reduced to OpenAI's Ramsey. The witness for the second statement is the heptagon at r = 2 + OpenAI's Liouville-type parameter, which is transcendental. Also proved, with the same definition: Theorem A.3 of the paper's appendix as printed, without its measure clause (for distinct t1, t2, t3 and t4, ..., t7 algebraically independent over Q(t1, t2, t3), the seven points ((1 − ti²)/(1 + ti²), 2ti/(1 + ti²)) are not Ramsey; the appendix is labelled by its author as written by ChatGPT and unchecked), and its corollary for seven parameters algebraically independent over Q, in the shape of OpenAI's nine-point theorem (distinct points on the unit circle, not Ramsey). Its proof follows the appendix: Lemma A.1 in its symmetric form, a derivation vanishing on Q(t1, t2, t3) with prescribed values on t4, ..., t7, weighted moments by Lagrange interpolation, and again the necessity half of OpenAI's classification. The 16 OpenAI Lean files the proofs import are included, ported to the Lean module system by header-only changes. All proofs depend on propext, Classical.choice and Quot.sound only.",
+  "authors": [
+    {
+      "name": "Carlos Toledo"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-08-000001-v1/f9c8025d63377bd2cd307cb3773aa9a82cc0179b377ec3484c37660f7b59c595/",
+    "artifact_tree_sha256": "f9c8025d63377bd2cd307cb3773aa9a82cc0179b377ec3484c37660f7b59c595",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-07T23:07:33Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.MG"
+    ],
+    "msc2020": [
+      "05D10",
+      "52C10",
+      "12H05"
+    ]
+  },
+  "first_registered_on": "2026-11-08",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "HeptagonRamsey.Heptagon.heptagon_counterexample",
+      "HeptagonRamsey.Heptagon.graham_false'",
+      "HeptagonRamsey.Generic.generic_seven_not_isRamsey",
+      "HeptagonRamsey.Generic.seven_circle_configuration_isRamsey"
+    ]
+  },
+  "id": "PALOMAR-2026-11-08-000001",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-08T00:13:49Z",
+    "receipt_sha256": "de318ae1ebde80125df505772ce4c193831f07ee22a2348e891c145c0916f5b7",
+    "repositories": [
+      {
+        "commit": "e33842e9d5842539a36bf90d1a6b13f887cc4462",
+        "fork_repository": "PalomarArchive/carlostoledo1891--heptagon-ramsey-lean--d564b7debfa7",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000001-v1/e33842e9d5842539a36bf90d1a6b13f887cc4462",
+        "source_repository": "carlostoledo1891/heptagon-ramsey-lean"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000001-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000001-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000001-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000001-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000001-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000001-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000001-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000001-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000001-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Dömötör Pálvölgyi"
+          }
+        ],
+        "identifier": "arXiv:2609.23327v1",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2609.23327v1, Theorem 1 (and the derivation-energy identity in its proof)",
+        "relationship": "formalizes",
+        "title": "A cyclic non-Ramsey heptagon",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "OpenAI"
+          }
+        ],
+        "identifier": "https://github.com/openai/math/tree/4eaee87548250b2682affda7d05d947c05554bae",
+        "license": "Apache-2.0",
+        "location": "preprints/A-classification-of-finite-Euclidean-Ramsey-configurations-September-23-2026/ (dated 2026-09-23); lean/OAI/Combinatorics/EuclideanRamsey/ and lean/OAI/Combinatorics/SphericalRamsey/",
+        "relationship": "other",
+        "title": "A classification of finite Euclidean Ramsey configurations (OpenAI math release, result 172)",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Paul Erdős"
+          },
+          {
+            "name": "Ronald L. Graham"
+          },
+          {
+            "name": "Peter Montgomery"
+          },
+          {
+            "name": "Bruce L. Rothschild"
+          },
+          {
+            "name": "Joel Spencer"
+          },
+          {
+            "name": "Ernst G. Straus"
+          }
+        ],
+        "identifier": "doi:10.1016/0097-3165(73)90011-3",
+        "location": "Journal of Combinatorial Theory, Series A 14 (1973) 341–363",
+        "relationship": "background",
+        "title": "Euclidean Ramsey theorems. I",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "The Formal Conjectures Authors"
+          }
+        ],
+        "contributors": [
+          {
+            "name": "Anas Khan (anxkhn)",
+            "role": "author of formal-conjectures PR #7706, which restates the variant as solved, in the negated form proved here, and links this proof"
+          }
+        ],
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/blob/2055e5adadae0b2e392365938faa82ef6f1464f0/FormalConjectures/ErdosProblems/174.lean",
+        "license": "Apache-2.0",
+        "location": "FormalConjectures/ErdosProblems/174.lean at 2055e5a (definition IsRamsey; theorem erdos_174.variants.graham); PR #7706 at 81b7906812371c1674f333d71e18d84c0c57e613",
+        "relationship": "other",
+        "title": "Erdős Problem 174, variant `graham`, in google-deepmind/formal-conjectures",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/openai/math/tree/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/Combinatorics",
+        "note": "OpenAI's Lean proof of the classification; the 16 modules imported here (EuclideanRamsey: CircleExtension, CircleGeometry, CircleInterpolation, CircleSpan, Congruence, Model, NineGeometry, TensorDescent, TensorNecessity; SphericalRamsey: AlgebraicExtension, BasisDerivation, Model, Parameter, RealDerivation, RealTranscendenceBasis, Specification) are included, ported. Their twelve-point (GrahamSpherical.full_main) and nine-point (nine_circle_configuration) theorems are earlier Lean refutations of the conjecture in OpenAI's vocabulary.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/carlostoledo1891/heptagon-ramsey-lean/tree/914298f37e6f4c7096d924f22f7436cac2dff1e1",
+        "note": "Version 1.0.0 of this repository: the same proofs, built inside openai/math at Lean v4.34.1, checked there by leanchecker --fresh, nanoda and con-ron (CHECKS.md), and linked from formal-conjectures PR #7706. This commit is its port to the module system at Lean v4.35.0-rc2, with no statement or proof changed and one module (Statement.lean, heptagon_counterexample) added.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/issues/7517",
+        "note": "The pattern of the transport from OpenAI's Ramsey to formal-conjectures' IsRamsey (a verbatim copy of IsRamsey, and the d = 0 case, where two distinct points have no distance-preserving copy), proposed there by pw (byclaude) with an exact check of the heptagon's identities.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/wstrinz/radian-ramsey/tree/f94bedbc05dd63d08adfba83ce853ede0094fb86",
+        "note": "Palomar PALOMAR-2026-10-18-000020. Its module-system port of OpenAI's EuclideanRamsey files and its port script were the model for this one; the nine EuclideanRamsey files used here equal its ported files except for the commit named in the notice (docs/PORT-LOG.md). Its result (the radian nine-gon) is different.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/JD-Jones-ASES/six-concyclic-lean",
+        "note": "Palomar PALOMAR-2026-10-07-000011: six concyclic points satisfy OpenAI's criterion, so, with this heptagon and the classification, seven is the least size of a non-Ramsey cyclic set. Its research note verifies by an exact derivation identity that the heptagon fails the criterion (not in Lean there). Not used here.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/wstrinz/algebraic-plus-three-ramsey",
+        "note": "Palomar PALOMAR-2026-10-16-000018: algebraic points on a circle plus at most three arbitrary points are Ramsey, end to end through OpenAI's sufficiency theorem (which covers six concyclic points). Not used here.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Carlos Toledo"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-08T00:13:32Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "9ce0d5891e2decacf26d123ef92451284fd59412c56c422c582cb70d4d44a9c5"
+    },
+    "reviewed_at": "2026-11-08T00:06:32Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "e33842e9d5842539a36bf90d1a6b13f887cc4462",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "b9cf5e59100ad8e02ceadcab69d2b89b99b7e180c21b439fddae850f2ce81200"
+    },
+    "repository": "carlostoledo1891/heptagon-ramsey-lean",
+    "repository_url": "https://github.com/carlostoledo1891/heptagon-ramsey-lean",
+    "tree_url": "https://github.com/carlostoledo1891/heptagon-ramsey-lean/tree/e33842e9d5842539a36bf90d1a6b13f887cc4462"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "ziyjs8croq42"
+  },
+  "title": "Pálvölgyi's cyclic heptagon is not Euclidean Ramsey, so Graham's spherical-set conjecture (formal-conjectures erdos_174.variants.graham) is false; and generic seven points on a circle are not Ramsey (Theorem A.3 of arXiv:2609.23327)",
+  "trust": {
+    "challenge_bytes": 5712,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 100,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "0d742cdea41994139200e755214fd983e8db957531b95df2d21135e58ee76a73",
+    "evidence_path": "evidence/PALOMAR-2026-11-08-000001-v1/92651dcc275728eb67b3cc1ef2208adc12d6cc710daefae522d4f81bd222a593/",
+    "evidence_tree_sha256": "92651dcc275728eb67b3cc1ef2208adc12d6cc710daefae522d4f81bd222a593",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "df4ff6f897083de73e719afc741bd9ba6260f206b38f2223b812028adfcee1cd",
+    "protected_config_sha256": "80caf85ef836541087398ac6bae90857500c67e588efb6ec9575c0f2baa4fe92",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 42420345105,
+    "solution_sha256": "64be7b47202b4e4baed85fa08a08c9641678601010986d716f3e3cba64a8b3c3",
+    "tool_digests": {
+      "bwrap": "ef2ec5c576112c7293755d4acff2cca8995436f3f768b397e3dbe91648dfaab8",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-07T22:47:22Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/42420345105"
+  },
+  "version": 1
+}

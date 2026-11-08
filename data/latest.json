@@ -1,17 +1,518 @@
 {
-  "fetched_at": "2026-11-07T08:42:40.237837+00:00",
+  "fetched_at": "2026-11-08T08:56:05.812586+00:00",
   "results": {
     "schema_version": 1,
-    "revision": 804,
-    "release": "572ac597ed7e44adc8a17120c395bd713ab1a292eca8aa06b1246de9e336eb15",
+    "revision": 819,
+    "release": "03bcef05d7a8df0698fc343766be73dc5c0a9fe211d35f6c18099907d1334545",
     "totals": {
-      "results": 1009,
-      "projects": 779
+      "results": 1022,
+      "projects": 792
     },
     "entries": [
       {
         "abbreviated": false,
-        "abstract": "Lean 4 / Mathlib formalization accompanying S. Vorobev, \"On the inclusion D_5(G) ⊆ γ_4(G): reductions, the Lie-ring proof, and evidence\" (preprint, 2026; submitted to arXiv math.GR on 2026-10-22). The integral dimension subgroups D_n(G) = {g ∈ G : g − 1 ∈ Δ(G)^n} are defined from the augmentation ideal of Mathlib's integral group ring. Kourovka Problem 20.84 asks whether D_5(G) ⊆ γ_4(G) for every group; it is open and is not claimed here. Unconditional results: D_5(G) = γ_5(G) whenever G/γ_2(G) is finite of exponent 3, and more generally whenever G/γ_2(G) is a finite 3-group whose cubes form a cyclic group, and still more generally whenever G/γ_2(G) is a finite 3-group and γ_2(G)/γ_3(G) has exponent at most 3 (paper, Theorems 6.6, 6.8 and 6.9; the inclusion part of Tahara's 1981 description of D_5 is formalized for this); D_5(G) lies in the Jennings product M_5(G) for finite 2-groups of class at most 3; and, for \"candidates\" (the paper's minimal-counterexample shape among finite 2-groups of class 3), there is no candidate of order 2^11 with Q/P_3 ≅ Z/4 × (Z/2)^7 and none of order 2^11 and rank at least 8 (paper, Lemma 5.6 and Proposition 5.7); the reduction of Problem 20.84 to finite 2-groups of class exactly 3 (Proposition 2.1); and a minimal counterexample is a candidate (Lemma 5.2). The proofs of the last two use D_3 = γ_3, Passi's D_4^2 ⊆ γ_4 and Gruenberg's residual theorem, all proved in the development (dThreeEqGammaThree, passiDFourSquare, gruenbergResidualTwo). One conditional result, with the assumption an explicit hypothesis: D_5 = 1 for groups of order 2^11, class at most 3 and rank at least 8, assuming the paper's computer result for order 2^10 (Proposition 5.7, D_5 form, assuming Proposition 5.3).",
+        "abstract": "A Lean 4 / Mathlib proof of Fournier's theorem (1973): if the vertices of maximum degree of a finite simple graph G induce a forest, then G has a proper edge colouring with Δ(G) colours (fournier: G.lineGraph.Colorable G.maxDegree under (G.induce {v | G.degree v = G.maxDegree}).IsAcyclic). The proof takes an edge-minimal subgraph H of G that is not Δ(G)-edge-colourable; Vizing's theorem gives Δ(H) = Δ(G), and Vizing's adjacency lemma applied to every edge xy of H gives a neighbour of x of maximum degree other than y, so the maximum-degree vertices of H span a subgraph of minimum degree at least 2 inside the forest, which is impossible (the end of a longest path). Vizing's theorem and the adjacency lemma are imported as lake dependencies from PALOMAR-2026-10-15-000004 and PALOMAR-2026-11-04-000009. One statement; no definitions beyond Mathlib's.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C15"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Fournier.fournier"
+          ]
+        },
+        "id": "PALOMAR-2026-11-08-000009",
+        "path": "entries/PALOMAR-2026-11-08-000009-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "b7baf7b17023d2a2a6dd9650c0706fcabb3bc227",
+              "fork_repository": "PalomarArchive/jtraverso--fournier-class-one--5f73bebe9b0a",
+              "source_repository": "jtraverso/fournier-class-one"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "26b87b2678b0dec9bf3d2477b1937f486a16ebb3be058f686594502027b487ed",
+          "version": 1
+        },
+        "published_at": "2026-11-08T06:31:30Z",
+        "source": {
+          "commit": "b7baf7b17023d2a2a6dd9650c0706fcabb3bc227",
+          "project_path": null,
+          "repository": "jtraverso/fournier-class-one"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Fournier's theorem: graphs whose maximum-degree vertices induce a forest are of class one",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Verification that the König constant is one, as shown in the source.",
+        "authors": [
+          {
+            "name": "Xinyuan Xie"
+          },
+          {
+            "name": "Haonan Zhang"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.FA",
+            "cs.CC"
+          ],
+          "msc2020": []
+        },
+        "formalization": {
+          "theorem_names": [
+            "Konig.constant_eq_one"
+          ]
+        },
+        "id": "PALOMAR-2026-11-08-000008",
+        "path": "entries/PALOMAR-2026-11-08-000008-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "a3202c4fe8feb722613e3bcc69c5f33e5d672280",
+              "fork_repository": "PalomarArchive/XinyuanXie-hub--Konig-constant--8301b06ad165",
+              "source_repository": "XinyuanXie-hub/Konig-constant"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "6749f32e5b1c328652809132678a509a8f2ff3b64cedfca356199b661a3fc6b8",
+          "version": 1
+        },
+        "published_at": "2026-11-08T06:22:31Z",
+        "source": {
+          "commit": "a3202c4fe8feb722613e3bcc69c5f33e5d672280",
+          "project_path": null,
+          "repository": "XinyuanXie-hub/Konig-constant"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The König constant is one",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib proof of Walecki's theorem: for every m, the complete graph on 2m + 1 vertices is the edge-disjoint union of m Hamiltonian cycles (hamiltonian_cycles_odd), and the complete graph on 2m vertices is the edge-disjoint union of m Hamiltonian paths (hamiltonian_paths_even). Both are stated for an arbitrary finite vertex type of the given cardinality, with Mathlib's Walk.IsHamiltonianCycle and Walk.IsHamiltonian, pairwise disjoint edge lists, and every edge of the complete graph on some cycle (path). The proof is Walecki's zig-zag construction: on ZMod (2m) the paths i, i+1, i−1, i+2, i−2, …, i+m (0 ≤ i < m) are Hamiltonian; an edge {x, y} of the i-th path has x + y ∈ {2i, 2i+1}, which makes the paths edge-disjoint, and m (2m − 1) = C(2m, 2) shows that they cover all edges; closing each path through a new vertex gives the cycles. Two statements; no definitions beyond Mathlib's.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C70",
+            "05C45"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "WaleckiDecomposition.hamiltonian_cycles_odd",
+            "WaleckiDecomposition.hamiltonian_paths_even"
+          ]
+        },
+        "id": "PALOMAR-2026-11-08-000007",
+        "path": "entries/PALOMAR-2026-11-08-000007-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "5e8a6eab7b0c8dacc4eb41b5c480bb90ed449a0e",
+              "fork_repository": "PalomarArchive/jtraverso--walecki-decompositions--15ec67c941b9",
+              "source_repository": "jtraverso/walecki-decompositions"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "51ea15d6b57f04b2d56645d51ed7ba2b681f10c1fbf98ae08bf1d6a5a66e4864",
+          "version": 1
+        },
+        "published_at": "2026-11-08T05:00:55Z",
+        "source": {
+          "commit": "5e8a6eab7b0c8dacc4eb41b5c480bb90ed449a0e",
+          "project_path": null,
+          "repository": "jtraverso/walecki-decompositions"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Walecki's decompositions of complete graphs into Hamiltonian cycles and paths",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A complete source-based finite penalty/energy family: the generic full ordered QUBO identity and strict integer-row minimizer equivalence, consistent fixed-coordinate energy/minimizer transport, and the literal incidence, time-indexed arc and sequence applications. The statements retain actual rows, repeated costs, full offsets, source free/fixed partitions, feasibility conditions, strict sufficient thresholds and finite source energy attainment. Capacity, physical route completeness and solver/quantum performance are outside scope.",
+        "authors": [
+          {
+            "name": "David E. Bernal Neira"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.OC"
+          ],
+          "msc2020": [
+            "90C09",
+            "90C11"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Chapter10.palomar_source_route_penalty_proposition",
+            "Chapter10.Algebra.palomar_integer_penalty_zero_iff",
+            "Chapter10.Algebra.palomar_integer_penalty_gap",
+            "Chapter10.Routing.Arc.palomar_matrix_iff_literal",
+            "Chapter10.Routing.Arc.palomar_arc_penalty_zero_iff",
+            "Chapter10.Routing.Arc.palomar_arc_minimizers_exact",
+            "Chapter10.Routing.Arc.palomar_actual_arc_qubo_identity",
+            "Chapter10.SequencePenalty.palomar_source_penalty_sums",
+            "Chapter10.SequencePenalty.palomar_penalty_zero_iff",
+            "Chapter10.SequencePenalty.palomar_objective_range",
+            "Chapter10.SequencePenalty.palomar_objective_range_printed",
+            "Chapter10.SequencePenalty.palomar_minimizers_exact",
+            "Chapter10.SequencePenalty.palomar_source_energy_matrix_identity",
+            "Chapter10.SequencePenalty.palomar_domain_iff_split_fixed",
+            "Chapter10.SequencePenalty.palomar_source_fixed_energy_identity",
+            "Chapter10.SequencePenalty.palomar_source_fixed_min_transport",
+            "Chapter10.SequencePenalty.palomar_reduced_minimizers_exact",
+            "Chapter10.SequencePenalty.palomar_source_energy_attainment",
+            "Chapter10.Algebra.palomar_full_qubo_identity",
+            "Chapter10.Algebra.palomar_integer_penalty_minimizers_exact",
+            "Chapter10.Algebra.palomar_fixed_qubo_identity",
+            "Chapter10.Algebra.palomar_fixed_qubo_min_transport",
+            "Chapter10.Sequence.penultimate._proof_2",
+            "Chapter10.Sequence.second._proof_2"
+          ]
+        },
+        "id": "PALOMAR-2026-11-08-000006",
+        "path": "entries/PALOMAR-2026-11-08-000006-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "95f2a288a6c50ea6eaabde90c2515885197796cf",
+              "fork_repository": "PalomarArchive/bernalde--routing-penalty-adapters--1acf02c66f83",
+              "source_repository": "bernalde/routing-penalty-adapters"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "e4ac23dc9b422f4a7bdc8db061be6a44ba314bf5d819d50d333d4b0d8d7ab4ad",
+          "version": 1
+        },
+        "published_at": "2026-11-08T04:41:38Z",
+        "source": {
+          "commit": "95f2a288a6c50ea6eaabde90c2515885197796cf",
+          "project_path": null,
+          "repository": "bernalde/routing-penalty-adapters"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Finite integer penalties and literal routing QUBO transport",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A complete Lean 4 / Mathlib formalization of the three main theorems of M. Mirek and C. Thiele, \"A local T(b) theorem for perfect multilinear Calderón–Zygmund operators\", Proc. London Math. Soc. 114 (2017): the perfect multilinear local T(1) theorem (Theorem 1.3), the perfect multilinear local T(b) theorem with general testing functions on admissible collections of paths (Theorem 1.4), and the perfect multilinear global T(b) theorem (Theorem 1.11), for n-linear forms on dyadic test functions in R^d satisfying the dyadic decay, perfect smoothness and qualitative truncation conditions. The development follows the paper's proof of Theorem 1.4 (stopping times, pruning, the telescoping identities, the discrete Carleson embedding and the outer-measure Hölder inequalities of Do–Thiele, the contraction step and its iteration) and the global/local reduction of Theorem 1.11, including the atom estimate for the dyadic Hardy norm for all exponents (Burkholder's L^p bound for the dyadic square function by Marcinkiewicz interpolation). Theorem 1.3, cited as folklore in the paper, is proved by a dyadic paraproduct argument with a dyadic John–Nirenberg inequality for the paraproduct symbols. All constants depend only on the dimension, the linearity, the testing constant and the exponents.",
+        "authors": [
+          {
+            "name": "Stefanos Lappas"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CA"
+          ],
+          "msc2020": [
+            "42B20",
+            "42B25"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "MirekThiele.theorem_1_3",
+            "MirekThiele.theorem_1_4",
+            "MirekThiele.theorem_1_11",
+            "MirekThiele.theorem_1_11_hypotheses_satisfiable"
+          ]
+        },
+        "id": "PALOMAR-2026-11-08-000005",
+        "path": "entries/PALOMAR-2026-11-08-000005-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "939d7c25149c80219fddfe356eb043fff4504dbd",
+              "fork_repository": "PalomarArchive/slappas94--Mirek-Thiele-local-tb--3f05492a3e28",
+              "source_repository": "slappas94/Mirek-Thiele-local-tb"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "fe81d7a9e309b999058201a9ebbf1a2254d7aa9b205a878ffa0d7c95c298a5ce",
+          "version": 1
+        },
+        "published_at": "2026-11-08T02:24:44Z",
+        "source": {
+          "commit": "939d7c25149c80219fddfe356eb043fff4504dbd",
+          "project_path": null,
+          "repository": "slappas94/Mirek-Thiele-local-tb"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "A local T(b) theorem for perfect multilinear Calderón–Zygmund operators (Mirek–Thiele), formalized in Lean 4",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A thin wrapper that restates, in one vocabulary and with Mathlib definitions only, the overfull criteria proved in PALOMAR-2026-11-04-000016 and PALOMAR-2026-11-04-000009. class_two_iff_overfull_subgraph: a finite simple graph of even order n with 12 n ≤ 7 (3δ − Δ) is of class two (its line graph is not Δ-colourable) iff it has a Δ-overfull subgraph (odd order at least 3, more than Δ (|V(H)| − 1)/2 edges); this is Plantholt's criterion with Chetwynd–Hilton's 6/7. critical_overfull: a Δ-critical graph (connected, class two, every edge-deleted subgraph Δ-colourable) with 2n + 5δ ≤ 3Δ + 6 (Chen–Cao), or 3n + 7δ ≤ 4Δ + 10 (Cao–Chen–Jing–Shan, variant), or 3n + 7δ ≤ 4Δ + 17 and n + δ ≥ 27 (Cao–Chen–Jing–Shan) has odd order, is overfull (|E| > Δ ⌊n/2⌋), and so is a Δ-overfull subgraph of itself. The only new proof is the elementary step from overfullness to odd order at least 3 (degree sum) and the conversion to the subgraph form. Two statements; no definitions beyond Mathlib's.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C15",
+            "05C70"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "OverfullCriteria.class_two_iff_overfull_subgraph",
+            "OverfullCriteria.critical_overfull"
+          ]
+        },
+        "id": "PALOMAR-2026-11-08-000004",
+        "path": "entries/PALOMAR-2026-11-08-000004-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "2af917da6f41ebf2275c4ee4b21d5861e02fac49",
+              "fork_repository": "PalomarArchive/jtraverso--overfull-criteria--2e39e1179caf",
+              "source_repository": "jtraverso/overfull-criteria"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "ce999a86d619b48251d73ca1768fec01e8477e9806bc758b6c568cd3d3303409",
+          "version": 1
+        },
+        "published_at": "2026-11-08T02:02:43Z",
+        "source": {
+          "commit": "2af917da6f41ebf2275c4ee4b21d5861e02fac49",
+          "project_path": null,
+          "repository": "jtraverso/overfull-criteria"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Overfull criteria for edge colouring (Plantholt; Chen–Cao; Cao–Chen–Jing–Shan), unified",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "This project formalizes the main central limit theorem of “Central limit theorem for the complex eigenvalues of Gaussian random matrices” by Advay Goel, Patrick Lopatto, and Xiaoyu Xie (arXiv:2306.10243v2), using an expanded local manuscript as the detailed proof source. The local manuscript was prepared to ease autoformalization by adding details to the proofs. Its main theorem (Theorem 1.3) is identical to the main theorem of the arXiv version: the hypotheses and conclusion are unchanged. Only this main theorem is advertised.",
+        "authors": [
+          {
+            "name": "Patrick Lopatto"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.PR"
+          ],
+          "msc2020": []
+        },
+        "formalization": {
+          "theorem_names": [
+            "Paper.principalTheorem"
+          ]
+        },
+        "id": "PALOMAR-2026-11-08-000003",
+        "path": "entries/PALOMAR-2026-11-08-000003-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "1a366f8c390b57b15af88bf5d12b320785c866f5",
+              "fork_repository": "PalomarArchive/lopatto--ginoe-clt-public--74aa5bd58c51",
+              "source_repository": "lopatto/ginoe-clt-public"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "92f7692e1241f8ebac44924d4afbd4d399d2ee49a7afd62326eb8f624400c44e",
+          "version": 1
+        },
+        "published_at": "2026-11-08T00:57:11Z",
+        "source": {
+          "commit": "1a366f8c390b57b15af88bf5d12b320785c866f5",
+          "project_path": null,
+          "repository": "lopatto/ginoe-clt-public"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Central limit theorem for the complex eigenvalues of Gaussian random matrices",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib proof of two results on sums of four squares. (1) Jacobi's four-square theorem for odd N: the number of x : Fin 4 → ℤ with x₀² + x₁² + x₂² + x₃² = N equals 8 ∑_{d ∣ N} d (jacobi_four_squares_odd), following the proof of Andrews, Ekhad and Zeilberger (1993): two finite q-series identities proved by WZ telescoping, combined into a finite identity that is read modulo X^{N+1} in ℚ⟦X⟧. (2) Four squares in caps (four_squares_in_caps): for every unit vector q ∈ ℝ⁴ and every δ > 0 there is M₀ such that every odd m ≥ M₀ is β₀² + β₁² + β₂² + β₃² with β : Fin 4 → ℤ and |βᵢ − √m qᵢ| ≤ δ √m for all i, i.e. the integer points of the sphere of radius √m meet every cap of fixed angular radius. The proof uses the Duke–Friedlander–Iwaniec delta method (in Heath-Brown's form) with Gaussian weights: an exact formula through the theta transformation, Fourier bounds for the cut-off weight, and the Weil bound for Kloosterman sums, imported from the Weil Bounds Toolkit (PALOMAR-2026-11-03-000018) as a lake dependency. The main term is not evaluated: it depends on the center of the cap only through its norm, so comparing caps with a grid of centers reduces the theorem to the lower bound r₄(m) ≥ 8m for odd m, which (1) provides. All constants are effective but not explicit in the statement (M₀ is existential). Two statements; no definitions beyond Mathlib's.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11E25",
+            "11P55",
+            "11L05",
+            "05A30"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "FourSquaresInCaps.jacobi_four_squares_odd",
+            "FourSquaresInCaps.four_squares_in_caps"
+          ]
+        },
+        "id": "PALOMAR-2026-11-08-000002",
+        "path": "entries/PALOMAR-2026-11-08-000002-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "a1fcaafb270c099ea773706912192adbfec19a83",
+              "fork_repository": "PalomarArchive/jtraverso--four-squares-in-caps--308878e49a2e",
+              "source_repository": "jtraverso/four-squares-in-caps"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "f6d4c994913c4e409ba59ffdc9f40305d9ec306b31308b6367d5957297ee8ca0",
+          "version": 1
+        },
+        "published_at": "2026-11-08T00:24:56Z",
+        "source": {
+          "commit": "a1fcaafb270c099ea773706912192adbfec19a83",
+          "project_path": null,
+          "repository": "jtraverso/four-squares-in-caps"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Four squares in caps, and Jacobi's four-square theorem for odd N",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For every transcendental r > 2, the seven points (0, 0) and (j, ±√(j(2r − j))), j ∈ {1, 3, 4}, lie on the circle of centre (r, 0) and radius r and are not Euclidean Ramsey (Pálvölgyi, A cyclic non-Ramsey heptagon, arXiv:2609.23327, Theorem 1); consequently not every finite cospherical subset of a Euclidean space is Ramsey. The second statement is the negation of the conjecture that every finite spherical set is Ramsey (posed by Erdős, Graham, Montgomery, Rothschild, Spencer and Straus in 1973), in exactly the form in which google-deepmind/formal-conjectures states it as erdos_174.variants.graham (formal-conjectures PR #7706, which re-tags that statement as solved and links this proof). Ramsey is formal-conjectures' definition, Erdos174.IsRamsey, copied byte for byte: a finite set A in R^n such that for every number k ≥ 1 of colours there is a dimension d for which every k-colouring of R^d has a monochromatic distance-preserving copy of A. All four compared statements use only Mathlib and that definition. The conjecture was refuted in September 2026 by Pálvölgyi's paper (whose proofs it attributes to ChatGPT) and by OpenAI's classification of finite Euclidean Ramsey configurations, whose Lean proof (openai/math) already exhibits non-Ramsey twelve- and nine-point sets on a circle in OpenAI's own vocabulary. The proof here is Pálvölgyi's derivation-energy argument run against OpenAI's tensor criterion: a derivation D of R with D r = 1, the pairing x ⊗ y ↦ D x · D y on OpenAI's coefficient tensor ring, the weights 2, −2, −2, 2, 2, −1, −1 and the energy −24/((2r − 1)(2r − 3)(2r − 4)) ≠ 0 show that the heptagon fails OpenAI's field criterion, and the necessity half of OpenAI's classification (proved in their Lean) turns that into not Ramsey; formal-conjectures' IsRamsey, which also allows the dimension d = 0, is then reduced to OpenAI's Ramsey. The witness for the second statement is the heptagon at r = 2 + OpenAI's Liouville-type parameter, which is transcendental. Also proved, with the same definition: Theorem A.3 of the paper's appendix as printed, without its measure clause (for distinct t1, t2, t3 and t4, ..., t7 algebraically independent over Q(t1, t2, t3), the seven points ((1 − ti²)/(1 + ti²), 2ti/(1 + ti²)) are not Ramsey; the appendix is labelled by its author as written by ChatGPT and unchecked), and its corollary for seven parameters algebraically independent over Q, in the shape of OpenAI's nine-point theorem (distinct points on the unit circle, not Ramsey). Its proof follows the appendix: Lemma A.1 in its symmetric form, a derivation vanishing on Q(t1, t2, t3) with prescribed values on t4, ..., t7, weighted moments by Lagrange interpolation, and again the necessity half of OpenAI's classification. The 16 OpenAI Lean files the proofs import are included, ported to the Lean module system by header-only changes. All proofs depend on propext, Classical.choice and Quot.sound only.",
+        "authors": [
+          {
+            "name": "Carlos Toledo"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "math.MG"
+          ],
+          "msc2020": [
+            "05D10",
+            "52C10",
+            "12H05"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "HeptagonRamsey.Heptagon.heptagon_counterexample",
+            "HeptagonRamsey.Heptagon.graham_false'",
+            "HeptagonRamsey.Generic.generic_seven_not_isRamsey",
+            "HeptagonRamsey.Generic.seven_circle_configuration_isRamsey"
+          ]
+        },
+        "id": "PALOMAR-2026-11-08-000001",
+        "path": "entries/PALOMAR-2026-11-08-000001-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "e33842e9d5842539a36bf90d1a6b13f887cc4462",
+              "fork_repository": "PalomarArchive/carlostoledo1891--heptagon-ramsey-lean--d564b7debfa7",
+              "source_repository": "carlostoledo1891/heptagon-ramsey-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "f9c8025d63377bd2cd307cb3773aa9a82cc0179b377ec3484c37660f7b59c595",
+          "version": 1
+        },
+        "published_at": "2026-11-08T00:13:32Z",
+        "source": {
+          "commit": "e33842e9d5842539a36bf90d1a6b13f887cc4462",
+          "project_path": null,
+          "repository": "carlostoledo1891/heptagon-ramsey-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Pálvölgyi's cyclic heptagon is not Euclidean Ramsey, so Graham's spherical-set conjecture (formal-conjectures erdos_174.variants.graham) is false; and generic seven points on a circle are not Ramsey (Theorem A.3 of arXiv:2609.23327)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Lean 4 / Mathlib formalization accompanying S. Vorobev, \"On the inclusion D_5(G) ⊆ γ_4(G): reductions, the Lie-ring proof, and evidence\" (preprint, 2026; submitted to arXiv math.GR on 2026-10-22). The integral dimension subgroups D_n(G) = {g ∈ G : g − 1 ∈ Δ(G)^n} are defined from the augmentation ideal of Mathlib's integral group ring. Kourovka Problem 20.84 asks whether D_5(G) ⊆ γ_4(G) for every group; it is open and is not claimed here. Unconditional results: D_5(G) = γ_5(G) whenever G/γ_2(G) is finite of exponent 3, and more generally whenever G/γ_2(G) is a finite 3-group whose cubes form a cyclic group, and still more generally whenever G/γ_2(G) is a finite 3-group and γ_2(G)/γ_3(G) has exponent at most 3, and still more generally whenever G/γ_2(G) is a finite 3-group, γ_4(G)^3 ⊆ γ_5(G) and γ_2(G)^9 ⊆ γ_4(G), and most generally whenever G/γ_2(G) is a finite 3-group and γ_4(G)^3 ⊆ γ_5(G) (paper, Theorems 6.6, 6.8, 6.9, 6.10 and 6.11), and whenever G/γ_2(G) is a finite p-group, p odd, and [γ_2(G), γ_2(G)] ⊆ γ_5(G), in particular for finite metabelian 3-groups, which is Gupta–Tahara's theorem at p = 3 (paper, Theorem D.1; the inclusion part of Tahara's 1981 description of D_5 is formalized for this); D_5(G) lies in the Jennings product M_5(G) for finite 2-groups of class at most 3; and, for \"candidates\" (the paper's minimal-counterexample shape among finite 2-groups of class 3), there is no candidate of order 2^11 with Q/P_3 ≅ Z/4 × (Z/2)^7 and none of order 2^11 and rank at least 8 (paper, Lemma 5.6 and Proposition 5.7); the reduction of Problem 20.84 to finite 2-groups of class exactly 3 (Proposition 2.1); and a minimal counterexample is a candidate (Lemma 5.2). The proofs of the last two use D_3 = γ_3, Passi's D_4^2 ⊆ γ_4 and Gruenberg's residual theorem, all proved in the development (dThreeEqGammaThree, passiDFourSquare, gruenbergResidualTwo). One conditional result, with the assumption an explicit hypothesis: D_5 = 1 for groups of order 2^11, class at most 3 and rank at least 8, assuming the paper's computer result for order 2^10 (Proposition 5.7, D_5 form, assuming Proposition 5.3).",
         "authors": [
           {
             "name": "Stanislav Vorobev"
@@ -33,6 +534,10 @@
             "GroupDimension.Palomar.D_five_eq_gamma_five_of_exp_three",
             "GroupDimension.Palomar.D_five_eq_gamma_five_of_cubes_cyclic",
             "GroupDimension.Palomar.D_five_eq_gamma_five_of_exp_L1_three",
+            "GroupDimension.Palomar.D_five_eq_gamma_five_of_g4_cube_g2_nine",
+            "GroupDimension.Palomar.D_five_eq_gamma_five_of_g4_cube",
+            "GroupDimension.Palomar.D_five_eq_gamma_five_of_metabelian",
+            "GroupDimension.Palomar.D_five_eq_gamma_five_of_metabelian_three",
             "GroupDimension.Palomar.D_five_le_jennings",
             "GroupDimension.Palomar.not_isCandidate_of_quotient_z4",
             "GroupDimension.Palomar.false_of_card_expCentral_two_le",
@@ -43,23 +548,23 @@
           ]
         },
         "id": "PALOMAR-2026-10-23-000007",
-        "path": "entries/PALOMAR-2026-10-23-000007-v2.json",
+        "path": "entries/PALOMAR-2026-10-23-000007-v4.json",
         "preservation": {
           "repositories": [
             {
-              "commit": "508a336eb7d17cb09d725d882814c0c25692268a",
+              "commit": "d4a8ddb2fa5c39dab1d612799561aa0d43aecbe6",
               "fork_repository": "PalomarArchive/ispacex--group-dimension--061786557a7a",
               "source_repository": "ispacex/group-dimension"
             }
           ]
         },
         "preview": {
-          "artifact_tree_sha256": "f1c3a708ef8f7571a123e63469ccd965f4063facc2bc193255013ad88d7c59d0",
-          "version": 2
+          "artifact_tree_sha256": "05936c04caf3746c3eab2e04cb6cbb90496b9ba52dd6d69d987311a2d8cb1bb7",
+          "version": 4
         },
-        "published_at": "2026-11-07T08:32:42Z",
+        "published_at": "2026-11-07T22:30:49Z",
         "source": {
-          "commit": "508a336eb7d17cb09d725d882814c0c25692268a",
+          "commit": "d4a8ddb2fa5c39dab1d612799561aa0d43aecbe6",
           "project_path": null,
           "repository": "ispacex/group-dimension"
         },
@@ -69,8 +574,229 @@
         "trust": {
           "level": "high"
         },
-        "version": 2,
-        "versions": 2
+        "version": 4,
+        "versions": 4
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A complete classification of the globally periodic rational difference equations x_{n+K} = (A_0 + A_1 x_n + ... + A_K x_{n+K-1}) / (B_0 + B_1 x_n + ... + B_K x_{n+K-1}) with nonnegative coefficients, acting on positive initial data, answering Problem 11 of Gasull's survey of open problems in low-dimensional dynamical systems. Such an equation is globally periodic (every positive solution satisfies x_{n+p} = x_n for a common p >= 1) if and only if, up to rescaling x_n -> alpha x_n and unfolding (multiplying every index by an integer), it is one of the five known examples: x_{n+1} = x_n, x_{n+1} = 1/x_n, x_{n+2} = x_{n+1}/x_n, the Lyness equation x_{n+2} = (1 + x_{n+1})/x_n, and Todd's period-8 equation x_{n+3} = (1 + x_{n+1} + x_{n+2})/x_n. The result holds at every order K. Previously the question had been settled for K in {1, 2, 3, 4, 5, 7, 9, 11} (Cima, Gasull and Mañosas 2004) and for some special families, but the general case was open.",
+        "authors": [
+          {
+            "name": "John F. Rudge"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.DS"
+          ],
+          "msc2020": [
+            "39A23",
+            "39A20",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PeriodicDifference.Problem11.problem11_iff"
+          ]
+        },
+        "id": "PALOMAR-2026-11-07-000014",
+        "path": "entries/PALOMAR-2026-11-07-000014-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "2895c36b6fc9ba4483e2539c06fd9778dce04b6f",
+              "fork_repository": "PalomarArchive/johnrudge--periodic_difference--005fe8d63ceb",
+              "source_repository": "johnrudge/periodic_difference"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "20a16315ca4d80659bc25d1df5da96a20e0d95b89f64404da91edf3fa95c7fac",
+          "version": 1
+        },
+        "published_at": "2026-11-07T20:07:21Z",
+        "source": {
+          "commit": "2895c36b6fc9ba4483e2539c06fd9778dce04b6f",
+          "project_path": null,
+          "repository": "johnrudge/periodic_difference"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Classification of globally periodic rational difference equations",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A machine-checked proof that a finite-dimensional real normed space whose linear isometries act transitively on the unit sphere is Euclidean. This is the finite-dimensional case of the Mazur rotations problem, which appeared in Banach's 1932 book and is surveyed by Cabello Sanchez, Ferenczi and Randrianantoanina; its audience is the geometry of Banach spaces and their symmetries. It is the statement banach_mazur_rotation_problem.finite_dimensional of Formal Conjectures (BanachMazurRotation.lean), which marks it research solved. The result is classical and no priority is claimed. The proof takes the classical route: the isometries form a compact group, averaging a squared Euclidean norm over Haar measure gives an invariant quadratic form, and transitivity makes it a multiple of the squared norm. Mathlib has no topology on the isometry group, so the entry also builds it as a compact topological group with Haar measure. The general problem for separable Banach spaces, which Formal Conjectures marks research open, is not addressed.",
+        "authors": [
+          {
+            "name": "Zayn Blore"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.FA",
+            "math.MG"
+          ],
+          "msc2020": [
+            "46B04",
+            "46C15"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "BanachMazurRotation.banach_mazur_rotation_problem.finite_dimensional"
+          ]
+        },
+        "id": "PALOMAR-2026-11-07-000013",
+        "path": "entries/PALOMAR-2026-11-07-000013-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "b72450ef02de7b022d8d21b80884da581ac21daf",
+              "fork_repository": "PalomarArchive/zblore--fc-banach-mazur--c06cb0f1aa44",
+              "source_repository": "zblore/fc-banach-mazur"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "93efa4da935491a9310e002394d22ffacf21ad898430b1afec344e9c24de3eff",
+          "version": 1
+        },
+        "published_at": "2026-11-07T17:14:45Z",
+        "source": {
+          "commit": "b72450ef02de7b022d8d21b80884da581ac21daf",
+          "project_path": null,
+          "repository": "zblore/fc-banach-mazur"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The Banach-Mazur rotation problem in finite dimensions: a transitive isometry group forces a Euclidean norm",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A qualified finite sequence-routing formalization connecting the complete source binary rows with padded elementary customer routes and exact transition cost. For fixed valid slots, explicit zero-depot clock/travel conditions give continuous timing feasibility through the earliest-schedule recurrence and an attained minimum total return over timing assignments. Capacity and global route optimization are outside scope.",
+        "authors": [
+          {
+            "name": "David E. Bernal Neira"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.OC"
+          ],
+          "msc2020": [
+            "90C27",
+            "90C11"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Chapter10.Sequence.palomar_literal_iff_decoded",
+            "Chapter10.Sequence.palomar_literal_decodes_elementary_paths",
+            "Chapter10.Sequence.palomar_bounded_traces_encode",
+            "Chapter10.Sequence.palomar_decoded_cost",
+            "Chapter10.Sequence.palomar_literal_timing_iff_schedules",
+            "Chapter10.Sequence.palomar_literal_timing_exists_iff",
+            "Chapter10.Sequence.palomar_literal_duration_minimum",
+            "Chapter10.Sequence.padSlots._proof_2",
+            "Chapter10.Sequence.penultimate._proof_2",
+            "Chapter10.Sequence.second._proof_2"
+          ]
+        },
+        "id": "PALOMAR-2026-11-07-000012",
+        "path": "entries/PALOMAR-2026-11-07-000012-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "6272abea8b3e45a60a9a37a29413722c94929613",
+              "fork_repository": "PalomarArchive/bernalde--sequence-routing-formulations--b3c9c063cd6c",
+              "source_repository": "bernalde/sequence-routing-formulations"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "340f1943dc27d3a5d1fd1c96156904c90f531e2db2d6dc59ebaddbe37b06c7e8",
+          "version": 1
+        },
+        "published_at": "2026-11-07T13:28:54Z",
+        "source": {
+          "commit": "6272abea8b3e45a60a9a37a29413722c94929613",
+          "project_path": null,
+          "repository": "bernalde/sequence-routing-formulations"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Finite sequence routing formulations and continuous timing",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib proof of the three squares theorem of Legendre (1798) and Gauss (1801): a natural number is a sum of three squares if and only if it is not of the form 4^a (8 b + 7) (sum_three_sq_iff), with the corollary that every n ≡ 3 (mod 8) is x₀² + x₁² + x₂² for some x : Fin 3 → ℤ (exists_sum_sq_of_mod_eight_eq_three). The proof uses ternary quadratic forms of determinant one: a positive definite integral ternary form of determinant one is equivalent to x² + y² + z² (proved with Minkowski's convex body theorem), and for n ≢ 0 (mod 4), n ≢ 7 (mod 8) such a form with diagonal entry n is built from a prime in an arithmetic progression (Dirichlet's theorem, as in Mathlib) and quadratic reciprocity for the Jacobi symbol. Two statements; no definitions beyond Mathlib's.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11E25",
+            "11D85",
+            "11H06"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "GaussLegendre.sum_three_sq_iff",
+            "GaussLegendre.exists_sum_sq_of_mod_eight_eq_three"
+          ]
+        },
+        "id": "PALOMAR-2026-11-07-000011",
+        "path": "entries/PALOMAR-2026-11-07-000011-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "783ec66b0db2ff2acf75cc2cd22a9e69737411b5",
+              "fork_repository": "PalomarArchive/jtraverso--three-squares-gauss-legendre--2afaf7563d29",
+              "source_repository": "jtraverso/three-squares-gauss-legendre"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "2682fd2b1c419a709455459d6a28e09c4082a32740798aed77fa6e13e7bb6bce",
+          "version": 1
+        },
+        "published_at": "2026-11-07T08:58:47Z",
+        "source": {
+          "commit": "783ec66b0db2ff2acf75cc2cd22a9e69737411b5",
+          "project_path": null,
+          "repository": "jtraverso/three-squares-gauss-legendre"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The three squares theorem (Gauss–Legendre)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
       },
       {
         "abbreviated": false,
@@ -60689,7 +61415,7 @@
         "versions": 3
       }
     ],
-    "previous": "eyJyZXZpc2lvbiI6ODA0LCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTE5VDAxOjU0OjM2WiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTE5LTAwMDAwMSJ9",
+    "previous": "eyJyZXZpc2lvbiI6ODE5LCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTIxVDA1OjE3OjA3WiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTIxLTAwMDAwMyJ9",
     "next": null,
     "dropped": [],
     "message": null,
@@ -60697,28 +61423,22 @@
   },
   "changes": {
     "added": [
-      "PALOMAR-2026-11-07-000010",
-      "PALOMAR-2026-11-07-000003",
-      "PALOMAR-2026-11-07-000009",
-      "PALOMAR-2026-11-07-000008",
-      "PALOMAR-2026-11-07-000007",
-      "PALOMAR-2026-11-07-000006",
-      "PALOMAR-2026-11-07-000005",
-      "PALOMAR-2026-11-07-000004",
-      "PALOMAR-2026-11-07-000002",
-      "PALOMAR-2026-11-07-000001",
-      "PALOMAR-2026-11-06-000016",
-      "PALOMAR-2026-11-06-000015",
-      "PALOMAR-2026-11-06-000014",
-      "PALOMAR-2026-11-06-000013",
-      "PALOMAR-2026-11-06-000012",
-      "PALOMAR-2026-11-06-000011",
-      "PALOMAR-2026-11-06-000010",
-      "PALOMAR-2026-11-06-000009"
+      "PALOMAR-2026-11-08-000009",
+      "PALOMAR-2026-11-08-000008",
+      "PALOMAR-2026-11-08-000007",
+      "PALOMAR-2026-11-08-000006",
+      "PALOMAR-2026-11-08-000005",
+      "PALOMAR-2026-11-08-000004",
+      "PALOMAR-2026-11-08-000003",
+      "PALOMAR-2026-11-08-000002",
+      "PALOMAR-2026-11-08-000001",
+      "PALOMAR-2026-11-07-000014",
+      "PALOMAR-2026-11-07-000013",
+      "PALOMAR-2026-11-07-000012",
+      "PALOMAR-2026-11-07-000011"
     ],
     "updated": [
-      "PALOMAR-2026-10-23-000007",
-      "PALOMAR-2026-11-01-000014"
+      "PALOMAR-2026-10-23-000007"
     ],
     "absent": []
   },

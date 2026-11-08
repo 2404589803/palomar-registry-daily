@@ -1,0 +1,341 @@
+{
+  "abstract": "A Lean 4 / Mathlib proof of two results on sums of four squares. (1) Jacobi's four-square theorem for odd N: the number of x : Fin 4 → ℤ with x₀² + x₁² + x₂² + x₃² = N equals 8 ∑_{d ∣ N} d (jacobi_four_squares_odd), following the proof of Andrews, Ekhad and Zeilberger (1993): two finite q-series identities proved by WZ telescoping, combined into a finite identity that is read modulo X^{N+1} in ℚ⟦X⟧. (2) Four squares in caps (four_squares_in_caps): for every unit vector q ∈ ℝ⁴ and every δ > 0 there is M₀ such that every odd m ≥ M₀ is β₀² + β₁² + β₂² + β₃² with β : Fin 4 → ℤ and |βᵢ − √m qᵢ| ≤ δ √m for all i, i.e. the integer points of the sphere of radius √m meet every cap of fixed angular radius. The proof uses the Duke–Friedlander–Iwaniec delta method (in Heath-Brown's form) with Gaussian weights: an exact formula through the theta transformation, Fourier bounds for the cut-off weight, and the Weil bound for Kloosterman sums, imported from the Weil Bounds Toolkit (PALOMAR-2026-11-03-000018) as a lake dependency. The main term is not evaluated: it depends on the center of the cap only through its norm, so comparing caps with a grid of centers reduces the theorem to the lower bound r₄(m) ≥ 8m for odd m, which (1) provides. All constants are effective but not explicit in the statement (M₀ is existential). Two statements; no definitions beyond Mathlib's.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-08-000002-v1/f6d4c994913c4e409ba59ffdc9f40305d9ec306b31308b6367d5957297ee8ca0/",
+    "artifact_tree_sha256": "f6d4c994913c4e409ba59ffdc9f40305d9ec306b31308b6367d5957297ee8ca0",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-07T20:20:16Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11E25",
+      "11P55",
+      "11L05",
+      "05A30"
+    ]
+  },
+  "first_registered_on": "2026-11-08",
+  "formalization": {
+    "challenge_path": "FourSquaresCapsChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "weil_bounds_toolkit",
+        "repository": "charliedorsey/weil-bounds-toolkit",
+        "revision": "0f3e4c3010bb0e7c4e514ddb5bd3a0a0e082bf68"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "FourSquaresCapsSolution.lean",
+    "theorem_names": [
+      "FourSquaresInCaps.jacobi_four_squares_odd",
+      "FourSquaresInCaps.four_squares_in_caps"
+    ]
+  },
+  "id": "PALOMAR-2026-11-08-000002",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-08T00:25:13Z",
+    "receipt_sha256": "840d1b894f49b45e52f39a1a255908e3783930ead26e81050567825d9aa98505",
+    "repositories": [
+      {
+        "commit": "0f3e4c3010bb0e7c4e514ddb5bd3a0a0e082bf68",
+        "fork_repository": "PalomarArchive/charliedorsey--weil-bounds-toolkit--fdaf04f318ed",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000002-v1/0f3e4c3010bb0e7c4e514ddb5bd3a0a0e082bf68",
+        "source_repository": "charliedorsey/weil-bounds-toolkit"
+      },
+      {
+        "commit": "a1fcaafb270c099ea773706912192adbfec19a83",
+        "fork_repository": "PalomarArchive/jtraverso--four-squares-in-caps--308878e49a2e",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000002-v1/a1fcaafb270c099ea773706912192adbfec19a83",
+        "source_repository": "jtraverso/four-squares-in-caps"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000002-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000002-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000002-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000002-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000002-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000002-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000002-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000002-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-08-000002-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "George E. Andrews"
+          },
+          {
+            "name": "Shalosh B. Ekhad"
+          },
+          {
+            "name": "Doron Zeilberger"
+          }
+        ],
+        "identifier": "arXiv:math/9206203",
+        "license": "all rights reserved",
+        "location": "Amer. Math. Monthly 100 (1993), 273–276; Lemma (a), (b) and identity (3)",
+        "relationship": "formalizes",
+        "title": "A short proof of Jacobi's formula for the number of representations of an integer as a sum of four squares",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "D. R. Heath-Brown"
+          }
+        ],
+        "identifier": "doi:10.1515/crll.1996.481.149",
+        "license": "all rights reserved",
+        "location": "J. reine angew. Math. 481 (1996), 149–206",
+        "relationship": "background",
+        "title": "A new form of the circle method, and its application to quadratic forms",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "H. D. Kloosterman"
+          }
+        ],
+        "identifier": "doi:10.1007/BF02564115",
+        "license": "all rights reserved",
+        "location": "Acta Math. 49 (1926), 407–464",
+        "relationship": "background",
+        "title": "On the representation of numbers in the form ax² + by² + cz² + dt²",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Charlie Dorsey"
+          }
+        ],
+        "identifier": "PALOMAR-2026-11-03-000018",
+        "license": "Apache-2.0",
+        "location": "https://github.com/charliedorsey/weil-bounds-toolkit @ 0f3e4c3",
+        "relationship": "other",
+        "title": "Weil Bounds Toolkit",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-08T00:24:56Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "6d9f849e7003608ae9909b20daf1f0eeedb27525cb41b6861b1cd4c8efccb09e"
+    },
+    "reviewed_at": "2026-11-07T22:24:01Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "a1fcaafb270c099ea773706912192adbfec19a83",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jtraverso/four-squares-in-caps",
+    "repository_url": "https://github.com/jtraverso/four-squares-in-caps",
+    "tree_url": "https://github.com/jtraverso/four-squares-in-caps/tree/a1fcaafb270c099ea773706912192adbfec19a83"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "kqdmss6x3j2j"
+  },
+  "title": "Four squares in caps, and Jacobi's four-square theorem for odd N",
+  "trust": {
+    "challenge_bytes": 1777,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.SpecialFunctions.Sqrt",
+      "Mathlib.NumberTheory.Divisors"
+    ],
+    "challenge_lines": 40,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "8c701be0ebd2b1b9e6218d5248ad8c79fdd42c3358bbb6465c7678c1b010904b",
+    "evidence_path": "evidence/PALOMAR-2026-11-08-000002-v1/584c764a0ec44d67410ad818c58181bcb55e03e6a1fbcbdc6dabca92ac7f83d9/",
+    "evidence_tree_sha256": "584c764a0ec44d67410ad818c58181bcb55e03e6a1fbcbdc6dabca92ac7f83d9",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "d86f8369ff11477f00cd19e455266d0c08f39da326f2248bfb2cf2326ebae8f1",
+    "protected_config_sha256": "7ff72826eebf51b8480502846c330564905f3e64ef7bbdfb703837fb1d0a76e4",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 42403825800,
+    "solution_sha256": "9c2b8ea5520cf706aa87d85d043d2002683a115a00f3b2815a23bdd0876879e5",
+    "tool_digests": {
+      "bwrap": "2904169e71798ec81b3e49ab64c38a4ded240945252d71ccf2100c73ea93965a",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-07T19:44:32Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/42403825800"
+  },
+  "version": 1
+}
