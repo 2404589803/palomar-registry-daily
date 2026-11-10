@@ -1,0 +1,495 @@
+{
+  "abstract": "A Lean 4 / Mathlib proof of Brouwer's fixed-point theorem in every finite dimension: a continuous map of a nonempty compact convex subset of a finite-dimensional real normed space into itself has a fixed point. Also proved: the same for closed balls of a finite-dimensional real inner product space, and the no-retraction theorem, that the unit sphere of such a space is not a retract of its closed unit ball.\n\nThe proof is analytic, along the lines of Milnor (1978) and Rogers (1980), and uses no homology, degree theory or simplicial approximation. A C1 retraction r of the closed unit ball onto its sphere is ruled out with the change of variables formula: for small t > 0 the map x + t(r(x) - x) sends the open ball bijectively onto itself with positive Jacobian determinant, so the integral of that determinant over the ball, a polynomial in t, equals the volume of the ball for every t, whereas at t = 1 it vanishes. Brouwer's theorem follows for C1 self-maps of the ball by the ray construction, for continuous ones by smoothing by convolution, and for compact convex sets through the nearest-point retraction. Brouwer's theorem has earlier formal proofs in HOL Light, Isabelle/HOL and Mizar, in Coq for the plane, in Lean 3 through singular homology, and in Lean 4 for the plane and for the standard simplex; this proof is independent of them. A second proof follows Knaster, Kuratowski and Mazurkiewicz (1929): Sperner's lemma for the iterated barycentric subdivisions of the simplex, by counting facets mod 2, then the KKM lemma and Brouwer's theorem for the simplex; Kakutani's and Schauder's proofs use this one, the proof of Brouwer's theorem that both papers cite.\n\nKakutani's fixed-point theorem (1941) and Schauder's fixed-point theorem (1930) are derived from Brouwer's. Kakutani's: a set-valued map of a nonempty compact convex subset of a finite-dimensional real normed space, with closed graph and nonempty convex values, has a point x in its own value at x; it is proved by Kakutani's argument (piecewise-linear approximations on barycentric subdivisions of a simplex, Brouwer, a limit along a subsequence, then a retraction for general compact convex sets), and a second time through a partition of unity. Schauder's: a continuous self-map of a nonempty compact convex subset of a real normed space of any dimension has a fixed point, and so does a continuous self-map of a nonempty closed convex subset of a real Banach space with relatively compact image; it is proved by Schauder's argument, a simplicial approximation on a fine triangulation of the convex hull of a finite epsilon-net and Brouwer's theorem, then compactness, with Mazur's theorem for the second form, and a second time through Schauder's projection.",
+  "authors": [
+    {
+      "name": "The-Anh Vu-Le"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-10-000001-v1/658a36cb44571deeacc7cc89995d89ad7ae16ba45c73c04b2d15bfdf61645437/",
+    "artifact_tree_sha256": "658a36cb44571deeacc7cc89995d89ad7ae16ba45c73c04b2d15bfdf61645437",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-09T03:54:24Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "71a2035b44e7f54a797ce799fd1b03cdd3a44684"
+  },
+  "classification": {
+    "arxiv": [
+      "math.GN",
+      "math.AT",
+      "math.CA",
+      "math.FA"
+    ],
+    "msc2020": [
+      "55M20",
+      "54H25",
+      "47H10",
+      "47H04",
+      "54C60",
+      "26B10",
+      "26B15"
+    ]
+  },
+  "first_registered_on": "2026-11-10",
+  "formalization": {
+    "challenge_path": "FixedPointChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "9d581dfff2e41de989072ea63abf3daf69311520"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "b0256621cb88178e9ad932a53633077b3029e621"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b"
+      }
+    ],
+    "solution_path": "FixedPointSolution.lean",
+    "theorem_names": [
+      "FixedPointChallenge.brouwer",
+      "FixedPointChallenge.brouwer_closedBall",
+      "FixedPointChallenge.no_retraction",
+      "FixedPointChallenge.kakutani",
+      "FixedPointChallenge.schauder",
+      "FixedPointChallenge.schauder_of_isCompact_closure_image"
+    ]
+  },
+  "id": "PALOMAR-2026-11-10-000001",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-10T01:04:23Z",
+    "receipt_sha256": "560598f29b91e40b85be7bf9c740aca87c136ea72922f275f1c00966c490c139",
+    "repositories": [
+      {
+        "commit": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-10-000001-v1/7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-10-000001-v1/d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-10-000001-v1/b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-10-000001-v1/c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "9d581dfff2e41de989072ea63abf3daf69311520",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-10-000001-v1/9d581dfff2e41de989072ea63abf3daf69311520",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-10-000001-v1/129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-10-000001-v1/16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "b0256621cb88178e9ad932a53633077b3029e621",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-10-000001-v1/b0256621cb88178e9ad932a53633077b3029e621",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-10-000001-v1/c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "5f650f00b1db63837a452696331a98ca886b94a8",
+        "fork_repository": "PalomarArchive/vltanh--lean4-fixed-point--8e5eb7b662e1",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-10-000001-v1/5f650f00b1db63837a452696331a98ca886b94a8",
+        "source_repository": "vltanh/lean4-fixed-point"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "L. E. J. Brouwer"
+          }
+        ],
+        "identifier": "doi:10.1007/BF01456931",
+        "location": "Math. Ann. 71 (1911/1912), 97-115",
+        "relationship": "formalizes",
+        "title": "Über Abbildung von Mannigfaltigkeiten",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "John Milnor"
+          }
+        ],
+        "identifier": "doi:10.1080/00029890.1978.11994635",
+        "location": "Amer. Math. Monthly 85 (1978), 521-524 (JSTOR: doi:10.2307/2320860)",
+        "relationship": "other",
+        "title": "Analytic proofs of the \"hairy ball theorem\" and the Brouwer fixed point theorem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "C. A. Rogers"
+          }
+        ],
+        "identifier": "doi:10.1080/00029890.1980.11995082",
+        "location": "Amer. Math. Monthly 87 (1980), 525-527",
+        "relationship": "other",
+        "title": "A less strange version of Milnor's proof of Brouwer's fixed-point theorem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Bronisław Knaster"
+          },
+          {
+            "name": "Kazimierz Kuratowski"
+          },
+          {
+            "name": "Stefan Mazurkiewicz"
+          }
+        ],
+        "identifier": "doi:10.4064/fm-14-1-132-137",
+        "location": "Fund. Math. 14 (1929), 132-137",
+        "relationship": "formalizes",
+        "title": "Ein Beweis des Fixpunktsatzes für n-dimensionale Simplexe",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Emanuel Sperner"
+          }
+        ],
+        "identifier": "doi:10.1007/BF02940617",
+        "location": "Abh. Math. Sem. Univ. Hamburg 6 (1928), 265-272",
+        "relationship": "other",
+        "title": "Neuer Beweis für die Invarianz der Dimensionszahl und des Gebietes",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Shizuo Kakutani"
+          }
+        ],
+        "identifier": "doi:10.1215/S0012-7094-41-00838-4",
+        "location": "Duke Math. J. 8 (1941), 457-459",
+        "relationship": "formalizes",
+        "title": "A generalization of Brouwer's fixed point theorem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Juliusz Schauder"
+          }
+        ],
+        "identifier": "doi:10.4064/sm-2-1-171-180",
+        "location": "Studia Math. 2 (1930), 171-180",
+        "relationship": "formalizes",
+        "title": "Der Fixpunktsatz in Funktionalräumen",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Stanisław Mazur"
+          }
+        ],
+        "identifier": "doi:10.4064/sm-2-1-7-9",
+        "location": "Studia Math. 2 (1930), 7-9",
+        "relationship": "other",
+        "title": "Über die kleinste konvexe Menge, die eine gegebene kompakte Menge enthält",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Peter D. Lax"
+          }
+        ],
+        "identifier": "doi:10.1080/00029890.1999.12005078",
+        "location": "Amer. Math. Monthly 106 (1999), 497-501",
+        "relationship": "background",
+        "title": "Change of variables in multiple integrals",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/harfe/fixed-point-theorems-lean4/blob/93a3eed3364281a9dbf9652bb52356a8db65057c/FixedPointTheorems/brouwer.lean",
+        "note": "Lean 4 / Mathlib (harfe, MIT licence): Brouwer's fixed-point theorem for nonempty compact convex sets in a finite-dimensional real normed space, proved through Kuhn's cubical Sperner lemma, together with Kakutani's fixed-point theorem (FixedPointTheorems/kakutani.lean, kakutani_fixed_point: compact convex sets of finite-dimensional real normed spaces, closed graph, nonempty convex values; by a continuous selection from a partition of unity, Caratheodory's theorem and a limit). Same generality as this work's Brouwer and Kakutani theorems; this work's Brouwer proof is analytic (Milnor-Rogers), and it does not use or adapt that development.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/rkirov/jordan_pick/blob/b3c9b7cf7358bf81a077d78ad67e6e8247869ddd/JordanPick/JordanCurve/Brouwer.lean",
+        "note": "Lean 4 / Mathlib (Rado Kirov), within the registered Palomar entry PALOMAR-2026-08-19-000001 (the Jordan curve theorem, at this commit): Brouwer's fixed-point theorem in the plane, for nonempty compact convex subsets of EuclideanSpace R (Fin 2) and continuous maps C(s, s), proved through the fundamental group of the circle (path lifting along R -> AddCircle 1) and the ray construction, as a step towards the Jordan curve theorem. This work proves the theorem in every finite dimension by a different, analytic method, and does not use or adapt that development.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/math-xmum/Brouwer/blob/f9dc162170e8711f78059a87edcd38ffc44a1bfb/Gametheory/Brouwer.lean",
+        "note": "Lean 4 / Mathlib (Yuwei Lyu, Kai Li; Formalizing Scarf, Brouwer, and Nash in Lean, arXiv:2607.05987): Brouwer's fixed-point theorem for continuous self-maps of the standard simplex, and of finite products of simplices, through Scarf's combinatorial theorem, towards the existence of Nash equilibria. A different statement (simplices) and method (combinatorial); this work does not use or adapt it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/Shamrock-Frost/BrouwerFixedPoint/blob/2883ceb0f5d461155fa1689266a7af40ff8ae671/src/brouwer_fixed_point.lean",
+        "note": "Lean 3 / mathlib (Brendan Seamas Murphy), listed for Brouwer's theorem (no. 36) in Mathlib's list of 100 theorems: Brouwer's theorem for nonempty compact convex subsets of finite-dimensional real normed spaces, through the singular homology of spheres. Mathlib, at the revision this project pins, has no Brouwer fixed-point theorem. This work does not use or adapt it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/jrh13/hol-light/blob/078839ea84531bd6c6cec9a58ebf69ba37149e0e/Multivariate/degree.ml",
+        "note": "HOL Light (John Harrison), theorem BROUWER of the Multivariate library: nonempty compact convex subsets of real^N. In the current library it is derived from the no-retraction theorem through the homological Brouwer degree (Multivariate/degree.ml); Harrison's earlier proof used Kuhn's combinatorial lemma, the proof that the Isabelle/HOL port keeps. This work does not use or adapt it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Brouwer_Fixpoint.html",
+        "note": "Isabelle/HOL, theory HOL-Analysis/Brouwer_Fixpoint (John Harrison; translated from HOL Light by Robert Himmelmann, with L. C. Paulson): theorem brouwer, for nonempty compact convex subsets of a Euclidean space, through Kuhn's combinatorial lemma, and the no-retraction theorem for closed balls. This work does not use or adapt it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "doi:10.2478/v10037-011-0024-3",
+        "note": "Mizar (Karol Pąk, Brouwer Fixed Point Theorem in the General Case, Formalized Mathematics 19(3) (2011), 151-153; MML article BROUWER2): Brouwer's theorem for convex compact subsets of the Euclidean space E^n with nonempty interior. This work does not use or adapt it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "doi:10.4230/LIPIcs.TYPES.2011.1",
+        "note": "Coq (Aloïs Brunel, Non-constructive complex analysis in Coq, TYPES 2011, LIPIcs 19 (2013), 1-15): the two-dimensional Brouwer fixed-point theorem, through winding numbers. No Coq/Rocq proof in every dimension was found. This work does not use or adapt it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/jrh13/hol-light/blob/078839ea84531bd6c6cec9a58ebf69ba37149e0e/Multivariate/degree.ml#L7757",
+        "note": "HOL Light (John Harrison), theorem SCHAUDER of the Multivariate library: in real^N, a continuous map of a nonempty convex set into a compact subset of it has a fixed point; finite-dimensional only, proved through absolute retracts. No Kakutani theorem in HOL Light. This work does not use or adapt it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/TauCetiProject/TauCeti/blob/686d0d7f4390d0e8d6185114e99e90b74c599656/TauCeti/Analysis/Convex/SchauderFixedPoint.lean",
+        "note": "Lean 4 / Mathlib (TauCeti): Schauder's fixed-point theorem for compact convex sets of real normed spaces and for closed convex sets and maps with relatively compact image, without completeness, with the Leray-Schauder and Schaefer theorems; through a partition-of-unity projection and Brouwer's theorem by singular homology. This work does not use or adapt it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/danlyng/Econlib/blob/003655ccf010cdf44c4f67d6675167b54ce0e9df/Econlib/Math/Topology/Schauder.lean#L328",
+        "note": "Lean 4 / Mathlib (Econlib): Schauder's theorem for compact convex sets of real normed spaces through the Schauder projection; also Tychonoff's theorem, Kakutani's theorem in finite dimension (Kakutani.lean, kakutaniFixedPoint) and the Fan-Glicksberg theorem in Hausdorff locally convex spaces. This work does not use or adapt it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/matheconlib/matheconlib/blob/212e924aab86ef196ed36886594c3ebf98654888/MathEconLib/ForMathlib/Kakutani.lean#L211",
+        "note": "Lean 4 / Mathlib (matheconlib): the Kakutani-Glicksberg-Fan theorem in Hausdorff locally convex spaces, for upper hemicontinuous maps with compact convex nonempty values, and Schauder's theorem in Hausdorff locally convex spaces (ForMathlib/Schauder.lean), through Scarf's lemma. This work does not use or adapt it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/LeanEconomics/DynamicProgramming/blob/9ae902b518234a376d07af7a7be9437b5e491700/RecursiveMethods/EquilibriaWithDistortions/EquilibriaWithDistortions/Schauder.lean",
+        "note": "Lean 4 / Mathlib (LeanEconomics): Schauder's theorem for compact convex sets, and for closed convex sets of Banach spaces with relatively compact image through Mazur's theorem. This work does not use or adapt it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/elazarg/UniformEquilibrium/blob/22f6ed14afb62eac34b679ada02b63fae9869693/MathUE/SchauderFixedPoint.lean#L225",
+        "note": "Lean 4 / Mathlib (elazarg, MIT licence): Schauder's theorem for compact convex sets of real normed spaces, through harfe's Brouwer theorem. This work does not use or adapt it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/lyw-ops/General_Scarf/blob/9b784ba0e81ca3a2f1126c1087fdf7f2d03e16e0/BeyondSperner/FixedPoint/CompactConvexKakutani.lean",
+        "note": "Lean 4 / Mathlib (lyw-ops, MIT licence): Kakutani's theorem in finite dimension, in closed-graph and upper hemicontinuous forms, through a vector Scarf lemma. This work does not use or adapt it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/RitinkarDB/eco-lean/blob/487060fb2ff5e04bf195c73913948ab5f548259d/EcoLean/MathematicalMiscellany/Kakutani.lean#L735",
+        "note": "Lean 4 / Mathlib (eco-lean): Kakutani's theorem in finite dimension at least 2, closed graph, compact convex nonempty values. This work does not use or adapt it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/facebookresearch/atlas-lean/blob/18d1aa399b6ebaa8cd9c4a48795b43f6734c3785/MathlibExt/Analysis/Convex/KKM.lean",
+        "note": "Lean 4 / Mathlib (facebookresearch/atlas-lean): the KKM lemma, through Sperner's lemma on iterated barycentric subdivisions, without a derivation of Brouwer's theorem. This work does not use or adapt it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "doi:10.2478/v10037-010-0022-x",
+        "note": "Mizar (Karol Pąk, Sperner's Lemma, Formalized Mathematics 18 (2010), 189-196): Sperner's lemma for barycentric subdivisions of a simplex, used for Brouwer's theorem for simplices (Formalized Mathematics 19 (2011), 145-150). This work does not use or adapt it.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "The-Anh Vu-Le"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-10T01:03:59Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "72931125983c42c44d0f501096a343bd8d3ca766aa71d59355d928461d908516"
+    },
+    "reviewed_at": "2026-11-09T04:20:12Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "The review fields say \"unchecked\" and list \"none\" as reviewers, but the notes report a distinct Claude agent review of the Kakutani, Schauder, and second Brouwer proofs. This gives readers conflicting accounts of whether review occurred. Record the limited agent review consistently in the status and reviewers fields, while retaining the clear statement that no person reviewed the proofs."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "5f650f00b1db63837a452696331a98ca886b94a8",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "vltanh/lean4-fixed-point",
+    "repository_url": "https://github.com/vltanh/lean4-fixed-point",
+    "tree_url": "https://github.com/vltanh/lean4-fixed-point/tree/5f650f00b1db63837a452696331a98ca886b94a8"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "21a3yb77lrlh"
+  },
+  "title": "The fixed-point theorems of Brouwer, Kakutani and Schauder, with an analytic proof of Brouwer's theorem and one through Sperner's lemma",
+  "trust": {
+    "challenge_bytes": 8070,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Convex.Basic",
+      "Mathlib.Analysis.InnerProductSpace.Basic",
+      "Mathlib.LinearAlgebra.FiniteDimensional.Defs"
+    ],
+    "challenge_lines": 130,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "8c317a08aedbaaffb01a64b4eccb43c2cb15156ab0e89487111a768854f34fa3",
+    "evidence_path": "evidence/PALOMAR-2026-11-10-000001-v1/cd9e18ffac8a4c7e95b49c1be4cd538b8474a454449ab2cab7ad1017b044b584/",
+    "evidence_tree_sha256": "cd9e18ffac8a4c7e95b49c1be4cd538b8474a454449ab2cab7ad1017b044b584",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "a4246dc32dda81ace2e749206c50acd44068ad8705c1dff109f8c176043fa126",
+    "protected_config_sha256": "a60de848e13e0acd542aa385e069cc4002627337b42a98fd073111c08c2aa432",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 42555439223,
+    "solution_sha256": "f433bc411a0f350b78099e8a1dcbbcbef671dad39bd33404a2067f3aa0cbfb97",
+    "tool_digests": {
+      "bwrap": "0c84d9f5bb4ee2339afcda699ff4cb1b38e1d15351e6a9f18be65f78a4a21c56",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "b35cb10cf2ced51a2fd1880cfdbf75c71ab7a35a",
+    "verified_at": "2026-11-09T03:26:08Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/42555439223"
+  },
+  "version": 1
+}

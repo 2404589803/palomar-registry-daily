@@ -1,0 +1,380 @@
+{
+  "abstract": "A Lean 4 formalization of the paper's main theorem: for any permutations π and σ of the d and e intervals, the set of pairs of length vectors (λ, μ) for which the two interval exchange transformations f_{π,λ} and f_{σ,μ} generate a free group of rank 2 has measure zero. The development contains the irreducible case (Theorem 2.6, from unique ergodicity, rigidity by translations and the Diophantine condition), the almost-everywhere Diophantine property (Proposition 2.5, from the easy direction of Khintchine–Groshev), Lemma 3.1 (the length map of the composition is injective and absolutely continuous), the reduction of the general case to the blocks between consecutive pair-splitting singularities (Lemmas 3.2 and 3.3), Lemma 3.4 (a word trivial on a block, obtained by rescaling the block and applying Theorem 2.6 to it), and the assembly of the per-block words into a single nontrivial word. Masur–Veech unique ergodicity and Veech's rigidity are proved as well, by the Rauzy–Veech induction (`IETFree/RauzyVeech/`, `IETFree/Rigidity/`, `IETFree/UniqueErgodicity/`), so the main theorem is unconditional. The remark that follows the main theorem — the relation of a trivial word is robust, so the pairs that do not generate a free group contain an open set of full measure — is proved in `IETFree/Pair/RobustRelation/`: the symbolic data of an arbitrary word and the robustness at a point of the conull set `Ω'` (`evalWord_eventually_eq_one`), and the assembly of the open conull set (`exists_isOpen_subset_hasRelation_of_ae`), which `ChallengeSolved.lean` feeds with the a.e. relation it proves from `main` — the conclusion on `Δ_π × Δ_σ` is `exists_isOpen_ae_exists_nontrivial_evalWordEquiv_eq_one`.",
+  "authors": [
+    {
+      "name": "Sébastien Gouëzel"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-09-000010-v1/622b2933d66737ec3c3a9e4f71ab99abe673a75bfbce21388d71d40e1e3d560e/",
+    "artifact_tree_sha256": "622b2933d66737ec3c3a9e4f71ab99abe673a75bfbce21388d71d40e1e3d560e",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-09T09:47:07Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.DS"
+    ],
+    "msc2020": [
+      "37E05",
+      "37A15",
+      "37C85",
+      "37A25",
+      "20E05",
+      "11J83"
+    ]
+  },
+  "first_registered_on": "2026-11-09",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "IntervalExchange.mkIETEquiv"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "IETFree/ChallengeSolved.lean",
+    "theorem_names": [
+      "IntervalExchange.coe_mkIETEquiv",
+      "IntervalExchange.main",
+      "IntervalExchange.Pair.exists_isOpen_ae_exists_nontrivial_evalWordEquiv_eq_one"
+    ]
+  },
+  "id": "PALOMAR-2026-11-09-000010",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-09T11:37:35Z",
+    "receipt_sha256": "62191532a114ec3c03fde8a7032661219967ac1e4f7bb58091b98eca2415f2bb",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000010-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000010-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000010-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000010-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000010-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000010-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000010-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000010-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000010-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "94c4455c3243ff4229cd5e0c58af6f97879777b7",
+        "fork_repository": "PalomarArchive/sgouezel--IETFree--9c6a211e1e75",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000010-v1/94c4455c3243ff4229cd5e0c58af6f97879777b7",
+        "source_repository": "sgouezel/IETFree"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Sébastien Gouëzel"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2610.29993",
+        "location": "Theorem 1.1 (main theorem); Sections 2 and 3 for the intermediate results",
+        "relationship": "formalizes",
+        "title": "Almost every pair of interval exchange transformations does not generate a free group",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Howard Masur"
+          }
+        ],
+        "identifier": "Ann. of Math. (2) 115 (1982), 169–200",
+        "location": "unique ergodicity of almost every interval exchange with an irreducible permutation",
+        "relationship": "formalizes",
+        "title": "Interval exchange transformations and measured foliations",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "William A. Veech"
+          }
+        ],
+        "identifier": "Ann. of Math. (2) 115 (1982), 201–242",
+        "location": "unique ergodicity of almost every interval exchange with an irreducible permutation",
+        "relationship": "formalizes",
+        "title": "Gauss measures for transformations on the space of interval exchange maps",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "William A. Veech"
+          }
+        ],
+        "identifier": "Amer. J. Math. 106 (1984), 1331–1359",
+        "location": "Theorem 1.2 (a.e. unique ergodicity) and Theorem 1.4 (a.e. rigidity by translations)",
+        "relationship": "formalizes",
+        "title": "The metric theory of interval exchange transformations. I. Generic spectral properties",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jean-Christophe Yoccoz"
+          }
+        ],
+        "identifier": "doi:10.1007/3-540-31347-8_12 (Frontiers in Number Theory, Physics, and Geometry I, Springer, 2006, 401–435)",
+        "location": "§2–§4.4 (pp. 3–20): the Rauzy–Veech induction, the towers and the ray criterion; used by `IETFree/RauzyVeech/`",
+        "relationship": "adapts",
+        "title": "Continued fraction algorithms for interval exchange maps: an introduction",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Artur Avila"
+          },
+          {
+            "name": "Sébastien Gouëzel"
+          },
+          {
+            "name": "Jean-Christophe Yoccoz"
+          }
+        ],
+        "identifier": "doi:10.1007/s10240-006-0001-5 (Publ. Math. Inst. Hautes Études Sci. 104 (2006), 143–211)",
+        "location": "Appendix A (the graded induction: the distortion estimate behind the rich path); used by `IETFree/RauzyVeech/RichPath/`",
+        "relationship": "adapts",
+        "title": "Exponential mixing for the Teichmüller flow",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Steven P. Kerckhoff"
+          }
+        ],
+        "identifier": "Ergodic Theory Dynam. Systems 5 (1985), no. 2, 257–271",
+        "location": "the criterion behind `RayCondition` (`IETFree/RauzyVeech/`): positive blocks on a nested sequence of simplices imply unique ergodicity",
+        "relationship": "adapts",
+        "title": "Simplicial systems for interval exchange maps and measured foliations",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Stefano Marmi"
+          },
+          {
+            "name": "Pierre Moussa"
+          },
+          {
+            "name": "Jean-Christophe Yoccoz"
+          }
+        ],
+        "identifier": "J. Amer. Math. Soc. 18 (2005), 823–872",
+        "location": "the top/bottom permutation formalism of `IETDatum₂` (`piBottom = π₀`, `piTop = π₁`)",
+        "relationship": "background",
+        "title": "The cohomological equation for Roth type interval exchange maps",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Sébastien Gouëzel"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-09T11:37:11Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "7079e49d5c92d1e2dc1277dea389801017a31e178fcb53e67f5eacf37cdd9fdd"
+    },
+    "reviewed_at": "2026-11-09T11:24:21Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "94c4455c3243ff4229cd5e0c58af6f97879777b7",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "sgouezel/IETFree",
+    "repository_url": "https://github.com/sgouezel/IETFree",
+    "tree_url": "https://github.com/sgouezel/IETFree/tree/94c4455c3243ff4229cd5e0c58af6f97879777b7"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "hwvf84r1093r"
+  },
+  "title": "IETFree — almost every pair of interval exchange transformations does not generate a free group",
+  "trust": {
+    "challenge_bytes": 8610,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 158,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "44bf56adc4eaccfc87e94b51f72bfca8f9063584005f5ff8540c1d6318e7edcc",
+    "evidence_path": "evidence/PALOMAR-2026-11-09-000010-v1/464fff87d741c3657eeb18bc88fb1daa7c59da2994520360714b257e6f290e7b/",
+    "evidence_tree_sha256": "464fff87d741c3657eeb18bc88fb1daa7c59da2994520360714b257e6f290e7b",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "e84003b551983032d085be0bd2e7814980afc9616c13dcae621277e2e685d2c6",
+    "protected_config_sha256": "4de966f0f15ca369695845c556dd8393d60cb886da66c5fecd809ec6b38372d8",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 42592390216,
+    "solution_sha256": "8f9de7dbb224c39f66305285f380d4ac1575fdf778c712c211a49855dca5a224",
+    "tool_digests": {
+      "bwrap": "ac7ebf1f114adbd13cda5c3b27c3b08f890943abe1053afd98f6034b4a641e76",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-09T09:27:49Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/42592390216"
+  },
+  "version": 1
+}

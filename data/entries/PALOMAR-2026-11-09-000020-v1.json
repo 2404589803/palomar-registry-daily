@@ -1,0 +1,320 @@
+{
+  "abstract": "Formalizes the target lowMul3, the three low bits of the product of two 3-bit integers (the product modulo 8), in the unrestricted XOR--AND circuit model of arXiv:2608.30238v1, where XOR and constants are free and either input of a paid AND gate may reuse arbitrary earlier nonlinear wires. Phase 1 proves that the three ANF coordinates agree with integer multiplication modulo 8 on all 64 inputs, and gives an explicit six-gate circuit, one of whose gates reuses two earlier nonlinear wires. Phase 2 adds the derivative lemma (Lemma 8 of the four-gate note in paper/notes/). Phase 3 proves the normal form (Lemma 1), Lemma 2, the pi2 / iota layer with Lemma 8 in the paper's form, Lemma 4 (kernel) and Lemma 6, excludes lambda = 5, and reduces MC(lowMul3) = 6 to four explicit statements. Phase 4 proves the four-linear-gate case (StarFree, Theorem 12 of the note). Phases 5 and 6 prove the three-linear-gate case (lambdaCase_three), so MC(lowMul3) = 6 follows from LambdaCase 1 and LambdaCase 2. The development proves both remaining cases, including TwoClaim and the shared modular feedback lemmas. LowHalfMul3Solution.lean proves the unconditional theorem mc_lowMul3.",
+  "authors": [
+    {
+      "name": "Bshara Alhodali",
+      "orcid": "0009-0003-4870-8745",
+      "orcid_record_checked_at": "2026-11-09T20:30:03Z"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-09-000020-v1/42d7eb96a390e230acba94973e99922b595baab41faaaff4042451a4ea980a33/",
+    "artifact_tree_sha256": "42d7eb96a390e230acba94973e99922b595baab41faaaff4042451a4ea980a33",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-09T21:15:39Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.CC"
+    ],
+    "msc2020": [
+      "68Q06",
+      "68Q17",
+      "94D10"
+    ]
+  },
+  "first_registered_on": "2026-11-09",
+  "formalization": {
+    "challenge_path": "LowHalfMul3Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "unrestricted_boolean_mul",
+        "repository": "GregoryMorse/unrestricted-boolean-mul",
+        "revision": "c014e498e51a98529877cc256b9bcdaf5faa2e4f"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "LowHalfMul3Solution.lean",
+    "theorem_names": [
+      "UnrestrictedBooleanMul.LowHalfMul3.mc_lowMul3"
+    ]
+  },
+  "id": "PALOMAR-2026-11-09-000020",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-09T22:04:57Z",
+    "receipt_sha256": "1cfa6764c84273caafaf618972c787cfca7e1b8c7f881fd2f8a5f0337ab0c14b",
+    "repositories": [
+      {
+        "commit": "b6c00ef8d94ff578585b428270df1af271a96bd6",
+        "fork_repository": "PalomarArchive/bishara74--lowhalf-mul3--c49c0da1e89d",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000020-v1/b6c00ef8d94ff578585b428270df1af271a96bd6",
+        "source_repository": "bishara74/lowhalf-mul3"
+      },
+      {
+        "commit": "c014e498e51a98529877cc256b9bcdaf5faa2e4f",
+        "fork_repository": "PalomarArchive/GregoryMorse--unrestricted-boolean-mul--3d6873ffef31",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000020-v1/c014e498e51a98529877cc256b9bcdaf5faa2e4f",
+        "source_repository": "GregoryMorse/unrestricted-boolean-mul"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000020-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000020-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000020-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000020-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000020-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000020-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000020-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000020-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000020-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Bshara Alhodali",
+            "orcid": "0009-0003-4870-8745",
+            "orcid_record_checked_at": "2026-11-09T20:30:03Z"
+          },
+          {
+            "name": "Gregory Morse",
+            "orcid": "0000-0002-0231-6557",
+            "orcid_record_checked_at": "2026-11-09T20:30:03Z"
+          }
+        ],
+        "location": "paper/main.tex",
+        "relationship": "formalizes",
+        "title": "The multiplicative complexity of the three-bit low-half multiplier",
+        "type": "manuscript"
+      },
+      {
+        "authors": [
+          {
+            "name": "Gregory Morse"
+          }
+        ],
+        "identifier": "arXiv:2608.30238v1",
+        "license": "CC-BY-4.0",
+        "location": "https://arxiv.org/html/2608.30238v1",
+        "relationship": "other",
+        "title": "Unrestricted Boolean Multiplicative Complexity of Four-Term Binary Polynomial Multiplication: Rational Places, Hasse Jets, and the Failure of Nonlinear Feedback",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/GregoryMorse/unrestricted-boolean-mul",
+        "note": "The model, the ANF layer, the Circuit structure, MC and the aVar/bVar/Mul targets are imported from that package at the revision pinned in lake-manifest.json; they are not re-formalized here.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Bshara Alhodali",
+        "orcid": "0009-0003-4870-8745",
+        "orcid_record_checked_at": "2026-11-09T20:30:03Z"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-09T22:04:30Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "b94df71cd4cb050ea791047ab0eea47cd284b00fec2abbbbce592b2cadaafeb9"
+    },
+    "reviewed_at": "2026-11-09T21:35:45Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "b6c00ef8d94ff578585b428270df1af271a96bd6",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "bebe835fa3ae7917475461dc6c0c64a62d7acb9a662d983f5e79b2dc68bff729"
+    },
+    "repository": "bishara74/lowhalf-mul3",
+    "repository_url": "https://github.com/bishara74/lowhalf-mul3",
+    "tree_url": "https://github.com/bishara74/lowhalf-mul3/tree/b6c00ef8d94ff578585b428270df1af271a96bd6"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "zovypfy1120b"
+  },
+  "title": "Unrestricted Boolean multiplicative complexity of the 3x3 low-half multiplier",
+  "trust": {
+    "challenge_bytes": 5336,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Field.ZMod",
+      "Mathlib.Algebra.MonoidAlgebra.Basic",
+      "Mathlib.LinearAlgebra.Span.Defs",
+      "Mathlib.Tactic"
+    ],
+    "challenge_lines": 136,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "3d186dddaa2808f0f85881a41300decb4adcb6fb165c61d2d45b1cb504ab2fa1",
+    "evidence_path": "evidence/PALOMAR-2026-11-09-000020-v1/83a5f918dfe6faee610b8b1b3d5c0b4f2e0fc1b0cf60f0fc352975c34b9634bb/",
+    "evidence_tree_sha256": "83a5f918dfe6faee610b8b1b3d5c0b4f2e0fc1b0cf60f0fc352975c34b9634bb",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "c28744d5dfcfcea8475fffb7581d40ae8c2d57d4d7463120d60cc9fe4cbe7745",
+    "protected_config_sha256": "441cae326c7384c343779002e346b130791efe5b50125819351004ea30ad5307",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 42693351026,
+    "solution_sha256": "43924d49209354523d296e407dada41a2f33f87a1c0efa7e4fde8b73c5b72d47",
+    "tool_digests": {
+      "bwrap": "34eb46a6ea171427c7c9d49514798407fb97bf7b8313fc45b165a861409c0208",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-09T20:43:11Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/42693351026"
+  },
+  "version": 1
+}
