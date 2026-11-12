@@ -1,0 +1,483 @@
+{
+  "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of six statements. An additive map phi between associative rings is a Jordan homomorphism when phi(ab + ba) = phi(a)phi(b) + phi(b)phi(a). (1) A Jordan homomorphism onto a prime ring without 2-torsion is a homomorphism or an anti-homomorphism (phi(ab) = phi(b)phi(a)): Herstein's theorem (1956, Theorem H) in the form Smiley gave it (1957, p. 428), with characteristic 3 admitted; an additive map of rings, no identity assumed. (2) The domain form in every characteristic (Jacobson and Rickart 1950, Theorem 2): an additive map with phi(a^2) = phi(a)^2 and phi(aba) = phi(a)phi(b)phi(a), into a ring without zero divisors, is multiplicative or anti-multiplicative, with no surjectivity and no hypothesis on 2. (3)-(5) Each hypothesis of (1) is needed; each statement asserts that one hypothesis fails, that the others hold, and that the map is neither multiplicative nor anti-multiplicative: (3) from 2x2 into 4x4 integer matrices, not onto, the target prime and without 2-torsion (witness a -> diag(a, a^T)); (4) on pairs of 2x2 integer matrices, onto, the target not prime (witness (a, b) -> (a, b^T)); (5) from F_2 x F_2 onto F_2, a prime ring with 2-torsion (witness (x, y) -> x + y). (6) The theorem in every characteristic (Smiley 1957, Added in proof, p. 429): an additive map with the two identities of (2), onto a prime ring, is a homomorphism or an anti-homomorphism, with no hypothesis on 2; it implies (1), and (5) shows that the Jordan identity alone does not suffice when the ring has 2-torsion. The compared statements add no definition: the identities on the map and the conditions on the target ring are written out as universally quantified statements, the maps are Mathlib's AddMonoidHom, and onto is Function.Surjective. Statements 1, 2 and 6 formalize theorems of the 1950s and statements 3-5 are standard examples; nothing here is a new theorem. The proof of (1) follows the argument written out by Beidar, Bresar and Chebotar (2003, Proposition 3.1), not Smiley's; the proof of (2) is Jacobson and Rickart's; the proof of (6) is Smiley's, through his lemma that a prime ring in which every commutator squares to zero is commutative. Not formalized: the semiprime generalizations. A prior formalization of the case of complex-linear maps between unital complex algebras exists in github.com/openai/math and is recorded under related_formalizations; statements (1) and (6) contain that case. Application (cited; no compared statement asserts it): the self-adjoint elements of an algebra of observables are closed under the symmetrized product and not, in general, under the product; applied to the identity map, (1) says that on a prime ring without 2-torsion the symmetrized product determines the associative product up to reversing the order of the factors.",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-11-000008-v1/9dacac9a47966ba3739949ab977c6a543a1241058efdbbd60600f067206d5ece/",
+    "artifact_tree_sha256": "9dacac9a47966ba3739949ab977c6a543a1241058efdbbd60600f067206d5ece",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-11T13:40:05Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.RA",
+      "math-ph",
+      "quant-ph"
+    ],
+    "msc2020": [
+      "16W10",
+      "16N60",
+      "17C50",
+      "81R15"
+    ]
+  },
+  "first_registered_on": "2026-11-11",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "JordanPrime.jordan_onto_prime",
+      "JordanPrime.twoIdentity_into_domain",
+      "JordanPrime.onto_needed",
+      "JordanPrime.prime_needed",
+      "JordanPrime.two_needed",
+      "JordanPrime.twoIdentity_onto_prime"
+    ]
+  },
+  "id": "PALOMAR-2026-11-11-000008",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-11T23:12:13Z",
+    "receipt_sha256": "2a03060153f36c5214bbf9522daa55ae13fade00afc47e40e926a643b4d51e73",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-11-000008-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-11-000008-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-11-000008-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-11-000008-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-11-000008-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-11-000008-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-11-000008-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-11-000008-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-11-000008-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "34dffa8aace3a1b565b11cbb561db3a58fa203da",
+        "fork_repository": "PalomarArchive/stalex444--herstein-jordan-homomorphisms--865f53090a9e",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-11-000008-v1/34dffa8aace3a1b565b11cbb561db3a58fa203da",
+        "source_repository": "stalex444/herstein-jordan-homomorphisms"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "I. N. Herstein"
+          }
+        ],
+        "identifier": "Transactions of the American Mathematical Society 81 (1956), no. 2, 331-341",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/S0002-9947-1956-0076751-6",
+        "relationship": "formalizes",
+        "title": "Jordan homomorphisms",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "M. F. Smiley"
+          }
+        ],
+        "identifier": "Transactions of the American Mathematical Society 84 (1957), no. 2, 426-429",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/S0002-9947-1957-0083484-X",
+        "relationship": "formalizes",
+        "title": "Jordan homomorphisms onto prime rings",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "K. I. Beidar"
+          },
+          {
+            "name": "M. Brešar"
+          },
+          {
+            "name": "M. A. Chebotar"
+          }
+        ],
+        "identifier": "Communications in Algebra 31 (2003), no. 2, 633-644",
+        "license": "unknown",
+        "location": "https://doi.org/10.1081/AGB-120017336",
+        "relationship": "adapts",
+        "title": "Jordan superhomomorphisms",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "N. Jacobson"
+          },
+          {
+            "name": "C. E. Rickart"
+          }
+        ],
+        "identifier": "Transactions of the American Mathematical Society 69 (1950), 479-502",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/S0002-9947-1950-0038335-X",
+        "relationship": "formalizes",
+        "title": "Jordan homomorphisms of rings",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "M. Brešar"
+          }
+        ],
+        "identifier": "Mathematical Proceedings of the Cambridge Philosophical Society 144 (2008), no. 2, 317-328",
+        "license": "unknown",
+        "location": "https://doi.org/10.1017/S0305004107000825",
+        "relationship": "adapts",
+        "title": "Jordan homomorphisms revisited",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "H. Havlicek"
+          }
+        ],
+        "identifier": "arXiv:2004.00886v2",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2004.00886",
+        "relationship": "adapts",
+        "title": "Germán Ancochea's work on projectivities, harmonicity preservers and semi-homomorphisms",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "M. Brešar"
+          }
+        ],
+        "identifier": "Journal of Algebra 127 (1989), 218-228",
+        "license": "unknown",
+        "location": "https://doi.org/10.1016/0021-8693(89)90285-8",
+        "relationship": "background",
+        "title": "Jordan mappings of semiprime rings",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "W. E. Baxter"
+          },
+          {
+            "name": "W. S. Martindale 3rd"
+          }
+        ],
+        "identifier": "Journal of Algebra 56 (1979), 457-471",
+        "license": "unknown",
+        "location": "https://doi.org/10.1016/0021-8693(79)90349-1",
+        "relationship": "background",
+        "title": "Jordan homomorphisms of semiprime rings",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "P. Jordan"
+          },
+          {
+            "name": "J. von Neumann"
+          },
+          {
+            "name": "E. Wigner"
+          }
+        ],
+        "identifier": "Annals of Mathematics 35 (1934), 29-64",
+        "license": "unknown",
+        "location": "https://doi.org/10.2307/1968117",
+        "relationship": "background",
+        "title": "On an algebraic generalization of the quantum mechanical formalism",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "R. V. Kadison"
+          }
+        ],
+        "identifier": "Annals of Mathematics 54 (1951), 325-338",
+        "license": "unknown",
+        "location": "https://doi.org/10.2307/1969534",
+        "relationship": "background",
+        "title": "Isometries of operator algebras",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "M. Brešar"
+          },
+          {
+            "name": "E. Zelmanov"
+          }
+        ],
+        "identifier": "Serdica Mathematical Journal 51 (2025), no. 3-4, 203-230",
+        "license": "unknown",
+        "location": "https://doi.org/10.55630/serdica.2025.51.203-230",
+        "relationship": "background",
+        "title": "Jordan homomorphisms: A survey",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "M. Brešar"
+          }
+        ],
+        "identifier": "Journal of Algebra 671 (2025), 159-180",
+        "license": "unknown",
+        "location": "https://doi.org/10.1016/j.jalgebra.2025.03.007",
+        "relationship": "background",
+        "title": "Splittable Jordan homomorphisms and commutator ideals",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/Analysis/KadisonKastler/Jordan.lean",
+        "note": "PRIOR FORMALIZATION OF A SPECIAL CASE OF STATEMENT 1. The file is lean/OAI/Analysis/KadisonKastler/Jordan.lean in github.com/openai/math, read on 2026-11-10 at commit 4eaee87548250b2682affda7d05d947c05554bae (file sha256 f7ba1d007eb1b6e887c61a1d0eb589bf9595162568adc58a8c98ff0f73e7a6a9; the file's only commit is dated 2026-10-06). Its theorem OAI.KadisonKastler.PreservesJordan.multiplicative_or_antimultiplicative, described there as \"Herstein's orientation theorem in the complex prime-target case\", proves the conclusion of statement 1 for a surjective complex-linear map between unital complex algebras whose target is prime in the same universally quantified form. Statement 1 here contains that case and is free of three restrictions: the maps are additive (no scalars), the rings need not have an identity, and \"2 is invertible\" is replaced by \"no 2-torsion\". The same file proves, for complex-linear maps, the square, triple-product and linearized triple-product identities and the defect relation (with surjectivity); the library lemmas map_sq_of_jordan, map_triple_of_jordan, map_triple_lin and defect_sandwich are their ring-level counterparts. Statement 6 (the two-identity form onto a prime ring, with no hypothesis on 2) contains the same complex case and is not there in any other form: every theorem of the file about a Jordan map takes a complex-linear map. Statements 2-5 (the domain form and the three examples) were not found in that repository: on 2026-11-10, at the commit above, all of its Lean files were searched by name and by content for the Jordan identity, the homomorphism-or-anti-homomorphism conclusion, the definitions PreservesJordan and IsPrimeAlgebra, and the words Herstein, antimultiplicative and anti-homomorphism; the only matches on this subject are in the Kadison-Kastler files, which use the complex-linear theorem and contain no domain form, no two-identity form, no counterexample and no version for additive maps. Contact with the OpenAI file: the proof plan (five steps, from Beidar-Bresar-Chebotar Proposition 3.1) was written before the file was found. An AI-assisted scope review then found the file, read all of it, and compiled a scratch check modelled on it; that scratch is not part of this repository and was not opened when the Lean in this entry was written. Before writing that Lean, the drafting session read the scope review's report and lines 1-40 and 150-182 of the file (the header, the two definitions, the halving lemma, the statement of the squares lemma, the end of a private definition, and the main theorem with all but the last line of its proof, which ends at line 183). The rest of the file was read after the build, for this note. Both developments follow the same classical argument (squares, triple product, linearized triple product, defect relation, covering). The Lean here differs in the two-identity factoring, the lemma tau * omega = 0 and the domain form (absent there), the last step (tau x omega y tau = 0 here, tau x omega y omega = 0 there), the covering lemma and the tactics. No code was copied. The relationship is recorded as \"other\" and not as \"independent\" because of that contact.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/abderrahim-lectures/braided-sym-deriv/tree/b14553ed8bde9173783266047bca7dd5a79bdba8",
+        "note": "ADJACENT, NOT THIS THEOREM. A Lean 4 development, read on 2026-11-10 at commit b14553ed8bde9173783266047bca7dd5a79bdba8 (dated 2026-11-04). It formalizes Jordan derivations (Bresar 1988 Theorem 1; Herstein 1957, \"Jordan derivations of prime rings\"; Cusack 1975), not Jordan homomorphisms. Overlaps: it defines prime, semiprime and 2-torsion-free rings in the same universally quantified form used here (there for rings with identity), and its lemma bresar_lemma4 is a semiprime relative of the last step of statement 1 (from tau x omega + omega x tau = 0 for all x, the library here derives tau x omega y tau = 0 and applies primeness twice). No statement or module is shared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/MColbrook/Proof-of-the-spectral-isometry-conjecture-for-C-star-algebras",
+        "note": "ADJACENT, NOT THIS THEOREM. Registry record PALOMAR-2026-10-28-000031, read on 2026-11-10. It proves that unital surjective spectral isometries of C*-algebras are Jordan isomorphisms (complex-linear bijections preserving squares), and, in its library, that complex-linear Jordan derivations of semiprime complex algebras are derivations. It contains no statement that a Jordan homomorphism is a homomorphism or an anti-homomorphism. No statement or module is shared.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4",
+        "note": "Mathlib declarations used in this repository include NonUnitalRing, AddMonoidHom, Matrix, Matrix.fromBlocks, Matrix.single and ZMod. The compared statements use Mathlib vocabulary only; no definition is added. Mathlib at the pin has no Jordan-homomorphism declaration and no prime-ring predicate for noncommutative rings, which is why the hypotheses are written out. Mathlib's Algebra/Jordan/Basic.lean (IsJordan, IsCommJordan) concerns Jordan identities of a multiplication on one type, and SymAlg (Algebra/Symmetrized.lean) carries the product (ab + ba)/2 and needs 2 invertible; neither is used.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-11T23:11:48Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "fe0fbb1493eff41dcecf400f27090afd47317e70954715ddf9ac7bf531bfb387"
+    },
+    "reviewed_at": "2026-11-11T17:26:07Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "34dffa8aace3a1b565b11cbb561db3a58fa203da",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/herstein-jordan-homomorphisms",
+    "repository_url": "https://github.com/stalex444/herstein-jordan-homomorphisms",
+    "tree_url": "https://github.com/stalex444/herstein-jordan-homomorphisms/tree/34dffa8aace3a1b565b11cbb561db3a58fa203da"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "spqa1l5vwo12"
+  },
+  "title": "Herstein's theorem on Jordan homomorphisms onto prime rings, in Smiley's form for characteristic different from 2 and in his form for every characteristic, with the Jacobson-Rickart domain theorem and an example for each hypothesis",
+  "trust": {
+    "challenge_bytes": 11081,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 179,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "9b6c3a5d6a2269e9bfb7e8d681cfb206de9b1af3eeee69a18299550464559ac4",
+    "evidence_path": "evidence/PALOMAR-2026-11-11-000008-v1/4071aca66db6ba585a7378e6a4118b093e1a8cd08d40adf9870a0a805a90fa88/",
+    "evidence_tree_sha256": "4071aca66db6ba585a7378e6a4118b093e1a8cd08d40adf9870a0a805a90fa88",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "b7f8f41443927c2acd353a4a586d3c260c601cc24734ac5a01c8e963b02e197a",
+    "protected_config_sha256": "f532ac60e7f6ac4510b24c2d5d9e008d6a191916660c6233ea6af66f52993e06",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43022326075,
+    "solution_sha256": "d97d35ddefc740276b180153f9ec97258296240c195205a1c68deb901a40f45d",
+    "tool_digests": {
+      "bwrap": "60e65505fe564836ebd98345c69e6080f4299a3eccd9004e6f9493105abbfa9c",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-11T13:28:22Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43022326075"
+  },
+  "version": 1
+}

@@ -1,0 +1,204 @@
+{
+  "abstract": "Explicit one-tape, two-symbol Turing machines with a designated beep state (Aaronson's beeping busy beaver convention), given as literal transition tables, together with core-Lean proofs (no Mathlib) that each machine, run from the blank tape, beeps only finitely often exactly when a stated Sigma_2 sentence holds. The flagship machine (278 states) is equivalent to the Sigma_2 form of P = NP: some candidate program decides a fixed self-padded NP-complete language within a polynomial clock on every instance. The equivalence of that sentence with P = NP is also proved in Lean (ZP.Cx.sentence_iff_PeqNP) for the Turing-machine models defined in the development. The same guest interpreter yields machines for further Sigma_2 statements (P = PP and P = PSPACE, factoring, discrete logarithm, graph isomorphism, an NTT-based variant over least primes 1 + n i, multiplication, and a co-NP verifier variant), and a 19-state machine that quasihalts iff there are finitely many twin primes.",
+  "authors": [
+    {
+      "name": "Gregory Morse"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-11-000006-v1/26745d568e252d13799d24a30512b929a1748c7f8580a8e076db8563959761e4/",
+    "artifact_tree_sha256": "26745d568e252d13799d24a30512b929a1748c7f8580a8e076db8563959761e4",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-11T13:37:57Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.CC",
+      "math.LO"
+    ],
+    "msc2020": [
+      "68Q15",
+      "03D10",
+      "68V15"
+    ]
+  },
+  "first_registered_on": "2026-11-11",
+  "formalization": {
+    "challenge_path": "formal/Challenge.lean",
+    "comparator_config_path": "formal/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formal/formalization.yaml",
+    "lakefile_path": "formal/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [],
+    "solution_path": "formal/Solution.lean",
+    "theorem_names": [
+      "ZP.zp_quasihalts_iff_sentence",
+      "ZP.zpp_quasihalts_iff_sentence",
+      "ZP.zps_quasihalts_iff_sentence",
+      "ZP.zfac_quasihalts_iff_sentence",
+      "ZP.zdl_quasihalts_iff_sentence",
+      "ZP.zgi_quasihalts_iff_sentence",
+      "ZP.zntt_quasihalts_iff_sentence",
+      "ZP.zmul_quasihalts_iff_sentence",
+      "ZP.zconp_quasihalts_iff_sentence",
+      "ZP.twin_quasihalts_iff"
+    ]
+  },
+  "id": "PALOMAR-2026-11-11-000006",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-11T19:02:02Z",
+    "receipt_sha256": "d6a56feffc549cd853095cc6974600d8231e16f38b6fd779b8519c7552a69704",
+    "repositories": [
+      {
+        "commit": "67dadf083847b72f7177e1f96897d4f49547aea3",
+        "fork_repository": "PalomarArchive/GregoryMorse--NP-complete--27303b648daa",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-11-000006-v1/67dadf083847b72f7177e1f96897d4f49547aea3",
+        "source_repository": "GregoryMorse/NP-complete"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "relationship": "other",
+        "title": "Explicit beeping busy beaver machine whose quasihalting is equivalent to the Σ₂ form of P = NP",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "Scott Aaronson"
+          }
+        ],
+        "location": "SIGACT News 51(3), 2020",
+        "relationship": "background",
+        "title": "The Busy Beaver Frontier",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/calr3/tinycryptids/tree/main/twinprimes",
+        "note": "C. Reams' earlier 18-state twin-prime beeper, proved in Lean (Oct 2026). It marks a beep transition rather than a beep state; under this repository's beeping-busy-beaver convention (a state entered only at beeps) the same-family design here has 19 states, and 18 when counted Reams' way. The selected twin-prime machine and its Lean proof are independent work; see twin/README.md for the comparison.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://wiki.bbchallenge.org/wiki/TMBR:_October_2026",
+        "note": "Records Mira's (GPT-6.1 Terra) P = NP beeper (BBB(290)) and NP = coNP beeper (BBB(284)) of 2026-10-31, initially unformalized. Parallel, independent work on the same problem; this repository does not build on it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://wiki.bbchallenge.org/wiki/TMBR:_November_2026",
+        "note": "Records Mira-Cult's Lean formalization of a 285-state P = NP beeper (2026-11-04) and 284-/266-state NP = coNP beepers (2026-11-06; the 284-state table is Lean-formalized), parallel to this repository's 278-state P = NP, P = PP and P = PSPACE machines (announced 2026-11-01) and its ten Lean formalizations (completed 2026-11-09). State counts differ in convention: designated beep state here, designated beep transition there. The prior-art relationship was checked against the bbchallenge Discord and wiki by the author.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Gregory Morse"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-11T19:01:50Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "1e3bfc0c3218dd99d7d3904ed20259f780796d926671cb5a46d0ce01630e4190"
+    },
+    "reviewed_at": "2026-11-11T17:23:23Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "67dadf083847b72f7177e1f96897d4f49547aea3",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "formal",
+    "repository": "GregoryMorse/NP-complete",
+    "repository_url": "https://github.com/GregoryMorse/NP-complete",
+    "tree_url": "https://github.com/GregoryMorse/NP-complete/tree/67dadf083847b72f7177e1f96897d4f49547aea3/formal"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "2zb75hw2miu5"
+  },
+  "title": "A beeping busy beaver machine for the Σ₂ form of P vs NP",
+  "trust": {
+    "challenge_bytes": 74532,
+    "challenge_dependencies": [],
+    "challenge_imports": [],
+    "challenge_lines": 948,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "833b7c77f8f1c9237432dced593b9bd46e871ca9521a6c9fe9ce564ca11b23ba",
+    "evidence_path": "evidence/PALOMAR-2026-11-11-000006-v1/0fabc4eb24139e1084af3414d386e7e5f42ff9cb2affb06fa12ad5c02fa75f97/",
+    "evidence_tree_sha256": "0fabc4eb24139e1084af3414d386e7e5f42ff9cb2affb06fa12ad5c02fa75f97",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "561fe3ab77d8ceb0824f10c6f4fe9fd6bda5b63697965ca42c74739c539a8ef5",
+    "protected_config_sha256": "372be5fd8b303afbefc1115b550551a3f87fc44a4f7ec17314ef8e290378878d",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43021407770,
+    "solution_sha256": "b6b487e6a9e721e9900b8d8cc07bdea7f2a1fda493d3640663f68387683dc33f",
+    "tool_digests": {
+      "bwrap": "4cd86b231fd9fcaccacbfd873744b307297e99d6437a946720c1d4e9d7e98ae9",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-11T13:22:30Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43021407770"
+  },
+  "version": 1
+}
