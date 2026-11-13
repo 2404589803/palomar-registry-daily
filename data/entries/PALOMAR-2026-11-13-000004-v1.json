@@ -1,0 +1,302 @@
+{
+  "abstract": "Lean 4 and Mathlib proofs that no directed strongly regular graph exists for 28 parameter sets (v, k, t, λ, μ). A directed strongly regular graph is a 0-1 matrix A with zero diagonal, all row and column sums equal to k and A² = tI + λA + μ(J − I − A). Nine of the parameter sets are those of the paper below: (50, 11, 7, 0, 3), (68, 13, 7, 0, 3), (100, 16, 7, 0, 3), (108, 19, 9, 0, 4), (55, 16, 12, 1, 6), (66, 10, 5, 4, 1), (91, 12, 6, 5, 1), (96, 15, 10, 9, 1) and (28, 6, 3, 2, 1); the tenth set of the paper, (48, 9, 5, 0, 2), is not formalized. The same lemmas exclude eight further sets, and a formalized complement lemma excludes eleven complementary sets. The proofs compare the rank of A − θI, for a root θ of the quadratic x² − (λ − μ)x − (t − μ), with a submatrix of A prescribed at one vertex. For (28, 6, 3, 2, 1) one case is a SAT refutation whose LRAT certificate the Lean kernel checks with decide +kernel. The theorems use only propext, Classical.choice and Quot.sound.",
+  "authors": [
+    {
+      "name": "Iurii Ivanov"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-13-000004-v1/7e3b0d59274bd11110305f0a9f007af8de3b2396a771f4d3dc5bfdd31b954959/",
+    "artifact_tree_sha256": "7e3b0d59274bd11110305f0a9f007af8de3b2396a771f4d3dc5bfdd31b954959",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-13T04:25:34Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C20",
+      "05E30"
+    ]
+  },
+  "first_registered_on": "2026-11-13",
+  "formalization": {
+    "challenge_path": "dsrg-rank-method/lean/Challenge.lean",
+    "comparator_config_path": "dsrg-rank-method/lean/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "dsrg-rank-method/lean/formalization.yaml",
+    "lakefile_path": "dsrg-rank-method/lean/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "dsrg-rank-method/lean/Solution.lean",
+    "theorem_names": [
+      "DsrgRank.ClosedNbhd_no_50_11_7_0_3",
+      "DsrgRank.ClosedNbhd_no_54_13_9_0_4",
+      "DsrgRank.ClosedNbhd_no_64_17_13_0_6",
+      "DsrgRank.ClosedNbhd_no_68_13_7_0_3",
+      "DsrgRank.ClosedNbhd_no_70_15_9_0_4",
+      "DsrgRank.ClosedNbhd_no_78_19_13_0_6",
+      "DsrgRank.ClosedNbhd_no_88_23_17_0_8",
+      "DsrgRank.ClosedNbhd_no_100_16_7_0_3",
+      "DsrgRank.ClosedNbhd_no_108_19_9_0_4",
+      "DsrgRank.ClosedNbhd_no_110_31_25_0_12",
+      "DsrgRank.LeftKer_no_55_16_12_1_6",
+      "DsrgRank.TwinMuOne_no_40_9_6_5_1",
+      "DsrgRank.TwinMuOne_no_66_10_5_4_1",
+      "DsrgRank.TwinMuOne_no_91_12_6_5_1",
+      "DsrgRank.TwinMuOne_no_96_15_10_9_1",
+      "DsrgRank.Twin_no_80_19_13_12_2",
+      "DsrgRank.Case28_no_28_6_3_2_1",
+      "DsrgRank.Case28_no_28_21_18_15_18",
+      "DsrgRank.compl_no_40_30_27_21_27",
+      "DsrgRank.compl_no_50_38_34_29_28",
+      "DsrgRank.compl_no_55_38_34_27_24",
+      "DsrgRank.compl_no_66_55_50_45_50",
+      "DsrgRank.compl_no_68_54_48_43_42",
+      "DsrgRank.compl_no_80_60_54_42_54",
+      "DsrgRank.compl_no_91_78_72_66_72",
+      "DsrgRank.compl_no_96_80_75_65_75",
+      "DsrgRank.compl_no_100_83_74_69_68",
+      "DsrgRank.compl_no_108_88_78_72_70"
+    ]
+  },
+  "id": "PALOMAR-2026-11-13-000004",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-13T06:03:30Z",
+    "receipt_sha256": "515f226cf64b25eda17c32b800bba7749bc979037a6146bfc6dd56d3c000dcce",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000004-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000004-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000004-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000004-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000004-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000004-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000004-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000004-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000004-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "55b78b56c3e56874ccf46b90855640b11b961a4b",
+        "fork_repository": "PalomarArchive/Nosdormas--melete-math--c62e2f56db1d",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000004-v1/55b78b56c3e56874ccf46b90855640b11b961a4b",
+        "source_repository": "Nosdormas/melete-math"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Iurii Ivanov"
+          }
+        ],
+        "relationship": "formalizes",
+        "title": "Nonexistence of DSRGs with ten parameter sets: the rank of A − θI versus a submatrix prescribed at a vertex",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Iurii Ivanov"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-13T06:03:05Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "0ec96dade74739e7137f62e2a696b44be2e53ce10135e5ce42c92dd5e241649b"
+    },
+    "reviewed_at": "2026-11-13T05:07:08Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "55b78b56c3e56874ccf46b90855640b11b961a4b",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "f04fd4d2ac11bd37fcfe7105ef21762bab00d17525f55f4b040eb8da30df94c2"
+    },
+    "project_path": "dsrg-rank-method/lean",
+    "repository": "Nosdormas/melete-math",
+    "repository_url": "https://github.com/Nosdormas/melete-math",
+    "tree_url": "https://github.com/Nosdormas/melete-math/tree/55b78b56c3e56874ccf46b90855640b11b961a4b/dsrg-rank-method/lean"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "gpqy0kjwr8t8"
+  },
+  "title": "Nonexistence of directed strongly regular graphs by rank arguments",
+  "trust": {
+    "challenge_bytes": 5342,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Data.Int.Init"
+    ],
+    "challenge_lines": 98,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "352ea2f36d1ae8dbd1da5ccb38eb1a427690b323b9e7010b69bf9fcf1da1a62d",
+    "evidence_path": "evidence/PALOMAR-2026-11-13-000004-v1/b32560d9186d94f3d6d983611b4cc6d0357339cf8f5bac79690aa21d8112b03a/",
+    "evidence_tree_sha256": "b32560d9186d94f3d6d983611b4cc6d0357339cf8f5bac79690aa21d8112b03a",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "5be1861abfeec03a36507f171b004061b68470e804551b9241ca77b4568947cb",
+    "protected_config_sha256": "27122837037fde3f423377f9159a83dfc4839b929941e665a4eeca227966c023",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43359547966,
+    "solution_sha256": "0cd1a838f61991327debd493a64a729574b8f84c501a994b94817a56121123bf",
+    "tool_digests": {
+      "bwrap": "12fbc32db22913b0158f80f6f73da0d252520e5220c93d90db709ebc18b031d0",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-13T03:38:50Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43359547966"
+  },
+  "version": 1
+}

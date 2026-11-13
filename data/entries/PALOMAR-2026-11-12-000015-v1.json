@@ -1,0 +1,399 @@
+{
+  "abstract": "A Lean 4 proof that Smale's mean value constant equals 4. For a complex polynomial p of degree d >= 2 with p(0) = 0 and p'(0) != 0, let S(p) be the minimum of |p(c)/(c p'(0))| over the critical points c of p, let K(d) be the supremum of S(p) over all such p of degree d, and let K* be the supremum of K(d) over d >= 2. In 1981 Smale proved K* <= 4 and asked whether 4 can be replaced by 1 (and asked it again in 2000). The formalization proves K* = lim_{d -> oo} K(d) = 4, which is Theorem 1.1 of D. Goel, \"Smale's mean value constant (1981) equals 4\". It also proves Smale's bound K(d) <= 4, that K(d) does not decrease with d, and that K(d) < 4 for every d.\nComparison with Smale's conjecture. Smale asked whether K* = 1. That was disproved in 2026 (Adamczewski's Lean disproof; Adamczewski and Colbrook). Jatar and Ng then proved K* > 1.1018, and the author proved K* > 1.1559. This project does not prove the conjecture: it answers Smale's question in the negative. K* equals 4, Smale's own bound, so no constant smaller than 4 works for all degrees. In each single degree the constant stays below 4: K(d) <= 4^((d-2)/(d-1)) (Beardon, Minda and Ng, 2002), and K(d) < 4 - 2.263/sqrt(d) for d >= 8 (Crane, 2007). So the supremum K* is not attained.",
+  "authors": [
+    {
+      "name": "Dave Goel"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-12-000015-v1/319f903bdbff2ed4e954bdde9825593f53caa17c87b200f681e6ae0b41c8f76b/",
+    "artifact_tree_sha256": "319f903bdbff2ed4e954bdde9825593f53caa17c87b200f681e6ae0b41c8f76b",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-12T19:42:48Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CV"
+    ],
+    "msc2020": [
+      "30C10",
+      "30C15",
+      "30C55"
+    ]
+  },
+  "first_registered_on": "2026-11-12",
+  "formalization": {
+    "challenge_path": "lean/Challenge.lean",
+    "comparator_config_path": "lean/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "lean/formalization.yaml",
+    "lakefile_path": "lean/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "lean/Solution.lean",
+    "theorem_names": [
+      "Smale.P030.Rows.thm_1_1",
+      "Smale.P030.kstar_eq_four",
+      "Smale.P030.tendsto_Kd_four"
+    ]
+  },
+  "id": "PALOMAR-2026-11-12-000015",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-12T22:24:22Z",
+    "receipt_sha256": "ddbae7b2088eec408bd28d2ae6f809461d6cfaddcf9d9dd533317ff405e0e152",
+    "repositories": [
+      {
+        "commit": "72511404d60696455d07604a6f6cb2e97aad44b4",
+        "fork_repository": "PalomarArchive/david44hello--paper_smale-mean-value-constant-equals-4--529012bffd21",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000015-v1/72511404d60696455d07604a6f6cb2e97aad44b4",
+        "source_repository": "david44hello/paper_smale-mean-value-constant-equals-4"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000015-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000015-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000015-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000015-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000015-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000015-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000015-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000015-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000015-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Dave Goel"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.24069884",
+        "license": "All rights reserved (Zenodo record); CC BY-SA 4.0 (Hexagon copy)",
+        "location": "Zenodo (all versions); also Hexagon, https://hexagonmath.org/2611.00282",
+        "relationship": "formalizes",
+        "title": "Smale's mean value constant (1981) equals 4",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "S. Smale"
+          }
+        ],
+        "identifier": "Bull. Amer. Math. Soc. (N.S.) 4 (1981), 1-36",
+        "relationship": "background",
+        "title": "The fundamental theorem of algebra and complexity theory",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "S. Smale"
+          }
+        ],
+        "identifier": "Mathematics: Frontiers and Perspectives, Amer. Math. Soc., 2000, 271-294",
+        "relationship": "background",
+        "title": "Mathematical problems for the next century",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. Jatar"
+          },
+          {
+            "name": "T. W. Ng"
+          }
+        ],
+        "identifier": "arXiv:2610.21472v2",
+        "relationship": "adapts",
+        "title": "Smale's mean value constant and admissible univalent Blaschke pairs",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. F. Beardon"
+          },
+          {
+            "name": "D. Minda"
+          },
+          {
+            "name": "T. W. Ng"
+          }
+        ],
+        "identifier": "Math. Ann. 322 (2002), 623-632",
+        "relationship": "background",
+        "title": "Smale's mean value conjecture and the hyperbolic metric",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "E. Crane"
+          }
+        ],
+        "identifier": "Comput. Methods Funct. Theory 6 (2006), no. 1, 145-163",
+        "relationship": "background",
+        "title": "Extremal polynomials in Smale's mean value conjecture",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "E. Crane"
+          }
+        ],
+        "identifier": "Bull. Lond. Math. Soc. 39 (2007), no. 5, 781-791",
+        "relationship": "background",
+        "title": "A bound for Smale's mean value conjecture for complex polynomials",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "T. Adamczewski"
+          }
+        ],
+        "identifier": "https://github.com/tadamcz/mean-value-problem",
+        "relationship": "background",
+        "title": "Smale's mean value conjecture (K = 1): disproof",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "T. Adamczewski"
+          },
+          {
+            "name": "M. J. Colbrook"
+          }
+        ],
+        "identifier": "arXiv:2610.36158v1",
+        "relationship": "background",
+        "title": "From boundary geometry to counterexamples in Smale's mean value problem",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Dave Goel"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.24096098",
+        "relationship": "background",
+        "title": "Smale's mean value constant (1981) exceeds 1.1559",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/tadamcz/mean-value-problem",
+        "note": "Lean disproof of Smale's conjecture K* = 1. This project proves the stronger fact K* = 4 and does not use it.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Dave Goel"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-12T22:23:59Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "798ca921522b6e9698af0fd9d422d5138a6d50069e6dbba1a4624cb508431f52"
+    },
+    "reviewed_at": "2026-11-12T21:10:48Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "72511404d60696455d07604a6f6cb2e97aad44b4",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "project_path": "lean",
+    "repository": "david44hello/paper_smale-mean-value-constant-equals-4",
+    "repository_url": "https://github.com/david44hello/paper_smale-mean-value-constant-equals-4",
+    "tree_url": "https://github.com/david44hello/paper_smale-mean-value-constant-equals-4/tree/72511404d60696455d07604a6f6cb2e97aad44b4/lean"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "9xoid9cf3irz"
+  },
+  "title": "Smale's mean value constant equals 4",
+  "trust": {
+    "challenge_bytes": 5284,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 110,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "c55cff20afafd3e3d511f5da1281c789efee63032bb270ee376f639e008da521",
+    "evidence_path": "evidence/PALOMAR-2026-11-12-000015-v1/1b8fc735460632328dbf05e11aa8a6f5bdca61b19297f48842dd62d851fc1894/",
+    "evidence_tree_sha256": "1b8fc735460632328dbf05e11aa8a6f5bdca61b19297f48842dd62d851fc1894",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "857e5f6eb82544f2ca5aa73d3d7206e69017d4e3974f96ad78d8649423d1681d",
+    "protected_config_sha256": "a6f172c3373d04bc2d32845e25a1d5ee6240be5c77de894c95fdaa6fd6e1ff50",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43267554027,
+    "solution_sha256": "dd7384c3998c22e33467d2925db8604d602cf3d419c193a5f1be9932bfe466b9",
+    "tool_digests": {
+      "bwrap": "fb6cde6bdf0eb46105faf0530c7ba3f99633f26c9b20307cb0a2615f579f48bb",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-12T17:44:49Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43267554027"
+  },
+  "version": 1
+}

@@ -1,0 +1,335 @@
+{
+  "abstract": "The auxiliary results of Plantholt and Shan's proof of the asymptotic overfull conjecture (arXiv:2105.05286, Section 2), in Lean 4 / Mathlib, as a first version of a package that will add their Theorems 1.2 and 1.3. hakimi (Theorem 2.5, Hakimi 1962): d : V → ℕ is the degree function of a loopless multigraph (symmetric multiplicities with zero diagonal) iff ∑ d is even and 2 d v ≤ ∑ d for every v. hamiltonConnected_of_minDegree (Theorem 2.6, Hamilton-connected part, in the form δ ≥ n/2 + 1): a graph on n ≥ 5 vertices with n + 2 ≤ 2δ has a Hamiltonian path between any two distinct vertices (Dirac's theorem on G − u − v, from the registered menger-hamiltonian entry, and a pigeonhole choice of consecutive cycle neighbours). exists_spanning_paths (Lemma 2.12): for t + 1 pairs (aᵢ, bᵢ) of vertices, all distinct, in a graph with n + 6(t + 1) + 2 ≤ 2δ and 3(t + 1) + 5 ≤ n, there are pairwise vertex-disjoint paths from aᵢ to bᵢ covering all vertices (join a₀, b₀ through a common neighbour, delete the three vertices, recurse; the last pair is joined by a Hamiltonian path). One definition (IsMultigraph). Three statements.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-12-000016-v1/a14d8ba1ac81a5c0bcfe2f026debce3445177b15feeac6d13157fa9c48ddfd61/",
+    "artifact_tree_sha256": "a14d8ba1ac81a5c0bcfe2f026debce3445177b15feeac6d13157fa9c48ddfd61",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-12T19:42:53Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C07",
+      "05C38",
+      "05C45"
+    ]
+  },
+  "first_registered_on": "2026-11-12",
+  "formalization": {
+    "challenge_path": "PlantholtShanChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "menger_hamilton",
+        "repository": "jtraverso/menger-hamiltonian",
+        "revision": "35c5f684f9bfbd244bd0999ce725623ab571adb6"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "PlantholtShanSolution.lean",
+    "theorem_names": [
+      "PlantholtShan.hakimi",
+      "PlantholtShan.hamiltonConnected_of_minDegree",
+      "PlantholtShan.exists_spanning_paths"
+    ]
+  },
+  "id": "PALOMAR-2026-11-12-000016",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-12T23:14:50Z",
+    "receipt_sha256": "a378f5d1bab3905b67eaf03b6d123c114e3f6a206a964061b7136a96ff80fa9a",
+    "repositories": [
+      {
+        "commit": "35c5f684f9bfbd244bd0999ce725623ab571adb6",
+        "fork_repository": "PalomarArchive/jtraverso--menger-hamiltonian--0fd5dfe41e84",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v1/35c5f684f9bfbd244bd0999ce725623ab571adb6",
+        "source_repository": "jtraverso/menger-hamiltonian"
+      },
+      {
+        "commit": "53b50cde049abe0c722ad7de80e862a7e9b84fd5",
+        "fork_repository": "PalomarArchive/jtraverso--plantholt-shan-overfull--1a3be3444c4d",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v1/53b50cde049abe0c722ad7de80e862a7e9b84fd5",
+        "source_repository": "jtraverso/plantholt-shan-overfull"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Michael J. Plantholt"
+          },
+          {
+            "name": "Songling Shan"
+          }
+        ],
+        "identifier": "arXiv:2105.05286",
+        "license": "arXiv non-exclusive license",
+        "location": "arXiv:2105.05286v2: Theorem 2.5, Theorem 2.6 (second part), Lemma 2.12.",
+        "relationship": "formalizes",
+        "title": "Edge coloring graphs with large minimum degree",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "S. L. Hakimi"
+          }
+        ],
+        "identifier": "doi:10.1137/0110037",
+        "license": "all rights reserved",
+        "location": "Journal of the Society for Industrial and Applied Mathematics 10 (1962), 496–506.",
+        "relationship": "formalizes",
+        "title": "On Realizability of a Set of Integers as Degrees of the Vertices of a Linear Graph. I",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Øystein Ore"
+          }
+        ],
+        "license": "all rights reserved",
+        "location": "Journal de Mathématiques Pures et Appliquées 42 (1963), 21–27.",
+        "relationship": "background",
+        "title": "Hamilton connected graphs",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-10-15-000020 v2 (jtraverso/menger-hamiltonian @ 35c5f68)",
+        "note": "Pinned dependency: Hamiltonicity.dirac, Hamiltonicity.exists_cycArr_of_isHamiltonian, Hamiltonicity.walkOf.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-10-16-000017 (Erdős–Gallai and Havel–Hakimi)",
+        "note": "Simple-graph degree sequences (Havel–Hakimi); the multigraph theorem here is a different statement.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-12T23:14:28Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "4307b7235f9ba254039e45d411e532155fb74f57f2b403316e77ed1e9a069179"
+    },
+    "reviewed_at": "2026-11-12T21:13:37Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "53b50cde049abe0c722ad7de80e862a7e9b84fd5",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+    },
+    "repository": "jtraverso/plantholt-shan-overfull",
+    "repository_url": "https://github.com/jtraverso/plantholt-shan-overfull",
+    "tree_url": "https://github.com/jtraverso/plantholt-shan-overfull/tree/53b50cde049abe0c722ad7de80e862a7e9b84fd5"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "k78glxu1g8bs"
+  },
+  "title": "Plantholt–Shan, Section 2: Hakimi's theorem, Hamilton-connectedness and spanning linear forests",
+  "trust": {
+    "challenge_bytes": 2974,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Group.Nat.Even",
+      "Mathlib.Combinatorics.SimpleGraph.Finite",
+      "Mathlib.Combinatorics.SimpleGraph.Hamiltonian"
+    ],
+    "challenge_lines": 64,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "51624a03b5d364bbd3c3abd5a9777d840d2494e8f028f9bdf1b25474ca784787",
+    "evidence_path": "evidence/PALOMAR-2026-11-12-000016-v1/95937d90d19d2273c367d1a7fe5e199bb35eabc66ca67c60b30a8792377bb222/",
+    "evidence_tree_sha256": "95937d90d19d2273c367d1a7fe5e199bb35eabc66ca67c60b30a8792377bb222",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "c44f42b2ab80cd966a972610c89c8c3c4285a1dea0293d2bc6d8749aedaaa867",
+    "protected_config_sha256": "9be2502771033e86a3a1caa415fb4d147153169f5e335df7127f34e9141ab180",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43275517146,
+    "solution_sha256": "052c895d3f99b542cecd487d90a0ae7f7f1c6e327c352d1e3092628a397f83d7",
+    "tool_digests": {
+      "bwrap": "2c1f2d4840c33bb46264f4b02d90dad87d52e1c22debdc2de4bde4345905e4db",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-12T18:10:43Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43275517146"
+  },
+  "version": 1
+}

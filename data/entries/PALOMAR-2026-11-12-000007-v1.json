@@ -1,0 +1,394 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of results on finite simple graphs G whose core (the vertices of maximum degree Δ) has maximum degree at most two, stated as: every vertex of degree Δ has at most two neighbours of degree Δ. Hilton–Zhao (1992): if G is connected and not Δ-edge-colourable, then G − e is Δ-edge-colourable for every edge e, every vertex has at least two neighbours of degree Δ (so the core is 2-regular), and every vertex has degree at least Δ − 1, with equality somewhere when Δ ≥ 3 (hiltonZhao_critical, hiltonZhao_two_le, hiltonZhao_core_regular, hiltonZhao_min_degree, hiltonZhao_min_degree_eq); corollaries: class one when some vertex of degree Δ has at most one neighbour of degree Δ, or some vertex has degree at most Δ − 2. For Δ = 3: a connected class-two graph is a petal graph (Cariolaro–Cariolaro Lemma 3: degrees 2 or 3, the degree-3 vertices induce a 2-regular graph, degree-2 vertices have only degree-3 neighbours) and 3|E| = 4|V|; and if some component of the core carries no internal petal (no vertex of degree below 3 adjacent to two of its vertices) then G is 3-edge-colourable (Cariolaro–Cariolaro Lemma 7, for a single core cycle). The graph P* (Petersen minus a vertex) is defined on Fin 9, proved isomorphic to the Petersen graph minus a vertex, and shown to satisfy the hypotheses, to be connected, of class two and not overfull. Cariolaro–Cariolaro (2003): a connected graph with Δ = 3 whose core has maximum degree at most two is not 3-edge-colourable if and only if it is isomorphic to P* (cariolaro_iff, cariolaro). The proof recolours one core cycle with its petals in a colouring of G − e (criticality): a combinatorial chorded-cycle lemma (a cyclic sequence of vertices with chords and external restrictions has a proper 3-edge-colouring whose missing colours differ along chords and avoid the restrictions, unless it is the hexagon with three antipodal chords or a chordless odd cycle with constant restrictions) proved by induction with safe local reductions; the arc reduction rests on a finite automaton whose reachable states are checked by decide. Vizing's theorem and Vizing's adjacency lemma are lake dependencies on PALOMAR-2026-10-15-000004 and PALOMAR-2026-11-04-000009; Kempe chains and their end-point lemma come from the former.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-12-000007-v1/14d3b9eaafcbba00da7cc833eeec989e5eb973bc62341a57923cac0510bd3456/",
+    "artifact_tree_sha256": "14d3b9eaafcbba00da7cc833eeec989e5eb973bc62341a57923cac0510bd3456",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-12T03:18:03Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C15"
+    ]
+  },
+  "first_registered_on": "2026-11-12",
+  "formalization": {
+    "challenge_path": "CoreDeg2Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "CoreDeg2.pStarEdges",
+      "CoreDeg2.pStar",
+      "CoreDeg2.pStarDecAdj",
+      "CoreDeg2.petersenEdges",
+      "CoreDeg2.petersen"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "ccjs_overfull",
+        "repository": "jtraverso/overfull-critical-graphs",
+        "revision": "b85da9ac66e0fb8b9873a8bea0c057f78c9d186c"
+      },
+      {
+        "name": "vizing",
+        "repository": "jtraverso/vizing",
+        "revision": "33b2de836095cf92bc1dec33b6f8787e4036bbc6"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "CoreDeg2Solution.lean",
+    "theorem_names": [
+      "CoreDeg2.hiltonZhao_critical",
+      "CoreDeg2.hiltonZhao_two_le",
+      "CoreDeg2.hiltonZhao_core_regular",
+      "CoreDeg2.hiltonZhao_min_degree",
+      "CoreDeg2.hiltonZhao_min_degree_eq",
+      "CoreDeg2.colorable_of_core_deg_le_one",
+      "CoreDeg2.colorable_of_low_degree",
+      "CoreDeg2.petal_structure",
+      "CoreDeg2.three_mul_card_edgeFinset",
+      "CoreDeg2.colorable_of_card_edgeFinset",
+      "CoreDeg2.colorable_of_noInternalPetal",
+      "CoreDeg2.pStar_iso",
+      "CoreDeg2.pStar_maxDegree",
+      "CoreDeg2.pStar_core",
+      "CoreDeg2.pStar_connected",
+      "CoreDeg2.pStar_not_colorable",
+      "CoreDeg2.pStar_not_overfull",
+      "CoreDeg2.cariolaro_iff",
+      "CoreDeg2.cariolaro"
+    ]
+  },
+  "id": "PALOMAR-2026-11-12-000007",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-12T15:04:20Z",
+    "receipt_sha256": "e3791020daee762a16cb6263e34e11bab0162a53336e382f336f1d5a6441d5ac",
+    "repositories": [
+      {
+        "commit": "9cc9a2c48913f6a8feeb266416ea6517f52eed51",
+        "fork_repository": "PalomarArchive/jtraverso--hilton-zhao-cariolaro--88e275c68991",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000007-v1/9cc9a2c48913f6a8feeb266416ea6517f52eed51",
+        "source_repository": "jtraverso/hilton-zhao-cariolaro"
+      },
+      {
+        "commit": "b85da9ac66e0fb8b9873a8bea0c057f78c9d186c",
+        "fork_repository": "PalomarArchive/jtraverso--overfull-critical-graphs--d8fd3a0c3ee4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000007-v1/b85da9ac66e0fb8b9873a8bea0c057f78c9d186c",
+        "source_repository": "jtraverso/overfull-critical-graphs"
+      },
+      {
+        "commit": "33b2de836095cf92bc1dec33b6f8787e4036bbc6",
+        "fork_repository": "PalomarArchive/jtraverso--vizing--01fa5f875100",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000007-v1/33b2de836095cf92bc1dec33b6f8787e4036bbc6",
+        "source_repository": "jtraverso/vizing"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000007-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000007-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000007-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000007-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000007-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000007-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000007-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000007-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000007-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Anthony J. W. Hilton"
+          },
+          {
+            "name": "Cheng Zhao"
+          }
+        ],
+        "license": "all rights reserved",
+        "location": "Discrete Mathematics 101 (1992), 135–147",
+        "relationship": "formalizes",
+        "title": "The chromatic index of a graph whose core has maximum degree two",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Anthony J. W. Hilton"
+          },
+          {
+            "name": "Cheng Zhao"
+          }
+        ],
+        "license": "all rights reserved",
+        "location": "J. Combin. Math. Combin. Comput. 21 (1996), 97–108",
+        "relationship": "background",
+        "title": "On the edge-colouring of graphs whose core has maximum degree two",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "David Cariolaro"
+          },
+          {
+            "name": "Gianfranco Cariolaro"
+          }
+        ],
+        "license": "unknown",
+        "location": "Electronic Journal of Combinatorics 10 (2003), #R6",
+        "relationship": "formalizes",
+        "title": "Colouring the petals of a graph",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Daniel W. Cranston"
+          },
+          {
+            "name": "Landon Rabern"
+          }
+        ],
+        "identifier": "arXiv:1703.00959",
+        "license": "arXiv non-exclusive",
+        "location": "SIAM J. Discrete Math. 33 (2019); Lemma 1",
+        "relationship": "background",
+        "title": "The Hilton–Zhao conjecture is true for graphs with maximum degree 4",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-11-04-000009 v2 (jtraverso/overfull-critical-graphs @ b85da9a)",
+        "note": "Pinned dependency: IsDeltaCritical, Vizing's adjacency lemma Overfull.val / val_crit, exists_colMinus_of_colorable.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-10-15-000004 (jtraverso/vizing @ 33b2de8)",
+        "note": "Transitive dependency: Vizing's theorem, partial edge colourings, Kempe swaps, no_three_endpoints.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-08-000009 (jtraverso/fournier-class-one)",
+        "note": "Fournier's theorem (core a forest ⇒ class one). Independent proof; no code shared.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-12T15:03:52Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "9d071ff1496531e36bf2fa955f04ace897812da61a470c26e947d2e3a9c70946"
+    },
+    "reviewed_at": "2026-11-12T03:23:57Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "9cc9a2c48913f6a8feeb266416ea6517f52eed51",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jtraverso/hilton-zhao-cariolaro",
+    "repository_url": "https://github.com/jtraverso/hilton-zhao-cariolaro",
+    "tree_url": "https://github.com/jtraverso/hilton-zhao-cariolaro/tree/9cc9a2c48913f6a8feeb266416ea6517f52eed51"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "dnnbp2ajwrig"
+  },
+  "title": "Graphs whose core has maximum degree two: Hilton–Zhao structure and the Cariolaro–Cariolaro theorem",
+  "trust": {
+    "challenge_bytes": 10575,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Combinatorics.SimpleGraph.Coloring.Vertex",
+      "Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected",
+      "Mathlib.Combinatorics.SimpleGraph.Finite",
+      "Mathlib.Combinatorics.SimpleGraph.LineGraph",
+      "Mathlib.Combinatorics.SimpleGraph.Maps"
+    ],
+    "challenge_lines": 220,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "c82c676bb9a27aabb1ce7a091f932d61400edeec83a9628deb6cb88d23004bac",
+    "evidence_path": "evidence/PALOMAR-2026-11-12-000007-v1/124d12b471d0eba04bbd8ae467e40328924cfc8fe6fa29bd9b2ac1c5fed47b6a/",
+    "evidence_tree_sha256": "124d12b471d0eba04bbd8ae467e40328924cfc8fe6fa29bd9b2ac1c5fed47b6a",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "7ad736f40d3e17587adb051d10f7b33fcc9cf85ba725aceac9cd74ce59469e08",
+    "protected_config_sha256": "5a6f83439379063300bf69ccdf58306b62fa4c48ac23ad0e6b2a86eabce5085a",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43138658830,
+    "solution_sha256": "ee8acd099f568136624da71a2e837ccf7be1e1063d6f6cb8b5e0e7c890377177",
+    "tool_digests": {
+      "bwrap": "485762f046d643aaba61e45123e4ebbf1e647e3eda552efb41f54890811a5a83",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-12T02:53:43Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43138658830"
+  },
+  "version": 1
+}

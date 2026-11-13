@@ -1,0 +1,448 @@
+{
+  "abstract": "M. J. Plantholt and S. Shan, Edge coloring graphs with large minimum degree (arXiv:2105.05286), in Lean 4 / Mathlib. theorem_1_2 (Theorem 1.2): for every ε > 0 there is N such that a graph G on 2n vertices, n ≥ N, with δ(G) ≥ (1 + ε) n is Δ(G)-edge-colourable iff it has no Δ(G)-overfull subgraph (PlantholtShan.HasOverfullSubgraph, the definition of the registered plantholt-overfull-criterion entry restated in the challenge: an odd set of at least three vertices spanning more than Δ(G)(|S| − 1)/2 edges). theorem_1_3b (Theorem 1.3, Condition (b)): two vertices x ≠ y with d(x) = d(y) ≥ (1/2 + 3ε/2) n, all other vertices of degree Δ(G) ≥ (1 + ε) n and Δ(G) − δ(G) ≤ (1/2 − ε/2) n give χ′ = Δ for n ≥ N. theorem_1_3c (Condition (c)): Δ(G) − δ(G) ≥ n^{6/7}, at least n^{6/7} vertices of degree δ(G), at least n + 1 of degree Δ(G) and δ(G) ≥ (1 + ε) n give χ′ = Δ for n ≥ N (n^{6/7} as a real power). Condition (a) (regular graphs) is the registered asymptotic-one-factorization entry. lemma_2_11 (Lemma 2.11): a bipartite graph with sides of size n, all degrees at least t and at most t vertices of degree below n/2 has a perfect matching. Kept from version 1: hakimi (Theorem 2.5), hamiltonConnected_of_minDegree (Theorem 2.6, δ ≥ n/2 + 1) and exists_spanning_paths (Lemma 2.12). The thresholds N are explicit but huge (e.g. (2^60 q + 1)^21 with 1/q < ε) and not optimized. Two definitions (IsMultigraph, HasOverfullSubgraph). Seven statements.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-12-000016-v2/aef065672cc49441e3c15a8b7fe4afa8c4c2efb27f04819bc450066be9e24fcf/",
+    "artifact_tree_sha256": "aef065672cc49441e3c15a8b7fe4afa8c4c2efb27f04819bc450066be9e24fcf",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-13T03:07:57Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C15",
+      "05C07",
+      "05C38",
+      "05C45",
+      "05C70"
+    ]
+  },
+  "first_registered_on": "2026-11-12",
+  "formalization": {
+    "challenge_path": "PlantholtShanChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "menger_hamilton",
+        "repository": "jtraverso/menger-hamiltonian",
+        "revision": "35c5f684f9bfbd244bd0999ce725623ab571adb6"
+      },
+      {
+        "name": "vizing",
+        "repository": "jtraverso/vizing",
+        "revision": "33b2de836095cf92bc1dec33b6f8787e4036bbc6"
+      },
+      {
+        "name": "shannon_edge_colouring",
+        "repository": "jtraverso/shannon-edge-colouring",
+        "revision": "d590cfeb50d88710b454905f896aab928fcb5156"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      },
+      {
+        "name": "asymptotic_one_factorization",
+        "repository": "jtraverso/asymptotic-one-factorization",
+        "revision": "50bc0b383e5447dc4b70db20e3af1c6c5efc1c2f"
+      },
+      {
+        "name": "plantholt_overfull",
+        "repository": "jtraverso/plantholt-overfull-criterion",
+        "revision": "f8900944da7743b1facd771139c9ebdbfd8aaa28"
+      },
+      {
+        "name": "ccjs_overfull",
+        "repository": "jtraverso/overfull-critical-graphs",
+        "revision": "b85da9ac66e0fb8b9873a8bea0c057f78c9d186c"
+      }
+    ],
+    "solution_path": "PlantholtShanSolution.lean",
+    "theorem_names": [
+      "PlantholtShan.hakimi",
+      "PlantholtShan.hamiltonConnected_of_minDegree",
+      "PlantholtShan.exists_spanning_paths",
+      "PlantholtShan.lemma_2_11",
+      "PlantholtShan.theorem_1_3b",
+      "PlantholtShan.theorem_1_3c",
+      "PlantholtShan.theorem_1_2"
+    ]
+  },
+  "id": "PALOMAR-2026-11-12-000016",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-13T04:26:31Z",
+    "receipt_sha256": "53ab32237ac07314451ab0f34b513eca35d4dc867288d030e80b8158a682b0ba",
+    "repositories": [
+      {
+        "commit": "50bc0b383e5447dc4b70db20e3af1c6c5efc1c2f",
+        "fork_repository": "PalomarArchive/jtraverso--asymptotic-one-factorization--a4d202c2f8f3",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v2/50bc0b383e5447dc4b70db20e3af1c6c5efc1c2f",
+        "source_repository": "jtraverso/asymptotic-one-factorization"
+      },
+      {
+        "commit": "35c5f684f9bfbd244bd0999ce725623ab571adb6",
+        "fork_repository": "PalomarArchive/jtraverso--menger-hamiltonian--0fd5dfe41e84",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v2/35c5f684f9bfbd244bd0999ce725623ab571adb6",
+        "source_repository": "jtraverso/menger-hamiltonian"
+      },
+      {
+        "commit": "b85da9ac66e0fb8b9873a8bea0c057f78c9d186c",
+        "fork_repository": "PalomarArchive/jtraverso--overfull-critical-graphs--d8fd3a0c3ee4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v2/b85da9ac66e0fb8b9873a8bea0c057f78c9d186c",
+        "source_repository": "jtraverso/overfull-critical-graphs"
+      },
+      {
+        "commit": "f8900944da7743b1facd771139c9ebdbfd8aaa28",
+        "fork_repository": "PalomarArchive/jtraverso--plantholt-overfull-criterion--d61ff43b5134",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v2/f8900944da7743b1facd771139c9ebdbfd8aaa28",
+        "source_repository": "jtraverso/plantholt-overfull-criterion"
+      },
+      {
+        "commit": "39cf759850c7911f75fbf32d8e003a04578f9866",
+        "fork_repository": "PalomarArchive/jtraverso--plantholt-shan-overfull--1a3be3444c4d",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v2/39cf759850c7911f75fbf32d8e003a04578f9866",
+        "source_repository": "jtraverso/plantholt-shan-overfull"
+      },
+      {
+        "commit": "d590cfeb50d88710b454905f896aab928fcb5156",
+        "fork_repository": "PalomarArchive/jtraverso--shannon-edge-colouring--7112faf48c4d",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v2/d590cfeb50d88710b454905f896aab928fcb5156",
+        "source_repository": "jtraverso/shannon-edge-colouring"
+      },
+      {
+        "commit": "33b2de836095cf92bc1dec33b6f8787e4036bbc6",
+        "fork_repository": "PalomarArchive/jtraverso--vizing--01fa5f875100",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v2/33b2de836095cf92bc1dec33b6f8787e4036bbc6",
+        "source_repository": "jtraverso/vizing"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v2/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v2/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v2/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v2/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v2/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v2/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v2/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v2/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000016-v2/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Michael J. Plantholt"
+          },
+          {
+            "name": "Songling Shan"
+          }
+        ],
+        "identifier": "arXiv:2105.05286",
+        "license": "arXiv non-exclusive license",
+        "location": "arXiv:2105.05286v2: Theorems 1.2 and 1.3 (b), (c); Theorem 2.5, Theorem 2.6 (second part), Lemmas 2.11 and 2.12; Section 4.",
+        "relationship": "formalizes",
+        "title": "Edge coloring graphs with large minimum degree",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "S. L. Hakimi"
+          }
+        ],
+        "identifier": "doi:10.1137/0110037",
+        "license": "all rights reserved",
+        "location": "Journal of the Society for Industrial and Applied Mathematics 10 (1962), 496–506.",
+        "relationship": "formalizes",
+        "title": "On Realizability of a Set of Integers as Degrees of the Vertices of a Linear Graph. I",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Colin McDiarmid"
+          }
+        ],
+        "license": "all rights reserved",
+        "location": "The equalization lemma for multigraph edge colourings (Plantholt–Shan, Lemma 2.3).",
+        "relationship": "formalizes",
+        "title": "The chromatic index of multigraphs that are nearly full",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "E. R. Vaughan"
+          }
+        ],
+        "identifier": "arXiv:1010.5192",
+        "license": "arXiv non-exclusive license",
+        "location": "arXiv:1010.5192, Lemma 14 (the scheme extended in Plantholt–Shan, Section 4).",
+        "relationship": "background",
+        "title": "An asymptotic version of the multigraph 1-factorization conjecture",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Øystein Ore"
+          }
+        ],
+        "license": "all rights reserved",
+        "location": "Journal de Mathématiques Pures et Appliquées 42 (1963), 21–27.",
+        "relationship": "background",
+        "title": "Hamilton connected graphs",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-11-12-000014 (jtraverso/asymptotic-one-factorization @ 50bc0b3)",
+        "note": "Pinned dependency: Condition (a) (Perković–Reed via Vaughan) for the regular cases; the Chernoff bounds and AOF.exists_perm_of_equitable.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-10-29-000023 (jtraverso/shannon-edge-colouring @ d590cfe)",
+        "note": "Pinned dependency: Shannon's theorem and the Kempe machinery used for equalization.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-10-15-000004 v2 (jtraverso/vizing @ 33b2de8)",
+        "note": "Pinned dependency: Vizing's theorem for the halves and for Δ(G) + 1 ≤ D.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-04-000016 v2 (jtraverso/plantholt-overfull-criterion @ f890094)",
+        "note": "Pinned dependency: Plantholt.HasOverfullSubgraph, Plantholt.noOverfull_iff and Plantholt.two_mul_eIn_le_of_colorable.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-10-15-000020 v2 (jtraverso/menger-hamiltonian @ 35c5f68)",
+        "note": "Pinned dependency: Hamiltonicity.dirac, Hamiltonicity.exists_cycArr_of_isHamiltonian, Hamiltonicity.walkOf.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-10-16-000017 (Erdős–Gallai and Havel–Hakimi)",
+        "note": "Simple-graph degree sequences (Havel–Hakimi); the multigraph theorem here is a different statement.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-13T04:26:05Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "920655d316406f67a4bf032075ec7802f55472ebd9d59668d384f3e2fb266536"
+    },
+    "reviewed_at": "2026-11-13T04:09:49Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "39cf759850c7911f75fbf32d8e003a04578f9866",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+    },
+    "repository": "jtraverso/plantholt-shan-overfull",
+    "repository_url": "https://github.com/jtraverso/plantholt-shan-overfull",
+    "tree_url": "https://github.com/jtraverso/plantholt-shan-overfull/tree/39cf759850c7911f75fbf32d8e003a04578f9866"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "pybwv5nu3els"
+  },
+  "title": "Plantholt–Shan: the overfull conjecture for graphs of minimum degree at least (1 + ε) n",
+  "trust": {
+    "challenge_bytes": 7399,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Group.Nat.Even",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.Combinatorics.SimpleGraph.Coloring.Vertex",
+      "Mathlib.Combinatorics.SimpleGraph.Finite",
+      "Mathlib.Combinatorics.SimpleGraph.Hamiltonian",
+      "Mathlib.Combinatorics.SimpleGraph.LineGraph",
+      "Mathlib.Combinatorics.SimpleGraph.Subgraph",
+      "Mathlib.Data.Set.Card"
+    ],
+    "challenge_lines": 134,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "7abdc319b2dc35c5657e01eccf586076150f306f72676ef32a5f16e5a28766ad",
+    "evidence_path": "evidence/PALOMAR-2026-11-12-000016-v2/cee6556d024a534a8555d291e749e2ade252f3ca92e17f3fd0d0d88a4d09fd92/",
+    "evidence_tree_sha256": "cee6556d024a534a8555d291e749e2ade252f3ca92e17f3fd0d0d88a4d09fd92",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "28af50c4d35cf3130173eae666c86b6df28608b780c1d0050e3064b3a8080603",
+    "protected_config_sha256": "7874c61ee10634bf653f4712e106e2f3e3f1dd271b81332fbcfc5ae94602d459",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43354323999,
+    "solution_sha256": "76cd0c42cdf260c6e025bcdea646b98fff772611533b6b30993801462ad5edce",
+    "tool_digests": {
+      "bwrap": "937df1cd907000af03d7acd985d1166753b99e876572c7ef4982202275ef1f03",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-13T02:57:02Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43354323999"
+  },
+  "version": 2
+}

@@ -1,0 +1,333 @@
+{
+  "abstract": "A Lean 4 / Mathlib proof of Theorem 2 of Chetwynd and Hilton, \"1-factorizing regular graphs of high degree — an improved bound\" (Discrete Math. 75 (1989)): a d-regular simple graph of even order with d ≥ ½(√7 − 1)|V| (≈ 0.823|V|) is d-edge-colourable (CH89.lineGraph_colorable_of_isRegular_sqrt7), with the integer form |V| = 2n, 7n² ≤ (d + n)² (CH89.lineGraph_colorable_of_isRegular_nat). The article's proof of Theorem 1 contains an unjustified step (\"we may moreover suppose that x_j comes before w_j in the list (r_m, …, r_t, l_1, …, l_m)\"), which fails for an arbitrary maximal matching M₀; the formalization repairs it by choosing M₀ to minimize −K·#covered + max(T, T′), T = u_Y − u_X − μ, ordering the edges of M₀ (mixed ones outside, XX/YY alternately) and pairing X with Y by Hall's theorem with one dummy, so that at most one pair is bad, which the article's extra step q + 1 absorbs. The constant ½(√7 − 1) of the article is obtained exactly. Theorem 1 (staircase classes peeled off as near 1-factors, core of Theorem 5, re-insertion of v* and w) is assembled from the pinned dependency PALOMAR-2026-11-04-000016; Lemma 3 (a pair with r(r − 1) ≤ (2n − 1)p common non-neighbours) and the parameter inequality r(r − 1) − (2n − 1)(5n − 3d − 1) = (d + n)² − 7n² + n + 1 are proved here. Two statements; no definitions beyond Mathlib's.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-12-000006-v1/adefb0701161e6bfbe62bf3a4cd734c5bd8030d8baff157547a452714cde2795/",
+    "artifact_tree_sha256": "adefb0701161e6bfbe62bf3a4cd734c5bd8030d8baff157547a452714cde2795",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-12T01:45:17Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C15",
+      "05C70"
+    ]
+  },
+  "first_registered_on": "2026-11-12",
+  "formalization": {
+    "challenge_path": "CH89Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plantholt_overfull",
+        "repository": "jtraverso/plantholt-overfull-criterion",
+        "revision": "f8900944da7743b1facd771139c9ebdbfd8aaa28"
+      },
+      {
+        "name": "ccjs_overfull",
+        "repository": "jtraverso/overfull-critical-graphs",
+        "revision": "b85da9ac66e0fb8b9873a8bea0c057f78c9d186c"
+      },
+      {
+        "name": "vizing",
+        "repository": "jtraverso/vizing",
+        "revision": "33b2de836095cf92bc1dec33b6f8787e4036bbc6"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "CH89Solution.lean",
+    "theorem_names": [
+      "CH89.lineGraph_colorable_of_isRegular_sqrt7",
+      "CH89.lineGraph_colorable_of_isRegular_nat"
+    ]
+  },
+  "id": "PALOMAR-2026-11-12-000006",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-12T14:20:37Z",
+    "receipt_sha256": "8063ce6826ade907a4e5e92476ec7df555a024a1503eea53a9eea01a084452e4",
+    "repositories": [
+      {
+        "commit": "0f6e485529e810843ea13814d19c8d67b15568b9",
+        "fork_repository": "PalomarArchive/jtraverso--chetwynd-hilton-1989--88e35be60ebe",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000006-v1/0f6e485529e810843ea13814d19c8d67b15568b9",
+        "source_repository": "jtraverso/chetwynd-hilton-1989"
+      },
+      {
+        "commit": "b85da9ac66e0fb8b9873a8bea0c057f78c9d186c",
+        "fork_repository": "PalomarArchive/jtraverso--overfull-critical-graphs--d8fd3a0c3ee4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000006-v1/b85da9ac66e0fb8b9873a8bea0c057f78c9d186c",
+        "source_repository": "jtraverso/overfull-critical-graphs"
+      },
+      {
+        "commit": "f8900944da7743b1facd771139c9ebdbfd8aaa28",
+        "fork_repository": "PalomarArchive/jtraverso--plantholt-overfull-criterion--d61ff43b5134",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000006-v1/f8900944da7743b1facd771139c9ebdbfd8aaa28",
+        "source_repository": "jtraverso/plantholt-overfull-criterion"
+      },
+      {
+        "commit": "33b2de836095cf92bc1dec33b6f8787e4036bbc6",
+        "fork_repository": "PalomarArchive/jtraverso--vizing--01fa5f875100",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000006-v1/33b2de836095cf92bc1dec33b6f8787e4036bbc6",
+        "source_repository": "jtraverso/vizing"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000006-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000006-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000006-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000006-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000006-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000006-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000006-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000006-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000006-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "A. G. Chetwynd"
+          },
+          {
+            "name": "A. J. W. Hilton"
+          }
+        ],
+        "identifier": "doi:10.1016/0012-365X(89)90082-4",
+        "license": "unknown",
+        "location": "Discrete Mathematics 75 (1989), 103–112: Theorems 1 and 2, Lemma 3",
+        "relationship": "formalizes",
+        "title": "1-factorizing regular graphs of high degree — an improved bound",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-11-04-000016 v2 (jtraverso/plantholt-overfull-criterion @ f890094)",
+        "note": "Pinned dependency: staircase labellings (OneFactor.StairData), the core lemma of Theorem 5 (OneFactor.core_colorable), near 1-factors through prescribed matchings (OneFactor.exists_factors_var), re-insertion of w (OneFactor.colorable_of_regular_keepAt), and Plantholt.RegularOneFactorable / Plantholt.theorem_1_2 for the corollaries. That entry proves the 6/7 bound of Chetwynd–Hilton 1985 with extra factors per bad pair; this entry proves the 1989 bound.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-04-000009 v2 (jtraverso/overfull-critical-graphs @ b85da9a)",
+        "note": "Transitive dependency: Vizing's adjacency lemma (pivot lemma).",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-10-15-000004 (jtraverso/vizing @ 33b2de8)",
+        "note": "Transitive dependency: Vizing's theorem.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-12T14:20:01Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "64b082e42b45193c81c0f19a81cb2a28bcb9cf088f758c8ec09f0e58f5bcde71"
+    },
+    "reviewed_at": "2026-11-12T02:04:43Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "Both theorems admit an empty vertex type with any d > 0: regularity is then vacuous, both threshold conditions hold, and the empty line graph is d-colourable, but its chromatic index is 0 rather than d. The stated d-edge-colourability agrees with Lean; the unqualified identification with χ′(G) = d does not. Qualify that equality as applying to nonempty graphs in the prose, or restrict the Lean statements if the equality is intended for every admitted case."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "0f6e485529e810843ea13814d19c8d67b15568b9",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jtraverso/chetwynd-hilton-1989",
+    "repository_url": "https://github.com/jtraverso/chetwynd-hilton-1989",
+    "tree_url": "https://github.com/jtraverso/chetwynd-hilton-1989/tree/0f6e485529e810843ea13814d19c8d67b15568b9"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "puhmoyb8xkvd"
+  },
+  "title": "Chetwynd–Hilton 1989: regular graphs of degree at least ½(√7 − 1)|V| are 1-factorizable",
+  "trust": {
+    "challenge_bytes": 1831,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 44,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "88b997d650dbb21e9d8233af6d722354535337e0b39fc7326b3a25f9e776b2c4",
+    "evidence_path": "evidence/PALOMAR-2026-11-12-000006-v1/89d30a14266905ab442e49feb42eada98b60afa254f24a29906639c3f81aec4a/",
+    "evidence_tree_sha256": "89d30a14266905ab442e49feb42eada98b60afa254f24a29906639c3f81aec4a",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "7832afa933d3fe4e86e3c62dea55403bedfc057716bcfc180c8e0d2c8efaf308",
+    "protected_config_sha256": "d388221d7adc915f4102ae85fda33d675574a67ac32637b1dd29fc45da57b9d8",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43131889403,
+    "solution_sha256": "df04b9763227cc7fd7075eef28e63f59ca31d9744ba7d3d8fb72bf0893578191",
+    "tool_digests": {
+      "bwrap": "6d8c928c41a0d7eb4c8e58456a31d2bda3228a10996b7a815152c8768963bacd",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-12T01:21:20Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43131889403"
+  },
+  "version": 1
+}

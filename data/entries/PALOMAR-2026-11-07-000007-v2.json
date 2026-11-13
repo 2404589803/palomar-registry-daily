@@ -1,0 +1,426 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization retaining the upper representation bounds and the conditional consequence of Duke–Schulze-Pillot (Invent. Math. 99, 1990), and adding an unconditional fixed-cap theorem for x^2+y^2+z^2. H1: for every unit vector u in R^3 and every epsilon > 0 there is T such that every squarefree t >= T with t congruent to 3 modulo 8 has an integer representation x with sum x_i^2=t and |x_i-sqrt(t)u_i| <= epsilon sqrt(t) for every coordinate. The new statement takes no analytic estimate as a hypothesis. Its proof combines finite-degree harmonic Weyl bounds, odd-degree cancellation, a positive minimum of finitely many degree-dependent savings, and a representation lower bound supplied by the verified Siegel theorem. The threshold is ineffective. The original three unconditional upper/divisor bounds and two conditional statements are retained unchanged; the latter still require hThm1 and hThm3i for general ternary forms. No unconditional general Duke–Schulze-Pillot theorem, sharp 1/175 exponent, spinor-genus lower bound or numerical cutoff is claimed.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-07-000007-v2/55febbfbc6368e040c199d300fef149907b2feaf07035d4579468b5c36c7cf63/",
+    "artifact_tree_sha256": "55febbfbc6368e040c199d300fef149907b2feaf07035d4579468b5c36c7cf63",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-12T19:00:09Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11E20",
+      "11E12",
+      "11P21",
+      "11N56"
+    ]
+  },
+  "first_registered_on": "2026-11-07",
+  "formalization": {
+    "challenge_path": "DSPChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "DukeSchulzePillot.qform",
+      "DukeSchulzePillot.repCount",
+      "DukeSchulzePillot.repCountF"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "weil_bounds_toolkit",
+        "repository": "charliedorsey/weil-bounds-toolkit",
+        "revision": "0f3e4c3010bb0e7c4e514ddb5bd3a0a0e082bf68"
+      },
+      {
+        "name": "siegel",
+        "repository": "jtraverso/siegel-theorem",
+        "revision": "dbe9353374a11317bdd2d436e264536258c5762f"
+      },
+      {
+        "name": "three_squares",
+        "repository": "jtraverso/three-squares-gauss-legendre",
+        "revision": "783ec66b0db2ff2acf75cc2cd22a9e69737411b5"
+      },
+      {
+        "name": "four_squares_caps",
+        "repository": "jtraverso/four-squares-in-caps",
+        "revision": "a1fcaafb270c099ea773706912192adbfec19a83"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "DSPSolution.lean",
+    "theorem_names": [
+      "DukeSchulzePillot.card_divisors_le_rpow",
+      "DukeSchulzePillot.repCount_le",
+      "DukeSchulzePillot.average_le",
+      "DukeSchulzePillot.thm3_ii",
+      "DukeSchulzePillot.spn_upper",
+      "DukeSchulzePillot.squarefree_three_squares_in_caps"
+    ]
+  },
+  "id": "PALOMAR-2026-11-07-000007",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-12T21:02:53Z",
+    "receipt_sha256": "b1546f4c80e01acc56235241dad4e7f9cc6c076d3731c63f2203e9368a0ef530",
+    "repositories": [
+      {
+        "commit": "0f3e4c3010bb0e7c4e514ddb5bd3a0a0e082bf68",
+        "fork_repository": "PalomarArchive/charliedorsey--weil-bounds-toolkit--fdaf04f318ed",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v2/0f3e4c3010bb0e7c4e514ddb5bd3a0a0e082bf68",
+        "source_repository": "charliedorsey/weil-bounds-toolkit"
+      },
+      {
+        "commit": "21575ff924c98165ea1b451f7cbcc27c016ebd3e",
+        "fork_repository": "PalomarArchive/jtraverso--duke-schulze-pillot-ternary--b885fd33e73a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v2/21575ff924c98165ea1b451f7cbcc27c016ebd3e",
+        "source_repository": "jtraverso/duke-schulze-pillot-ternary"
+      },
+      {
+        "commit": "a1fcaafb270c099ea773706912192adbfec19a83",
+        "fork_repository": "PalomarArchive/jtraverso--four-squares-in-caps--308878e49a2e",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v2/a1fcaafb270c099ea773706912192adbfec19a83",
+        "source_repository": "jtraverso/four-squares-in-caps"
+      },
+      {
+        "commit": "dbe9353374a11317bdd2d436e264536258c5762f",
+        "fork_repository": "PalomarArchive/jtraverso--siegel-theorem--fcfb5ef237dc",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v2/dbe9353374a11317bdd2d436e264536258c5762f",
+        "source_repository": "jtraverso/siegel-theorem"
+      },
+      {
+        "commit": "783ec66b0db2ff2acf75cc2cd22a9e69737411b5",
+        "fork_repository": "PalomarArchive/jtraverso--three-squares-gauss-legendre--2afaf7563d29",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v2/783ec66b0db2ff2acf75cc2cd22a9e69737411b5",
+        "source_repository": "jtraverso/three-squares-gauss-legendre"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v2/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v2/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v2/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v2/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v2/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v2/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v2/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v2/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-07-000007-v2/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "W. Duke"
+          },
+          {
+            "name": "R. Schulze-Pillot"
+          }
+        ],
+        "identifier": "doi:10.1007/BF01234411",
+        "license": "unknown",
+        "location": "Inventiones Mathematicae 99 (1990), 49–57; Lemma 5(ii) and Theorem 3(ii).",
+        "relationship": "formalizes",
+        "title": "Representation of integers by positive ternary quadratic forms and equidistribution of lattice points on ellipsoids",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "W. Duke"
+          }
+        ],
+        "license": "unknown",
+        "location": "Inventiones Mathematicae 92 (1988), 73–90; spherical distribution consequence",
+        "relationship": "formalizes",
+        "title": "Hyperbolic distribution problems and half-integral weight Maass forms",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Henryk Iwaniec"
+          }
+        ],
+        "identifier": "doi:10.1007/BF01389423",
+        "license": "unknown",
+        "location": "Inventiones Mathematicae 87 (1987), 385–401",
+        "relationship": "adapts",
+        "title": "Fourier coefficients of modular forms of half-integral weight",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "identifier": "PALOMAR-2026-11-12-000005",
+        "license": "Apache-2.0",
+        "location": "https://github.com/jtraverso/siegel-theorem @ dbe9353",
+        "relationship": "other",
+        "title": "Siegel's theorem for real Dirichlet characters (Goldfeld's proof)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Charlie Dorsey"
+          }
+        ],
+        "identifier": "PALOMAR-2026-11-03-000018",
+        "license": "Apache-2.0",
+        "location": "https://github.com/charliedorsey/weil-bounds-toolkit @ 0f3e4c3",
+        "relationship": "other",
+        "title": "Weil Bounds Toolkit",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "identifier": "PALOMAR-2026-11-07-000011",
+        "license": "Apache-2.0",
+        "location": "https://github.com/jtraverso/three-squares-gauss-legendre @ 783ec66",
+        "relationship": "other",
+        "title": "The three squares theorem (Gauss–Legendre)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "identifier": "PALOMAR-2026-11-08-000002",
+        "license": "Apache-2.0",
+        "location": "https://github.com/jtraverso/four-squares-in-caps @ a1fcaaf",
+        "relationship": "other",
+        "title": "Four squares in caps and Jacobi's four-square theorem for odd N",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-12T21:02:25Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "ffbf24fa05070013f17b39c9044fa1f6df4e246008a381b68fba41943b66c678"
+    },
+    "reviewed_at": "2026-11-12T20:10:21Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "`average_le` includes an all-zero-weight case that is not a mathematical weighted average. Its quotient becomes zero, so the bound is automatic in that reachable case. Require `0 < ∑ i ∈ s, w i` to restrict the statement to defined weighted averages."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "21575ff924c98165ea1b451f7cbcc27c016ebd3e",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jtraverso/duke-schulze-pillot-ternary",
+    "repository_url": "https://github.com/jtraverso/duke-schulze-pillot-ternary",
+    "tree_url": "https://github.com/jtraverso/duke-schulze-pillot-ternary/tree/21575ff924c98165ea1b451f7cbcc27c016ebd3e"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "uhkaq4utm7f2"
+  },
+  "title": "Duke–Schulze-Pillot bounds and squarefree three squares in fixed caps (H1)",
+  "trust": {
+    "challenge_bytes": 5983,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Squarefree.Basic",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.Analysis.SpecialFunctions.Sqrt",
+      "Mathlib.LinearAlgebra.Matrix.Symmetric",
+      "Mathlib.NumberTheory.Divisors",
+      "Mathlib.SetTheory.Cardinal.Finite"
+    ],
+    "challenge_lines": 110,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "7778702fe550527a163e7c220fac53591860f1ef2faf4dc29b3fd7a4ec825836",
+    "evidence_path": "evidence/PALOMAR-2026-11-07-000007-v2/553a4d2aea50bfd18e3ae4a3a37646f6ec08dee5792093f0f87f1cf56b57735e/",
+    "evidence_tree_sha256": "553a4d2aea50bfd18e3ae4a3a37646f6ec08dee5792093f0f87f1cf56b57735e",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "7cec961815c427a1ddb34f63e8a6c06cf228d76fe3683382afc7874fdc6a7bc8",
+    "protected_config_sha256": "b0d1736e78d6b86b6031631816014fd90ff5a8af9526146ea742fd923a3e2922",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43247130258,
+    "solution_sha256": "ed81bbabe016b52a48ef4d8ef4dd514793f2deb919e2197195856dfa35b4537a",
+    "tool_digests": {
+      "bwrap": "59fa92d743d19711c9b32163fb04e27bd5cf6c4a40a3862b610b69a5cb641622",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-12T16:43:16Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43247130258"
+  },
+  "version": 2
+}

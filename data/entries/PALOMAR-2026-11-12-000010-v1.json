@@ -1,0 +1,617 @@
+{
+  "abstract": "DomainTheory is a single Lean 4 / Mathlib library (v4.36.0-rc2, lake build green, no sorry) assembled from five Palomar-registered formalizations vendored under vendor/ for provenance (scott1972, scott1976, scott1980, scott1982, scott_models; see PROVENANCE.md and vendor/FROZEN.txt). The working Lean is the golfed DomainTheory/ tree: ContinuousLattice ← 1972, DataTypesAsLattices ← 1976, NeighbourhoodSystems ← 1980, InformationSystems ← 1982, BridgeTheorems ← scott_models. Comparator (Challenge.lean / Solution.lean / comparator.json) validates (i) the cross-presentation bridges formerly registered as scott_models (1972 continuous-lattice / 1980 neighbourhood / 1982 information-system isomorphisms, including D ≃o RoundFilter ≃o RoundInfoSysElement and the S-expression equation |T| ≃o |A + (T × T)|), and (ii) the selected Data Types as Lattices (1976) declarations formerly registered as scott1976. The golfed library preserves those validated results under Mathlib-style names. Distribution today is the public GitHub repository only; a CMU-CS technical report (CMU-CS-TR) is planned. Author Contributions: Lars Warren Ericson — primary formalization engineer (all Lean 4, AI-assisted proof architecture, repository assembly); Dana S. Scott — author of the original source mathematics (1972–1982), project sponsorship, historical context, and high-level advisory oversight of formalization scope; Vijay D'Silva and Brian Milnes — project initiation, pre-submission review, and advisory feedback on repository formatting and technical report generation. Source-paper authorship is distinct from combined-library co-authorship; Scott, D'Silva, and Milnes did not write the Lean.",
+  "authors": [
+    {
+      "name": "Lars Warren Ericson"
+    },
+    {
+      "name": "Dana Scott"
+    },
+    {
+      "name": "Vijay d'Silva"
+    },
+    {
+      "name": "Brian Milnes"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-12-000010-v1/e3177a8f7bf0a8c4b8e02620463f583f36513169a5a2595326ea0f114cca9e9b/",
+    "artifact_tree_sha256": "e3177a8f7bf0a8c4b8e02620463f583f36513169a5a2595326ea0f114cca9e9b",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-12T14:30:17Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "71a2035b44e7f54a797ce799fd1b03cdd3a44684"
+  },
+  "classification": {
+    "arxiv": [
+      "math.LO",
+      "math.GN",
+      "cs.LO",
+      "cs.PL"
+    ],
+    "msc2020": [
+      "06B35",
+      "54H99",
+      "03B40",
+      "68Q55",
+      "03B70",
+      "68V20",
+      "18C50"
+    ]
+  },
+  "first_registered_on": "2026-11-12",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "DomainTheory.BridgeTheorems.neighborhoodSystem_to_infoSys",
+      "DomainTheory.BridgeTheorems.infoSys_to_neighborhoodSystem",
+      "DomainTheory.BridgeTheorems.InfoSysToNeighborhood.domainOrderIso",
+      "DomainTheory.BridgeTheorems.presentation_domains_equiv",
+      "DomainTheory.BridgeTheorems.sexNeighborhoodIso",
+      "DomainTheory.BridgeTheorems.sexIdealIso",
+      "DomainTheory.BridgeTheorems.sexDomainEquationIso",
+      "DomainTheory.BridgeTheorems.NbhdBasis.toInfoSys",
+      "DomainTheory.BridgeTheorems.NbhdBasis.domainOrderIso",
+      "DomainTheory.BridgeTheorems.InfoSysToNeighborhood.toNeighborhoodSystem",
+      "DomainTheory.BridgeTheorems.wayBelowNbhdBasis",
+      "DomainTheory.BridgeTheorems.ContinuousLatticeToNeighborhood.toNeighborhoodSystem",
+      "DomainTheory.InformationSystems.InfoSys.treeSystem",
+      "DomainTheory.InformationSystems.InfoSys.treeRhs",
+      "DomainTheory.BridgeTheorems.lowerBoundSystem",
+      "DomainTheory.BridgeTheorems.SexSys",
+      "DomainTheory.BridgeTheorems.SexRhs",
+      "DomainTheory.BridgeTheorems.InfoSysToIdealCompletion.FiniteElement",
+      "DomainTheory.InformationSystems.InfoSys.closure",
+      "DomainTheory.InformationSystems.InfoSys.instDecidableEqTreeToken",
+      "DomainTheory.InformationSystems.InfoSys.instDecidableEqSumToken",
+      "DomainTheory.InformationSystems.InfoSys.instDecidableEqProdToken",
+      "DomainTheory.ContinuousLattice.WayBelow",
+      "DomainTheory.ContinuousLattice.ScottOpen",
+      "DomainTheory.DataTypesAsLattices.e",
+      "DomainTheory.DataTypesAsLattices.pair",
+      "DomainTheory.DataTypesAsLattices.botElem",
+      "DomainTheory.DataTypesAsLattices.topElem",
+      "DomainTheory.DataTypesAsLattices.ofNat",
+      "DomainTheory.DataTypesAsLattices.scottPiece",
+      "DomainTheory.DataTypesAsLattices.scottUnion",
+      "DomainTheory.DataTypesAsLattices.basicNhhd",
+      "DomainTheory.DataTypesAsLattices.memOpen",
+      "DomainTheory.DataTypesAsLattices.IsScottOpen",
+      "DomainTheory.DataTypesAsLattices.graph",
+      "DomainTheory.DataTypesAsLattices.funOf",
+      "DomainTheory.DataTypesAsLattices.comp",
+      "DomainTheory.DataTypesAsLattices.retractLe",
+      "DomainTheory.DataTypesAsLattices.typed",
+      "DomainTheory.DataTypesAsLattices.Fixpoints",
+      "DomainTheory.DataTypesAsLattices.IsStrict",
+      "DomainTheory.DataTypesAsLattices.iterateBot",
+      "DomainTheory.DataTypesAsLattices.iterateFrom",
+      "DomainTheory.DataTypesAsLattices.lfpAbove",
+      "DomainTheory.DataTypesAsLattices.gfpBelow",
+      "DomainTheory.DataTypesAsLattices.fix",
+      "DomainTheory.DataTypesAsLattices.omegaComb",
+      "DomainTheory.DataTypesAsLattices.Ycomb",
+      "DomainTheory.DataTypesAsLattices.Icomb",
+      "DomainTheory.DataTypesAsLattices.Kcomb",
+      "DomainTheory.DataTypesAsLattices.Scomb",
+      "DomainTheory.DataTypesAsLattices.arrowR",
+      "DomainTheory.DataTypesAsLattices.succSet",
+      "DomainTheory.DataTypesAsLattices.predSet",
+      "DomainTheory.DataTypesAsLattices.condSet",
+      "DomainTheory.DataTypesAsLattices.dcondSet",
+      "DomainTheory.DataTypesAsLattices.seq2",
+      "DomainTheory.DataTypesAsLattices.pairSeq",
+      "DomainTheory.DataTypesAsLattices.pairElem",
+      "DomainTheory.DataTypesAsLattices.tensorR",
+      "DomainTheory.DataTypesAsLattices.plusR",
+      "DomainTheory.DataTypesAsLattices.ofComb",
+      "DomainTheory.DataTypesAsLattices.abs",
+      "DomainTheory.DataTypesAsLattices.erase",
+      "DomainTheory.DataTypesAsLattices.RetractInverseLimit",
+      "DomainTheory.DataTypesAsLattices.applyNat",
+      "DomainTheory.DataTypesAsLattices.num",
+      "DomainTheory.DataTypesAsLattices.recNat",
+      "DomainTheory.DataTypesAsLattices.extend",
+      "DomainTheory.DataTypesAsLattices.embed",
+      "DomainTheory.DataTypesAsLattices.envSet",
+      "DomainTheory.DataTypesAsLattices.interp",
+      "DomainTheory.DataTypesAsLattices.rename",
+      "DomainTheory.DataTypesAsLattices.zeroC",
+      "DomainTheory.DataTypesAsLattices.sucC",
+      "DomainTheory.DataTypesAsLattices.predC",
+      "DomainTheory.DataTypesAsLattices.condC",
+      "DomainTheory.DataTypesAsLattices.curryFin",
+      "DomainTheory.DataTypesAsLattices.IsComputable",
+      "DomainTheory.DataTypesAsLattices.Realizes",
+      "DomainTheory.DataTypesAsLattices.FUN",
+      "DomainTheory.DataTypesAsLattices.ScottF",
+      "DomainTheory.DataTypesAsLattices.ScottB",
+      "DomainTheory.DataTypesAsLattices.IsScottGdelta",
+      "DomainTheory.DataTypesAsLattices.IsFcapG",
+      "DomainTheory.DataTypesAsLattices.IsFcapGdelta",
+      "DomainTheory.DataTypesAsLattices.IsBdelta",
+      "DomainTheory.DataTypesAsLattices.RestrictedEquiv.mem",
+      "DomainTheory.DataTypesAsLattices.RestrictedEquiv.Ea",
+      "DomainTheory.DataTypesAsLattices.RestrictedEquiv.arrowE",
+      "DomainTheory.DataTypesAsLattices.RestrictedEquiv.prodE",
+      "DomainTheory.DataTypesAsLattices.RestrictedEquiv.sumE",
+      "DomainTheory.DataTypesAsLattices.closureCompact",
+      "DomainTheory.DataTypesAsLattices.GeneratedSubalgebra"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "9d581dfff2e41de989072ea63abf3daf69311520"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "b0256621cb88178e9ad932a53633077b3029e621"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "DomainTheory.BridgeTheorems.exists_presentation_domains_equiv",
+      "DomainTheory.BridgeTheorems.exists_sexNeighborhoodIso",
+      "DomainTheory.BridgeTheorems.exists_sexIdealIso",
+      "DomainTheory.BridgeTheorems.exists_sexDomainEquationIso",
+      "DomainTheory.DataTypesAsLattices.theorem_1_1",
+      "DomainTheory.DataTypesAsLattices.theorem_1_2",
+      "DomainTheory.DataTypesAsLattices.theorem_1_3",
+      "DomainTheory.DataTypesAsLattices.theorem_1_3.tuple",
+      "DomainTheory.DataTypesAsLattices.theorem_1_3.nary",
+      "DomainTheory.DataTypesAsLattices.theorem_1_4",
+      "DomainTheory.DataTypesAsLattices.theorem_1_5",
+      "DomainTheory.DataTypesAsLattices.theorem_1_5.extension",
+      "DomainTheory.DataTypesAsLattices.theorem_1_6",
+      "DomainTheory.DataTypesAsLattices.theorem_2_1",
+      "DomainTheory.DataTypesAsLattices.theorem_2_2",
+      "DomainTheory.DataTypesAsLattices.theorem_2_3",
+      "DomainTheory.DataTypesAsLattices.theorem_2_4",
+      "DomainTheory.DataTypesAsLattices.theorem_2_4.complete",
+      "DomainTheory.DataTypesAsLattices.theorem_2_5",
+      "DomainTheory.DataTypesAsLattices.theorem_2_6",
+      "DomainTheory.DataTypesAsLattices.theorem_2_6.fin",
+      "DomainTheory.DataTypesAsLattices.theorem_3_1",
+      "DomainTheory.DataTypesAsLattices.theorem_3_2",
+      "DomainTheory.DataTypesAsLattices.theorem_3_2.range",
+      "DomainTheory.DataTypesAsLattices.theorem_3_3",
+      "DomainTheory.DataTypesAsLattices.theorem_3_4",
+      "DomainTheory.DataTypesAsLattices.theorem_3_5",
+      "DomainTheory.DataTypesAsLattices.theorem_3_6",
+      "DomainTheory.DataTypesAsLattices.theorem_3_7",
+      "DomainTheory.DataTypesAsLattices.theorem_4_1",
+      "DomainTheory.DataTypesAsLattices.theorem_4_1.continuous",
+      "DomainTheory.DataTypesAsLattices.theorem_4_2",
+      "DomainTheory.DataTypesAsLattices.theorem_4_3",
+      "DomainTheory.DataTypesAsLattices.theorem_4_4",
+      "DomainTheory.DataTypesAsLattices.theorem_4_4.typed_iff",
+      "DomainTheory.DataTypesAsLattices.tensorR.isRetract",
+      "DomainTheory.DataTypesAsLattices.theorem_4_5",
+      "DomainTheory.DataTypesAsLattices.theorem_4_5.sum",
+      "DomainTheory.DataTypesAsLattices.theorem_4_6",
+      "DomainTheory.DataTypesAsLattices.theorem_4_6.Limit",
+      "DomainTheory.DataTypesAsLattices.theorem_5_1",
+      "DomainTheory.DataTypesAsLattices.theorem_5_2",
+      "DomainTheory.DataTypesAsLattices.theorem_5_3",
+      "DomainTheory.DataTypesAsLattices.theorem_5_3.closure",
+      "DomainTheory.DataTypesAsLattices.theorem_5_4",
+      "DomainTheory.DataTypesAsLattices.theorem_5_4.plus",
+      "DomainTheory.DataTypesAsLattices.boxPlus.typed_iff",
+      "DomainTheory.DataTypesAsLattices.theorem_5_5.universe",
+      "DomainTheory.DataTypesAsLattices.theorem_5_6",
+      "DomainTheory.DataTypesAsLattices.theorem_6_1",
+      "DomainTheory.DataTypesAsLattices.theorem_6_2",
+      "DomainTheory.DataTypesAsLattices.theorem_6_3",
+      "DomainTheory.DataTypesAsLattices.theorem_6_4",
+      "DomainTheory.DataTypesAsLattices.theorem_6_5",
+      "DomainTheory.DataTypesAsLattices.theorem_6_6",
+      "DomainTheory.DataTypesAsLattices.theorem_6_7",
+      "DomainTheory.DataTypesAsLattices.theorem_7_1",
+      "DomainTheory.DataTypesAsLattices.theorem_7_2",
+      "DomainTheory.DataTypesAsLattices.theorem_7_3",
+      "DomainTheory.DataTypesAsLattices.theorem_7_4",
+      "DomainTheory.DataTypesAsLattices.exists_pair",
+      "DomainTheory.DataTypesAsLattices.exists_triangle_bucket",
+      "DomainTheory.DataTypesAsLattices.pair_le_left",
+      "DomainTheory.DataTypesAsLattices.pair_inj"
+    ]
+  },
+  "id": "PALOMAR-2026-11-12-000010",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-12T19:03:47Z",
+    "receipt_sha256": "f5cd32bee8567bb9d52f4cf3165723eb7491213596cf1dccce9de95b151a1db6",
+    "repositories": [
+      {
+        "commit": "759057687b1b10948780bf37a2c645f7b7f3e86e",
+        "fork_repository": "PalomarArchive/catskillsresearch--DomainTheory--02da508d4427",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000010-v1/759057687b1b10948780bf37a2c645f7b7f3e86e",
+        "source_repository": "catskillsresearch/DomainTheory"
+      },
+      {
+        "commit": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000010-v1/7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000010-v1/d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000010-v1/b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000010-v1/c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "9d581dfff2e41de989072ea63abf3daf69311520",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000010-v1/9d581dfff2e41de989072ea63abf3daf69311520",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000010-v1/129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000010-v1/16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "b0256621cb88178e9ad932a53633077b3029e621",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000010-v1/b0256621cb88178e9ad932a53633077b3029e621",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000010-v1/c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Dana S. Scott"
+          }
+        ],
+        "location": "In: Toposes, Algebraic Geometry and Logic, edited by F. W. Lawvere, LNM 274, Springer-Verlag, 1972, pp. 97–136. Theorem 4.4.",
+        "relationship": "formalizes",
+        "title": "Continuous Lattices",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Lars Warren Ericson"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2606.30782",
+        "relationship": "other",
+        "title": "A Lean 4 Formalization of Scott's Continuous Lattices (1972)",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Robin Milner"
+          }
+        ],
+        "location": "LNM 274, pp. 135–136 (March 1972 correction)",
+        "relationship": "background",
+        "title": "Continuous Lattices (Milner correction)",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Dana S. Scott"
+          }
+        ],
+        "location": "Technical Monograph PRG-5, Oxford University Computing Laboratory, Programming Research Group, September 1976; reprinted SIAM Journal on Computing, Volume 5, 1976, pages 522–587.",
+        "relationship": "formalizes",
+        "title": "Data Types as Lattices",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Dana S. Scott"
+          }
+        ],
+        "location": "Technical Monograph PRG-19, Oxford University Computing Laboratory, Programming Research Group, May 1981. First sentence of Theorem 8.8.",
+        "relationship": "formalizes",
+        "title": "Lectures on a Mathematical Theory of Computation",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Lars Warren Ericson"
+          }
+        ],
+        "relationship": "other",
+        "title": "A Lean 4 Certificate of Scott's Lectures on a Mathematical Theory of Computation (1981) generated by LLM and registered by Palomar",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Dana S. Scott"
+          }
+        ],
+        "location": "In: Automata, Languages and Programming (ICALP 1982), LNCS 140, Springer, 1982. Theorem 7.2.",
+        "relationship": "formalizes",
+        "title": "Domains for Denotational Semantics",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Lars Warren Ericson"
+          }
+        ],
+        "relationship": "other",
+        "title": "A Lean 4 Formalization of Scott's Domains for Denotational Semantics (1982)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Lars Warren Ericson"
+          }
+        ],
+        "identifier": "https://github.com/catskillsresearch/scott_models/blob/main/view.pdf",
+        "relationship": "other",
+        "title": "Equivalence of Scott's Three Presentations of Domain Theory",
+        "type": "notes"
+      },
+      {
+        "authors": [],
+        "relationship": "independently-proves",
+        "title": "Folklore equivalence of the three presentations",
+        "type": "folklore"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/catskillsresearch/scott1972/tree/a198b6e24aea07cfc858a59798d0ca78161c4387",
+        "note": "Vendored at vendor/scott1972, copied 2026-10-20 before modification; DomainTheory is a derivative work and its code will diverge from this revision. Palomar registration as specified in that repo: PALOMAR-2026-08-24-000003 (version 2), https://palomar-registry.org/entry?id=PALOMAR-2026-08-24-000003&version=2 — upstream's registration, not DomainTheory's. Upstream home: https://github.com/catskillsresearch/scott1972",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/catskillsresearch/scott1976/tree/94ef7f7f096078cbfe4f99595c2a3fcb4c563942",
+        "note": "Vendored at vendor/scott1976, copied 2026-10-20 before modification; derivative code will diverge. Palomar: PALOMAR-2026-08-25-000004 (version 1), https://palomar-registry.org/entry?id=PALOMAR-2026-08-25-000004&version=1 — upstream's registration. Upstream home: https://github.com/catskillsresearch/scott1976",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/catskillsresearch/scott1980/tree/11b25d2e9cc32176ddfc78194058c61a0138a6da",
+        "note": "Vendored at vendor/scott1980, copied 2026-10-20 before modification; derivative code will diverge. Palomar: PALOMAR-2026-08-24-000001 (version 2), https://palomar-registry.org/entry?id=PALOMAR-2026-08-24-000001&version=2 — upstream's registration. Upstream home: https://github.com/catskillsresearch/scott1980",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/catskillsresearch/scott1982/tree/455bd70226912fa621203319292e25deb0677082",
+        "note": "Vendored at vendor/scott1982, copied 2026-10-20 before modification; derivative code will diverge. Palomar: PALOMAR-2026-08-24-000005 (version 1), https://palomar-registry.org/entry?id=PALOMAR-2026-08-24-000005&version=1 — upstream's registration. Upstream home: https://github.com/catskillsresearch/scott1982",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/catskillsresearch/scott_models/tree/85ed1ae09faa29fe292c9867e91cf8e9b48ab2fa",
+        "note": "Vendored at vendor/scott_models, copied 2026-10-20 before modification; derivative code will diverge. Palomar: PALOMAR-2026-08-25-000003 (version 1), https://palomar-registry.org/entry?id=PALOMAR-2026-08-25-000003&version=1 — upstream's registration. Upstream home: https://github.com/catskillsresearch/scott_models",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/catskillsresearch/domain_theory",
+        "note": "Archived earlier combined tree by the same author, noted here for disambiguation. Not vendored and not a derived-from base of DomainTheory; scott_models records itself as superseding it. See PROVENANCE.md.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/catskillsresearch/cardb",
+        "note": "Same-author Palomar template source; not imported here. (As cited in scott1980.)",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/Vilin97/lean-pool/tree/main/LeanPool/DomainTheory",
+        "note": "Public downstream ingest of catskillsresearch/domain_theory (candidates/provenance.jsonl: repo catskillsresearch/domain_theory, authors Catskills Research Company). Apache-2.0 permitted the copy. Incomplete relative to this snapshot (ContinuousLattice + Neighborhood + a short InfoSys; no full scott1982, no bridges). Not prior work this formalization follows; a later copy of an earlier repo of the same author. This SHA is the complete source to copy. (As cited in scott_models.)",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Lars Warren Ericson"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-12T19:03:27Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "16f4fdae25aa6a5cfd03fcd4fe1fd1796876d5c52a344c573bb354316cde9734"
+    },
+    "reviewed_at": "2026-11-12T15:15:56Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "The public abstract does not convey the selected 1976 work’s distinct computability and descriptive-set classification result families. Readers of the abstract would see a lattice-theoretic project without these substantial selected results. The Lean statements need not change; expand project.description to identify these families collectively, without enumerating declarations."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "759057687b1b10948780bf37a2c645f7b7f3e86e",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "catskillsresearch/DomainTheory",
+    "repository_url": "https://github.com/catskillsresearch/DomainTheory",
+    "tree_url": "https://github.com/catskillsresearch/DomainTheory/tree/759057687b1b10948780bf37a2c645f7b7f3e86e"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "76jkpb4q88dp"
+  },
+  "title": "DomainTheory — Scott domain theory 1972–1982 with cross-presentation bridges",
+  "trust": {
+    "challenge_bytes": 45363,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Computability.Primrec.Basic",
+      "Mathlib.Computability.RE",
+      "Mathlib.Data.Finset.Basic",
+      "Mathlib.Data.Nat.Bitwise",
+      "Mathlib.Data.Set.Basic",
+      "Mathlib.Data.Set.Lattice.Bounded",
+      "Mathlib.Data.Set.Lattice.Disjoint",
+      "Mathlib.Data.Set.Lattice.Image",
+      "Mathlib.Data.Set.Lattice.Indexed",
+      "Mathlib.Data.Set.Lattice.Order",
+      "Mathlib.Order.CompleteLattice.Basic",
+      "Mathlib.Order.CompleteLattice.Defs",
+      "Mathlib.Order.ConditionallyCompleteLattice.Basic",
+      "Mathlib.Order.Directed",
+      "Mathlib.Order.Hom.Basic",
+      "Mathlib.Order.Hom.Order",
+      "Mathlib.Order.Hom.WithTopBot",
+      "Mathlib.Order.Ideal",
+      "Mathlib.Order.Sum.Order",
+      "Mathlib.Order.UpperLower.Basic",
+      "Mathlib.Topology.Bases",
+      "Mathlib.Topology.Separation.Basic"
+    ],
+    "challenge_lines": 984,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "f86fc2e130878db65ebab38b98133497ca9c20c00cf807b480e7f6da2cf10749",
+    "evidence_path": "evidence/PALOMAR-2026-11-12-000010-v1/a62e267a39cde7fba654da51d78875eabd4bf8047e9861fb39f9a2a082a75234/",
+    "evidence_tree_sha256": "a62e267a39cde7fba654da51d78875eabd4bf8047e9861fb39f9a2a082a75234",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "a692ae17c3dcce165b42c9f15eaec37ad32055bcd91bd5e0e4547fd60124e37d",
+    "protected_config_sha256": "9abbc1682b8f0d5f28676f7b7e802e81001c94de1506ffba3c3fc10f61f7bc27",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43208073098,
+    "solution_sha256": "1d9fd811917fc05b41bf73d6d6850a81144499e6b5e97361187d493bd9938401",
+    "tool_digests": {
+      "bwrap": "75f17d2483b59871f137c21603fdb7af3a691dc5aa088c0803fd5af14c2db72e",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "b35cb10cf2ced51a2fd1880cfdbf75c71ab7a35a",
+    "verified_at": "2026-11-12T11:26:51Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43208073098"
+  },
+  "version": 1
+}

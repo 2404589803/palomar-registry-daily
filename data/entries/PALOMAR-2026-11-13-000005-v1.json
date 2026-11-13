@@ -1,0 +1,348 @@
+{
+  "abstract": "A Lean 4 and Mathlib proof that the Gallai–van der Waerden numbers GW(r; 3, 4) of Mao, Ozeki, Robertson and Wang equal 53 for r = 3, 4 and 5. GW(r; 3, l) is the least m such that for every n ≥ m, every exact r-colouring of {1, …, n} contains a rainbow 3-term or a monochromatic l-term arithmetic progression. Upper bound: for every r ≤ 5 and every n ≥ 53, every r-colouring of {1, …, n} has a rainbow 3-term or a monochromatic 4-term progression. This is reduced to the unsatisfiability of a CNF with 265 atoms and 43,562 clauses (colours renamed in order of first appearance), and the unsatisfiability is checked in Lean's kernel (decide +kernel, no native_decide) from an LRAT certificate of 1,211 derived clauses by a bitmask unit-propagation checker whose soundness is proved in Lean for every input. Lower bound: explicit exact 3-, 4- and 5-colourings of {1, …, 52} with neither progression, checked by the kernel. Together: GW(3; 3, 4) = GW(4; 3, 4) = GW(5; 3, 4) = 53.",
+  "authors": [
+    {
+      "name": "Arhan Canli"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-13-000005-v1/de3e4f3f7448e3a714febfafec77d9789f38ecd752c48caa221b613ce72ec4a8/",
+    "artifact_tree_sha256": "de3e4f3f7448e3a714febfafec77d9789f38ecd752c48caa221b613ce72ec4a8",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-13T05:11:39Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05D10",
+      "11B25",
+      "05-08"
+    ]
+  },
+  "first_registered_on": "2026-11-13",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "GwExact.gwProperty_53",
+      "GwExact.exists_good_3",
+      "GwExact.exists_good_4",
+      "GwExact.exists_good_5",
+      "GwExact.GW_eq_53"
+    ]
+  },
+  "id": "PALOMAR-2026-11-13-000005",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-13T07:03:07Z",
+    "receipt_sha256": "b9dcf2fe4f522e96088e010af00ba9cabad60fd1f86b36a6a617df62371b65d6",
+    "repositories": [
+      {
+        "commit": "0b66486688882b30ff6ee48c15b55a09c73d6a0c",
+        "fork_repository": "PalomarArchive/arhancanli--quantavane-gw-exact--f553995b96f1",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000005-v1/0b66486688882b30ff6ee48c15b55a09c73d6a0c",
+        "source_repository": "arhancanli/quantavane-gw-exact"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000005-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000005-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000005-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000005-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000005-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000005-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000005-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000005-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-13-000005-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Claude (Anthropic)",
+            "role": "AI agents working under Arhan Canli's direction: ran the SAT search and the certificate checks, wrote the kernel checker, its soundness proof and the Lean formalization"
+          }
+        ],
+        "relationship": "other",
+        "title": "GW(r; 3, 4) = 53 for r = 3, 4, 5, by a SAT computation with an LRAT certificate and explicit witness colourings (Quantavane, 11 November 2026)",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Yaping Mao"
+          },
+          {
+            "name": "Kenta Ozeki"
+          },
+          {
+            "name": "Aaron Robertson"
+          },
+          {
+            "name": "Zhao Wang"
+          }
+        ],
+        "identifier": "doi:10.1016/j.jcta.2022.105672",
+        "location": "J. Combin. Theory Ser. A 193 (2023), 105672; Definition 1.15 (Gallai–van der Waerden numbers)",
+        "relationship": "background",
+        "title": "Arithmetic progressions, quasi progressions, and Gallai-Ramsey colorings",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Yuan Si"
+          }
+        ],
+        "identifier": "arXiv:2610.30711",
+        "location": "https://arxiv.org/abs/2610.30711 (October 2026)",
+        "relationship": "background",
+        "title": "Complete Determination of the Gallai-van der Waerden Number GW(r;3,3)",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Armin Biere"
+          },
+          {
+            "name": "Tobias Faller"
+          },
+          {
+            "name": "Katalin Fazekas"
+          },
+          {
+            "name": "Mathias Fleury"
+          },
+          {
+            "name": "Nils Froleyks"
+          },
+          {
+            "name": "Florian Pollitt"
+          }
+        ],
+        "location": "https://github.com/arminbiere/cadical",
+        "relationship": "other",
+        "title": "CaDiCaL 3.0.1 (SAT solver with LRAT proof output)",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-11-12-000003",
+        "note": "Gallai–van der Waerden numbers from quadratic-residue colourings (arhancanli/quantavane-gw-residue). Same three definitions (namespace GwResidue there); proves GW(4; 3, 4) > 52 and GW(5; 3, 4) > 52 by a construction. This repository proves the matching upper bound and the case r = 3, with lower-bound witnesses of its own; it does not import that development.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Arhan Canli"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-13T07:02:47Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "546f252576564f6bf2a12493f87051f413e167b6a52f2cb93cf648e9cbbd8d2d"
+    },
+    "reviewed_at": "2026-11-13T05:20:50Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "0b66486688882b30ff6ee48c15b55a09c73d6a0c",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "arhancanli/quantavane-gw-exact",
+    "repository_url": "https://github.com/arhancanli/quantavane-gw-exact",
+    "tree_url": "https://github.com/arhancanli/quantavane-gw-exact/tree/0b66486688882b30ff6ee48c15b55a09c73d6a0c"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "0iqmkkusxjfo"
+  },
+  "title": "Exact Gallai–van der Waerden numbers: GW(r; 3, 4) = 53 for r = 3, 4, 5",
+  "trust": {
+    "challenge_bytes": 4883,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Order.Lattice.Nat"
+    ],
+    "challenge_lines": 94,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "9a0418417484f5981c3feba1e00818a675c9afc146c56f8ec48467d2c8085a19",
+    "evidence_path": "evidence/PALOMAR-2026-11-13-000005-v1/b65d8f2b7c840370ca6f1fc7fa4d64e919f708d84e971c31ed0b83fd02f7596f/",
+    "evidence_tree_sha256": "b65d8f2b7c840370ca6f1fc7fa4d64e919f708d84e971c31ed0b83fd02f7596f",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "c59a388a3833a5db1548eae686ca2e5600e25b1f59fcb236a4d05a49090bd6c9",
+    "protected_config_sha256": "5c0156a03eb6f804efe2833e93cb3dd5acf3614f893ecc3ba982fdf9dfaf91b4",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43365255466,
+    "solution_sha256": "c66ff12e24d31e037bf6bdfcd201ca7a33ce647fd8671b56f9bb85f67b39a5f8",
+    "tool_digests": {
+      "bwrap": "716eea018e24ddac8d1bac6128db4578632318eb53b62d9c4bbed69ff32b7d6d",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-13T04:27:23Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43365255466"
+  },
+  "version": 1
+}

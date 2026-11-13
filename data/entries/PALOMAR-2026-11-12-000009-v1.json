@@ -1,0 +1,361 @@
+{
+  "abstract": "A Lean 4 and Mathlib proof of two lower-bound constructions for the Gallai–van der Waerden numbers GW(r; k, l) of Mao, Ozeki, Robertson and Wang (the least M such that for every n ≥ M, every exact r-colouring of {1, …, n} contains a rainbow k-term or a monochromatic l-term arithmetic progression), for rainbow (m + 1)-term progressions and every m. Let p > l ≥ 2 be a prime with p ≡ 1 (mod m) such that (i) for every i in {0, …, m} the m residues j − i (j ≠ i, 0 ≤ j ≤ m) do not lie in m distinct m-th power classes modulo p, and (ii) no l consecutive integers in [1, p − 1] lie in one class. Theorem 4: colouring x in [1, (l − 1)p] by (x − 1)^((p − 1)/m) mod p (the m-th power class of x − 1, and a new colour 0 on the zero class x ≡ 1 (mod p)) uses exactly m + 1 colours and has no rainbow (m + 1)-term and no monochromatic l-term progression, so GW(m + 1; m + 1, l) > (l − 1)p. Theorem 8: if instead the zero class 1 + kp (0 ≤ k ≤ l − 1) of [1, (l − 1)p + 1] is coloured by s ≥ 2 new colours z(k), where z uses all s colours and has no rainbow (m + 1)-term progression, the colouring uses exactly m + s colours and is good, so GW(m + s; m + 1, l) > (l − 1)p + 1. The formalization proves both theorems for every such m, l, p (and s, z), the resulting bounds for GW (unconditionally for every threshold with the defining property, and for the number itself given that a threshold exists), and five instances with l = 4: GW(4; 4, 4) > 327, GW(5; 5, 4) > 1059, GW(6; 6, 4) > 2253, GW(6; 4, 4) > 328 and GW(8; 5, 4) > 1060.",
+  "authors": [
+    {
+      "name": "Arhan Canli"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-12-000009-v1/4fbd71ca6b06fd5550861e7f3677e52c3809774d6bd366b270292a0866d8f042/",
+    "artifact_tree_sha256": "4fbd71ca6b06fd5550861e7f3677e52c3809774d6bd366b270292a0866d8f042",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-12T10:51:39Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.NT"
+    ],
+    "msc2020": [
+      "05D10",
+      "11B25",
+      "11A15"
+    ]
+  },
+  "first_registered_on": "2026-11-12",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "GwPower.theorem4",
+      "GwPower.exists_goodExactColouring",
+      "GwPower.lt_of_gwProperty",
+      "GwPower.lt_GW",
+      "GwPower.theorem8",
+      "GwPower.exists_goodExactColouring_split",
+      "GwPower.lt_of_gwProperty_split",
+      "GwPower.lt_GW_split",
+      "GwPower.gw_4_4_4",
+      "GwPower.gw_5_5_4",
+      "GwPower.gw_6_6_4",
+      "GwPower.gw_6_4_4",
+      "GwPower.gw_8_5_4"
+    ]
+  },
+  "id": "PALOMAR-2026-11-12-000009",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-12T18:15:43Z",
+    "receipt_sha256": "9e37ccb600ec818f8738d35f7ad19dfdf34de45e8d1680fa6ce81fb7d9e3213a",
+    "repositories": [
+      {
+        "commit": "670813a3004fcd02bd9f7d4dc51cb7011897f4e0",
+        "fork_repository": "PalomarArchive/arhancanli--quantavane-gw-residue-power--3f119d24c57d",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000009-v1/670813a3004fcd02bd9f7d4dc51cb7011897f4e0",
+        "source_repository": "arhancanli/quantavane-gw-residue-power"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000009-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000009-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000009-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000009-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000009-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000009-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000009-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000009-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000009-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Claude (Anthropic)",
+            "role": "AI agents working under Arhan Canli's direction: found the constructions, wrote the informal proofs and the Lean proof, and ran the mechanical checks"
+          }
+        ],
+        "relationship": "other",
+        "title": "m-th power residue colourings give GW(m + 1; m + 1, l) > (l − 1)p and, with a split zero class, GW(m + s; m + 1, l) > (l − 1)p + 1 (Theorems 4 and 8 of Quantavane's note on Gallai–van der Waerden numbers, 11–12 November 2026)",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Yaping Mao"
+          },
+          {
+            "name": "Kenta Ozeki"
+          },
+          {
+            "name": "Aaron Robertson"
+          },
+          {
+            "name": "Zhao Wang"
+          }
+        ],
+        "identifier": "doi:10.1016/j.jcta.2022.105672",
+        "location": "J. Combin. Theory Ser. A 193 (2023), 105672; Definition 1.15 (Gallai–van der Waerden numbers)",
+        "relationship": "background",
+        "title": "Arithmetic progressions, quasi progressions, and Gallai-Ramsey colorings",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "John R. Rabung"
+          }
+        ],
+        "identifier": "doi:10.4153/CMB-1979-012-1",
+        "location": "Canad. Math. Bull. 22 (1979), 87–91",
+        "relationship": "background",
+        "title": "Some progression-free partitions constructed using Folkman's method",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "John Rabung"
+          },
+          {
+            "name": "Mark Lotts"
+          }
+        ],
+        "identifier": "doi:10.37236/2363",
+        "location": "Electron. J. Combin. 19(2) (2012), #P35",
+        "relationship": "background",
+        "title": "Improving the Use of Cyclic Zippers in Finding Lower Bounds for van der Waerden Numbers",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Yuan Si"
+          }
+        ],
+        "identifier": "arXiv:2610.30711",
+        "location": "https://arxiv.org/abs/2610.30711 (October 2026)",
+        "relationship": "background",
+        "title": "Complete Determination of the Gallai-van der Waerden Number GW(r;3,3)",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/arhancanli/quantavane-gw-residue/tree/be8cde77420f724366fb292451866c2ee931a5dc",
+        "note": "Quantavane's formalization of the quadratic-residue construction (Theorem 1 of the same note, GW(s + 2; 3, l) > (l − 1)p + 1 for p ≡ 1 (mod 8)). Mathematically it is the case m = 2 of Theorem 8 here, where condition (i) says (2 | p) = (−1 | p) = 1. The two repositories use different encodings (Legendre symbols and colours Fin (s + 2) there; power classes in ZMod p here) and neither imports the other.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Arhan Canli"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-12T18:15:14Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "10d6bef5beaa82e60cbcc5dc10fd9b720b817d5b7d279698dafea0395a5805ed"
+    },
+    "reviewed_at": "2026-11-12T15:10:13Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "670813a3004fcd02bd9f7d4dc51cb7011897f4e0",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "arhancanli/quantavane-gw-residue-power",
+    "repository_url": "https://github.com/arhancanli/quantavane-gw-residue-power",
+    "tree_url": "https://github.com/arhancanli/quantavane-gw-residue-power/tree/670813a3004fcd02bd9f7d4dc51cb7011897f4e0"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "68qgvv079rcw"
+  },
+  "title": "Gallai–van der Waerden numbers from m-th power residue colourings",
+  "trust": {
+    "challenge_bytes": 13663,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Data.ZMod.Basic",
+      "Mathlib.Order.Interval.Finset.Nat",
+      "Mathlib.Order.Lattice.Nat"
+    ],
+    "challenge_lines": 227,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "6ee9c478303f4bd7030e47b32a51cb973a45ef9c36f58dfbdf31109c50651809",
+    "evidence_path": "evidence/PALOMAR-2026-11-12-000009-v1/7531ea2e3772e40255001c54f3f316fa19392c60cbceefc87f107554a0eb6031/",
+    "evidence_tree_sha256": "7531ea2e3772e40255001c54f3f316fa19392c60cbceefc87f107554a0eb6031",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "d8a63760d610ba0365574140f43b4cd63b08443c40f6f0dd43605fcf79d24dbe",
+    "protected_config_sha256": "1514232d3224b682201ef4be3c5323daf9ad832fdd3a60015261c798b225d1b8",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43167406442,
+    "solution_sha256": "bb5b03374acfcf398fc131950e249205cd098ad0fbedab450d0749e6d226fda0",
+    "tool_digests": {
+      "bwrap": "31db6d1a79c12000fd867b6d9d36440502de9c8067f224ec7b9e3a35f3a12c38",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-12T06:42:34Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43167406442"
+  },
+  "version": 1
+}
