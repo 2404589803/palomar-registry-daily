@@ -1,0 +1,416 @@
+{
+  "abstract": "This project proves the Reinhardt conjecture in Lean 4. Every centrally symmetric convex disk in the plane has greatest packing density at least that of the smoothed octagon, approximately 0.902414. The smoothed octagon is a regular octagon whose corners are replaced by arcs of hyperbolas. Equality holds precisely for its images under invertible affine maps.\n\nThe proof uses Hales's optimal control formulation and builds on the libraries lean4-smoothed-polygon and lean4-optimal-control. It also verifies the construction and packing density of the smoothed octagon.",
+  "authors": [
+    {
+      "name": "The-Anh Vu-Le"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-09-000008-v2/76d593ea5c578fb67f61349fdab7376b778c235d0de75f99be68a9c84715861f/",
+    "artifact_tree_sha256": "76d593ea5c578fb67f61349fdab7376b778c235d0de75f99be68a9c84715861f",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-12T23:46:50Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "71a2035b44e7f54a797ce799fd1b03cdd3a44684"
+  },
+  "classification": {
+    "arxiv": [
+      "math.MG",
+      "math.OC"
+    ],
+    "msc2020": [
+      "52C15",
+      "52A10",
+      "52A40",
+      "49K15",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-09",
+  "formalization": {
+    "challenge_path": "Palomar/Challenge.lean",
+    "comparator_config_path": "Palomar/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "Palomar/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "SmoothedPolygons",
+        "repository": "vltanh/lean4-smoothed-polygon",
+        "revision": "b9846532aa26ddf49945ae9fe94549f3ed7918d2"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "9d581dfff2e41de989072ea63abf3daf69311520"
+      },
+      {
+        "name": "OptimalControl",
+        "repository": "vltanh/lean4-optimal-control",
+        "revision": "88689a80ebc400f2e7b3656ee0b9d95a7bf42820"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "b0256621cb88178e9ad932a53633077b3029e621"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3"
+      },
+      {
+        "name": "FixedPoint",
+        "repository": "vltanh/lean4-fixed-point",
+        "revision": "6894a0f32ab2432e7ae34537a4dbb83d52ae7b9d"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b"
+      }
+    ],
+    "solution_path": "SmoothedOctagon.lean",
+    "theorem_names": [
+      "ReinhardtChallenge.octagon_density",
+      "ReinhardtChallenge.reinhardt",
+      "ReinhardtChallenge.reinhardt_equality"
+    ]
+  },
+  "id": "PALOMAR-2026-11-09-000008",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-13T17:02:21Z",
+    "receipt_sha256": "e3c3726a9ad51bdac54f61a91a8000b342ee44f93af10b0d5baf4169b67522fe",
+    "repositories": [
+      {
+        "commit": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000008-v2/7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000008-v2/d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000008-v2/b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000008-v2/c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "9d581dfff2e41de989072ea63abf3daf69311520",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000008-v2/9d581dfff2e41de989072ea63abf3daf69311520",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000008-v2/129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000008-v2/16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "b0256621cb88178e9ad932a53633077b3029e621",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000008-v2/b0256621cb88178e9ad932a53633077b3029e621",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000008-v2/c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "6894a0f32ab2432e7ae34537a4dbb83d52ae7b9d",
+        "fork_repository": "PalomarArchive/vltanh--lean4-fixed-point--8e5eb7b662e1",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000008-v2/6894a0f32ab2432e7ae34537a4dbb83d52ae7b9d",
+        "source_repository": "vltanh/lean4-fixed-point"
+      },
+      {
+        "commit": "88689a80ebc400f2e7b3656ee0b9d95a7bf42820",
+        "fork_repository": "PalomarArchive/vltanh--lean4-optimal-control--502e9f9ed14e",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000008-v2/88689a80ebc400f2e7b3656ee0b9d95a7bf42820",
+        "source_repository": "vltanh/lean4-optimal-control"
+      },
+      {
+        "commit": "b9e117122bf1819e105f1bdecb5ec5af511aac60",
+        "fork_repository": "PalomarArchive/vltanh--lean4-smoothed-octagon--d62079f856f3",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000008-v2/b9e117122bf1819e105f1bdecb5ec5af511aac60",
+        "source_repository": "vltanh/lean4-smoothed-octagon"
+      },
+      {
+        "commit": "b9846532aa26ddf49945ae9fe94549f3ed7918d2",
+        "fork_repository": "PalomarArchive/vltanh--lean4-smoothed-polygon--2f5c0b96616d",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-09-000008-v2/b9846532aa26ddf49945ae9fe94549f3ed7918d2",
+        "source_repository": "vltanh/lean4-smoothed-polygon"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "relationship": "other",
+        "title": "A proof of the Reinhardt conjecture",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Karl Reinhardt"
+          }
+        ],
+        "identifier": "doi:10.1007/BF02940676",
+        "location": "Abhandlungen aus dem Mathematischen Seminar der Universität Hamburg 10 (1934), 216-230",
+        "relationship": "background",
+        "title": "Über die dichteste gitterförmige Lagerung kongruenter Bereiche in der Ebene und eine besondere Art konvexer Kurven",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Kurt Mahler"
+          }
+        ],
+        "location": "Proceedings of the Koninklijke Nederlandse Akademie van Wetenschappen 50 (1947), 108-118",
+        "relationship": "background",
+        "title": "On the area and the densest packing of convex domains",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Thomas C. Hales"
+          }
+        ],
+        "identifier": "arXiv:1103.4518",
+        "location": "Vietnam Journal of Mathematics 39 (2011), no. 3, 287-307",
+        "relationship": "background",
+        "title": "On the Reinhardt conjecture",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Thomas C. Hales"
+          }
+        ],
+        "identifier": "arXiv:1703.01352",
+        "location": "https://arxiv.org/abs/1703.01352",
+        "relationship": "background",
+        "title": "The Reinhardt conjecture as an optimal control problem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Thomas Hales"
+          },
+          {
+            "name": "Koundinya Vajjha"
+          }
+        ],
+        "identifier": "arXiv:2405.04331v1",
+        "location": "https://arxiv.org/abs/2405.04331v1",
+        "relationship": "background",
+        "title": "Packings of Smoothed Polygons",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "László Fejes Tóth"
+          }
+        ],
+        "location": "Acta Scientiarum Mathematicarum (Szeged) 12 A (1950), 62-67",
+        "relationship": "background",
+        "title": "Some packing and covering theorems",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/vltanh/lean4-smoothed-polygon",
+        "note": "The formalization of Hales and Vajjha's book by the same maintainer, pinned at commit b9846532aa26ddf49945ae9fe94549f3ed7918d2: packings and the greatest packing density, Fejes Toth's and Mahler's theorems, the control reformulation, the Pontryagin lift of a global minimizer, Theorem 5.0.2 and the density of the smoothed octagon. Its packing definitions are copied into the Challenge, and SmoothedOctagon/Bridge/Classical.lean proves that the copies agree with the library's. It does not prove the conjecture.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/vltanh/lean4-optimal-control",
+        "note": "Filippov's theorem and the Pontryagin maximum principle, by the same maintainer, used through lean4-smoothed-polygon at commit 88689a80ebc400f2e7b3656ee0b9d95a7bf42820.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "The-Anh Vu-Le"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-13T16:23:15Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "73a2e83be9f87bcdffcb96059b7e1736a08b3c77ea529b0d2bb9a04e7ff76098"
+    },
+    "reviewed_at": "2026-11-13T00:34:34Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "b9e117122bf1819e105f1bdecb5ec5af511aac60",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "vltanh/lean4-smoothed-octagon",
+    "repository_url": "https://github.com/vltanh/lean4-smoothed-octagon",
+    "tree_url": "https://github.com/vltanh/lean4-smoothed-octagon/tree/b9e117122bf1819e105f1bdecb5ec5af511aac60"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "t08wwgp103uf"
+  },
+  "title": "The Reinhardt conjecture, formalized in Lean 4",
+  "trust": {
+    "challenge_bytes": 8871,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Calculus.ContDiff.Defs",
+      "Mathlib.Analysis.Calculus.Deriv.Basic",
+      "Mathlib.Analysis.Convex.Extreme",
+      "Mathlib.Analysis.Convex.Hull",
+      "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+      "Mathlib.Analysis.SpecialFunctions.Sqrt",
+      "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+      "Mathlib.Data.Matrix.Mul",
+      "Mathlib.Data.ZMod.Defs",
+      "Mathlib.LinearAlgebra.AffineSpace.AffineEquiv",
+      "Mathlib.LinearAlgebra.Matrix.NonsingularInverse",
+      "Mathlib.LinearAlgebra.Matrix.Trace",
+      "Mathlib.LinearAlgebra.UnitaryGroup",
+      "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+      "Mathlib.Order.LiminfLimsup",
+      "Mathlib.Topology.EMetricSpace.Lipschitz",
+      "Mathlib.Topology.Instances.ENNReal.Lemmas"
+    ],
+    "challenge_lines": 173,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "dcdf29bc0a297b0df7a665143cfb8335039ad46e1766bfaff597a3d24e8b7430",
+    "evidence_path": "evidence/PALOMAR-2026-11-09-000008-v2/99214d0e739dbd77ada90e6e043a1c3de523103d99c69e77afe75ed0e13bff5a/",
+    "evidence_tree_sha256": "99214d0e739dbd77ada90e6e043a1c3de523103d99c69e77afe75ed0e13bff5a",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "a20fd132d21be3480bef2be8a9ba090e267f4ca5c652cae11c7110324dfa8aab",
+    "protected_config_sha256": "b22ef1dd3934a256edbf52896bd47f99858302ff373188f150cd850573d2a993",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43316244086,
+    "solution_sha256": "897c8478bdc4ffe1ee573b681e7aadd5551e5f951cfa7d5b1a468b6c5c1de9ea",
+    "tool_digests": {
+      "bwrap": "fba1ad44fab492476b62dd35244c01b47d322c6bd594931d5c17731a758b23a7",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "b35cb10cf2ced51a2fd1880cfdbf75c71ab7a35a",
+    "verified_at": "2026-11-12T22:51:42Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43316244086"
+  },
+  "version": 2
+}

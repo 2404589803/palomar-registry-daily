@@ -1,0 +1,456 @@
+{
+  "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of nine statements about R^n with a diagonal metric eta whose entries are +1 or -1 (every signature). A covector field omega is conformal Killing when it is C^3 and d_i omega_j + d_j omega_i = 2 phi eta_ij for some function phi, and Killing when it is C^3 and d_i omega_j + d_j omega_i = 0. (1) For n >= 3 the conformal Killing fields are exactly the members of an explicit family: translations, rotations (an antisymmetric matrix), the dilation and the special conformal fields. (2) In every dimension the Killing fields are exactly the affine fields a + A x with A antisymmetric. (3) For n >= 3 the conformal Killing fields form a real vector space of finite dimension (n+1)(n+2)/2. (4) In every dimension the Killing fields form a real vector space of finite dimension n(n+1)/2. (5) A control for the hypothesis n >= 3 of (1): in the Euclidean plane there is a conformal Killing field that is not a member of the family for any values of its parameters, the matrix being any real matrix, antisymmetric or not (the witness in the proof is the real and imaginary parts of z^3). Statements (6)-(9) are statements about conserved currents: they say which fields give conserved currents. (6) If a tensor field T and a covector field omega are differentiable at a point x, T(x) is symmetric and the conformal Killing equation holds at x with factor phi, then the current J^i = sum_j T^ij omega_j satisfies div J = (div T) . omega + phi tr_eta T at x. (7) A C^3 field is conformal Killing if and only if the current of every differentiable, symmetric, divergence-free, eta-trace-free tensor field against it is divergence-free. (8) A C^3 field is Killing if and only if the current of every differentiable, symmetric, divergence-free tensor field against it is divergence-free. (9) For n >= 1 the dilation omega_j = eta_j x_j is conformal Killing and is not Killing. The Challenge imports Mathlib only and carries the definitions its statements use (the partial derivative, the two equations, the family, the two solution spaces as submodules, the divergences, the current and the metric trace), each with its convention. Statements (1)-(4) are classical: (1) and (3) are the classification of the conformal Killing fields of R^{p,q}, p + q >= 3, and the count of their parameters (Schottenloher 2008, Theorem 1.7; Ginsparg 1988, section 1.1), the infinitesimal counterpart of Liouville's theorem on conformal maps; (2) and (4) are the Killing fields of flat space and their number. (6) is the standard identity behind the conserved currents of a trace-free stress tensor, and (5) and (9) are standard examples. In (7) and (8) the direction from the equation to conserved currents is (6); the other direction was not found stated in the sources read for this entry, is elementary (it is proved by testing on constant tensor fields, so it is a pointwise fact of linear algebra) and is not claimed as new. No statement is claimed as a new theorem. Scope: diagonal metrics with entries +1 or -1 (a general constant metric, reached by a linear change of coordinates, is not formalized); C^3 covector fields on all of R^n; the numbers in (3) and (4) are dimensions of real vector spaces, with no Lie bracket and no isomorphism with so(p+1,q+1) stated; the finite conformal maps (Liouville's theorem itself) are not formalized; nothing is said about compactly supported tensor fields in (7) and (8). Prior formalization, recorded under related_formalizations: the identity (6), with its corollary for conserved trace-free tensors, is formalized for n = 4 and signature (1,3), for tensors of tempered distributions, in github.com/openai/math; special cases of the currents are in the Yang-Mills release github.com/yang-mills-group/OpenAI-YM-20261028 and in facebookresearch/atlas-lean, and Killing fields on Riemannian manifolds are in atlas-lean and in TauCetiProject/TauCeti. In a dated search no formalization was found of (1)-(5) or of the direction of (7) and (8) from conserved currents to the equation. Application (cited; no compared statement asserts it): for n = 4 and a Lorentzian signature the spaces of (3) and (4) have dimensions 15 and 10, the infinitesimal conformal symmetries and the infinitesimal isometries of Minkowski space, and (6) is the conservation law for the currents of a conserved symmetric stress tensor against them, trace-free in the conformal case.",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-12-000002-v2/770afa854af6548440fc404321fc0dc25bbfbd5a70884af39be73ca759afad24/",
+    "artifact_tree_sha256": "770afa854af6548440fc404321fc0dc25bbfbd5a70884af39be73ca759afad24",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-13T22:16:32Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.DG",
+      "math-ph",
+      "gr-qc",
+      "hep-th"
+    ],
+    "msc2020": [
+      "53C18",
+      "53B30",
+      "35N05",
+      "70S10",
+      "81T40",
+      "83A05"
+    ]
+  },
+  "first_registered_on": "2026-11-12",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "FlatConformalKilling.conformalKilling_iff_family",
+      "FlatConformalKilling.killing_iff_affine",
+      "FlatConformalKilling.finrank_conformalKilling",
+      "FlatConformalKilling.finrank_killing",
+      "FlatConformalKilling.plane_conformalKilling_not_family",
+      "FlatConformalKilling.div_current_of_conformal",
+      "FlatConformalKilling.currents_conserved_iff_conformalKilling",
+      "FlatConformalKilling.currents_conserved_iff_killing",
+      "FlatConformalKilling.dilation_conformalKilling_not_killing"
+    ]
+  },
+  "id": "PALOMAR-2026-11-12-000002",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-13T23:17:50Z",
+    "receipt_sha256": "c57f25b29579bbb09bf0db62380e88cceb42992a6d2e56677892d1d6baad11cb",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000002-v2/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000002-v2/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000002-v2/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000002-v2/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000002-v2/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000002-v2/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000002-v2/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000002-v2/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000002-v2/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "8869b23e96d737ef9424dbb8796d91c6256b7acd",
+        "fork_repository": "PalomarArchive/stalex444--conformal-killing-flat--43bc2d3753b9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-12-000002-v2/8869b23e96d737ef9424dbb8796d91c6256b7acd",
+        "source_repository": "stalex444/conformal-killing-flat"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "M. Schottenloher"
+          }
+        ],
+        "identifier": "Lecture Notes in Physics 759, 2nd edition, Springer, Berlin Heidelberg, 2008, Chapter 1",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/978-3-540-68628-6",
+        "relationship": "formalizes",
+        "title": "A Mathematical Introduction to Conformal Field Theory",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "P. Ginsparg"
+          }
+        ],
+        "identifier": "arXiv:hep-th/9108028v1",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/hep-th/9108028",
+        "relationship": "formalizes",
+        "title": "Applied Conformal Field Theory",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "M. Blau"
+          }
+        ],
+        "identifier": "Lecture notes, Universitaet Bern; the version marked 'Last update November 10, 2026'",
+        "license": "unknown",
+        "location": "http://www.blau.itp.unibe.ch/GRLecturenotes.html",
+        "relationship": "formalizes",
+        "title": "Lecture Notes on General Relativity",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "D. Simmons-Duffin"
+          }
+        ],
+        "identifier": "New Frontiers in Fields and Strings (TASI 2015), World Scientific, pp. 1-74",
+        "license": "unknown",
+        "location": "https://doi.org/10.1142/9789813149441_0001",
+        "relationship": "formalizes",
+        "title": "The Conformal Bootstrap",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "J. D. Qualls"
+          }
+        ],
+        "identifier": "arXiv:1511.04074v2",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/1511.04074",
+        "relationship": "background",
+        "title": "Lectures on Conformal Field Theory",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "D. Poland"
+          },
+          {
+            "name": "S. Rychkov"
+          },
+          {
+            "name": "A. Vichi"
+          }
+        ],
+        "identifier": "Reviews of Modern Physics 91 (2019), 015002",
+        "license": "unknown",
+        "location": "https://doi.org/10.1103/RevModPhys.91.015002",
+        "relationship": "background",
+        "title": "The conformal bootstrap: Theory, numerical techniques, and applications",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "J. Liouville"
+          }
+        ],
+        "identifier": "In G. Monge, Application de l'analyse à la géométrie, 5th edition, revised, corrected and annotated by J. Liouville, Bachelier, Paris, 1850, pp. 609-616",
+        "license": "unknown",
+        "location": "https://archive.org/details/applicationdelan00mong",
+        "relationship": "background",
+        "title": "Extension au cas des trois dimensions de la question du tracé géographique (Note VI)",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "P. Di Francesco"
+          },
+          {
+            "name": "P. Mathieu"
+          },
+          {
+            "name": "D. Sénéchal"
+          }
+        ],
+        "identifier": "Graduate Texts in Contemporary Physics, Springer, New York, 1997",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/978-1-4612-2256-9",
+        "relationship": "background",
+        "title": "Conformal Field Theory",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "C. G. Callan"
+          },
+          {
+            "name": "S. Coleman"
+          },
+          {
+            "name": "R. Jackiw"
+          }
+        ],
+        "identifier": "Annals of Physics 59 (1970), no. 1, 42-73",
+        "license": "unknown",
+        "location": "https://doi.org/10.1016/0003-4916(70)90394-5",
+        "relationship": "background",
+        "title": "A new improved energy-momentum tensor",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/Analysis/TemperedDistribution/ConformalIdentities.lean",
+        "note": "PRIOR FORMALIZATION OF THE IDENTITY OF STATEMENT 6 IN ONE DIMENSION AND SIGNATURE. The file is lean/OAI/Analysis/TemperedDistribution/ConformalIdentities.lean in github.com/openai/math, read on 2026-11-11 at commit 4eaee87548250b2682affda7d05d947c05554bae (its declaration outline, and lines 144-160, 301-332 and 400-452 in full). The commit read is dated 2026-10-30; in its history the file has one commit, adc7f1241b42e322a6451854ab7e4b4c146bf78a (\"Initial commit\"), dated 2026-10-06. Setting: Spacetime := Fin 4 -> R, metric signs (+,-,-,-), tensors Fin 4 -> Fin 4 -> tempered distributions, complex-valued covector fields of temperate growth. Its predicate ConformalKilling is d_mu X_nu + d_nu X_mu = (1/2) metric_{mu nu} (div X). Its theorem conformal_current_divergence proves, for a symmetric tensor T and a temperate conformal Killing field X, that the divergence of the current is (1/4)(div X) trace T + sum_nu sign_nu X_nu (div T)_nu, and conformal_current_conserved concludes that the current is conserved when T is conserved and trace-free. That is the identity of statement 6 and the direction of statement 7 from the equation to conserved currents, for n = 4 and signature (1,3), in a distributional setting that statement 6 does not cover (statement 6 is pointwise, for tensor fields differentiable at a point). The same file shows that translations and Lorentz generators satisfy its predicate (AffineKillingVector.conformalKilling). Not found in that file: other dimensions or signatures, the dilation or a special conformal field, a classification of the solutions, a dimension count, or the direction from conserved currents to the equation. Contact (the author's account, from working records that are not part of this repository; see review.notes): the file was found by the prior-formalization search of 2026-11-11, made while the library here was being written; the report of the session that wrote the classification names the author's own unpublished four-dimensional development as the reference it read, neither that report nor the report on the currents names this repository, and the file was first opened for this entry after the library and the compared statements were complete. Nothing of it is imported or reproduced. Recorded as \"other\", not \"independent\", because the report of the search, which quotes both declarations, was in hand when the Challenge was assembled.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/yang-mills-group/OpenAI-YM-20261028/tree/3456e5e75cf8d4cd558955a5c7638fba2d68f464",
+        "note": "SPECIAL CASES, ALL ON EUCLIDEAN R^4. The Yang-Mills release, read on 2026-11-11 at commit 3456e5e75cf8d4cd558955a5c7638fba2d68f464, the commit with which that repository begins, dated 2026-11-05 (the declaration outlines of the three files named here and lines 136-154 of the first; the other Lean files of the release were searched for the words \"killing\" and \"conformal\" and were not read). YM/Next/MAXWELL/Current.lean: a predicate named Killing on fields Axis -> E4 -> R that is the conformal Killing equation in components (off-diagonal antisymmetry, all diagonal derivatives equal), and the lemma current_div, the divergence of the current of the polarized Maxwell stress (symmetric and trace-free there) against such a field, for smooth closed two-forms on an open set. YM/Next/MAXWELL/Affine.lean: drift_K, radial_K and skew_K show that translations, the dilation and rotations satisfy the predicate. YM/Work/A01/Conserve.lean: the Killing equation (killing), constant fields and rotations as solutions (killing_const, killing_orbital), and the theorem divergence, conservation of the current of a conserved symmetric stress against a Killing field inside correlation functions at separated points. These are instances of the direction of statements 6-8 from the equation to conserved currents, for one tensor or one class of tensors, in dimension four and Euclidean signature. Not found in the release, in the three files or by that word search: a classification of the solutions of either predicate, a dimension count, a special conformal field, other dimensions or signatures, the trace term for a tensor with nonzero trace, or the direction from conserved currents to the equation. Contact (the author's account): before the library here was written, the author's project had read YM/Next/MAXWELL/Current.lean and YM/Work/A01/Conserve.lean and had built a separate add-on library on the release's definitions (a conformal version of the release's theorem divergence; it is not part of this entry). This entry does not import the release and does not use its definitions: the fields here are functions Fin n -> R in every dimension, with a diagonal metric of any signature. Recorded as \"other\", not \"independent\", because of that contact.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/facebookresearch/atlas-lean/tree/18d1aa399b6ebaa8cd9c4a48795b43f6734c3785",
+        "note": "RELATED, NOT THESE THEOREMS. Read on 2026-11-11 at commit 18d1aa399b6ebaa8cd9c4a48795b43f6734c3785 (declaration outlines of the three files named here). MathlibExt/Geometry/Manifold/Riemannian/Killing/VectorSpace.lean: Killing vector fields of a Riemannian manifold, specialized to a finite-dimensional real inner product space (Manifold.isKillingVectorField_vectorSpace_iff); constant fields are Killing (isKillingVectorField_const) and a continuous linear field is Killing if and only if it is skew (isKillingVectorField_continuousLinearMap_iff). This overlaps the easy direction of statement 2 in positive-definite signature; it does not state that every Killing field is affine and has no dimension count. v1/Atlas/IntroductionToPartialDifferentialEquations/code/CM14/WaveEnergy.lean: for the energy-momentum tensor of the scalar wave equation on Minkowski space, compatible_current_divergence and compatible_current_divergence_free give the divergence of the current of a vector field and its vanishing when the deformation tensor vanishes, an instance of statement 6 for one tensor and Killing fields; other declarations of that file are left unproved. MathlibExtTest/Geometry/Manifold/Riemannian/Killing.lean, a test file at the same commit, on the Euclidean plane: a translation and a rotation are Killing (trans_killing, rot_killing), and unnamed examples check that the dilation and a shear are not; the dilation example is the case n = 2, Euclidean, of the second half of statement 9. The Killing file was added in commit 6a576f39873cb4e541c1e6a460a409f4b848f43d, dated 2026-10-28; the wave-equation file has one commit in the history read, 9c4f77036677e8aa896a0c1af4662384bb41ab55, dated 2026-08-24. Nothing named or stated as conformal Killing was found in the repository by the search of 2026-11-11 (Sourcegraph's index of Lean files; the coverage is in this repository's README.md). Contact (the author's account, as in the note on openai/math): found by that search; the reports of the sessions that wrote the Lean here name no file of it. Nothing of it is imported or reproduced.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/TauCetiProject/TauCeti/tree/1e668f5e55bc20f2eb87f4ba49b48833470290d1/TauCeti/Geometry/Manifold/Riemannian/Killing",
+        "note": "RELATED, NOT THESE THEOREMS. Read on 2026-11-11 at commit 1e668f5e55bc20f2eb87f4ba49b48833470290d1, dated 2026-11-09 (declaration outline of Basic.lean; in Flow.lean and Converse.lean of the same directory, the two theorems named below and a word search). The directory was written in three commits dated 2026-11-04 to 2026-11-08 (3e389ef8b2114fa643ab3d939e71ea99ab748085, 2856b93cb8b144ce491ce422bd499c2f21aa496e, 37853b557381de79a4744a7aba900611e9406fa4). The general theory of Killing fields on Riemannian manifolds: the structure IsKillingField (vanishing Lie derivative of the metric), closure under sums and scalar multiples, the characterization through a metric-compatible torsion-free connection, the second covariant derivative in terms of curvature, Killing fields as Jacobi fields along geodesics, that the flow of a Killing field preserves the metric (IsKillingField.inner_mfderiv_flowOf, in Flow.lean), and that a smooth field whose local flow preserves tangent norms is Killing (isKillingField_of_eventually_norm_mfderiv_flowOf, in Converse.lean). No classification on flat space, no dimension count and no conformal Killing field was found in the three files. Three later commits to that directory, the last 528f652a8cacf295804b3932c295aba1eab1cc9b dated 2026-11-11, were not read. Contact (the author's account, as in the note on openai/math): found by the prior-formalization search of 2026-11-11; the reports of the sessions that wrote the Lean here name no file of it. Nothing of it is imported or reproduced.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/stalex444/pdt-em-source-selection/tree/1c9ba637b5e664a88b6487d463515587616476e1",
+        "note": "THE CITED APPLICATION, BY THE SAME AUTHOR; NO MODULE IS SHARED. Registry record PALOMAR-2026-10-14-000009 (selection of the electromagnetic source tensor). It proves, on a fixed flat Lorentz frame in dimension four, that covariance and zero trace, or conservation on source-free Maxwell first jets alone, select the Maxwell stress among symmetric quadratic sources up to scale. The Maxwell stress is thus a symmetric, trace-free tensor that is conserved on source-free fields, the kind of tensor to which statement 6 applies with a conformal Killing field. That entry works with sources as functions of the field components and with first jets, not with tensor fields T on R^n as here; the passage from one setting to the other is not formalized in either entry, and neither entry imports the other.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/tree/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "note": "Mathlib declarations used by the compared statements include fderiv, ContDiff, DifferentiableAt, Matrix, Matrix.transpose, Pi.single, Submodule, Module.Finite and Module.finrank. Mathlib at the pin has no Killing or conformal Killing vector field (its declarations named Killing concern the Killing form of a Lie algebra, and its conformal declarations concern conformal linear maps and conformal maps), which is why the two equations are written out as definitions in the Challenge. The library identifies its space of antisymmetric matrices with Mathlib's LieAlgebra.Orthogonal.so (Fin n) R as submodules (skew_eq_so); no Lie bracket on the solution spaces is defined.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-13T23:17:27Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "f331548c35a09a34437db231926b777c6e26a6dfb35b6479cdb6fd78c5a28e70"
+    },
+    "reviewed_at": "2026-11-13T23:11:18Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "8869b23e96d737ef9424dbb8796d91c6256b7acd",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/conformal-killing-flat",
+    "repository_url": "https://github.com/stalex444/conformal-killing-flat",
+    "tree_url": "https://github.com/stalex444/conformal-killing-flat/tree/8869b23e96d737ef9424dbb8796d91c6256b7acd"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "cb57pp6xcl70"
+  },
+  "title": "Conformal Killing and Killing fields of flat pseudo-Euclidean space: classification for n >= 3 in every signature, the two dimension counts, and the divergence of the current of a symmetric tensor field",
+  "trust": {
+    "challenge_bytes": 20628,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 343,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "dd8a59a5df2d86d848af1b26f9f66b470c58eadbdedc7eb2f04517d871f51c27",
+    "evidence_path": "evidence/PALOMAR-2026-11-12-000002-v2/a28f8c7a7d658db013e1383faa22a7697245322260dc5506c48d022f6d889fc4/",
+    "evidence_tree_sha256": "a28f8c7a7d658db013e1383faa22a7697245322260dc5506c48d022f6d889fc4",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "b7638bef2168f57a52fd0b3c46b59269499e8685391e5477585073c8936d6fd0",
+    "protected_config_sha256": "f8e2f40f0f10ee94736a6083736b940c0aa5bb5e37a377396443781f605af8f0",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43508307440,
+    "solution_sha256": "bd26e78b08a4afa21632e5fd6dbe94d5ef00d96b9be6d55e4a419a80c98effd6",
+    "tool_digests": {
+      "bwrap": "ffaf482685ab183c10ada3ef17047f2f46da33ae81c3be2234417eaf2fc7eacd",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-13T21:16:11Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43508307440"
+  },
+  "version": 2
+}

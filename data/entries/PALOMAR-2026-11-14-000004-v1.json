@@ -1,0 +1,348 @@
+{
+  "abstract": "A Lean formalization of special transformations and RV lifting in algebraically closed valued fields of pure characteristic zero. The first Comparator configuration selects Theorem 5.5 and Corollary 5.6: special-bijection deformation to RV-pullbacks and preparation of polynomial RV values. Genuine saturation and a small original parameter set are explicit. Jacobian and measured-lifting results remain in the larger verified library but are outside this first submission claim.",
+  "authors": [
+    {
+      "name": "Yimu Yin"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-14-000004-v1/d51c3183354a14f82759517776c00074dce4a26e96499b6348ffd474ab9307c0/",
+    "artifact_tree_sha256": "d51c3183354a14f82759517776c00074dce4a26e96499b6348ffd474ab9307c0",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-13T23:17:27Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.LO"
+    ],
+    "msc2020": [
+      "03C60",
+      "03B35"
+    ]
+  },
+  "first_registered_on": "2026-11-14",
+  "formalization": {
+    "challenge_path": "PalomarPaperChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "SpecialTransformations.Section5.canonicalMap",
+      "SpecialTransformations.Section5.Focus.etaMap"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "acvf_qe",
+        "repository": "daviddhilbert/ACVF-QE",
+        "revision": "8f90dfd22de9f2c821382830eee326d1f0cf4990"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "PalomarPaperSolution.lean",
+    "theorem_names": [
+      "SpecialTransformations.Section5.Paper.theorem_5_5",
+      "SpecialTransformations.Section5.Paper.corollary_5_6",
+      "SpecialTransformations.Milestone0.Transfer.vf_zero_mem",
+      "SpecialTransformations.Milestone0.Transfer.rv_mem",
+      "SpecialTransformations.Section4.coordinate_equality_definable",
+      "SpecialTransformations.Section4.tuple_domain_definable",
+      "SpecialTransformations.Milestone0.Transfer.vf_zero_ne_one",
+      "SpecialTransformations.Milestone0.Transfer.vf_one_mem",
+      "SpecialTransformations.Milestone0.Transfer.vf_left_distrib",
+      "SpecialTransformations.Milestone0.Transfer.vf_add_mem",
+      "SpecialTransformations.Milestone0.Transfer.vf_mul_mem",
+      "SpecialTransformations.Milestone0.Transfer.vfInv_zero",
+      "SpecialTransformations.Milestone0.Transfer.vf_mul_inv_or_zero",
+      "SpecialTransformations.Milestone0.Transfer.vfInv_val",
+      "SpecialTransformations.Milestone0.Transfer.vf_mul_one",
+      "SpecialTransformations.Milestone0.Transfer.vf_mul_comm",
+      "SpecialTransformations.Milestone0.Transfer.vf_mul_assoc",
+      "SpecialTransformations.Milestone0.Transfer.vf_add_neg",
+      "SpecialTransformations.Milestone0.Transfer.vf_neg_mem",
+      "SpecialTransformations.Milestone0.Transfer.vf_add_comm",
+      "SpecialTransformations.Milestone0.Transfer.vf_add_zero",
+      "SpecialTransformations.Milestone0.Transfer.vf_add_assoc",
+      "SpecialTransformations.DefinableGeometry.Space.definable_univ",
+      "SpecialTransformations.DefinableGeometry.Map.definable_image",
+      "SpecialTransformations.Section5.SpecialBijection.bijective",
+      "SpecialTransformations.DefinableGeometry.Space.RelationDefinable.comp",
+      "SpecialTransformations.DefinableGeometry.Space.RelationDefinable.congr",
+      "SpecialTransformations.DefinableGeometry.Space.relation_eq_definable",
+      "SpecialTransformations.DefinableGeometry.Space.Definable.left_relation",
+      "SpecialTransformations.DefinableGeometry.Space.RelationDefinable.inter",
+      "SpecialTransformations.DefinableGeometry.Space.RelationDefinable.swap",
+      "SpecialTransformations.Section5.canonicalMap_value",
+      "SpecialTransformations.Section5.Focus.etaMap_value",
+      "SpecialTransformations.Section4.realSpace_diagonal_definable"
+    ]
+  },
+  "id": "PALOMAR-2026-11-14-000004",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-14T05:18:02Z",
+    "receipt_sha256": "e1a52780ce51016cfbf987c471bf8ba3b200dfaf6f95b4d6581be43ccb58939c",
+    "repositories": [
+      {
+        "commit": "8f90dfd22de9f2c821382830eee326d1f0cf4990",
+        "fork_repository": "PalomarArchive/daviddhilbert--ACVF-QE--d2cf2e626166",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000004-v1/8f90dfd22de9f2c821382830eee326d1f0cf4990",
+        "source_repository": "daviddhilbert/ACVF-QE"
+      },
+      {
+        "commit": "dd3a4a02aeedcaf322c52186fc25a959145455a6",
+        "fork_repository": "PalomarArchive/daviddhilbert--special-transformations--255d43589738",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000004-v1/dd3a4a02aeedcaf322c52186fc25a959145455a6",
+        "source_repository": "daviddhilbert/special-transformations"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000004-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000004-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000004-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000004-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000004-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000004-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000004-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000004-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000004-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Yimu Yin"
+          }
+        ],
+        "identifier": "arXiv:1006.2467v1",
+        "location": "https://arxiv.org/abs/1006.2467v1",
+        "relationship": "formalizes",
+        "title": "Special transformations in algebraically closed valued fields",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "David Marker"
+          }
+        ],
+        "relationship": "background",
+        "title": "Model Theory: An Introduction",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/daviddhilbert/ACVF-QE",
+        "note": "The pinned shared language, RV encoding and checked QE foundation. The exact dependency revision is recorded in lake-manifest.json.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/TauCetiProject/TauCeti",
+        "note": "GrothendieckRing port from revision 027f880ff251fa1cbd16ee9d6c03fb74ea254bed. Apache-2.0 attribution and the imported module README are retained under Section4/Imported.",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Yimu Yin"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-14T05:17:41Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "4562f563962d125db32cc86cf7646b3d5a87c0e28198d4709e7ddda553d20ebc"
+    },
+    "reviewed_at": "2026-11-14T00:23:30Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "dd3a4a02aeedcaf322c52186fc25a959145455a6",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "c0113bc6894f2de606261a396edbb535bfb39be41416652060797033c86e7270"
+    },
+    "repository": "daviddhilbert/special-transformations",
+    "repository_url": "https://github.com/daviddhilbert/special-transformations",
+    "tree_url": "https://github.com/daviddhilbert/special-transformations/tree/dd3a4a02aeedcaf322c52186fc25a959145455a6"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "skipi4kdz01z"
+  },
+  "title": "Special transformations in algebraically closed valued fields",
+  "trust": {
+    "challenge_bytes": 71179,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Lean.Meta.Match.Match",
+      "Lean.Meta.Tactic.AuxLemma",
+      "Mathlib"
+    ],
+    "challenge_lines": 975,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "585c53478e4282853f9cbb58064fce2499e5ec0c7b88eb1e591a1ffa2a0b7a27",
+    "evidence_path": "evidence/PALOMAR-2026-11-14-000004-v1/b670d2c6e19efbcc5d05508f1827faca8e496bbefeb5482427a57b9b575ad5ff/",
+    "evidence_tree_sha256": "b670d2c6e19efbcc5d05508f1827faca8e496bbefeb5482427a57b9b575ad5ff",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "3fab09a29167c6e24f968c252055713b178107b14c96fe3a386d519346c1df1b",
+    "protected_config_sha256": "0b0648d04d037dfde52f2683503448c05a0b84ab5cf48cc7a8634ea1104c665b",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43516971867,
+    "solution_sha256": "b353b50063a638feb0f9acc16dfddf93d34f3c3c21f56595579dbd6d71485946",
+    "tool_digests": {
+      "bwrap": "b3d01e96f0956b8500250b43fe9d0609fd45405526bbe8d98345ff8a7e814ba4",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-13T22:17:18Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43516971867"
+  },
+  "version": 1
+}
