@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-      NOTION_DATABASE_ID: 125fc41c-6c43-438a-982a-d31259645c2e
+      NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
@@ -35,7 +35,7 @@ jobs:
         continue-on-error: true
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          NOTION_DATABASE_ID: 125fc41c-6c43-438a-982a-d31259645c2e
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com

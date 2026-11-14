@@ -24,10 +24,10 @@ A continuously updated archive of [Palomar Registry](https://palomar-registry.or
 
 ## Notion sync (optional)
 
-The daily workflow can upsert result versions into [Palomar Registry Daily Archive](https://app.notion.com/p/125fc41c6c43438a982ad31259645c2e), nested under [Palomar Registry Guide](https://app.notion.com/p/3cc08f4392d681009083c8ba96df90c8).
+The daily workflow can mirror every result version into a Notion database.
 
 - Add a `NOTION_TOKEN` GitHub Actions secret for an integration with access to that database.
-- The database ID is configured in `.github/workflows/daily.yml`.
+- Add the database ID as a `NOTION_DATABASE_ID` secret; it is not stored in the repository.
 - Synced page IDs are stored in `data/notion-sync-state.json`.
 
 Transient Notion failures are retried and do not block the data snapshot or the Pages deployment.

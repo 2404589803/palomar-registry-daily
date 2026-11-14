@@ -24,10 +24,10 @@
 
 ## Notion 同步（可选）
 
-每日工作流可以把结果版本写入 [Palomar Registry Daily Archive](https://app.notion.com/p/125fc41c6c43438a982ad31259645c2e)，该数据库位于 [Palomar Registry Guide](https://app.notion.com/p/3cc08f4392d681009083c8ba96df90c8) 之下。
+每日工作流可以把每个结果版本写入一个 Notion 数据库。
 
 - 添加一个能访问该数据库的集成令牌，保存为 GitHub Actions Secret：`NOTION_TOKEN`
-- 数据库 ID 配置在 `.github/workflows/daily.yml` 中
+- 数据库 ID 保存为另一个 Secret：`NOTION_DATABASE_ID`，不写进仓库
 - 同步过的页面 ID 保存在 `data/notion-sync-state.json`
 
 Notion 的瞬时故障会自动重试，不会阻断每日快照和 Pages 部署。
