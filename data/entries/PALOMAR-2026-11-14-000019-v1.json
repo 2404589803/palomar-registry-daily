@@ -1,0 +1,461 @@
+{
+  "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of nine statements about the Lie algebra L of the linear endomorphisms of four-dimensional Minkowski space that are skew-adjoint for the Minkowski form. Main theorem, (6): a real bilinear form B on L satisfies B([Z,X],Y) + B(X,[Z,Y]) = 0 for all X, Y, Z if and only if B(X,Y) = a tr(XY) + b tr(H(X)Y) for exactly one pair of real numbers (a,b); every such form is symmetric. Here tr(XY) is the trace form of L acting on Minkowski space and H is the operator of (4). For a real simple Lie algebra whose complexification is simple the invariant symmetric bilinear forms are the multiples of the Killing form; for a complex simple Lie algebra regarded as a real one they form a plane (Francis-Staite and Leistner, Proposition 4.1). L is of the second kind: it is sl(2,C) regarded as a real Lie algebra ((1), (2)), H is multiplication by -i under that isomorphism ((4)), and tr(H(X)Y) is a second invariant form, not a multiple of the Killing form (Olafsson and Quiroga-Barranco, Remark A.10, where it is, up to a nonzero factor, K(X, J Y)). Read with X as a field strength, tr(XX) and tr(H(X)X) are, up to normalisation, the Maxwell term and the theta term (Tong's names); that reading is not formalized. Statements (1)-(5): sl(2,C), the exponential criterion, the operator H and the complexification; (2) and (4) are the structure behind the second term of (6). (1) On Mathlib's own objects, with nothing carried: Mathlib's so' (Fin 1) (Fin 3) R is isomorphic, as a real Lie algebra, to sl(2,C) (Mathlib's sl (Fin 2) C with scalars restricted to R), by the explicit map X -> -(1/2) sum_k (beta_k + i theta_k) sigma_k, where beta_k and theta_k are the boost and rotation entries of X and sigma_k are the Pauli matrices. (2) On the carried copy of Minkowski space: L has dimension 6; the same map is an isomorphism of real Lie algebras from L onto sl(2,C); the three boost generators and the three rotation generators are in L, the boost along the axis k goes to -(1/2) sigma_k and the rotation in the plane of the two other axes goes to -(i/2) sigma_k. (3) The exponential criterion: a continuous linear endomorphism A is in L if and only if exp(tA) is in the carried type ProperLorentz for every real t; the statement also records that the Minkowski form used for L has the carried minkowskiSquare as its quadratic form. (4) The explicit operator H (the boost along the axis k goes to minus the rotation in the plane of the two other axes, and that rotation goes to the boost) maps L into L, is real-linear there, satisfies H[X,Y] = [X,HY] and H(HX) = -X, and the isomorphism of (2) carries it to multiplication by -i on sl(2,C). (5) The complexification C (x)_R L is isomorphic, as a complex Lie algebra, to sl(2,C) x sl(2,C), and the two maps (1/2)(1 + iH) and (1/2)(1 - iH) are the projections onto the two factors, H being the operator of (4) extended C-linearly. Controls: (7) for the definite diagonal form diag(1,1,1,1) the Lie algebra of skew matrices is isomorphic to so(3) x so(3), for the split form diag(1,1,-1,-1) it is isomorphic to sl(2,R) x sl(2,R), and neither of the two is isomorphic to sl(2,C) as a real Lie algebra; (8) there is a bilinear form on L that is not a tr(XY) + b tr(H(X)Y) for any real a, b; (9) there is a continuous linear endomorphism A with exp(A) in ProperLorentz and A not in L. Numbering as in comparator.json. Statement (1) and part (b) of statement (2) are one isomorphism on two presentations; they are not two results. The Challenge imports Mathlib only. The definitions of Minkowski space and of the Lorentz transformations (Spacetime, minkowskiSquare, ProperLorentz and eight more) are copies carried textually from the public statement of the Yang-Mills release, repository github.com/yang-mills-group/OpenAI-YM-20261028, commit 3456e5e75cf8d4cd558955a5c7638fba2d68f464, file PublicTheory.lean, under the Apache License, Version 2.0; the source file is not imported. Statement (6) is proved from the classification of the linear maps R of L with R[X,Y] = [X,RY], which is the subject of a separate entry in preparation and is not compared here. Audience. Formal developments that use the Lorentz Lie algebra as an object. physlib's lorentzAlgebra is Mathlib's so' (Fin 1) (Fin 3) R, the object of (1); physlib also proves that the complex coefficient tensors with four vector indices invariant under SL(2,C) acting through the Lorentz group are combinations of the three pairings of the metric and the alternating symbol (independence is not proved there). The Yang-Mills release works with the Lorentz Lie algebra of this entry as the predicate tangent (X^T = -theta X theta) on its own 4 x 4 matrix type, splits it into rotations and boosts (tangent_parts), and proves, under its hypothesis Spin.Port, that its Wick-rotated map into operators on field labels respects brackets whenever the first argument is a boost (rank_bracket), in YM/Next/BOUNDARY/Derived.lean; it does not state or use any of the nine statements here, and its matrix type is not the carried Spacetime. The monograph project hairer/humanise-yang-mills proves that invariant bilinear forms on the compact colour algebra are scalar multiples using a positive invariant inner product (manuscript/existence/trace-free-rank.tex, lines 34-51, commit 0f00ae72); (6) shows that on so(3,1), which is simple but has no such inner product, the invariant forms are a two-parameter family. No one at these projects was contacted, and none of them has asked for or endorsed this entry. Literature. This entry formalizes known mathematics; the clauses not found printed are listed below. (1) and (2) are the Lie-algebra form of Spin(3,1) = SL(2,C) (Woit, Quantum Theory, Groups and Representations, sections 40.2 and 40.4; the formula is printed on generators in section 41.2; Olafsson and Quiroga-Barranco, Lemma A.1, state so(3,1) = sl(2,C)_R); (3) is the description of the Lie algebra of a matrix group by its one-parameter subgroups (Hall, arXiv:math-ph/0005032, Definition 3.13; proved there for O(n;k), which includes O(3;1), Chapter 3, section 5.6), stated here for the proper orthochronous subgroup, and (9) is an exercise of that chapter; (4) is the Hodge operator on so(3,1) (Wise, Class. Quantum Grav. 27 (2010) 155010, Appendix); (5) is the splitting of the complexified Lorentz algebra (Woit, section 40.2; Sahlmann and Seeger, Class. Quantum Grav. 41 (2024) 075010, section 2.2.1); (6) is the description of the invariant bilinear forms of a complex simple Lie algebra regarded as a real one (Olafsson and Quiroga-Barranco, Transform. Groups 17 (2012), Remark A.10; Francis-Staite and Leistner, Transform. Groups 26 (2021), Proposition 4.1); parts (a) and (b) of (7) are the companion isomorphisms in the two other signatures (Woit, section 21.2; Olafsson and Quiroga-Barranco, Remark A.2); (8) holds by a count of dimensions (the bilinear forms on L have dimension 36 and the forms of statement 6 are a plane). Not found printed in the sources read: the clause of (4) on multiplication by -i, and parts (c) and (d) of (7); README.md says how each follows from what is printed. Prior formalization, recorded under related_formalizations (search of 2026-11-13): no formalization of a compared statement was found. The counterparts for groups of (1), (2), (5), (7a) and (7b) are in TauCeti, and the homomorphism from SL(2,C) onto the restricted Lorentz group is in physlib; every ingredient of (1) and (2) is in TauCeti and was not found combined there. The equivalence of (3) is proved in TauCeti as a general theorem for the unitary group of a complete normed real algebra with a continuous involution (the form-preservation part of (3) is a case of it, by a reading that was not compiled), for the matrix groups O(n), SO(n), SL(n), SU(n) and the symplectic group, and for the Spin groups; its direction from the algebra to the group is proved for Lorentz matrices in physlib and in OSreconstruction; it was not found with both directions for the Lorentz group or another indefinite orthogonal group of linear maps. For (6), TauCeti has the uniqueness of invariant forms over an algebraically closed field and physlib the invariant coefficient tensors with four vector indices. For (5), TauCeti has extension of scalars for the skew-adjoint matrices of a Gram matrix and the complexifications of so(n) and su(n); the splitting into sl(2,C) x sl(2,C) was not found. The Hodge operator of Euclidean four-space on matrices is in github.com/openai/math. Not formalized: no covering map from SL(2,C) to ProperLorentz, no Lie group structure, no connectedness statement, no statement that every element of ProperLorentz is an exponential; other dimensions and signatures beyond (7); the identification of L with two-forms; the Killing form; the invariant forms of the complexification. Also proved in the library, not compared: Minkowski space from a number field. For a number field K with exactly two real places and exactly one complex place there is a real-linear equivalence e from Mathlib's mixedSpace K onto Spacetime with minkowskiSquare(e x) = -Tr_{K/Q}(x^2) for every x in K, and conjugation by e is an isomorphism of real Lie algebras onto L from the Lie algebra of the endomorphisms of mixedSpace K that are skew-adjoint for the form that restricts to Tr_{K/Q}(x^2) on K. This is proved in the library of this entry and is not compared.",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-14-000019-v1/bd0e8a0fc3b035fda0c9f4bc622e2d333788757f97e5bfc7f312858a12958700/",
+    "artifact_tree_sha256": "bd0e8a0fc3b035fda0c9f4bc622e2d333788757f97e5bfc7f312858a12958700",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-14T13:13:22Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.RT",
+      "math-ph",
+      "gr-qc",
+      "hep-th"
+    ],
+    "msc2020": [
+      "17B20",
+      "22E43",
+      "17B05",
+      "15A63",
+      "17B81",
+      "83A05"
+    ]
+  },
+  "first_registered_on": "2026-11-14",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "MinkowskiLorentz.so'_one_three_lieEquiv_sl2C",
+      "MinkowskiLorentz.lorentzAlgebra_lieEquiv_sl2C",
+      "MinkowskiLorentz.mem_lorentzAlgebra_iff_exp",
+      "MinkowskiLorentz.hodgeEnd_complexStructure",
+      "MinkowskiLorentz.complexification_lieEquiv",
+      "MinkowskiLorentz.invariant_bilinForm_iff",
+      "MinkowskiLorentz.definite_split_signature",
+      "MinkowskiLorentz.exists_bilinForm_not_trace_form",
+      "MinkowskiLorentz.exists_exp_mem_not_mem_lorentzAlgebra"
+    ]
+  },
+  "id": "PALOMAR-2026-11-14-000019",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-14T14:25:09Z",
+    "receipt_sha256": "855e438be2cd8258283b21d48dc3ba87601b9e99c809da7fa63aa8ab9b460744",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000019-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000019-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000019-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000019-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000019-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000019-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000019-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000019-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000019-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "91aee70f9daddadda2f97f4694b9b4352430ecba",
+        "fork_repository": "PalomarArchive/stalex444--minkowski-lorentz-algebra--34c1409c6a74",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000019-v1/91aee70f9daddadda2f97f4694b9b4352430ecba",
+        "source_repository": "stalex444/minkowski-lorentz-algebra"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "P. Woit"
+          }
+        ],
+        "identifier": "Author's revised and expanded draft of 20 October 2025 (580 pp.); first edition Springer, Cham, 2017, DOI 10.1007/978-3-319-64612-1, not opened",
+        "license": "unknown",
+        "location": "https://www.math.columbia.edu/~woit/QM/qmbook.pdf",
+        "relationship": "formalizes",
+        "title": "Quantum Theory, Groups and Representations: An Introduction",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "B. C. Hall"
+          }
+        ],
+        "identifier": "arXiv:math-ph/0005032v1",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/math-ph/0005032",
+        "relationship": "formalizes",
+        "title": "An Elementary Introduction to Groups and Representations",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "D. K. Wise"
+          }
+        ],
+        "identifier": "Class. Quantum Grav. 27 (2010) 155010; arXiv:gr-qc/0611154v2",
+        "license": "unknown",
+        "location": "https://doi.org/10.1088/0264-9381/27/15/155010",
+        "relationship": "formalizes",
+        "title": "MacDowell-Mansouri gravity and Cartan geometry",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "H. Sahlmann"
+          },
+          {
+            "name": "R. Seeger"
+          }
+        ],
+        "identifier": "Class. Quantum Grav. 41 (2024) 075010; arXiv:2310.19729",
+        "license": "unknown",
+        "location": "https://doi.org/10.1088/1361-6382/ad2cec",
+        "relationship": "formalizes",
+        "title": "Revisiting loop quantum gravity with selfdual variables: classical theory",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "G. Olafsson"
+          },
+          {
+            "name": "R. Quiroga-Barranco"
+          }
+        ],
+        "identifier": "Transform. Groups 17 (2012) 835-860; arXiv:1003.0704v2",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/s00031-012-9194-5",
+        "relationship": "formalizes",
+        "title": "On low-dimensional manifolds with isometric SO_0(p,q)-actions",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "K. Francis-Staite"
+          },
+          {
+            "name": "T. Leistner"
+          }
+        ],
+        "identifier": "Transform. Groups 26 (2021) 859-892; arXiv:1901.04682v2",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/s00031-020-09561-9",
+        "relationship": "formalizes",
+        "title": "Conformal properties of indefinite bi-invariant metrics",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "K. Krasnov"
+          }
+        ],
+        "identifier": "Gen. Relativ. Gravit. 43 (2011) 1-15; arXiv:0904.0423v2",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/s10714-010-1061-x",
+        "relationship": "background",
+        "title": "Plebanski formulation of general relativity: a practical introduction",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "D. Tong"
+          }
+        ],
+        "identifier": "University of Cambridge lecture notes; Electromagnetism p. 113, equation (5.25), and p. 127; Gauge Theory section 1.2, p. 10, equation (1.11)",
+        "license": "unknown",
+        "relationship": "background",
+        "title": "Lecture notes: Electromagnetism (Lent 2015) and Gauge Theory (2018)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "identifier": "University of California, Santa Cruz; scipp-legacy.pbsci.ucsc.edu/~haber/ph251/groups26_4.pdf (4 pp.)",
+        "license": "unknown",
+        "relationship": "background",
+        "title": "Physics 251, Problem Set 4, Spring 2026",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/tree/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "note": "The dependency, at this commit. Declarations used in the statements: so', sl, so, skewAdjointLieSubalgebra, skewAdjointMatricesLieSubalgebra, LieModule.traceForm, NormedSpace.exp, RestrictScalars, the base change of a Lie algebra. Mathlib's soIndefiniteEquiv (Mathlib/Algebra/Lie/Classical.lean:226) needs an element i with i * i = -1, so it does not apply over R. At the pin, by a search of 2026-11-13: no equivalence of so' with sl, no file for a Lorentz Lie algebra, no uniqueness statement for invariant forms, and the square of exteriorPower.hodgeStar is a to-do note there (Mathlib/LinearAlgebra/ExteriorPower/HodgeStar.lean:20-27).",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/yang-mills-group/OpenAI-YM-20261028/tree/3456e5e75cf8d4cd558955a5c7638fba2d68f464",
+        "note": "SOURCE OF THE CARRIED DEFINITIONS. The eleven declarations Axis, SpaceAxis, timeAxis, Spacetime, Space, time, spatial, forwardCone, minkowskiSquare, ProperLorentz, PoincareCoordinates of Challenge.lean are copies carried textually from the public statement of the Yang-Mills release: file PublicTheory.lean, lines 11, 13-14, 51-55, 57, 59-60, 64, 66, 209-212 and 215, at the commit in the id, under the Apache License, Version 2.0, with its NOTICE carried. The source file is not imported; the copies are elaborated at this entry's Lean and Mathlib versions. PoincareCoordinates is carried with the block and is not used by any statement. In that repository the Lie algebra of the gauge group is defined by the criterion of statement 3 (PublicTheory.lean:22-33). Read 2026-11-11 and 2026-11-13 at that commit: among the Lean files, ProperLorentz occurs in PublicTheory.lean only (lines 209, 215, and through PoincareCoordinates line 235); no LieSubalgebra, LieAlgebra or LieRing occurs in the repository; the infinitesimal Lorentz elements used internally are the predicate tangent (YM/Next/BOUNDARY/Derived.lean:21), and no declaration relating it to exponentials was found.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/TauCetiProject/TauCeti/tree/da527980caecf7e72838e069c01f4a7e7633eca3",
+        "note": "PRIOR FORMALIZATION OF THE CRITERION OF STATEMENT 3 IN GENERAL AND ON OTHER GROUPS. Read on 2026-11-13 at the commit in the id (paths under TauCeti/). The equivalence \"exp(tX) is in the group for every real t if and only if X is in the Lie algebra\" is proved there for the unitary group of a complete normed real algebra with a continuous involution (Geometry/Lie/Exponential/Unitary.lean:74, forall_exp_smul_mem_unitary_iff_mem_skewAdjoint); for O(n), SO(n), SL(n), SU(n) and the symplectic group (Geometry/Lie/Exponential/Matrix/SpecialOrthogonal.lean:96 and :107, Geometry/Lie/Exponential/Matrix/Symplectic.lean:80, Geometry/Lie/Exponential/Matrix/SpecialUnitary.lean:77, Geometry/Lie/Subgroup/SpecialLinear.lean:85); for Spin(p,q) in the Clifford algebra (Topology/Algebra/CliffordAlgebra/Spin/LieAlgebra.lean:95-99); and it is the definition of the Lie algebra of a closed subgroup (Geometry/Lie/Subgroup/LieAlgebra.lean:369-371). No instance at an indefinite orthogonal group of linear maps was found there (limits of the search: README.md). By a reading that was not compiled (the Minkowski adjoint as the involution), the part of statement 3 on the preservation of the form is a case of the general theorem. Counterparts for groups of statements 1, 2, 5, 7(a) and 7(b): LinearAlgebra/CliffordAlgebra/Spin/Real/ThreeOne.lean:79 (Spin(3,1) = SL(2,C)), LinearAlgebra/CliffordAlgebra/Spin/Real/Four.lean:383 (Spin(4) = SU(2) x SU(2)), LinearAlgebra/CliffordAlgebra/Spin/Real/TwoTwo.lean:99 (Spin(2,2) = SL(2,R) x SL(2,R)), LinearAlgebra/CliffordAlgebra/Spin/LowRank/HyperbolicFour.lean (the Spin group of the hyperbolic four-space over a field). The Lie algebra of SL(n,k) as sl with scalars restricted to R (Geometry/Lie/SpecialLinear.lean:136; at this commit, not at the earlier commit 3602eb5f); the isomorphism of the skew-adjoint endomorphisms of a quadratic form with the quadratic elements of the Clifford algebra (LinearAlgebra/CliffordAlgebra/Quadratic/Realization.lean:164-165); the uniqueness of invariant bilinear forms over an algebraically closed field (Algebra/Lie/Killing/InvariantForm.lean:62-63, :71, :90, :105); su(2) = so(3) (RepresentationTheory/SU2/StandardBasis.lean:204); extension of scalars for the skew-adjoint matrices of a Gram matrix (Algebra/Lie/SkewAdjoint/BaseChange.lean:162, skewAdjointMatricesLieSubalgebraBaseChangeEquiv), the first step of statement 5, not found instantiated at the Minkowski form or continued to sl(2,C) x sl(2,C); the complexifications of so(n) and su(n) (Geometry/Lie/Subgroup/Complexification.lean:272, :193-196); the semisimplicity of so(p,q) on Mathlib's so' (Algebra/Lie/Orthogonal/Killing.lean:230, hasTrivialRadical_so'), in a file whose docstring (:38-39) says that simplicity is not asserted and names so(2,2) = sl_2(R) x sl_2(R). With these, every ingredient of statements 1 and 2 is in that library; they were not found combined there into the isomorphism of statement 1. Nothing is imported or reproduced (that library is at Lean 4.36.0-rc2). The Spin, unitary and SO(n) files were present at the commit 1e668f5e (2026-11-09). Recorded as \"other\", not \"independent\": inventories of these libraries were in hand when the statements were written.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/physlib/tree/adccea9195c7c347a5f8cde1ddf6874f89ea6a9a",
+        "note": "Read on 2026-11-13 at the commit in the id. Statement 1 is stated on the object physlib names lorentzAlgebra, Mathlib's so' (Fin 1) (Fin 3) R (Physlib/Relativity/LorentzAlgebra/Basic.lean:29-30); the six generators and their membership are in Physlib/Relativity/LorentzAlgebra/Basis.lean, whose header says that the basis property is not yet proved there. One direction of statement 3 on matrices (Physlib/Relativity/LorentzAlgebra/ExponentialMap.lean:70, :131, :141, :175, exp_mem_restricted_lorentzGroup); no converse was found. The criterion as the definition of the Lie algebra of a closed matrix group, added 2026-11-12 (PhyslibAlpha/Mathematics/ForMathlib/Analysis/Normed/Algebra/MatrixLieAlgebra.lean:117-119). The homomorphism from SL(2,C) onto the restricted Lorentz group and its kernel (Physlib/Relativity/SL2C/Basic.lean:169, :273, :338; Physlib/Relativity/SL2C/Cover.lean:139). The invariant coefficient tensors with four vector indices (PhyslibAlpha/Relativity/LorentzGroup/Invariants/RankFour.lean:771, :309): the classical fact behind statement 6 as group-invariant complex coefficient tensors; that file says independence is not proved. Their use for the two contractions of two field strengths (PhyslibAlpha/Particles/StandardModel/IsGaugeSector/MassWeight/MassDimEight.lean:1204). Nothing is imported or reproduced.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/xiyin137/OSreconstruction/blob/cf0904e34a7c146a9f312f601e3707dca4a87697/os-reconstruction/OSReconstruction/ComplexLieGroups/LorentzLieGroup.lean",
+        "note": "Read on 2026-11-13. One direction of statement 3 for every dimension, on matrices, signature (-,+,...,+): exp_isLorentz (:221), exp_det_one (:250), exp_orthochronous (:306), expLorentz (:334). The algebra there is a predicate on matrices (IsInLorentzAlgebra, :211). No converse was found. Nothing is imported or reproduced.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/Geometry/EinsteinFour/CurvatureTensors02.lean",
+        "note": "hodgeStarFour (:9807-9814) and its values on the quaternion and opposite-quaternion matrices (:9835, :9840): the counterpart in definite signature of hodgeMatrix (the three signs of the last column differ). No lemma on brackets or on the square of the operator, and no Lie-algebra statement, was found there. Opened on 2026-11-13, after the statements of this entry were fixed. Nothing is imported or reproduced.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/stalex444/one-complex-place-lorentz-group-galois-boost/tree/ec70bded79e51b31f907b085f71756a79df0fe33",
+        "note": "A repository of the author's (not a registered entry on 2026-11-13). Seven modules of its library, under ArithmeticLorentz/, are unchanged copies of the files of the same names at that commit (git blob ids compared). They are on the Solution side only: no file of them is imported by Challenge.lean. Its statements on the Hodge images of generators and on the square of its Hodge operator on so(3, 1) (hodgeOp_hodgeOp, ArithmeticLorentz/RegisterBridge.lean:712) are not compared here.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/stalex444/pdt-hodge-lie-generation/tree/e2d8dde6f076b730b9a718c95ff1664c6aa88b51",
+        "note": "The author's registered entry PALOMAR-2026-09-30-000024. One module of this entry's library, GravityScreening/SignedLieGeneration.lean, is an unchanged copy of the file of the same name at that commit (git blob id compared). Its compared statement is a different theorem on the same family of operators.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/stalex444/pdt-em-source-selection/tree/1c9ba637b5e664a88b6487d463515587616476e1",
+        "note": "A repository of the author's. GravityScreening/SignedLieGeneration.lean is an unchanged copy of the file of the same name at that commit (git blob id compared); this is the public copy named in NOTICE. Solution.lean reaches the module through the library. No statement of that repository is compared here.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/stalex444/conformal-killing-flat/tree/ef2fbb3488aef70b5e2fbd933c7e01cae6679e48",
+        "note": "The author's registered entry PALOMAR-2026-11-12-000002. Its cited application names the dimension 10 of the infinitesimal isometries of Minkowski space; statement 2(a) here is the count 6 of their linear part, as a compared finrank. No statement in common.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-14T14:24:48Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "a1c40a66ba5770c635e2c078a705deb815ce58719840dd603d6127abdc0ed371"
+    },
+    "reviewed_at": "2026-11-14T14:19:17Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "91aee70f9daddadda2f97f4694b9b4352430ecba",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "stalex444/minkowski-lorentz-algebra",
+    "repository_url": "https://github.com/stalex444/minkowski-lorentz-algebra",
+    "tree_url": "https://github.com/stalex444/minkowski-lorentz-algebra/tree/91aee70f9daddadda2f97f4694b9b4352430ecba"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "hj86tqs6w9ba"
+  },
+  "title": "Invariant bilinear forms on the Lorentz Lie algebra so(3,1): the two-parameter family a tr(XY) + b tr(H(X)Y), with sl(2,C), the exponential criterion and the complexification",
+  "trust": {
+    "challenge_bytes": 35673,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 528,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "fe65103f079f3e080a95db111e0699c46427aa757eca3f5beb4133bae8187282",
+    "evidence_path": "evidence/PALOMAR-2026-11-14-000019-v1/05d3d7ab3a1f75cdd30c9786fa70a63a2ce56b31d513334bcd277b7157bee449/",
+    "evidence_tree_sha256": "05d3d7ab3a1f75cdd30c9786fa70a63a2ce56b31d513334bcd277b7157bee449",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "fdbaa06baf575c147d176b950d93f58e91d8fc712b50b16579c8657b52c2e3cd",
+    "protected_config_sha256": "e48e49e4dfa7cb80ebaac1872c06b43d28d7a45011e4d92d447ba219f4e279fb",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43595630725,
+    "solution_sha256": "c87a7af9de6d58d0a2daa104ef98ff0c67bb83f0ccd9fe05adeff3720884dca5",
+    "tool_digests": {
+      "bwrap": "39d2906a79c1b2c1f97b1ee19e4da8da9cf6ddd8d667d200b0ae2bf2d8337734",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-14T12:41:55Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43595630725"
+  },
+  "version": 1
+}
