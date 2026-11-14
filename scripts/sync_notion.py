@@ -1,22 +1,36 @@
 """Upsert Palomar result versions into the Notion database created by MCP."""
-import json, os, pathlib, urllib.request, urllib.error
+import json, os, pathlib, time, urllib.request, urllib.error
 
 TOKEN = os.environ['NOTION_TOKEN']
 DATABASE = os.environ['NOTION_DATABASE_ID']
 BASE = 'https://api.notion.com/v1'
 STATE_PATH = pathlib.Path('data/notion-sync-state.json')
 
-def request(method, path, payload=None):
+def request(method, path, payload=None, attempts=4):
     body = None if payload is None else json.dumps(payload).encode()
     req = urllib.request.Request(BASE + path, data=body, method=method, headers={
         'Authorization': f'Bearer {TOKEN}', 'Notion-Version': '2022-06-28',
         'Content-Type': 'application/json', 'User-Agent': 'palomar-registry-daily/1.0'})
-    try:
-        with urllib.request.urlopen(req, timeout=60) as response:
-            return json.load(response)
-    except urllib.error.HTTPError as error:
-        detail = error.read().decode('utf-8', 'replace')
-        raise RuntimeError(f'Notion API {error.code} {method} {path}: {detail[:2000]}') from error
+    last_error = None
+    for attempt in range(attempts):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as response:
+                return json.load(response)
+        except urllib.error.HTTPError as error:
+            # 429 and 5xx are transient; every other 4xx is deterministic and
+            # must surface as-is so callers can handle 404 fallbacks.
+            if error.code == 429 or 500 <= error.code < 600:
+                last_error = error
+                time.sleep(min(2 ** attempt, 8))
+                continue
+            raise
+        except urllib.error.URLError as error:
+            last_error = error
+            time.sleep(min(2 ** attempt, 8))
+    if isinstance(last_error, urllib.error.HTTPError):
+        detail = last_error.read().decode('utf-8', 'replace')
+        raise RuntimeError(f'Notion API {last_error.code} {method} {path} after {attempts} attempts: {detail[:2000]}') from last_error
+    raise RuntimeError(f'Notion API {method} {path} failed after {attempts} attempts: {last_error}') from last_error
 
 def notion_trim(value, limit=2000):
     """Trim rich text by UTF-16 code units, which is Notion's API limit."""

@@ -11,8 +11,8 @@ jobs:
       NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
       NOTION_DATABASE_ID: 125fc41c-6c43-438a-982a-d31259645c2e
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with: {python-version: '3.x'}
       - run: python scripts/fetch_palomar.py
       - name: Persist daily snapshot
@@ -22,15 +22,17 @@ jobs:
           git add data
           git diff --cached --quiet || git commit -m "data: Palomar snapshot $(date -u +%F)"
           git push
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
         with: {path: .}
-      - uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@v5
       - name: Sync result versions to Notion
         if: ${{ env.NOTION_TOKEN != '' && env.NOTION_DATABASE_ID != '' }}
+        continue-on-error: true
         run: python scripts/sync_notion.py
       - name: Persist Notion sync state
         if: ${{ env.NOTION_TOKEN != '' && env.NOTION_DATABASE_ID != '' }}
+        continue-on-error: true
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: 125fc41c-6c43-438a-982a-d31259645c2e
