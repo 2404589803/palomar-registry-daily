@@ -1,6 +1,558 @@
 {
   "entries": [
     {
+      "abstract": "Formalization of incremental n × n Latin squares and cyclic incremental n × n Latin squares representing n + 1 solutions of (n, c)-coins problems simultaneously for all 0 ≤ c ≤ n. We prove that (1) for every n ≥ 4, any incremental n × n Latin square represents valid (n, c)-coins solutions for all 0 ≤ c ≤ n simultaneously via value thresholding, and (2) for every n ≥ 4 with n ∉ {4, 6}, there exists a column permutation p such that the cyclic Latin square L(i, j) = (i + p(j)) mod n is incremental, using an injective-majorization principle across four infinite modular families modulo 6 and the four exceptional dimensions n ∈ {8, 9, 15, 21}, together with explicit non-cyclic incremental Latin squares for n = 4 and n = 6.",
+      "authors": [
+        {
+          "name": "Marc Duponcheel"
+        },
+        {
+          "name": "Luc Duponcheel"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05B15",
+          "00A08"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "IncrementalCyclic.incremental_represents_nc_coins",
+          "IncrementalCyclic.exists_cyclic_incremental",
+          "IncrementalCyclic.exists_incremental_ge_4",
+          "IncrementalCyclic.exists_incremental_representing_nc_coins"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000018",
+      "path": "entries/PALOMAR-2026-11-14-000018-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "f115fd40818af99fe0052777620885faf3cf07d6",
+            "fork_repository": "PalomarArchive/LucDuponcheelAtGitHub--incremental-nc-coins--cd2f559ffdfa",
+            "source_repository": "LucDuponcheelAtGitHub/incremental-nc-coins"
+          }
+        ]
+      },
+      "published_at": "2026-11-14T14:13:15Z",
+      "source": {
+        "commit": "f115fd40818af99fe0052777620885faf3cf07d6",
+        "project_path": null,
+        "repository": "LucDuponcheelAtGitHub/incremental-nc-coins"
+      },
+      "status": "registered",
+      "title": "Cyclic n × n Latin Squares Representing Solutions of (n, c)-Coins Problems",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abstract": "Explicit one-tape, two-symbol Turing machines with a designated beep state (Aaronson's beeping busy beaver convention), given as literal transition tables, together with core-Lean proofs (no Mathlib) that each machine, run from the blank tape, beeps only finitely often exactly when a stated Sigma_2 sentence holds. The flagship machine (278 states) is equivalent to the Sigma_2 form of P = NP: some candidate program decides a fixed self-padded NP-complete language within a polynomial clock on every instance. The equivalence of that sentence with P = NP is also proved in Lean (ZP.Cx.sentence_iff_PeqNP) for the Turing-machine models defined in the development. The same guest interpreter yields machines for further Sigma_2 statements: P = PP and P = PSPACE, factoring, discrete logarithm, graph isomorphism, an NTT-based variant over least primes 1 + n i, linear-time integer multiplication on multitape machines, a co-NP verifier variant, promise-P = promise-BPP, NP in P/poly, deterministic and nondeterministic multihead log-space (L = NL), and linear-time multiplication of matrices over GF(2) on multitape machines. A 19-state machine quasihalts iff there are finitely many twin primes.",
+      "authors": [
+        {
+          "name": "Gregory Morse"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "cs.CC",
+          "math.LO"
+        ],
+        "msc2020": [
+          "68Q15",
+          "03D10",
+          "68V15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "ZP.zp_quasihalts_iff_sentence",
+          "ZP.zpp_quasihalts_iff_sentence",
+          "ZP.zps_quasihalts_iff_sentence",
+          "ZP.zfac_quasihalts_iff_sentence",
+          "ZP.zdl_quasihalts_iff_sentence",
+          "ZP.zgi_quasihalts_iff_sentence",
+          "ZP.zntt_quasihalts_iff_sentence",
+          "ZP.zmul_quasihalts_iff_sentence",
+          "ZP.zconp_quasihalts_iff_sentence",
+          "ZP.zbpp_quasihalts_iff_sentence",
+          "ZP.zppoly_quasihalts_iff_sentence",
+          "ZP.zmm_quasihalts_iff_sentence",
+          "ZP.zlp_quasihalts_iff_sentence",
+          "ZP.zlnl_quasihalts_iff_sentence",
+          "ZP.twin_quasihalts_iff"
+        ]
+      },
+      "id": "PALOMAR-2026-11-11-000006",
+      "path": "entries/PALOMAR-2026-11-11-000006-v2.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "f82769ab13f4db89634684cb10969b32e10006d7",
+            "fork_repository": "PalomarArchive/GregoryMorse--NP-complete--27303b648daa",
+            "source_repository": "GregoryMorse/NP-complete"
+          }
+        ]
+      },
+      "published_at": "2026-11-14T13:27:15Z",
+      "source": {
+        "commit": "f82769ab13f4db89634684cb10969b32e10006d7",
+        "project_path": "formal",
+        "repository": "GregoryMorse/NP-complete"
+      },
+      "status": "registered",
+      "title": "A beeping busy beaver machine for the Σ₂ form of P vs NP",
+      "trust": {
+        "level": "high"
+      },
+      "version": 2,
+      "versions": 2
+    },
+    {
+      "abstract": "This Lean 4 and Mathlib development produces exact, machine-checked positivity certificates for finite Gram matrices built from Suzuki's zeta screw function. Weil's explicit formula recasts the Riemann Hypothesis as positivity of a quadratic form assembled from prime powers, and a recent line of work truncates that form and studies the resulting finite matrices. The objects formalized here are the screw function Psi, defined as an archimedean profile minus a von Mangoldt weighted prime sum and extended evenly; its Gram kernel G(t,u) = Psi(t) + Psi(u) - Psi(t-u); and positive definiteness, in the quadratic-form sense, of the finite matrices this kernel generates on explicit grids.\nThe three compared results are as follows. (1) On the grid (0.2, 0.4, 0.6) the 3 by 3 Gram matrix M3 of the genuine kernel satisfies an explicit Rayleigh floor: for every real vector x, 0.005 times the sum of the x_i squared is at most the quadratic form of M3 at x. (2) M3 is positive definite. (3) On the grid (0.4, 0.9) the 2 by 2 Gram matrix is positive definite. The prime sum in Psi vanishes for t below log 2 (about 0.693) and the node 0.9 lies above it, so the p = 2 prime term contributes to this matrix.\nThe interest is that the surrounding literature (Connes and van Suijlekom; Connes, Consani and Moscovici; Suzuki) works either in floating point or at the level of existence statements, whereas these are exact certificates checked against the definition of Psi itself. Suzuki establishes that some positivity window exists; here an explicit one is exhibited, with an explicit margin, and verified, to our knowledge for the first time.\nScope is finite and explicit. Every positivity statement concerns a specified grid at specified rational nodes; there is no asymptotic, fine-mesh or all-grid result; and nothing here bears on the Riemann Hypothesis.",
+      "authors": [
+        {
+          "name": "Rohan Badade"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT",
+          "math.LO"
+        ],
+        "msc2020": [
+          "11M26",
+          "15B48",
+          "68V20",
+          "65G20",
+          "15A63",
+          "11M06"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Challenge.true_kernel_grid_margin",
+          "Challenge.true_kernel_grid_posdef",
+          "Challenge.true_kernel_first_prime_posdef"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000017",
+      "path": "entries/PALOMAR-2026-11-14-000017-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "502dbb9d3201e07d936915aea8681ad0d9e7a7fb",
+            "fork_repository": "PalomarArchive/gnostrich--certified-positivity--79bf1f217491",
+            "source_repository": "gnostrich/certified-positivity"
+          }
+        ]
+      },
+      "published_at": "2026-11-14T13:03:23Z",
+      "source": {
+        "commit": "502dbb9d3201e07d936915aea8681ad0d9e7a7fb",
+        "project_path": null,
+        "repository": "gnostrich/certified-positivity"
+      },
+      "status": "registered",
+      "title": "Certified Positivity: machine-checked positivity windows for the Suzuki zeta screw kernel",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abstract": "We prove in Lean that infinitely many primes p have Ω(p − 2) odd, where Ω counts prime factors with multiplicity, giving an affirmative answer to Green's Problem 64. The argument constructs a nonnegative weight supported on odd prime-factor parity; correlation estimates and a weighted sieve give positive total weight to integers u with u + 2 prime at arbitrarily large scales. The supporting analytic number theory is included in the formalization, with Mathlib as its only direct dependency.",
+      "authors": [
+        {
+          "name": "Igor Inozemtsev"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT"
+        ],
+        "msc2020": [
+          "11N36",
+          "11N05"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Green64.green_64"
+        ]
+      },
+      "id": "PALOMAR-2026-11-13-000010",
+      "path": "entries/PALOMAR-2026-11-13-000010-v2.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "ffd879ad992b8b58f23c4cc095e2b3ba0004be01",
+            "fork_repository": "PalomarArchive/inozemtsev--formal-math--e12c822a627e",
+            "source_repository": "inozemtsev/formal-math"
+          }
+        ]
+      },
+      "published_at": "2026-11-14T12:31:54Z",
+      "source": {
+        "commit": "ffd879ad992b8b58f23c4cc095e2b3ba0004be01",
+        "project_path": "proofs/green64",
+        "repository": "inozemtsev/formal-math"
+      },
+      "status": "registered",
+      "title": "Green's Problem 64: odd prime-factor parity in shifted primes",
+      "trust": {
+        "level": "high"
+      },
+      "version": 2,
+      "versions": 2
+    },
+    {
+      "abstract": "A machine-checked proof of Darboux's theorem in the form Kim Morrison stated it for lean-eval (problem darboux): if a 2-form on an open set U of R^2n is smooth, closed and non-degenerate, then every point of U has a neighbourhood with a smooth chart, smooth in both directions, in which the form takes the standard values on the standard basis, so it is the standard symplectic form sum dx_i ^ dx_(n+i). The proof is Moser's: interpolate between the form and its value at the point, write the difference as d(beta) by a Poincare lemma, integrate the vector field X_t with i_(X_t) omega_t = -beta to time 1, and get a chart from the inverse function theorem; a symplectic basis of the form at the point then gives the standard coordinates. Mathlib has no symplectic forms and no Darboux theorem. When lean-eval posed the problem in May 2026 it found no formalization in any proof assistant; since then three other Lean proofs of Darboux's theorem have appeared, each with its own statement (listed under related_formalizations). This proof is independent of them. The theorem is classical and no priority is claimed.",
+      "authors": [
+        {
+          "name": "Zayn Blore"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.SG",
+          "math.DG"
+        ],
+        "msc2020": [
+          "53D05",
+          "58A10"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "darboux"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000016",
+      "path": "entries/PALOMAR-2026-11-14-000016-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "8671f3a465e3919548280ca1516ae4ac7b1f68ec",
+            "fork_repository": "PalomarArchive/zblore--darboux-lean--7ba9b463992f",
+            "source_repository": "zblore/darboux-lean"
+          }
+        ]
+      },
+      "published_at": "2026-11-14T11:20:11Z",
+      "source": {
+        "commit": "8671f3a465e3919548280ca1516ae4ac7b1f68ec",
+        "project_path": null,
+        "repository": "zblore/darboux-lean"
+      },
+      "status": "registered",
+      "title": "Darboux's theorem: every symplectic form on an open subset of R^2n is locally the standard one",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abstract": "A Lean 4 formalization, built on Mathlib, of the paper Pretorsion theories and image-closed subcategories, in two parts. Structure: for a finite-dimensional algebra Λ over a field, a subcategory Z of mod Λ is image-closed iff Z = Gen Z ∩ Cogen Z iff Z = T ∩ F for a pretorsion theory (T, F) (Theorem A), and the pretorsion theories of mod Λ form a complete lattice with the meets and joins of the paper (Theorem 3.6). Enumeration: for the linearly oriented quiver 1 → ⋯ → n, the pretorsion theories, weighted by q to the number of indecomposables in T ∩ F, and the image-closed subcategories, weighted by q to their number of indecomposables, sum to the q-Gandhi polynomials B_{n+1}(1, q) and C_{n+1}(1, q) of Han and Zeng (Theorem B), with the two-variable refinements of Theorems 7.5 and 8.5. At q = 1 these are the Genocchi numbers g_{2n+4} and the median Genocchi numbers H_{2n+3}; that classical evaluation is not formalized. The library also proves the other numbered statements of the paper, including the convex geometry of image closure (Section 4.3), and the cited inputs they use.",
+      "authors": [
+        {
+          "name": "Haruhisa Enomoto"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.RT",
+          "math.CT",
+          "math.CO"
+        ],
+        "msc2020": [
+          "16G20",
+          "18E40",
+          "05A15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "PretorsionImageClosed.Challenge.theoremA",
+          "PretorsionImageClosed.Challenge.completeLattice",
+          "PretorsionImageClosed.Challenge.gandhiPretorsion",
+          "PretorsionImageClosed.Challenge.gandhiImageClosed",
+          "PretorsionImageClosed.Challenge.theoremBPretorsion",
+          "PretorsionImageClosed.Challenge.theoremBImageClosed"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000015",
+      "path": "entries/PALOMAR-2026-11-14-000015-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "da7ea8e902a2bba856c78f8af53b9c24e0dc3a06",
+            "fork_repository": "PalomarArchive/haruhisa-enomoto--pretorsion-image-closed--b3c0f441f315",
+            "source_repository": "haruhisa-enomoto/pretorsion-image-closed"
+          }
+        ]
+      },
+      "published_at": "2026-11-14T11:02:33Z",
+      "source": {
+        "commit": "da7ea8e902a2bba856c78f8af53b9c24e0dc3a06",
+        "project_path": null,
+        "repository": "haruhisa-enomoto/pretorsion-image-closed"
+      },
+      "status": "registered",
+      "title": "Pretorsion theories and image-closed subcategories",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abstract": "Closed forms for det[(i−j)^m + δ_ij]_{1<=i,j<=n}: m = 1 (A079034; Wang–Sun 2022), and Zhi-Wei Sun's conjectured formulas for m = 2 (A355175) and m = 3 (A355326, Conjecture 1), proved by Fried (2026).",
+      "authors": [
+        {
+          "name": "Wentao Li"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO",
+          "math.NT"
+        ],
+        "msc2020": [
+          "15A15",
+          "11C20"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "OeisA79034.det_one",
+          "OeisA79034.det_two",
+          "OeisA79034.det_three"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000014",
+      "path": "entries/PALOMAR-2026-11-14-000014-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "b452164b17ccd6ed00110e9610a3cc023611d326",
+            "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+            "source_repository": "VictorLiwentao/fc-palomar-proofs"
+          }
+        ]
+      },
+      "published_at": "2026-11-14T10:11:15Z",
+      "source": {
+        "commit": "b452164b17ccd6ed00110e9610a3cc023611d326",
+        "project_path": null,
+        "repository": "VictorLiwentao/fc-palomar-proofs"
+      },
+      "status": "registered",
+      "title": "Sun's determinants det[(i−j)^m + δ_ij] for m = 1, 2, 3",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abstract": "A Lean 4 and Mathlib proof that there is an 8-regular simple graph of girth 7 on 768 vertices (Mathlib's SimpleGraph, IsRegularOfDegree and girth), so that the order n(8, 7) of an (8, 7)-cage is at most 768; the House of Graphs cage table listed 774 when this was written. The graph is data (adjacency lists in a binary trie). Lean's kernel checks (decide +kernel, no native_decide) that it is simple and 8-regular, and, for every vertex v and every two neighbours x ≠ y, that the ends of the non-backtracking walks of length at most 3 starting with the edge v x are disjoint from those starting with v y. A cycle of length at most 6 would contradict this at one of its vertices, and an explicit 7-cycle gives girth exactly 7.",
+      "authors": [
+        {
+          "name": "Arhan Canli"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C35",
+          "05C38",
+          "51E12"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Cage87.exists_regular_girth_seven"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000013",
+      "path": "entries/PALOMAR-2026-11-14-000013-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "593719d9713eaf81f23e2364e973824ac208bbc4",
+            "fork_repository": "PalomarArchive/arhancanli--quantavane-cage-8-7--b176c239a81e",
+            "source_repository": "arhancanli/quantavane-cage-8-7"
+          }
+        ]
+      },
+      "published_at": "2026-11-14T10:05:25Z",
+      "source": {
+        "commit": "593719d9713eaf81f23e2364e973824ac208bbc4",
+        "project_path": null,
+        "repository": "arhancanli/quantavane-cage-8-7"
+      },
+      "status": "registered",
+      "title": "An 8-regular graph of girth 7 on 768 vertices",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abstract": "For every prime p, p | M(p−2) iff p ≡ 1 (mod 3), and M(p−2) ≡ −1 (mod p) when p ≡ 5 (mod 6). Conjectured by Serge Batalov (2022) for p ≡ 1 (mod 6); proved by Rob Burns (2017) and Nadav Kohen (2024).",
+      "authors": [
+        {
+          "name": "Wentao Li"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.NT",
+          "math.CO"
+        ],
+        "msc2020": [
+          "11B50",
+          "05A15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "OeisA1006.prime_dvd_iff"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000012",
+      "path": "entries/PALOMAR-2026-11-14-000012-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "b452164b17ccd6ed00110e9610a3cc023611d326",
+            "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+            "source_repository": "VictorLiwentao/fc-palomar-proofs"
+          }
+        ]
+      },
+      "published_at": "2026-11-14T09:38:00Z",
+      "source": {
+        "commit": "b452164b17ccd6ed00110e9610a3cc023611d326",
+        "project_path": null,
+        "repository": "VictorLiwentao/fc-palomar-proofs"
+      },
+      "status": "registered",
+      "title": "OEIS A001006: Motzkin numbers at p − 2 modulo p (Batalov's conjecture; Burns, Kohen)",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abstract": "For A(x) = Σ a(n) x^n/n! with A(x) = x exp(A∘A∘A∘A(x)), every a(n) (n >= 1) is an integer not congruent to 3 mod 5. Conjectured by Paul D. Hanna; an informal proof is in Vladimir Reshetnikov's ProveIt report (2026). The Lean proof is different.",
+      "authors": [
+        {
+          "name": "Wentao Li"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO",
+          "math.NT"
+        ],
+        "msc2020": [
+          "05A15",
+          "11B50",
+          "13F25"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "OeisA396804.exists_unique_solution",
+          "OeisA396804.conjecture_mod_five"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000011",
+      "path": "entries/PALOMAR-2026-11-14-000011-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "f1418c529c22be32c090b063d4be463188ea7a72",
+            "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+            "source_repository": "VictorLiwentao/fc-palomar-proofs"
+          }
+        ]
+      },
+      "published_at": "2026-11-14T09:23:05Z",
+      "source": {
+        "commit": "f1418c529c22be32c090b063d4be463188ea7a72",
+        "project_path": null,
+        "repository": "VictorLiwentao/fc-palomar-proofs"
+      },
+      "status": "registered",
+      "title": "OEIS A396804: a(n) mod 5 is never 3 (Hanna's conjecture)",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abstract": "Two graphs on the same n vertices pack if 2 Δ(G1) Δ(G2) < n (Sauer and Spencer 1978).",
+      "authors": [
+        {
+          "name": "Wentao Li"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05C70",
+          "05C35"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "BollobasEldridgeCatlinConjecture.bollobas_eldridge_catlin_conjecture.variants.sauer_spencer"
+        ]
+      },
+      "id": "PALOMAR-2026-11-14-000010",
+      "path": "entries/PALOMAR-2026-11-14-000010-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "b452164b17ccd6ed00110e9610a3cc023611d326",
+            "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+            "source_repository": "VictorLiwentao/fc-palomar-proofs"
+          }
+        ]
+      },
+      "published_at": "2026-11-14T08:25:02Z",
+      "source": {
+        "commit": "b452164b17ccd6ed00110e9610a3cc023611d326",
+        "project_path": null,
+        "repository": "VictorLiwentao/fc-palomar-proofs"
+      },
+      "status": "registered",
+      "title": "The Sauer–Spencer packing theorem",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
       "abstract": "If Σ a(n) x^n/n! = F(x) exp(x G(x)) with F, G integer power series and G(0) = 1, then a(n+k) ≡ a(n) (mod k) for all n, k (Bala 2017, Theorem 1). Hence A000262 (exp(x/(1−x))) and A082579 (exp(x/(1−x)^2)) satisfy k | a(n+k) − a(n) for k >= 2.",
       "authors": [
         {
@@ -1178,53 +1730,6 @@
       },
       "status": "registered",
       "title": "Complexity of the adaptive narrow band method for non-causal eikonal schemes",
-      "trust": {
-        "level": "high"
-      },
-      "version": 1,
-      "versions": 1
-    },
-    {
-      "abstract": "There are infinitely many primes p for which p - 2 has an odd number of prime factors, counted with multiplicity. A second theorem gives such a prime above every natural bound and explicitly records p - 2 > 0. Both statements have no additional hypotheses. The standalone Lean development includes its supporting analytic number theory and uses Mathlib as its only direct Lake dependency.",
-      "authors": [
-        {
-          "name": "Igor Inozemtsev"
-        }
-      ],
-      "classification": {
-        "arxiv": [
-          "math.NT"
-        ],
-        "msc2020": [
-          "11N36",
-          "11N05"
-        ]
-      },
-      "formalization": {
-        "theorem_names": [
-          "Green64.primes_unbounded",
-          "Green64.green_64"
-        ]
-      },
-      "id": "PALOMAR-2026-11-13-000010",
-      "path": "entries/PALOMAR-2026-11-13-000010-v1.json",
-      "preservation": {
-        "repositories": [
-          {
-            "commit": "e0de90b2eff7e44d20b481340af58015506c5386",
-            "fork_repository": "PalomarArchive/inozemtsev--formal-math--e12c822a627e",
-            "source_repository": "inozemtsev/formal-math"
-          }
-        ]
-      },
-      "published_at": "2026-11-13T14:24:03Z",
-      "source": {
-        "commit": "e0de90b2eff7e44d20b481340af58015506c5386",
-        "project_path": "proofs/green64",
-        "repository": "inozemtsev/formal-math"
-      },
-      "status": "registered",
-      "title": "Green's Problem 64: odd prime-factor parity in shifted primes",
       "trust": {
         "level": "high"
       },
@@ -2906,63 +3411,6 @@
       },
       "version": 2,
       "versions": 2
-    },
-    {
-      "abstract": "Explicit one-tape, two-symbol Turing machines with a designated beep state (Aaronson's beeping busy beaver convention), given as literal transition tables, together with core-Lean proofs (no Mathlib) that each machine, run from the blank tape, beeps only finitely often exactly when a stated Sigma_2 sentence holds. The flagship machine (278 states) is equivalent to the Sigma_2 form of P = NP: some candidate program decides a fixed self-padded NP-complete language within a polynomial clock on every instance. The equivalence of that sentence with P = NP is also proved in Lean (ZP.Cx.sentence_iff_PeqNP) for the Turing-machine models defined in the development. The same guest interpreter yields machines for further Sigma_2 statements (P = PP and P = PSPACE, factoring, discrete logarithm, graph isomorphism, an NTT-based variant over least primes 1 + n i, multiplication, and a co-NP verifier variant), and a 19-state machine that quasihalts iff there are finitely many twin primes.",
-      "authors": [
-        {
-          "name": "Gregory Morse"
-        }
-      ],
-      "classification": {
-        "arxiv": [
-          "cs.CC",
-          "math.LO"
-        ],
-        "msc2020": [
-          "68Q15",
-          "03D10",
-          "68V15"
-        ]
-      },
-      "formalization": {
-        "theorem_names": [
-          "ZP.zp_quasihalts_iff_sentence",
-          "ZP.zpp_quasihalts_iff_sentence",
-          "ZP.zps_quasihalts_iff_sentence",
-          "ZP.zfac_quasihalts_iff_sentence",
-          "ZP.zdl_quasihalts_iff_sentence",
-          "ZP.zgi_quasihalts_iff_sentence",
-          "ZP.zntt_quasihalts_iff_sentence",
-          "ZP.zmul_quasihalts_iff_sentence",
-          "ZP.zconp_quasihalts_iff_sentence",
-          "ZP.twin_quasihalts_iff"
-        ]
-      },
-      "id": "PALOMAR-2026-11-11-000006",
-      "path": "entries/PALOMAR-2026-11-11-000006-v1.json",
-      "preservation": {
-        "repositories": [
-          {
-            "commit": "67dadf083847b72f7177e1f96897d4f49547aea3",
-            "fork_repository": "PalomarArchive/GregoryMorse--NP-complete--27303b648daa",
-            "source_repository": "GregoryMorse/NP-complete"
-          }
-        ]
-      },
-      "published_at": "2026-11-11T19:01:50Z",
-      "source": {
-        "commit": "67dadf083847b72f7177e1f96897d4f49547aea3",
-        "project_path": "formal",
-        "repository": "GregoryMorse/NP-complete"
-      },
-      "status": "registered",
-      "title": "A beeping busy beaver machine for the Σ₂ form of P vs NP",
-      "trust": {
-        "level": "high"
-      },
-      "version": 1,
-      "versions": 1
     },
     {
       "abstract": "A general theorem and its six instances. The theorem (congr_of): let k = 12 + 4a + 6b; if the space M_{k−12} of level-one modular forms has rank one and 2k/B_k = D/ℓ with ℓ and D coprime integers, then the q-expansion coefficients of Δ·E₄^a·E₆^b are integers congruent to σ_{k−1}(n) modulo ℓ, for every n. The hypothesis holds exactly for k = 12, 16, 18, 20, 22, 26, where the cusp space is spanned by this one form, and the instances are the congruences modulo the numerator of B_k/2k: 691, 3617, 43867, 174611 = 283·617, 77683 = 131·593 and 657931. The case k = 12 is Ramanujan's τ(n) ≡ σ₁₁(n) (mod 691); the other five are the remaining congruences of this kind at level one. The statements are for every n and use only Mathlib definitions; the Bernoulli numbers B_12 to B_26 are computed in Lean, not assumed. Integrality comes from the product formula for Δ, expanded by Mathlib's pentagonal number theorem, and the integer coefficients 240σ₃ and −504σ₅ of E₄ and E₆. The congruence comes from one exact identity in M_k: E₄^(a+3)·E₆^b − E_k vanishes at the cusp, so dividing by Δ (Mathlib's discriminantEquiv) gives a form in M_{k−12}, which is one-dimensional and spanned by E₄^a·E₆^b; hence E₄^(a+3)·E₆^b − E_k = c·Δ·E₄^a·E₆^b, with c read off from the q¹-coefficient. Since E_k = 1 − (2k/B_k)∑σ_{k−1}(n)qⁿ, multiplying by the numerator of B_k/2k and reducing shows that the Eisenstein series is congruent to the cusp form. The argument is proved once for general (a, b) and applied to the six cases.",
@@ -10349,465 +10797,6 @@
       },
       "status": "registered",
       "title": "Exact directed L/X diameter of the symmetric group",
-      "trust": {
-        "level": "high"
-      },
-      "version": 1,
-      "versions": 1
-    },
-    {
-      "abstract": "Classifies finite numerical domains of closed untyped lambda programs under full beta reduction, and gives an exact initial-segment versus total-domain gap for the hardness construction.",
-      "authors": [
-        {
-          "name": "Arthur Freitas Ramos"
-        },
-        {
-          "name": "David Barros Hulak"
-        },
-        {
-          "name": "Ruy José Guerra Barretto de Queiroz"
-        }
-      ],
-      "classification": {
-        "arxiv": [
-          "math.LO",
-          "cs.LO"
-        ],
-        "msc2020": []
-      },
-      "formalization": {
-        "theorem_names": [
-          "LambdaTuring.closedFiniteNumericalDomain_normalForm_complete",
-          "LambdaTuring.closedFiniteNumericalDomain_normalForm_exact_gap"
-        ]
-      },
-      "id": "PALOMAR-2026-11-02-000016",
-      "path": "entries/PALOMAR-2026-11-02-000016-v1.json",
-      "preservation": {
-        "repositories": [
-          {
-            "commit": "644666118e968f88eccd9bd7d36e7377c87ac247",
-            "fork_repository": "PalomarArchive/Arthur742Ramos--Math-Formalization--4c88ddbef95a",
-            "source_repository": "Arthur742Ramos/Math-Formalization"
-          }
-        ]
-      },
-      "published_at": "2026-11-02T17:04:37Z",
-      "source": {
-        "commit": "644666118e968f88eccd9bd7d36e7377c87ac247",
-        "project_path": "lambda-finite-domain",
-        "repository": "Arthur742Ramos/Math-Formalization"
-      },
-      "status": "registered",
-      "title": "Finite numerical domains of closed lambda programs",
-      "trust": {
-        "level": "high"
-      },
-      "version": 1,
-      "versions": 1
-    },
-    {
-      "abstract": "Conjecture 1.2 of C. David, A. Dunn, A. Hamieh and H. Lin (arXiv:2306.11875) asserts that the sums S_beta(X; l) of normalized quartic Gauss sums g(c) over primary primes c of Z[i] with N(c) <= X and c = beta (mod 4), twisted by (conj(c)/|c|)^l and weighted by the von Mangoldt function, are b_beta X^(3/4) + O(X^(1/2+eps)) with b_beta nonzero when l = 0 and O(X^(1/2+eps)) when l is nonzero. The development proves that if g(c)^2 = -kappa c/|c| for a fixed unit kappa on the support of the weight (the identity (1.2) of the same paper), then g(c) conj(c)/|c| = -kappa conj(g(c)), so S_beta(X; 1) = -kappa conj(S_beta(X; 0)), and the cases l = 0 and l = 1 of the conjecture force b_beta = 0, which the conjecture excludes; the same holds when the identity fails on an exceptional set of weight O(X^(1/2+eps)). More generally S_beta(X; 1 - l) = -kappa conj(S_beta(X; l)) for every l. The corrected conjecture, with main term -kappa conj(b_beta) X^(3/4) at l = 1, is shown equivalent under the identity to its cases l <= 0, and that main term is shown to be the only one compatible with the case l = 0. It also proves the pairing identities A(nu^3, -m) = -kappa conj A(nu, m) for the twisted moments and the fact behind the special role of order four: if |g| = 1 and g^k = xi then conj(g) = g^(k-1) conj(xi). The Gauss sum and the von Mangoldt function are abstract functions on the Gaussian integers, so no quartic residue symbol is defined.",
-      "authors": [
-        {
-          "name": "Joseph S. Farland"
-        }
-      ],
-      "classification": {
-        "arxiv": [
-          "math.NT"
-        ],
-        "msc2020": [
-          "11L05",
-          "11R18",
-          "11N13",
-          "68V20"
-        ]
-      },
-      "formalization": {
-        "theorem_names": [
-          "QuarticPairing.pointwise_pairing",
-          "QuarticPairing.pairing_of_twists",
-          "QuarticPairing.pairing_of_twists_defect",
-          "QuarticPairing.pairing_identities",
-          "QuarticPairing.why_quartic",
-          "QuarticPairing.conjecture12_inconsistent",
-          "QuarticPairing.conjecture12_inconsistent_of_defect",
-          "QuarticPairing.reflection_of_twists",
-          "QuarticPairing.amended_conjecture_consistent",
-          "QuarticPairing.main_term_one_forced"
-        ]
-      },
-      "id": "PALOMAR-2026-11-02-000015",
-      "path": "entries/PALOMAR-2026-11-02-000015-v1.json",
-      "preservation": {
-        "repositories": [
-          {
-            "commit": "7ad815405be5e161e2c48dd9d4413ae5a214b9b8",
-            "fork_repository": "PalomarArchive/jkfarland-bot--QuarticPairing--f9e7ccd774c6",
-            "source_repository": "jkfarland-bot/QuarticPairing"
-          }
-        ]
-      },
-      "published_at": "2026-11-02T16:14:27Z",
-      "source": {
-        "commit": "7ad815405be5e161e2c48dd9d4413ae5a214b9b8",
-        "project_path": null,
-        "repository": "jkfarland-bot/QuarticPairing"
-      },
-      "status": "registered",
-      "title": "QuarticPairing: the pairing of the twists in Conjecture 1.2 of David, Dunn, Hamieh and Lin",
-      "trust": {
-        "level": "high"
-      },
-      "version": 1,
-      "versions": 1
-    },
-    {
-      "abstract": "A machine-checked proof that an absolutely maximally entangled state of twelve five-level systems exists. The statement and definitions are Formal Conjectures' (Open Quantum Problem 35, `ame_12_5_open`), copied verbatim into Challenge.lean, so this entry proves Formal Conjectures' own statement; one proof step inside the definition combineFirst is changed so that Comparator can match it, and the definition is unchanged. The witness is the graph state of the AME(12, 5) graph of S. Bevins and Y. Bidav. The proof is a general graph-state criterion over ZMod 5 plus 924 kernel-checked cut certificates.",
-      "authors": [
-        {
-          "name": "Zayn Blore"
-        }
-      ],
-      "classification": {
-        "arxiv": [
-          "quant-ph"
-        ],
-        "msc2020": [
-          "81P40",
-          "05C50"
-        ]
-      },
-      "formalization": {
-        "theorem_names": [
-          "OpenQuantumProblem35.ame_12_5_open"
-        ]
-      },
-      "id": "PALOMAR-2026-11-02-000014",
-      "path": "entries/PALOMAR-2026-11-02-000014-v1.json",
-      "preservation": {
-        "repositories": [
-          {
-            "commit": "e8c1e58c7e4dd324868b6ed6a4ce59b103e2797f",
-            "fork_repository": "PalomarArchive/zblore--fc-ame-12-5--8ab2faddd2de",
-            "source_repository": "zblore/fc-ame-12-5"
-          }
-        ]
-      },
-      "published_at": "2026-11-02T15:55:25Z",
-      "source": {
-        "commit": "e8c1e58c7e4dd324868b6ed6a4ce59b103e2797f",
-        "project_path": null,
-        "repository": "zblore/fc-ame-12-5"
-      },
-      "status": "registered",
-      "title": "An absolutely maximally entangled state of twelve five-level systems: AME(12, 5) exists",
-      "trust": {
-        "level": "high"
-      },
-      "version": 1,
-      "versions": 1
-    },
-    {
-      "abstract": "A Lean 4 / Mathlib formalization of the two theorems of Fabrici and Jendrol' (1997), for finite simple graphs with the combinatorial planarity (genus-zero rotation systems) of the registered entry Kuratowski's theorem. Theorem 1 (light_path): a 3-connected planar graph that contains a path on k ≥ 1 vertices contains such a path whose vertices all have degree at most 5k. Theorem 2 (only_paths_light): for every connected planar graph H that is not a path (not isomorphic to pathGraph on its vertex count) and every m, there is a 3-connected planar graph containing a copy of H in which every copy of H (an injective edge-preserving map) has a vertex of degree at least m. Two statements. Theorem 1 follows the proof reproduced in the Jendrol'–Voss survey (maximal counterexample, chords at major vertices, a major vertex with at most five major neighbours). Theorem 2 uses a different construction from the article's: H is completed to an edge-maximal planar graph, whose faces are triangles, and two chains of repeated stellations are inserted in every face, so that the light vertices induce disjoint paths; the result is a plane triangulation, hence 3-connected. The extremal example for 5k is not formalized.",
-      "authors": [
-        {
-          "name": "Juan Pablo Traverso Gianini"
-        }
-      ],
-      "classification": {
-        "arxiv": [
-          "math.CO"
-        ],
-        "msc2020": [
-          "05C10",
-          "05C38",
-          "05C07"
-        ]
-      },
-      "formalization": {
-        "theorem_names": [
-          "FabriciJendrolTheorem.light_path",
-          "FabriciJendrolTheorem.only_paths_light"
-        ]
-      },
-      "id": "PALOMAR-2026-11-02-000013",
-      "path": "entries/PALOMAR-2026-11-02-000013-v1.json",
-      "preservation": {
-        "repositories": [
-          {
-            "commit": "00ea06f84dc1b2b33d58a2b17361fc3a58189814",
-            "fork_repository": "PalomarArchive/jtraverso--fabrici-jendrol-light-paths--422e9fe618e5",
-            "source_repository": "jtraverso/fabrici-jendrol-light-paths"
-          }
-        ]
-      },
-      "published_at": "2026-11-02T15:29:48Z",
-      "source": {
-        "commit": "00ea06f84dc1b2b33d58a2b17361fc3a58189814",
-        "project_path": null,
-        "repository": "jtraverso/fabrici-jendrol-light-paths"
-      },
-      "status": "registered",
-      "title": "Light paths and only paths in 3-connected planar graphs (Fabrici–Jendrol')",
-      "trust": {
-        "level": "high"
-      },
-      "version": 1,
-      "versions": 1
-    },
-    {
-      "abstract": "A Lean 4 formalization of the mathematics of Y. Saouter, Checking the odd Goldbach conjecture up to 10^20, Math. Comp. 67, 1998, 863 to 866. Proved with no hypothesis: Lemma 1, the paper's form of Theorem 5 of Brillhart, Lehmer and Selfridge 1975, for every even F; Theorem 1, the primality criterion for N = 2^22 R + 1 below 10^20 with R odd and any base a with a^((N-1)/2) = -1 modulo N; Lemma 2 by quadratic reciprocity; Theorem 2, the case of base 5; the primality of the 100 rungs of Table 1 and of the first and last primes printed in the paper. The printed ladder constant 1258213 is a misprint for 12582913, and this repair is proved. The entry does not reverify Saouter's computation: his ladder of about 250 million rungs is checked only through its first 100 rungs. As a derived result, not a theorem of the paper, every odd number from 7 to 10^20 is a sum of three primes, conditional on one cited input taken as an explicit hypothesis, never as an axiom: EvenGoldbachUpTo of 4 * 10^18, the published computation of T. Oliveira e Silva, S. Herzog and S. Pardi, Math. Comp. 83, 2014, not proved here. That proof uses Saouter's prime ladder with 25 Proth rungs as in Helfgott and Platt, so the paper's range is reproduced by a different ladder on a much larger even input than Saouter's 4 * 10^11. Ternary Goldbach for all odd numbers is Helfgott's theorem, from his 2013 preprint, and is not formalized here. Binary Goldbach is open and is not claimed. AI agents wrote the Lean code, which is offered for human audit.",
-      "authors": [
-        {
-          "name": "Steve Hubbard"
-        }
-      ],
-      "classification": {
-        "arxiv": [
-          "math.NT"
-        ],
-        "msc2020": [
-          "11P32",
-          "11Y11",
-          "11A51"
-        ]
-      },
-      "formalization": {
-        "theorem_names": [
-          "GoldbachLean.Saouter1998.Paper.N_form",
-          "GoldbachLean.Saouter1998.Paper.N_three",
-          "GoldbachLean.Saouter1998.Paper.printed_three_ne",
-          "GoldbachLean.Saouter1998.Paper.printed_not_form",
-          "GoldbachLean.Saouter1998.Paper.printed_gap",
-          "GoldbachLean.Saouter1998.Paper.last_prime_form",
-          "GoldbachLean.Saouter1998.Paper.lemma2",
-          "GoldbachLean.Saouter1998.BLS.lemma1",
-          "GoldbachLean.Saouter1998.Thm2.theorem2",
-          "GoldbachLean.Saouter1998.Thm2.last_prime",
-          "GoldbachLean.Saouter1998.Thm2.first_prime",
-          "GoldbachLean.Saouter1998.Thm1.theorem1",
-          "GoldbachLean.Saouter1998.Thm1.theorem1_int",
-          "GoldbachLean.Saouter1998.Table1.table1_head",
-          "GoldbachLean.Saouter1998.Table1.table1_gaps",
-          "GoldbachLean.Saouter1998.Table1.printed_three_composite",
-          "GoldbachLean.Saouter1998.Table1Thm2.table1_prime_thm2",
-          "GoldbachLean.Saouter1998.ProthLadder.ternaryGoldbachUpTo_1e20_of_even",
-          "GoldbachLean.Saouter1998.ProthLadder.ternaryGoldbachUpTo_293_vacuity"
-        ]
-      },
-      "id": "PALOMAR-2026-11-02-000012",
-      "path": "entries/PALOMAR-2026-11-02-000012-v1.json",
-      "preservation": {
-        "repositories": [
-          {
-            "commit": "39d1ce6db8b634233ed29c2aa3e3dcf1218400dc",
-            "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
-            "source_repository": "sthubbar/goldbach-lean"
-          }
-        ]
-      },
-      "published_at": "2026-11-02T15:12:32Z",
-      "source": {
-        "commit": "39d1ce6db8b634233ed29c2aa3e3dcf1218400dc",
-        "project_path": "entries/saouter1998",
-        "repository": "sthubbar/goldbach-lean"
-      },
-      "status": "registered",
-      "title": "Checking the odd Goldbach conjecture up to 10^20",
-      "trust": {
-        "level": "high"
-      },
-      "version": 1,
-      "versions": 1
-    },
-    {
-      "abstract": "A kernel-checked chirality package for the Padovan substitution (0 ↦ 1, 1 ↦ 2, 2 ↦ 01 on Fin 3; its incidence matrix has characteristic polynomial x³ − x − 1, an orientation fact that is not used or compared). Three compared theorems, all at the iterate-factor level — they quantify over factors of the concrete words S^[n] [x], never over an abstract subshift. (1) The successor invariant: in every positive iterate from any seed, the letter 0 (\"a\") is immediately followed by 1 (\"b\"). (2) Chirality: the word 20 (\"ca\") is a factor of an iterate while its reversal 02 (\"ac\") is a factor of no iterate from any seed — the factor language reads differently backwards — proved from the invariant, with no enumeration on the ac side. (3) No palindromic factor: no factor of length ≥ 4 of any iterate from any seed (including the zeroth iterate) is a palindrome, via a complete length-≤5 window certificate for the seed a together with the index shift S [0] = [1], S [1] = [2], which exhibits every seed's iterate as a seed-a iterate. These are the three compared statements of the registered record (PALOMAR-2026-08-19-000006 at revision c48eb12), unchanged in this revision. The uniqueness results proved in this repository (Supplement.lean: padovan_minimal_unique, padovan_eigenvalue_unique, padovan_matrix_unique, pisot_ge_plastic, padovan_rules_chiral) are registered separately as PALOMAR-2026-10-18-000019 (stalex444/arithmetic-of-time-slowest-clock, revision 49eafbab4af8899b2a66469697bf74683a88ce87), which compares them over s, mir, inc and sub. Everything else in this repository is public and kernel-checked but not compared: among it the exact orientation threshold (padovan_exact_orientation_threshold_four), the irrationality of the distinguished slope (Time.beta_irrational), mirror identities for arbitrary substitutions, a rate identity, and the characteristic polynomial and chirality of a twelve-letter substitution for ρQ.",
-      "authors": [
-        {
-          "name": "Stephanie Alexander"
-        }
-      ],
-      "classification": {
-        "arxiv": [
-          "math.CO",
-          "math.DS",
-          "physics.hist-ph"
-        ],
-        "msc2020": [
-          "68R15",
-          "37B10",
-          "00A79"
-        ]
-      },
-      "formalization": {
-        "theorem_names": [
-          "ArithmeticOfTime.padovan_a_forces_b",
-          "ArithmeticOfTime.padovan_chirality",
-          "ArithmeticOfTime.padovan_no_long_palindrome"
-        ]
-      },
-      "id": "PALOMAR-2026-08-19-000006",
-      "path": "entries/PALOMAR-2026-08-19-000006-v2.json",
-      "preservation": {
-        "repositories": [
-          {
-            "commit": "dff259119db097947f946f44620b42d0bd242b7d",
-            "fork_repository": "PalomarArchive/stalex444--arithmetic-of-time--b101f6bdb410",
-            "source_repository": "stalex444/arithmetic-of-time"
-          }
-        ]
-      },
-      "published_at": "2026-11-02T13:21:48Z",
-      "source": {
-        "commit": "dff259119db097947f946f44620b42d0bd242b7d",
-        "project_path": null,
-        "repository": "stalex444/arithmetic-of-time"
-      },
-      "status": "registered",
-      "title": "The Arithmetic of Time: chirality of the Padovan substitution",
-      "trust": {
-        "level": "high"
-      },
-      "version": 2,
-      "versions": 2
-    },
-    {
-      "abstract": "Let f(n) be the least m >= 1 such that n! = a_1 ... a_t with a_1 < ... < a_t = a_1 + m. Assuming the abc conjecture, f(n) tends to infinity. The proof follows Luca's proof that abc implies finitely many solutions of P(x) = n!, for the polynomials prod_{i in T} (x + i): for a fixed set T of d offsets, the shift y = d a + sum(T) gives d^d prod_{i in T} (a + i) = y^d + y^k R(y) with k + deg R <= d - 2 and R(0) != 0, and abc, with rad(n!) <= 4^n, bounds y by an exponential in n, while y^d >= n!. It does not assume Luca's theorem; only the reduction from f(n) to these polynomials is specific to Problem 393.",
-      "authors": [
-        {
-          "name": "Daniel Veljjanoski"
-        }
-      ],
-      "classification": {
-        "arxiv": [
-          "math.NT"
-        ],
-        "msc2020": [
-          "11D85",
-          "11B65"
-        ]
-      },
-      "formalization": {
-        "theorem_names": [
-          "Erdos393.erdos_393.variants.luca"
-        ]
-      },
-      "id": "PALOMAR-2026-11-02-000011",
-      "path": "entries/PALOMAR-2026-11-02-000011-v1.json",
-      "preservation": {
-        "repositories": [
-          {
-            "commit": "ec05768609980a27995453bc1701e6fa3004d675",
-            "fork_repository": "PalomarArchive/veljjanoski--erdos393-palomar--a3779df4131c",
-            "source_repository": "veljjanoski/erdos393-palomar"
-          }
-        ]
-      },
-      "published_at": "2026-11-02T12:56:29Z",
-      "source": {
-        "commit": "ec05768609980a27995453bc1701e6fa3004d675",
-        "project_path": null,
-        "repository": "veljjanoski/erdos393-palomar"
-      },
-      "status": "registered",
-      "title": "Erdős Problem 393: f(n) tends to infinity, assuming the abc conjecture",
-      "trust": {
-        "level": "high"
-      },
-      "version": 1,
-      "versions": 1
-    },
-    {
-      "abstract": "A Lean 4 / Mathlib formalization of Theorems 1.1 and 1.3 of Madaras (2004), for finite simple graphs with the combinatorial planarity (genus-zero rotation systems) of the registered entry Kuratowski's theorem. In every plane map of a finite simple graph of minimum degree at least three whose faces all have length at least five, some vertex x of degree three has three distinct neighbours a, b, c with deg a = deg b = 3 and deg c ≤ 4 (light_star3); in particular the star K1,3 is light, with degree sum at most 13. In the same setting, some face of length five shares an edge with a face of length at most six such that all vertices of both faces have degree at most nine (light_pair; the two faces may coincide when the graph is not 2-connected). Two statements. The proof of Theorem 1.1 is a discharging argument on the rotation system with charges deg − 4 and ℓ − 4 in which every face gives each corner at a 3-vertex a weight depending only on the degrees of the two neighbours along the face, and vertices of degree at least five give 1/5 to each 3-neighbour; the local inequalities are checked by decide in the kernel. This replaces the article's transfer of charge between adjacent 3-vertices. Theorem 1.3 is proved by a second discharging with charges 2 deg − 6 and ℓ − 6: vertices give their charge to their corners, and every face gives 1/5 across each edge to an adjacent poor face (length five, all degrees at most five, at most one of degree at least four).",
-      "authors": [
-        {
-          "name": "Juan Pablo Traverso Gianini"
-        }
-      ],
-      "classification": {
-        "arxiv": [
-          "math.CO"
-        ],
-        "msc2020": [
-          "05C10",
-          "05C07"
-        ]
-      },
-      "formalization": {
-        "theorem_names": [
-          "MadarasTheorem.light_star3",
-          "MadarasTheorem.light_pair"
-        ]
-      },
-      "id": "PALOMAR-2026-11-01-000033",
-      "path": "entries/PALOMAR-2026-11-01-000033-v2.json",
-      "preservation": {
-        "repositories": [
-          {
-            "commit": "4d897b00e73b0742ce0ef346a0a5dd2482ff3048",
-            "fork_repository": "PalomarArchive/jtraverso--madaras-light-stars--fec46a2c19c6",
-            "source_repository": "jtraverso/madaras-light-stars"
-          }
-        ]
-      },
-      "published_at": "2026-11-02T12:27:17Z",
-      "source": {
-        "commit": "4d897b00e73b0742ce0ef346a0a5dd2482ff3048",
-        "project_path": null,
-        "repository": "jtraverso/madaras-light-stars"
-      },
-      "status": "registered",
-      "title": "Light 3-stars and light pairs of faces in plane graphs of minimum face size five (Madaras)",
-      "trust": {
-        "level": "high"
-      },
-      "version": 2,
-      "versions": 2
-    },
-    {
-      "abstract": "Machine-checked proofs that no absolutely maximally entangled state of seven qubits exists, and that for local dimension d >= 2 an absolutely maximally entangled state of seven parties exists exactly when d >= 3. The statements and definitions are Formal Conjectures' (Open Quantum Problem 35), copied verbatim into Challenge.lean, so this entry proves Formal Conjectures' own statements; one proof step inside the definition combineFirst is changed so that Comparator can match it, and the definition is unchanged. The proofs follow Huber, Gühne and Siewert (2017) and Shi, Zhang, Zhao and Li (2026).",
-      "authors": [
-        {
-          "name": "Zayn Blore"
-        }
-      ],
-      "classification": {
-        "arxiv": [
-          "quant-ph"
-        ],
-        "msc2020": [
-          "81P40",
-          "81P45",
-          "05B15"
-        ]
-      },
-      "formalization": {
-        "theorem_names": [
-          "OpenQuantumProblem35.ame_7_2_not_exists",
-          "OpenQuantumProblem35.ame_7_exists_iff"
-        ]
-      },
-      "id": "PALOMAR-2026-11-02-000010",
-      "path": "entries/PALOMAR-2026-11-02-000010-v1.json",
-      "preservation": {
-        "repositories": [
-          {
-            "commit": "974bf30aa49e4bf4b1d8f0be2eb22b9ce02cde42",
-            "fork_repository": "PalomarArchive/zblore--fc-ame-7--9b396af5b5e0",
-            "source_repository": "zblore/fc-ame-7"
-          }
-        ]
-      },
-      "published_at": "2026-11-02T10:18:17Z",
-      "source": {
-        "commit": "974bf30aa49e4bf4b1d8f0be2eb22b9ce02cde42",
-        "project_path": null,
-        "repository": "zblore/fc-ame-7"
-      },
-      "status": "registered",
-      "title": "Absolutely maximally entangled states of seven parties: for d >= 2, AME(7, d) exists exactly when d >= 3",
       "trust": {
         "level": "high"
       },

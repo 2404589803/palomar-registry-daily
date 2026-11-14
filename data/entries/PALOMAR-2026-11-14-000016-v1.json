@@ -1,0 +1,363 @@
+{
+  "abstract": "A machine-checked proof of Darboux's theorem in the form Kim Morrison stated it for lean-eval (problem darboux): if a 2-form on an open set U of R^2n is smooth, closed and non-degenerate, then every point of U has a neighbourhood with a smooth chart, smooth in both directions, in which the form takes the standard values on the standard basis, so it is the standard symplectic form sum dx_i ^ dx_(n+i). The proof is Moser's: interpolate between the form and its value at the point, write the difference as d(beta) by a Poincare lemma, integrate the vector field X_t with i_(X_t) omega_t = -beta to time 1, and get a chart from the inverse function theorem; a symplectic basis of the form at the point then gives the standard coordinates. Mathlib has no symplectic forms and no Darboux theorem. When lean-eval posed the problem in May 2026 it found no formalization in any proof assistant; since then three other Lean proofs of Darboux's theorem have appeared, each with its own statement (listed under related_formalizations). This proof is independent of them. The theorem is classical and no priority is claimed.",
+  "authors": [
+    {
+      "name": "Zayn Blore"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-14-000016-v1/cb727d31ebf79bd16b31c4a2a74e511effe070efa5854f74a40088101b1f84a2/",
+    "artifact_tree_sha256": "cb727d31ebf79bd16b31c4a2a74e511effe070efa5854f74a40088101b1f84a2",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-13T16:12:21Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.SG",
+      "math.DG"
+    ],
+    "msc2020": [
+      "53D05",
+      "58A10"
+    ]
+  },
+  "first_registered_on": "2026-11-14",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "5e0c4e5239cb0a2d86d68a884bf52cfd963fce22"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "33131f4fb10067cb3009bf4db615d9680c1ccd6b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "darboux"
+    ]
+  },
+  "id": "PALOMAR-2026-11-14-000016",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-14T11:20:32Z",
+    "receipt_sha256": "0bd81e14bfc03311b1d87560631ebe17e74d9f3bf0234a05ab97f35c130637de",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000016-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "33131f4fb10067cb3009bf4db615d9680c1ccd6b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000016-v1/33131f4fb10067cb3009bf4db615d9680c1ccd6b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000016-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000016-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "5e0c4e5239cb0a2d86d68a884bf52cfd963fce22",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000016-v1/5e0c4e5239cb0a2d86d68a884bf52cfd963fce22",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000016-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000016-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000016-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000016-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "8671f3a465e3919548280ca1516ae4ac7b1f68ec",
+        "fork_repository": "PalomarArchive/zblore--darboux-lean--7ba9b463992f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000016-v1/8671f3a465e3919548280ca1516ae4ac7b1f68ec",
+        "source_repository": "zblore/darboux-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Gaston Darboux"
+          }
+        ],
+        "location": "Bull. Sci. Math. 6 (1882), 14-36 and 49-68. The theorem. Cited by me, not by lean-eval, whose problem cites only Knill. Not read for this entry.",
+        "relationship": "formalizes",
+        "title": "Sur le probleme de Pfaff",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Jurgen Moser"
+          }
+        ],
+        "identifier": "https://doi.org/10.1090/S0002-9947-1965-0182927-5",
+        "location": "Trans. Amer. Math. Soc. 120 (1965), 286-294. The deformation method (\"Moser's trick\") that the proof uses. Not read for this entry.",
+        "relationship": "background",
+        "title": "On the volume elements on a manifold",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Alan Weinstein"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/0001-8708(71)90020-X",
+        "location": "Adv. Math. 6 (1971), 329-346. Moser's method applied to symplectic forms. Not read for this entry.",
+        "relationship": "background",
+        "title": "Symplectic manifolds and their Lagrangian submanifolds",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Dusa McDuff"
+          },
+          {
+            "name": "Dietmar Salamon"
+          }
+        ],
+        "identifier": "https://doi.org/10.1093/oso/9780198794899.001.0001",
+        "location": "3rd ed., Oxford University Press, 2017. Darboux's theorem (cited by csd-lean4 as Theorem 3.2.2) and symplectic bases (Section 2.1), the textbook account of the proof. Not read for this entry.",
+        "relationship": "background",
+        "title": "Introduction to Symplectic Topology",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Oliver Knill"
+          }
+        ],
+        "identifier": "https://people.math.harvard.edu/~knill/graphgeometry/papers/fundamental.pdf",
+        "location": "Section 39, as cited by lean-eval's problem. Not read for this entry.",
+        "relationship": "background",
+        "title": "Some Fundamental Theorems in Mathematics",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover/lean-eval/blob/85a88c37f80170d9f08651dc63ce6b81a8a48cb9/generated/darboux/Challenge.lean",
+        "note": "Supplies the statement: Kim Morrison's lean-eval problem darboux (added 25 May 2026; Copyright 2026 Lean FRO, LLC, Apache 2.0). Challenge.lean copies its ChallengeDeps.lean and Challenge.lean apart from the module header, @[expose] public section, moving the definitions into one file, and term proofs in place of omega for the bounds in idxP and idxQ (see fidelity); scripts/check-lean-eval-match.py checks this. lean-eval's v1 audit of 20 Aug 2026 records four accepted solutions from four users, the first on 17 Jun 2026; I found none of them published, and this entry does not use them.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/zblore/csd-lean4/tree/8b99f249/CsdLean4/Mathlib",
+        "note": "The proof. The 18 files under DarbouxLean/ other than Bridge.lean and Defs.lean are copied from csd-lean4 at commit 8b99f249, with imports renamed and their comments edited; the code is unchanged. The files were written from 11 Jul 2026; the Darboux proof itself (Darboux.lean, DarbouxStandardForm.lean, SymplecticBasis.lean) on 21-23 Sep 2026. csd-lean4 proves Darboux on a ball, C^k for 1 <= k <= infinity, and on a symplectic manifold. DarbouxLean/Bridge.lean derives lean-eval's statement from the ball version.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/t4v1/damian_formalizare/blob/545ebb1a7d4c55299b1f59787a7ff0d4d703af27/MorseFloer/Part2/Darboux.lean",
+        "note": "MorseFloer.Darboux.darboux (16 Sep 2026), in a formalization of Audin and Damian's Morse Theory and Floer Homology: by Moser's method, a C^1 closed form on a finite-dimensional real space, non-degenerate at a point, is near that point the pullback of its constant value there. A different statement from lean-eval's (no standard form, no EuclideanSpace R (Fin (2n))). Not used here.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/TauCetiProject/TauCeti/blob/7ca783d4c8d324c9c74efaacd641c8a40f69f284/TauCeti/Geometry/Symplectic/Darboux/Basic.lean",
+        "note": "Tau Ceti's Darboux theorem by Moser's method, first merged 19 Oct 2026 (PR #18754): exists_diffeomorph_eventually_compContinuousLinearMap_fderiv_eq, for a closed form on an open subset of a finite-dimensional real normed space. A different statement from lean-eval's. Not used here.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/TauCetiProject/TauCeti/blob/7ca783d4c8d324c9c74efaacd641c8a40f69f284/TauCeti/Geometry/Symplectic/Manifold/Darboux.lean",
+        "note": "Tau Ceti's Darboux charts on symplectic manifolds (4 Nov 2026), including IsSymplectic.exists_standardDarbouxChart into EuclideanSpace R (Fin n) x EuclideanSpace R (Fin n). A different statement from lean-eval's. Not used here.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/facebookresearch/atlas-lean/blob/main/WantedExt/Geometry/DarbouxWanted.lean",
+        "note": "ATLAS lists lean-eval's statement as a wanted theorem, without a proof.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Zayn Blore"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-14T11:20:11Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "9dc6d6f51723d3d94c0a81d854909874987b590dd6810cccf3ac0a00aee13107"
+    },
+    "reviewed_at": "2026-11-13T17:10:33Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "8671f3a465e3919548280ca1516ae4ac7b1f68ec",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "zblore/darboux-lean",
+    "repository_url": "https://github.com/zblore/darboux-lean",
+    "tree_url": "https://github.com/zblore/darboux-lean/tree/8671f3a465e3919548280ca1516ae4ac7b1f68ec"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "biy8v44abho5"
+  },
+  "title": "Darboux's theorem: every symplectic form on an open subset of R^2n is locally the standard one",
+  "trust": {
+    "challenge_bytes": 4616,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 109,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "666d9c2305ee9bdef49d46cd36061047147519d4e4b2b349f0c9caddc245008d",
+    "evidence_path": "evidence/PALOMAR-2026-11-14-000016-v1/62c41b3366b2a47f267099ad8134821519f49cab5886984f83219812067a6f38/",
+    "evidence_tree_sha256": "62c41b3366b2a47f267099ad8134821519f49cab5886984f83219812067a6f38",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "07802cf260b344206d4b9d4a7d68ede6423fe1c74db3b209dba89d26b1c2ea6d",
+    "protected_config_sha256": "283d1270788a659a026a97febf4da9d6738166c21d1e76f3c4b393d3ad42fff2",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43450863986,
+    "solution_sha256": "4fa6440032f386271dbb85b5f4030c714d472c6bf78cc40686c018ca8d7a4019",
+    "tool_digests": {
+      "bwrap": "4c12ee1c50244060f4cce5ac5658add13db624b31ebf0b561d53a8e2f56c59ba",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-13T15:22:31Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43450863986"
+  },
+  "version": 1
+}

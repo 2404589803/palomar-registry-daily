@@ -1,0 +1,348 @@
+{
+  "abstract": "A Lean 4 and Mathlib proof that there is an 8-regular simple graph of girth 7 on 768 vertices (Mathlib's SimpleGraph, IsRegularOfDegree and girth), so that the order n(8, 7) of an (8, 7)-cage is at most 768; the House of Graphs cage table listed 774 when this was written. The graph is data (adjacency lists in a binary trie). Lean's kernel checks (decide +kernel, no native_decide) that it is simple and 8-regular, and, for every vertex v and every two neighbours x ≠ y, that the ends of the non-backtracking walks of length at most 3 starting with the edge v x are disjoint from those starting with v y. A cycle of length at most 6 would contradict this at one of its vertices, and an explicit 7-cycle gives girth exactly 7.",
+  "authors": [
+    {
+      "name": "Arhan Canli"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-14-000013-v1/41333572038018283f24f1c11b98008f9f558000747e769243517ba1bb481488/",
+    "artifact_tree_sha256": "41333572038018283f24f1c11b98008f9f558000747e769243517ba1bb481488",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-14T07:18:28Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C35",
+      "05C38",
+      "51E12"
+    ]
+  },
+  "first_registered_on": "2026-11-14",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Cage87.exists_regular_girth_seven"
+    ]
+  },
+  "id": "PALOMAR-2026-11-14-000013",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-14T10:05:42Z",
+    "receipt_sha256": "383a5dfe7b0eaa87b874b6e32d99086d93c513ce11910981622a0b62ac67f31a",
+    "repositories": [
+      {
+        "commit": "593719d9713eaf81f23e2364e973824ac208bbc4",
+        "fork_repository": "PalomarArchive/arhancanli--quantavane-cage-8-7--b176c239a81e",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000013-v1/593719d9713eaf81f23e2364e973824ac208bbc4",
+        "source_repository": "arhancanli/quantavane-cage-8-7"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000013-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000013-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000013-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000013-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000013-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000013-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000013-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000013-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000013-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Arhan Canli"
+          }
+        ],
+        "contributors": [
+          {
+            "name": "Claude (Anthropic)",
+            "role": "AI agents working under Arhan Canli's direction: found the construction and the graph, checked it with separately written programs, and wrote the kernel checks and the Lean formalization"
+          }
+        ],
+        "identifier": "https://quantavane.com/results/",
+        "location": "The results page of quantavane.com (November 2026); the graph is listed as [C26] (A. Canli, personal communication, November 2026) in the House of Graphs cage table, https://houseofgraphs.org/meta-directory/cages, since 13 November 2026",
+        "relationship": "formalizes",
+        "title": "An 8-regular graph of girth 7 on 768 vertices, the case q = 7 of a girth-7 construction from the generalized quadrangle W(q) (Quantavane, November 2026)",
+        "type": "web post"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Gy. Kiss"
+          }
+        ],
+        "identifier": "arXiv:2312.05620",
+        "location": "Art Discrete Appl. Math. 8 (2025) #P3.04, Theorem 8",
+        "relationship": "background",
+        "title": "Geometric constructions of small regular graphs with girth 7",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "M. Abreu"
+          },
+          {
+            "name": "G. Araujo-Pardo"
+          },
+          {
+            "name": "C. Balbuena"
+          },
+          {
+            "name": "D. Labbate"
+          },
+          {
+            "name": "J. Salas"
+          }
+        ],
+        "identifier": "arXiv:1211.2672",
+        "location": "Electron. J. Combin. 22(3) (2015) P3.5, with the 2016 corrigendum",
+        "relationship": "background",
+        "title": "Small regular graphs of girth 7",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "G. Exoo"
+          },
+          {
+            "name": "J. Goedgebeur"
+          },
+          {
+            "name": "J. Jooken"
+          },
+          {
+            "name": "L. Stubbe"
+          },
+          {
+            "name": "T. Van den Eede"
+          }
+        ],
+        "identifier": "arXiv:2511.07247",
+        "location": "Electron. J. Combin. 33(3) (2026) P3.48",
+        "relationship": "background",
+        "title": "New small regular graphs of given girth: the cage problem and beyond",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Arhan Canli"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-14T10:05:25Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "15d9fb93fa182b1c3c138830d314301d3a2961d2f3e7057acb802cacd637a5f2"
+    },
+    "reviewed_at": "2026-11-14T08:10:46Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "593719d9713eaf81f23e2364e973824ac208bbc4",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "arhancanli/quantavane-cage-8-7",
+    "repository_url": "https://github.com/arhancanli/quantavane-cage-8-7",
+    "tree_url": "https://github.com/arhancanli/quantavane-cage-8-7/tree/593719d9713eaf81f23e2364e973824ac208bbc4"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "t3ux25r0qxlj"
+  },
+  "title": "An 8-regular graph of girth 7 on 768 vertices",
+  "trust": {
+    "challenge_bytes": 1677,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Combinatorics.SimpleGraph.Finite",
+      "Mathlib.Combinatorics.SimpleGraph.Girth"
+    ],
+    "challenge_lines": 42,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "4c1d8f528bc21f9098e89d934edd786bca5490e9d256dec0d6b607ced1bfda25",
+    "evidence_path": "evidence/PALOMAR-2026-11-14-000013-v1/d4583a0202eca923110a34d4ed7107b44305bb9c83ceb51be96943e44f54e831/",
+    "evidence_tree_sha256": "d4583a0202eca923110a34d4ed7107b44305bb9c83ceb51be96943e44f54e831",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "fe2ca89abecc7e56ac92e7c8b8c67808fec9ec23ee43746b4c3d2657c2069cb2",
+    "protected_config_sha256": "ca03cec3916d0e1c70898c02c7bb8c467cd7b69cab65235c9a664f53093d2045",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43569112094,
+    "solution_sha256": "bcb27de5c53597aafa2afdca4f7dbd359f0b6f19d0c3e8aa092524cba2153fec",
+    "tool_digests": {
+      "bwrap": "42aaa12dfdab67884ce7910eb3625868ac8b6af1f5fe759759a32084238493c5",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-14T07:06:02Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43569112094"
+  },
+  "version": 1
+}
