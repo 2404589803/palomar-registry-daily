@@ -1,0 +1,311 @@
+{
+  "abstract": "A Lean 4 / Mathlib proof of Exoo's lower bound R(5,5) ≥ 43 for the diagonal graph Ramsey number: there is a simple graph on 42 vertices with no clique of size 5 and no independent set of size 5. The proof defines a clique scan on natural-number bit masks, proves that a scan with the result `false` excludes every clique of the given size, and lets the Lean kernel evaluate the scan on one explicit graph and on its complement (`decide +kernel`, no `native_decide`). The statement is the one that the Formal Conjectures repository records as `RamseyNumbers.ramsey_number_five_five_lower_bound`. The value of R(5,5) is open; 43 has been the best known lower bound since 1989.",
+  "authors": [
+    {
+      "name": "Arth Singh"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-14-000020-v1/46a0798cc2dd6db6438c4d2023fa984a27a0635ebdee9c2158fbc41652f1b902/",
+    "artifact_tree_sha256": "46a0798cc2dd6db6438c4d2023fa984a27a0635ebdee9c2158fbc41652f1b902",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-14T14:24:07Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05D10",
+      "05C55",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-14",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "RamseyR55.ramsey_number_five_five_lower_bound"
+    ]
+  },
+  "id": "PALOMAR-2026-11-14-000020",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-14T18:03:08Z",
+    "receipt_sha256": "baf5d555237f01e3b4ef78430c3c894defa2f57bbf03817afdbf4c70ae599c0e",
+    "repositories": [
+      {
+        "commit": "9128e900ed3de9429e1dab817d93b308a054e104",
+        "fork_repository": "PalomarArchive/Arth-Singh--ramsey-r55-lower-bound--ca60e509a154",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000020-v1/9128e900ed3de9429e1dab817d93b308a054e104",
+        "source_repository": "Arth-Singh/ramsey-r55-lower-bound"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000020-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000020-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000020-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000020-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000020-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000020-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000020-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000020-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000020-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Geoffrey Exoo"
+          }
+        ],
+        "identifier": "doi:10.1002/jgt.3190130113",
+        "license": "unknown",
+        "location": "Journal of Graph Theory 13 (1989), no. 1, 97–98",
+        "relationship": "formalizes",
+        "title": "A lower bound for R(5,5)",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Lachlan Ge"
+          },
+          {
+            "name": "Yasiru Jayasooriya"
+          },
+          {
+            "name": "Alex Qiu"
+          },
+          {
+            "name": "Michael Sun"
+          },
+          {
+            "name": "Victor Yuan"
+          }
+        ],
+        "identifier": "arXiv:2212.12630",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2212.12630",
+        "relationship": "other",
+        "title": "Study of Exoo's Lower Bound for Ramsey number R(5,5)",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures",
+        "note": "Source of the Lean statement: `RamseyNumbers.ramsey_number_five_five_lower_bound` in `FormalConjectures/Wikipedia/RamseyNumbers.lean`, stated there without a proof. The statement of `Challenge.lean` is the same proposition. On 2026-11-14 a search of GitHub and of the Palomar registry found no earlier formal proof of this statement. This project makes no claim of priority.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Arth Singh"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-14T18:02:48Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "f40834773f2a3de4e7f60a5351d2b1d9225060dfd26e6521c9ce947108960c3c"
+    },
+    "reviewed_at": "2026-11-14T16:16:37Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "9128e900ed3de9429e1dab817d93b308a054e104",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "Arth-Singh/ramsey-r55-lower-bound",
+    "repository_url": "https://github.com/Arth-Singh/ramsey-r55-lower-bound",
+    "tree_url": "https://github.com/Arth-Singh/ramsey-r55-lower-bound/tree/9128e900ed3de9429e1dab817d93b308a054e104"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "fmkciwb4avn3"
+  },
+  "title": "The lower bound R(5,5) ≥ 43: a kernel-checked Ramsey graph on 42 vertices",
+  "trust": {
+    "challenge_bytes": 1056,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Combinatorics.SimpleGraph.Clique"
+    ],
+    "challenge_lines": 27,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "7b86ec225deeb8a0db8404643cc9410df7b5524ba774e5ad1919823ce65d0496",
+    "evidence_path": "evidence/PALOMAR-2026-11-14-000020-v1/5b7916e92dd17c720e4d02a97558acfc6d73593261b5e71c90ff3cf6f71b15c7/",
+    "evidence_tree_sha256": "5b7916e92dd17c720e4d02a97558acfc6d73593261b5e71c90ff3cf6f71b15c7",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "bb85e1712521c671bb3091376561d74b8af17307d07acfa0fb120edcfd0dc9d7",
+    "protected_config_sha256": "815bee301f03e70efc352d7a179a56162b19812be8428408bcc66e8707116846",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43603037666,
+    "solution_sha256": "e4b77991988701677b10482ab09c484228cd6dfda3cdf51b751b5593e3031eb0",
+    "tool_digests": {
+      "bwrap": "e545760576e2fe198022c4f4b8b386605576409cc73ec2fd65af41ddb3c215a1",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-14T14:08:50Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43603037666"
+  },
+  "version": 1
+}
