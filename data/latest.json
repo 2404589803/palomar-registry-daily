@@ -1,14 +1,1443 @@
 {
-  "fetched_at": "2026-11-15T09:16:45.446799+00:00",
+  "fetched_at": "2026-11-16T09:33:33.566600+00:00",
   "results": {
     "schema_version": 1,
-    "revision": 937,
-    "release": "c457717683d5fd586ffdb6c04ffd306bfa4d2ac1800532a084f0abbbb2d9e9a3",
+    "revision": 962,
+    "release": "a302da8bd640f09d35680a37ca6b84c9d45cb49ae052119aad262104784e4237",
     "totals": {
-      "results": 1125,
-      "projects": 870
+      "results": 1145,
+      "projects": 878
     },
     "entries": [
+      {
+        "abbreviated": false,
+        "abstract": "Lean 4 / Mathlib formalization of Conjecture 19 from E. DeLaVina's Written on the Wall II (Graffiti.pc) collection, matching the exact statement in google-deepmind/formal-conjectures (WrittenOnTheWallII.GraphConjecture19.conjecture19). For every finite, nontrivial, connected simple graph G, the size b(G) of a largest induced bipartite subgraph is bounded below by the floor of the sum of the average vertex eccentricity and the maximum local neighborhood independence number sup_v l(v). The proof picks a vertex u maximising l(u), sets e = (G.eccent u).toNat and D = G.diam, and constructs an induced bipartite subgraph as a disjoint union of independent subsets B_d inside the distance spheres {v | G.dist u v = d} colored by distance parity. When D ≤ e, one geodesic vertex per sphere 2 ≤ d ≤ e together with {u} and an independent neighborhood subset I ⊆ N(u) of size l(u) gives b(G) ≥ e + l(u). When e < D, the average eccentricity is strictly less than D, and pairing geodesic vertices from u toward a diametral pair x, y on overlapping spheres (separated by distance at least 2 via the triangle inequality) gives b(G) ≥ D − 1 + l(u). The proof uses only propext, Classical.choice, and Quot.sound, with no sorry and no native_decide.",
+        "authors": [
+          {
+            "name": "Hamed Sadeghi"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C12",
+            "05C35",
+            "05C69",
+            "68V15"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "WrittenOnTheWallII.GraphConjecture19.conjecture19"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000014",
+        "path": "entries/PALOMAR-2026-11-16-000014-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "949a857bfb20f75c38f57317c4e2c29e2c18aa1b",
+              "fork_repository": "PalomarArchive/hamsade-google--wowii-conjecture-19-lean--680f9cc9219e",
+              "source_repository": "hamsade-google/wowii-conjecture-19-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "a48d73550a9d186d32425380fe5c4f3ca00508cfe34e279e63478625b1384579",
+          "version": 1
+        },
+        "published_at": "2026-11-16T08:33:26Z",
+        "source": {
+          "commit": "949a857bfb20f75c38f57317c4e2c29e2c18aa1b",
+          "project_path": null,
+          "repository": "hamsade-google/wowii-conjecture-19-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Written on the Wall II Conjecture 19: lower bound on the largest induced bipartite subgraph size from average eccentricity and neighborhood independence",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of Theorem 2.1 of P. Keevash, \"Counting designs\" (arXiv:1504.02909): there are c₀ > 0 and n₀ such that every graph G on n ≥ n₀ vertices with all degrees even and 3 | e(G) that is (c,h)-typical, with density d(G) > n^(-10^-7) and c ≤ c₀·d(G)^(10^6), has a triangle decomposition; h = 2 (the paper's c-typical case, KeevashTri.theorem_2_1_ctyp, new in v2) and h = 16 (KeevashTri.theorem_2_1, v1). (c,h)-typical means |⋂_{x∈S} G(x)| = (1 ± |S|c)·d(G)^|S|·n for every vertex set S with |S| ≤ h; for h = 2 this is degrees (1 ± c)·d(G)·n and pair codegrees (1 ± 2c)·d(G)²·n (the paper asks (1 ± c) for pairs, so the hypothesis here is slightly weaker). The density and typicality thresholds are the paper's (n^(-10^-7) and c₀·d^(10^6)); c₀ and n₀ are not explicit. Quantitative internals of the c-typical proof: c_e = max(c, n^(-1/10)), goodness parameter c' = c_e^(1/4), at most η = 16c'^2·n + 4/(c'^2·d^16) bad one-vertex extensions of a c'-good set of at most 15 vertices. The proof follows the paper's strategy (random algebraic template over F₂^a, Nibble, Cover, Hole, Completion), with every random greedy algorithm of the Completion replaced by a deterministic potential (pessimistic-estimator) argument. Earlier registered entries are imported as lake dependencies: the hypergraph matching nibble of Ehard–Glock–Joos (PALOMAR-2026-10-17-000004) and the Steiner triple system material of PALOMAR-2026-10-22-000017 v2. Mathlib does not contain this result.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C70",
+            "05B07",
+            "05C80"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "KeevashTri.theorem_2_1",
+            "KeevashTri.theorem_2_1_ctyp"
+          ]
+        },
+        "id": "PALOMAR-2026-11-14-000022",
+        "path": "entries/PALOMAR-2026-11-14-000022-v2.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "274272da83ddb513437e4394bb79995c215954ee",
+              "fork_repository": "PalomarArchive/jtraverso--keevash-triangle-decompositions--8091ac93e742",
+              "source_repository": "jtraverso/keevash-triangle-decompositions"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "e7734a005439ca4c28d684303b94979cc7bb27e590f2087fbbf5504c076fd628",
+          "version": 2
+        },
+        "published_at": "2026-11-16T07:29:07Z",
+        "source": {
+          "commit": "274272da83ddb513437e4394bb79995c215954ee",
+          "project_path": null,
+          "repository": "jtraverso/keevash-triangle-decompositions"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Keevash, Counting designs, Theorem 2.1: triangle decompositions of typical graphs",
+        "trust": {
+          "level": "high"
+        },
+        "version": 2,
+        "versions": 2
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 proof that for every ε > 0 and all large natural x there is a Goldbach number, an even sum of two primes, in the interval from x to x + 3 x^(26/1075+ε). The theorem is conditional on two cited results taken as explicit hypotheses, never as axioms, and neither is proved here: LiRow052, R. Li, arXiv 2308.04458, Theorem 2, the row θ = 0.52, primes in the intervals from n - n^(0.52+ε) to n with a lower bound of the right order, with some positive constant since the printed constant differs between versions of the paper; and LiPrintedExceptionalCount, R. Li, arXiv 2407.05651 v6, Theorem 1.1, primes in the intervals from n to n + n^(1/21.5+ε) for almost all n. The argument adapts Theorem 7.1 of arXiv 2407.05651 v6, page 27, exponent 21/860 from the 0.525 of Baker, Harman and Pintz. The exponent 26/1075 is lower by 1/4300, and the gain is only the replacement of 0.525 by Li's 0.52. Li prints this exponent himself, as Theorem 7 of arXiv 2308.04458, with no ε and no factor 3, so this is a formal check of a known result and not a new exponent. Li's later note, Primes in almost all short intervals II, claims 1/22+ε in place of 1/21.5+ε, so 26/1075 is not claimed as the best exponent. Both cited papers are used here in their arXiv preprint form. Proved with no cited input: the passage from a count of primes in the intervals below n to a count in the windows from x - 2Y to x - Y, and the combinatorial step from the two counts to a Goldbach number. Added in the second version: the same argument at the exponent 13/600, a Goldbach number in the interval from x to x + 3 x^(13/600+ε) for every ε > 0 and all large natural x, goldbach_short_600. It is conditional on LiRow052 and on one more cited result, also an explicit hypothesis and never an axiom: LiIIIExceptionalCount, R. Li, Primes in almost all short intervals III, Theorem 1.1, primes in the intervals from n - n^(1/24+ε) to n for almost all n. Li prints the exponent 13/600 himself, as Theorem 8.1 of that paper, with no ε and no factor 3, so the Lean checks a printed result, conditional on the named inputs, and it is not a new result. That paper is an undated preprint on the author's web page, not on arXiv, and has not been peer reviewed as far as the packaging agent found. The one new step, proved with no cited input, turns a count of exceptions for the backward intervals into the forward count the argument uses. Binary Goldbach is open and is not claimed. AI agents wrote the Lean code, Claude, Codex, Gemini and DeepSeek, as listed in PORTING.md, and it is offered for human audit.",
+        "authors": [
+          {
+            "name": "Steve Hubbard"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11P32",
+            "11N05"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "LeanLab.GoldbachShort78.goldbach_short_1075",
+            "LeanLab.GoldbachShort78.windowCount_of_backward",
+            "LeanLab.GoldbachShort78.goldbach_of_counts",
+            "LeanLab.GoldbachShort78.exponent_1075",
+            "LeanLab.GoldbachShort78.goldbach_short_600",
+            "LeanLab.GoldbachShort78.exponent_600"
+          ]
+        },
+        "id": "PALOMAR-2026-11-03-000025",
+        "path": "entries/PALOMAR-2026-11-03-000025-v2.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "0e201f43acf714d7821daadf5963c06d961132e8",
+              "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+              "source_repository": "sthubbar/goldbach-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "14db3e67a5555b24397256915cd3bd94846163033dcb58a9d57397a6f9e7a174",
+          "version": 2
+        },
+        "published_at": "2026-11-16T07:21:51Z",
+        "source": {
+          "commit": "0e201f43acf714d7821daadf5963c06d961132e8",
+          "project_path": "entries/goldbachshort1075",
+          "repository": "sthubbar/goldbach-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Goldbach numbers in short intervals of length x^(26/1075+ε)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 2,
+        "versions": 2
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 proof, with no unproved steps, of the main result of T. Estermann, On Goldbach's problem: proof that almost all even positive integers are sums of two primes, Proc. London Math. Soc. series 2, volume 44, 1938, pages 307-314. Let Q of n be the number of even positive integers less than n that are not sums of two primes. The Introduction on page 307 states that, as n tends to infinity, Q of n is O of n log^-a n for every positive a; this is the compared theorem, LeanLab.Estermann1938.main. The proof is not Estermann's circle method text: it bounds Q of n by E of n plus 1, where E of X counts the even 4 <= m <= X that are not sums of two primes, and uses the bound E of X << X log^-A X for every A, proved by Heath-Brown's 1985 route from the Siegel-Walfisz theorem. That bound is already a compared theorem of the registered entry heathbrown1985 of this repository, LeanLab.PNTPort.PsiChi.goldbach_logPowerSaving, whose Challenge states the same E of X bound; this entry adds Estermann's own count Q of n and his big O form, and the Lean closure is the same as that entry's plus one file. Binary Goldbach is open and is not claimed. AI agents, Claude by Anthropic, wrote the lab's Lean code; the ported zeta function code is by the PrimeNumberTheoremAnd contributors, as listed in PORTING.md. It is offered for human audit.",
+        "authors": [
+          {
+            "name": "Steve Hubbard"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11P32",
+            "11P55",
+            "11N13"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "LeanLab.Estermann1938.main"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000013",
+        "path": "entries/PALOMAR-2026-11-16-000013-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "0e201f43acf714d7821daadf5963c06d961132e8",
+              "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+              "source_repository": "sthubbar/goldbach-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "c5e9f33d6df4eac2f13796aca6a9a8786b140f996947428d411c1fc2243b8c7f",
+          "version": 1
+        },
+        "published_at": "2026-11-16T07:03:52Z",
+        "source": {
+          "commit": "0e201f43acf714d7821daadf5963c06d961132e8",
+          "project_path": "entries/estermann1938",
+          "repository": "sthubbar/goldbach-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "On Goldbach's problem: proof that almost all even positive integers are sums of two primes",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Lean 4 proofs, with no unproved steps, of two results from H. A. Helfgott and D. J. Platt, Numerical verification of the ternary Goldbach conjecture up to 8.875 · 10^30, Experimental Mathematics 22, 2013, arXiv:1305.3062. First, Proth's criterion of Section 2, Theorem 2.3 in existential form; the converse printed after it, for every such a, is proved as converse but not compared: a Proth number N = k 2^n + 1 with 0 < k < 2^n is prime if and only if some integer a has Jacobi symbol -1 over N and a raised to the power N - 1 over 2 is -1 mod N. Second, Theorem 4.1, every odd number from 7 to T = 8875694145621773516800000000000 is a sum of three primes, derived from the two computations the paper rests on, which are explicit hypotheses and are not proved here: binary Goldbach for every even number from 4 to 4 · 10^18, the verification of Oliveira e Silva, Herzog and Pardi, and for each of the 492700 ranges of width 2^54 · 10^9 of Section 4 a ladder of odd primes with gaps at most 4 · 10^18 - 2 that starts within 2 · 10^18 above the left end point and ends less than 2 · 10^18 below the right end point, the paper's own computation. The entry does not verify any ladder or any binary Goldbach case, so it does not prove ternary Goldbach up to T; it proves that the paper's computations imply it. Ternary Goldbach is Helfgott's theorem and binary Goldbach is open; neither is claimed. AI agents wrote the Lean code, Claude by Anthropic, as listed in PORTING.md, and it is offered for human audit.",
+        "authors": [
+          {
+            "name": "Steve Hubbard"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11P32",
+            "11Y11",
+            "11Y16"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "LeanLab.HelfgottPlatt.U1455.proth_iff",
+            "LeanLab.HelfgottPlatt.U6816.theorem4_1_of_ranges"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000012",
+        "path": "entries/PALOMAR-2026-11-16-000012-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "0e201f43acf714d7821daadf5963c06d961132e8",
+              "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+              "source_repository": "sthubbar/goldbach-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "39ef8fad25ef937d5d118f60d3e14fd9bf865615c883ac8006e698e1b6c1d733",
+          "version": 1
+        },
+        "published_at": "2026-11-16T06:26:56Z",
+        "source": {
+          "commit": "0e201f43acf714d7821daadf5963c06d961132e8",
+          "project_path": "entries/helfgottplatt2013",
+          "repository": "sthubbar/goldbach-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Proth's criterion and the prime ladder reduction for ternary Goldbach up to 8.875 · 10^30",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Lean 4 / Mathlib proofs of the first lower bounds above the trivial bound n for Naslund's crossing problem (J. Combin. Theory Ser. A 174 (2020), Problem 12). P(n) is the least r + s such that the tensor [x1 = x4][x2 = x3] on [n]^4 is a sum of r tensors of rank one along {12|34} and s tensors of rank one along {13|24}; in matrix form, the least rank B + rank R(C) over all splittings S_n = B + C of the swap matrix, where R is the realignment. Over every field the project proves P(n) ≥ 4n/3 for n ≥ 3, P(n) ≥ 15n/11 for n ≥ 5, P(n) ≥ 67n/49 for n ≥ 7, P(n) ≥ n + 3 for n ≥ 4, P(5) ≥ 8, P(6) ≥ 9, and P(4) = 7 (with a split that attains 7). The results are original.",
+        "authors": [
+          {
+            "name": "Arth Singh"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "cs.CC"
+          ],
+          "msc2020": [
+            "15A69",
+            "15A03",
+            "68Q17",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Crossing.four_thirds",
+            "Crossing.fifteen_elevenths",
+            "Crossing.sixtyseven_fortyninths",
+            "Crossing.add_three",
+            "Crossing.four_eq_seven",
+            "Crossing.five_ge_eight",
+            "Crossing.six_ge_nine"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000011",
+        "path": "entries/PALOMAR-2026-11-16-000011-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "3d302668a9f3928021ea33a8ef53ca2ad63d37c7",
+              "fork_repository": "PalomarArchive/Arth-Singh--crossing-lower-bounds--306d5bc61d5e",
+              "source_repository": "Arth-Singh/crossing-lower-bounds"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "5bf59d8976cb7001ffa3fcaee6ca7eb7d86c5e7fe397dbfe59e1d10a7d281efe",
+          "version": 1
+        },
+        "published_at": "2026-11-16T06:20:05Z",
+        "source": {
+          "commit": "3d302668a9f3928021ea33a8ef53ca2ad63d37c7",
+          "project_path": null,
+          "repository": "Arth-Singh/crossing-lower-bounds"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Lower bounds for Naslund's crossing problem",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of the algebraic and functional-analytic core of a proof, by Günther's method, of the Moore–Schlafly theorem (Math. Z. 173, 1980): a compact Riemannian manifold with an isometric action of a compact Lie group has an isometric embedding into Euclidean space that is equivariant for an orthogonal representation. It proves unconditionally, with no analytic hypotheses, the equivariant Günther perturbation theorem on the flat torus ℝⁿ/2πℤⁿ: for a map u whose first and second derivatives have a dual frame, with Fourier coefficients in a weighted Wiener algebra, every small symmetric h is realized as a metric perturbation, ⟨∂ᵢ(u+v), ∂ⱼ(u+v)⟩ = ⟨∂ᵢu, ∂ⱼu⟩ + hᵢⱼ pointwise, with a linear bound on v, and u+v inherits every translation-and-rotation symmetry of the data and is real if the data are real. It also proves unconditionally the equivariant Günther fixed point theorem in a Banach space, together with the equivariance of its solution map and its Lipschitz dependence on the data; the uniqueness, least-norm property, equivariance and coordinate independence of the pointwise Nash–Günther right inverse; the freeness of the Veronese map; and the Haar-averaged invariant inner product used in the approximation step. It proves the main theorem for general compact manifolds only conditionally, from explicitly stated analytic hypotheses on an abstract embedding problem.",
+        "authors": [
+          {
+            "name": "Roger Schlafly"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.DG",
+            "cs.LO"
+          ],
+          "msc2020": [
+            "53C42",
+            "57S15",
+            "58J05",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "EquivEmbed.gunther_fixed_point_equivariant",
+            "EquivEmbed.gunther_solution_map_equivariant",
+            "EquivEmbed.gunther_solution_map_lipschitz",
+            "EquivEmbed.flat_torus_equivariant_perturbation",
+            "EquivEmbed.nash_gunther_right_inverse",
+            "EquivEmbed.nash_gunther_right_inverse_equivariant",
+            "EquivEmbed.veronese_map_free",
+            "EquivEmbed.haar_averaged_inner_product",
+            "EquivEmbed.equivariant_gunther_perturbation",
+            "EquivEmbed.equivariant_isometric_embedding_conditional"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000010",
+        "path": "entries/PALOMAR-2026-11-16-000010-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "dff9e81a282d20fb0979ff37d71993725ebcb422",
+              "fork_repository": "PalomarArchive/schlafly1--equivariant-embedding--d7dee15bb253",
+              "source_repository": "schlafly1/equivariant-embedding"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "0e0c20c690ac54775cb6d8173c3c8eed95a46b68bb5d26af26286cc73a05c082",
+          "version": 1
+        },
+        "published_at": "2026-11-16T06:13:27Z",
+        "source": {
+          "commit": "dff9e81a282d20fb0979ff37d71993725ebcb422",
+          "project_path": null,
+          "repository": "schlafly1/equivariant-embedding"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Equivariant isometric embeddings via Günther's method",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Lean 4 / Mathlib formalization of two results. (1) An explicit lower bound for the linear form Λ = (K + L) log 2 − K log 3: for every K ≥ 2438425051595107335801557824 and every L, Λ cannot satisfy 0 < Λ < 100 · 2^(1 − K/2^68). This new self-contained bound is proved from Mathlib using explicit symmetric multipoint Padé approximants (the z = x(70 − x) kernel of Salikhov and Bouchelaghem–He–Li–Wu) together with an elementary bound on lcm(1, …, n), replacing the use of Rhin's (1987) effective irrationality measure in Collatz cycle arguments. (2) An independent proof of Hercher's (2023) theorem on Collatz m-cycles: assuming Bařina's 2025 computer verification that every integer 1 ≤ k ≤ 2^71 reaches 1 under the Collatz map (passed as an explicit hypothesis), there is no non-trivial cycle of the shortcut Collatz map with m ≤ 91 local minima. Rather than Hercher's finite search and Rhin's (1987) bound, the proof here combines a Raney-type rotation of the cycle, a telescopic lower bound on every local minimum, a 2-adic unimodular reduction, and a kernel-checked chain of continued-fraction steps that forces the number of odd steps past the range of (1). The definitions of the shortcut map and of m-cycles follow Moritz Firsching's formal-conjectures specification. This is an incremental m-cycle certificate plus a formalization; it does not address general cycles or divergent orbits. Both theorems use only propext, Classical.choice and Quot.sound. Four supporting statements are also compared: the trivial cycle 1 → 2 → 1 is a 1-cycle through 1 and through 2, every m-cycle has m ≥ 1, and (under the same hypothesis) every element of a non-trivial cycle exceeds 2^71.",
+        "authors": [
+          {
+            "name": "Hamed Sadeghi"
+          },
+          {
+            "name": "Moritz Firsching"
+          },
+          {
+            "name": "Goran Žužić"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11B83",
+            "11J86",
+            "11J82",
+            "68V15"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "CollatzMCycles.Diophantine.terminal",
+            "CollatzMCycles.not_isMCycle_of_le_91_of_barina",
+            "CollatzMCycles.two_pow_71_lt_iterate",
+            "CollatzMCycles.IsMCycle.ne_zero",
+            "isMCycle_one_one",
+            "isMCycle_one_two"
+          ]
+        },
+        "id": "PALOMAR-2026-11-15-000008",
+        "path": "entries/PALOMAR-2026-11-15-000008-v2.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "7938ce2ba880e376d163e0a984bb865c38af2d3a",
+              "fork_repository": "PalomarArchive/hamsade-google--collatz-mcycles-lean--d5fa10cd6589",
+              "source_repository": "hamsade-google/collatz-mcycles-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "52f780ce4b03a4566b24fc77748b9abbbda09ba96a14d3ae8b06361fdeedeae8",
+          "version": 2
+        },
+        "published_at": "2026-11-16T05:33:06Z",
+        "source": {
+          "commit": "7938ce2ba880e376d163e0a984bb865c38af2d3a",
+          "project_path": null,
+          "repository": "hamsade-google/collatz-mcycles-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Collatz m-cycles for m ≤ 91 (conditional on Bařina's 2^71 check) and an explicit linear-form bound for log 2 and log 3",
+        "trust": {
+          "level": "high"
+        },
+        "version": 2,
+        "versions": 2
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 formalization, on top of Mathlib, of the convergence of\np-harmonious functions, the solutions of the dynamic programming principle\nof tug-of-war with noise, to the viscosity solution of the Dirichlet problem\nfor the normalized p-Laplacian, 2 <= p < infinity, as the step size tends to\nzero, on bounded open sets satisfying the exterior sphere condition with\ncontinuous bounded boundary data. The compared theorem gives, for every step\nsize, a p-harmonious function with the given data, uniformly bounded, whose\nhalf-relaxed limits agree on the closure of the domain, equal the data on\nits boundary, and are the uniform limit of the family. The development also\nproves the asymptotic expansion of the scheme, the viscosity property of the\nhalf-relaxed limits, existence and uniqueness for the discrete problem, the\ncomparison principle and uniqueness for the limit equation, Aleksandrov's\ntheorem and Jensen's lemma.",
+        "authors": [
+          {
+            "name": "Juan J. Manfredi"
+          },
+          {
+            "name": "Behrooz Moosavi"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.AP",
+            "cs.LO"
+          ],
+          "msc2020": [
+            "35J92",
+            "35D40",
+            "49L20",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PLaplacian.pharmonious_exists_converge"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000009",
+        "path": "entries/PALOMAR-2026-11-16-000009-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "4d379ec55c677b4e69cf00b09bdeaa2fa61715e6",
+              "fork_repository": "PalomarArchive/BehroozMoosavi--tugofwar_formalization--4467ca87acfb",
+              "source_repository": "BehroozMoosavi/tugofwar_formalization"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "7061afd73018c670e4c617c2c087d79413d20bfbb96cb3df1cf7dbbe59680951",
+          "version": 1
+        },
+        "published_at": "2026-11-16T04:29:30Z",
+        "source": {
+          "commit": "4d379ec55c677b4e69cf00b09bdeaa2fa61715e6",
+          "project_path": null,
+          "repository": "BehroozMoosavi/tugofwar_formalization"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Convergence of the tug-of-war scheme for the normalized p-Laplacian",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 proof, with no unproved steps, of a corrected form of Lemma 7 of L. Kaniecki, On Šnirelman's constant under the Riemann hypothesis, Acta Arith. 72, 1995, pages 361-374. Page 371 defines lambda of x as 2 for 0 < x <= 7 and, for x > 7, as the largest gap p' - p between a prime p <= x and the next prime p'. Lemma 7 as printed says that every open interval from x to x + lambda of lambda of x, x > 4, contains a sum of two odd primes. That statement is false: lambda of 6 = lambda of 2 = 2, and the open interval from 6 to 8 holds no even number; a numerical check by the lab found the failure at every even integer from 6 to 88 and nowhere else below 2000. The entry proves that the printed lemma is false, at the real point x = 6 and at the integer 6, and proves the corrected lemma with the right end included: for every real x > 4 there are odd primes p and q with x < p + q <= x + lambda of lambda of x, and the same for every integer x > 4 with lambda computed on the integers. The printed proof goes through with this change and a repair at x - p1 = 7. Section 3 of the paper applies the lemma only through closed intervals, which contain the half-open ones, so the paper's Theorem is not affected; that remark is not part of the formal statements. No compared theorem uses the Riemann hypothesis or any cited input. Binary Goldbach is open and is not claimed. AI agents wrote the Lean code, Claude by Anthropic and Codex by OpenAI, as listed in PORTING.md, and it is offered for human audit.",
+        "authors": [
+          {
+            "name": "Steve Hubbard"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11P32",
+            "11N05"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "LeanLab.Kaniecki1995.not_lemma7_printed",
+            "LeanLab.KanieckiGap.lemma7_printed_false_at_6",
+            "LeanLab.KanieckiGap.lemma7_closed",
+            "LeanLab.KanieckiGap.RealIntervals127.lemma7_closed_real"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000008",
+        "path": "entries/PALOMAR-2026-11-16-000008-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "0e201f43acf714d7821daadf5963c06d961132e8",
+              "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+              "source_repository": "sthubbar/goldbach-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "519be308e48e74f48dba5af0b415225f1b585d34419c9c31226a0bd7e82cd747",
+          "version": 1
+        },
+        "published_at": "2026-11-16T04:20:45Z",
+        "source": {
+          "commit": "0e201f43acf714d7821daadf5963c06d961132e8",
+          "project_path": "entries/kaniecki1995",
+          "repository": "sthubbar/goldbach-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Sums of two odd primes in short intervals: a correction to Lemma 7 of Kaniecki's paper on Šnirelman's constant",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 proof, with no unproved steps, of the main Theorem of D. I. Tolev, The ternary Goldbach problem with primes from arithmetic progressions, arXiv 0902.2669, 2009, display 5 on page 2. Let l3 be a fixed positive integer and lambda of k real numbers with absolute value at most 1. For every A > 0 there is B = B of A > 0 such that, for sufficiently large odd N and L = log N, the sum over k1, k2 up to sqrt N L^-B of the maximum over l1, l2 coprime to k1, k2 of the absolute value of the sum over k3 up to N^1/3 L^-B with k3 coprime to l3 of lambda of k3 times Delta_k,l of N is at most a constant times N^2 L^-A. Here Delta is the weighted count R of representations N = p1 + p2 + p3 with pi congruent to li mod ki, less the main term N^2 S / 2 phi of k1 phi of k2 phi of k3, with the singular series S written out by the formula printed in Halupczok 2008. Binary Goldbach is open and is not claimed. AI agents wrote the Lean code, Codex by OpenAI, Claude by Anthropic and a lab prover agent, as listed in PORTING.md; the proof reuses code ported from PrimeNumberTheoremAnd, written by its contributors, and is offered for human audit.",
+        "authors": [
+          {
+            "name": "Steve Hubbard"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11P32",
+            "11P55",
+            "11N13"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "LeanLab.Tolev2009.Decomp83.published_assembly",
+            "LeanLab.Tolev2009.FinishAssembly1112.published_assembly_finished"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000007",
+        "path": "entries/PALOMAR-2026-11-16-000007-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "0cba52a0edec0624f9336e3077e1b4a65bf17321",
+              "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+              "source_repository": "sthubbar/goldbach-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "70319fac528bd4756de4706db4bfa7fbcf66758dff2cc02160ac074d06f46a59",
+          "version": 1
+        },
+        "published_at": "2026-11-16T02:28:31Z",
+        "source": {
+          "commit": "0cba52a0edec0624f9336e3077e1b4a65bf17321",
+          "project_path": "entries/tolev2009",
+          "repository": "sthubbar/goldbach-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The ternary Goldbach problem with primes from arithmetic progressions: Tolev's Bombieri-Vinogradov type mean value theorem",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "The e.g.f. A(x) = Σ a(n)xⁿ/n! of OEIS A371710 satisfies Σ_{n≥0} (A(x)^n − x)^n/n! = 1. The package proves that exactly one A ∈ ℚ[[x]] does, that A(0) = 0 and every a(n) is an integer, and Paul D. Hanna's 2024 conjecture that a(6n + k) ≡ [2, 0, 2, 1, 2, 2](k) (mod 3) for n > 0 and k = 0, …, 5. It also proves the stronger pattern a(m) ≡ 2 for even m ≥ 2 and a(m) ≡ 1 − m for odd m ≥ 3, modulo 3.",
+        "authors": [
+          {
+            "name": "Wentao Li"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "math.NT"
+          ],
+          "msc2020": [
+            "05A15",
+            "11B50",
+            "13F25"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "OeisA371710.a371710_existsUnique",
+            "OeisA371710.a371710_constantCoeff",
+            "OeisA371710.a371710_integral",
+            "OeisA371710.a371710_mod_three",
+            "OeisA371710.a371710_mod_three_strong"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000006",
+        "path": "entries/PALOMAR-2026-11-16-000006-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "2329f9d4bebb30be1bb59e40476a89b44d6e034c",
+              "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+              "source_repository": "VictorLiwentao/fc-palomar-proofs"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "9fe444943a6da36acce7efd9d94bf6239b6bd7975f4dc68b046475133fa19f14",
+          "version": 1
+        },
+        "published_at": "2026-11-16T02:22:18Z",
+        "source": {
+          "commit": "2329f9d4bebb30be1bb59e40476a89b44d6e034c",
+          "project_path": null,
+          "repository": "VictorLiwentao/fc-palomar-proofs"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "OEIS A371710: Hanna's mod-3 pattern",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For N ≥ 1 let A_N(z) = 1 + a(1)z + ⋯ be the series with A^(N+1)(z) = 1/(1 − z)·(BINOMIAL(BINOMIAL(A(z))))^N, where BINOMIAL is the binomial transform; A258377–A258381 are N = 1, …, 5. The package proves for every N that A_N exists, is unique and has integer coefficients, that every a(n) is odd, that a(n + 2^(k−1)) ≡ a(n) (mod 2^k) for all k ≥ 1, and that for k ≥ 3 the least period of a(n) mod 2^k is exactly 2^(k−1) if and only if N ≡ 1 or 2 (mod 4). This settles Peter Bala's 2017 observations on the five entries: odd terms for A258377, A258379 and A258381, period 2^(k−1) for A258377 and A258381, terms ≡ 1 (mod 4) for A258378 and ≡ 1 (mod 8) for A258380, periods dividing 2^(k−1) for A258378–A258380, and his worked examples modulo 4, 8, 16 and 32. His remarks on residues modulo 3 and 5 are not covered.",
+        "authors": [
+          {
+            "name": "Wentao Li"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "math.NT"
+          ],
+          "msc2020": [
+            "05A15",
+            "11B50",
+            "11A07"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "OeisA258377.isSolution_iff",
+            "OeisA258377.existsUnique",
+            "OeisA258377.exists_int_coeff",
+            "OeisA258377.odd",
+            "OeisA258377.periodic",
+            "OeisA258377.leastPeriodMod_dvd",
+            "OeisA258377.shift_sub",
+            "OeisA258377.leastPeriodMod_eq_iff",
+            "OeisA258377.a258377",
+            "OeisA258377.a258377_examples",
+            "OeisA258377.a258378",
+            "OeisA258377.a258378_examples",
+            "OeisA258377.a258379",
+            "OeisA258377.a258379_examples",
+            "OeisA258377.a258380",
+            "OeisA258377.a258380_examples",
+            "OeisA258377.a258381",
+            "OeisA258377.a258381_examples"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000005",
+        "path": "entries/PALOMAR-2026-11-16-000005-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "2329f9d4bebb30be1bb59e40476a89b44d6e034c",
+              "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+              "source_repository": "VictorLiwentao/fc-palomar-proofs"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "972925e2fb490479b729626eeb8d4e31f016248ecfc77c8edcb19a96bc722f99",
+          "version": 1
+        },
+        "published_at": "2026-11-16T02:04:39Z",
+        "source": {
+          "commit": "2329f9d4bebb30be1bb59e40476a89b44d6e034c",
+          "project_path": null,
+          "repository": "VictorLiwentao/fc-palomar-proofs"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "OEIS A258377–A258381: Bala's 2-adic periodicity for the type-B series",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization retaining the upper representation bounds and the conditional consequence of Duke–Schulze-Pillot (Invent. Math. 99, 1990), and adding an unconditional fixed-cap theorem for x^2+y^2+z^2. H1: for every unit vector u in R^3 and every epsilon > 0 there is T such that every squarefree t >= T with t congruent to 3 modulo 8 has an integer representation x with sum x_i^2=t and |x_i-sqrt(t)u_i| <= epsilon sqrt(t) for every coordinate. The new statement takes no analytic estimate as a hypothesis. Its proof combines finite-degree harmonic Weyl bounds, odd-degree cancellation, a positive minimum of finitely many degree-dependent savings, and a representation lower bound supplied by the verified Siegel theorem. The threshold is ineffective. The original three unconditional upper/divisor bounds and two conditional statements are retained unchanged; the latter still require hThm1 and hThm3i for general ternary forms. No unconditional general Duke–Schulze-Pillot theorem, sharp 1/175 exponent, spinor-genus lower bound or numerical cutoff is claimed.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11E20",
+            "11E12",
+            "11P21",
+            "11N56"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "DukeSchulzePillot.card_divisors_le_rpow",
+            "DukeSchulzePillot.repCount_le",
+            "DukeSchulzePillot.average_le",
+            "DukeSchulzePillot.thm3_ii",
+            "DukeSchulzePillot.spn_upper",
+            "DukeSchulzePillot.squarefree_three_squares_in_caps"
+          ]
+        },
+        "id": "PALOMAR-2026-11-07-000007",
+        "path": "entries/PALOMAR-2026-11-07-000007-v3.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "8dc4a9706bbd44ac4589d4b4beb0b9d00363bb31",
+              "fork_repository": "PalomarArchive/jtraverso--duke-schulze-pillot-ternary--b885fd33e73a",
+              "source_repository": "jtraverso/duke-schulze-pillot-ternary"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "bec308cd7ae765cb2f2d416aef502683343742589a00eae4730d2a1ae9ae6bfb",
+          "version": 3
+        },
+        "published_at": "2026-11-16T01:21:37Z",
+        "source": {
+          "commit": "8dc4a9706bbd44ac4589d4b4beb0b9d00363bb31",
+          "project_path": null,
+          "repository": "jtraverso/duke-schulze-pillot-ternary"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Duke–Schulze-Pillot bounds and squarefree three squares in fixed caps (H1)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 3,
+        "versions": 3
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For integers A ≥ 2 and B, C ≥ 1 let u(N) = Σ_{k=0}^{N} C(N+k−1, k)^A C(2N−2k, N−k)^B C(2k, k)^C. The package proves that u(np^r) ≡ u(np^{r−1}) (mod p^{3r}) for every prime p ≥ 5 and all n, r ≥ 1, as conjectured by Peter Bala (OEIS A364111, 2023), and the case (A, B, C) = (2, 1, 1), which is A364111 itself. The proof uses Coster's method, as Osburn and Sahu did for the generalized Domb numbers.",
+        "authors": [
+          {
+            "name": "Wentao Li"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT",
+            "math.CO"
+          ],
+          "msc2020": [
+            "05A10",
+            "11A07",
+            "11B65"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "OeisA364111.u_supercongruence",
+            "OeisA364111.a_supercongruence"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000004",
+        "path": "entries/PALOMAR-2026-11-16-000004-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "2329f9d4bebb30be1bb59e40476a89b44d6e034c",
+              "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+              "source_repository": "VictorLiwentao/fc-palomar-proofs"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "cfc31c05fa7b65fdfbcf7a5513d58abdd7a4b660bef4988c114f1f2e26760d20",
+          "version": 1
+        },
+        "published_at": "2026-11-16T01:13:36Z",
+        "source": {
+          "commit": "2329f9d4bebb30be1bb59e40476a89b44d6e034c",
+          "project_path": null,
+          "repository": "VictorLiwentao/fc-palomar-proofs"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "OEIS A364111: Bala's p^(3r) supercongruences",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For an integer m let u_m(n) = Σ_{k=0}^{n} (−4)^{n−k} C(n,k) C(mn+k, k) C(2k, k), with the binomial C(mn+k, k) taken as a polynomial in its top. The package proves that u_m(np^r) ≡ u_m(np^{r−1}) (mod p^{3r}) for every integer m, every prime p ≥ 5 and all n, r ≥ 1. This is the u-half of Peter Bala's 2023 conjecture on OEIS A363985. It covers A363985 (m = 2), A363987 (m = 3), A363989 (m = 4) and A362676 (m = −1, up to the sign (−1)^n), each stated as its own theorem. The companion v-half of the conjecture (A363986, A363988, A363990) is not covered. Osburn and Sahu's tower for the generalized Domb numbers needs a factor C(n,k)^A with A ≥ 2. The proof here first writes u_m(N) = Σ_j (−1)^j C(mN, N−j) C(2j,j) C(2N−2j, N−j), where C(mN, N−j) occurs only once. The missing powers of p come from the super Catalan factorization of C(2j,j) C(2N−2j, N−j) and from half-block sums of j^{−2}, as in Osburn–Sahu–Straub's proofs of their Theorems 1.3 and 1.2.",
+        "authors": [
+          {
+            "name": "Wentao Li"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT",
+            "math.CO"
+          ],
+          "msc2020": [
+            "05A10",
+            "11A07",
+            "11B65"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "OeisA363985.u_tower",
+            "OeisA363985.a363985_tower",
+            "OeisA363985.a363987_tower",
+            "OeisA363985.a363989_tower",
+            "OeisA363985.a362676_tower"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000003",
+        "path": "entries/PALOMAR-2026-11-16-000003-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "2329f9d4bebb30be1bb59e40476a89b44d6e034c",
+              "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+              "source_repository": "VictorLiwentao/fc-palomar-proofs"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "e7a7602e1bcb3eb6743aa481a87cce175026a5ad206869305982d96985ac5f37",
+          "version": 1
+        },
+        "published_at": "2026-11-16T01:02:50Z",
+        "source": {
+          "commit": "2329f9d4bebb30be1bb59e40476a89b44d6e034c",
+          "project_path": null,
+          "repository": "VictorLiwentao/fc-palomar-proofs"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "OEIS A363985 and siblings: Bala's p^(3r) supercongruences for u_m, every integer m",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "The e.g.f. A(x) of OEIS A326097 satisfies 1 = Σ_{n≥0} ((1+x)^n − A(x))^n/n!. The package proves that this equation has exactly one solution in ℚ[[x]], that every a(k) = k! [x^k] A(x) is an integer, and that a(k) is odd if and only if k ∈ {0, 1, 3} or k ≡ 2 (mod 4). This settles Paul D. Hanna's 2019 parity conjecture in a slightly stronger form. The same holds for OEIS A385907, where (1+x)^n is replaced by 1/(1−x)^n.",
+        "authors": [
+          {
+            "name": "Wentao Li"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "math.NT"
+          ],
+          "msc2020": [
+            "05A15",
+            "11B50",
+            "13F25"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "OeisA326097.a326097_existsUnique",
+            "OeisA326097.a326097_parity",
+            "OeisA326097.a385907_existsUnique",
+            "OeisA326097.a385907_parity"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000002",
+        "path": "entries/PALOMAR-2026-11-16-000002-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "2329f9d4bebb30be1bb59e40476a89b44d6e034c",
+              "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+              "source_repository": "VictorLiwentao/fc-palomar-proofs"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "105031fcc254b030918b36355ede519a6d2160b63d41962536acab59eb1ce779",
+          "version": 1
+        },
+        "published_at": "2026-11-16T00:22:25Z",
+        "source": {
+          "commit": "2329f9d4bebb30be1bb59e40476a89b44d6e034c",
+          "project_path": null,
+          "repository": "VictorLiwentao/fc-palomar-proofs"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "OEIS A326097: the parity of a(k) (Hanna's conjecture)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Let A(n) be the sum, over k ∈ [0, n]^4 with k₁ + k₂ = k₃ + k₄, of the products Π C(n, k_i) C(n + k_i, k_i). The package proves A(mp^r) ≡ A(mp^{r−1}) (mod p^{3r}) and A(mp^r − 1) ≡ A(mp^{r−1} − 1) (mod p^{3r}) for every prime p ≥ 5 and all m, r ≥ 1. By McCarthy, Osburn and Straub's Proposition 3.1, A(n) is the leading coefficient of Brown's cellular integral for σ₈ = (8, 3, 6, 1, 4, 7, 2, 5), so the first congruence is their Conjecture 1.3 for σ₈. That link is not formalized. The second congruence is a companion that no source states. σ₈ is the self-dual configuration that MOS single out: their Theorem 1.2 relates A_σ₈((p − 1)/2) to the weight-6 newform η¹²(2z) modulo p².",
+        "authors": [
+          {
+            "name": "Wentao Li"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT",
+            "math.CO"
+          ],
+          "msc2020": [
+            "11A07",
+            "11B65",
+            "11F33"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "MosN8.tower",
+            "MosN8.shifted_tower"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000001",
+        "path": "entries/PALOMAR-2026-11-16-000001-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "2329f9d4bebb30be1bb59e40476a89b44d6e034c",
+              "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+              "source_repository": "VictorLiwentao/fc-palomar-proofs"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "be852343a66bedf96fddc93400dc51128b0d1a731d8acfe86d855e35190d8555",
+          "version": 1
+        },
+        "published_at": "2026-11-16T00:07:34Z",
+        "source": {
+          "commit": "2329f9d4bebb30be1bb59e40476a89b44d6e034c",
+          "project_path": null,
+          "repository": "VictorLiwentao/fc-palomar-proofs"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "McCarthy–Osburn–Straub Conjecture 1.3 for σ₈, with a shifted companion",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For a fixed modulus q and a residue a coprime to q: if ζ(s) and every L(s, χ) with χ a nontrivial Dirichlet character mod q have no zeros with real part greater than θ (1/2 ≤ θ < 1), then ψ(x; q, a) = x/φ(q) + O(x^{θ+δ}) for every δ > 0. Consequently the zero-free half-plane Re s > 7/8 for all Dirichlet L-functions (proved by OpenAI in 2026, used here as an explicitly stated hypothesis, verbatim) yields the prime number theorem in arithmetic progressions with error O(x^{7/8+δ}). Proof: for each χ ≠ 1, a smoothed twisted Chebyshev function, a contour shift (no residue, L entire), a bound L'/L(σ+it, χ) ≪ log|t| via Borel–Carathéodory after continuing L to Re s > 0 with a polynomial growth bound, then orthogonality of characters and the ζ case for the trivial character.",
+        "authors": [
+          {
+            "name": "Richard Morley-Smith"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11N13",
+            "11M26",
+            "11M06"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PalomarInghamAP.psi_ap_error_of_zero_free",
+            "PalomarInghamAP.psi_ap_error_of_seven_eighths"
+          ]
+        },
+        "id": "PALOMAR-2026-11-15-000007",
+        "path": "entries/PALOMAR-2026-11-15-000007-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "3c9f5b40fcce089ef2474e04609b040a35170187",
+              "fork_repository": "PalomarArchive/rmorleysmith--palomar-ingham--6e635777b99c",
+              "source_repository": "rmorleysmith/palomar-ingham"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "c6ffde76c1d8a3c989ed37ffe585dca2199e62020b49a92747f41d777e618fe6",
+          "version": 1
+        },
+        "published_at": "2026-11-15T21:05:48Z",
+        "source": {
+          "commit": "3c9f5b40fcce089ef2474e04609b040a35170187",
+          "project_path": null,
+          "repository": "rmorleysmith/palomar-ingham"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Primes in arithmetic progressions with power-saving error from zero-free half-planes of Dirichlet L-functions",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib (v4.36.0-rc2) formalization of Maria Nowakowska's A Formal Theory of Actions (Syntax and Semantics of Behaviour; chapter dated 1982; Praxiological Studies, 1983), synthesizing the parts of Language of Motivation and Language of Actions (1973) that 1982 cites for omitted proofs and for the motivational calculus (here: §§2.1.4, 2.2.4, 5.1–5.3). Framing: rigorous reconstruction/verification of her action–motivation–promise material (precision gaps closed in Lean), plus a formalization contribution proving CF ∩ Regular so Promise/Offense CF theorems are unconditional. Headline compared claims include card_conflictFamilies (her stated 113), Attainable_iff_reaches_length (reachability realization), arrow_impossibility in the finite 2×3 encoding, unconditional PromiseClosed/OffenseClosed.isContextFree with factor-minimal HatU, Language.IsContextFree.inter_regular, and stringDuration_pi / timed ψ-membership. Clinical Arrow abbrevs and MotCalc samples are supporting packaging, not claimed novelty. Maria Nowakowska did not participate in or endorse this formalization. Lean was written with AI-agent assistance under Lars Warren Ericson's direction and review. There is no sorry in the Actions/ development, no project-defined axiom, and Mathlib is the only Lake dependency. Palomar Registration: TBD.",
+        "authors": [
+          {
+            "name": "Lars Warren Ericson"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.LO",
+            "cs.LO"
+          ],
+          "msc2020": [
+            "03B70",
+            "68Q45",
+            "91B14",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Actions.ActionAutomaton.Reaches.admissible",
+            "Actions.ActionAutomaton.admissible_cons_nextState",
+            "Actions.ActionAutomaton.mem_language_iff",
+            "Actions.ActionAutomaton.mem_language_iff_exists_reaches",
+            "Actions.ActionAutomaton.nextState_eq",
+            "Actions.ActionAutomaton.nil_mem_language",
+            "Actions.ActionAutomaton.singleton_admissible",
+            "Actions.ActionAutomaton.toActionSystem.Attainable_iff_reaches_length",
+            "Actions.ActionAutomaton.toActionSystem.mem_L_iff",
+            "Actions.ActionSystem.EffortDominated.refl",
+            "Actions.ActionSystem.HatT.subset",
+            "Actions.ActionSystem.HatU.subset",
+            "Actions.ActionSystem.NonParasitic.append_left_right",
+            "Actions.ActionSystem.NonParasitic.of_mem_L",
+            "Actions.ActionSystem.OffenseClosed.isContextFree",
+            "Actions.ActionSystem.Prax.Min_subset",
+            "Actions.ActionSystem.Prax.subset",
+            "Actions.ActionSystem.PromiseClosed.isContextFree",
+            "Actions.ActionSystem.PromiseClosed.mono",
+            "Actions.ActionSystem.RinvUnwanted.mem_iff",
+            "Actions.ActionSystem.RinvWanted.empty",
+            "Actions.ActionSystem.RinvWanted.mem_iff",
+            "Actions.ActionSystem.Rinv_subset_L",
+            "Actions.ActionSystem.stringDuration.nil_not_pos",
+            "Actions.ActionSystem.stringDuration_pauseString",
+            "Actions.ActionSystem.strongly_implies_weakly",
+            "Actions.ActionSystem.weakly_iff_strongly_singleton",
+            "Actions.Arrow.arrow_dictator_of_unanimity_IIA",
+            "Actions.Arrow.arrow_impossibility",
+            "Actions.Arrow.BlindObedience.of_not_sovereignty",
+            "Actions.Arrow.CompulsiveOrHedonistic.of_dictator",
+            "Actions.Arrow.CompulsiveOrHedonistic.of_not_lack",
+            "Actions.Arrow.NeuroticAllOrNothing.of_not_IIA",
+            "Actions.Arrow.scale1Dictator.IIA",
+            "Actions.Arrow.scale1Dictator.compulsive",
+            "Actions.Arrow.scale1Dictator.not_lack",
+            "Actions.Arrow.scale1Dictator.sovereignty",
+            "Actions.Arrow.scale1Dictator.unanimity",
+            "Actions.Arrow.scale2Dictator.IIA",
+            "Actions.Arrow.scale2Dictator.not_lack",
+            "Actions.Arrow.scale2Dictator.sovereignty",
+            "Actions.Arrow.scale2Dictator.unanimity",
+            "Actions.Conflicts.card_conflictFamilies",
+            "Actions.MixedSystem.LM.mem_iff",
+            "Actions.MixedSystem.LM.of_pure_actions",
+            "Actions.MixedSystem.MotivationalConsistency.wanted_unwanted_disjoint",
+            "Actions.MixedSystem.O'_offenseClosed",
+            "Actions.MixedSystem.O_promiseClosed",
+            "Actions.MixedSystem.Psi.mem_iff",
+            "Actions.MixedSystem.Psi.pi_mem_of_motivationalConsistency",
+            "Actions.MixedSystem.Satisfiable.of_motivationalConsistency",
+            "Actions.MixedSystem.W_disjoint",
+            "Actions.MixedSystem.pi.stringDuration_pi",
+            "Actions.MotCalc.SampledSemImp.epistemicModel",
+            "Actions.Toy.HatU_offenseU",
+            "Actions.Toy.Prax_empty_example",
+            "Actions.Toy.nil_not_mem_promiseT",
+            "Actions.Toy.offenseU_closed",
+            "Actions.Toy.offenseU_finiteHorizon",
+            "Actions.Toy.promiseT_closed",
+            "Actions.Toy.toy_pause_duration",
+            "Actions.Toy.toy_work_duration",
+            "Actions.Toy.twoGoals_conflict",
+            "Actions.Toy.work_attains",
+            "Actions.Toy.work_mem_promiseT",
+            "Actions.Toy.work_string_duration",
+            "Language.IsContextFree.inter_regular"
+          ]
+        },
+        "id": "PALOMAR-2026-11-15-000006",
+        "path": "entries/PALOMAR-2026-11-15-000006-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "dc5a32bf960fbd23e74fbdfae9e7cb288f1cd59b",
+              "fork_repository": "PalomarArchive/catskillsresearch--nowakowska1982--f1f43cf45c7b",
+              "source_repository": "catskillsresearch/nowakowska1982"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "391fa63d0722149b102058741b6f261621f89f05111cca2a7725be65dc03afd0",
+          "version": 1
+        },
+        "published_at": "2026-11-15T17:23:10Z",
+        "source": {
+          "commit": "dc5a32bf960fbd23e74fbdfae9e7cb288f1cd59b",
+          "project_path": null,
+          "repository": "catskillsresearch/nowakowska1982"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Nowakowska Theory of Actions (1982) in Lean 4",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A machine-checked proof of the Knill-Laflamme theorem for finite-dimensional quantum codes, in two forms. For a nonzero code given by an orthogonal projector P and a finite family of arbitrary error matrices E_i, the condition P E_i^† E_j P = c_ij P for some matrix c holds if and only if some quantum channel, with any finite number of Kraus operators, undoes each error on every code state up to its own scalar (knill_laflamme), and also if and only if some channel undoes the combined noise rho -> sum_i E_i rho E_i^† up to a scalar (knill_laflamme_sum). The errors need not form a channel. The recovery is constructed explicitly. Mathlib, at the pinned commit, has no quantum error correction. Four other Lean proofs of the channel form are known to me, one earlier and three later than this proof (listed under related_formalizations); this proof is independent of all four. The theorem is classical and no priority is claimed.",
+        "authors": [
+          {
+            "name": "Zayn Blore"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "quant-ph"
+          ],
+          "msc2020": [
+            "81P73",
+            "81P47"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "QuantumInfo.knill_laflamme",
+            "QuantumInfo.knill_laflamme_sum"
+          ]
+        },
+        "id": "PALOMAR-2026-11-15-000005",
+        "path": "entries/PALOMAR-2026-11-15-000005-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "f680e2d5f616bb423fb814f1471b07387729fffd",
+              "fork_repository": "PalomarArchive/zblore--knill-laflamme-lean--6f20e7cab180",
+              "source_repository": "zblore/knill-laflamme-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "047e9b868ed6b8951d51ce30cb622813ace1b147126399e925780b51e83d5975",
+          "version": 1
+        },
+        "published_at": "2026-11-15T15:14:02Z",
+        "source": {
+          "commit": "f680e2d5f616bb423fb814f1471b07387729fffd",
+          "project_path": null,
+          "repository": "zblore/knill-laflamme-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The Knill-Laflamme theorem: a set of errors is correctable on a quantum code exactly when P E_i^† E_j P = c_ij P",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For infinitely many primes p, Ω(p − 2) is odd, where Ω counts prime factors with multiplicity. We assign nonnegative weights to integers u in [x, 2x] with Ω(u) odd. Using a shifted correlation estimate, we sieve the values u + 2 and obtain a lower bound for the combined weight of primes and products of two large primes. A separate upper bound for the contribution from those products leaves positive weight on primes for every sufficiently large x.\nProof development and Lean formalization by gpt-6 astra.",
+        "authors": [
+          {
+            "name": "Igor Inozemtsev"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11N36",
+            "11N05"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Green64.green_64"
+          ]
+        },
+        "id": "PALOMAR-2026-11-13-000010",
+        "path": "entries/PALOMAR-2026-11-13-000010-v3.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "43f0988e15c2e1b9fb28b931e6fbb0cf9f7a70cc",
+              "fork_repository": "PalomarArchive/inozemtsev--formal-math--e12c822a627e",
+              "source_repository": "inozemtsev/formal-math"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "2d11228d9c60ad30e54de4861bad48f6deaede0a95ac61d85fae9b73460fab49",
+          "version": 3
+        },
+        "published_at": "2026-11-15T14:23:31Z",
+        "source": {
+          "commit": "43f0988e15c2e1b9fb28b931e6fbb0cf9f7a70cc",
+          "project_path": "proofs/green64",
+          "repository": "inozemtsev/formal-math"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Primes p for which Ω(p − 2) is odd (Green's Problem 64)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 3,
+        "versions": 3
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 proof that 30 ≤ k(6,3) ≤ 32. Here k(n,3) is the Erdős-Rado number: the least k such that every oriented graph on k vertices has n vertices with no arc between any two of them, or a transitive triangle (vertices x, y, z with arcs x → y, y → z and x → z). The lower bound is an explicit oriented graph on 29 vertices with no transitive triangle and no 6 independent vertices. The upper bound shows that every oriented graph on 32 vertices has one or the other; it rests on a counting argument and on one finite case analysis (every oriented graph on 14 vertices with no transitive triangle and no 4 independent vertices is 6-regular), which is carried out by 49 computations inside Lean's kernel. The upper bounds k(3,3) ≤ 9, k(4,3) ≤ 15 and k(5,3) ≤ 23 are proved on the way and are not cited. The whole proof is checked by the kernel, with no native_decide, and uses only the axioms propext, Quot.sound and Classical.choice. Before this work the bounds that followed from published results were 26 ≤ k(6,3) ≤ 33. The result gives bounds only: k(6,3) is 30, 31 or 32, its value is not determined, and Erdős Problem #112, which asks for k(n,m) in general, remains open. As of 14 November 2026 the community database of Erdős problems lists #112 as unformalized, and the public Lean statements of the problem known to the author prove no bound; to the author's knowledge this is the first machine-checked result on the problem.",
+        "authors": [
+          {
+            "name": "Tyler Satchel Orden"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C55",
+            "05C20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Erdos112.k63_bounds"
+          ]
+        },
+        "id": "PALOMAR-2026-11-15-000004",
+        "path": "entries/PALOMAR-2026-11-15-000004-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "e86685633ba879e3b02f31281dc2c7a8ce996bcc",
+              "fork_repository": "PalomarArchive/Tyorden--erdos-112-lean--8987a7d4c431",
+              "source_repository": "Tyorden/erdos-112-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "d729d4f7882e9c75ac0e814885c505fb5b3f4eac3cfcca1b6d945a0506e4415a",
+          "version": 1
+        },
+        "published_at": "2026-11-15T12:15:47Z",
+        "source": {
+          "commit": "e86685633ba879e3b02f31281dc2c7a8ce996bcc",
+          "project_path": null,
+          "repository": "Tyorden/erdos-112-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Bounds on the Erdős-Rado number k(6,3): 30 ≤ k(6,3) ≤ 32 (Erdős Problem #112)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 proof, with no unproved steps, of the two main theorems of P. X. Gallagher, Primes and powers of 2, Invent. Math. 29, 1975, for the base g = 2. Let r'_k of n count the representations n = p + 2^v1 + ... + 2^vk with p prime and 1 <= vi <= L, the integer part of log_2 N, and let r''_k of N count the representations N = p1 + p2 + 2^v1 + ... + 2^vk. Theorem 1, display 3 on page 125: for every k >= 1 and N >= N_k, the sum over odd n <= N of the square of r'_k of n minus 2 L^k / log N is at most C times log^2 2k / k times N L^{2k-2}, with an absolute constant C. Theorem 2, display 4 on page 125: for every k >= 2 and every even N >= N_k, r''_k of N differs from 2 N L^k / log^2 N by at most K times log^2 k / k times 2 N L^k / log^2 N, with an absolute constant K. Binary Goldbach is open and is not claimed. AI agents wrote the Lean code, Claude by Anthropic and Codex by OpenAI, as listed in PORTING.md, and it is offered for human audit.",
+        "authors": [
+          {
+            "name": "Steve Hubbard"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11P32",
+            "11P55",
+            "11N36",
+            "11M26"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "LeanLab.Linnik.Decomp1532c.theorem1_of_leaves",
+            "LeanLab.Linnik.Decomp1532c.theorem2_of_leaves"
+          ]
+        },
+        "id": "PALOMAR-2026-11-15-000003",
+        "path": "entries/PALOMAR-2026-11-15-000003-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "9b3e99980ea682313d1da24f8ed7c8f57042578d",
+              "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+              "source_repository": "sthubbar/goldbach-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "aa5b80f768def1bf844470306b5402120c73f5aa88693f03db62248933170dc7",
+          "version": 1
+        },
+        "published_at": "2026-11-15T11:13:39Z",
+        "source": {
+          "commit": "9b3e99980ea682313d1da24f8ed7c8f57042578d",
+          "project_path": "entries/gallagher1975",
+          "repository": "sthubbar/goldbach-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Primes and powers of 2: Gallagher's mean square theorem and the asymptotic count of two primes and k powers of 2",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
       {
         "abbreviated": false,
         "abstract": "Sharp isoperimetric comparisons for geodesic tetrahedra in the unit three-sphere: conditional on a regular tetrahedron having the same volume or surface area, the regular tetrahedron uniquely minimizes surface area at fixed volume and uniquely maximizes volume at fixed surface area up to congruence.",
@@ -215,59 +1644,6 @@
         "source_omitted": false,
         "status": "registered",
         "title": "Cyclic four-point square fibres and fixed membership reconstruction",
-        "trust": {
-          "level": "high"
-        },
-        "version": 1,
-        "versions": 1
-      },
-      {
-        "abbreviated": false,
-        "abstract": "A Lean 4 / Mathlib formalization of Theorem 2.1 of P. Keevash, \"Counting designs\" (arXiv:1504.02909), for (c,16)-typical graphs: there are c₀ > 0 and n₀ such that every graph G on n ≥ n₀ vertices with all degrees even and 3 | e(G) that is (c,16)-typical, with density d(G) > n^(-10^-7) and c ≤ c₀·d(G)^(10^6), has a triangle decomposition (KeevashTri.theorem_2_1). (c,h)-typical means |⋂_{x∈S} G(x)| = (1 ± |S|c)·d(G)^|S|·n for every vertex set S with |S| ≤ h; the paper's theorem assumes only c-typicality (h = 2, with the paper's tolerance), so the hypothesis here is stronger, and the paper's c-typical version is not covered. The density and typicality thresholds are the paper's (n^(-10^-7) and c₀·d^(10^6)); c₀ and n₀ are not explicit. The proof follows the paper's strategy (random algebraic template over F₂^a, Nibble, Cover, Hole, Completion), with every random greedy algorithm of the Completion replaced by a deterministic potential (pessimistic-estimator) argument. Earlier registered entries are imported as lake dependencies: the hypergraph matching nibble of Ehard–Glock–Joos (PALOMAR-2026-10-17-000004) and the Steiner triple system material of PALOMAR-2026-10-22-000017 v2. Mathlib does not contain this result.",
-        "authors": [
-          {
-            "name": "Juan Pablo Traverso Gianini"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.CO"
-          ],
-          "msc2020": [
-            "05C70",
-            "05B07",
-            "05C80"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "KeevashTri.theorem_2_1"
-          ]
-        },
-        "id": "PALOMAR-2026-11-14-000022",
-        "path": "entries/PALOMAR-2026-11-14-000022-v1.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "d2dac04ee5299b1a60bfa20b7eb60afda4527483",
-              "fork_repository": "PalomarArchive/jtraverso--keevash-triangle-decompositions--8091ac93e742",
-              "source_repository": "jtraverso/keevash-triangle-decompositions"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "dcb8c94adbfa72ba1e2b7c05ae7dfd1ad39ab3f4a1246e695601979b924897fa",
-          "version": 1
-        },
-        "published_at": "2026-11-14T19:11:02Z",
-        "source": {
-          "commit": "d2dac04ee5299b1a60bfa20b7eb60afda4527483",
-          "project_path": null,
-          "repository": "jtraverso/keevash-triangle-decompositions"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "Keevash, Counting designs, Theorem 2.1: triangle decompositions of (c,16)-typical graphs",
         "trust": {
           "level": "high"
         },
@@ -636,58 +2012,6 @@
         },
         "version": 1,
         "versions": 1
-      },
-      {
-        "abbreviated": false,
-        "abstract": "We prove in Lean that infinitely many primes p have Ω(p − 2) odd, where Ω counts prime factors with multiplicity, giving an affirmative answer to Green's Problem 64. The argument constructs a nonnegative weight supported on odd prime-factor parity; correlation estimates and a weighted sieve give positive total weight to integers u with u + 2 prime at arbitrarily large scales. The supporting analytic number theory is included in the formalization, with Mathlib as its only direct dependency.",
-        "authors": [
-          {
-            "name": "Igor Inozemtsev"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.NT"
-          ],
-          "msc2020": [
-            "11N36",
-            "11N05"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "Green64.green_64"
-          ]
-        },
-        "id": "PALOMAR-2026-11-13-000010",
-        "path": "entries/PALOMAR-2026-11-13-000010-v2.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "ffd879ad992b8b58f23c4cc095e2b3ba0004be01",
-              "fork_repository": "PalomarArchive/inozemtsev--formal-math--e12c822a627e",
-              "source_repository": "inozemtsev/formal-math"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "2e135015dc6f243858d28732c19c81cd6802c483b914278c715596bbb8e913b8",
-          "version": 2
-        },
-        "published_at": "2026-11-14T12:31:54Z",
-        "source": {
-          "commit": "ffd879ad992b8b58f23c4cc095e2b3ba0004be01",
-          "project_path": "proofs/green64",
-          "repository": "inozemtsev/formal-math"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "Green's Problem 64: odd prime-factor parity in shifted primes",
-        "trust": {
-          "level": "high"
-        },
-        "version": 2,
-        "versions": 2
       },
       {
         "abbreviated": false,
@@ -3227,65 +4551,6 @@
         },
         "version": 1,
         "versions": 1
-      },
-      {
-        "abbreviated": false,
-        "abstract": "A Lean 4 / Mathlib formalization retaining the upper representation bounds and the conditional consequence of Duke–Schulze-Pillot (Invent. Math. 99, 1990), and adding an unconditional fixed-cap theorem for x^2+y^2+z^2. H1: for every unit vector u in R^3 and every epsilon > 0 there is T such that every squarefree t >= T with t congruent to 3 modulo 8 has an integer representation x with sum x_i^2=t and |x_i-sqrt(t)u_i| <= epsilon sqrt(t) for every coordinate. The new statement takes no analytic estimate as a hypothesis. Its proof combines finite-degree harmonic Weyl bounds, odd-degree cancellation, a positive minimum of finitely many degree-dependent savings, and a representation lower bound supplied by the verified Siegel theorem. The threshold is ineffective. The original three unconditional upper/divisor bounds and two conditional statements are retained unchanged; the latter still require hThm1 and hThm3i for general ternary forms. No unconditional general Duke–Schulze-Pillot theorem, sharp 1/175 exponent, spinor-genus lower bound or numerical cutoff is claimed.",
-        "authors": [
-          {
-            "name": "Juan Pablo Traverso Gianini"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.NT"
-          ],
-          "msc2020": [
-            "11E20",
-            "11E12",
-            "11P21",
-            "11N56"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "DukeSchulzePillot.card_divisors_le_rpow",
-            "DukeSchulzePillot.repCount_le",
-            "DukeSchulzePillot.average_le",
-            "DukeSchulzePillot.thm3_ii",
-            "DukeSchulzePillot.spn_upper",
-            "DukeSchulzePillot.squarefree_three_squares_in_caps"
-          ]
-        },
-        "id": "PALOMAR-2026-11-07-000007",
-        "path": "entries/PALOMAR-2026-11-07-000007-v2.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "21575ff924c98165ea1b451f7cbcc27c016ebd3e",
-              "fork_repository": "PalomarArchive/jtraverso--duke-schulze-pillot-ternary--b885fd33e73a",
-              "source_repository": "jtraverso/duke-schulze-pillot-ternary"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "55febbfbc6368e040c199d300fef149907b2feaf07035d4579468b5c36c7cf63",
-          "version": 2
-        },
-        "published_at": "2026-11-12T21:02:25Z",
-        "source": {
-          "commit": "21575ff924c98165ea1b451f7cbcc27c016ebd3e",
-          "project_path": null,
-          "repository": "jtraverso/duke-schulze-pillot-ternary"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "Duke–Schulze-Pillot bounds and squarefree three squares in fixed caps (H1)",
-        "trust": {
-          "level": "high"
-        },
-        "version": 2,
-        "versions": 2
       },
       {
         "abbreviated": false,
@@ -10355,61 +11620,6 @@
         "source_omitted": false,
         "status": "registered",
         "title": "A finite-machine observer for lambda normal forms",
-        "trust": {
-          "level": "high"
-        },
-        "version": 1,
-        "versions": 1
-      },
-      {
-        "abbreviated": false,
-        "abstract": "A Lean 4 proof that for every ε > 0 and all large natural x there is a Goldbach number, an even sum of two primes, in the interval from x to x + 3 x^(26/1075+ε). The theorem is conditional on two cited results taken as explicit hypotheses, never as axioms, and neither is proved here: LiRow052, R. Li, arXiv 2308.04458, Theorem 2, the row θ = 0.52, primes in the intervals from n - n^(0.52+ε) to n with a lower bound of the right order, with some positive constant since the printed constant differs between versions of the paper; and LiPrintedExceptionalCount, R. Li, arXiv 2407.05651 v6, Theorem 1.1, primes in the intervals from n to n + n^(1/21.5+ε) for almost all n. The argument adapts Theorem 7.1 of arXiv 2407.05651 v6, page 27, exponent 21/860 from the 0.525 of Baker, Harman and Pintz. The exponent 26/1075 is lower by 1/4300, and the gain is only the replacement of 0.525 by Li's 0.52. Li prints this exponent himself, as Theorem 7 of arXiv 2308.04458, with no ε and no factor 3, so this is a formal check of a known result and not a new exponent. Li's later note, Primes in almost all short intervals II, claims 1/22+ε in place of 1/21.5+ε, so 26/1075 is not claimed as the best exponent. Both cited papers are used here in their arXiv preprint form. Proved with no cited input: the passage from a count of primes in the intervals below n to a count in the windows from x - 2Y to x - Y, and the combinatorial step from the two counts to a Goldbach number. Binary Goldbach is open and is not claimed. AI agents wrote the Lean code, Claude, Codex and Gemini, as listed in PORTING.md, and it is offered for human audit.",
-        "authors": [
-          {
-            "name": "Steve Hubbard"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.NT"
-          ],
-          "msc2020": [
-            "11P32",
-            "11N05"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "LeanLab.GoldbachShort78.goldbach_short_1075",
-            "LeanLab.GoldbachShort78.windowCount_of_backward",
-            "LeanLab.GoldbachShort78.goldbach_of_counts",
-            "LeanLab.GoldbachShort78.exponent_1075"
-          ]
-        },
-        "id": "PALOMAR-2026-11-03-000025",
-        "path": "entries/PALOMAR-2026-11-03-000025-v1.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "d0d978d2cf565be71d6949ce529ed5503affa72e",
-              "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
-              "source_repository": "sthubbar/goldbach-lean"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "07aa9a218ef4676ad5644a2e7174380f0e7c50c22a0b37d6228fee5cc5c2f6ec",
-          "version": 1
-        },
-        "published_at": "2026-11-03T19:21:54Z",
-        "source": {
-          "commit": "d0d978d2cf565be71d6949ce529ed5503affa72e",
-          "project_path": "entries/goldbachshort1075",
-          "repository": "sthubbar/goldbach-lean"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "Goldbach numbers in short intervals of length x^(26/1075+ε)",
         "trust": {
           "level": "high"
         },
@@ -67558,23 +68768,41 @@
         "versions": 3
       }
     ],
-    "previous": "eyJyZXZpc2lvbiI6OTM3LCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTIxVDExOjEwOjEzWiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTIxLTAwMDAwNiJ9",
+    "previous": "eyJyZXZpc2lvbiI6OTYyLCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTIwVDE0OjMxOjUyWiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTIwLTAwMDAwOSJ9",
     "next": null,
     "dropped": [],
     "message": null,
-    "pages_fetched": 45
+    "pages_fetched": 46
   },
   "changes": {
     "added": [
-      "PALOMAR-2026-11-15-000002",
-      "PALOMAR-2026-11-15-000001",
-      "PALOMAR-2026-11-14-000024",
-      "PALOMAR-2026-11-14-000023",
-      "PALOMAR-2026-11-14-000022",
-      "PALOMAR-2026-11-14-000021",
-      "PALOMAR-2026-11-14-000020"
+      "PALOMAR-2026-11-16-000014",
+      "PALOMAR-2026-11-16-000013",
+      "PALOMAR-2026-11-16-000012",
+      "PALOMAR-2026-11-16-000011",
+      "PALOMAR-2026-11-16-000010",
+      "PALOMAR-2026-11-15-000008",
+      "PALOMAR-2026-11-16-000009",
+      "PALOMAR-2026-11-16-000008",
+      "PALOMAR-2026-11-16-000007",
+      "PALOMAR-2026-11-16-000006",
+      "PALOMAR-2026-11-16-000005",
+      "PALOMAR-2026-11-16-000004",
+      "PALOMAR-2026-11-16-000003",
+      "PALOMAR-2026-11-16-000002",
+      "PALOMAR-2026-11-16-000001",
+      "PALOMAR-2026-11-15-000007",
+      "PALOMAR-2026-11-15-000006",
+      "PALOMAR-2026-11-15-000005",
+      "PALOMAR-2026-11-15-000004",
+      "PALOMAR-2026-11-15-000003"
     ],
-    "updated": [],
+    "updated": [
+      "PALOMAR-2026-11-14-000022",
+      "PALOMAR-2026-11-03-000025",
+      "PALOMAR-2026-11-07-000007",
+      "PALOMAR-2026-11-13-000010"
+    ],
     "absent": []
   },
   "warnings": []

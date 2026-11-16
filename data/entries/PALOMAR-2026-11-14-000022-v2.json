@@ -1,0 +1,313 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of Theorem 2.1 of P. Keevash, \"Counting designs\" (arXiv:1504.02909): there are c₀ > 0 and n₀ such that every graph G on n ≥ n₀ vertices with all degrees even and 3 | e(G) that is (c,h)-typical, with density d(G) > n^(-10^-7) and c ≤ c₀·d(G)^(10^6), has a triangle decomposition; h = 2 (the paper's c-typical case, KeevashTri.theorem_2_1_ctyp, new in v2) and h = 16 (KeevashTri.theorem_2_1, v1). (c,h)-typical means |⋂_{x∈S} G(x)| = (1 ± |S|c)·d(G)^|S|·n for every vertex set S with |S| ≤ h; for h = 2 this is degrees (1 ± c)·d(G)·n and pair codegrees (1 ± 2c)·d(G)²·n (the paper asks (1 ± c) for pairs, so the hypothesis here is slightly weaker). The density and typicality thresholds are the paper's (n^(-10^-7) and c₀·d^(10^6)); c₀ and n₀ are not explicit. Quantitative internals of the c-typical proof: c_e = max(c, n^(-1/10)), goodness parameter c' = c_e^(1/4), at most η = 16c'^2·n + 4/(c'^2·d^16) bad one-vertex extensions of a c'-good set of at most 15 vertices. The proof follows the paper's strategy (random algebraic template over F₂^a, Nibble, Cover, Hole, Completion), with every random greedy algorithm of the Completion replaced by a deterministic potential (pessimistic-estimator) argument. Earlier registered entries are imported as lake dependencies: the hypergraph matching nibble of Ehard–Glock–Joos (PALOMAR-2026-10-17-000004) and the Steiner triple system material of PALOMAR-2026-10-22-000017 v2. Mathlib does not contain this result.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-14-000022-v2/e7734a005439ca4c28d684303b94979cc7bb27e590f2087fbbf5504c076fd628/",
+    "artifact_tree_sha256": "e7734a005439ca4c28d684303b94979cc7bb27e590f2087fbbf5504c076fd628",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-16T04:29:01Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C70",
+      "05B07",
+      "05C80"
+    ]
+  },
+  "first_registered_on": "2026-11-14",
+  "formalization": {
+    "challenge_path": "KeevashTriChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "counting_sts",
+        "repository": "jtraverso/counting-steiner-triple-systems",
+        "revision": "52fda83038df7442c576e17edffba591db703cb8"
+      },
+      {
+        "name": "egj_pseudorandom",
+        "repository": "jtraverso/pseudorandom-hypergraph-matchings",
+        "revision": "3957f3c0dbc34fd310cb5fecf7941fddc9ef6c8f"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "KeevashTriSolution.lean",
+    "theorem_names": [
+      "KeevashTri.theorem_2_1",
+      "KeevashTri.theorem_2_1_ctyp"
+    ]
+  },
+  "id": "PALOMAR-2026-11-14-000022",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-16T07:29:29Z",
+    "receipt_sha256": "d6ecedf976933faa24f33363f9f6a275dd125b7ede0e0c321164f23e4ed9ad44",
+    "repositories": [
+      {
+        "commit": "52fda83038df7442c576e17edffba591db703cb8",
+        "fork_repository": "PalomarArchive/jtraverso--counting-steiner-triple-systems--25dd3ac3d9ea",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000022-v2/52fda83038df7442c576e17edffba591db703cb8",
+        "source_repository": "jtraverso/counting-steiner-triple-systems"
+      },
+      {
+        "commit": "274272da83ddb513437e4394bb79995c215954ee",
+        "fork_repository": "PalomarArchive/jtraverso--keevash-triangle-decompositions--8091ac93e742",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000022-v2/274272da83ddb513437e4394bb79995c215954ee",
+        "source_repository": "jtraverso/keevash-triangle-decompositions"
+      },
+      {
+        "commit": "3957f3c0dbc34fd310cb5fecf7941fddc9ef6c8f",
+        "fork_repository": "PalomarArchive/jtraverso--pseudorandom-hypergraph-matchings--40c1ca802506",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000022-v2/3957f3c0dbc34fd310cb5fecf7941fddc9ef6c8f",
+        "source_repository": "jtraverso/pseudorandom-hypergraph-matchings"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000022-v2/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000022-v2/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000022-v2/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000022-v2/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000022-v2/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000022-v2/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000022-v2/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000022-v2/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-14-000022-v2/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Peter Keevash"
+          }
+        ],
+        "identifier": "arXiv:1504.02909",
+        "license": "all rights reserved",
+        "location": "arXiv:1504.02909v1; J. Eur. Math. Soc. 20 (2018), 903–927: Theorem 2.1, Sections 2–4 (Setup 2.2–2.3, Lemmas 2.4–2.10, 3.1–3.2, 4.1–4.3)",
+        "relationship": "formalizes",
+        "title": "Counting designs",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-10-17-000004 v1 (jtraverso/pseudorandom-hypergraph-matchings @ 3957f3c)",
+        "note": "Pinned dependency (PseudorandomLib): Freedman's inequality, asymptotics and the Ehard–Glock–Joos matching theorem used in the Nibble.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-10-22-000017 v2 (jtraverso/counting-steiner-triple-systems @ 52fda83)",
+        "note": "Pinned dependency (RequestProject): definitions and the Linial–Luria material reused in the triangle-hypergraph setup.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-16T07:29:07Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "32e07ef9968682d27a1a4e8617c247fb4c795334251521b434e051e403c8fd59"
+    },
+    "reviewed_at": "2026-11-16T05:38:28Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "274272da83ddb513437e4394bb79995c215954ee",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jtraverso/keevash-triangle-decompositions",
+    "repository_url": "https://github.com/jtraverso/keevash-triangle-decompositions",
+    "tree_url": "https://github.com/jtraverso/keevash-triangle-decompositions/tree/274272da83ddb513437e4394bb79995c215954ee"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "rxh92pc9pitm"
+  },
+  "title": "Keevash, Counting designs, Theorem 2.1: triangle decompositions of typical graphs",
+  "trust": {
+    "challenge_bytes": 3620,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 77,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "154e87dc387e26dc18d40bf4e18a99fd15ec0c3714832da335d27a80ff18847c",
+    "evidence_path": "evidence/PALOMAR-2026-11-14-000022-v2/778940a3091accccdcff738e85d38f352e87da720b9eba48d0521373e8f63e26/",
+    "evidence_tree_sha256": "778940a3091accccdcff738e85d38f352e87da720b9eba48d0521373e8f63e26",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "dfc3b698e7912f014f33bbbd5936255441d9c21f2e6e655d0a46ffc346306694",
+    "protected_config_sha256": "0b83d9380f598f4502219e779283d75dcb5967265c0a28c7e7064e72226c13e4",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43790230280,
+    "solution_sha256": "a5848f72777f37f24c5bfe67618f0ee9b243dc9bb4535d9bdd4c845af80b9ed1",
+    "tool_digests": {
+      "bwrap": "0593798b56aa4d2ddcf39fb0194e3561182da8875a8906355e4ddec873311750",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-16T02:22:11Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43790230280"
+  },
+  "version": 2
+}

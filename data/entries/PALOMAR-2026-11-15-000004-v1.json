@@ -1,0 +1,307 @@
+{
+  "abstract": "A Lean 4 proof that 30 ≤ k(6,3) ≤ 32. Here k(n,3) is the Erdős-Rado number: the least k such that every oriented graph on k vertices has n vertices with no arc between any two of them, or a transitive triangle (vertices x, y, z with arcs x → y, y → z and x → z). The lower bound is an explicit oriented graph on 29 vertices with no transitive triangle and no 6 independent vertices. The upper bound shows that every oriented graph on 32 vertices has one or the other; it rests on a counting argument and on one finite case analysis (every oriented graph on 14 vertices with no transitive triangle and no 4 independent vertices is 6-regular), which is carried out by 49 computations inside Lean's kernel. The upper bounds k(3,3) ≤ 9, k(4,3) ≤ 15 and k(5,3) ≤ 23 are proved on the way and are not cited. The whole proof is checked by the kernel, with no native_decide, and uses only the axioms propext, Quot.sound and Classical.choice. Before this work the bounds that followed from published results were 26 ≤ k(6,3) ≤ 33. The result gives bounds only: k(6,3) is 30, 31 or 32, its value is not determined, and Erdős Problem #112, which asks for k(n,m) in general, remains open. As of 14 November 2026 the community database of Erdős problems lists #112 as unformalized, and the public Lean statements of the problem known to the author prove no bound; to the author's knowledge this is the first machine-checked result on the problem.",
+  "authors": [
+    {
+      "name": "Tyler Satchel Orden"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-15-000004-v1/d729d4f7882e9c75ac0e814885c505fb5b3f4eac3cfcca1b6d945a0506e4415a/",
+    "artifact_tree_sha256": "d729d4f7882e9c75ac0e814885c505fb5b3f4eac3cfcca1b6d945a0506e4415a",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-15T09:19:54Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C55",
+      "05C20"
+    ]
+  },
+  "first_registered_on": "2026-11-15",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Erdos112.k63_bounds"
+    ]
+  },
+  "id": "PALOMAR-2026-11-15-000004",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-15T12:16:12Z",
+    "receipt_sha256": "9ab9059c81fe777bd0bdc2c9a27ca9ef419dafb7f50ce3edafe2c5e975b1bc24",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000004-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000004-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000004-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000004-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000004-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000004-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000004-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000004-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000004-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "e86685633ba879e3b02f31281dc2c7a8ce996bcc",
+        "fork_repository": "PalomarArchive/Tyorden--erdos-112-lean--8987a7d4c431",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000004-v1/e86685633ba879e3b02f31281dc2c7a8ce996bcc",
+        "source_repository": "Tyorden/erdos-112-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Tyler Satchel Orden"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.24064871",
+        "location": "Theorem 1 (30 ≤ k(6,3) ≤ 32); Theorem 5 (lower bound), Lemma 8, Lemma 9 and Theorem 10 (upper bound)",
+        "relationship": "formalizes",
+        "title": "New bounds on the Erdős-Rado number k(6,3)",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Tyler Satchel Orden"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.24237181",
+        "relationship": "other",
+        "title": "Erdős Problem #112: a machine-checked proof that 30 ≤ k(6,3) ≤ 32 (Lean 4), archived release of this repository",
+        "type": "other"
+      },
+      {
+        "authors": [],
+        "identifier": "https://www.erdosproblems.com/112",
+        "relationship": "background",
+        "title": "Erdős Problem #112",
+        "type": "web discussion"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures",
+        "note": "An open pull request to this repository (September 2026) states Erdős Problem #112 in Lean and proves no bound. This project does not use it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/teorth/erdosproblems",
+        "note": "The community database of Erdős problems. Its entry for #112 read \"formal_status: unformalized\" (data/problems.yaml, updated 12 November 2026) when this proof was made. It is a database, not a formalization.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tyler Satchel Orden"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-15T12:15:47Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "df1530fb9c0ec0b6d5ca5848fab375429f239ba5f7c55546f09459f487c5e227"
+    },
+    "reviewed_at": "2026-11-15T10:15:49Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "e86685633ba879e3b02f31281dc2c7a8ce996bcc",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "7a7285615c2d5a3c81abd1e98b10c5fce3a7357626ddca99d552516ae95d16d8"
+    },
+    "repository": "Tyorden/erdos-112-lean",
+    "repository_url": "https://github.com/Tyorden/erdos-112-lean",
+    "tree_url": "https://github.com/Tyorden/erdos-112-lean/tree/e86685633ba879e3b02f31281dc2c7a8ce996bcc"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "89t7mlwqmvvn"
+  },
+  "title": "Bounds on the Erdős-Rado number k(6,3): 30 ≤ k(6,3) ≤ 32 (Erdős Problem #112)",
+  "trust": {
+    "challenge_bytes": 4528,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 91,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "5cd3a66dde6cf7b0d49fabf0b6981989750b0f431c813b42ebea8e926795b042",
+    "evidence_path": "evidence/PALOMAR-2026-11-15-000004-v1/6e733f21ac01e1cf2f766213b99dc24b7041f25ba989b1ed17e7dccce3c0ec11/",
+    "evidence_tree_sha256": "6e733f21ac01e1cf2f766213b99dc24b7041f25ba989b1ed17e7dccce3c0ec11",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "bc6624033a094a07269f96e9b5f19e3187be54ec5d62ac71cde222f0e1c3b895",
+    "protected_config_sha256": "516be6ae7364a3da08d0e8e01bc3776303673364b5aeb5be25a6aca794256f80",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43692524965,
+    "solution_sha256": "9e6c45972fca88d8eba4f6bab7d6190002f8904a3295b6b5b810c5a6f89a71e7",
+    "tool_digests": {
+      "bwrap": "c6424c8be9ccdbae6126a7c15e05c996299596ee3928ea6a20d9475651ffd99f",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-15T08:16:41Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43692524965"
+  },
+  "version": 1
+}

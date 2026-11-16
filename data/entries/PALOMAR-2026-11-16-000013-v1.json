@@ -1,0 +1,322 @@
+{
+  "abstract": "A Lean 4 proof, with no unproved steps, of the main result of T. Estermann, On Goldbach's problem: proof that almost all even positive integers are sums of two primes, Proc. London Math. Soc. series 2, volume 44, 1938, pages 307-314. Let Q of n be the number of even positive integers less than n that are not sums of two primes. The Introduction on page 307 states that, as n tends to infinity, Q of n is O of n log^-a n for every positive a; this is the compared theorem, LeanLab.Estermann1938.main. The proof is not Estermann's circle method text: it bounds Q of n by E of n plus 1, where E of X counts the even 4 <= m <= X that are not sums of two primes, and uses the bound E of X << X log^-A X for every A, proved by Heath-Brown's 1985 route from the Siegel-Walfisz theorem. That bound is already a compared theorem of the registered entry heathbrown1985 of this repository, LeanLab.PNTPort.PsiChi.goldbach_logPowerSaving, whose Challenge states the same E of X bound; this entry adds Estermann's own count Q of n and his big O form, and the Lean closure is the same as that entry's plus one file. Binary Goldbach is open and is not claimed. AI agents, Claude by Anthropic, wrote the lab's Lean code; the ported zeta function code is by the PrimeNumberTheoremAnd contributors, as listed in PORTING.md. It is offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-16-000013-v1/c5e9f33d6df4eac2f13796aca6a9a8786b140f996947428d411c1fc2243b8c7f/",
+    "artifact_tree_sha256": "c5e9f33d6df4eac2f13796aca6a9a8786b140f996947428d411c1fc2243b8c7f",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-16T01:13:47Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11P55",
+      "11N13"
+    ]
+  },
+  "first_registered_on": "2026-11-16",
+  "formalization": {
+    "challenge_path": "entries/estermann1938/ChallengeEstermann1938.lean",
+    "comparator_config_path": "entries/estermann1938/comparator-estermann1938.json",
+    "definition_names": [
+      "LeanLab.IsGoldbachSum",
+      "LeanLab.Estermann1938.Q",
+      "LeanLab.Estermann1938.theorem_stmt"
+    ],
+    "formalization_metadata_path": "entries/estermann1938/formalization.yaml",
+    "lakefile_path": "entries/estermann1938/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/estermann1938/SolutionEstermann1938.lean",
+    "theorem_names": [
+      "LeanLab.Estermann1938.main"
+    ]
+  },
+  "id": "PALOMAR-2026-11-16-000013",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-16T07:04:12Z",
+    "receipt_sha256": "acc42573e093aa969f17419887e38209e17ca7743a77daec47e45b5881002ae3",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000013-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000013-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000013-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000013-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000013-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000013-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000013-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000013-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000013-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "0e201f43acf714d7821daadf5963c06d961132e8",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000013-v1/0e201f43acf714d7821daadf5963c06d961132e8",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "T. Estermann"
+          }
+        ],
+        "identifier": "doi:10.1112/plms/s2-44.4.307",
+        "license": "unknown",
+        "location": "Proceedings of the London Mathematical Society series 2, volume 44, 1938, pages 307-314",
+        "relationship": "formalizes",
+        "title": "On Goldbach's problem: proof that almost all even positive integers are sums of two primes",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "D. R. Heath-Brown"
+          }
+        ],
+        "identifier": "doi:10.4171/RMI/2",
+        "license": "unknown",
+        "location": "Revista Matematica Iberoamericana 1, 1985, pages 45-59",
+        "relationship": "adapts",
+        "title": "The ternary Goldbach problem",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "the PrimeNumberTheoremAnd project contributors"
+          }
+        ],
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "license": "Apache-2.0",
+        "location": "commit c39a751132c88b6e8080b74c74023fd95b3d8be0",
+        "relationship": "other",
+        "title": "PrimeNumberTheoremAnd",
+        "type": "formalization"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/sthubbar/goldbach-lean/tree/main/entries/heathbrown1985",
+        "note": "Its compared theorem LeanLab.PNTPort.PsiChi.goldbach_logPowerSaving, E of X << X log^-A X for every A, is the bound this entry rests on; Estermann's Q of n differs from E of n by at most 1. The two entries overlap; this one adds Estermann's statement in his own notation.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-16T07:03:52Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "ec7598e74dbfb333be1187365f8205d826d63f6877875356329cb83b3f0b2230"
+    },
+    "reviewed_at": "2026-11-16T02:14:49Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "0e201f43acf714d7821daadf5963c06d961132e8",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/estermann1938",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/0e201f43acf714d7821daadf5963c06d961132e8/entries/estermann1938"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "3cxvivzhazsh"
+  },
+  "title": "On Goldbach's problem: proof that almost all even positive integers are sums of two primes",
+  "trust": {
+    "challenge_bytes": 1852,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 49,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "9bf36b8027d500d253d7f4d1a31af3eaa92a4824138ac13660f0050a34db6f3f",
+    "evidence_path": "evidence/PALOMAR-2026-11-16-000013-v1/42a82e258258d005612b4aa8f354604c4fbed61a5542b566ab279c8d1c78e8fd/",
+    "evidence_tree_sha256": "42a82e258258d005612b4aa8f354604c4fbed61a5542b566ab279c8d1c78e8fd",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "2b4f4de53051637028ddd3ee61cfe8fd2df1a85a467cedefe50c60724c3a0311",
+    "protected_config_sha256": "c30a82b1852dc92e195eda42c578d8b2261920d9ec18dc15e2cb3adad8efab5f",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43780092443,
+    "solution_sha256": "977cc3d227b8ae1bcc5043c0efc2e5f72a7f2868e33ffb086ed37ed4daebbccb",
+    "tool_digests": {
+      "bwrap": "96f195bbfd9a64c8bd3b0c999080796732c17f596fd9db6a07671909fe08c2c4",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-16T00:32:29Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43780092443"
+  },
+  "version": 1
+}

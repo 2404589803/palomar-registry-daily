@@ -1,0 +1,347 @@
+{
+  "abstract": "A Lean 4 proof, with no unproved steps, of the main Theorem of D. I. Tolev, The ternary Goldbach problem with primes from arithmetic progressions, arXiv 0902.2669, 2009, display 5 on page 2. Let l3 be a fixed positive integer and lambda of k real numbers with absolute value at most 1. For every A > 0 there is B = B of A > 0 such that, for sufficiently large odd N and L = log N, the sum over k1, k2 up to sqrt N L^-B of the maximum over l1, l2 coprime to k1, k2 of the absolute value of the sum over k3 up to N^1/3 L^-B with k3 coprime to l3 of lambda of k3 times Delta_k,l of N is at most a constant times N^2 L^-A. Here Delta is the weighted count R of representations N = p1 + p2 + p3 with pi congruent to li mod ki, less the main term N^2 S / 2 phi of k1 phi of k2 phi of k3, with the singular series S written out by the formula printed in Halupczok 2008. Binary Goldbach is open and is not claimed. AI agents wrote the Lean code, Codex by OpenAI, Claude by Anthropic and a lab prover agent, as listed in PORTING.md; the proof reuses code ported from PrimeNumberTheoremAnd, written by its contributors, and is offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-16-000007-v1/70319fac528bd4756de4706db4bfa7fbcf66758dff2cc02160ac074d06f46a59/",
+    "artifact_tree_sha256": "70319fac528bd4756de4706db4bfa7fbcf66758dff2cc02160ac074d06f46a59",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-15T18:14:16Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11P55",
+      "11N13"
+    ]
+  },
+  "first_registered_on": "2026-11-16",
+  "formalization": {
+    "challenge_path": "entries/tolev2009/ChallengeTolev2009.lean",
+    "comparator_config_path": "entries/tolev2009/comparator-tolev2009.json",
+    "definition_names": [
+      "LeanLab.Tolev2009.R",
+      "LeanLab.Tolev2009.SSeries",
+      "LeanLab.Tolev2009.M",
+      "LeanLab.Tolev2009.Δ",
+      "LeanLab.Tolev2009.residues",
+      "LeanLab.Tolev2009.inner",
+      "LeanLab.Tolev2009.Estar",
+      "LeanLab.Tolev2009.TheTheorem",
+      "LeanLab.Tolev2009.Faithful.ee",
+      "LeanLab.Tolev2009.SeriesIdentification.coeffPaper",
+      "LeanLab.Tolev2009.SeriesIdentification.halupczokTerm",
+      "LeanLab.Tolev2009.SeriesIdentification.halupczokSeries"
+    ],
+    "formalization_metadata_path": "entries/tolev2009/formalization.yaml",
+    "lakefile_path": "entries/tolev2009/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/tolev2009/SolutionTolev2009.lean",
+    "theorem_names": [
+      "LeanLab.Tolev2009.Decomp83.published_assembly",
+      "LeanLab.Tolev2009.FinishAssembly1112.published_assembly_finished"
+    ]
+  },
+  "id": "PALOMAR-2026-11-16-000007",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-16T02:28:50Z",
+    "receipt_sha256": "4fce8302cfed5ec80974548301cb078b420922ac15dd0d92eda7b772a409e6cc",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000007-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000007-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000007-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000007-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000007-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000007-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000007-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000007-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000007-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "0cba52a0edec0624f9336e3077e1b4a65bf17321",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000007-v1/0cba52a0edec0624f9336e3077e1b4a65bf17321",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "D. I. Tolev"
+          }
+        ],
+        "identifier": "arXiv:0902.2669",
+        "license": "unknown",
+        "location": "arXiv 0902.2669, 2009, the Theorem on page 2, display 5",
+        "relationship": "formalizes",
+        "title": "The ternary Goldbach problem with primes from arithmetic progressions",
+        "type": "preprint"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "K. Halupczok"
+          }
+        ],
+        "identifier": "Acta Mathematica Hungarica 120, 2008, pages 315-349",
+        "license": "unknown",
+        "location": "Acta Mathematica Hungarica 120, no. 4, 2008, pages 315-349",
+        "relationship": "adapts",
+        "title": "On the ternary Goldbach problem with primes in independent arithmetic progressions",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "D. I. Tolev"
+          }
+        ],
+        "identifier": "doi:10.4064/aa-88-1-67-98",
+        "license": "unknown",
+        "location": "Acta Arithmetica 88, 1999, pages 67-98",
+        "relationship": "adapts",
+        "title": "Arithmetic progressions of prime-almost-prime twins",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "the PrimeNumberTheoremAnd project contributors"
+          }
+        ],
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "license": "Apache-2.0",
+        "location": "commit c39a751132c88b6e8080b74c74023fd95b3d8be0",
+        "relationship": "other",
+        "title": "PrimeNumberTheoremAnd",
+        "type": "formalization"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/sthubbar/goldbach-lean/tree/main/entries/bombierivinogradov1965",
+        "note": "The quantitative form used here is in LeanLab/Tolev2009/QuantitativeBV346.lean, built on LeanLab/PNTPort/BV.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/sthubbar/goldbach-lean/tree/main/entries/heathbrown1985",
+        "note": "Heath-Brown 1985 includes three primes in progressions for moduli up to a power of log N; Tolev's Theorem averages over much larger moduli.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-16T02:28:31Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "4cbac6873222076f0d7ed683c11a8f100b6b77328f015501931c849dd0de340f"
+    },
+    "reviewed_at": "2026-11-15T19:10:24Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "0cba52a0edec0624f9336e3077e1b4a65bf17321",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/tolev2009",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/0cba52a0edec0624f9336e3077e1b4a65bf17321/entries/tolev2009"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "dzvy2bsi3buh"
+  },
+  "title": "The ternary Goldbach problem with primes from arithmetic progressions: Tolev's Bombieri-Vinogradov type mean value theorem",
+  "trust": {
+    "challenge_bytes": 6486,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 137,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "bd41f2fd4c83cc5595a864d3d671667c9dbdc952a4321ef8a8355a410ebdaa75",
+    "evidence_path": "evidence/PALOMAR-2026-11-16-000007-v1/c346619bacaed349820ab61a00bea1dbc5e9c5ca79b564244f2c37f54b6561e7/",
+    "evidence_tree_sha256": "c346619bacaed349820ab61a00bea1dbc5e9c5ca79b564244f2c37f54b6561e7",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "a8c21d8e7ffdd5ee822fc049c1a6c2f7e9e8b4bbc3ba83dbd57d90bb937bc6e1",
+    "protected_config_sha256": "563c17e0833d9c2eb9667492502eea870878a1b08871ebd7078e56fd2caea6d2",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43740875982,
+    "solution_sha256": "9ca41180fa57f6f2131ba09f2a098e71aa5b146cc64ed4ec5d3b8a26613eef66",
+    "tool_digests": {
+      "bwrap": "a1f9c996424fb2cd08e96cc1bb53026f334bc3a6e837a3737dd9b010948a15b3",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-15T17:37:25Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43740875982"
+  },
+  "version": 1
+}

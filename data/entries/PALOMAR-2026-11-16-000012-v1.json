@@ -1,0 +1,309 @@
+{
+  "abstract": "Lean 4 proofs, with no unproved steps, of two results from H. A. Helfgott and D. J. Platt, Numerical verification of the ternary Goldbach conjecture up to 8.875 · 10^30, Experimental Mathematics 22, 2013, arXiv:1305.3062. First, Proth's criterion of Section 2, Theorem 2.3 in existential form; the converse printed after it, for every such a, is proved as converse but not compared: a Proth number N = k 2^n + 1 with 0 < k < 2^n is prime if and only if some integer a has Jacobi symbol -1 over N and a raised to the power N - 1 over 2 is -1 mod N. Second, Theorem 4.1, every odd number from 7 to T = 8875694145621773516800000000000 is a sum of three primes, derived from the two computations the paper rests on, which are explicit hypotheses and are not proved here: binary Goldbach for every even number from 4 to 4 · 10^18, the verification of Oliveira e Silva, Herzog and Pardi, and for each of the 492700 ranges of width 2^54 · 10^9 of Section 4 a ladder of odd primes with gaps at most 4 · 10^18 - 2 that starts within 2 · 10^18 above the left end point and ends less than 2 · 10^18 below the right end point, the paper's own computation. The entry does not verify any ladder or any binary Goldbach case, so it does not prove ternary Goldbach up to T; it proves that the paper's computations imply it. Ternary Goldbach is Helfgott's theorem and binary Goldbach is open; neither is claimed. AI agents wrote the Lean code, Claude by Anthropic, as listed in PORTING.md, and it is offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-16-000012-v1/39ef8fad25ef937d5d118f60d3e14fd9bf865615c883ac8006e698e1b6c1d733/",
+    "artifact_tree_sha256": "39ef8fad25ef937d5d118f60d3e14fd9bf865615c883ac8006e698e1b6c1d733",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-16T01:14:19Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11Y11",
+      "11Y16"
+    ]
+  },
+  "first_registered_on": "2026-11-16",
+  "formalization": {
+    "challenge_path": "entries/helfgottplatt2013/ChallengeHelfgottPlatt2013.lean",
+    "comparator_config_path": "entries/helfgottplatt2013/comparator-helfgottplatt2013.json",
+    "definition_names": [
+      "LeanLab.IsGoldbachSum",
+      "LeanLab.IsTernarySum",
+      "LeanLab.EvenGoldbachUpTo",
+      "LeanLab.TernaryGoldbachUpTo",
+      "LeanLab.HelfgottPlatt.Proth.T",
+      "LeanLab.HelfgottPlatt.U6816.Step2",
+      "LeanLab.HelfgottPlatt.U6816.W",
+      "LeanLab.HelfgottPlatt.U6816.RangeOK"
+    ],
+    "formalization_metadata_path": "entries/helfgottplatt2013/formalization.yaml",
+    "lakefile_path": "entries/helfgottplatt2013/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/helfgottplatt2013/SolutionHelfgottPlatt2013.lean",
+    "theorem_names": [
+      "LeanLab.HelfgottPlatt.U1455.proth_iff",
+      "LeanLab.HelfgottPlatt.U6816.theorem4_1_of_ranges"
+    ]
+  },
+  "id": "PALOMAR-2026-11-16-000012",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-16T06:27:15Z",
+    "receipt_sha256": "c732bfc64800638e75ecdea6352ed527825c434b9420289bc7c2c2b6a30002a5",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000012-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000012-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000012-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000012-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000012-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000012-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000012-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000012-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000012-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "0e201f43acf714d7821daadf5963c06d961132e8",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000012-v1/0e201f43acf714d7821daadf5963c06d961132e8",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "H. A. Helfgott"
+          },
+          {
+            "name": "D. J. Platt"
+          }
+        ],
+        "identifier": "arXiv:1305.3062",
+        "license": "unknown",
+        "location": "Experimental Mathematics 22, 2013; arXiv:1305.3062v2, Sections 2 to 4",
+        "relationship": "formalizes",
+        "title": "Numerical verification of the ternary Goldbach conjecture up to 8.875 · 10^30",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/tree/v4.35.0-rc3",
+        "note": "A search of Mathlib v4.35.0-rc3 for Proth finds nothing. Mathlib has Euler's criterion, legendreSym.eq_pow, and the Lucas primality test, lucas_primality; the proof of proth_iff uses Euler's criterion and the existence of a quadratic nonresidue in a finite field.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/calr3/ternary-goldbach",
+        "note": "Charlie Reams's project proves ternary Goldbach from named analytic hypotheses and a binary Goldbach input, with the small cases from a Proth prime ladder checked by the kernel. This entry does not check any ladder; it proves the reduction of the paper's Theorem 4.1 to its range ladders.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/sthubbar/goldbach-lean/tree/main/entries/helfgott62",
+        "note": "Lemma 6.1 and Proposition 6.2 of Helfgott's ternary Goldbach paper.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-16T06:26:56Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "5dd27f89b106bf488d83f877ef98cf6a1a229451fc26544db674282d658af743"
+    },
+    "reviewed_at": "2026-11-16T02:11:43Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "0e201f43acf714d7821daadf5963c06d961132e8",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/helfgottplatt2013",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/0e201f43acf714d7821daadf5963c06d961132e8/entries/helfgottplatt2013"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "qshm07gjbniz"
+  },
+  "title": "Proth's criterion and the prime ladder reduction for ternary Goldbach up to 8.875 · 10^30",
+  "trust": {
+    "challenge_bytes": 4416,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 98,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "51cb39dc2746d14a188dae1ba02ee08b7431f5c469d08bfe2fe7d931940330a0",
+    "evidence_path": "evidence/PALOMAR-2026-11-16-000012-v1/234e810d057fa26e131863fd82bee37e96c5fb3973acafadaad596e03712033b/",
+    "evidence_tree_sha256": "234e810d057fa26e131863fd82bee37e96c5fb3973acafadaad596e03712033b",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "19544436bd82d5e5b59e4453a6414e8ea29f177d8a058c70e00800dc3afd94c1",
+    "protected_config_sha256": "99aaafa4d61631456f5f8aef669b961decb7c9002866a96bfc1ccd6464876264",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43779161297,
+    "solution_sha256": "89564e7eda7b48a02f42fc80f564bab826a76af1b43004e70d452d7a60452788",
+    "tool_digests": {
+      "bwrap": "a7e1b9cd4bb53c9bedb05ccaebefc19a9390209f2cc79eb1dd4153a60bc47c8e",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-16T00:18:32Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43779161297"
+  },
+  "version": 1
+}

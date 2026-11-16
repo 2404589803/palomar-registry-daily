@@ -1,0 +1,386 @@
+{
+  "abstract": "A Lean 4 / Mathlib (v4.36.0-rc2) formalization of Maria Nowakowska's A Formal Theory of Actions (Syntax and Semantics of Behaviour; chapter dated 1982; Praxiological Studies, 1983), synthesizing the parts of Language of Motivation and Language of Actions (1973) that 1982 cites for omitted proofs and for the motivational calculus (here: §§2.1.4, 2.2.4, 5.1–5.3). Framing: rigorous reconstruction/verification of her action–motivation–promise material (precision gaps closed in Lean), plus a formalization contribution proving CF ∩ Regular so Promise/Offense CF theorems are unconditional. Headline compared claims include card_conflictFamilies (her stated 113), Attainable_iff_reaches_length (reachability realization), arrow_impossibility in the finite 2×3 encoding, unconditional PromiseClosed/OffenseClosed.isContextFree with factor-minimal HatU, Language.IsContextFree.inter_regular, and stringDuration_pi / timed ψ-membership. Clinical Arrow abbrevs and MotCalc samples are supporting packaging, not claimed novelty. Maria Nowakowska did not participate in or endorse this formalization. Lean was written with AI-agent assistance under Lars Warren Ericson's direction and review. There is no sorry in the Actions/ development, no project-defined axiom, and Mathlib is the only Lake dependency. Palomar Registration: TBD.",
+  "authors": [
+    {
+      "name": "Lars Warren Ericson"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-15-000006-v1/391fa63d0722149b102058741b6f261621f89f05111cca2a7725be65dc03afd0/",
+    "artifact_tree_sha256": "391fa63d0722149b102058741b6f261621f89f05111cca2a7725be65dc03afd0",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-15T15:54:27Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "71a2035b44e7f54a797ce799fd1b03cdd3a44684"
+  },
+  "classification": {
+    "arxiv": [
+      "math.LO",
+      "cs.LO"
+    ],
+    "msc2020": [
+      "03B70",
+      "68Q45",
+      "91B14",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-15",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "Actions.Arrow.CompulsiveOrHedonistic",
+      "Actions.Arrow.BlindObedience",
+      "Actions.Arrow.NeuroticAllOrNothing"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "9d581dfff2e41de989072ea63abf3daf69311520"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "b0256621cb88178e9ad932a53633077b3029e621"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Actions.ActionAutomaton.Reaches.admissible",
+      "Actions.ActionAutomaton.admissible_cons_nextState",
+      "Actions.ActionAutomaton.mem_language_iff",
+      "Actions.ActionAutomaton.mem_language_iff_exists_reaches",
+      "Actions.ActionAutomaton.nextState_eq",
+      "Actions.ActionAutomaton.nil_mem_language",
+      "Actions.ActionAutomaton.singleton_admissible",
+      "Actions.ActionAutomaton.toActionSystem.Attainable_iff_reaches_length",
+      "Actions.ActionAutomaton.toActionSystem.mem_L_iff",
+      "Actions.ActionSystem.EffortDominated.refl",
+      "Actions.ActionSystem.HatT.subset",
+      "Actions.ActionSystem.HatU.subset",
+      "Actions.ActionSystem.NonParasitic.append_left_right",
+      "Actions.ActionSystem.NonParasitic.of_mem_L",
+      "Actions.ActionSystem.OffenseClosed.isContextFree",
+      "Actions.ActionSystem.Prax.Min_subset",
+      "Actions.ActionSystem.Prax.subset",
+      "Actions.ActionSystem.PromiseClosed.isContextFree",
+      "Actions.ActionSystem.PromiseClosed.mono",
+      "Actions.ActionSystem.RinvUnwanted.mem_iff",
+      "Actions.ActionSystem.RinvWanted.empty",
+      "Actions.ActionSystem.RinvWanted.mem_iff",
+      "Actions.ActionSystem.Rinv_subset_L",
+      "Actions.ActionSystem.stringDuration.nil_not_pos",
+      "Actions.ActionSystem.stringDuration_pauseString",
+      "Actions.ActionSystem.strongly_implies_weakly",
+      "Actions.ActionSystem.weakly_iff_strongly_singleton",
+      "Actions.Arrow.arrow_dictator_of_unanimity_IIA",
+      "Actions.Arrow.arrow_impossibility",
+      "Actions.Arrow.BlindObedience.of_not_sovereignty",
+      "Actions.Arrow.CompulsiveOrHedonistic.of_dictator",
+      "Actions.Arrow.CompulsiveOrHedonistic.of_not_lack",
+      "Actions.Arrow.NeuroticAllOrNothing.of_not_IIA",
+      "Actions.Arrow.scale1Dictator.IIA",
+      "Actions.Arrow.scale1Dictator.compulsive",
+      "Actions.Arrow.scale1Dictator.not_lack",
+      "Actions.Arrow.scale1Dictator.sovereignty",
+      "Actions.Arrow.scale1Dictator.unanimity",
+      "Actions.Arrow.scale2Dictator.IIA",
+      "Actions.Arrow.scale2Dictator.not_lack",
+      "Actions.Arrow.scale2Dictator.sovereignty",
+      "Actions.Arrow.scale2Dictator.unanimity",
+      "Actions.Conflicts.card_conflictFamilies",
+      "Actions.MixedSystem.LM.mem_iff",
+      "Actions.MixedSystem.LM.of_pure_actions",
+      "Actions.MixedSystem.MotivationalConsistency.wanted_unwanted_disjoint",
+      "Actions.MixedSystem.O'_offenseClosed",
+      "Actions.MixedSystem.O_promiseClosed",
+      "Actions.MixedSystem.Psi.mem_iff",
+      "Actions.MixedSystem.Psi.pi_mem_of_motivationalConsistency",
+      "Actions.MixedSystem.Satisfiable.of_motivationalConsistency",
+      "Actions.MixedSystem.W_disjoint",
+      "Actions.MixedSystem.pi.stringDuration_pi",
+      "Actions.MotCalc.SampledSemImp.epistemicModel",
+      "Actions.Toy.HatU_offenseU",
+      "Actions.Toy.Prax_empty_example",
+      "Actions.Toy.nil_not_mem_promiseT",
+      "Actions.Toy.offenseU_closed",
+      "Actions.Toy.offenseU_finiteHorizon",
+      "Actions.Toy.promiseT_closed",
+      "Actions.Toy.toy_pause_duration",
+      "Actions.Toy.toy_work_duration",
+      "Actions.Toy.twoGoals_conflict",
+      "Actions.Toy.work_attains",
+      "Actions.Toy.work_mem_promiseT",
+      "Actions.Toy.work_string_duration",
+      "Language.IsContextFree.inter_regular"
+    ]
+  },
+  "id": "PALOMAR-2026-11-15-000006",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-15T17:23:30Z",
+    "receipt_sha256": "14848045337edf13a847676f32afd335356c2f3912c2806264444bff4974c6d9",
+    "repositories": [
+      {
+        "commit": "dc5a32bf960fbd23e74fbdfae9e7cb288f1cd59b",
+        "fork_repository": "PalomarArchive/catskillsresearch--nowakowska1982--f1f43cf45c7b",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000006-v1/dc5a32bf960fbd23e74fbdfae9e7cb288f1cd59b",
+        "source_repository": "catskillsresearch/nowakowska1982"
+      },
+      {
+        "commit": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000006-v1/7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000006-v1/d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000006-v1/b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000006-v1/c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "9d581dfff2e41de989072ea63abf3daf69311520",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000006-v1/9d581dfff2e41de989072ea63abf3daf69311520",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000006-v1/129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000006-v1/16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "b0256621cb88178e9ad932a53633077b3029e621",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000006-v1/b0256621cb88178e9ad932a53633077b3029e621",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-15-000006-v1/c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Maria Nowakowska"
+          }
+        ],
+        "location": "In W. Gasparski and T. Airaksinen (eds.), Praxiological Studies, PWN—Polish Scientific Publishers, Warszawa, 1983, pp. 143–177 (chapter dated 1982). Working PDF: sources/nowakowska1982.pdf.",
+        "relationship": "formalizes",
+        "title": "A Formal Theory of Actions: Syntax and Semantics of Behaviour",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Maria Nowakowska"
+          }
+        ],
+        "location": "Mouton, The Hague, 1973. §§2.1.4, 2.2.4, 5.1–5.3 used here.",
+        "relationship": "formalizes",
+        "title": "Language of Motivation and Language of Actions",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Kenneth J. Arrow"
+          }
+        ],
+        "location": "Wiley, New York, 1963.",
+        "relationship": "background",
+        "title": "Social Choice and Individual Values",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Lars Warren Ericson"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-15T17:23:10Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "65879a1c8c9b45d98cee6ebdcf8040f29f51ac76a43016b5359afc20da7c71f9"
+    },
+    "reviewed_at": "2026-11-15T17:11:15Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "dc5a32bf960fbd23e74fbdfae9e7cb288f1cd59b",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "catskillsresearch/nowakowska1982",
+    "repository_url": "https://github.com/catskillsresearch/nowakowska1982",
+    "tree_url": "https://github.com/catskillsresearch/nowakowska1982/tree/dc5a32bf960fbd23e74fbdfae9e7cb288f1cd59b"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "3av7qakhgs0y"
+  },
+  "title": "Nowakowska Theory of Actions (1982) in Lean 4",
+  "trust": {
+    "challenge_bytes": 32659,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.BigOperators.Group.List.Basic",
+      "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+      "Mathlib.Computability.ContextFreeGrammar",
+      "Mathlib.Computability.DFA",
+      "Mathlib.Computability.MyhillNerode",
+      "Mathlib.Data.Finset.BooleanAlgebra",
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.Data.Finset.Lattice.Fold",
+      "Mathlib.Data.Fintype.Basic",
+      "Mathlib.Data.Fintype.Defs",
+      "Mathlib.Data.List.DropRight",
+      "Mathlib.Data.Set.Basic",
+      "Mathlib.Data.Set.Finite.List",
+      "Mathlib.Order.ConditionallyCompleteLattice.Basic",
+      "Mathlib.Tactic"
+    ],
+    "challenge_lines": 915,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "32c5cca0dbde4d6f99bda51066a96e2ffef93e5e4650b877b2a859c600b604cb",
+    "evidence_path": "evidence/PALOMAR-2026-11-15-000006-v1/73088e523c75f54830070a8e39e30c83ebbe044b8edbcffe43c48f8ba1d183b8/",
+    "evidence_tree_sha256": "73088e523c75f54830070a8e39e30c83ebbe044b8edbcffe43c48f8ba1d183b8",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "a1c1694ffc22872f65918ff14a0fb1b1d4658f24a172ac72cf62f6bcbdf7b8a3",
+    "protected_config_sha256": "b3b1f42a1dd813187291c922184bd1e780e80392004aab2df20108ca4ce88b0d",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43727683372,
+    "solution_sha256": "b1ad590cfc6491bd8c7d5de3142a656219ce2e0364b33fd71e0686b2a24554c9",
+    "tool_digests": {
+      "bwrap": "bd372edf430cf51dcad4ff5674eba2cc6f4fd2a1863e1cf53498e6fd5802eaf1",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "b35cb10cf2ced51a2fd1880cfdbf75c71ab7a35a",
+    "verified_at": "2026-11-15T15:06:01Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43727683372"
+  },
+  "version": 1
+}

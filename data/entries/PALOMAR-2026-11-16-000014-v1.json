@@ -1,0 +1,305 @@
+{
+  "abstract": "Lean 4 / Mathlib formalization of Conjecture 19 from E. DeLaVina's Written on the Wall II (Graffiti.pc) collection, matching the exact statement in google-deepmind/formal-conjectures (WrittenOnTheWallII.GraphConjecture19.conjecture19). For every finite, nontrivial, connected simple graph G, the size b(G) of a largest induced bipartite subgraph is bounded below by the floor of the sum of the average vertex eccentricity and the maximum local neighborhood independence number sup_v l(v). The proof picks a vertex u maximising l(u), sets e = (G.eccent u).toNat and D = G.diam, and constructs an induced bipartite subgraph as a disjoint union of independent subsets B_d inside the distance spheres {v | G.dist u v = d} colored by distance parity. When D ≤ e, one geodesic vertex per sphere 2 ≤ d ≤ e together with {u} and an independent neighborhood subset I ⊆ N(u) of size l(u) gives b(G) ≥ e + l(u). When e < D, the average eccentricity is strictly less than D, and pairing geodesic vertices from u toward a diametral pair x, y on overlapping spheres (separated by distance at least 2 via the triangle inequality) gives b(G) ≥ D − 1 + l(u). The proof uses only propext, Classical.choice, and Quot.sound, with no sorry and no native_decide.",
+  "authors": [
+    {
+      "name": "Hamed Sadeghi"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-16-000014-v1/a48d73550a9d186d32425380fe5c4f3ca00508cfe34e279e63478625b1384579/",
+    "artifact_tree_sha256": "a48d73550a9d186d32425380fe5c4f3ca00508cfe34e279e63478625b1384579",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-16T04:28:54Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C12",
+      "05C35",
+      "05C69",
+      "68V15"
+    ]
+  },
+  "first_registered_on": "2026-11-16",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "WrittenOnTheWallII.GraphConjecture19.conjecture19"
+    ]
+  },
+  "id": "PALOMAR-2026-11-16-000014",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-16T08:33:45Z",
+    "receipt_sha256": "0140dcc02dfb8fade114c761010f5c9e059a870157379a8d3a3f4fef292b7ff9",
+    "repositories": [
+      {
+        "commit": "949a857bfb20f75c38f57317c4e2c29e2c18aa1b",
+        "fork_repository": "PalomarArchive/hamsade-google--wowii-conjecture-19-lean--680f9cc9219e",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000014-v1/949a857bfb20f75c38f57317c4e2c29e2c18aa1b",
+        "source_repository": "hamsade-google/wowii-conjecture-19-lean"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000014-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000014-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000014-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000014-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000014-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000014-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000014-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000014-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000014-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Chen"
+          },
+          {
+            "name": "Wang"
+          },
+          {
+            "name": "Feng"
+          }
+        ],
+        "identifier": "https://www.preprints.org/manuscript/202607.0114",
+        "location": "Preprints.org manuscript 202607.0114 (2026)",
+        "relationship": "independently-proves",
+        "title": "A Source-Scoped Lean-Verified Proof of WOWII Conjecture 19",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Ermelinda DeLaVina"
+          }
+        ],
+        "identifier": "http://cms.dt.uh.edu/faculty/delavinae/research/wowII/",
+        "location": "University of Houston Downtown, Written on the Wall II list, Conjecture 19",
+        "relationship": "background",
+        "title": "Written on the Wall II (Conjectures of Graffiti.pc), Conjecture 19",
+        "type": "other"
+      },
+      {
+        "authors": [],
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/WrittenOnTheWallII/GraphConjecture19.lean",
+        "relationship": "background",
+        "title": "google-deepmind/formal-conjectures specification of WrittenOnTheWallII.GraphConjecture19.conjecture19",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Hamed Sadeghi"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-16T08:33:26Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "f2c7afb011b9ccc370f4fbca5e49b318c92732a7f9c32f6ba6b15ede30c8aa29"
+    },
+    "reviewed_at": "2026-11-16T05:41:11Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "The metadata identifies a prior Lean formalization while recording no related formalizations. This obscures which earlier formalization exists and how the present proof relates to it. Add an identifiable related_formalizations entry with that relationship, or clarify the prior-formalization claim if no distinct Lean work can be identified."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "949a857bfb20f75c38f57317c4e2c29e2c18aa1b",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "hamsade-google/wowii-conjecture-19-lean",
+    "repository_url": "https://github.com/hamsade-google/wowii-conjecture-19-lean",
+    "tree_url": "https://github.com/hamsade-google/wowii-conjecture-19-lean/tree/949a857bfb20f75c38f57317c4e2c29e2c18aa1b"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "3cq036ecjyeo"
+  },
+  "title": "Written on the Wall II Conjecture 19: lower bound on the largest induced bipartite subgraph size from average eccentricity and neighborhood independence",
+  "trust": {
+    "challenge_bytes": 2638,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 68,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "0b818144ac02c211efd00fd3d1c73321b865f125463db4203ccb4cbb9426c8d1",
+    "evidence_path": "evidence/PALOMAR-2026-11-16-000014-v1/44b1da41cdea0c65f37a215d48ed36047df6e949b6ce91312a01ea4d9a98f7c5/",
+    "evidence_tree_sha256": "44b1da41cdea0c65f37a215d48ed36047df6e949b6ce91312a01ea4d9a98f7c5",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "6eafc9514bdd280e4cfe6bf8c97dad679e29f9872ff28d221cc508cdcfc02a1e",
+    "protected_config_sha256": "41df529dc65c60a9c55d454bb99a8f90caaf4e901a53bec0c03b807dbda81218",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43791390400,
+    "solution_sha256": "fcef7306aa9ec74d27acb8205cf60ffc3b05b85d9435ba558886d419956c628e",
+    "tool_digests": {
+      "bwrap": "a68d945546d509a18c36dc9d4ed3940ca3f925cf4d2e8026d260fa4783d88f61",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-16T02:22:13Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43791390400"
+  },
+  "version": 1
+}

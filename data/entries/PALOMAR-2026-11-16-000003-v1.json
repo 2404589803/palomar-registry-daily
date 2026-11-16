@@ -1,0 +1,401 @@
+{
+  "abstract": "For an integer m let u_m(n) = Σ_{k=0}^{n} (−4)^{n−k} C(n,k) C(mn+k, k) C(2k, k), with the binomial C(mn+k, k) taken as a polynomial in its top. The package proves that u_m(np^r) ≡ u_m(np^{r−1}) (mod p^{3r}) for every integer m, every prime p ≥ 5 and all n, r ≥ 1. This is the u-half of Peter Bala's 2023 conjecture on OEIS A363985. It covers A363985 (m = 2), A363987 (m = 3), A363989 (m = 4) and A362676 (m = −1, up to the sign (−1)^n), each stated as its own theorem. The companion v-half of the conjecture (A363986, A363988, A363990) is not covered. Osburn and Sahu's tower for the generalized Domb numbers needs a factor C(n,k)^A with A ≥ 2. The proof here first writes u_m(N) = Σ_j (−1)^j C(mN, N−j) C(2j,j) C(2N−2j, N−j), where C(mN, N−j) occurs only once. The missing powers of p come from the super Catalan factorization of C(2j,j) C(2N−2j, N−j) and from half-block sums of j^{−2}, as in Osburn–Sahu–Straub's proofs of their Theorems 1.3 and 1.2.",
+  "authors": [
+    {
+      "name": "Wentao Li"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-16-000003-v1/e7a7602e1bcb3eb6743aa481a87cce175026a5ad206869305982d96985ac5f37/",
+    "artifact_tree_sha256": "e7a7602e1bcb3eb6743aa481a87cce175026a5ad206869305982d96985ac5f37",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-15T08:15:35Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.CO"
+    ],
+    "msc2020": [
+      "05A10",
+      "11A07",
+      "11B65"
+    ]
+  },
+  "first_registered_on": "2026-11-16",
+  "formalization": {
+    "challenge_path": "FCPalomar/OeisA363985/Challenge.lean",
+    "comparator_config_path": "FCPalomar/OeisA363985/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "FCPalomar/OeisA363985/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "ccbef15ebdb41c2addfac682131f83c75904c3c1"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "FCPalomar/OeisA363985/Solution.lean",
+    "theorem_names": [
+      "OeisA363985.u_tower",
+      "OeisA363985.a363985_tower",
+      "OeisA363985.a363987_tower",
+      "OeisA363985.a363989_tower",
+      "OeisA363985.a362676_tower"
+    ]
+  },
+  "id": "PALOMAR-2026-11-16-000003",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-16T01:03:08Z",
+    "receipt_sha256": "01b052709be7f02def72a8d9b8448f03afe7ee9e57c3b3b339fc2a188815a660",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000003-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000003-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000003-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000003-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "ccbef15ebdb41c2addfac682131f83c75904c3c1",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000003-v1/ccbef15ebdb41c2addfac682131f83c75904c3c1",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000003-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000003-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000003-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000003-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "2329f9d4bebb30be1bb59e40476a89b44d6e034c",
+        "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000003-v1/2329f9d4bebb30be1bb59e40476a89b44d6e034c",
+        "source_repository": "VictorLiwentao/fc-palomar-proofs"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Peter Bala"
+          }
+        ],
+        "identifier": "https://oeis.org/A363985",
+        "location": "entry of July 2, 2023, comments",
+        "relationship": "formalizes",
+        "title": "OEIS A363985",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Peter Bala"
+          }
+        ],
+        "identifier": "https://oeis.org/A363987",
+        "location": "entry of July 2, 2023, comments",
+        "relationship": "formalizes",
+        "title": "OEIS A363987",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Peter Bala"
+          }
+        ],
+        "identifier": "https://oeis.org/A363989",
+        "location": "entry of July 2, 2023, comments",
+        "relationship": "formalizes",
+        "title": "OEIS A363989",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Peter Bala"
+          }
+        ],
+        "identifier": "https://oeis.org/A362676",
+        "location": "entry of July 3, 2023, comments",
+        "relationship": "formalizes",
+        "title": "OEIS A362676",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "rbajaj5"
+          }
+        ],
+        "identifier": "https://github.com/rbajaj5/a183068-supercongruence/pull/119",
+        "location": "open pull requests of August 17, 2026",
+        "relationship": "background",
+        "title": "rbajaj5/a183068-supercongruence, pull requests #119–#122",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Robert Osburn"
+          },
+          {
+            "name": "Brundaban Sahu"
+          },
+          {
+            "name": "Armin Straub"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1312.2195",
+        "location": "proofs of Theorems 1.2 and 1.3",
+        "relationship": "background",
+        "title": "Supercongruences for sporadic sequences",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Armin Straub"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1401.0854",
+        "location": "Section 5, Lemma 5.1",
+        "relationship": "background",
+        "title": "Multivariate Apéry numbers and supercongruences of rational functions",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Robert Osburn"
+          },
+          {
+            "name": "Brundaban Sahu"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1201.6195",
+        "location": "Funct. Approx. Comment. Math. 48 (2013), no. 1, 29–36",
+        "relationship": "background",
+        "title": "A supercongruence for generalized Domb numbers",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "M. J. Coster"
+          }
+        ],
+        "location": "PhD thesis, Universiteit Leiden, 1988",
+        "relationship": "background",
+        "title": "Supercongruences",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/VictorLiwentao/fc-palomar-proofs/tree/3a8fe0d8a06c4f0e3f352f78d86ac3a5d2cc16c7/FCPalomar/MosN8",
+        "note": "The Solution copies its shared infrastructure from this package by the same author: divisibility helpers, the nested block lemma, block sums of inverse squares, the harmonic sum, the Jacobsthal-type product bound and the unit products `uprod`. The Challenge does not use it.",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Wentao Li"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-16T01:02:50Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "286a216fa8deb8435d86f733a33e39dbd858b459712160311d7bb3b7ce5a09ce"
+    },
+    "reviewed_at": "2026-11-15T10:18:24Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "2329f9d4bebb30be1bb59e40476a89b44d6e034c",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "VictorLiwentao/fc-palomar-proofs",
+    "repository_url": "https://github.com/VictorLiwentao/fc-palomar-proofs",
+    "tree_url": "https://github.com/VictorLiwentao/fc-palomar-proofs/tree/2329f9d4bebb30be1bb59e40476a89b44d6e034c"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "87fv0mtb1vhx"
+  },
+  "title": "OEIS A363985 and siblings: Bala's p^(3r) supercongruences for u_m, every integer m",
+  "trust": {
+    "challenge_bytes": 5487,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 129,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "92579a12667a51154f61cfde2763eea8f16f65655ccf6216d568e2d271b89839",
+    "evidence_path": "evidence/PALOMAR-2026-11-16-000003-v1/f70a8af6f45344c3cc37da441fc4e6d03cb65278d220cd4621689692f0cad45d/",
+    "evidence_tree_sha256": "f70a8af6f45344c3cc37da441fc4e6d03cb65278d220cd4621689692f0cad45d",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "b864800718736c06ae588e6598fa358cac1b3fb56178ac6168ea88657c562262",
+    "protected_config_sha256": "530adb26bead495c483f36bc5a8baa149858232f25d0571b9109d5c0c93a46f4",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43692805570,
+    "solution_sha256": "bc9b55ddb410165cbaa1755060ae8d6ca08fa5d91eedc12e25b8663d8e38972c",
+    "tool_digests": {
+      "bwrap": "db1ff467c05091213d20e82390e9c9f8464acf5b49e11adaa33ed8177738ed7f",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-15T08:07:36Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43692805570"
+  },
+  "version": 1
+}

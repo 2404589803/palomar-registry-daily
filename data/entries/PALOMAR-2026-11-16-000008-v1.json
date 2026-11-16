@@ -1,0 +1,289 @@
+{
+  "abstract": "A Lean 4 proof, with no unproved steps, of a corrected form of Lemma 7 of L. Kaniecki, On Šnirelman's constant under the Riemann hypothesis, Acta Arith. 72, 1995, pages 361-374. Page 371 defines lambda of x as 2 for 0 < x <= 7 and, for x > 7, as the largest gap p' - p between a prime p <= x and the next prime p'. Lemma 7 as printed says that every open interval from x to x + lambda of lambda of x, x > 4, contains a sum of two odd primes. That statement is false: lambda of 6 = lambda of 2 = 2, and the open interval from 6 to 8 holds no even number; a numerical check by the lab found the failure at every even integer from 6 to 88 and nowhere else below 2000. The entry proves that the printed lemma is false, at the real point x = 6 and at the integer 6, and proves the corrected lemma with the right end included: for every real x > 4 there are odd primes p and q with x < p + q <= x + lambda of lambda of x, and the same for every integer x > 4 with lambda computed on the integers. The printed proof goes through with this change and a repair at x - p1 = 7. Section 3 of the paper applies the lemma only through closed intervals, which contain the half-open ones, so the paper's Theorem is not affected; that remark is not part of the formal statements. No compared theorem uses the Riemann hypothesis or any cited input. Binary Goldbach is open and is not claimed. AI agents wrote the Lean code, Claude by Anthropic and Codex by OpenAI, as listed in PORTING.md, and it is offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-16-000008-v1/519be308e48e74f48dba5af0b415225f1b585d34419c9c31226a0bd7e82cd747/",
+    "artifact_tree_sha256": "519be308e48e74f48dba5af0b415225f1b585d34419c9c31226a0bd7e82cd747",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-15T20:09:46Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11N05"
+    ]
+  },
+  "first_registered_on": "2026-11-16",
+  "formalization": {
+    "challenge_path": "entries/kaniecki1995/ChallengeKaniecki1995.lean",
+    "comparator_config_path": "entries/kaniecki1995/comparator-kaniecki1995.json",
+    "definition_names": [
+      "LeanLab.Kaniecki1995.nextPrime",
+      "LeanLab.Kaniecki1995.lam",
+      "LeanLab.Kaniecki1995.Lemma7Printed",
+      "LeanLab.KanieckiGap.nextPrime",
+      "LeanLab.KanieckiGap.gapAt",
+      "LeanLab.KanieckiGap.lam"
+    ],
+    "formalization_metadata_path": "entries/kaniecki1995/formalization.yaml",
+    "lakefile_path": "entries/kaniecki1995/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/kaniecki1995/SolutionKaniecki1995.lean",
+    "theorem_names": [
+      "LeanLab.Kaniecki1995.not_lemma7_printed",
+      "LeanLab.KanieckiGap.lemma7_printed_false_at_6",
+      "LeanLab.KanieckiGap.lemma7_closed",
+      "LeanLab.KanieckiGap.RealIntervals127.lemma7_closed_real"
+    ]
+  },
+  "id": "PALOMAR-2026-11-16-000008",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-16T04:21:10Z",
+    "receipt_sha256": "28afabcec15b0491ceb6a7384b85aa8965cef8ec570740d6f91b3a8513be052b",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000008-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000008-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000008-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000008-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000008-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000008-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000008-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000008-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000008-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "0e201f43acf714d7821daadf5963c06d961132e8",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000008-v1/0e201f43acf714d7821daadf5963c06d961132e8",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "L. Kaniecki"
+          }
+        ],
+        "identifier": "Acta Arithmetica 72, 1995, pages 361-374",
+        "license": "unknown",
+        "location": "Acta Arithmetica 72, 1995, pages 361-374, page 371",
+        "relationship": "formalizes",
+        "title": "On Šnirelman's constant under the Riemann hypothesis",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-16T04:20:45Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "e6f367f56117c738bbbf6e7574470730df28935a3dfd21dbd8eecb9b299924e6"
+    },
+    "reviewed_at": "2026-11-15T21:11:25Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "0e201f43acf714d7821daadf5963c06d961132e8",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/kaniecki1995",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/0e201f43acf714d7821daadf5963c06d961132e8/entries/kaniecki1995"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "dou8me48kt57"
+  },
+  "title": "Sums of two odd primes in short intervals: a correction to Lemma 7 of Kaniecki's paper on Šnirelman's constant",
+  "trust": {
+    "challenge_bytes": 4228,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 98,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "c09ef708434c2eee2ed1170a3431ecb3471270cf50d31d8d5266f8299a8e559e",
+    "evidence_path": "evidence/PALOMAR-2026-11-16-000008-v1/98f57d618f2df777c38f1e7d213ecfffbfcd16ec48da718aa1da11f912aee1fb/",
+    "evidence_tree_sha256": "98f57d618f2df777c38f1e7d213ecfffbfcd16ec48da718aa1da11f912aee1fb",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "17d7c891484ff6a56d1e92e42d51781baa8759108609b8ccc4c24703263f9fbe",
+    "protected_config_sha256": "72336b501a147fb5476af66dfd14c09f6587dd1a1ea1e36475de08db2519be03",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43751933854,
+    "solution_sha256": "a10cf2ed095fc8701a00ec733900d4a2d3682e0e940fc32f9fb29f7911d47784",
+    "tool_digests": {
+      "bwrap": "08686ee61805f7e199bb0b818ec28578c736ffdfd445737db89b95e18a9c9030",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-15T19:24:33Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43751933854"
+  },
+  "version": 1
+}
