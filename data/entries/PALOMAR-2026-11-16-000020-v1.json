@@ -1,0 +1,374 @@
+{
+  "abstract": "Let a(n) = (2n+1)! [x^(2n+1)] sin x / cos 2x (OEIS A000464: 1, 11, 361, 24611, …; Glaisher, 1914). Peter Bala made four conjectures on it in 2021. The package refutes the first as stated: modulo every multiple of 81, (a(n))_{n≥1} is not purely periodic with any period, because a(55) ≡ 65 ≢ 11 = a(1) (mod 81). It proves the corrected form, a(n + φ(k)) ≡ a(n) (mod k) whenever 2n + 1 is at least the exponent of every odd prime in k, so the conjecture holds eventually for every k and from n = 1 when no odd prime exponent of k exceeds 3. It proves the other three conjectures: the Gauss congruences a(np^k + i) ≡ a(np^(k−1) + i) (mod p^k) for every shift i, with the integrality of exp(Σ a(n+i) x^n/n); a(mn) ≡ a(m)^n (mod 2^(2v₂(m)+4)); and a(2mn) ≡ a(n)^(2m), a((2m+1)n) ≡ a(n)^(2m+1) (mod 2^(v₂(m)+4)). Behind them are a(n + 2^(e−1)) ≡ a(n) (mod 2^e) for every n, and a(n + (p−1)p^(e−1)/2) ≡ (−1)^((p−1)/2) a(n) (mod p^e) for odd primes p and 2n + 1 ≥ e. The period can be sharpened from φ(k) to the Carmichael function λ(k): a(n + 2^(e−2)) ≡ a(n) (mod 2^e) for e ≥ 3, so a(n + λ(k)) ≡ a(n) (mod k) under the same condition on n, and λ(8) = 2 cannot be lowered, since a(1) ≢ a(0) (mod 8). Bala's congruence conjectures for exponential generating functions are recent targets in the study of congruences for Euler-type numbers: Kallat proved Bala's conjectures for A158690 (arXiv:2609.07238), and Blanco Gómez refuted the same pure-periodicity wording for the Euler numbers A000364 and proved its eventual form (Zenodo 23150466, Theorem 2.2). The odd-prime congruence is known (Blanco Gómez, Zenodo 23407292, Theorem 1), and the 2-adic period follows quickly from Nishibuchi's criterion (arXiv:2610.11648, Prop. 3.4). No earlier treatment of the failure modulo 81 or of the power congruences 3) and 4) was found.",
+  "authors": [
+    {
+      "name": "Wentao Li"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-16-000020-v1/3ff0ac287e3c1505f7fa4bc3e0d712603622e2b092d5b7cddd035a89ac79feab/",
+    "artifact_tree_sha256": "3ff0ac287e3c1505f7fa4bc3e0d712603622e2b092d5b7cddd035a89ac79feab",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-16T12:27:38Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.CO"
+    ],
+    "msc2020": [
+      "05A15",
+      "11A07",
+      "11B68"
+    ]
+  },
+  "first_registered_on": "2026-11-16",
+  "formalization": {
+    "challenge_path": "FCPalomar/OeisA000464/Challenge.lean",
+    "comparator_config_path": "FCPalomar/OeisA000464/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "FCPalomar/OeisA000464/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "ccbef15ebdb41c2addfac682131f83c75904c3c1"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "FCPalomar/OeisA000464/Solution.lean",
+    "theorem_names": [
+      "OeisA000464.not_conjecture1",
+      "OeisA000464.not_periodic_of_eighty_one_dvd",
+      "OeisA000464.a_fifty_five",
+      "OeisA000464.period_two_pow",
+      "OeisA000464.period_two_pow_of_three_le",
+      "OeisA000464.antiperiod_odd_prime_pow",
+      "OeisA000464.period_odd_prime_pow",
+      "OeisA000464.period_totient",
+      "OeisA000464.conjecture1_eventual",
+      "OeisA000464.conjecture1_of_exponent_le_three",
+      "OeisA000464.period_carmichael",
+      "OeisA000464.conjecture1_carmichael_eventual",
+      "OeisA000464.carmichael_eight_sharp",
+      "OeisA000464.conjecture2",
+      "OeisA000464.conjecture2_exp_integral",
+      "OeisA000464.conjecture3",
+      "OeisA000464.conjecture4"
+    ]
+  },
+  "id": "PALOMAR-2026-11-16-000020",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-16T15:06:24Z",
+    "receipt_sha256": "863322bbe27756a6a42d52f21c1834f471a9d360c7858bcd46d65fb8caff8d99",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000020-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000020-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000020-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000020-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "ccbef15ebdb41c2addfac682131f83c75904c3c1",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000020-v1/ccbef15ebdb41c2addfac682131f83c75904c3c1",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000020-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000020-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000020-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000020-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+        "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000020-v1/91184b57cd62e2c45671e19c855e112127da2991",
+        "source_repository": "VictorLiwentao/fc-palomar-proofs"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "N. J. A. Sloane"
+          },
+          {
+            "name": "Peter Bala"
+          }
+        ],
+        "identifier": "https://oeis.org/A000464",
+        "location": "entry by N. J. A. Sloane; conjectures 1)–4) in Peter Bala's comment of December 22, 2021",
+        "relationship": "formalizes",
+        "title": "OEIS A000464",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Roberto Blanco Gómez"
+          }
+        ],
+        "identifier": "https://zenodo.org/records/23407292",
+        "location": "Theorem 1 at a/b = 1/4 (§3(e), Springer numbers); first posted as Zenodo 23404924 (October 15, 2026)",
+        "relationship": "independently-proves",
+        "title": "Kummer congruences for the values b^r E_r(a/b) of the Euler polynomials at rational points, and the towers a(np^k) ≡ ±a(np^(k-1)) (mod p^k) for the tangent, Euler, zigzag and Springer numbers",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Roberto Blanco Gómez"
+          }
+        ],
+        "identifier": "https://zenodo.org/records/23150466",
+        "location": "Theorem 2.2",
+        "relationship": "background",
+        "title": "Open statements in core entries of the OEIS, II: further proofs and three refutations",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Yuta Nishibuchi"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2610.11648",
+        "location": "Prop. 3.4(1) (arXiv v2, October 21, 2026)",
+        "relationship": "background",
+        "title": "A Unified Framework for $p$-adic Congruences and $p$-adic Interpolations of Sequences",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ahaan Kallat"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2609.07238",
+        "location": "Theorem 2.6 (arXiv v1, September 7, 2026)",
+        "relationship": "background",
+        "title": "A Proof of Bala's Congruence Conjectures for A158690",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Albrecht Dold"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/BF01394243",
+        "location": "Invent. Math. 74 (1983), no. 3, 419–435",
+        "relationship": "background",
+        "title": "Fixed point indices of iterated maps",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/VictorLiwentao/fc-palomar-proofs/tree/c705473596aa8b91c10d7407e24a967d75e5ef0f/FCPalomar/OeisA012780",
+        "note": "The Hurwitz-series library, the twist x ↦ ix, the 2-adic binomial-shift lemma (mahler) and the odd-prime class K in the Solution are adapted from this package by the same author. The Challenge does not use them.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/VictorLiwentao/fc-palomar-proofs/tree/2329f9d4bebb30be1bb59e40476a89b44d6e034c/FCPalomar/OeisA181316",
+        "note": "The Dold-criterion section of the Solution is copied from this package by the same author, which took it from the A158110 package. The Challenge does not use it.",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Wentao Li"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-16T15:05:59Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "457489e96bb9ff646dcdecb7f4aaf985031edef02054045074fc32d726c969a2"
+    },
+    "reviewed_at": "2026-11-16T13:10:31Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "VictorLiwentao/fc-palomar-proofs",
+    "repository_url": "https://github.com/VictorLiwentao/fc-palomar-proofs",
+    "tree_url": "https://github.com/VictorLiwentao/fc-palomar-proofs/tree/91184b57cd62e2c45671e19c855e112127da2991"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "cw8k6fa47oq4"
+  },
+  "title": "OEIS A000464: Bala's conjectures for sin x / cos 2x",
+  "trust": {
+    "challenge_bytes": 10471,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 219,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "eb70b12b32b3a9986f1657e1cd4109c07d75e1e27670c2400de611ed7095e148",
+    "evidence_path": "evidence/PALOMAR-2026-11-16-000020-v1/7b5f9c3d85e26d59c11a1eb4874f3b19f01d5ea994df9f44f1b42e5fc880757e/",
+    "evidence_tree_sha256": "7b5f9c3d85e26d59c11a1eb4874f3b19f01d5ea994df9f44f1b42e5fc880757e",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "b8974ce3e15d1eb5b4931c3dc7b71cc2d10c926bc731923d36071704801e5187",
+    "protected_config_sha256": "35c7fac75a1cf1cd79bbf9b9b8a3f645bc27ef255f8400b6b5fe8f0b5cd121ce",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43863617564,
+    "solution_sha256": "c279ad959285fa4d85b726e4c0e5aeaeeb6ed3f7341869b9c289f003ae03cb3f",
+    "tool_digests": {
+      "bwrap": "776351d46fa5f5c93166c41551f93ba229b8cbea4a4b4a5e5b59d6838f3dc68f",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-16T12:10:28Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43863617564"
+  },
+  "version": 1
+}

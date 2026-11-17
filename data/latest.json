@@ -1,14 +1,1213 @@
 {
-  "fetched_at": "2026-11-16T09:33:33.566600+00:00",
+  "fetched_at": "2026-11-17T10:39:30.509407+00:00",
   "results": {
     "schema_version": 1,
-    "revision": 962,
-    "release": "a302da8bd640f09d35680a37ca6b84c9d45cb49ae052119aad262104784e4237",
+    "revision": 982,
+    "release": "f54f3f2ac7970a02859c037ce0b1bbe1cfc5c27febc1022d4de074f47abfc415",
     "totals": {
-      "results": 1145,
-      "projects": 878
+      "results": 1165,
+      "projects": 887
     },
     "entries": [
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib formalization of Lemma 3.8 (Lemma ext*) of P. Keevash, \"The existence of designs II\" (arXiv:1802.05900): in the random algebraic template M* built from independent uniform injections f_j : [n] → F_{p^a}-like field K (j < z), random colours T_e and orders π_e of the r-sets, random A_φ and activations, the number of configurations of an extension all of whose atoms γ(ψ) lie below ∂^γ M* is at least an explicit expectation-type lower bound minus 2εN^v, except with an explicit failure probability (a with-high-probability statement in the regime described below). The statement DesignsII.TParams.lemma_3_8 is fully quantitative, an explicit finite-N bound: the lower bound is |C|·(z+1−kd)_m·(a^m − m²·K_c·(n^(q−r))^(m−2))·p^m − 2εN^v (K_c occurs once, also for m = 2) with a = ω|V(Φ)|^(q−r) − (q−r)·s·n^(q−r−1), K_c = q^(r+1) n^(q−r−1) q^r n^(q−r) (1+C(q,r)) and p = (2N^(q−r))^(-1) z^(-C(q,r)) ((q−r)!/q!)^C(q,r) |𝒜|^(-1) k_min/N_act, and the failure probability is at most C(z,kd)·p_deg^kd + 2exp(−ε²N/(2c₁)) + 2exp(−ε²N/(2c₂)) with explicit constants c₁ = c₁(z,q,r,m,Δ) and c₂ = c₂(z,q,r,m,Δ,Smax), where Smax bounds the sizes of the non-colour coordinates (|𝒜|, N_act, ...) (p_deg = |F|^s N^(s−1) (N−s)!/N! bounds the probability that a colour is degenerate at the s fixed vertices). The bound holds for all permitted parameters. Asymptotic remarks (the Lean theorem itself is a finite-N inequality): every term of the failure probability tends to 0 as N → ∞ when s ≥ 1, 1 ≤ kd ≤ z and z, q, r, m, Δ, Smax, |F|, s, kd and ε > 0 are fixed (it does not for kd = 0 or s = 0). No claim is made that the lower bound is positive: for m ≥ 1 it is ≤ 0 for instance if m > z+1−kd, k_min = 0 or a ≤ 0, and for any m if 2εN^v exceeds the main term (for m = 0, the empty configuration, the main term is |C|). When q > r and m ≥ 2 the correction is at most a constant times n^((q−r)m−1), hence o(a^m) if moreover a ≥ c·n^(q−r) for a fixed c > 0; when q = r or m = 1 it need not be of lower order. The hypotheses are those of the paper: Φ is a Σ-adapted [q]-complex, (Φ, γ[G]) is (ω,h)-extendable (Definition 2.9), the copies used are Φ-embeddings of A = Σ^≤ and those with γ(φ) ≤_γ G are activated with threshold ≥ k_min. The proof follows the paper (Lemma e|E for the conditional probabilities given the fixed vertices, a two-stage Lipschitz concentration for the covering count, the template decomposition of Designs I Lemma 3.3), with the corrections recorded under fidelity. Mathlib does not contain this result.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "math.PR"
+          ],
+          "msc2020": [
+            "05B05",
+            "05C70",
+            "60C05"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "DesignsII.TParams.lemma_3_8"
+          ]
+        },
+        "id": "PALOMAR-2026-11-17-000009",
+        "path": "entries/PALOMAR-2026-11-17-000009-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "033861405884cecb052530b636e2f76e51aa21f5",
+              "fork_repository": "PalomarArchive/jtraverso--keevash-designs-ii-extension-lemma--34b2df4b4733",
+              "source_repository": "jtraverso/keevash-designs-ii-extension-lemma"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "eb7e08d05fb65d3ddd8f423372079fa17f3a516ca2907fbf8cd4b5aa904c8503",
+          "version": 1
+        },
+        "published_at": "2026-11-17T10:20:11Z",
+        "source": {
+          "commit": "033861405884cecb052530b636e2f76e51aa21f5",
+          "project_path": null,
+          "repository": "jtraverso/keevash-designs-ii-extension-lemma"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Keevash, The existence of designs II, Lemma 3.8 (ext*): extensions in the random algebraic template",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A machine-checked proof of the Solovay-Kitaev theorem for single-qubit Clifford+T circuits. A word is a finite sequence of the letters H, T and T^-1 (with T^-1 = T^7), and its value is the product of the letters' 2 x 2 matrices. There are constants K > 0 and e > 0 such that for every epsilon with 0 < epsilon <= e, every U in SU(2) is within epsilon of the value of a word of length at most K log(1/epsilon)^c, in the operator norm, where c = log 5 / log(3/2), about 3.97, is Dawson and Nielsen's exponent. A second theorem places c strictly between 3 and 4. The word approximates U itself, not U up to a phase. K and e are not computed. The proof was first completed in the author's csd-lean4 library on 6 October 2026 (commit 01e973e9). The theorem is classical and no priority is claimed for it.",
+        "authors": [
+          {
+            "name": "Zayn Blore"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "quant-ph",
+            "math.GR"
+          ],
+          "msc2020": [
+            "81P68",
+            "81P65",
+            "68Q12"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "solovay_kitaev",
+            "exponent_mem_Ioo"
+          ]
+        },
+        "id": "PALOMAR-2026-11-17-000008",
+        "path": "entries/PALOMAR-2026-11-17-000008-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "4579418fe09fefdfee33f54e018c854e14ff86fb",
+              "fork_repository": "PalomarArchive/zblore--solovay-kitaev-lean--fce91b0dec44",
+              "source_repository": "zblore/solovay-kitaev-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "190c58b77f19cdddaf399fcd96f4be8dd47ff683d931a2d75a385ef559a75bed",
+          "version": 1
+        },
+        "published_at": "2026-11-17T08:38:03Z",
+        "source": {
+          "commit": "4579418fe09fefdfee33f54e018c854e14ff86fb",
+          "project_path": null,
+          "repository": "zblore/solovay-kitaev-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The Solovay-Kitaev theorem for Clifford+T words, with the Dawson-Nielsen exponent",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 formalization of the two main theorems of Fragkos, Krause, Miheisi and Sun, A Variation Norm Carleson Theorem Along the Primes. For finitely supported f on the integers, consider the modulated sums S_λ f(x) = Σ_{n ≠ 0} f(x − n) Λ(|n|) e(λn)/n, with Λ the von Mangoldt function and e(t) = exp(2πit). Theorem 1.3: for every r > 2 the r-variation of S_λ f(x) over λ in [0, 1) is bounded on ℓ^p(ℤ) for c(r) < p < C(r), where r' < c(r) < 2 < C(r), c(r) → 1 and C(r) → ∞ as r → ∞. Theorem 1.4: the supremum of |S_λ f(x)| over λ in [0, 1) is bounded on ℓ^p(ℤ) for every 1 < p < ∞. The results of other papers that the proofs use are proved in the repository, among them the variation norm Carleson theorem on the real line (Oberlin, Seeger, Tao, Thiele, Wright), the Magyar–Stein–Wainger transference principle for variation norms and the U³ approximation of the von Mangoldt function; none is assumed. The U³ approximation is proved here from the classical zero-free region and the absence of Landau–Siegel zeros, a Lean proof vendored from the openai/math library.",
+        "authors": [
+          {
+            "name": "Anastasios Fragkos"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CA",
+            "math.NT"
+          ],
+          "msc2020": [
+            "42B20",
+            "42B25",
+            "11L20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PrimeCarleson.Palomar.variation_norm_prime_carleson",
+            "PrimeCarleson.Palomar.prime_carleson_maximal"
+          ]
+        },
+        "id": "PALOMAR-2026-11-17-000007",
+        "path": "entries/PALOMAR-2026-11-17-000007-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "6753794fbfa2895b77eba3039b4ea8783a84be4c",
+              "fork_repository": "PalomarArchive/anastasiosfragkosmath--Variation-Norm-Carleson-Along-the-Primes-Palomar-Submission--85ae24fd93ce",
+              "source_repository": "anastasiosfragkosmath/Variation-Norm-Carleson-Along-the-Primes-Palomar-Submission"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "ff98036ee9d5e9222cd77a348b2d6eb1d520eaa51b158ecc137356c7259692fa",
+          "version": 1
+        },
+        "published_at": "2026-11-17T08:28:26Z",
+        "source": {
+          "commit": "6753794fbfa2895b77eba3039b4ea8783a84be4c",
+          "project_path": null,
+          "repository": "anastasiosfragkosmath/Variation-Norm-Carleson-Along-the-Primes-Palomar-Submission"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "A Variation Norm Carleson Theorem Along the Primes",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Nine isosceles triangles with a common axis in a circle of diameter 1 that meet Huet's conditions in Chiodo's form (the two great triangles inscribed, seven apexes on bases, the 18 marmas and the 6 corner touches), Kulaichev's four conditions (a)-(d) and the admissibility of DICTO's paper #103 (Theorem 1) form exactly one figure (identified with the yantra of #103 Theorem 10 through the slope interval). Its slope w7/b7 is proved to lie in an interval of width 2^-21, [0.7504382776..., 0.7504387544...]; #103 gives the slope as 0.7504385160222140244..., a value computed outside Lean that lies in this interval. This settles Kulaichev's 1984 uniqueness question for admissible (well-formed) figures. The proof combines a kernel-checked branch-and-bound interval certificate (64,613 boxes in 10 charts, with proved monotone-split and slope enclosures), a Krawczyk box (uniqueness by a contraction, existence by Banach's fixed-point theorem), the forced construction from the geometry, and a verified sparse-polynomial normaliser for the identities between them. Not formalised: DICTO's study (outside Lean) finds one other real solution of the same equations, at w7/b7 = 0.66866..., which is not admissible (bases out of order, two negative half-widths), so it is not a yantra. Audiences: the history of mathematics (Kulaichev's question in the Indian Journal of History of Science, called still open in 2021), sacred geometry (the construction of the Sri Yantra), and computer-assisted proof in geometry (a certified interval computation checked by Lean's kernel).",
+        "authors": [
+          {
+            "name": "DICTO"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.MG",
+            "math.HO"
+          ],
+          "msc2020": [
+            "51M04",
+            "51M15",
+            "65G20",
+            "01A32",
+            "03B35"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "KulaichevYantra.kulaichev_unique",
+            "KulaichevYantra.kulaichev_slope"
+          ]
+        },
+        "id": "PALOMAR-2026-11-17-000006",
+        "path": "entries/PALOMAR-2026-11-17-000006-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "c167cf4ed81f9e7df921ed7ce0113db874b1391b",
+              "fork_repository": "PalomarArchive/DICTOR-Master--kulaichev-yantra-lean--77426e05c719",
+              "source_repository": "DICTOR-Master/kulaichev-yantra-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "33aa056731367e58b9609eba046a7e6f8be034ab37171591cf9520ef81d16f14",
+          "version": 1
+        },
+        "published_at": "2026-11-17T08:15:21Z",
+        "source": {
+          "commit": "c167cf4ed81f9e7df921ed7ce0113db874b1391b",
+          "project_path": null,
+          "repository": "DICTOR-Master/kulaichev-yantra-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Kulaichev's Sri Yantra is unique",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Two geometric preparation theorems for integration in algebraically closed valued fields. Proposition 3.19 partitions an original-base definable VF bijection into finitely many definable pieces on which it is open-to-open. Lemma 4.8 decomposes an original-Gamma-base definable subset of VF squared into two-cell fibres of a definable map to a finite RV power. The cell positioning graph and both paradigms are definable over the original base together with the output RV tuple. Actual saturation, characteristic, parameter-base and named-value hypotheses remain in the formal statements. The larger repository develops Sections 2–7, including ordinary and measured integration; those additional results are outside this Palomar selection.",
+        "authors": [
+          {
+            "name": "Yimu Yin"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.LO"
+          ],
+          "msc2020": [
+            "03C60",
+            "12J25",
+            "03B35"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "CanonicalRV.encodedRv_surjective",
+            "IntegrationInACVF.Section3.ImaginaryParameters.tuplePresentation._proof_3",
+            "IntegrationInACVF.Section3ACVF.FullOpenToOpenPartition.proposition_3_19",
+            "IntegrationInACVF.Section3ACVF.ParameterPresentation.decode_surjective",
+            "IntegrationInACVF.Section4.Cells.rawMap_vf",
+            "IntegrationInACVF.Section4.lemma_4_8",
+            "SpecialTransformations.Milestone0.RVCalc.le_refl_rv",
+            "SpecialTransformations.Milestone0.RVCalc.le_trans_rv",
+            "SpecialTransformations.Milestone0.Transfer.rv_mem",
+            "SpecialTransformations.Milestone0.Transfer.rv_zero_mem",
+            "SpecialTransformations.Milestone0.Transfer.vfInv_val",
+            "SpecialTransformations.Milestone0.Transfer.vfInv_zero",
+            "SpecialTransformations.Milestone0.Transfer.vf_add_assoc",
+            "SpecialTransformations.Milestone0.Transfer.vf_add_comm",
+            "SpecialTransformations.Milestone0.Transfer.vf_add_mem",
+            "SpecialTransformations.Milestone0.Transfer.vf_add_neg",
+            "SpecialTransformations.Milestone0.Transfer.vf_add_zero",
+            "SpecialTransformations.Milestone0.Transfer.vf_left_distrib",
+            "SpecialTransformations.Milestone0.Transfer.vf_mul_assoc",
+            "SpecialTransformations.Milestone0.Transfer.vf_mul_comm",
+            "SpecialTransformations.Milestone0.Transfer.vf_mul_inv_or_zero",
+            "SpecialTransformations.Milestone0.Transfer.vf_mul_mem",
+            "SpecialTransformations.Milestone0.Transfer.vf_mul_one",
+            "SpecialTransformations.Milestone0.Transfer.vf_neg_mem",
+            "SpecialTransformations.Milestone0.Transfer.vf_one_mem",
+            "SpecialTransformations.Milestone0.Transfer.vf_zero_mem",
+            "SpecialTransformations.Milestone0.Transfer.vf_zero_ne_one",
+            "SpecialTransformations.Milestone0.VFValued.exists_valuation_predV",
+            "SpecialTransformations.Section3.GammaParameters.value_surjective",
+            "SpecialTransformations.Section3.Values.infinity_eq_zero",
+            "SpecialTransformations.Section3.Values.presentation_compatible",
+            "SpecialTransformations.Section3.Values.vf_value_eq_iff",
+            "SpecialTransformations.Section3.Values.vf_value_mul",
+            "SpecialTransformations.Section3.Values.vf_value_one",
+            "SpecialTransformations.Section3.Values.vf_value_zero",
+            "SpecialTransformations.Section3.Values.vrv_eq_infinity_iff",
+            "SpecialTransformations.Section3.Values.vrv_surjective"
+          ]
+        },
+        "id": "PALOMAR-2026-11-17-000005",
+        "path": "entries/PALOMAR-2026-11-17-000005-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "cd36b96fe5f8c662950875a9edc646ad6290f28a",
+              "fork_repository": "PalomarArchive/daviddhilbert--integration-in-ACVF--f5a94e7545df",
+              "source_repository": "daviddhilbert/integration-in-ACVF"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "7204808240d6069d3e7a240aec94a09d2a8f3bf6641db2390dc1af49f0d77457",
+          "version": 1
+        },
+        "published_at": "2026-11-17T06:13:23Z",
+        "source": {
+          "commit": "cd36b96fe5f8c662950875a9edc646ad6290f28a",
+          "project_path": null,
+          "repository": "daviddhilbert/integration-in-ACVF"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Integration in algebraically closed valued fields",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of three statements, all about one field. Let L = QQ(rho, Q) be the field generated over the rationals QQ by a root rho of x^3 - x - 1 and a root Q of x^4 - x - 1, a number field of degree 12 (below, QQ denotes the rationals and Q the root). For a number field K and x in K write H(x) = Height.mulHeight1 x for Mathlib's multiplicative height of x relative to K (the [K:QQ]-th power of the absolute Weil height), and T2(x) = sum over the [K:QQ] ring homomorphisms sigma : K -> C of |sigma x|^2. M(x) is the Mahler measure of the minimal polynomial of an algebraic integer x over Z. (1) The nonzero algebraic integers x of L with H(x) <= H(rho Q) are exactly the fourteen elements +-1, +-rho^(+-1), +-Q^(+-1), +-(rho Q)^(+-1). (2) Every algebraic integer x of L with QQ(x) = L has M(rho Q) <= M(x), with equality exactly for x in {rho Q, -rho Q, (rho Q)^-1, -(rho Q)^-1}; since rho Q generates L (proved in the repository, not compared), the least Mahler measure of an integral generator of L (Dubickas's M(O_L)) is M(rho Q), attained at these four elements only. (3) Let x be an algebraic integer of L with QQ(x) = L such that M(x) <= M(y) for every algebraic integer y of L with QQ(y) = L, and such that sigma(x) is a real Perron number (Lind's definition) for some embedding sigma : L -> C; then x = rho Q (one direction only: that rho Q satisfies these hypotheses is proved in the repository, HeightT2.ρQ_perronNumber_generator_selected, and not compared). The Challenge imports Mathlib only and carries the definition block of the author's registered entry PALOMAR-2026-10-21-000012 (the field L and its elements) and one definition of this entry (IsPerronNumber). Proved in the repository and not compared, none claimed as this entry's: (i) the inequality T2(x) <= H(x)^2 + n - 1 for x in a number field of degree n, which is Lemma 6 of Dubickas (Rev. Mat. Iberoam. 39 (2023)) applied to the squares max(1, |sigma x|)^2; (ii) its case of equality, T2(x) = H(x)^2 + (n - 1) exactly when x is a root of unity (for n >= 2; HeightT2.sum_norm_sq_eq_mulHeight₁_sq_add_iff); Lemma 6 states no case of equality, no statement of it in print was located (README.md, \"Relation to the literature\", lists where it was searched) and novelty is not claimed; (iii) the identity that, for subfields K1, K2 of a number field E, linearly disjoint over QQ with K1 v K2 = E, the T2 Gram matrix of the product family b_i c_j is the Kronecker product of the T2 Gram matrices G_b and G_c of b and c (the T2 Gram matrix of a family b in a number field K has entries sum over sigma : K -> C of sigma(b_i) conj(sigma(b_k))) (HeightT2.t2Gram_compositum); special cases are in print (Popov and Zarhin 2021, Lemma 8(iii), coprime cyclotomic fields; Lyubashevsky, Peikert and Regev 2013, eq. (2.6); Bayer-Fluckiger, Oggier and Viterbo 2004, Prop. 6, totally real Galois fields with coprime discriminants), it is the Hermitian counterpart of the trace-form identity of the author's entry PALOMAR-2026-09-02-000014 (statement 3), on a totally real field the T2 Gram matrix is the trace Gram matrix, and novelty is not claimed; (iv) the coordinate bound (HeightT2.coord_sq_le_sum_norm_sq): with b, c finite and E_ii the diagonal matrix unit at (i, i), if s, t >= 0 and Re G_b - s E_ii and Re G_c - t E_jj are positive semidefinite, then every rational coefficient vector a satisfies s t a_ij^2 <= T2(sum a_kl b_k c_l), with T2 taken in E; for families that are bases it is the bound (2.9) of Fincke and Pohst (1985) applied to the Kronecker product of the two Gram matrices, it also covers singular Gram matrices, and novelty is not claimed; (v) that rho Q satisfies the hypotheses of statement (3). The proofs of the three compared statements use the instance of (i) for L in the copied library (RulerSelection.Emb.T2_le_embHeight_sq_add) and a direct proof of the content of (iii) for L and its power bases (RulerSelection.Emb.T2_coords, from RulerSelection.Emb.sum_norm_sq_tensor); they use neither (ii) nor the theorems (iii) and (iv) as stated; (iv) is proved from the matrix lemma RulerSelection.Kron.kron_ge_diag that they use (README.md, \"The proofs\").",
+        "authors": [
+          {
+            "name": "Stephanie Alexander"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT",
+            "cs.LO",
+            "math-ph"
+          ],
+          "msc2020": [
+            "11R06",
+            "11G50",
+            "11R04",
+            "11R21",
+            "11C08",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "IntegralGeneratorHeights.mulHeight₁_le_mulHeight₁_ρQ_iff",
+            "IntegralGeneratorHeights.mahlerMeasure_generator_min",
+            "IntegralGeneratorHeights.perronNumber_generator_selection"
+          ]
+        },
+        "id": "PALOMAR-2026-11-17-000004",
+        "path": "entries/PALOMAR-2026-11-17-000004-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "c00797c899a74f6ecaaa1305112dd51bf1df0e40",
+              "fork_repository": "PalomarArchive/stalex444--pdt-integral-generator-heights--19c60b2061e7",
+              "source_repository": "stalex444/pdt-integral-generator-heights"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "6f71912de6d1037af4b140ff33d1039808370f266dbd241ed4f89fd2cccfb85b",
+          "version": 1
+        },
+        "published_at": "2026-11-17T01:33:06Z",
+        "source": {
+          "commit": "c00797c899a74f6ecaaa1305112dd51bf1df0e40",
+          "project_path": null,
+          "repository": "stalex444/pdt-integral-generator-heights"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The integral generators of least Mahler measure of the field of x^3 - x - 1 and x^4 - x - 1",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Peter Bala (OEIS, February 2021) defined the polynomials R(n, q) = Σ_{k<n} x^(k²) Π_{j=k+1}^{n−1} (x^(2j) − 1), x = 1 + q, as the rows of a q-series (OEIS A340882); their values a(n) = R(n, 1) are A340883 (1, 5, 91, 6245, …). He noted that, q-adically, R(2n + 1, q − 1) and −R(2n, q − 1) tend to Euler's product Π(1 − q^n). He conjectured that for all integers q and N the sequence R(n, q) mod N is purely periodic or periodic after one term (A340882), and that A340883 modulo m has pre-period 0 or 1 and least period dividing φ(m) (A340883, conjecture 1). The package refutes both conjectures and gives the exact answer. For every q and N ≥ 1 it determines the pre-period of R(n, q) mod N: the maximum, over the primes p dividing both N and 1 + q, of an explicit function of v_p(N) and v_p(1 + q). So A340882 holds for (q, N) exactly when 1 + q = 0 or v_p(N) ≤ 5 v_p(1 + q) for every such prime, and it holds for every N exactly when q ∈ {−2, −1, 0}. For A340883 the pre-period is at most 1 exactly when 64 ∤ m (modulo 64 the sequence is 1, 5, 27, 37, 27, 37, …), while the period part, a(n + φ(m)) ≡ a(n) (mod m) after the pre-period, holds for every m. The proof starts from the recurrence R(n + 1) = (x^(2n) − 1) R(n) + x^(n²). For a prime p ∤ x and x^o ≡ 1 (mod p^e), the first o terms of the sum for R(n + o) vanish modulo p^e and the others match those of R(n). For p ∣ x, the exact valuations v_p(R(n + 2) − R(n)) = c(n) v_p(x), with c(1) = 1, c(2) = 5 and c(n) = 2n for n ≥ 3, give the pre-period modulo p^e, and the Chinese remainder theorem gives it modulo N. For completeness the package also proves Bala's conjecture 2) for A340883: for coprime m₁ and m₂ the period modulo m₁m₂ is the lcm of the two periods. This is the Chinese remainder theorem for sequences that are eventually periodic modulo every m, and it is not claimed as new. The audience is number theorists who study congruences and periodicity modulo m of sequences defined by q-series. Bala's periodicity conjecture for A158690, whose e.g.f. 1 + Σ_{m≥1} Π_{j=1}^{m} (1 − e^(−(2j−1)t)) uses the same products Π(1 − x^(2j−1)), was proved in a recent note (Kallat, arXiv:2609.07238): the sequence is eventually periodic modulo every k with period dividing φ(k). That note gives a pre-period bound that it does not claim to be sharp; for A340882 this package determines the pre-period exactly. Bala's companion conjectures for A340881 were proved in 2026 (umaia1234/agentic-conjectures), and those for A340880 are not part of this package. No earlier treatment of A340882 or of A340883's conjecture 1) was found.",
+        "authors": [
+          {
+            "name": "Wentao Li"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT",
+            "math.CO"
+          ],
+          "msc2020": [
+            "05A30",
+            "11A07",
+            "11B50"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "OeisA340882.not_conjecture_A340882",
+            "OeisA340882.conjecture_A340882_iff",
+            "OeisA340882.conjecture_A340882_fails",
+            "OeisA340882.prePeriod_spec",
+            "OeisA340882.conjecture_A340882_iff_local",
+            "OeisA340882.not_conjecture1_A340883",
+            "OeisA340882.a_mod_64",
+            "OeisA340882.conjecture1_A340883_prePeriod_iff",
+            "OeisA340882.a_period_totient",
+            "OeisA340882.conjecture1_A340883_iff",
+            "OeisA340882.conjecture2_A340883"
+          ]
+        },
+        "id": "PALOMAR-2026-11-17-000003",
+        "path": "entries/PALOMAR-2026-11-17-000003-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+              "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+              "source_repository": "VictorLiwentao/fc-palomar-proofs"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "b8f2f92dae1008a13c1eceda617c8ba14347a97da134ba4f732fd2a9ee99d492",
+          "version": 1
+        },
+        "published_at": "2026-11-17T00:21:21Z",
+        "source": {
+          "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+          "project_path": null,
+          "repository": "VictorLiwentao/fc-palomar-proofs"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "OEIS A340882 and A340883: Bala's pre-period conjectures, refuted, with the exact pre-period",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Let a(n) = (2n+1)! [x^(2n+1)] sin 2x / (2 cos 3x) (OEIS A002439, Glaisher's T numbers: 1, 23, 1681, 257543, …; Glaisher, 1899). Up to a sign and a factor 1/2, a(n) is the value at −2n − 1 of the Dirichlet L-function of the real character χ₁₂ modulo 12, so these are congruences for values of Dirichlet L-functions. In 2021 Peter Bala conjectured six families of congruences for a(n) and stated the formula a(n) ≡ 23^n (mod 1152). The package proves his power congruences 3)–5): a(mn) ≡ a(m)^n modulo 2^(2v₂(m)+7) and modulo 3^(2v₃(m)+2); a(2mn) ≡ a(n)^(2m) and a((2m+1)n) ≡ a(n)^(2m+1) modulo 2^(v₂(m)+7); a(3mn) ≡ a(n)^(3m) and a((3m+1)n) ≡ a(n)^(3m+1) modulo 3^(v₃(m)+2), and even modulo 3^(v₃(m)+3); and a((3m+2)n) ≡ a(n)^(3m+2) modulo 9. It proves the formula a(n) ≡ 23^n (mod 1152). It refutes conjecture 6) and determines exactly when it holds: for a prime p ≥ 5, h = (p − 1)/2 and m, n ≥ 1, a(hnm) ≡ a(hn)^m (mod p^(v_p(m−1)+1)) holds if and only if v_p(m − 1) ≤ (p − 1)n. For example, at p = 5, n = 1 and m = 3126 = 1 + 5^5, a(6252) ≡ (1 + 5^5)·a(2) (mod 5^6), so a(6252) − a(2)^3126 has 5-adic valuation exactly 5 instead of 6; this is proved by hand, without computing a(6252). Behind this is the congruence a(n + h·p^(e−1)) ≡ (−1)^h (1 − χ₁₂(p)·p^(2n+1)) a(n) (mod p^e) for every prime p ≥ 5, e ≥ 1 and every n, which the package proves from an elementary alternating-sum formula. It is the classical Kummer congruence for these L-values, from the theory of p-adic measures attached to Dirichlet characters that Blanco Gómez's Remark 5 names, and 1 − χ₁₂(p)p^(2n+1) is its Euler factor. When 2n + 1 ≥ e it reduces to the antiperiod a(n + h·p^(e−1)) ≡ (−1)^h a(n) (mod p^e), a case of Blanco Gómez's Theorem 1 on the values b^r E_r(a/b) of the Euler polynomials (Zenodo 23407292), and the \"if\" direction for 6) is a short corollary of it. At p = 3 the package proves a(n + 3^(e−1)) ≡ −a(n) (mod 3^e) for every n. No earlier treatment of the power congruences 3)–5), of the formula modulo 1152, or of the failure of 6) and its exact range was found. The power congruences carry the main new argument; the exact range of 6) is a short consequence of the classical congruence above. Bala's congruence conjectures for exponential generating functions are recent targets in the study of congruences for Euler-type numbers and for values of Dirichlet L-functions: Kallat proved Bala's conjectures for A158690 (arXiv:2609.07238). Conjectures 1) and 2) for A002439 follow from Kallat's Theorem 2.6 and Bala's hypergeometric e.g.f., which comes from Zagier's strange identity; they are not part of this package.",
+        "authors": [
+          {
+            "name": "Wentao Li"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT",
+            "math.CO"
+          ],
+          "msc2020": [
+            "11A07",
+            "11B68"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "OeisA002439.conjecture3_two",
+            "OeisA002439.conjecture3_three",
+            "OeisA002439.conjecture4",
+            "OeisA002439.conjecture5",
+            "OeisA002439.conjecture5_iii",
+            "OeisA002439.a_mod_1152",
+            "OeisA002439.not_conjecture6",
+            "OeisA002439.conjecture6_counterexample",
+            "OeisA002439.antiperiod_odd_prime_pow",
+            "OeisA002439.conjecture6_of_le",
+            "OeisA002439.antiperiod_euler",
+            "OeisA002439.conjecture6_iff",
+            "OeisA002439.antiperiod_three",
+            "OeisA002439.conjecture5_strong"
+          ]
+        },
+        "id": "PALOMAR-2026-11-17-000002",
+        "path": "entries/PALOMAR-2026-11-17-000002-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+              "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+              "source_repository": "VictorLiwentao/fc-palomar-proofs"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "eacc75c59ae69bea345c2eacc9b42640e79318931abd127c7daf50d089cf7434",
+          "version": 1
+        },
+        "published_at": "2026-11-17T00:13:01Z",
+        "source": {
+          "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+          "project_path": null,
+          "repository": "VictorLiwentao/fc-palomar-proofs"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "OEIS A002439: Bala's conjectures for sin 2x / (2 cos 3x)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Let S_m(n) = Σ_{k=0}^n (−1)^(n+k) k^m C(n,k) C(n+k,k)²; S_3 is OEIS A357559 and S_0 is the Apéry sequence A005258. The package proves Peter Bala's 2022 Conjecture 1, n²(2n+1)² ∣ S_2(2n), and the conjecture in the entry's formula section, n²(2n+1)³ ∣ 3·S_3(2n), for every n ≥ 0. Both follow from stronger statements for every n: n²(n+1)² ∣ 2S_2(n), with n²(n+1)² ∣ S_2(n) for odd n, and n²(n+1)³ ∣ 6S_3(n). These give an extra factor 2 in both conjectures. The constants 2 and 6 cannot be lowered: 36 ∤ S_2(2) = 126, 8 ∤ 3S_3(1) = 12 and 576 ∤ 2S_3(3) = 16896. Bala's Conjectures 2 and 3, for m ≥ 4, are not treated. Divisibility theorems for binomial sums of this kind, including weighted sums of Apéry numbers, are a research topic: see Guo and Zeng (Int. J. Number Theory 2011 and 2012) and Guo's proof of a divisibility conjecture of Z.-W. Sun (Electron. J. Combin. 2013).",
+        "authors": [
+          {
+            "name": "Wentao Li"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT",
+            "math.CO"
+          ],
+          "msc2020": [
+            "05A10",
+            "11A07",
+            "11B65"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "OeisA357559.S_two_dvd",
+            "OeisA357559.S_two_dvd_of_odd",
+            "OeisA357559.S_three_dvd",
+            "OeisA357559.conjecture_one",
+            "OeisA357559.conjecture_one_two",
+            "OeisA357559.formula_conjecture",
+            "OeisA357559.formula_conjecture_two"
+          ]
+        },
+        "id": "PALOMAR-2026-11-17-000001",
+        "path": "entries/PALOMAR-2026-11-17-000001-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+              "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+              "source_repository": "VictorLiwentao/fc-palomar-proofs"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "e83b44a6024de19b62a8ecca3c1dbedb354ee05fbba7204e924c57973a2466f5",
+          "version": 1
+        },
+        "published_at": "2026-11-17T00:05:04Z",
+        "source": {
+          "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+          "project_path": null,
+          "repository": "VictorLiwentao/fc-palomar-proofs"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "OEIS A357559: Bala's divisibility conjectures for k^m-weighted Apéry sums (m = 2, 3)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Lean 4 formalization of an explicit lower bound for uniformly row-subsampled discrete Fourier transforms acting on canonical binary-heap tree-sparse vectors. With constant distortion, at least half of frequency sequences violate tree-RIP when 20000 m <= k min(k, log_2(N/k)), with an explicit quadratic corollary. The proof uses broom supports, Fejer-kernel concentration, simultaneous Diophantine approximation, and finite counting. A full-DFT isometry theorem checks the normalization and nonvacuity of the definitions.",
+        "authors": [
+          {
+            "name": "Chinmay Hegde"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NA",
+            "cs.IT"
+          ],
+          "msc2020": [
+            "42B05",
+            "94A12"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "FourierTreeRIP.broom_lower_bound",
+            "FourierTreeRIP.fourier_tree_rip_lower_bound",
+            "FourierTreeRIP.fourier_tree_rip_quadratic",
+            "FourierTreeRIP.full_dft_isometry",
+            "FourierTreeRIP.treeRIP_full_dft"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000025",
+        "path": "entries/PALOMAR-2026-11-16-000025-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "d35425b021e53164165e9916fc26f80cec6303a1",
+              "fork_repository": "PalomarArchive/chinmayhegde--fourier-tree-rip-palomar--c15efdd0560b",
+              "source_repository": "chinmayhegde/fourier-tree-rip-palomar"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "3e6019cc8fc85186a5f416f92940c3302dcf25bcdded8e604343598c2acf9b50",
+          "version": 1
+        },
+        "published_at": "2026-11-16T23:26:23Z",
+        "source": {
+          "commit": "d35425b021e53164165e9916fc26f80cec6303a1",
+          "project_path": null,
+          "repository": "chinmayhegde/fourier-tree-rip-palomar"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "A Quadratic Lower Bound for Fourier RIP with Tree-Structured Sparsity",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 proof, with no unproved steps, of the elementary core of the method of J. Pintz, A new explicit formula in the additive theory of primes with applications II. The exceptional set in Goldbach's problem, arXiv 1804.09084v2, 2018, whose Theorem 1 is E of X below X to the power 0.72. Pintz turns zero density theorems for Dirichlet L-functions into explicit bounds through two new steps, which this entry proves. Theorem K, display 4.41, solves the extremal problem of displays 4.37 to 4.39: among decreasing configurations d_1 at least d_2 and so on, with caps d_j at most e_j and a density budget, a maximiser of the sum of e to the B d_j minus e to the C d_j saturates every coordinate before its last active one. The proof is the exchange argument of displays 8.10 to 8.16, done here with the cost in the integral form of display 8.11, and a second theorem adds for an abstract concave cost that the budget is used up exactly and the last active coordinate solves the residual equation 4.42. Theorem J, display 4.36, bounds the weighted excess of zeros by 1 minus xi over 2 Delta; it is proved here from the analytic estimate 7.20, which is a hypothesis. Two Section 9 statements are proved in the repository but are outside this submission's selected Comparator check: the basic inequality 9.4 in the form used in 9.22, and Case 8, where e to the minus 7 lambda plus 2.87 times 10.4 times lambda to the 11/7 is below 1 for 0 below lambda at most 0.04. The zero density theorems, the estimate 7.20, the existence of a maximiser and Theorem 1 are not proved and not claimed. AI agents wrote the Lean code, Claude by Anthropic, Codex by OpenAI and Gemini by Google, as listed in PORTING.md, and it is offered for human audit.",
+        "authors": [
+          {
+            "name": "Steve Hubbard"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11P32",
+            "11M26",
+            "11N35"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "LeanLab.Pintz2018.Greedy117.theoremK_ordered_integral",
+            "LeanLab.Pintz2018.Residual117.saturation_and_residual",
+            "LeanLab.Pintz2018.Density117.excess_bound_of_720"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000024",
+        "path": "entries/PALOMAR-2026-11-16-000024-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "a135b51f4fb001c427bab4ff0f49b4abbe781e3d",
+              "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+              "source_repository": "sthubbar/goldbach-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "d5c84797149e19cc3cff193b38d037681e09e2a2248593991b99498b4119f111",
+          "version": 1
+        },
+        "published_at": "2026-11-16T17:33:43Z",
+        "source": {
+          "commit": "a135b51f4fb001c427bab4ff0f49b4abbe781e3d",
+          "project_path": "entries/pintz2018",
+          "repository": "sthubbar/goldbach-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The exceptional set in Goldbach's problem: the weighted density and optimisation steps",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Let a(n) = (2n+1)! [x^(2n+1)] arcsin(tan x) (OEIS A012780). The package proves that every a(n) is an integer and Peter Bala's 2026 conjecture that a(n) mod k is eventually periodic with period dividing φ(k), for every k ≥ 1. It also proves the prime-power congruences behind it: a(n + 2^(e−1)) ≡ a(n) (mod 2^e) for all n, and a(n + φ(p^e)) ≡ a(n) (mod p^e) for odd primes p and 2n ≥ e, and the conjecture with that explicit pre-period. It also proves that a(n + 2) ≢ a(n) (mod 8) for every n, so the Carmichael function λ(k) cannot replace φ(k). Bala's φ(k)-periodicity conjectures for exponential generating functions are recent research targets: Kallat proved Bala's conjectures for A158690 (arXiv:2609.07238), and Blanco Gómez proved the φ(k)-period for the Euler numbers A000364, where Bala's stronger claim of pure periodicity fails (Zenodo 23150466, Theorem 2.2). Kallat's general theorem gives λ(k)-periods, so by the mod-8 result it does not cover A012780.",
+        "authors": [
+          {
+            "name": "Wentao Li"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT",
+            "math.CO"
+          ],
+          "msc2020": [
+            "05A15",
+            "11A07",
+            "11B50"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "OeisA012780.bala_conjecture",
+            "OeisA012780.bala_explicit",
+            "OeisA012780.period_two_pow",
+            "OeisA012780.period_odd_prime_pow",
+            "OeisA012780.not_period_two_mod_eight"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000023",
+        "path": "entries/PALOMAR-2026-11-16-000023-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+              "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+              "source_repository": "VictorLiwentao/fc-palomar-proofs"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "324432cbd5f1d8918cd1da086c5c115c25b03d468b5d8b06473171e3acb861c8",
+          "version": 1
+        },
+        "published_at": "2026-11-16T17:26:16Z",
+        "source": {
+          "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+          "project_path": null,
+          "repository": "VictorLiwentao/fc-palomar-proofs"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "OEIS A012780: Bala's periodicity conjecture for arcsin(tan x)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Let a_m(n) = [x^(mn)] 1/P_n((1−x)/(1+x)), where P_n is the Legendre polynomial; OEIS A339946 is the case m = 1. The package proves Peter Bala's 2022 conjecture that a_m(p) ≡ a_m(1) = 2 (mod p^5) for every m ≥ 1 and every prime p ≥ 7, and with it his 2020 conjecture a(p) ≡ a(1) (mod p^5) for A339946. It shows that the range p ≥ 7 is optimal: a_m(5) ≡ 2 + 625m² (mod 5^5), so the congruence at p = 5 holds exactly when 5 divides m. It also proves Bala's Conjecture 2 for OEIS A361717: Σ_{k=0}^{p−2} C(p−2, k)² C(p−1+k, k) ≡ 1 − 2p − p² (mod p³) for every prime p ≠ 3. Bala's entry lists A103882 and the Apéry numbers A005258 and A005259 as coefficients of similar Legendre-polynomial expressions that satisfy supercongruences u(np^k) ≡ u(np^(k−1)) (mod p^(3k)), and it presents a(p) ≡ a(1) (mod p^5) as a stronger congruence. A361717 is of the same type: A005258(n) = [x^n] (1−x)^(−1) P_n((1+x)/(1−x)) and A361717(n+1) = [x^n] (1−x)^(−2) P_n((1+x)/(1−x)) (Bala, December 2020 and August 2026). Supercongruences of Apéry-like sequences are a research topic; see Straub (Algebra & Number Theory, 2014) and the references there.",
+        "authors": [
+          {
+            "name": "Wentao Li"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT",
+            "math.CO"
+          ],
+          "msc2020": [
+            "05A10",
+            "11A07",
+            "11B65"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "OeisA339946.am_congr",
+            "OeisA339946.a339946_congr",
+            "OeisA339946.a361717_conj2",
+            "OeisA339946.am_five",
+            "OeisA339946.am_five_congr_iff"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000022",
+        "path": "entries/PALOMAR-2026-11-16-000022-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+              "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+              "source_repository": "VictorLiwentao/fc-palomar-proofs"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "f69cf7d2d49e1c15921febec192df236c6a1acc64e3e118e986c72b638230e0e",
+          "version": 1
+        },
+        "published_at": "2026-11-16T16:32:43Z",
+        "source": {
+          "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+          "project_path": null,
+          "repository": "VictorLiwentao/fc-palomar-proofs"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "OEIS A339946 and A361717: Bala's prime-level supercongruences",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For a four-point support in Z/nZ with n positive and its full labelled ordered square supplied, at most two fixed labelled coefficients of the ordered cube separate the complete four-point square fibre. Coefficient responses are exact integer values embedded in the reals; they are not binary answers. No query lower bound or runtime claim is asserted.",
+        "authors": [
+          {
+            "name": "Alexandre Couret"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05A15"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Couret.PalomarCubic.two_cubic_coordinates"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000021",
+        "path": "entries/PALOMAR-2026-11-16-000021-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "eb5b9e28541146314aad53e7a55458ed28ffb65a",
+              "fork_repository": "PalomarArchive/alexcour--couret-finite-verifications--331d9268956b",
+              "source_repository": "alexcour/couret-finite-verifications"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "b5fddefc1d44c053a07915c4e25b113a9662e5d4f753d4a8f3657da89de779da",
+          "version": 1
+        },
+        "published_at": "2026-11-16T16:20:42Z",
+        "source": {
+          "commit": "eb5b9e28541146314aad53e7a55458ed28ffb65a",
+          "project_path": null,
+          "repository": "alexcour/couret-finite-verifications"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Two fixed cubic coefficients distinguish a cyclic four-point square fibre",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Let a(n) = (2n+1)! [x^(2n+1)] sin x / cos 2x (OEIS A000464: 1, 11, 361, 24611, …; Glaisher, 1914). Peter Bala made four conjectures on it in 2021. The package refutes the first as stated: modulo every multiple of 81, (a(n))_{n≥1} is not purely periodic with any period, because a(55) ≡ 65 ≢ 11 = a(1) (mod 81). It proves the corrected form, a(n + φ(k)) ≡ a(n) (mod k) whenever 2n + 1 is at least the exponent of every odd prime in k, so the conjecture holds eventually for every k and from n = 1 when no odd prime exponent of k exceeds 3. It proves the other three conjectures: the Gauss congruences a(np^k + i) ≡ a(np^(k−1) + i) (mod p^k) for every shift i, with the integrality of exp(Σ a(n+i) x^n/n); a(mn) ≡ a(m)^n (mod 2^(2v₂(m)+4)); and a(2mn) ≡ a(n)^(2m), a((2m+1)n) ≡ a(n)^(2m+1) (mod 2^(v₂(m)+4)). Behind them are a(n + 2^(e−1)) ≡ a(n) (mod 2^e) for every n, and a(n + (p−1)p^(e−1)/2) ≡ (−1)^((p−1)/2) a(n) (mod p^e) for odd primes p and 2n + 1 ≥ e. The period can be sharpened from φ(k) to the Carmichael function λ(k): a(n + 2^(e−2)) ≡ a(n) (mod 2^e) for e ≥ 3, so a(n + λ(k)) ≡ a(n) (mod k) under the same condition on n, and λ(8) = 2 cannot be lowered, since a(1) ≢ a(0) (mod 8). Bala's congruence conjectures for exponential generating functions are recent targets in the study of congruences for Euler-type numbers: Kallat proved Bala's conjectures for A158690 (arXiv:2609.07238), and Blanco Gómez refuted the same pure-periodicity wording for the Euler numbers A000364 and proved its eventual form (Zenodo 23150466, Theorem 2.2). The odd-prime congruence is known (Blanco Gómez, Zenodo 23407292, Theorem 1), and the 2-adic period follows quickly from Nishibuchi's criterion (arXiv:2610.11648, Prop. 3.4). No earlier treatment of the failure modulo 81 or of the power congruences 3) and 4) was found.",
+        "authors": [
+          {
+            "name": "Wentao Li"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT",
+            "math.CO"
+          ],
+          "msc2020": [
+            "05A15",
+            "11A07",
+            "11B68"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "OeisA000464.not_conjecture1",
+            "OeisA000464.not_periodic_of_eighty_one_dvd",
+            "OeisA000464.a_fifty_five",
+            "OeisA000464.period_two_pow",
+            "OeisA000464.period_two_pow_of_three_le",
+            "OeisA000464.antiperiod_odd_prime_pow",
+            "OeisA000464.period_odd_prime_pow",
+            "OeisA000464.period_totient",
+            "OeisA000464.conjecture1_eventual",
+            "OeisA000464.conjecture1_of_exponent_le_three",
+            "OeisA000464.period_carmichael",
+            "OeisA000464.conjecture1_carmichael_eventual",
+            "OeisA000464.carmichael_eight_sharp",
+            "OeisA000464.conjecture2",
+            "OeisA000464.conjecture2_exp_integral",
+            "OeisA000464.conjecture3",
+            "OeisA000464.conjecture4"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000020",
+        "path": "entries/PALOMAR-2026-11-16-000020-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+              "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+              "source_repository": "VictorLiwentao/fc-palomar-proofs"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "3ff0ac287e3c1505f7fa4bc3e0d712603622e2b092d5b7cddd035a89ac79feab",
+          "version": 1
+        },
+        "published_at": "2026-11-16T15:05:59Z",
+        "source": {
+          "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+          "project_path": null,
+          "repository": "VictorLiwentao/fc-palomar-proofs"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "OEIS A000464: Bala's conjectures for sin x / cos 2x",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Four Lean results for bicolored Steiner triple systems. For each fixed number k >= 3 of color classes, sufficiently large compatible labelled profiles with positive class and type margins admit exact prescribed block-type counts while completing any sufficiently sparse allowed packing. Uniformly over such prescribed matrices, the logarithm of the number of realizations has optimal leading coefficient 1/6 in n squared times log n. For any fixed K, the same exact type matrix has K realizations with distinct Pasch counts. For every fixed k >= 4, all sufficiently large admissible orders admit a k-bicoloring. The final threshold is ineffective.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05B07",
+            "05C15"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "CDRBicolour.KBicolor.kbicolour_completion_types_exact",
+            "CDRBicolour.KBicolor.optimal_prescribed_type_count_of_three_le",
+            "CDRBicolour.KBicolor.kbicolour_types_exact_many_pasch_counts",
+            "CDRBicolour.PaperIII.bicolourable_eventually_unconditional"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000019",
+        "path": "entries/PALOMAR-2026-11-16-000019-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "dd0a6595d5c45372ffadd19a35e3775e9b930f55",
+              "fork_repository": "PalomarArchive/jtraverso--cdr-palomar-kernel--853fb49173b4",
+              "source_repository": "jtraverso/cdr-palomar-kernel"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "be56eb80336e7cafb6d9923896b85ffebf1e1424bd1a5c4c1bca2cc92c430aeb",
+          "version": 1
+        },
+        "published_at": "2026-11-16T14:20:03Z",
+        "source": {
+          "commit": "dd0a6595d5c45372ffadd19a35e3775e9b930f55",
+          "project_path": null,
+          "repository": "jtraverso/cdr-palomar-kernel"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Prescribed block types and abundance in bicolored Steiner triple systems",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 formalization of the finite classification of obligatory triple systems. For every finite edge-indexed simple 3-uniform hypergraph F, the compared theorem proves that F is obligatory if and only if its isolated-point reduction is linear, every hyperedge-node of its Levi graph is incident with a bridge, and every Berge cycle has even length.",
+        "authors": [
+          {
+            "name": "Samuil Petkov"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C15",
+            "05C63",
+            "05C65"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Erdos593.TripleSystem.isolatedReduction_inc",
+            "Erdos593.TripleSystem.isObligatory_iff_isolatedReduction_intrinsic"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000018",
+        "path": "entries/PALOMAR-2026-11-16-000018-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "ea81bf26158876b457845f7998277fe47aa0fd02",
+              "fork_repository": "PalomarArchive/SamPetkov--Erdos593-formalization--280dcdf3e45f",
+              "source_repository": "SamPetkov/Erdos593-formalization"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "79e889b6f5cdce794e158f824fa5385f3f38d2e4791486eb2848b54d743df167",
+          "version": 1
+        },
+        "published_at": "2026-11-16T14:05:21Z",
+        "source": {
+          "commit": "ea81bf26158876b457845f7998277fe47aa0fd02",
+          "project_path": null,
+          "repository": "SamPetkov/Erdos593-formalization"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Erdős Problem 593: classification of obligatory triple systems",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For a, b ≥ 1 and m = a + b let f(x) = (1 − x^m)^m/((1 − x^a)^a (1 − x^b)^b) and u_{r,s}(N) = [x^(rN)] f(x)^(sN). The package proves the supercongruences u_{r,s}(np^k) ≡ u_{r,s}(np^(k−1)) (mod p^(3k)) for every prime p ≥ 5 with p ∤ abm, all r ≥ 1, s ∈ ℤ and n, k ≥ 1, and the same for Bala's variant f⁻(x) = (1 − x^m)^m/((1 + x^a)^a (1 + x^b)^b). As corollaries it proves Peter Bala's 2024 conjectures for A372212 ((a, b) = (2, 5), p ≥ 11), A372213 ((3, 4), p ≥ 11, and also p = 5), A372211 ((2, 3), p ≥ 7, both forms), his 2022 conjectures for A351859 (G₃ = (1 + x + x² + x³)⁴/(1 + x + x²)³, p ≥ 5, both forms), and his general clauses for all (a, b) and sufficiently large p, for f and for f⁻ (both read with the power n, as [x^n] f(x)^n and [x^n] f⁻(x)^n). A372211 at p = 5 is not claimed; it is open. For a = b = 1, u_{1,1}(n) = C(2n, n), and the towers are the classical Jacobsthal–Kazandzidis congruences (see Meštrović's survey, cited in A351859). Supercongruences of this strength for diagonals of rational functions are studied for Apéry-like numbers (Straub, Algebra Number Theory 8 (2014)) and for framings of rational functions (Müller, arXiv:2104.10754).",
+        "authors": [
+          {
+            "name": "Wentao Li"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT",
+            "math.CO"
+          ],
+          "msc2020": [
+            "11A07",
+            "11B65",
+            "05A15"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "OeisA372211.u_tower",
+            "OeisA372211.general_tower",
+            "OeisA372211.a372211_tower",
+            "OeisA372211.u372211_tower",
+            "OeisA372211.a372212_tower",
+            "OeisA372211.u372212_tower",
+            "OeisA372211.a372213_tower",
+            "OeisA372211.u372213_tower",
+            "OeisA372211.a351859_tower",
+            "OeisA372211.a351859_rs_tower",
+            "OeisA372211.um_tower",
+            "OeisA372211.general_variant_tower"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000017",
+        "path": "entries/PALOMAR-2026-11-16-000017-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+              "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+              "source_repository": "VictorLiwentao/fc-palomar-proofs"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "daa3bdc54912863500d23a4c5a55df4769643abc18dff67816e92195d090a963",
+          "version": 1
+        },
+        "published_at": "2026-11-16T13:04:26Z",
+        "source": {
+          "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+          "project_path": null,
+          "repository": "VictorLiwentao/fc-palomar-proofs"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "OEIS A372211–A372213 and A351859: Bala's p^(3k) towers for [x^(rN)] f^(sN), f = (1 − x^m)^m/((1 − x^a)^a (1 − x^b)^b)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For an integer q let a_q(0) = 1 and a_q(n) = Σ_{k=1}^n (−1)^(k+1) C(n,k) q^(k(n−k)) a_q(n−k). Then a_2 is OEIS A003024 (labeled acyclic digraphs) and a_3 is OEIS A188457 (acyclic 2-multidigraphs). The package proves the Gauss congruences a_q(np^r) ≡ a_q(np^(r−1)) (mod p^r) for every integer q, every prime p and all n, r ≥ 1. Hence exp(Σ_{n≥1} a_q(n) xⁿ/n) has integer coefficients for every q. The cases q = 2 and q = 3 are Peter Bala's 2016 conjectures in A003024 and A188457; the first also shows that every term of A188490 is an integer.",
+        "authors": [
+          {
+            "name": "Wentao Li"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "math.NT"
+          ],
+          "msc2020": [
+            "05A15",
+            "05C30",
+            "11B50"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "OeisA003024.gauss_congruence",
+            "OeisA003024.exp_integral",
+            "OeisA003024.a003024_exp_integral",
+            "OeisA003024.a188457_exp_integral"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000016",
+        "path": "entries/PALOMAR-2026-11-16-000016-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+              "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+              "source_repository": "VictorLiwentao/fc-palomar-proofs"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "fcf64d5245114fc903540ecd44d7c8c30fa942e1cc9d60a775e582d7c0d4679b",
+          "version": 1
+        },
+        "published_at": "2026-11-16T12:27:36Z",
+        "source": {
+          "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+          "project_path": null,
+          "repository": "VictorLiwentao/fc-palomar-proofs"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "OEIS A003024 and A188457: Bala's exp-integrality conjectures, with Gauss congruences for every q",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A machine-checked proof of Wigner's theorem for the complex projective space of C^N. Let f be any map from rays to rays that preserves the transition probability |<psi, phi>|^2 / (|psi|^2 |phi|^2). Then f is induced by a unitary or by an antiunitary (a unitary after coordinatewise complex conjugation), and in each case the inducing operator is unique up to a global phase. Nothing else is assumed about f: not linearity, not continuity, not bijectivity. The theorem is stated twice, with linear isometries (wigner, wigner_unique, wigner_unique_antiunitary) and with unitary matrices acting on rays (wigner_unitaryGroup, wigner_unitaryGroup_unique, wigner_unitaryGroup_unique_antiunitary). Mathlib, at the pinned commit, has no Wigner theorem. The proof was first completed in the author's csd-lean4 library on 2 July 2026 (commit c26c0954). Two other Lean proofs are listed under related_formalizations: one for maps on unit vectors of C^n, completed on 13 July 2026, and one whose existence theorem covers complex Hilbert spaces of any dimension, at a snapshot dated 31 October 2026. This proof is independent of both. The theorem is classical and no priority is claimed for it.",
+        "authors": [
+          {
+            "name": "Zayn Blore"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "quant-ph",
+            "math-ph"
+          ],
+          "msc2020": [
+            "81P16",
+            "15A86",
+            "47N50"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Projectivization.wigner",
+            "Projectivization.wigner_unique",
+            "Projectivization.wigner_unique_antiunitary",
+            "Projectivization.wigner_unitaryGroup",
+            "Projectivization.wigner_unitaryGroup_unique",
+            "Projectivization.wigner_unitaryGroup_unique_antiunitary"
+          ]
+        },
+        "id": "PALOMAR-2026-11-16-000015",
+        "path": "entries/PALOMAR-2026-11-16-000015-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "5f5c8784bdc789cf846073f80e2e23997475e52a",
+              "fork_repository": "PalomarArchive/zblore--wigner-lean--380596a3cd96",
+              "source_repository": "zblore/wigner-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "1331d82ef5fbadfd3dc03a787105fdd1e3b67aa4483c3264c505962a0773a115",
+          "version": 1
+        },
+        "published_at": "2026-11-16T10:15:05Z",
+        "source": {
+          "commit": "5f5c8784bdc789cf846073f80e2e23997475e52a",
+          "project_path": null,
+          "repository": "zblore/wigner-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Wigner's theorem for the rays of C^N: unitary or antiunitary, unique up to a phase",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
       {
         "abbreviated": false,
         "abstract": "Lean 4 / Mathlib formalization of Conjecture 19 from E. DeLaVina's Written on the Wall II (Graffiti.pc) collection, matching the exact statement in google-deepmind/formal-conjectures (WrittenOnTheWallII.GraphConjecture19.conjecture19). For every finite, nontrivial, connected simple graph G, the size b(G) of a largest induced bipartite subgraph is bounded below by the floor of the sum of the average vertex eccentricity and the maximum local neighborhood independence number sup_v l(v). The proof picks a vertex u maximising l(u), sets e = (G.eccent u).toNat and D = G.diam, and constructs an induced bipartite subgraph as a disjoint union of independent subsets B_d inside the distance spheres {v | G.dist u v = d} colored by distance parity. When D ≤ e, one geodesic vertex per sphere 2 ≤ d ≤ e together with {u} and an independent neighborhood subset I ⊆ N(u) of size l(u) gives b(G) ≥ e + l(u). When e < D, the average eccentricity is strictly less than D, and pairing geodesic vertices from u toward a diametral pair x, y on overlapping spheres (separated by distance at least 2 via the triangle inequality) gives b(G) ≥ D − 1 + l(u). The proof uses only propext, Classical.choice, and Quot.sound, with no sorry and no native_decide.",
@@ -68768,41 +69967,36 @@
         "versions": 3
       }
     ],
-    "previous": "eyJyZXZpc2lvbiI6OTYyLCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTIwVDE0OjMxOjUyWiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTIwLTAwMDAwOSJ9",
+    "previous": "eyJyZXZpc2lvbiI6OTgyLCJxdWVyeSI6ImRhYzQyYzA2NTVkM2RjYzBlZWM3MWE1ODlmNDczMDNiOTk0NDJmN2Y0YmUwY2RiNzRkYjllYzgyZDdkN2VjNzUiLCJkaXJlY3Rpb24iOiJwcmV2aW91cyIsImRhdGUiOiIyMDI2LTA4LTIwVDAxOjAyOjI3WiIsImlkIjoiUEFMT01BUi0yMDI2LTA4LTE5LTAwMDAwNyJ9",
     "next": null,
     "dropped": [],
     "message": null,
-    "pages_fetched": 46
+    "pages_fetched": 47
   },
   "changes": {
     "added": [
-      "PALOMAR-2026-11-16-000014",
-      "PALOMAR-2026-11-16-000013",
-      "PALOMAR-2026-11-16-000012",
-      "PALOMAR-2026-11-16-000011",
-      "PALOMAR-2026-11-16-000010",
-      "PALOMAR-2026-11-15-000008",
-      "PALOMAR-2026-11-16-000009",
-      "PALOMAR-2026-11-16-000008",
-      "PALOMAR-2026-11-16-000007",
-      "PALOMAR-2026-11-16-000006",
-      "PALOMAR-2026-11-16-000005",
-      "PALOMAR-2026-11-16-000004",
-      "PALOMAR-2026-11-16-000003",
-      "PALOMAR-2026-11-16-000002",
-      "PALOMAR-2026-11-16-000001",
-      "PALOMAR-2026-11-15-000007",
-      "PALOMAR-2026-11-15-000006",
-      "PALOMAR-2026-11-15-000005",
-      "PALOMAR-2026-11-15-000004",
-      "PALOMAR-2026-11-15-000003"
+      "PALOMAR-2026-11-17-000009",
+      "PALOMAR-2026-11-17-000008",
+      "PALOMAR-2026-11-17-000007",
+      "PALOMAR-2026-11-17-000006",
+      "PALOMAR-2026-11-17-000005",
+      "PALOMAR-2026-11-17-000004",
+      "PALOMAR-2026-11-17-000003",
+      "PALOMAR-2026-11-17-000002",
+      "PALOMAR-2026-11-17-000001",
+      "PALOMAR-2026-11-16-000025",
+      "PALOMAR-2026-11-16-000024",
+      "PALOMAR-2026-11-16-000023",
+      "PALOMAR-2026-11-16-000022",
+      "PALOMAR-2026-11-16-000021",
+      "PALOMAR-2026-11-16-000020",
+      "PALOMAR-2026-11-16-000019",
+      "PALOMAR-2026-11-16-000018",
+      "PALOMAR-2026-11-16-000017",
+      "PALOMAR-2026-11-16-000016",
+      "PALOMAR-2026-11-16-000015"
     ],
-    "updated": [
-      "PALOMAR-2026-11-14-000022",
-      "PALOMAR-2026-11-03-000025",
-      "PALOMAR-2026-11-07-000007",
-      "PALOMAR-2026-11-13-000010"
-    ],
+    "updated": [],
     "absent": []
   },
   "warnings": []

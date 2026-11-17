@@ -1,0 +1,484 @@
+{
+  "abstract": "Nine isosceles triangles with a common axis in a circle of diameter 1 that meet Huet's conditions in Chiodo's form (the two great triangles inscribed, seven apexes on bases, the 18 marmas and the 6 corner touches), Kulaichev's four conditions (a)-(d) and the admissibility of DICTO's paper #103 (Theorem 1) form exactly one figure (identified with the yantra of #103 Theorem 10 through the slope interval). Its slope w7/b7 is proved to lie in an interval of width 2^-21, [0.7504382776..., 0.7504387544...]; #103 gives the slope as 0.7504385160222140244..., a value computed outside Lean that lies in this interval. This settles Kulaichev's 1984 uniqueness question for admissible (well-formed) figures. The proof combines a kernel-checked branch-and-bound interval certificate (64,613 boxes in 10 charts, with proved monotone-split and slope enclosures), a Krawczyk box (uniqueness by a contraction, existence by Banach's fixed-point theorem), the forced construction from the geometry, and a verified sparse-polynomial normaliser for the identities between them. Not formalised: DICTO's study (outside Lean) finds one other real solution of the same equations, at w7/b7 = 0.66866..., which is not admissible (bases out of order, two negative half-widths), so it is not a yantra. Audiences: the history of mathematics (Kulaichev's question in the Indian Journal of History of Science, called still open in 2021), sacred geometry (the construction of the Sri Yantra), and computer-assisted proof in geometry (a certified interval computation checked by Lean's kernel).",
+  "authors": [
+    {
+      "name": "DICTO"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-17-000006-v1/33aa056731367e58b9609eba046a7e6f8be034ab37171591cf9520ef81d16f14/",
+    "artifact_tree_sha256": "33aa056731367e58b9609eba046a7e6f8be034ab37171591cf9520ef81d16f14",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-17T05:38:45Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.MG",
+      "math.HO"
+    ],
+    "msc2020": [
+      "51M04",
+      "51M15",
+      "65G20",
+      "01A32",
+      "03B35"
+    ]
+  },
+  "first_registered_on": "2026-11-17",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "KulaichevYantra.kulaichev_unique",
+      "KulaichevYantra.kulaichev_slope"
+    ]
+  },
+  "id": "PALOMAR-2026-11-17-000006",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-17T08:15:42Z",
+    "receipt_sha256": "e181f17f222188d575eac54035f4e47e69ab192841f60e894dbff6eeb18e0a52",
+    "repositories": [
+      {
+        "commit": "c167cf4ed81f9e7df921ed7ce0113db874b1391b",
+        "fork_repository": "PalomarArchive/DICTOR-Master--kulaichev-yantra-lean--77426e05c719",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000006-v1/c167cf4ed81f9e7df921ed7ce0113db874b1391b",
+        "source_repository": "DICTOR-Master/kulaichev-yantra-lean"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000006-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000006-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000006-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000006-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000006-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000006-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000006-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000006-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000006-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "DICTO"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.24052633",
+        "license": "CC-BY-SA-4.0",
+        "location": "https://doi.org/10.5281/zenodo.24052633 (concept DOI, all versions)",
+        "relationship": "formalizes",
+        "title": "The DICTO Yantra: Two Exact Solutions (paper #103; Theorem 1 admissibility, Theorem 10 Kulaichev's yantra)",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "DICTO"
+          }
+        ],
+        "location": "this repository (README.md)",
+        "relationship": "other",
+        "title": "Uniqueness of Kulaichev's Sri Yantra (DICTO's study 2026-11-15: elimination census and box certificate)",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. P. Kulaichev"
+          }
+        ],
+        "identifier": "https://insa.nic.in/writereaddata/UpLoadedFiles/IJHS/Vol19_3_7_APKulaichev.pdf",
+        "location": "Indian Journal of History of Science 19.3 (1984) 279-292; pp. 284-285",
+        "relationship": "background",
+        "title": "Sriyantra and its Mathematical Properties",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "G. Huet"
+          }
+        ],
+        "identifier": "https://gallium.inria.fr/~huet/PUBLIC/Nivat.pdf",
+        "location": "Theoretical Computer Science 281 (2002) 609-628; author's version (the id), pp. 2-3",
+        "relationship": "background",
+        "title": "Sri Yantra Geometry",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. Chiodo"
+          }
+        ],
+        "identifier": "doi:10.5802/crmath.163",
+        "location": "Comptes Rendus Mathematique 359 (2021) 377-397",
+        "relationship": "background",
+        "title": "On the construction of the Sri Yantra",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "V.-V. Pustynski"
+          }
+        ],
+        "identifier": "https://insa.nic.in/writereaddata/UpLoadedFiles/IJHS/Vol49_3_5_Pustynski.pdf",
+        "location": "Indian Journal of History of Science 49.3 (2014) 268-277; pp. 269, 273-276",
+        "relationship": "background",
+        "title": "On mathematical complexity of Sriyantra",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "C. S. Rao"
+          }
+        ],
+        "identifier": "https://insa.nic.in/writereaddata/UpLoadedFiles/IJHS/Vol33_3_3_CSRao.pdf",
+        "location": "Indian Journal of History of Science 33.3 (1998) 203-227; pp. 217, 222, 224, 226",
+        "relationship": "background",
+        "title": "Sriyantra - A Study of Spherical and Plane Forms",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Salah-Eddin Gherbi"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.20617730",
+        "location": "GitHub salahealer9/sri-yantra-constraint-engine (MIT), README and note/corrigendum.md, read 16 November 2026",
+        "relationship": "background",
+        "title": "sri-yantra-constraint-engine: a reimplementation of Rao (1998)",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. P. Kulaichev"
+          }
+        ],
+        "location": "English translation circulated online (Chiodo 2021, p. 387); no open copy found",
+        "relationship": "background",
+        "title": "Addition to Sri Yantra and its mathematical properties",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "D. Tahta"
+          }
+        ],
+        "identifier": "https://www.cambridge.org/core/journals/mathematical-gazette/article/on-the-geometry-of-the-sriyantra/BF9C0B796ACE5DD57FCFD2B4694F2849",
+        "location": "The Mathematical Gazette 76 (1992) no. 475, 49-60",
+        "relationship": "background",
+        "title": "On the geometry of the sriyantra",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "B. Santhi"
+          },
+          {
+            "name": "N. Rajesh Kumar"
+          },
+          {
+            "name": "C. Bharathy"
+          },
+          {
+            "name": "R. Bala Krishnan"
+          }
+        ],
+        "identifier": "https://maxwellsci.com/print/rjaset/v4-2241-2246.pdf (Wayback Machine copy of 8 April 2026)",
+        "location": "Research Journal of Applied Sciences, Engineering and Technology 4(14) (2012) 2241-2246; pp. 2243-2244",
+        "relationship": "background",
+        "title": "Generation of Divine Image - Sri Yantra",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "G. A. Tularam"
+          }
+        ],
+        "identifier": "http://hdl.handle.net/10072/49210",
+        "location": "International Journal of Mathematics, Game Theory and Algebra 20(2) (2012) 163-187; author manuscript pp. 15, 20",
+        "relationship": "background",
+        "title": "Investigating the Development of Arithmetic and Algebra in Vedic India: Tribute to Swami Dayananda Saraswati",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "R. E. Moore"
+          }
+        ],
+        "location": "Prentice-Hall 1966; SIAM 1979",
+        "relationship": "background",
+        "title": "Interval Analysis; Methods and Applications of Interval Analysis",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "R. Krawczyk"
+          }
+        ],
+        "location": "Computing 4 (1969) 187-201",
+        "relationship": "background",
+        "title": "Newton-Algorithmen zur Bestimmung von Nullstellen mit Fehlerschranken",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "R. E. Moore"
+          }
+        ],
+        "location": "SIAM J. Numer. Anal. 14 (1977) 611-615",
+        "relationship": "background",
+        "title": "A test for the existence of solutions to nonlinear systems",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "R. Krawczyk"
+          },
+          {
+            "name": "A. Neumaier"
+          }
+        ],
+        "location": "SIAM J. Numer. Anal. 22 (1985) 604-616",
+        "relationship": "background",
+        "title": "Interval slopes for rational functions and associated centered forms",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. Neumaier"
+          }
+        ],
+        "location": "Cambridge University Press 1990, Thm 5.1.7",
+        "relationship": "background",
+        "title": "Interval Methods for Systems of Equations",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "S. Banach"
+          }
+        ],
+        "location": "Fund. Math. 3 (1922) 133-181",
+        "relationship": "background",
+        "title": "Sur les operations dans les ensembles abstraits et leur application aux equations integrales",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "DICTO"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-17T08:15:21Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "538dec256355a18d17f2f24e631be53a5b0bd66cb64da2b04f4d3d018e80429b"
+    },
+    "reviewed_at": "2026-11-17T06:19:01Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "c167cf4ed81f9e7df921ed7ce0113db874b1391b",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "DICTOR-Master/kulaichev-yantra-lean",
+    "repository_url": "https://github.com/DICTOR-Master/kulaichev-yantra-lean",
+    "tree_url": "https://github.com/DICTOR-Master/kulaichev-yantra-lean/tree/c167cf4ed81f9e7df921ed7ce0113db874b1391b"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "qiki71crkrqa"
+  },
+  "title": "Kulaichev's Sri Yantra is unique",
+  "trust": {
+    "challenge_bytes": 8215,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 133,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "0bc6384748ea66a3d1837ded3a044bd948c718c1d6488032ade07271b625b891",
+    "evidence_path": "evidence/PALOMAR-2026-11-17-000006-v1/b881a1c6e9dc64ef8aca8d343b2240c971e336c4f5c54e9eabedbd15f135a547/",
+    "evidence_tree_sha256": "b881a1c6e9dc64ef8aca8d343b2240c971e336c4f5c54e9eabedbd15f135a547",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      }
+    ],
+    "mechanical_report_sha256": "f40e7b6603f85cb205518301613db9d090f2d70a88faa857099d652c6b3dcc08",
+    "protected_config_sha256": "e5002c8fdce826fde344788daa373d5bc2d2337d81d188e40ac22ceaf604204b",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44003526804,
+    "solution_sha256": "5fd9b68404263dc8d8b5d131c94c8c2740f421fdcc15a5fddfafc40f5f84e93d",
+    "tool_digests": {
+      "bwrap": "8927c98a0c44925c96bd4bffa5a4f231b34e3666dab5506528064bcfdcae0fb8",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-17T05:24:47Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44003526804"
+  },
+  "version": 1
+}

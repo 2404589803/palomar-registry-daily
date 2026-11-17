@@ -1,0 +1,352 @@
+{
+  "abstract": "Let a_m(n) = [x^(mn)] 1/P_n((1−x)/(1+x)), where P_n is the Legendre polynomial; OEIS A339946 is the case m = 1. The package proves Peter Bala's 2022 conjecture that a_m(p) ≡ a_m(1) = 2 (mod p^5) for every m ≥ 1 and every prime p ≥ 7, and with it his 2020 conjecture a(p) ≡ a(1) (mod p^5) for A339946. It shows that the range p ≥ 7 is optimal: a_m(5) ≡ 2 + 625m² (mod 5^5), so the congruence at p = 5 holds exactly when 5 divides m. It also proves Bala's Conjecture 2 for OEIS A361717: Σ_{k=0}^{p−2} C(p−2, k)² C(p−1+k, k) ≡ 1 − 2p − p² (mod p³) for every prime p ≠ 3. Bala's entry lists A103882 and the Apéry numbers A005258 and A005259 as coefficients of similar Legendre-polynomial expressions that satisfy supercongruences u(np^k) ≡ u(np^(k−1)) (mod p^(3k)), and it presents a(p) ≡ a(1) (mod p^5) as a stronger congruence. A361717 is of the same type: A005258(n) = [x^n] (1−x)^(−1) P_n((1+x)/(1−x)) and A361717(n+1) = [x^n] (1−x)^(−2) P_n((1+x)/(1−x)) (Bala, December 2020 and August 2026). Supercongruences of Apéry-like sequences are a research topic; see Straub (Algebra & Number Theory, 2014) and the references there.",
+  "authors": [
+    {
+      "name": "Wentao Li"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-16-000022-v1/f69cf7d2d49e1c15921febec192df236c6a1acc64e3e118e986c72b638230e0e/",
+    "artifact_tree_sha256": "f69cf7d2d49e1c15921febec192df236c6a1acc64e3e118e986c72b638230e0e",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-16T13:39:44Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.CO"
+    ],
+    "msc2020": [
+      "05A10",
+      "11A07",
+      "11B65"
+    ]
+  },
+  "first_registered_on": "2026-11-16",
+  "formalization": {
+    "challenge_path": "FCPalomar/OeisA339946/Challenge.lean",
+    "comparator_config_path": "FCPalomar/OeisA339946/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "FCPalomar/OeisA339946/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "ccbef15ebdb41c2addfac682131f83c75904c3c1"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "FCPalomar/OeisA339946/Solution.lean",
+    "theorem_names": [
+      "OeisA339946.am_congr",
+      "OeisA339946.a339946_congr",
+      "OeisA339946.a361717_conj2",
+      "OeisA339946.am_five",
+      "OeisA339946.am_five_congr_iff"
+    ]
+  },
+  "id": "PALOMAR-2026-11-16-000022",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-16T16:33:02Z",
+    "receipt_sha256": "c024bee80131500543f92599536f7e4f5e813a26a88ae25b09bf823307b4855c",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000022-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000022-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000022-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000022-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "ccbef15ebdb41c2addfac682131f83c75904c3c1",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000022-v1/ccbef15ebdb41c2addfac682131f83c75904c3c1",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000022-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000022-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000022-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000022-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+        "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000022-v1/91184b57cd62e2c45671e19c855e112127da2991",
+        "source_repository": "VictorLiwentao/fc-palomar-proofs"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Peter Bala"
+          }
+        ],
+        "identifier": "https://oeis.org/A339946",
+        "location": "entry of December 23, 2020 (a(p) ≡ a(1) mod p^5 for p ≥ 7), and comment of March 10, 2022 (a_m for every m ≥ 1)",
+        "relationship": "formalizes",
+        "title": "OEIS A339946",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Peter Bala"
+          }
+        ],
+        "identifier": "https://oeis.org/A361717",
+        "location": "entry of March 26, 2023, Conjecture 2",
+        "relationship": "formalizes",
+        "title": "OEIS A361717",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Armin Straub"
+          }
+        ],
+        "identifier": "https://doi.org/10.2140/ant.2014.8.1985",
+        "location": "Algebra & Number Theory 8 (2014), no. 8, 1985–2008; arXiv:1401.0854; Introduction",
+        "relationship": "background",
+        "title": "Multivariate Apéry numbers and supercongruences of rational functions",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ondrej Kutal"
+          }
+        ],
+        "identifier": "https://github.com/TheSil/A357513_conjecture",
+        "location": "README.md and proof.tex, July 2026; linked from OEIS A357513",
+        "relationship": "background",
+        "title": "Prime-power congruences for odd-exponent binomial sums (TheSil/A357513_conjecture)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Zhipeng Chen"
+          },
+          {
+            "name": "Qisheng Wang"
+          },
+          {
+            "name": "Yan Feng"
+          }
+        ],
+        "identifier": "https://doi.org/10.3390/math14152832",
+        "location": "Mathematics 14 (2026), article 2832",
+        "relationship": "background",
+        "title": "An Explicit Eventual p4-Divisibility Theorem for an Apéry-Type Numerator Family",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/VictorLiwentao/fc-palomar-proofs/tree/2329f9d4bebb30be1bb59e40476a89b44d6e034c/FCPalomar/MosN8",
+        "note": "A few arithmetic helpers in ZMod (p^K) in the Solution (natCast_mul_inv, castHom_natCast_inv, sum_range_natCast and the argument of exists_mul_of_castHom_eq_zero) are adapted from this package by the same author. The Challenge does not use them.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/TheSil/A357513_conjecture/blob/59c677df3563c4c506dfafcdf45237475140bb86/Proof.lean",
+        "note": "A Lean proof of the generalized A357513 congruence, which covers the A357511 lemma in this Solution (not a selected statement). No code was taken from it. It does not treat the selected statements.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Wentao Li"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-16T16:32:43Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "02ba08a7308f631678ec1d1edf98b5c7af6e5511adfd8654513f518e02ee5833"
+    },
+    "reviewed_at": "2026-11-16T15:16:44Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "VictorLiwentao/fc-palomar-proofs",
+    "repository_url": "https://github.com/VictorLiwentao/fc-palomar-proofs",
+    "tree_url": "https://github.com/VictorLiwentao/fc-palomar-proofs/tree/91184b57cd62e2c45671e19c855e112127da2991"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "th2wsver2afb"
+  },
+  "title": "OEIS A339946 and A361717: Bala's prime-level supercongruences",
+  "trust": {
+    "challenge_bytes": 4676,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 105,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "e97dcd6779e436658e028d5cab324fe394206f5c1bddb6aae38f433775750bd5",
+    "evidence_path": "evidence/PALOMAR-2026-11-16-000022-v1/2a4275d4097ca11e9dc94459d6045681881370a1ed4e1f6fee3a6576b36dde85/",
+    "evidence_tree_sha256": "2a4275d4097ca11e9dc94459d6045681881370a1ed4e1f6fee3a6576b36dde85",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "3dad03b1401410607826335ff895482da838004c726e332e7ba8d0e5f21aed3a",
+    "protected_config_sha256": "9285543d21ef4c716684321f71a8f01e5d53d8153fa7261392eae65d0fc6f12a",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43871906473,
+    "solution_sha256": "876fb6f4bbff1ee37dd38ac8e3541c3e4b65a262b2ccee292398d10e0f6c8fed",
+    "tool_digests": {
+      "bwrap": "ced52d3bd560c34fcd27c7ed7a38e02e14993bed00a9fb3021b3fa640193d66a",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-16T13:08:55Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43871906473"
+  },
+  "version": 1
+}

@@ -1,0 +1,656 @@
+{
+  "abstract": "Kernel-checked proofs, in Lean 4 + Mathlib, of three statements, all about one field. Let L = QQ(rho, Q) be the field generated over the rationals QQ by a root rho of x^3 - x - 1 and a root Q of x^4 - x - 1, a number field of degree 12 (below, QQ denotes the rationals and Q the root). For a number field K and x in K write H(x) = Height.mulHeight1 x for Mathlib's multiplicative height of x relative to K (the [K:QQ]-th power of the absolute Weil height), and T2(x) = sum over the [K:QQ] ring homomorphisms sigma : K -> C of |sigma x|^2. M(x) is the Mahler measure of the minimal polynomial of an algebraic integer x over Z. (1) The nonzero algebraic integers x of L with H(x) <= H(rho Q) are exactly the fourteen elements +-1, +-rho^(+-1), +-Q^(+-1), +-(rho Q)^(+-1). (2) Every algebraic integer x of L with QQ(x) = L has M(rho Q) <= M(x), with equality exactly for x in {rho Q, -rho Q, (rho Q)^-1, -(rho Q)^-1}; since rho Q generates L (proved in the repository, not compared), the least Mahler measure of an integral generator of L (Dubickas's M(O_L)) is M(rho Q), attained at these four elements only. (3) Let x be an algebraic integer of L with QQ(x) = L such that M(x) <= M(y) for every algebraic integer y of L with QQ(y) = L, and such that sigma(x) is a real Perron number (Lind's definition) for some embedding sigma : L -> C; then x = rho Q (one direction only: that rho Q satisfies these hypotheses is proved in the repository, HeightT2.ρQ_perronNumber_generator_selected, and not compared). The Challenge imports Mathlib only and carries the definition block of the author's registered entry PALOMAR-2026-10-21-000012 (the field L and its elements) and one definition of this entry (IsPerronNumber). Proved in the repository and not compared, none claimed as this entry's: (i) the inequality T2(x) <= H(x)^2 + n - 1 for x in a number field of degree n, which is Lemma 6 of Dubickas (Rev. Mat. Iberoam. 39 (2023)) applied to the squares max(1, |sigma x|)^2; (ii) its case of equality, T2(x) = H(x)^2 + (n - 1) exactly when x is a root of unity (for n >= 2; HeightT2.sum_norm_sq_eq_mulHeight₁_sq_add_iff); Lemma 6 states no case of equality, no statement of it in print was located (README.md, \"Relation to the literature\", lists where it was searched) and novelty is not claimed; (iii) the identity that, for subfields K1, K2 of a number field E, linearly disjoint over QQ with K1 v K2 = E, the T2 Gram matrix of the product family b_i c_j is the Kronecker product of the T2 Gram matrices G_b and G_c of b and c (the T2 Gram matrix of a family b in a number field K has entries sum over sigma : K -> C of sigma(b_i) conj(sigma(b_k))) (HeightT2.t2Gram_compositum); special cases are in print (Popov and Zarhin 2021, Lemma 8(iii), coprime cyclotomic fields; Lyubashevsky, Peikert and Regev 2013, eq. (2.6); Bayer-Fluckiger, Oggier and Viterbo 2004, Prop. 6, totally real Galois fields with coprime discriminants), it is the Hermitian counterpart of the trace-form identity of the author's entry PALOMAR-2026-09-02-000014 (statement 3), on a totally real field the T2 Gram matrix is the trace Gram matrix, and novelty is not claimed; (iv) the coordinate bound (HeightT2.coord_sq_le_sum_norm_sq): with b, c finite and E_ii the diagonal matrix unit at (i, i), if s, t >= 0 and Re G_b - s E_ii and Re G_c - t E_jj are positive semidefinite, then every rational coefficient vector a satisfies s t a_ij^2 <= T2(sum a_kl b_k c_l), with T2 taken in E; for families that are bases it is the bound (2.9) of Fincke and Pohst (1985) applied to the Kronecker product of the two Gram matrices, it also covers singular Gram matrices, and novelty is not claimed; (v) that rho Q satisfies the hypotheses of statement (3). The proofs of the three compared statements use the instance of (i) for L in the copied library (RulerSelection.Emb.T2_le_embHeight_sq_add) and a direct proof of the content of (iii) for L and its power bases (RulerSelection.Emb.T2_coords, from RulerSelection.Emb.sum_norm_sq_tensor); they use neither (ii) nor the theorems (iii) and (iv) as stated; (iv) is proved from the matrix lemma RulerSelection.Kron.kron_ge_diag that they use (README.md, \"The proofs\").",
+  "authors": [
+    {
+      "name": "Stephanie Alexander"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-17-000004-v1/6f71912de6d1037af4b140ff33d1039808370f266dbd241ed4f89fd2cccfb85b/",
+    "artifact_tree_sha256": "6f71912de6d1037af4b140ff33d1039808370f266dbd241ed4f89fd2cccfb85b",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-17T00:13:39Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "cs.LO",
+      "math-ph"
+    ],
+    "msc2020": [
+      "11R06",
+      "11G50",
+      "11R04",
+      "11R21",
+      "11C08",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-17",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "IntegralGeneratorHeights.mulHeight₁_le_mulHeight₁_ρQ_iff",
+      "IntegralGeneratorHeights.mahlerMeasure_generator_min",
+      "IntegralGeneratorHeights.perronNumber_generator_selection"
+    ]
+  },
+  "id": "PALOMAR-2026-11-17-000004",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-17T01:33:27Z",
+    "receipt_sha256": "737ae9fda9e45f5f644e93edf5b8b088e2280c453eb63577df1f79f4483c847e",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000004-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000004-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000004-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000004-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000004-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000004-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000004-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000004-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000004-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "c00797c899a74f6ecaaa1305112dd51bf1df0e40",
+        "fork_repository": "PalomarArchive/stalex444--pdt-integral-generator-heights--19c60b2061e7",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000004-v1/c00797c899a74f6ecaaa1305112dd51bf1df0e40",
+        "source_repository": "stalex444/pdt-integral-generator-heights"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Stephanie Alexander"
+          }
+        ],
+        "license": "MIT",
+        "location": "README.md, sections 'The compared statements', 'The proofs' and 'Relation to the literature'",
+        "relationship": "other",
+        "title": "The nonzero algebraic integers of QQ(rho, Q) of height at most H(rho Q), the least Mahler measure of an integral generator, and the Perron selection of rho Q (the three compared statements)",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Artūras Dubickas"
+          }
+        ],
+        "identifier": "doi:10.4171/RMI/1331",
+        "license": "CC BY 4.0 (as marked on the article)",
+        "location": "https://doi.org/10.4171/RMI/1331",
+        "relationship": "background",
+        "title": "Minimal Mahler measures for generators of some fields",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Leopold Kronecker"
+          }
+        ],
+        "identifier": "doi:10.1515/crll.1857.53.173",
+        "license": "unknown",
+        "location": "https://doi.org/10.1515/crll.1857.53.173",
+        "relationship": "background",
+        "title": "Zwei Sätze über Gleichungen mit ganzzahligen Coefficienten",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Raphaël Salem"
+          }
+        ],
+        "identifier": "D. C. Heath, Boston, 1963",
+        "license": "unknown",
+        "location": "p. 26",
+        "relationship": "background",
+        "title": "Algebraic Numbers and Fourier Analysis",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Chris Smyth"
+          }
+        ],
+        "identifier": "doi:10.1112/blms/bdv027",
+        "license": "unknown",
+        "location": "https://doi.org/10.1112/blms/bdv027",
+        "relationship": "background",
+        "title": "Seventy years of Salem numbers",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Douglas Lind"
+          }
+        ],
+        "identifier": "doi:10.1017/S0143385700002443",
+        "license": "unknown",
+        "location": "https://doi.org/10.1017/S0143385700002443",
+        "relationship": "background",
+        "title": "The entropies of topological Markov shifts and a related class of algebraic integers",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Chris Smyth"
+          }
+        ],
+        "identifier": "doi:10.1017/CBO9780511721274.021",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/math/0701397",
+        "relationship": "background",
+        "title": "The Mahler measure of algebraic numbers: a survey",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "U. Fincke"
+          },
+          {
+            "name": "M. Pohst"
+          }
+        ],
+        "identifier": "doi:10.1090/S0025-5718-1985-0777278-8",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/S0025-5718-1985-0777278-8",
+        "relationship": "background",
+        "title": "Improved methods for calculating vectors of short length in a lattice, including a complexity analysis",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "John R. Doyle"
+          },
+          {
+            "name": "David Krumm"
+          }
+        ],
+        "identifier": "doi:10.1090/mcom/2954",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/mcom/2954",
+        "relationship": "background",
+        "title": "Computing algebraic numbers of bounded height",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Wolfgang M. Ruppert"
+          }
+        ],
+        "identifier": "doi:10.1007/s002290050051",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/s002290050051",
+        "relationship": "background",
+        "title": "Small generators of number fields",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jeffrey Vaaler"
+          },
+          {
+            "name": "Martin Widmer"
+          }
+        ],
+        "identifier": "doi:10.1090/conm/587/11695",
+        "license": "unknown",
+        "location": "https://doi.org/10.1090/conm/587/11695",
+        "relationship": "background",
+        "title": "A note on generators of number fields",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jeffrey D. Vaaler"
+          },
+          {
+            "name": "Martin Widmer"
+          }
+        ],
+        "identifier": "doi:10.1017/S0305004115000298",
+        "license": "unknown",
+        "location": "https://doi.org/10.1017/S0305004115000298",
+        "relationship": "background",
+        "title": "Number fields without small generators",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Todd Cochrane"
+          },
+          {
+            "name": "R. M. S. Dissanayake"
+          },
+          {
+            "name": "Nicholas Donohoue"
+          },
+          {
+            "name": "M. I. M. Ishak"
+          },
+          {
+            "name": "Vincent Pigno"
+          },
+          {
+            "name": "Chris Pinner"
+          },
+          {
+            "name": "Craig Spencer"
+          }
+        ],
+        "identifier": "doi:10.1080/10586458.2015.1042599",
+        "license": "unknown",
+        "location": "https://doi.org/10.1080/10586458.2015.1042599",
+        "relationship": "background",
+        "title": "Minimal Mahler Measure in Real Quadratic Fields",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Lydia Eldredge"
+          },
+          {
+            "name": "Kathleen Petersen"
+          }
+        ],
+        "identifier": "doi:10.1142/S179304212250110X",
+        "license": "unknown",
+        "location": "https://doi.org/10.1142/S179304212250110X",
+        "relationship": "background",
+        "title": "Minimal Mahler measure in cubic number fields",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Bishnu Paudel"
+          },
+          {
+            "name": "Kathleen Petersen"
+          },
+          {
+            "name": "Haiyang Wang"
+          }
+        ],
+        "identifier": "doi:10.1215/00192082-12554020",
+        "license": "unknown",
+        "location": "https://doi.org/10.1215/00192082-12554020",
+        "relationship": "background",
+        "title": "Minimal Mahler measure in quartic Galois number fields",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "T. Vávra"
+          },
+          {
+            "name": "F. Veneziano"
+          }
+        ],
+        "identifier": "doi:10.1016/j.jsc.2017.11.005",
+        "license": "unknown",
+        "location": "https://doi.org/10.1016/j.jsc.2017.11.005",
+        "relationship": "background",
+        "title": "Pisot unit generators in number fields",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Artūras Dubickas"
+          }
+        ],
+        "identifier": "doi:10.1007/s00013-026-02287-2",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/s00013-026-02287-2",
+        "relationship": "background",
+        "title": "Small Pisot type generators of number fields",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Vladimir L. Popov"
+          },
+          {
+            "name": "Yuri G. Zarhin"
+          }
+        ],
+        "identifier": "doi:10.1142/S1664360720500216",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2002.04641 (v3, Lemma 8(iii))",
+        "relationship": "background",
+        "title": "Root lattices in number fields",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Vadim Lyubashevsky"
+          },
+          {
+            "name": "Chris Peikert"
+          },
+          {
+            "name": "Oded Regev"
+          }
+        ],
+        "identifier": "doi:10.1007/978-3-642-38348-9_3",
+        "license": "unknown",
+        "location": "https://doi.org/10.1007/978-3-642-38348-9_3",
+        "relationship": "background",
+        "title": "A Toolkit for Ring-LWE Cryptography",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Eva Bayer-Fluckiger"
+          },
+          {
+            "name": "Frédérique Oggier"
+          },
+          {
+            "name": "Emanuele Viterbo"
+          }
+        ],
+        "identifier": "doi:10.1109/TIT.2004.825045",
+        "license": "unknown",
+        "location": "https://doi.org/10.1109/TIT.2004.825045",
+        "relationship": "background",
+        "title": "New algebraic constructions of rotated Z^n-lattice constellations for the Rayleigh fading channel",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/stalex444/pdt-hermite-signature-compositum/tree/5aa870e98236ba240561b798265c629df8c2d031",
+        "note": "The author's registered entry PALOMAR-2026-10-21-000012. Its definition block (the field L = QQ(rho, Q), rho, Q and the rest) is carried byte for byte in Challenge.lean, and nine of the ten modules of its library (all but Squarefree.lean) are copied unchanged into HermiteCompositum/ (Defs.lean is that block; the embeddings of a linearly disjoint compositum, embeddingsEquiv, are used in the uncompared Gram identity HeightT2.t2Gram_compositum; minpoly_inv_eq_of_norm_eq_one in the uncompared equality case).",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/stalex444/mahler-minimizer-compositum/tree/84b364a5f98daefc1be387ae0aeb3d39866eca79",
+        "note": "The author's registered entry PALOMAR-2026-09-01-000005 (version 2). Its statement 13 (PlasticThreshold.ruler_house) gives that rho Q exceeds the modulus of its other conjugates, one of the hypotheses of statement 3 here; that is proved again in this repository and not compared. Its statement 14 gives the value M(rho Q); no statement there is a statement here.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/stalex444/pdt-inflation-model-set-dimension/tree/c41d9d29f9c86fb0f849df79b03e713d3405a5eb",
+        "note": "The author's registered entry PALOMAR-2026-10-22-000030. RulerSelection/Embeddings.lean ports from InflationDimension/Instances.lean (lines 50-235 and 1246-1274) the roots of x^3 - x - 1 and x^4 - x - 1 in rational boxes and the complex embeddings of L, with the names changed and the proofs otherwise verbatim. No statement there is a statement here.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/stalex444/mahler-measure-minima/tree/ca3df22ba91ce60e5199aee4a0c35a6ca8ee559d",
+        "note": "The author's registered entry PALOMAR-2026-08-31-000004: for d = 2, 3, 4, x^d - x - 1 has the least Mahler measure among monic irreducible integer polynomials of degree d with Mahler measure above 1. The same kind of statement in a different scope; neither is a special case of the other.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/stalex444/golden-family-trace-forms/tree/9528df064df58318213b541048e05ff4c0d9cb67",
+        "note": "The author's registered entry PALOMAR-2026-09-02-000014. Its compared statement 3, TraceForms.traceMatrix_tensorProduct, is the Kronecker identity for the trace Gram matrix (Tr(b_i b_k), Algebra.traceMatrix) of a tensor basis, for bases of algebras over a commutative ring; for number fields over QQ that form is the sum over sigma of sigma(b_i) sigma(b_k). The repository's uncompared HeightT2.t2Gram_compositum is the Hermitian T2 form (sum over sigma of sigma(b_i) conj(sigma(b_k))) for a linearly disjoint compositum of number fields; neither is a special case of the other as stated. That entry also compares instances on the same compositum L: trace_tmul_compositum (18), traceMatrix_compositum (19) and discr_compositum (20). These are trace-form (bilinear) instances and are not statements here.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/stalex444/arithmetic-of-time-reversible-units-degree-nine/tree/723197b0d1d48fbe12bf19e81683de0090c5ce5c",
+        "note": "The author's registered entry PALOMAR-2026-11-02-000018. For a degree-9 compositum K = LM of two cubic fields, its compared statements 3-4 give that the nine embeddings of K are the pairs (lambda, mu) and place the conjugates of an element in a 3 x 3 Hermitian array; its compositum place bookkeeping is ported from PALOMAR-2026-10-21-000012. The repository's uncompared HeightT2.t2Gram_compositum is a T2 Gram identity for a general linearly disjoint compositum; no statement there is a statement here.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/rwst/Subspace-Theorems/tree/d12aa25a9725e8d28c1bfc018c664b7ceb8d35c5",
+        "note": "Read on 2026-11-16 at commit d12aa25a9725e8d28c1bfc018c664b7ceb8d35c5 (the library of PALOMAR-2026-09-25-000022). ArithmeticHeights/SUnit.lean:185 NumberField.mulHeight₁_eq_of_mem_integer (with S empty: the height of an algebraic integer is the product over infinite places of max(w x, 1)^mult w) and :260 its converse; UnitHeight.lean:120 the unit case; MahlerMeasure.lean:373 NumberField.absMulHeight₁_pow_natDegree (absolute height to the degree equals the Mahler measure of the primitive integer minimal polynomial, any algebraic number); Extension.lean:283 absMulHeight₁_pow_finrank; Kronecker.lean:94 NumberField.absMulHeight₁_eq_one_iff (Kronecker); Extension.lean:89 (private) prod_embeddings_eq passes from places to embeddings by the same argument as HeightT2.prod_infinitePlace_eq_prod_embeddings. These are more general forms of this repository's uncompared bridge lemmas (here restated over complex embeddings, for integral x). No statement there matches a compared statement of this entry.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/TauCetiProject/TauCeti/tree/086028a6d8d186715b52fac7f3e7b23175ed2dc9",
+        "note": "Read on 2026-11-16 at commit 086028a6d8d186715b52fac7f3e7b23175ed2dc9. Paths under TauCeti/NumberTheory/: Height/SInteger.lean:77 NumberField.mulHeight₁_eq_of_mem_integer (adapted there from rwst/Subspace-Theorems); Height/Absolute.lean:161 TauCeti.mahlerMeasure_eq_absMulHeight₁_pow (M(x) = H(x)^deg x for every x); Height/House.lean:296 house_eq_one_iff (Kronecker); Pisot/Basic.lean:60 IsPisot. No definition of a Perron number, no sum of squared absolute values of conjugates compared with a height, no Gram matrix of a compositum, and no list of elements of bounded height in a specific field was found there at that commit.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/tree/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "note": "The pinned Mathlib. The statements use Height.mulHeight₁ (with the number-field instance), Polynomial.mahlerMeasure, minpoly and IntermediateField.adjoin; the uncompared Gram identity and coordinate bound use IntermediateField.LinearDisjoint and Matrix.kroneckerMap; the proofs use, among others, NumberField.mulHeight₁_eq and Matrix.PosSemidef.kronecker; the proof of the uncompared equality case uses Kronecker's theorem NumberField.Embeddings.pow_eq_one_of_norm_eq_one. At this commit and on master at 15cf10d19dfd4cdee9602318e271fa3ce99c454d (read 2026-11-16) Mathlib has non-effective Northcott finiteness for the height and the Mahler measure, no Perron-number definition and no sum of squared absolute values of conjugates compared with a height (MATHLIB_DEFINITIONS.md quotes the definitions used). Mathlib also has Matrix.gram (Analysis/InnerProductSpace/GramMatrix.lean:40) and TensorProduct.inner_tmul (Analysis/InnerProductSpace/TensorProduct.lean:70), the inner product of pure tensors as the product of the inner products; it states no Kronecker identity for Gram matrices and no Gram matrix over the embeddings of a number field. The repository's Gram identity is stated over the embeddings of a linearly disjoint compositum and uses neither declaration.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Stephanie Alexander"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-17T01:33:06Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "93bc72722f2a0d51a1a162ca2d3a2bba1c8b847ac8c2841c2d983f4f355705da"
+    },
+    "reviewed_at": "2026-11-17T00:30:04Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "c00797c899a74f6ecaaa1305112dd51bf1df0e40",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb"
+    },
+    "repository": "stalex444/pdt-integral-generator-heights",
+    "repository_url": "https://github.com/stalex444/pdt-integral-generator-heights",
+    "tree_url": "https://github.com/stalex444/pdt-integral-generator-heights/tree/c00797c899a74f6ecaaa1305112dd51bf1df0e40"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "qy7475ssnk7m"
+  },
+  "title": "The integral generators of least Mahler measure of the field of x^3 - x - 1 and x^4 - x - 1",
+  "trust": {
+    "challenge_bytes": 36304,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 717,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "d3df5733706c37870523439301342629f140f07f73fdab1c01eb6b70b229c1ca",
+    "evidence_path": "evidence/PALOMAR-2026-11-17-000004-v1/8981afb73a769c75a2d663c14e1a29abc4c2f51b9c26d2d9012a26ebd050bce1/",
+    "evidence_tree_sha256": "8981afb73a769c75a2d663c14e1a29abc4c2f51b9c26d2d9012a26ebd050bce1",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "44adee0cc8e154c6b12981a3d2b575d14a00f361221a4b8d9d68ad54d4658510",
+    "protected_config_sha256": "44c3d29f8b76d54eef111f2c12e1cc1377e737c7f6371f063a0929417f896875",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43976647636,
+    "solution_sha256": "c22f4b656214d0d503f6ce9cf8a106a4d2de6f9a36362637676bc14d73c9b94f",
+    "tool_digests": {
+      "bwrap": "7f685f6dad724be7dd288b6189b74618d4d8ea0a7f1d06c12a6a378ada059d0d",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-16T23:21:59Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43976647636"
+  },
+  "version": 1
+}

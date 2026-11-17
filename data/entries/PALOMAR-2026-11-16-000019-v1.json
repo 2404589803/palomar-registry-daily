@@ -1,0 +1,564 @@
+{
+  "abstract": "Four Lean results for bicolored Steiner triple systems. For each fixed number k >= 3 of color classes, sufficiently large compatible labelled profiles with positive class and type margins admit exact prescribed block-type counts while completing any sufficiently sparse allowed packing. Uniformly over such prescribed matrices, the logarithm of the number of realizations has optimal leading coefficient 1/6 in n squared times log n. For any fixed K, the same exact type matrix has K realizations with distinct Pasch counts. For every fixed k >= 4, all sufficiently large admissible orders admit a k-bicoloring. The final threshold is ineffective.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-16-000019-v1/be56eb80336e7cafb6d9923896b85ffebf1e1424bd1a5c4c1bca2cc92c430aeb/",
+    "artifact_tree_sha256": "be56eb80336e7cafb6d9923896b85ffebf1e1424bd1a5c4c1bca2cc92c430aeb",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-16T10:23:36Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05B07",
+      "05C15"
+    ]
+  },
+  "first_registered_on": "2026-11-16",
+  "formalization": {
+    "challenge_path": "CDRIIIChallenge.lean",
+    "comparator_config_path": "cdr-iii-comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "dross",
+        "repository": "jtraverso/dross-fractional-triangle-decomposition",
+        "revision": "345ba11fad11d1fbba03cc8ad39ac46813a024ae"
+      },
+      {
+        "name": "counting_cone",
+        "path": "compat/counting-cone"
+      },
+      {
+        "name": "counting_sts",
+        "repository": "jtraverso/counting-steiner-triple-systems",
+        "revision": "531a6eae7628f9a2c12fb8d2b12c6a3b8c2f475f"
+      },
+      {
+        "name": "vizing",
+        "repository": "jtraverso/vizing",
+        "revision": "afe7a3a748bd4e47196225709fd6f3890631028f"
+      },
+      {
+        "name": "ccjs_overfull",
+        "repository": "jtraverso/overfull-critical-graphs",
+        "revision": "b85da9ac66e0fb8b9873a8bea0c057f78c9d186c"
+      },
+      {
+        "name": "plantholt_overfull",
+        "repository": "jtraverso/plantholt-overfull-criterion",
+        "revision": "f8900944da7743b1facd771139c9ebdbfd8aaa28"
+      },
+      {
+        "name": "cdr_bicolouring",
+        "repository": "jtraverso/cdr-bicolouring-sts",
+        "revision": "a768a98a648e94ad38d0d84501867c999927c546"
+      },
+      {
+        "name": "bkls_balanced",
+        "repository": "jtraverso/balanced-edge-colourings",
+        "revision": "736c78e6addcdb77e95cd83e4e44c5c0700f13ef"
+      },
+      {
+        "name": "gale_hoffman",
+        "repository": "jtraverso/gale-hoffman-feasibility",
+        "revision": "fa52c29c24edf7e9afdb487df3764affd43c51c7"
+      },
+      {
+        "name": "dsp_ternary",
+        "repository": "jtraverso/duke-schulze-pillot-ternary",
+        "revision": "21575ff924c98165ea1b451f7cbcc27c016ebd3e"
+      },
+      {
+        "name": "PhysicalTypedAbsorption",
+        "repository": "jtraverso/physical-typed-absorption",
+        "revision": "05076a49312503e83bbb51d7ab5140146d7cd28c"
+      },
+      {
+        "name": "cdr_bicolour",
+        "repository": "jtraverso/cdr-palomar-kernel",
+        "revision": "52ef4148441d9cdc5d523ca0c73d076ad66ed831"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "baranyai_factorization",
+        "repository": "jtraverso/baranyai-theorem",
+        "revision": "0ff6d6f4005b0b68114e0b99e6d342742918b629"
+      },
+      {
+        "name": "four_squares_caps",
+        "repository": "jtraverso/four-squares-in-caps",
+        "revision": "a1fcaafb270c099ea773706912192adbfec19a83"
+      },
+      {
+        "name": "three_squares",
+        "repository": "jtraverso/three-squares-gauss-legendre",
+        "revision": "783ec66b0db2ff2acf75cc2cd22a9e69737411b5"
+      },
+      {
+        "name": "siegel",
+        "repository": "jtraverso/siegel-theorem",
+        "revision": "dbe9353374a11317bdd2d436e264536258c5762f"
+      },
+      {
+        "name": "weil_bounds_toolkit",
+        "repository": "charliedorsey/weil-bounds-toolkit",
+        "revision": "0f3e4c3010bb0e7c4e514ddb5bd3a0a0e082bf68"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "CDRIIISolution.lean",
+    "theorem_names": [
+      "CDRBicolour.KBicolor.kbicolour_completion_types_exact",
+      "CDRBicolour.KBicolor.optimal_prescribed_type_count_of_three_le",
+      "CDRBicolour.KBicolor.kbicolour_types_exact_many_pasch_counts",
+      "CDRBicolour.PaperIII.bicolourable_eventually_unconditional"
+    ]
+  },
+  "id": "PALOMAR-2026-11-16-000019",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-16T14:20:51Z",
+    "receipt_sha256": "ef0fee56dfbb9ea808cb6c7cebc8b2fb3848baaae377b952aff388a0d014ba68",
+    "repositories": [
+      {
+        "commit": "0f3e4c3010bb0e7c4e514ddb5bd3a0a0e082bf68",
+        "fork_repository": "PalomarArchive/charliedorsey--weil-bounds-toolkit--fdaf04f318ed",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/0f3e4c3010bb0e7c4e514ddb5bd3a0a0e082bf68",
+        "source_repository": "charliedorsey/weil-bounds-toolkit"
+      },
+      {
+        "commit": "736c78e6addcdb77e95cd83e4e44c5c0700f13ef",
+        "fork_repository": "PalomarArchive/jtraverso--balanced-edge-colourings--a527efb7f56f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/736c78e6addcdb77e95cd83e4e44c5c0700f13ef",
+        "source_repository": "jtraverso/balanced-edge-colourings"
+      },
+      {
+        "commit": "0ff6d6f4005b0b68114e0b99e6d342742918b629",
+        "fork_repository": "PalomarArchive/jtraverso--baranyai-theorem--0fb5997ac7ea",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/0ff6d6f4005b0b68114e0b99e6d342742918b629",
+        "source_repository": "jtraverso/baranyai-theorem"
+      },
+      {
+        "commit": "a768a98a648e94ad38d0d84501867c999927c546",
+        "fork_repository": "PalomarArchive/jtraverso--cdr-bicolouring-sts--063de2d8ca97",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/a768a98a648e94ad38d0d84501867c999927c546",
+        "source_repository": "jtraverso/cdr-bicolouring-sts"
+      },
+      {
+        "commit": "52ef4148441d9cdc5d523ca0c73d076ad66ed831",
+        "fork_repository": "PalomarArchive/jtraverso--cdr-palomar-kernel--853fb49173b4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/52ef4148441d9cdc5d523ca0c73d076ad66ed831",
+        "source_repository": "jtraverso/cdr-palomar-kernel"
+      },
+      {
+        "commit": "dd0a6595d5c45372ffadd19a35e3775e9b930f55",
+        "fork_repository": "PalomarArchive/jtraverso--cdr-palomar-kernel--853fb49173b4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/dd0a6595d5c45372ffadd19a35e3775e9b930f55",
+        "source_repository": "jtraverso/cdr-palomar-kernel"
+      },
+      {
+        "commit": "531a6eae7628f9a2c12fb8d2b12c6a3b8c2f475f",
+        "fork_repository": "PalomarArchive/jtraverso--counting-steiner-triple-systems--25dd3ac3d9ea",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/531a6eae7628f9a2c12fb8d2b12c6a3b8c2f475f",
+        "source_repository": "jtraverso/counting-steiner-triple-systems"
+      },
+      {
+        "commit": "345ba11fad11d1fbba03cc8ad39ac46813a024ae",
+        "fork_repository": "PalomarArchive/jtraverso--dross-fractional-triangle-decomposition--f57504b1525c",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/345ba11fad11d1fbba03cc8ad39ac46813a024ae",
+        "source_repository": "jtraverso/dross-fractional-triangle-decomposition"
+      },
+      {
+        "commit": "21575ff924c98165ea1b451f7cbcc27c016ebd3e",
+        "fork_repository": "PalomarArchive/jtraverso--duke-schulze-pillot-ternary--b885fd33e73a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/21575ff924c98165ea1b451f7cbcc27c016ebd3e",
+        "source_repository": "jtraverso/duke-schulze-pillot-ternary"
+      },
+      {
+        "commit": "a1fcaafb270c099ea773706912192adbfec19a83",
+        "fork_repository": "PalomarArchive/jtraverso--four-squares-in-caps--308878e49a2e",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/a1fcaafb270c099ea773706912192adbfec19a83",
+        "source_repository": "jtraverso/four-squares-in-caps"
+      },
+      {
+        "commit": "fa52c29c24edf7e9afdb487df3764affd43c51c7",
+        "fork_repository": "PalomarArchive/jtraverso--gale-hoffman-feasibility--31485ec5ef29",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/fa52c29c24edf7e9afdb487df3764affd43c51c7",
+        "source_repository": "jtraverso/gale-hoffman-feasibility"
+      },
+      {
+        "commit": "b85da9ac66e0fb8b9873a8bea0c057f78c9d186c",
+        "fork_repository": "PalomarArchive/jtraverso--overfull-critical-graphs--d8fd3a0c3ee4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/b85da9ac66e0fb8b9873a8bea0c057f78c9d186c",
+        "source_repository": "jtraverso/overfull-critical-graphs"
+      },
+      {
+        "commit": "05076a49312503e83bbb51d7ab5140146d7cd28c",
+        "fork_repository": "PalomarArchive/jtraverso--physical-typed-absorption--5ba06d9516d5",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/05076a49312503e83bbb51d7ab5140146d7cd28c",
+        "source_repository": "jtraverso/physical-typed-absorption"
+      },
+      {
+        "commit": "f8900944da7743b1facd771139c9ebdbfd8aaa28",
+        "fork_repository": "PalomarArchive/jtraverso--plantholt-overfull-criterion--d61ff43b5134",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/f8900944da7743b1facd771139c9ebdbfd8aaa28",
+        "source_repository": "jtraverso/plantholt-overfull-criterion"
+      },
+      {
+        "commit": "dbe9353374a11317bdd2d436e264536258c5762f",
+        "fork_repository": "PalomarArchive/jtraverso--siegel-theorem--fcfb5ef237dc",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/dbe9353374a11317bdd2d436e264536258c5762f",
+        "source_repository": "jtraverso/siegel-theorem"
+      },
+      {
+        "commit": "783ec66b0db2ff2acf75cc2cd22a9e69737411b5",
+        "fork_repository": "PalomarArchive/jtraverso--three-squares-gauss-legendre--2afaf7563d29",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/783ec66b0db2ff2acf75cc2cd22a9e69737411b5",
+        "source_repository": "jtraverso/three-squares-gauss-legendre"
+      },
+      {
+        "commit": "afe7a3a748bd4e47196225709fd6f3890631028f",
+        "fork_repository": "PalomarArchive/jtraverso--vizing--01fa5f875100",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/afe7a3a748bd4e47196225709fd6f3890631028f",
+        "source_repository": "jtraverso/vizing"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-16-000019-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.24201563",
+        "location": "https://doi.org/10.5281/zenodo.24201563",
+        "relationship": "formalizes",
+        "title": "Prescribed block types and abundance in bicolored Steiner triple systems"
+      },
+      {
+        "authors": [
+          {
+            "name": "Charles J. Colbourn"
+          },
+          {
+            "name": "Jeffrey H. Dinitz"
+          },
+          {
+            "name": "Alexander Rosa"
+          }
+        ],
+        "identifier": "doi:10.37236/1457",
+        "relationship": "background",
+        "title": "Bicoloring Steiner triple systems"
+      },
+      {
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.23867836",
+        "relationship": "background",
+        "title": "Triangle decompositions III: Physical typed absorption and prescribed statistics"
+      },
+      {
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.23987251",
+        "relationship": "background",
+        "title": "The exact block-type spectrum in the Colbourn-Dinitz-Rosa problem"
+      },
+      {
+        "authors": [
+          {
+            "name": "David Gale"
+          }
+        ],
+        "identifier": "https://msp.org/pjm/1957/7-2/pjm-v7-n2-p04-s.pdf",
+        "location": "Pacific Journal of Mathematics 7 (1957), 1073-1082",
+        "relationship": "background",
+        "title": "A theorem on flows in networks"
+      },
+      {
+        "authors": [
+          {
+            "name": "William Duke"
+          }
+        ],
+        "identifier": "doi:10.1007/BF01393993",
+        "relationship": "background",
+        "title": "Hyperbolic distribution problems and half-integral weight Maass forms"
+      },
+      {
+        "authors": [
+          {
+            "name": "Richard M. Wilson"
+          }
+        ],
+        "identifier": "doi:10.1007/BF01215371",
+        "relationship": "background",
+        "title": "Nonisomorphic Steiner triple systems"
+      },
+      {
+        "authors": [
+          {
+            "name": "Nathan Linial"
+          },
+          {
+            "name": "Zur Luria"
+          }
+        ],
+        "identifier": "doi:10.1002/rsa.20487",
+        "relationship": "background",
+        "title": "An upper bound on the number of Steiner triple systems"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-11-07-000002 v1",
+        "note": "Registered cdr-palomar-kernel at 5d1e6fe301e5fc01c92f6145aa34fddfe9c2bd10.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-07-000007 v2",
+        "note": "Registered DSP v2 at 21575ff924c98165ea1b451f7cbcc27c016ebd3e; includes H1.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-08-000002 v1",
+        "note": "Registered four-square caps and Jacobi, through DSP v2's pinned dependency.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-06-000015 v1",
+        "note": "Registered Gale-Hoffman integral feasibility at fa52c29c24edf7e9afdb487df3764affd43c51c7.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-10-22-000017 v2",
+        "note": "Registered STS counting at 52fda83038df7442c576e17edffba591db703cb8, through import-only CountingCone compatibility modules.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-16T14:20:03Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "dae88ec656c03030e53e7887210c678e36d8cf9641cf304f21ee5d19024279cf"
+    },
+    "reviewed_at": "2026-11-16T11:22:15Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "dd0a6595d5c45372ffadd19a35e3775e9b930f55",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+    },
+    "repository": "jtraverso/cdr-palomar-kernel",
+    "repository_url": "https://github.com/jtraverso/cdr-palomar-kernel",
+    "tree_url": "https://github.com/jtraverso/cdr-palomar-kernel/tree/dd0a6595d5c45372ffadd19a35e3775e9b930f55"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "ms8zv7lqzepk"
+  },
+  "title": "Prescribed block types and abundance in bicolored Steiner triple systems",
+  "trust": {
+    "challenge_bytes": 8249,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 198,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "b9b991fbc13838227036b90ddfd119c66597ed80f63e58c24d5241f923ad3283",
+    "evidence_path": "evidence/PALOMAR-2026-11-16-000019-v1/143187a1a424cb233047c834883dd77852cc14373442e0633eddbf0df34a60e0/",
+    "evidence_tree_sha256": "143187a1a424cb233047c834883dd77852cc14373442e0633eddbf0df34a60e0",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "aef74370b2f6ee6254dc4705d215fd3eb74b84c031d7c6ae871b709952cf1066",
+    "protected_config_sha256": "9090f7154440e08ae416d49d4a0a1c67add1e48d7d4750048fa91870be7d8c6d",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43842039468,
+    "solution_sha256": "77c8c36043f269be05ccb120ed3ea945214e4b61a790839ba2a16159fa5d1f66",
+    "tool_digests": {
+      "bwrap": "f62abc68bc2a4f4a7484d2d678c4ef1d0c7801c71584d695a82386906fcf324e",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-16T10:03:02Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43842039468"
+  },
+  "version": 1
+}
