@@ -1,0 +1,405 @@
+{
+  "abstract": "A Lean 4 formalisation, built on mathlib, of L. Niebel, \"A fast dynamo with zero topological entropy\" (arXiv:2608.02586v3), an arXiv preprint. The fast-dynamo question, going back to Vainshtein and Zel'dovich, asks whether the exponential growth rate of the magnetic field in the kinematic induction equation survives the limit of vanishing magnetic diffusivity; for autonomous velocities on the flat three-torus it is the conjecture recorded as Problem 1994-28 in Arnold's Problems (Conjecture 1.1 of the paper), which asks for a smooth velocity. For sufficiently smooth velocities the absence of exponential particle stretching excludes fast dynamo action (Vishik; Friedlander and Vishik), and the entropy bound of Klapper and Young excludes a C^infinity fast dynamo with zero topological entropy; the paper shows that at Lipschitz regularity fast dynamo action is compatible with zero topological entropy and zero ideal exponential growth. The theorem concerns Lipschitz velocities and does not address the smooth conjecture, which, as Remark 1.3 of the paper records, has been resolved (Coti Zelati, Sorella and Villringer, arXiv:2609.04153). The compared theorem is Theorem 1.2 of the paper: there are an autonomous, divergence-free, Lipschitz velocity field u on the flat torus T^3 = R^3/Z^3 and constants eps0, gamma0 > 0 such that for every magnetic diffusivity 0 < eps <= eps0 the kinematic induction equation dB/dt = curl(u x B) + eps Laplacian(B), div B = 0, has an induction semigroup on the divergence-free fields L^2_sigma whose operator norm is at least exp(gamma0 t) for all t >= 0 (u is a fast dynamo), with an eigenmode exp(2 pi i K x3) b(y) of eigenvalue of real part at least gamma0 and a real solution of exact growth exp(t Re lambda); while every time map of the particle flow of u is continuous and has topological entropy zero, and the ideal (eps = 0) induction equation has exactly one solution group, whose operator norm grows subexponentially. The statement in Challenge.lean uses only mathlib notions and fourteen documented definitions. The repository formalises, in its own terms and with every deviation recorded in DEVIATIONS.md, all statements of the paper except Conjecture 1.1 and Remarks 1.3, 7.5 and 8.4, in about 129,000 lines of Lean in 411 library modules; every audited declaration depends only on the standard axioms propext, Classical.choice and Quot.sound, and there is no sorry outside the deliberate one in Challenge.lean.",
+  "authors": [
+    {
+      "name": "Lukas Niebel"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-17-000013-v1/b0f49b2d69d5c9fd8d348bdd77052722d7731be34a32d4c95ed71dc03edfdeec/",
+    "artifact_tree_sha256": "b0f49b2d69d5c9fd8d348bdd77052722d7731be34a32d4c95ed71dc03edfdeec",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-17T14:32:59Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.AP",
+      "math-ph",
+      "math.SP"
+    ],
+    "msc2020": [
+      "76W05",
+      "35P05",
+      "47A10",
+      "35B25",
+      "37B40"
+    ]
+  },
+  "first_registered_on": "2026-11-17",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "FastDynamoChallenge.fast_dynamo_zero_entropy"
+    ]
+  },
+  "id": "PALOMAR-2026-11-17-000013",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-17T15:34:16Z",
+    "receipt_sha256": "b37cb40a773406c17ed79024ea30f0d1030c6ff6c1a7a9cb5e79effcc63ea380",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000013-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000013-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000013-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000013-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000013-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000013-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000013-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000013-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000013-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "f2e17cdd0f814af1bd9c0a6ce10320b216ed4fe0",
+        "fork_repository": "PalomarArchive/lukasniebel--fast_dynamo_lean--f9d6ed624b44",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000013-v1/f2e17cdd0f814af1bd9c0a6ce10320b216ed4fe0",
+        "source_repository": "lukasniebel/fast_dynamo_lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Lukas Niebel"
+          }
+        ],
+        "identifier": "arXiv:2608.02586v3",
+        "location": "https://arxiv.org/abs/2608.02586v3",
+        "relationship": "formalizes",
+        "title": "A fast dynamo with zero topological entropy",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "S. I. Vainshtein"
+          },
+          {
+            "name": "Ya. B. Zel'dovich"
+          }
+        ],
+        "identifier": "doi:10.1070/PU1972v015n02ABEH004960",
+        "location": "Sov. Phys. Usp. 15 (1972), no. 2, 159-172",
+        "relationship": "background",
+        "title": "Origin of magnetic fields in astrophysics (turbulent \"dynamo\" mechanisms)",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "contributors": [
+          {
+            "name": "V. I. Arnold",
+            "role": "editor"
+          }
+        ],
+        "identifier": "doi:10.1007/b138219",
+        "location": "Springer-Verlag, Berlin, and PHASIS, Moscow, 2004, Problem 1994-28",
+        "relationship": "background",
+        "title": "Arnold's Problems",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "M. M. Vishik"
+          }
+        ],
+        "identifier": "doi:10.1080/03091928908219531",
+        "location": "Geophys. Astrophys. Fluid Dyn. 48 (1989), nos. 1-3, 151-167",
+        "relationship": "background",
+        "title": "Magnetic field generation by the motion of a highly conducting fluid",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "S. Friedlander"
+          },
+          {
+            "name": "M. M. Vishik"
+          }
+        ],
+        "identifier": "doi:10.1063/1.165829",
+        "location": "Chaos 1 (1991), no. 2, 198-205",
+        "relationship": "background",
+        "title": "Dynamo theory, vorticity generation, and exponential stretching",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "I. Klapper"
+          },
+          {
+            "name": "L. S. Young"
+          }
+        ],
+        "identifier": "doi:10.1007/BF02101659",
+        "location": "Comm. Math. Phys. 173 (1995), no. 3, 623-646",
+        "relationship": "background",
+        "title": "Rigorous bounds on the fast dynamo growth rate involving topological entropy",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "M. Coti Zelati"
+          },
+          {
+            "name": "M. Sorella"
+          },
+          {
+            "name": "D. Villringer"
+          }
+        ],
+        "identifier": "arXiv:2504.00855v1",
+        "location": "https://arxiv.org/abs/2504.00855v1",
+        "relationship": "background",
+        "title": "Alpha-unstable flows and the fast dynamo problem",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "M. Coti Zelati"
+          },
+          {
+            "name": "M. Sorella"
+          },
+          {
+            "name": "D. Villringer"
+          }
+        ],
+        "identifier": "arXiv:2609.04153v1",
+        "location": "https://arxiv.org/abs/2609.04153v1",
+        "relationship": "background",
+        "title": "Smooth autonomous fast dynamo action on the three-torus",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Y. B. Ponomarenko"
+          }
+        ],
+        "identifier": "doi:10.1007/BF00853190",
+        "location": "J. Appl. Mech. Tech. Phys. 14 (1973), 775-778",
+        "relationship": "background",
+        "title": "Theory of the hydromagnetic generator",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Lukas Niebel"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-17T15:33:48Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "c69010ac1f0b8043cef509d0a1c461cf722bb4bb729aad1abd65689235962835"
+    },
+    "reviewed_at": "2026-11-17T15:17:03Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "f2e17cdd0f814af1bd9c0a6ce10320b216ed4fe0",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "lukasniebel/fast_dynamo_lean",
+    "repository_url": "https://github.com/lukasniebel/fast_dynamo_lean",
+    "tree_url": "https://github.com/lukasniebel/fast_dynamo_lean/tree/f2e17cdd0f814af1bd9c0a6ce10320b216ed4fe0"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "h81icr74f88d"
+  },
+  "title": "A fast dynamo with zero topological entropy",
+  "trust": {
+    "challenge_bytes": 10051,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Fourier.AddCircleMulti",
+      "Mathlib.Analysis.ODE.Basic",
+      "Mathlib.Dynamics.TopologicalEntropy.CoverEntropy",
+      "Mathlib.MeasureTheory.Constructions.Pi",
+      "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic"
+    ],
+    "challenge_lines": 175,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "dc182e8379942d9d7029b032278b559086dec314fc79586d0a3d8003f0d34f98",
+    "evidence_path": "evidence/PALOMAR-2026-11-17-000013-v1/1afa2189cf645585fb54aec50fd225c70904676361d6e2f6d4e616d5e76a46b1/",
+    "evidence_tree_sha256": "1afa2189cf645585fb54aec50fd225c70904676361d6e2f6d4e616d5e76a46b1",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "9310115a641379463fbaed82600ecd5e9a96436aa2c12e41699eb10aff0fa39d",
+    "protected_config_sha256": "df9f9e9316b47118b100ec44d71ed298d1356c1e8408e33a9d20bb74ab946a78",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44092936097,
+    "solution_sha256": "003e905e7d399d720b8eafdddb5504256879c936cb8518fbd699572264b27e28",
+    "tool_digests": {
+      "bwrap": "b1bb8180a8534685ba89776bbf31006ff68407c969101e1bb5b5a1cc4eb03acc",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-17T13:51:31Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44092936097"
+  },
+  "version": 1
+}

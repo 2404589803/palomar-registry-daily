@@ -1,0 +1,476 @@
+{
+  "abstract": "For U ∈ 1 + zℤ[[z]] put B(n,k) = [z^k] U(z)^n. Paul D. Hanna conjectured in 2010 that exp(Σ_{n≥1} [Σ_k B(n,k)^(e(n,k)) x^k] xⁿ/n) has integer coefficients for six choices of U and e: B = C(n+k−1,k) with e = k²+1 (A183128), k²+k (A183129), n (A181076) and n+k−1 (A181078), and B = C(n,k) with e = n+k (A181082) and n+k+1 (A181084). The package proves all six, and Hanna's notes that the exponents k² and k²+k−1 (in A183128, A183129) and k (in A181070, with B = C(n,k)) do not give integer series. The six conjectures follow from a general criterion on e, in the style of Dold's congruences along the rays (n,k) → (pn,pk), proved here for the diagonal series and any U; its corollaries cover constant exponents and polynomial exponents under a divisibility condition. A converse shows the non-integrality for a class of exponents. Integrality of exp(Σ c(n)xⁿ/n) is governed by Dold's congruences, which arise in topology and dynamics (see the survey of Byszewski, Graff and Ward, Bull. London Math. Soc. 53 (2021)). The congruence B(pn,pk) ≡ B(n,k) used here is a Gauss congruence for the coefficients of the rational function 1/(1 − yU(z)) when U is rational, in the sense studied by Beukers, Houben and Straub (Acta Arith. 184 (2018)).",
+  "authors": [
+    {
+      "name": "Wentao Li"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-17-000018-v1/b56da0da670a49da26f44128a2d34816c6ec53c598f9ab233c69c17da3abc703/",
+    "artifact_tree_sha256": "b56da0da670a49da26f44128a2d34816c6ec53c598f9ab233c69c17da3abc703",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-17T01:43:32Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.CO"
+    ],
+    "msc2020": [
+      "05A15",
+      "11B65",
+      "13F25"
+    ]
+  },
+  "first_registered_on": "2026-11-17",
+  "formalization": {
+    "challenge_path": "FCPalomar/OeisA181076/Challenge.lean",
+    "comparator_config_path": "FCPalomar/OeisA181076/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "FCPalomar/OeisA181076/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "ccbef15ebdb41c2addfac682131f83c75904c3c1"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "FCPalomar/OeisA181076/Solution.lean",
+    "theorem_names": [
+      "OeisA181076.a183128_integral",
+      "OeisA181076.a183129_integral",
+      "OeisA181076.a183128_note",
+      "OeisA181076.a183129_note",
+      "OeisA181076.a181070_note",
+      "OeisA181076.a181076_integral",
+      "OeisA181076.a181078_integral",
+      "OeisA181076.a181082_integral",
+      "OeisA181076.a181084_integral",
+      "OeisA181076.integral_of_criterion",
+      "OeisA181076.integral_of_const_exponent",
+      "OeisA181076.integral_of_polynomial_exponent",
+      "OeisA181076.not_integral_of_exponent"
+    ]
+  },
+  "id": "PALOMAR-2026-11-17-000018",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-17T19:32:20Z",
+    "receipt_sha256": "a3070d12564acd4240db0788f81a4c6f06bdf857a524db57beef7bfe055d9d68",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000018-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000018-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000018-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000018-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "ccbef15ebdb41c2addfac682131f83c75904c3c1",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000018-v1/ccbef15ebdb41c2addfac682131f83c75904c3c1",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000018-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000018-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000018-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000018-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+        "fork_repository": "PalomarArchive/VictorLiwentao--fc-palomar-proofs--a9817d9f1552",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000018-v1/91184b57cd62e2c45671e19c855e112127da2991",
+        "source_repository": "VictorLiwentao/fc-palomar-proofs"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Paul D. Hanna"
+          }
+        ],
+        "identifier": "https://oeis.org/A183128",
+        "location": "entry of December 25, 2010, name line and comments",
+        "relationship": "formalizes",
+        "title": "OEIS A183128",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Paul D. Hanna"
+          }
+        ],
+        "identifier": "https://oeis.org/A183129",
+        "location": "entry of December 25, 2010, name line and comments",
+        "relationship": "formalizes",
+        "title": "OEIS A183129",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Paul D. Hanna"
+          }
+        ],
+        "identifier": "https://oeis.org/A181076",
+        "location": "entry of October 2, 2010, name line and comments",
+        "relationship": "formalizes",
+        "title": "OEIS A181076",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Paul D. Hanna"
+          }
+        ],
+        "identifier": "https://oeis.org/A181078",
+        "location": "entry of October 3, 2010, name line and comments",
+        "relationship": "formalizes",
+        "title": "OEIS A181078",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Paul D. Hanna"
+          }
+        ],
+        "identifier": "https://oeis.org/A181082",
+        "location": "entry of October 2, 2010, name line and comments",
+        "relationship": "formalizes",
+        "title": "OEIS A181082",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Paul D. Hanna"
+          }
+        ],
+        "identifier": "https://oeis.org/A181084",
+        "location": "entry of October 28, 2010, name line and comments",
+        "relationship": "formalizes",
+        "title": "OEIS A181084",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Paul D. Hanna"
+          }
+        ],
+        "identifier": "https://oeis.org/A181070",
+        "location": "entry of October 2, 2010, name line and comments",
+        "relationship": "formalizes",
+        "title": "OEIS A181070",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "The Omega Institute trureturing contributors"
+          }
+        ],
+        "identifier": "https://github.com/the-omega-institute/trureturing/issues/22220",
+        "location": "issues filed in October 2026 and closed on November 5, 2026",
+        "relationship": "adapts",
+        "title": "Hanna binomial-power exponential integrality (issues #22220, #22221, #22222)",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Albrecht Dold"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/BF01394243",
+        "location": "Invent. Math. 74 (1983), no. 3, 419–435",
+        "relationship": "background",
+        "title": "Fixed point indices of iterated maps",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Richard P. Stanley"
+          }
+        ],
+        "location": "Cambridge University Press, 1999, Exercise 5.2(a)",
+        "relationship": "background",
+        "title": "Enumerative Combinatorics, Volume 2",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jakub Byszewski"
+          },
+          {
+            "name": "Grzegorz Graff"
+          },
+          {
+            "name": "Thomas Ward"
+          }
+        ],
+        "identifier": "https://doi.org/10.1112/blms.12531",
+        "location": "Bull. London Math. Soc. 53 (2021), 1263–1298; arXiv:2007.04031",
+        "relationship": "background",
+        "title": "Dold sequences, periodic points, and dynamics",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Frits Beukers"
+          },
+          {
+            "name": "Marc Houben"
+          },
+          {
+            "name": "Armin Straub"
+          }
+        ],
+        "identifier": "https://doi.org/10.4064/aa170614-13-7",
+        "location": "Acta Arith. 184 (2018), 341–362; arXiv:1710.00423",
+        "relationship": "background",
+        "title": "Gauss congruences for rational functions in several variables",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/the-omega-institute/trureturing/blob/c1844f0c1727c369b715eabd9dd475974e8dcb5c/D5/S1/Recurrence/Algebraic/HannaA181076Integrality.lean",
+        "note": "A Lean proof of the A181076 conjecture, merged in pull request #30042 on November 13, 2026, from the repository's general tools integralGeneric and variableExponent (pull request #26761). This package was developed without reading it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/the-omega-institute/trureturing/blob/ea2976219e3a793b0f41944d2c4a9fd11f15ec47/D5/S1/Recurrence/Algebraic/HannaA181078Integrality.lean",
+        "note": "A Lean proof of the A181078 conjecture, merged in pull request #30086 on November 13, 2026.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/the-omega-institute/trureturing/blob/2e8b76c4b53d11278d187422006387f7e948ba89/D5/S1/Recurrence/Algebraic/HannaA181082Integrality.lean",
+        "note": "A Lean proof of the A181082 conjecture, merged in pull request #30089 on November 13, 2026.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/the-omega-institute/trureturing/blob/710a79fb947375958b6ba56de080a0a961bf9786/D5/S1/Recurrence/Algebraic/HannaA181084Integrality.lean",
+        "note": "A Lean proof of the A181084 conjecture, merged in pull request #30142 on November 13, 2026.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/the-omega-institute/trureturing/blob/0d486b330972c1e9bd2afd2ef7658b531dfd7b53/D5/S1/Recurrence/Algebraic/HannaA181070Integrality.lean",
+        "note": "Lean proofs of the exponent k + 1 cases A181070, A181074 and A181080, merged in pull request #26761 on November 5, 2026 (author ElonSG), with the general tools integralGeneric and variableExponent. It does not treat A183128, A183129 or the non-integrality notes. Its integralGeneric proves integrality of exp(Σ_n [Σ_k F(n,k)x^k] xⁿ/n) for any F with n | k·F(n,k) and p^(v_p(n)+1) | F(pn,pk) − F(n,k); variableExponent gives that congruence for the exponent k + 1. It has no condition on general exponents.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/VictorLiwentao/fc-palomar-proofs/tree/3a8fe0d8a06c4f0e3f352f78d86ac3a5d2cc16c7/FCPalomar/OeisA181316",
+        "note": "Dold's criterion and the Euler-product converse in the Solution are copied from this package by the same author. The Challenge does not use them.",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Wentao Li"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-17T19:31:59Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "7904d9ee276405c707f42e4e4b36c7d7461bc96c7716084f1c270973ddc7f714"
+    },
+    "reviewed_at": "2026-11-17T03:21:17Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "91184b57cd62e2c45671e19c855e112127da2991",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "VictorLiwentao/fc-palomar-proofs",
+    "repository_url": "https://github.com/VictorLiwentao/fc-palomar-proofs",
+    "tree_url": "https://github.com/VictorLiwentao/fc-palomar-proofs/tree/91184b57cd62e2c45671e19c855e112127da2991"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "9ru8si8r9g51"
+  },
+  "title": "OEIS A183128, A183129 and four siblings: Hanna's binomial-power exponential conjectures, with his non-integrality notes",
+  "trust": {
+    "challenge_bytes": 10765,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 218,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "7665243ae51fe531a7841ebc6eb04bcd0cd2ba3d79fb090769da4749088f4e42",
+    "evidence_path": "evidence/PALOMAR-2026-11-17-000018-v1/6652080268ab744341cdcea32b6609dc7600eac5f92ab4e88fa643aad50031e3/",
+    "evidence_tree_sha256": "6652080268ab744341cdcea32b6609dc7600eac5f92ab4e88fa643aad50031e3",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "d1b3031f5d6c763b1d67ff3543b5bebee08fb30e076d553b0f63f7c0b3dab6e5",
+    "protected_config_sha256": "d7c03c6307e0460b89268efe7341709db4e5167bc97555df82a19d9e66d5886e",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43986476240,
+    "solution_sha256": "07273bb41176896c84de9be7e152e562741e75ea6490d64d70b8512faa4faa73",
+    "tool_digests": {
+      "bwrap": "7b60d838bda617f2dd0e4c3325ced25a3f460349af397b84e54b953a5259e0d4",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-17T00:21:51Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43986476240"
+  },
+  "version": 1
+}

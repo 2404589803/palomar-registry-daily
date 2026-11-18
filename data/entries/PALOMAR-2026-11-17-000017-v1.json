@@ -1,0 +1,396 @@
+{
+  "abstract": "A Lean formalization of Forey and Yin's Theorem 5.17. For two definable maps to a common mixed VF/RV base, parameter-definable RV lifts of every pair of fibres with equal bounded residue-field evaluations imply equal bounded invariants of the total VF classes. The saturated canonical equicharacteristic-zero model and small generated-ground hypotheses are explicit. The submission selection contains this one theorem; necessary definition helpers may accompany its vocabulary.",
+  "authors": [
+    {
+      "name": "Yimu Yin"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-17-000017-v1/a5bfda6a8126b04f3b22033be448a6dfdcaa25036e6310056287e89c52143265/",
+    "artifact_tree_sha256": "a5bfda6a8126b04f3b22033be448a6dfdcaa25036e6310056287e89c52143265",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-17T10:19:45Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.LO",
+      "math.AG"
+    ],
+    "msc2020": [
+      "03C60",
+      "12J25",
+      "14E18",
+      "03B35"
+    ]
+  },
+  "first_registered_on": "2026-11-17",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "SpecialTransformations.Milestone0.Transfer.vfFieldOfModel",
+      "DiamondIntegral.Section3.gammaGroundRVObjectGroupoid",
+      "SpecialTransformations.Section4.gammaSpace",
+      "SpecialTransformations.Section4.rawVFSpace",
+      "SpecialTransformations.Section4.rawRVSpace",
+      "FubiniStatement.vfLift",
+      "FubiniStatement.mapFibre",
+      "FubiniStatement.rvProduct",
+      "FubiniStatement.resProduct",
+      "FubiniStatement.rvRestrict",
+      "FubiniStatement.resRestrict",
+      "FubiniStatement.resUnit",
+      "FubiniStatement.rvEmpty",
+      "FubiniStatement.valueLineObject",
+      "FubiniStatement.gammaLiftObject",
+      "FubiniStatement.boundedRVValues",
+      "FubiniStatement.boundedVFValues"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "integration_in_acvf",
+        "repository": "daviddhilbert/integration-in-ACVF",
+        "revision": "9a726a52eb760534ac6a3de8a9bbf81b8d3a9184"
+      },
+      {
+        "name": "special_transformations",
+        "repository": "daviddhilbert/special-transformations",
+        "revision": "b661cbb2ac28cf003999579a3789e319fa9a5b7d"
+      },
+      {
+        "name": "acvf_qe",
+        "repository": "daviddhilbert/ACVF-QE",
+        "revision": "1d158a9ef5cbe5ac2cb52707144b1da127ef8dbf"
+      },
+      {
+        "name": "hilbert-mathlib",
+        "repository": "daviddhilbert/hilbert-mathlib",
+        "revision": "89972dda28566ae669329c67b6cd224998a11601"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "FubiniStatement.bounded_fubini",
+      "SpecialTransformations.Section3.Values.vrv_eq_infinity_iff",
+      "SpecialTransformations.Milestone0.Transfer.rv_zero_mem",
+      "SpecialTransformations.Milestone0.RVCalc.le_trans_rv",
+      "SpecialTransformations.Milestone0.RVCalc.le_refl_rv",
+      "SpecialTransformations.Section8.normalize_eq_of_isCanonical",
+      "SpecialTransformations.DefinableGeometry.Space.definable_univ",
+      "DiamondIntegral.Section3.GammaGroundDefinable.of_real",
+      "DiamondIntegral.Section3.GammaGroundContext.nontrivial_definable_gamma",
+      "SpecialTransformations.Section3.Values.infinity_eq_zero",
+      "SpecialTransformations.Section3.Values.presentation_compatible",
+      "SpecialTransformations.Milestone0.VFValued.exists_valuation_predV",
+      "SpecialTransformations.Section3.Values.vf_value_eq_iff",
+      "SpecialTransformations.Milestone0.Transfer.rv_mem",
+      "CanonicalRV.encodedRv_surjective",
+      "SpecialTransformations.Section3.Values.vrv_surjective",
+      "SpecialTransformations.Section3.GammaParameters.value_surjective",
+      "DiamondIntegral.Section4.GammaGroupNames.one_definable_base",
+      "DiamondIntegral.Section3.GammaGroundDefinable.compl",
+      "DiamondIntegral.Section3.GammaGroundDefinable.inter",
+      "DiamondIntegral.Section5.ShapedGammaCell.definable",
+      "DiamondIntegral.Section2.NontrivialDefinableGamma.mono",
+      "SpecialTransformations.Section3.GammaParameters.small_union_range_carrier",
+      "FubiniStatement.rawRVSpace_data",
+      "FubiniStatement.rawVFSpace_data",
+      "FubiniStatement.gammaSpace_data",
+      "FubiniStatement.rvGroupoid_hom",
+      "FubiniStatement.vfField_operations"
+    ]
+  },
+  "id": "PALOMAR-2026-11-17-000017",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-17T18:34:50Z",
+    "receipt_sha256": "02ea79ebc4c3bc62ee0dab4d7bc65b0aa6b67ab9f34c2391fdc74c214ca84256",
+    "repositories": [
+      {
+        "commit": "1d158a9ef5cbe5ac2cb52707144b1da127ef8dbf",
+        "fork_repository": "PalomarArchive/daviddhilbert--ACVF-QE--d2cf2e626166",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000017-v1/1d158a9ef5cbe5ac2cb52707144b1da127ef8dbf",
+        "source_repository": "daviddhilbert/ACVF-QE"
+      },
+      {
+        "commit": "40e4e23f0b34f87d753f0456a943463c9ab52ab0",
+        "fork_repository": "PalomarArchive/daviddhilbert--Fubini-theorems--89fa7656dd56",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000017-v1/40e4e23f0b34f87d753f0456a943463c9ab52ab0",
+        "source_repository": "daviddhilbert/Fubini-theorems"
+      },
+      {
+        "commit": "89972dda28566ae669329c67b6cd224998a11601",
+        "fork_repository": "PalomarArchive/daviddhilbert--hilbert-mathlib--0a7e9e415d92",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000017-v1/89972dda28566ae669329c67b6cd224998a11601",
+        "source_repository": "daviddhilbert/hilbert-mathlib"
+      },
+      {
+        "commit": "9a726a52eb760534ac6a3de8a9bbf81b8d3a9184",
+        "fork_repository": "PalomarArchive/daviddhilbert--integration-in-ACVF--f5a94e7545df",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000017-v1/9a726a52eb760534ac6a3de8a9bbf81b8d3a9184",
+        "source_repository": "daviddhilbert/integration-in-ACVF"
+      },
+      {
+        "commit": "b661cbb2ac28cf003999579a3789e319fa9a5b7d",
+        "fork_repository": "PalomarArchive/daviddhilbert--special-transformations--255d43589738",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000017-v1/b661cbb2ac28cf003999579a3789e319fa9a5b7d",
+        "source_repository": "daviddhilbert/special-transformations"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000017-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000017-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000017-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000017-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000017-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000017-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000017-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000017-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000017-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Arthur Forey"
+          },
+          {
+            "name": "Yimu Yin"
+          }
+        ],
+        "identifier": "arXiv:1910.12764v2",
+        "location": "https://arxiv.org/abs/1910.12764v2",
+        "relationship": "formalizes",
+        "title": "Bounded integral and motivic Milnor fiber",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/daviddhilbert/diamond-integral/tree/a3ef33e664e0a0725f0b04d9400bb7c8a1b8e95a",
+        "note": "Extracted active Section 5 development with unchanged public theorem names and types. SOURCE-MANIFEST.json records every original file and the independent package's implementation ownership. This repository contains the substantive proof development, not only a Comparator wrapper.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/daviddhilbert/integration-in-ACVF",
+        "note": "Exact lifting provider revision is pinned in lake-manifest.json.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/daviddhilbert/special-transformations",
+        "note": "Exact preparation and finite-law provider revision is pinned in lake-manifest.json.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/daviddhilbert/ACVF-QE",
+        "note": "Shared corrected RV language and quantifier elimination, at the manifest revision.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Yimu Yin"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-17T18:34:22Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "7930b977e7990ce1094dc214ecda5e3f7ef12baa90b20718d14eaa917cfc335d"
+    },
+    "reviewed_at": "2026-11-17T11:16:53Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "40e4e23f0b34f87d753f0456a943463c9ab52ab0",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "c0113bc6894f2de606261a396edbb535bfb39be41416652060797033c86e7270"
+    },
+    "repository": "daviddhilbert/Fubini-theorems",
+    "repository_url": "https://github.com/daviddhilbert/Fubini-theorems",
+    "tree_url": "https://github.com/daviddhilbert/Fubini-theorems/tree/40e4e23f0b34f87d753f0456a943463c9ab52ab0"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "q4ybeocmc97y"
+  },
+  "title": "Bounded Fubini in algebraically closed valued fields",
+  "trust": {
+    "challenge_bytes": 95405,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Lean.Meta.Match.Match",
+      "Lean.Meta.Tactic.AuxLemma",
+      "Mathlib"
+    ],
+    "challenge_lines": 990,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "aa27965d524f9e871b93135615cc0eff4890fda52aa3e3a8670ae36876c2fa93",
+    "evidence_path": "evidence/PALOMAR-2026-11-17-000017-v1/7a36f7c66a41242bb18fdb181ab28754e1c32802fd052bd2c2cbce3c7fa306d3/",
+    "evidence_tree_sha256": "7a36f7c66a41242bb18fdb181ab28754e1c32802fd052bd2c2cbce3c7fa306d3",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "4c6d4185c0193f52d6bfb3bdd7c217c2337954c93c159917021d0d69f5bec04c",
+    "protected_config_sha256": "dae11dea244aabdd936f57dc488e5fb2ac5d905b635f5a2ab9d0f2f090912c86",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44053706747,
+    "solution_sha256": "2c65798986ea4c643ec98ff25c266507cd6e4f6cdabba77819aa6b3d8155277c",
+    "tool_digests": {
+      "bwrap": "08fcc00b457087855fdb6b52b05475d413cc68b69d59bc3cd519257544548856",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-17T09:50:05Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44053706747"
+  },
+  "version": 1
+}

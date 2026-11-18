@@ -1,0 +1,384 @@
+{
+  "abstract": "Lean 4 / Mathlib formalization of the theorem that every temporal clique on n vertices admits a temporal spanner with at most 7n edges. A temporal clique is the complete graph on a finite vertex set whose edges carry natural-number time labels, locally injective (two edges sharing an endpoint have distinct labels); a temporal spanner is a set of edges in which every vertex reaches every other one by a journey with non-decreasing labels. The result and its proof are due to Júlia Baligács (arXiv:2606.05156, 2026): the dismountability of Carnevale, Casteigts and Corsini (SAND 2025) reduces cliques to extremally matched bi-cliques, which are then covered by simple and extended stars. The compared statements give the explicit bound 7n and the asymptotic O(n) form with a bound function chosen uniformly for all cliques. They use the same definitions as the registered O(n log n) entry. This repository is a thin wrapper: it contains only the statement and the bridge to the temporal-graphs library, the substantive formalization, on which it depends through its lakefile at the commit given below (release alpha-0.2.0 of the library, on its branch prepared for Palomar). The work is supervised by Arnaud Casteigts and Karine Altisen.",
+  "authors": [
+    {
+      "name": "Ethan Bargaud-Arm"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-17-000011-v1/8318dfbc16771b125ad3ab2ea66436a43ec0e5c3e15e35acfce8d3dd840603d1/",
+    "artifact_tree_sha256": "8318dfbc16771b125ad3ab2ea66436a43ec0e5c3e15e35acfce8d3dd840603d1",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-13T11:37:02Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "71a2035b44e7f54a797ce799fd1b03cdd3a44684"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.DM",
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C85",
+      "05C40",
+      "05C38",
+      "68R10"
+    ]
+  },
+  "first_registered_on": "2026-11-17",
+  "formalization": {
+    "challenge_path": "LinearSpanners/Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "temporal-graph",
+        "repository": "dracoanguis/temporal-graphs",
+        "revision": "6f15fa354f8fc0abf343fb7cd78c7273558a5d39"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "a3009549c293f61818a061aff81f2ae3c600f212"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "b0256621cb88178e9ad932a53633077b3029e621"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "08a1d53cd0bbb78442973b751c8e6f98e75b12be"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b"
+      }
+    ],
+    "solution_path": "LinearSpanners/Solution.lean",
+    "theorem_names": [
+      "TemporalCliqueSpanners.exists_isTemporalSpanner_card_le_seven_mul",
+      "TemporalCliqueSpanners.exists_isBigO_isTemporalSpanner_linear"
+    ]
+  },
+  "id": "PALOMAR-2026-11-17-000011",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-17T13:20:45Z",
+    "receipt_sha256": "f9b98ba6b4e250f5234c3177584b078c9c4593f03c8e07df8c155dadbad1e714",
+    "repositories": [
+      {
+        "commit": "f569fc7a084845d58491cc3752544149109212ff",
+        "fork_repository": "PalomarArchive/dracoanguis--soumission-linear-spanners--45e7d958a403",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000011-v1/f569fc7a084845d58491cc3752544149109212ff",
+        "source_repository": "dracoanguis/soumission-linear-spanners"
+      },
+      {
+        "commit": "6f15fa354f8fc0abf343fb7cd78c7273558a5d39",
+        "fork_repository": "PalomarArchive/dracoanguis--temporal-graphs--4bb3060d8f06",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000011-v1/6f15fa354f8fc0abf343fb7cd78c7273558a5d39",
+        "source_repository": "dracoanguis/temporal-graphs"
+      },
+      {
+        "commit": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000011-v1/7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "08a1d53cd0bbb78442973b751c8e6f98e75b12be",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000011-v1/08a1d53cd0bbb78442973b751c8e6f98e75b12be",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000011-v1/b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000011-v1/c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "a3009549c293f61818a061aff81f2ae3c600f212",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000011-v1/a3009549c293f61818a061aff81f2ae3c600f212",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000011-v1/129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000011-v1/16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "b0256621cb88178e9ad932a53633077b3029e621",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000011-v1/b0256621cb88178e9ad932a53633077b3029e621",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000011-v1/c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "endorsed",
+        "authors": [
+          {
+            "name": "Júlia Baligács"
+          }
+        ],
+        "identifier": "arXiv:2606.05156",
+        "location": "arXiv preprint arXiv:2606.05156v1 (2026)",
+        "relationship": "formalizes",
+        "title": "Temporal Cliques Admit Linear Spanners",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Daniele Carnevale"
+          },
+          {
+            "name": "Arnaud Casteigts"
+          },
+          {
+            "name": "Timothée Corsini"
+          }
+        ],
+        "identifier": "doi:10.4230/LIPIcs.SAND.2025.6",
+        "location": "4th Symposium on Algorithmic Foundations of Dynamic Networks (SAND 2025), LIPIcs 330, article 6; arXiv:2502.01321",
+        "relationship": "formalizes",
+        "title": "Dismountability in Temporal Cliques Revisited",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Sebastian Angrick"
+          },
+          {
+            "name": "Ben Bals"
+          },
+          {
+            "name": "Tobias Friedrich"
+          },
+          {
+            "name": "Hans Gawendowicz"
+          },
+          {
+            "name": "Niko Hastrich"
+          },
+          {
+            "name": "Nicolas Klodt"
+          },
+          {
+            "name": "Pascal Lenzner"
+          },
+          {
+            "name": "Jonas Schmidt"
+          },
+          {
+            "name": "George Skretas"
+          },
+          {
+            "name": "Armin Wells"
+          }
+        ],
+        "identifier": "doi:10.4230/LIPIcs.ESA.2024.11",
+        "location": "32nd European Symposium on Algorithms (ESA 2024), LIPIcs 308, article 11",
+        "relationship": "formalizes",
+        "title": "How to Reduce Temporal Cliques to Find Sparse Spanners",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Arnaud Casteigts"
+          },
+          {
+            "name": "Joseph G. Peters"
+          },
+          {
+            "name": "Jason Schoeters"
+          }
+        ],
+        "identifier": "doi:10.4230/LIPIcs.ICALP.2019.134",
+        "location": "ICALP 2019, LIPIcs 132, article 134; journal version doi:10.1016/j.jcss.2021.04.004 (JCSS 2021); arXiv:1810.00104",
+        "relationship": "background",
+        "title": "Temporal Cliques Admit Sparse Spanners",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://palomar-registry.org/entry?id=PALOMAR-2026-10-23-000009&version=1",
+        "note": "Palomar entry PALOMAR-2026-10-23-000009 (version 1): the O(n log n) bound (Casteigts–Peters– Schoeters 2019 via SAND 2025), submitted from the library repository itself (github.com/dracoanguis/temporal-graphs, branch nlogn-spanner-dismountability-submission, commit 79214ea). The statement of record uses verbatim the same definitions (IsLocallyInjective, Journey, IsTemporalSpanner, namespace TemporalCliqueSpanners), and the Solution reuses its bridge to the library unchanged. Both proofs share the dismountability reduction and a generic induction on cliques (exists_isSpannerOf_ncard_le_of_forall_not_twoHopDismountable); only the non-dismountable case differs: one-sided dismountability for O(n log n), extremally matched bi-cliques and stars for 7n.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "thin-wrapper",
+    "responsible_maintainers": [
+      {
+        "name": "Ethan Bargaud-Arm"
+      }
+    ],
+    "result_origin": "source-based",
+    "substantive_formalization": {
+      "commit": "6f15fa354f8fc0abf343fb7cd78c7273558a5d39",
+      "repository": "dracoanguis/temporal-graphs",
+      "repository_url": "https://github.com/dracoanguis/temporal-graphs",
+      "tree_url": "https://github.com/dracoanguis/temporal-graphs/tree/6f15fa354f8fc0abf343fb7cd78c7273558a5d39"
+    }
+  },
+  "registered_at": "2026-11-17T13:20:19Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "afb3f14793b04ca04613b6be16c53ab817508ea998f7612ee941dabe9a4f7230"
+    },
+    "reviewed_at": "2026-11-13T12:08:06Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "f569fc7a084845d58491cc3752544149109212ff",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "dracoanguis/soumission-linear-spanners",
+    "repository_url": "https://github.com/dracoanguis/soumission-linear-spanners",
+    "tree_url": "https://github.com/dracoanguis/soumission-linear-spanners/tree/f569fc7a084845d58491cc3752544149109212ff"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "b0zo6gniuhn0"
+  },
+  "title": "Temporal cliques admit linear spanners",
+  "trust": {
+    "challenge_bytes": 4791,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Asymptotics.Defs",
+      "Mathlib.Data.Sym.Sym2",
+      "Mathlib.SetTheory.Cardinal.Finite"
+    ],
+    "challenge_lines": 90,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "c0c0d35ad7a55974591718d41c387c54df8cf2ed932231dde5d6d2569cd86db4",
+    "evidence_path": "evidence/PALOMAR-2026-11-17-000011-v1/5ee07d479f7a119f125399d5a8e440247d13898bd9648d6d71aeb881ca378aee/",
+    "evidence_tree_sha256": "5ee07d479f7a119f125399d5a8e440247d13898bd9648d6d71aeb881ca378aee",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "a091d5c9c5a5c0fc38ef11932bde7f0fa1874cbda1c88b02b7efe566e91188a6",
+    "protected_config_sha256": "d192cb095e19df8a205df499e22f175daf0fb3e08233be5b83bfee7ab10f474e",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 43393040520,
+    "solution_sha256": "2e2f2bdc2c211cce6be7cdace99fdf0bb998187ab576313572121d74962f1f37",
+    "tool_digests": {
+      "bwrap": "05d60467341bfd8b170460461bf3c890c43565293f45f420efe4c2981298739c",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "b35cb10cf2ced51a2fd1880cfdbf75c71ab7a35a",
+    "verified_at": "2026-11-13T08:42:35Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/43393040520"
+  },
+  "version": 1
+}

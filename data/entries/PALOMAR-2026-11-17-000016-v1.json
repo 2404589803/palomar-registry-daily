@@ -1,0 +1,384 @@
+{
+  "abstract": "A large deviation principle for uniform labeled Latin squares in the full ordered Latinon cut distance, at speed n squared with extended relative entropy as a good rate function. The space retains both row and column orders. For every finite family of strict order patterns and every finite-rate target, the development gives bilateral local logarithmic counts with binomial finite normalization and second-order constant -2. Neighborhood radii may depend on the target and are chosen before the order threshold. Empty compatible fibers have eventually empty finite neighborhoods. The proof includes a uniform lower counting theorem for bounded positive tristochastic profiles and a transportation correction with exact support, bounded entries and l1 cost at most 5/2 times the total margin defect. The entropy convention is Ent = -KL.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-17-000016-v1/0d9fb1a134708d45ba65cddfcbe2a7b4c83a5393f58925f760088435b7bb852f/",
+    "artifact_tree_sha256": "0d9fb1a134708d45ba65cddfcbe2a7b4c83a5393f58925f760088435b7bb852f",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-17T13:31:13Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.PR"
+    ],
+    "msc2020": [
+      "05B15",
+      "60F10",
+      "94A17"
+    ]
+  },
+  "first_registered_on": "2026-11-17",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "LatinonEntropy.latinonCutDistance_self",
+      "LatinonEntropy.latinonCutDistance_symm",
+      "LatinonEntropy.latinonCutDistance_triangle",
+      "LatinonEntropy.finiteLatinMeasure_xy",
+      "LatinonEntropy.finiteLatinMeasure_xz",
+      "LatinonEntropy.finiteLatinMeasure_yz",
+      "LatinonEntropy.latinon_rate_lowerSemicontinuous",
+      "LatinonEntropy.latinon_full_cut_compact",
+      "LatinonEntropy.latinon_rate_sublevels_compact",
+      "LatinonEntropy.closed_uniform_latinon_upper",
+      "LatinonEntropy.open_uniform_latinon_lower",
+      "LatinonEntropy.finite_rate_standard_pattern_log_count",
+      "LatinonEntropy.empty_standard_pattern_fiber_eventually_zero",
+      "LatinonEntropy.finite_latin_tensor_lower_bound",
+      "LatinonEntropy.correction_lemma_five",
+      "LatinonEntropy.latinonSymbolKernel._proof_1",
+      "LatinonEntropy.uniformLatinonMeasure_order_preserving",
+      "LatinonEntropy.uniformLatinonMeasure_xy_uniform",
+      "LatinonEntropy.uniformLatinonMeasure_xz_uniform",
+      "LatinonEntropy.uniformLatinonMeasure_yz_uniform",
+      "LatinonEntropy.latinArrayToLatinonMeasure._proof_1"
+    ]
+  },
+  "id": "PALOMAR-2026-11-17-000016",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-17T17:05:50Z",
+    "receipt_sha256": "cb5ead1700efe71bbdde696eee0864491317cd92021031ae5562e8427d66565d",
+    "repositories": [
+      {
+        "commit": "ec7025d0ecc2292292f3928183e9f03db420f379",
+        "fork_repository": "PalomarArchive/jtraverso--latinon-entropy-ldp-lean--62688703585a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000016-v1/ec7025d0ecc2292292f3928183e9f03db420f379",
+        "source_repository": "jtraverso/latinon-entropy-ldp-lean"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000016-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000016-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000016-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000016-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000016-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000016-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000016-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000016-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-17-000016-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "identifier": "https://www.alphaxiv.org/abs/2611.latin-squares-entropy-large-deviations",
+        "location": "https://github.com/jtraverso/latinon-entropy-ldp/releases/tag/latinon-v1.0",
+        "relationship": "formalizes",
+        "title": "Entropy and large deviations for Latin squares",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Frederik Garbe"
+          },
+          {
+            "name": "Robert Hancock"
+          },
+          {
+            "name": "Jan Hladký"
+          },
+          {
+            "name": "Maryam Sharifzadeh"
+          }
+        ],
+        "identifier": "arxiv:2010.07854",
+        "relationship": "background",
+        "title": "Limits of Latin squares",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jaikumar Radhakrishnan"
+          }
+        ],
+        "identifier": "doi:10.1006/jcta.1996.2727",
+        "relationship": "background",
+        "title": "An entropy proof of Bregman's theorem"
+      },
+      {
+        "authors": [
+          {
+            "name": "Nathan Linial"
+          },
+          {
+            "name": "Zur Luria"
+          }
+        ],
+        "identifier": "arxiv:1106.0649",
+        "relationship": "background",
+        "title": "An upper bound on the number of high-dimensional permutations"
+      },
+      {
+        "authors": [
+          {
+            "name": "Leonid Gurvits"
+          }
+        ],
+        "identifier": "doi:10.37236/790",
+        "relationship": "background",
+        "title": "Van der Waerden/Schrijver-Valiant like conjectures and stable (aka hyperbolic) homogeneous polynomials: one theorem for all"
+      },
+      {
+        "authors": [
+          {
+            "name": "Richard Kenyon"
+          },
+          {
+            "name": "Daniel Král'"
+          },
+          {
+            "name": "Charles Radin"
+          },
+          {
+            "name": "Peter Winkler"
+          }
+        ],
+        "identifier": "arxiv:1506.02340",
+        "relationship": "background",
+        "title": "Permutations with fixed pattern densities"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/cameronfreer/graphon/tree/9f7be59fa754d260a544b4cfd83d6a5b94f7552e",
+        "note": "Nine Graphon modules by Cameron Freer were reused with the compatibility changes and original credits recorded in evidence/GRAPHON_PROVENANCE.json. Their mathematical declarations and proofs are retained. This package additionally ports their module/import/visibility headers for Palomar.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-07-000002 v1",
+        "note": "Finite CDR definitions and Wilson packing arguments from jtraverso/cdr-palomar-kernel at 5d1e6fe301e5fc01c92f6145aa34fddfe9c2bd10 occur in the applications assembly. They are not inputs to the core LDP proof and the old absorption existence library is not imported.",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-17T17:05:25Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "2eeb817932187c02f7be2aa41e77268c15d3d3832a2195fc7a88401f86f7985c"
+    },
+    "reviewed_at": "2026-11-17T14:18:32Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "ec7025d0ecc2292292f3928183e9f03db420f379",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "e03ba41d7fab20700769fe4118bab50d800cb74f990353a05d2f5fff1c228363"
+    },
+    "repository": "jtraverso/latinon-entropy-ldp-lean",
+    "repository_url": "https://github.com/jtraverso/latinon-entropy-ldp-lean",
+    "tree_url": "https://github.com/jtraverso/latinon-entropy-ldp-lean/tree/ec7025d0ecc2292292f3928183e9f03db420f379"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "l1j7wodaof73"
+  },
+  "title": "Entropy and large deviations for Latin squares",
+  "trust": {
+    "challenge_bytes": 25811,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 531,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "79806694ae06114c6b1fdf79eeea01acbcd74b704f28237e6d5d613d9d089253",
+    "evidence_path": "evidence/PALOMAR-2026-11-17-000016-v1/e86600014347a6887302fd0bd68516a48dc39f158217bcfd735dd7bce3854855/",
+    "evidence_tree_sha256": "e86600014347a6887302fd0bd68516a48dc39f158217bcfd735dd7bce3854855",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "085f4229187b6cb45034317bf93105612e7150b4205b6338a27d6c6cc4d235bc",
+    "protected_config_sha256": "0c1fac7e63a898b99bb2367db3796aa325bf8392e33805ad71313eac50fa420c",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44087831298,
+    "solution_sha256": "fbd34f8ede4ad3f3e8903d1380bbda861d8348b265b7514d69c7df185af09b8c",
+    "tool_digests": {
+      "bwrap": "306a7b0da818c46595dea1b73b1d4f26532c4d7774426edc286ecc689d6622b7",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-17T13:05:29Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44087831298"
+  },
+  "version": 1
+}
