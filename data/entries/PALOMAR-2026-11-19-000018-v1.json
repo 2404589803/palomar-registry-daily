@@ -1,0 +1,419 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of Andrew Lyasoff, \"Another look at the integral of exponential Brownian motion and the pricing of Asian options\", Finance Stoch. 20 (2016) 1061–1096. Framing: rigorous reconstruction/verification of the paper’s joint-density, Fokker–Planck, foliation, π/π/2 contour, Yor (1.1)/Rem 5.1, and Asian pricing material. The Comparator family is all 40 proof-chart theorems, each proved using only propext, Quot.sound, and Classical.choice (including time_reversal, Prop 2.2, Dufresne, joint Fokker–Planck, the §4 conditional rearrangements theorem_4_1_pde / theorem_4_1_striking / formula_4_6 / theorem_4_5, the four cond_density_satisfies_* existence results, g_solves_contour_equation, yor_formula, pi_formula, S_closed_form, SfunC.hasDerivAt, hasDerivAt_integral_Re_Ffun, asian_price_formula, asian_delta), together with compared density/integrand definitions. Tables 1–4 are reported numerical data only (definitions, no theorems), outside Comparator. `hasDerivAt_integral_Re_Ffun` uses the tilted-density/Girsanov route rather than global `(u,w)` domination. Project rule: no Lean `axiom` declarations. The §4 rearrangement theorems are conditional implications (they assume the foliation PDE / striking / ODE / Laplace inputs); the cond_density_satisfies_* theorems discharge those inputs by exhibiting a conditional density (Brownian-scaled Yor) that satisfies each of them. Andrew Lyasoff did not participate in or endorse this formalization. Lean was written with AI-agent assistance under Lars Warren Ericson’s direction and review. There is no sorry in the compared Lyasoff2016 development for the Comparator family, and Mathlib plus pinned public Git dependencies supply the analytic/probabilistic stack.",
+  "authors": [
+    {
+      "name": "Lars Warren Ericson"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-19-000018-v1/306b67e8b89613577dee0e1265fa7bee2adc302ecbfcc6a65a78fc6999e5078d/",
+    "artifact_tree_sha256": "306b67e8b89613577dee0e1265fa7bee2adc302ecbfcc6a65a78fc6999e5078d",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-19T02:25:35Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.PR",
+      "q-fin.PR",
+      "math.CA"
+    ],
+    "msc2020": [
+      "60H30",
+      "60J65",
+      "91G20",
+      "35K10",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-19",
+  "formalization": {
+    "challenge_path": "Lyasoff2016Comparator/Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "Lyasoff2016.yorDensity",
+      "Lyasoff2016.piFormula",
+      "Lyasoff2016.piHalfFormula",
+      "Lyasoff2016.contourIntegrand",
+      "Lyasoff2016.Ffun",
+      "Lyasoff2016.FfunDeriv",
+      "Lyasoff2016.dufresne",
+      "Lyasoff2016.jointFokkerPlanckAdjoint",
+      "Lyasoff2016.SatisfiesTheorem41PDE",
+      "Lyasoff2016.SatisfiesFoliationODE",
+      "Lyasoff2016.TransformedMassIdentity",
+      "Lyasoff2016.HasLaplaceReduction",
+      "Lyasoff2016.contourEq"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "e91b128082cc221d6432a6a5aadcd3243af8e76c"
+      },
+      {
+        "name": "MathFin",
+        "repository": "formal-applied-math/formal-mathfin",
+        "revision": "c47908ea18274b16c5b26edd206ec073470c4a26"
+      },
+      {
+        "name": "BrownianMotion",
+        "path": "vendor/brownian-motion"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "LeanArchitect",
+        "repository": "hanwenzhu/LeanArchitect",
+        "revision": "9f3bb53916b9d6fa05b7777389e1844f82b1c9a6"
+      },
+      {
+        "name": "subverso",
+        "repository": "leanprover/subverso",
+        "revision": "52b9dfbd2658408e37ae6e8b72601ddeaaa25a0c"
+      },
+      {
+        "name": "checkdecls",
+        "repository": "PatrickMassot/checkdecls",
+        "revision": "3d425859e73fcfbef85b9638c2a91708ef4a22d4"
+      },
+      {
+        "name": "kolmogorov_extension4",
+        "repository": "RemyDegenne/kolmogorov_extension4",
+        "revision": "c20f168ed693537c78111ffeabc2ab5f384e35d6"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Lyasoff2016Comparator/Solution.lean",
+    "theorem_names": [
+      "Lyasoff2016.time_reversal",
+      "Lyasoff2016.lemma_2_1",
+      "Lyasoff2016.prop_2_2",
+      "Lyasoff2016.scaling_relations",
+      "Lyasoff2016.girsanov_density",
+      "Lyasoff2016.infinite_integral_finite",
+      "Lyasoff2016.Z_stationary",
+      "Lyasoff2016.dufresne_zero_flux",
+      "Lyasoff2016.perpetuity_inv_moment",
+      "Lyasoff2016.perpetuity_neg_moments",
+      "Lyasoff2016.dufresne_theorem_sigma_one",
+      "Lyasoff2016.dufresne_theorem",
+      "Lyasoff2016.ito_expInt_test_product",
+      "Lyasoff2016.ito_timeReversed_expInt_test_product",
+      "Lyasoff2016.joint_dynkin_Aop_product",
+      "Lyasoff2016.weak_joint_fokker_planck_product",
+      "Lyasoff2016.eq_zero_of_integral_product_eq_zero",
+      "Lyasoff2016.jointFokkerPlanckAdjoint_eq_zero",
+      "Lyasoff2016.fokker_planck_joint",
+      "Lyasoff2016.remark_3_2",
+      "Lyasoff2016.theorem_4_1_pde",
+      "Lyasoff2016.theorem_4_1_striking",
+      "Lyasoff2016.formula_4_6",
+      "Lyasoff2016.prop_4_4",
+      "Lyasoff2016.theorem_4_5",
+      "Lyasoff2016.cond_density_satisfies_theorem_41_pde",
+      "Lyasoff2016.cond_density_satisfies_striking",
+      "Lyasoff2016.cond_density_satisfies_foliation_ode",
+      "Lyasoff2016.cond_density_satisfies_laplace_inputs",
+      "Lyasoff2016.g_solves_contour_equation",
+      "Lyasoff2016.remark_5_1",
+      "Lyasoff2016.pi_formula",
+      "Lyasoff2016.yor_formula",
+      "Lyasoff2016.S_zero",
+      "Lyasoff2016.S_closed_form",
+      "Lyasoff2016.benchmark_k_zero",
+      "Lyasoff2016.asian_price_formula",
+      "Lyasoff2016.asian_delta",
+      "Lyasoff2016.SfunC.hasDerivAt",
+      "Lyasoff2016.hasDerivAt_integral_Re_Ffun"
+    ]
+  },
+  "id": "PALOMAR-2026-11-19-000018",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-19T08:35:49Z",
+    "receipt_sha256": "6be4612f61e411d8d14c805db0f419e3909b682a9a44dc6ea73d2cf8be9c18c5",
+    "repositories": [
+      {
+        "commit": "2c80684d62f4c38762b01519a0cc983d11951bb2",
+        "fork_repository": "PalomarArchive/catskillsresearch--lyasoff2016--8ca0f2d743aa",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000018-v1/2c80684d62f4c38762b01519a0cc983d11951bb2",
+        "source_repository": "catskillsresearch/lyasoff2016"
+      },
+      {
+        "commit": "c47908ea18274b16c5b26edd206ec073470c4a26",
+        "fork_repository": "PalomarArchive/formal-applied-math--formal-mathfin--0ddd7144638f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000018-v1/c47908ea18274b16c5b26edd206ec073470c4a26",
+        "source_repository": "formal-applied-math/formal-mathfin"
+      },
+      {
+        "commit": "9f3bb53916b9d6fa05b7777389e1844f82b1c9a6",
+        "fork_repository": "PalomarArchive/hanwenzhu--LeanArchitect--25c443d37079",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000018-v1/9f3bb53916b9d6fa05b7777389e1844f82b1c9a6",
+        "source_repository": "hanwenzhu/LeanArchitect"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000018-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000018-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000018-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000018-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "e91b128082cc221d6432a6a5aadcd3243af8e76c",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000018-v1/e91b128082cc221d6432a6a5aadcd3243af8e76c",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000018-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000018-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000018-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000018-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "52b9dfbd2658408e37ae6e8b72601ddeaaa25a0c",
+        "fork_repository": "PalomarArchive/leanprover--subverso--a9e8c8480480",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000018-v1/52b9dfbd2658408e37ae6e8b72601ddeaaa25a0c",
+        "source_repository": "leanprover/subverso"
+      },
+      {
+        "commit": "3d425859e73fcfbef85b9638c2a91708ef4a22d4",
+        "fork_repository": "PalomarArchive/PatrickMassot--checkdecls--17681c736a92",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000018-v1/3d425859e73fcfbef85b9638c2a91708ef4a22d4",
+        "source_repository": "PatrickMassot/checkdecls"
+      },
+      {
+        "commit": "c20f168ed693537c78111ffeabc2ab5f384e35d6",
+        "fork_repository": "PalomarArchive/RemyDegenne--kolmogorov_extension4--24bff9d3fa3f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000018-v1/c20f168ed693537c78111ffeabc2ab5f384e35d6",
+        "source_repository": "RemyDegenne/kolmogorov_extension4"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Andrew Lyasoff"
+          }
+        ],
+        "location": "Finance and Stochastics 20 (2016) 1061–1096. Working PDF: sources/lyasoff2016.pdf.",
+        "relationship": "formalizes",
+        "title": "Another look at the integral of exponential Brownian motion and the pricing of Asian options",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Lars Warren Ericson"
+          }
+        ],
+        "identifier": "https://github.com/catskillsresearch/lyasoff2016",
+        "relationship": "other",
+        "title": "Lyasoff 2016 formalization write-up (Asian.md / view.pdf)",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/RemyDegenne/brownian-motion",
+        "note": "Public Brownian-motion library used in proofs (Lake Git pin in lake-manifest.json / vendor/SOURCES). Challenge statements use Mathlib IsBrownianReal only.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/formal-applied-math/formal-mathfin",
+        "note": "Itô / Girsanov stack used in Solution proofs (Lake Git pin). Not a Challenge dependency.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Lars Warren Ericson"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-19T08:35:19Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "f0583aa96b5b2c010719d606d2be84aeb3baa7392e56552c45908de8f768dda9"
+    },
+    "reviewed_at": "2026-11-19T02:29:38Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "2c80684d62f4c38762b01519a0cc983d11951bb2",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "catskillsresearch/lyasoff2016",
+    "repository_url": "https://github.com/catskillsresearch/lyasoff2016",
+    "tree_url": "https://github.com/catskillsresearch/lyasoff2016/tree/2c80684d62f4c38762b01519a0cc983d11951bb2"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "vc58wtc246ba"
+  },
+  "title": "Lyasoff 2016 Asian options and exp-BM integral in Lean 4",
+  "trust": {
+    "challenge_bytes": 22759,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib",
+      "Mathlib.Probability.BrownianMotion.Basic"
+    ],
+    "challenge_lines": 469,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "e3c6a61b659630f749f6ec2cfc2a71f12b718bb7b6af0098748ae59afc55c741",
+    "evidence_path": "evidence/PALOMAR-2026-11-19-000018-v1/ba12575aaacedd80dc48998ea0588c628633ea3750f332e6160c7c8a833defa9/",
+    "evidence_tree_sha256": "ba12575aaacedd80dc48998ea0588c628633ea3750f332e6160c7c8a833defa9",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "bbbb4630d6b683e088019c5a2b7f85a7d90e5b13d37a31666b40b83f5c61a4d2",
+    "protected_config_sha256": "0a9f2160207a9f8dee0d79ce6c29a62815b4230b03eecc3217044b738391901a",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44434834034,
+    "solution_sha256": "cc732ee443366f59b1551533737387f80b4e3e7296d3a121c73b48e26287bca2",
+    "tool_digests": {
+      "bwrap": "e86febb9503aef8d76557b6301792ebff14d87fb884e637d1f1f1f6937a38e9f",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-19T01:48:21Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44434834034"
+  },
+  "version": 1
+}

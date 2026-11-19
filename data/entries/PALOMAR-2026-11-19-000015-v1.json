@@ -1,0 +1,328 @@
+{
+  "abstract": "A Lean 4 proof of Theorem 1 of A. V. Kumchev and J. Y. Liu, Sums of primes and squares of primes in short intervals, arXiv 0801.0130, display 9 on page 2, derived from the assumed hypothesis Eq33Hyp: the mean square bound of display 33 of the paper's Proposition 1, page 8, for the primes and the sifted function of display 34 with the weights f1 and f2 of page 15, the input the paper obtains on page 15 by verifying the hypotheses of Proposition 1 for these functions. For n in H2, the even n not congruent to 1 mod 3, R2 of n counts the representations n = p1 + p2^2 with p1 prime in the window from X - Y to X and p2 prime between half the square root of Y and the square root of Y, where Y is X to the 7/12 + eps/2. The theorem says that for every A > 0 there is B > 0 such that, for every delta > 0 and eps > 0, R2 of n is the main term r2 of n times the singular series truncated at log X to the B, up to a relative error K times log X to the -1 + delta, for all but at most C H / log X to the A of the n in H2 with X < n <= X + H. It is proved on the range X to the 7/18 + eps <= H <= X to the 1 - eps that the proof on page 16 writes after display 55, and on the printed range X to the 7/18 + eps <= H <= X when eps is at most 5/18. The Lean proves itself the steps from display 33 to Theorem 1: the Chebyshev step from display 33 to display 53, the lower bound for the singular series from displays 48 and 49 with Lemma 3.8, the residual estimate of Proposition 2 on pages 16 and 17, and the circle method assembly of displays 53 to 55. Neither Proposition 1 nor the paper's verification of its hypotheses on page 15 is proved here. Binary Goldbach and the conjecture that every large n in H2 that is not a square is a prime plus the square of a prime remain open and are not claimed. AI agents wrote the Lean code, as listed in PORTING.md; the proof reuses code ported from PrimeNumberTheoremAnd, written by its contributors, and is offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-19-000015-v1/cf4daf4bd96f2b2c191237522db3953db55b236d3d53924c1fac2ae53b2035f0/",
+    "artifact_tree_sha256": "cf4daf4bd96f2b2c191237522db3953db55b236d3d53924c1fac2ae53b2035f0",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-18T19:37:01Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11P55",
+      "11N36"
+    ]
+  },
+  "first_registered_on": "2026-11-19",
+  "formalization": {
+    "challenge_path": "entries/kumchevliu2007thm1/ChallengeKumchevLiu2007Thm1.lean",
+    "comparator_config_path": "entries/kumchevliu2007thm1/comparator-kumchevliu2007thm1.json",
+    "definition_names": [
+      "LeanLab.KumchevLiu2007.InH2",
+      "LeanLab.KumchevLiu2007.cntIoc",
+      "LeanLab.KumchevLiu2007.U1534.ee",
+      "LeanLab.KumchevLiu2007.U1534.gaussS",
+      "LeanLab.KumchevLiu2007.U1534.A2",
+      "LeanLab.KumchevLiu2007.Task129.windowY",
+      "LeanLab.KumchevLiu2007.Task129.windowPairs",
+      "LeanLab.KumchevLiu2007.Task129.primeCount",
+      "LeanLab.KumchevLiu2007.Task129.integerMain",
+      "LeanLab.KumchevLiu2007.Task129.series2",
+      "LeanLab.KumchevLiu2007.Task129.main2",
+      "LeanLab.KumchevLiu2007.Task129.roughCount",
+      "LeanLab.KumchevLiu2007.Task129.f2Weight",
+      "LeanLab.KumchevLiu2007.Task129.singInt",
+      "LeanLab.KumchevLiu2007.Task129.err53",
+      "LeanLab.KumchevLiu2007.Task129W.kumchev_liu_thm1_written",
+      "LeanLab.KumchevLiu2007.Task129W.Eq33Hyp"
+    ],
+    "formalization_metadata_path": "entries/kumchevliu2007thm1/formalization.yaml",
+    "lakefile_path": "entries/kumchevliu2007thm1/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/kumchevliu2007thm1/SolutionKumchevLiu2007Thm1.lean",
+    "theorem_names": [
+      "LeanLab.KumchevLiu2007.Task129W.thm1_written_of_eq33",
+      "LeanLab.KumchevLiu2007.Task129W.thm1_full_of_written_small_eps",
+      "LeanLab.KumchevLiu2007.Task129W.written_range_nonempty"
+    ]
+  },
+  "id": "PALOMAR-2026-11-19-000015",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-19T07:19:52Z",
+    "receipt_sha256": "55004c4f8461483031688c4035166cc5bc76f4eb235c6ff5742efe552c888c86",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000015-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000015-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000015-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000015-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000015-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000015-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000015-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000015-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000015-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "556b939d324b63616dceac222ba6f47bd979ce65",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000015-v1/556b939d324b63616dceac222ba6f47bd979ce65",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "A. V. Kumchev"
+          },
+          {
+            "name": "J. Y. Liu"
+          }
+        ],
+        "identifier": "arXiv:0801.0130",
+        "license": "unknown",
+        "location": "arXiv 0801.0130 v1, 30 December 2007, Theorem 1 on page 2, display 9; Proposition 1 on page 8, display 33; Section 4, pages 13 to 17",
+        "relationship": "formalizes",
+        "title": "Sums of primes and squares of primes in short intervals",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "the PrimeNumberTheoremAnd project contributors"
+          }
+        ],
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "license": "Apache-2.0",
+        "location": "commit c39a751132c88b6e8080b74c74023fd95b3d8be0",
+        "relationship": "other",
+        "title": "PrimeNumberTheoremAnd",
+        "type": "formalization"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/sthubbar/goldbach-lean/tree/main/entries/bombierivinogradov1965",
+        "note": "The maximal form used here is in LeanLab/PNTPort/BVMax, built on LeanLab/PNTPort/BV.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/sthubbar/goldbach-lean/tree/main/entries/kumchevliu2007",
+        "note": "That entry concerned the conjecture printed on page 1 of the paper; it shares no compared theorem with this one.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-19T07:19:25Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "85f0c57109b673c1920fd7e15dae6a672853402af5d637217d92b658ba7f8872"
+    },
+    "reviewed_at": "2026-11-18T20:31:18Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "556b939d324b63616dceac222ba6f47bd979ce65",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/kumchevliu2007thm1",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/556b939d324b63616dceac222ba6f47bd979ce65/entries/kumchevliu2007thm1"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "81ik8np64hs3"
+  },
+  "title": "Sums of primes and squares of primes in short intervals: Theorem 1 from Proposition 1",
+  "trust": {
+    "challenge_bytes": 8207,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 170,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "fa81f665ebe1a4a64d62fa480f22caf6152bbc745ec36aa1c02c8b1b6812d314",
+    "evidence_path": "evidence/PALOMAR-2026-11-19-000015-v1/6a477ce52bcd4546aec74d2fba6f5df671b8ba6b4076befb7157d786034b24c0/",
+    "evidence_tree_sha256": "6a477ce52bcd4546aec74d2fba6f5df671b8ba6b4076befb7157d786034b24c0",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "4293319786dfd330352bbb59c51856d41c637574663a219535998ac4f18f0263",
+    "protected_config_sha256": "d841c9965b8b75294dd5cfd00269240d0db9ce1b5ac8094205639ea32f9b1c31",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44376472624,
+    "solution_sha256": "9184a6eb4abcd805c3ef0c10e5e98a0ecc6a7da1ed0b7b692b2fff5e13f034d7",
+    "tool_digests": {
+      "bwrap": "d6f9a9b24cd87b7a00c66f6e01617d27c21b8f5af14b8eca8b089d440385c03f",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-18T19:15:50Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44376472624"
+  },
+  "version": 1
+}
