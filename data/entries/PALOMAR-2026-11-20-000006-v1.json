@@ -1,0 +1,369 @@
+{
+  "abstract": "The Heilbronn number H_n of the unit square is the largest possible least area of a triangle with vertices at three of n points in the closed unit square. This entry proves H₉ = (9√65 − 55)/320 ≈ 0.0548760, and that it is attained only by the configuration of Comellas and Yebra (2002), with two points on each side of the square and one inside, up to the eight symmetries of the square and relabelling.\n\nThe proof normalizes a maximizing configuration by affine maps into five families, by the corners of the square it occupies, and excludes or classifies each family by geometric case analysis, sharp inequalities in the chamber of eleven tight triangles, strict local optimality, and polynomial certificates checked by Lean's kernel, about 434,000 weighted terms in all. We found no exact proof of H₉ before this one: a branch and bound had bounded it in an interval, and mixed-integer optimization had found it within solver tolerances (a preprint that claimed a proof in March 2026 withdrew the claim). The repository treats each number of points as a separate entry; nine points is the first.",
+  "authors": [
+    {
+      "name": "The-Anh Vu-Le"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-20-000006-v1/3ed1aa64e97ea3295bc44b2ec78612d8a0c00a1bcadd4c4c5cf7ec7df714e2d0/",
+    "artifact_tree_sha256": "3ed1aa64e97ea3295bc44b2ec78612d8a0c00a1bcadd4c4c5cf7ec7df714e2d0",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-19T23:55:37Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "71a2035b44e7f54a797ce799fd1b03cdd3a44684"
+  },
+  "classification": {
+    "arxiv": [
+      "math.MG",
+      "math.CO"
+    ],
+    "msc2020": [
+      "52C10",
+      "52A40"
+    ]
+  },
+  "first_registered_on": "2026-11-20",
+  "formalization": {
+    "challenge_path": "Palomar/Nine/Challenge.lean",
+    "comparator_config_path": "Palomar/Nine/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "Palomar/Nine/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "9d581dfff2e41de989072ea63abf3daf69311520"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "b0256621cb88178e9ad932a53633077b3029e621"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b"
+      }
+    ],
+    "solution_path": "Heilbronn.lean",
+    "theorem_names": [
+      "Heilbronn.Nine.optimal_value",
+      "Heilbronn.Nine.heilbronn_number",
+      "Heilbronn.Nine.optimal_configurations"
+    ]
+  },
+  "id": "PALOMAR-2026-11-20-000006",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-20T05:19:09Z",
+    "receipt_sha256": "7255d3201c5ab868f317b823131d64931a30756fd03c22b46b79a239a1ea2624",
+    "repositories": [
+      {
+        "commit": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000006-v1/7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000006-v1/d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000006-v1/b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000006-v1/c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "9d581dfff2e41de989072ea63abf3daf69311520",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000006-v1/9d581dfff2e41de989072ea63abf3daf69311520",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000006-v1/129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000006-v1/16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "b0256621cb88178e9ad932a53633077b3029e621",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000006-v1/b0256621cb88178e9ad932a53633077b3029e621",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000006-v1/c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "a405d9b79c16eb34dc1c199b765d69231c7d17cf",
+        "fork_repository": "PalomarArchive/vltanh--lean4-heilbronn--0daea5201695",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000006-v1/a405d9b79c16eb34dc1c199b765d69231c7d17cf",
+        "source_repository": "vltanh/lean4-heilbronn"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "location": "archive/nine/ of this repository; written by ChatGPT 6 Pro from 14 to 15 November 2026",
+        "relationship": "other",
+        "title": "First draft of the proof of H₉ = (9√65 − 55)/320",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "F. Comellas"
+          },
+          {
+            "name": "J. L. A. Yebra"
+          }
+        ],
+        "identifier": "doi:10.37236/1623",
+        "location": "Electron. J. Combin. 9 (2002), R6, Section 3 (nine points) and Table 1",
+        "relationship": "background",
+        "title": "New lower bounds for Heilbronn numbers",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "L. Chen"
+          },
+          {
+            "name": "Y. Xu"
+          },
+          {
+            "name": "Z. Zeng"
+          }
+        ],
+        "identifier": "doi:10.1007/s10898-016-0453-1",
+        "location": "J. Global Optim. 68 (2017), no. 1, 147–167",
+        "relationship": "background",
+        "title": "Searching approximate global optimal Heilbronn configurations of nine points in the unit square via GPGPU computing",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. Monji"
+          },
+          {
+            "name": "A. Modir"
+          },
+          {
+            "name": "B. Kocuk"
+          }
+        ],
+        "identifier": "arXiv:2512.14505",
+        "relationship": "background",
+        "title": "Solving the Heilbronn Triangle Problem using Global Optimization Methods",
+        "type": "preprint"
+      },
+      {
+        "authors": [
+          {
+            "name": "N. Sudermann-Merx"
+          }
+        ],
+        "identifier": "arXiv:2603.11107v3",
+        "location": "Section 2.2 (boundary structure, Theorem 1); Sections 4.2 and 6 (n = 9)",
+        "relationship": "background",
+        "title": "From Global Optimization to Exact Coordinates: Heilbronn's Triangle Problem on the Unit Square Using Mixed-Integer Nonlinear Optimization",
+        "type": "preprint"
+      },
+      {
+        "authors": [
+          {
+            "name": "Z. Zeng"
+          },
+          {
+            "name": "J. Lu"
+          },
+          {
+            "name": "L. Dehbi"
+          },
+          {
+            "name": "L. Chen"
+          },
+          {
+            "name": "J. Wang"
+          }
+        ],
+        "identifier": "doi:10.1007/978-3-030-41258-6_23",
+        "location": "Maple in Mathematics Education and Research (MC 2019), CCIS 1125, Springer (2020), 307–323",
+        "relationship": "background",
+        "title": "A Heilbronn Type Inequality for Plane Nonagons",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://palomar-registry.org/entry.html?id=PALOMAR-2026-09-02-000012&version=1",
+        "note": "T. Stead, heilbronn-convex-3-8 (Lean 4, 2 September 2026; github.com/tejstead/heilbronn-site, proofs/palomar/heilbronn-convex). Exact Heilbronn values and optimizers for n = 3, …, 8 of the problem normalized by the points' own convex hull of area one: a different problem, with no fixed container, no unit square and no nine-point case.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/openai/math/blob/main/lean/docs/191.md",
+        "note": "OpenAI, \"A power improvement in the Heilbronn triangle lower bound\" (October 2026): Lean proof that some unbounded sequence of n admits n points in the unit square with every triangle of area at least n^(−2+η). Asymptotic; no specific Heilbronn number.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/507.lean",
+        "note": "Statement only (sorry) of Erdős Problem 507, the asymptotics of the Heilbronn function of the unit disk; Green's Problem 77 (FormalConjectures/GreensOpenProblems/77.lean) is stated with it. Nothing about a specific number of points.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "The-Anh Vu-Le"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-20T05:18:47Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "629fc704bd7244efd563a80564a3d51f5f8626b2b87ffb4948d5841b0972ccc0"
+    },
+    "reviewed_at": "2026-11-20T01:28:56Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "a405d9b79c16eb34dc1c199b765d69231c7d17cf",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "5f865b134230d2b6b23e7e63d91d319fec29b4427e710167423907d2b1851744"
+    },
+    "repository": "vltanh/lean4-heilbronn",
+    "repository_url": "https://github.com/vltanh/lean4-heilbronn",
+    "tree_url": "https://github.com/vltanh/lean4-heilbronn/tree/a405d9b79c16eb34dc1c199b765d69231c7d17cf"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "111p990l4072"
+  },
+  "title": "Heilbronn's triangle problem in the unit square: nine points",
+  "trust": {
+    "challenge_bytes": 6097,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Real.Sqrt",
+      "Mathlib.Tactic"
+    ],
+    "challenge_lines": 122,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "1725ec9a1d385c175d96ce8013a26eac29b793d5871551cf288c0abf75f42915",
+    "evidence_path": "evidence/PALOMAR-2026-11-20-000006-v1/4986ee63ec340eebddeaf3763c3ecb7bd12c7d69547d4684fa26d439db4ca7bc/",
+    "evidence_tree_sha256": "4986ee63ec340eebddeaf3763c3ecb7bd12c7d69547d4684fa26d439db4ca7bc",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      }
+    ],
+    "mechanical_report_sha256": "2c9b7ea99e8a28bfbd470c53e19c07868dbac8c79674c3fd60c3886e53da770d",
+    "protected_config_sha256": "3618eb4c9e6be0cb035b51321afc72c7ad2372f83c62e3925228e4e37b776428",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44594906937,
+    "solution_sha256": "086bb96039419f589e64fc7a8cddc62631ffdc24f5073b6f1488922009587e36",
+    "tool_digests": {
+      "bwrap": "28ae124d3831fe5e8c5aab471765aa260de8a1aad738a071368535fe9412683d",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "b35cb10cf2ced51a2fd1880cfdbf75c71ab7a35a",
+    "verified_at": "2026-11-19T23:06:33Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44594906937"
+  },
+  "version": 1
+}

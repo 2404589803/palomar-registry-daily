@@ -1,0 +1,317 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of the equal-weight case of Lemma kahn+ of P. Keevash, \"The existence of designs II\" (arXiv:1802.05900), deduced from the theorem of Ehard, Glock and Joos on pseudorandom hypergraph matchings, and of the form in which it is applied in the proof of Lemma 3.9 (nibble). (1) DesignsII.kahn_plus_equal_weights: for 0 < δ < 1 and k ≥ 2 there is Δ₀ such that, for every real Δ ≥ Δ₀, every finite hypergraph H whose edges have at most k vertices, whose degrees are at most Δ and whose codegrees of distinct vertices are at most Δ^(1−δ), with |H| ≤ exp(Δ^((δ/(50k²))²)), and every family of at most exp(Δ^((δ/(50k²))²)) nonnegative test functions p_j on V(H), there is a matching M ⊆ H such that for every j satisfying the spread condition (every edge sum ∑_{v∈e} p_j(v), multiplied by Δ^(1+δ), is at most the total ∑_{e∈H} ∑_{v∈e} p_j(v)), the covered mass ∑_{v∈⋃M} p_j(v) differs from ∑_{e∈H} ∑_{v∈e} p_j(v)/Δ by at most Δ^(−δ/(50k²)) times the latter. (2) DesignsII.nibble_matching_tests: under the same hypotheses, for every η with 0 ≤ η < 1 and test functions with values in [0,1], the matching can be chosen so that for every j whose support (the vertices with p_j(v) ≠ 0) has degrees at least (1−η)Δ, the mass of p_j on the vertices not covered by M is at most max((η + Δ^(−δ/(50k²)))·∑_v p_j(v), k·Δ^δ/(1−η)). Both statements quantify over all Δ ≥ Δ₀ with Δ₀ depending only on δ and k; Δ₀ is not made explicit. Mathlib does not contain these results.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-19-000022-v1/48519892f981a229f83e99e112c4c65621d1819be36d71eab8c5441730e8a049/",
+    "artifact_tree_sha256": "48519892f981a229f83e99e112c4c65621d1819be36d71eab8c5441730e8a049",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-19T13:00:59Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.PR"
+    ],
+    "msc2020": [
+      "05C65",
+      "05C70"
+    ]
+  },
+  "first_registered_on": "2026-11-19",
+  "formalization": {
+    "challenge_path": "DesignsIIKahnChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      },
+      {
+        "name": "egj_pseudorandom",
+        "repository": "jtraverso/pseudorandom-hypergraph-matchings",
+        "revision": "3957f3c0dbc34fd310cb5fecf7941fddc9ef6c8f"
+      }
+    ],
+    "solution_path": "DesignsIIKahnSolution.lean",
+    "theorem_names": [
+      "DesignsII.kahn_plus_equal_weights",
+      "DesignsII.nibble_matching_tests"
+    ]
+  },
+  "id": "PALOMAR-2026-11-19-000022",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-19T15:11:50Z",
+    "receipt_sha256": "9a6379689907f6b7bbf4a65304a1d491d8689f2765ea2d8564d41062e01a5faa",
+    "repositories": [
+      {
+        "commit": "e27207ee346c481e0cbfc9c236b941c64a8647e8",
+        "fork_repository": "PalomarArchive/jtraverso--keevash-designs-ii-kahn--21ba90c2a1ee",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000022-v1/e27207ee346c481e0cbfc9c236b941c64a8647e8",
+        "source_repository": "jtraverso/keevash-designs-ii-kahn"
+      },
+      {
+        "commit": "3957f3c0dbc34fd310cb5fecf7941fddc9ef6c8f",
+        "fork_repository": "PalomarArchive/jtraverso--pseudorandom-hypergraph-matchings--40c1ca802506",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000022-v1/3957f3c0dbc34fd310cb5fecf7941fddc9ef6c8f",
+        "source_repository": "jtraverso/pseudorandom-hypergraph-matchings"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000022-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000022-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000022-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000022-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000022-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000022-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000022-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000022-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-19-000022-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Peter Keevash"
+          }
+        ],
+        "identifier": "arXiv:1802.05900",
+        "license": "all rights reserved",
+        "location": "arXiv:1802.05900v1: Section 3.1, Lemma kahn+ (stated there without proof, attributed to Kahn), and its application with uniform weights in the proof of Lemma 3.9 (nibble)",
+        "relationship": "formalizes",
+        "title": "The existence of designs II",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Stefan Ehard"
+          },
+          {
+            "name": "Stefan Glock"
+          },
+          {
+            "name": "Felix Joos"
+          }
+        ],
+        "identifier": "doi:10.1017/S0963548320000280",
+        "license": "all rights reserved",
+        "location": "Combinatorics, Probability and Computing 29 (2020), 868–885; arXiv:1907.09946: Theorem 1.2",
+        "relationship": "other",
+        "title": "Pseudorandom hypergraph matchings",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-10-17-000004 v1 (jtraverso/pseudorandom-hypergraph-matchings @ 3957f3c)",
+        "note": "Pinned dependency: the hypergraph definitions (degree, codegree, IsMatching) and Theorem 1.2 of Ehard–Glock–Joos are imported from this entry, not copied; the Challenge repeats the three definitions verbatim.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-19T15:11:26Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "f064e6a147f0a5ef954823d258640bcebee14bb4aa2484aee8bad304ebef8031"
+    },
+    "reviewed_at": "2026-11-19T13:26:31Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "e27207ee346c481e0cbfc9c236b941c64a8647e8",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jtraverso/keevash-designs-ii-kahn",
+    "repository_url": "https://github.com/jtraverso/keevash-designs-ii-kahn",
+    "tree_url": "https://github.com/jtraverso/keevash-designs-ii-kahn/tree/e27207ee346c481e0cbfc9c236b941c64a8647e8"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "6r8k36k2s8ey"
+  },
+  "title": "Keevash, The existence of designs II: Lemma kahn+ with equal weights, and the nibble matching for [0,1]-valued tests",
+  "trust": {
+    "challenge_bytes": 4003,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 80,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "848569fcd7267f7c29663575dc86d1e83acfb105360ccc58c93eef7f26b10c44",
+    "evidence_path": "evidence/PALOMAR-2026-11-19-000022-v1/ddb11b4cd675a310721d7bb7aa750f8ba2c37011d5f6c20501de2c038144a928/",
+    "evidence_tree_sha256": "ddb11b4cd675a310721d7bb7aa750f8ba2c37011d5f6c20501de2c038144a928",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "b219c4d0d10b0a9de0d0f8e244d7192e25db700ecb11af59ede442250857c86e",
+    "protected_config_sha256": "eaf486ab47575e9be02565fc7c46095eaecb7e0642e7bc5ef9e460ff8874651e",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44514732220,
+    "solution_sha256": "ae8737731f9a410da9e1b34c264a9134b9250ca848a2034d2fde6f3052e56c96",
+    "tool_digests": {
+      "bwrap": "9fbb884ae92637c42983cad713d1db39e7478539cb81a8dbe31ba026367d3b1e",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-19T11:32:37Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44514732220"
+  },
+  "version": 1
+}
