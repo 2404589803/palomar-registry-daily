@@ -1,0 +1,344 @@
+{
+  "abstract": "A Lean 4 and Mathlib formalization of Kasteleyn's method for counting perfect matchings of plane graphs. Graphs are Mathlib simple graphs on a finite vertex type (no loops, no multiple edges); a rotation system is a permutation of the darts that cycles the darts leaving each vertex, its faces are the cycles of the face permutation, and it is plane if the graph is connected and Euler's formula V + F = E + 2 holds. A Kasteleyn orientation with respect to a face f0 is an orientation of the edges in which every face other than f0 has an odd number of clockwise darts. Since faces are cycles of darts, a graph without edges has no faces in this representation; a connected graph without edges is a single vertex, which is not plane in this sense and is treated by a separate theorem. Five theorems are compared: (1) every rotation system of a connected graph with at least one edge has a Kasteleyn orientation with respect to any face f0; (2) for a plane rotation system, a Kasteleyn orientation and edge weights in any commutative ring, the Pfaffian of the signed weighted adjacency matrix (defined by expansion along the first row for a linear order on the vertices) equals, up to a sign +1 or -1, the sum over the perfect matchings of the products of their edge weights; (3) with unit weights the Pfaffian is plus or minus the number of perfect matchings and the determinant of the signed adjacency matrix is its square; (4) one fixed program for an explicit word RAM (unit cost per instruction, natural registers and memory cells bounded by a word bound W along the run) computes a Kasteleyn orientation of every rotation system of a connected graph with at least one edge, with F faces and S darts, given by a standard encoding of 4 + F + 3S words, within 36F + 39S + 27 steps with every natural word at most 4F + 5S + 8; (5) a connected graph without edges has one vertex, no darts and no perfect matching, and the Pfaffian and determinant identities of (2) and (3) hold for it, both sides being 0. The proofs use only the axioms propext, Classical.choice and Quot.sound.",
+  "authors": [
+    {
+      "name": "Robert D. Barish"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-20-000015-v1/774370d8929da3fd665e5276a5dd28e2c00e89fd0b13ce5c9abea9ce142ed41a/",
+    "artifact_tree_sha256": "774370d8929da3fd665e5276a5dd28e2c00e89fd0b13ce5c9abea9ce142ed41a",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-20T13:43:02Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "cs.DS"
+    ],
+    "msc2020": [
+      "05C70",
+      "05C10",
+      "05C85",
+      "15A15",
+      "68Q25"
+    ]
+  },
+  "first_registered_on": "2026-11-20",
+  "formalization": {
+    "challenge_path": "KasteleynChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "KasteleynSolution.lean",
+    "theorem_names": [
+      "Kasteleyn.orientation_exists",
+      "Kasteleyn.pfaffian_formula",
+      "Kasteleyn.matching_count",
+      "Kasteleyn.linear_time_orientation",
+      "Kasteleyn.edgeless_case"
+    ]
+  },
+  "id": "PALOMAR-2026-11-20-000015",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-20T14:25:18Z",
+    "receipt_sha256": "9fda8dcafe9a024dcf43c96c0878c562178529eefa3ecfaa6f9764d9ce34b7e5",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000015-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000015-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000015-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000015-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000015-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000015-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000015-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000015-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000015-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "e7e967074349944cf909a772218b5fda5c274485",
+        "fork_repository": "PalomarArchive/RBarish-UTokyo--Kasteleyn-Pfaffian-WordRAM-Lean4--a380c7938f5a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000015-v1/e7e967074349944cf909a772218b5fda5c274485",
+        "source_repository": "RBarish-UTokyo/Kasteleyn-Pfaffian-WordRAM-Lean4"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "P. W. Kasteleyn"
+          }
+        ],
+        "location": "Journal of Mathematical Physics 4 (1963), 287-293",
+        "relationship": "formalizes",
+        "title": "Dimer statistics and phase transitions",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "P. W. Kasteleyn"
+          }
+        ],
+        "location": "in F. Harary (ed.), Graph Theory and Theoretical Physics, Academic Press, London (1967), 43-110",
+        "relationship": "formalizes",
+        "title": "Graph theory and crystal physics",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "L. Lovász"
+          },
+          {
+            "name": "M. D. Plummer"
+          }
+        ],
+        "location": "Annals of Discrete Mathematics 29, North-Holland, Amsterdam (1986), Chapter 8",
+        "relationship": "adapts",
+        "title": "Matching Theory",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "P. W. Kasteleyn"
+          }
+        ],
+        "location": "Physica 27 (1961), 1209-1225",
+        "relationship": "background",
+        "title": "The statistics of dimers on a lattice: I. The number of dimer arrangements on a quadratic lattice",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "B. Mohar"
+          },
+          {
+            "name": "C. Thomassen"
+          }
+        ],
+        "location": "Johns Hopkins University Press, Baltimore (2001), Sections 3.2 and 4.1",
+        "relationship": "background",
+        "title": "Graphs on Surfaces",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Robert D. Barish"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-20T14:24:47Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "0258b53d915ed403f54bc4e81e71d54ff0401ae66a964eec7266baa67002f473"
+    },
+    "reviewed_at": "2026-11-20T14:11:05Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "e7e967074349944cf909a772218b5fda5c274485",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "RBarish-UTokyo/Kasteleyn-Pfaffian-WordRAM-Lean4",
+    "repository_url": "https://github.com/RBarish-UTokyo/Kasteleyn-Pfaffian-WordRAM-Lean4",
+    "tree_url": "https://github.com/RBarish-UTokyo/Kasteleyn-Pfaffian-WordRAM-Lean4/tree/e7e967074349944cf909a772218b5fda5c274485"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "o0c4dww6wsxn"
+  },
+  "title": "Kasteleyn orientations and the Pfaffian method for plane graphs, with a linear-time orientation, in Lean 4",
+  "trust": {
+    "challenge_bytes": 24372,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.BigOperators.Group.Finset.Sigma",
+      "Mathlib.Algebra.BigOperators.Ring.Finset",
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected",
+      "Mathlib.Combinatorics.SimpleGraph.DegreeSum",
+      "Mathlib.Data.Finset.Sort",
+      "Mathlib.Data.Fintype.Perm",
+      "Mathlib.Data.Matrix.Basic",
+      "Mathlib.GroupTheory.Perm.Cycle.Factors",
+      "Mathlib.LinearAlgebra.Matrix.Determinant.Basic"
+    ],
+    "challenge_lines": 557,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "aa5307f69fe272b5e2673ed2cddaa48c91712832a4c5a8523ad2966656c68cc0",
+    "evidence_path": "evidence/PALOMAR-2026-11-20-000015-v1/5e9ed66666ebe4873a1569d336171dd3a3d8f9e7d71a291ce9537a44d8be771f/",
+    "evidence_tree_sha256": "5e9ed66666ebe4873a1569d336171dd3a3d8f9e7d71a291ce9537a44d8be771f",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "f165d876b80d3920490dab7c104bc71b3928ae7f16a138803ee447b0443c1f3d",
+    "protected_config_sha256": "39df194bd5451a6e4a66e99f191f18cb4aa155d4b397f6deafdc03a043792067",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44741448648,
+    "solution_sha256": "9b38a267de0fa32069da90c8ff9691256329a471705da02e7b65b7a615836c85",
+    "tool_digests": {
+      "bwrap": "765ab1c46cd0db9f5c13853b014fafc493a2c65c2eb59d3a85c94bb1d1d7b9fc",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-20T13:11:07Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44741448648"
+  },
+  "version": 1
+}

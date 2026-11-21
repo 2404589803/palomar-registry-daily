@@ -1,0 +1,393 @@
+{
+  "abstract": "A Lean 4 / Mathlib proof of the stable manifold theorem for maps, in graph form. Let f be of class C^n, 1 <= n <= infinity, on a neighborhood of a fixed point p of a finite-dimensional real normed space E, with derivative A = Df(p) invertible and hyperbolic (no complex eigenvalue of modulus 1), and let E_s and E_u be the stable and unstable subspaces of A. Then there are a neighborhood N of p and maps h_s : E_s -> E_u and h_u : E_u -> E_s, of class C^n and vanishing with their derivatives at 0, such that for every neighborhood U of p inside N, the local stable set of f in U (the points whose forward orbit stays in U and tends to p) is the graph {p + x + h_s(x)} of h_s over a neighborhood of 0 in E_s, and the local unstable set (the points with a backward orbit in U tending to p) is the graph {p + y + h_u(y)} of h_u over a neighborhood of 0 in E_u. Inside a small neighborhood of p the convergence is automatic: the local stable set in U is the set of points whose forward orbit stays in U, and the local unstable set the set of points with a backward orbit in U. The stable side is also proved without invertibility, with one h_s for every neighborhood inside a small ball around p. Also proved: the hyperbolic splitting E = E_s (+) E_u for a hyperbolic linear map of a finite-dimensional real space, with E_s and E_u the kernels of the factors of the characteristic polynomial with roots inside and outside the unit circle.\n\nThe proof is Perron's method on the Banach space of bounded sequences. The splitting comes from a factorization of the characteristic polynomial and Gelfand's formula, and gives an exponential dichotomy. After a cut-off by a bump function, f is a globally small Lipschitz perturbation F of A near p; the bounded forward orbits of F are the fixed points of a contraction built from the Lyapunov-Perron operator, and form the graph of a Lipschitz map over E_s. Smoothness of every order comes at once, without the fiber contraction theorem: the composition operator x -> phi o x is C^n on bounded sequences when phi is, and the inverse function theorem on the space of bounded sequences makes the graph C^n. The unstable side is the stable side of the local inverse of f. No earlier formal proof of the theorem for maps was found; a concurrent Lean 4 development (TauCeti) proves stable and unstable manifolds for equilibria of vector fields.",
+  "authors": [
+    {
+      "name": "The-Anh Vu-Le"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-20-000024-v1/d8b394adf88c9e98e6be6c2bc551083c6d7335e9c9bf9aeb3d39a8e8d31308cc/",
+    "artifact_tree_sha256": "d8b394adf88c9e98e6be6c2bc551083c6d7335e9c9bf9aeb3d39a8e8d31308cc",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-20T16:24:31Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "71a2035b44e7f54a797ce799fd1b03cdd3a44684"
+  },
+  "classification": {
+    "arxiv": [
+      "math.DS",
+      "math.FA"
+    ],
+    "msc2020": [
+      "37D10",
+      "37D05",
+      "37C05",
+      "37C25",
+      "46T20",
+      "47J07"
+    ]
+  },
+  "first_registered_on": "2026-11-20",
+  "formalization": {
+    "challenge_path": "StableManifoldChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "9d581dfff2e41de989072ea63abf3daf69311520"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "b0256621cb88178e9ad932a53633077b3029e621"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b"
+      }
+    ],
+    "solution_path": "StableManifoldSolution.lean",
+    "theorem_names": [
+      "StableManifoldChallenge.stable_manifold_forall_nhds",
+      "StableManifoldChallenge.stable_manifold",
+      "StableManifoldChallenge.hyperbolic_splitting",
+      "StableManifoldChallenge.stableSubspace_symm",
+      "StableManifoldChallenge.localStableSet_symm"
+    ]
+  },
+  "id": "PALOMAR-2026-11-20-000024",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-20T21:15:29Z",
+    "receipt_sha256": "ae5de30642bb5473aae1505772bd2eb42f685bf3b804d6f513787b1b90cd1e66",
+    "repositories": [
+      {
+        "commit": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000024-v1/7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000024-v1/d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000024-v1/b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000024-v1/c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "9d581dfff2e41de989072ea63abf3daf69311520",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000024-v1/9d581dfff2e41de989072ea63abf3daf69311520",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000024-v1/129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000024-v1/16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "b0256621cb88178e9ad932a53633077b3029e621",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000024-v1/b0256621cb88178e9ad932a53633077b3029e621",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000024-v1/c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "4909ed2eb6bdc504f86ccb455e544315f11d3860",
+        "fork_repository": "PalomarArchive/vltanh--lean4-stable-manifold--f310633bb994",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000024-v1/4909ed2eb6bdc504f86ccb455e544315f11d3860",
+        "source_repository": "vltanh/lean4-stable-manifold"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "M. C. Irwin"
+          }
+        ],
+        "location": "Academic Press, Pure and Applied Mathematics 94, 1980, Chapter 6 (Stable manifolds)",
+        "relationship": "formalizes",
+        "title": "Smooth Dynamical Systems",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Jacques Hadamard"
+          }
+        ],
+        "location": "Bull. Soc. Math. France 29 (1901), 224-228",
+        "relationship": "background",
+        "title": "Sur l'itération et les solutions asymptotiques des équations différentielles",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Oskar Perron"
+          }
+        ],
+        "identifier": "doi:10.1515/crll.1929.161.41",
+        "location": "J. Reine Angew. Math. 161 (1929), 41-64",
+        "relationship": "background",
+        "title": "Über Stabilität und asymptotisches Verhalten der Lösungen eines Systems endlicher Differenzengleichungen",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Oskar Perron"
+          }
+        ],
+        "identifier": "doi:10.1007/BF01180524",
+        "location": "Math. Z. 29 (1929), 129-160",
+        "relationship": "background",
+        "title": "Über Stabilität und asymptotisches Verhalten der Integrale von Differentialgleichungssystemen",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "M. C. Irwin"
+          }
+        ],
+        "identifier": "doi:10.1112/blms/2.2.196",
+        "location": "Bull. London Math. Soc. 2 (1970), 196-198",
+        "relationship": "background",
+        "title": "On the Stable Manifold Theorem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Morris W. Hirsch"
+          },
+          {
+            "name": "Charles C. Pugh"
+          },
+          {
+            "name": "Michael Shub"
+          }
+        ],
+        "identifier": "doi:10.1007/BFb0092042",
+        "location": "Lecture Notes in Mathematics 583, Springer, 1977",
+        "relationship": "background",
+        "title": "Invariant Manifolds",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Michael Shub"
+          }
+        ],
+        "identifier": "doi:10.1007/978-1-4757-1947-5",
+        "location": "Springer, 1987",
+        "relationship": "background",
+        "title": "Global Stability of Dynamical Systems",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/TauCetiProject/TauCeti/blob/ca32605ff53921fa0689dd312618b7cfaafa7e43/TauCeti/Analysis/ODE/LyapunovPerron/VectorField.lean#L331",
+        "note": "Lean 4 / Mathlib (TauCeti, Apache-2.0), concurrent: the stable and unstable manifold theorem for an equilibrium of a C^n vector field (a flow) in a finite-dimensional real normed space, for a linearization with an exponential dichotomy (ContinuousLinearMap.exists_localStableGraph_of_contDiffAt and exists_localUnstableGraph_of_contDiffAt, the latter at line 368; the vector-field theorem was first committed on 2026-11-06), by a Lyapunov-Perron contraction on bounded continuous curves and the implicit function theorem. It derives the dichotomy from the spectral condition, no eigenvalue on the imaginary axis (exists_projection_exponential_bounds_of_charpoly in ExponentialDichotomy/Hyperbolic.lean), and has superposition operators on bounded continuous functions (FDeriv/BoundedContinuousFunction.lean). It treats flows, with the spectral condition on the imaginary axis; this work treats maps, with the spectral condition on the unit circle, and does not use or adapt that development.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/leanprover/lean-eval/blob/8955681b9914d7ebc7d286414843021b7d6c9de1/LeanEval/Dynamics/StableUnstableManifolds.lean#L51",
+        "note": "Lean 4 / Mathlib (lean-eval benchmark, Apache-2.0): a statement with sorry, without a public proof, of the set-level part of the theorem for a C1 map of R^n with invertible hyperbolic derivative at a fixed point: some open U containing the fixed point has local stable and unstable sets, defined as in this work, meeting only at the point. It does not state that they are manifolds. A copy is a wanted theorem in facebookresearch/atlas-lean (WantedExt/Dynamics/StableUnstableManifoldsWanted.lean at commit 970aaf746442807f27e40b02f0e36d1098c53ad7). This work does not use or adapt it.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/Manzatto/conditioned-stochastic-stability-hyperbolic/blob/0cdb3050d873d931f9f522d60bf6521f7b3ef489/LeanShared/Dynamics/HyperbolicBackwardTransform.lean#L112",
+        "note": "Lean 4 / Mathlib (Apache-2.0): a Lyapunov-Perron transform on bounded sequences for a split hyperbolic map with a Lipschitz perturbation, proved Lipschitz, used for shadowing; no stable manifold theorem. This work does not use or adapt it.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/Robertboy18/PDEAtlas/blob/64eb0329c66b121bf37cba88e58f1506b99002a2/PDE/Analysis/Evolution/ODE/InvariantGraph/Local.lean#L36",
+        "note": "Lean 4 / Mathlib (PDEAtlas, Apache-2.0): a local C2 center manifold for a finite diagonal linear system with a smooth remainder, by a Lyapunov-Perron argument on weighted paths, and a discrete-time hyperbolic splitting in real Hilbert spaces through the Riesz projection (PDE/Analysis/Spectral/UnstableSplitting.lean, exists_unstable_splitting). This work does not use or adapt it.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "The-Anh Vu-Le"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-20T21:15:07Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "2d2049c186448d7b496421d7c472013a75618d5a3d30711322b63189aadd1680"
+    },
+    "reviewed_at": "2026-11-20T16:39:05Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "4909ed2eb6bdc504f86ccb455e544315f11d3860",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "vltanh/lean4-stable-manifold",
+    "repository_url": "https://github.com/vltanh/lean4-stable-manifold",
+    "tree_url": "https://github.com/vltanh/lean4-stable-manifold/tree/4909ed2eb6bdc504f86ccb455e544315f11d3860"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "dtq2z3wqvmfe"
+  },
+  "title": "The stable manifold theorem for a hyperbolic fixed point of a smooth map, with the hyperbolic splitting",
+  "trust": {
+    "challenge_bytes": 16704,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Calculus.ContDiff.Defs",
+      "Mathlib.Analysis.Complex.Basic",
+      "Mathlib.LinearAlgebra.Charpoly.Basic",
+      "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Invertible",
+      "Mathlib.Topology.OpenPartialHomeomorph.Defs"
+    ],
+    "challenge_lines": 273,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "b76676cf266492e32f9323fb3d86c663685bd2711d86d34f89a57bad637bbc38",
+    "evidence_path": "evidence/PALOMAR-2026-11-20-000024-v1/e40c0b0a2e31af203674526ecc59b7804ffc36b40bad7c82d87f05b0975c700e/",
+    "evidence_tree_sha256": "e40c0b0a2e31af203674526ecc59b7804ffc36b40bad7c82d87f05b0975c700e",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "964251416fc04fbfdd9b0f8c6a374ed4a7b56f8e8013f39658b0d7f88e1e7be8",
+    "protected_config_sha256": "cc3fc8ced823f3c0fdb4b72ccae781ca19088ba2e005155d24e5e6b88f9db6b2",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44764369254,
+    "solution_sha256": "316e01dd037c013e9582869f8a82cf5947e1b04786e52dfb29c08298878a5c3a",
+    "tool_digests": {
+      "bwrap": "a96f43b4ea4b9afb40f51b1852408d7c67fe63264dce10946278e22c069f51be",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "b35cb10cf2ced51a2fd1880cfdbf75c71ab7a35a",
+    "verified_at": "2026-11-20T15:38:18Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44764369254"
+  },
+  "version": 1
+}

@@ -1,0 +1,305 @@
+{
+  "abstract": "The newform f(z) = η(z)²η(11z)² = q∏(1 − qⁿ)²(1 − q¹¹ⁿ)² = ∑a(n)qⁿ of weight 2 and level 11 (LMFDB 11.2.a.a, the modular form of the elliptic curves of conductor 11) is congruent modulo 5 to the Eisenstein series of its level: a(n) ≡ ∑_{d | n, 11 ∤ d} d (mod 5) for every n ≥ 1, and in particular a(p) ≡ 1 + p (mod 5) for every prime p ≠ 11. It is the weight-2, level-11 analogue of Ramanujan's τ(n) ≡ σ₁₁(n) (mod 691); 5 is the numerator of (11 − 1)/12. Method, as for 691: (1) the lattice L = B ⊕ B with B = (2 1; 1 6), the norm form of x² + xy + 3y² of discriminant −11, is even of rank 4, level dividing 11 and determinant 11², so its theta series θ is a modular form of weight 2 on Γ₀(11) with trivial character (Hecke–Schoeneberg), with integer coefficients r(n) and r(0) = 1; (2) at prime level a weight-2 form minus the Eisenstein multiple with the same constant term at ∞ is a cusp form, so θ = Ẽ + c·f with Ẽ = (E₂(z) − 11E₂(11z))/(−10) = 1 + (12/5)∑σ*(n)qⁿ, because the cusp forms are the multiples of f; (3) comparing coefficients, 5r(n) = 12σ*(n) + (5r(1) − 12)a(n), so 5 divides 12(σ*(n) − a(n)).",
+  "authors": [
+    {
+      "name": "Richard Morley-Smith"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-21-000011-v1/c5ec6a954c2b1541b8fe05adb9c4ca9213b5112e48c6a7e6d5ed72072247201c/",
+    "artifact_tree_sha256": "c5ec6a954c2b1541b8fe05adb9c4ca9213b5112e48c6a7e6d5ed72072247201c",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-21T03:15:33Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "71a2035b44e7f54a797ce799fd1b03cdd3a44684"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11F11",
+      "11F27",
+      "11F33"
+    ]
+  },
+  "first_registered_on": "2026-11-21",
+  "formalization": {
+    "challenge_path": "tau-track/TauTrack/ElevenFive/Challenge.lean",
+    "comparator_config_path": "tau-track/TauTrack/ElevenFive/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "tau-track/TauTrack/ElevenFive/formalization.yaml",
+    "lakefile_path": "tau-track/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "TauCeti",
+        "repository": "TauCetiProject/TauCeti",
+        "revision": "83769e442d55cda9d85b3927a93b286831c595ff"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "1b1ccf4b088b32fa3f23f2de1127433254a81e1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "b0256621cb88178e9ad932a53633077b3029e621"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "6d971e7e6b3f7d0a501c5418815aa9022edd3499"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b"
+      }
+    ],
+    "solution_path": "tau-track/TauTrack/ElevenFive/Solution.lean",
+    "theorem_names": [
+      "ElevenFive.eisenstein_congruence_mod_five"
+    ]
+  },
+  "id": "PALOMAR-2026-11-21-000011",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-21T09:25:55Z",
+    "receipt_sha256": "80ab651708ceff9c6c43922992b20510dbbb7ac165737ec356046132922f2cdc",
+    "repositories": [
+      {
+        "commit": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000011-v1/7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "6d971e7e6b3f7d0a501c5418815aa9022edd3499",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000011-v1/6d971e7e6b3f7d0a501c5418815aa9022edd3499",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000011-v1/b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000011-v1/c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "1b1ccf4b088b32fa3f23f2de1127433254a81e1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000011-v1/1b1ccf4b088b32fa3f23f2de1127433254a81e1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000011-v1/129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000011-v1/16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "b0256621cb88178e9ad932a53633077b3029e621",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000011-v1/b0256621cb88178e9ad932a53633077b3029e621",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000011-v1/c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "b5ae0b9677ae6dd9f528816a75a890dd17b853c1",
+        "fork_repository": "PalomarArchive/rmorleysmith--morley-smith-formal--c62fec5eab58",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000011-v1/b5ae0b9677ae6dd9f528816a75a890dd17b853c1",
+        "source_repository": "rmorleysmith/morley-smith-formal"
+      },
+      {
+        "commit": "83769e442d55cda9d85b3927a93b286831c595ff",
+        "fork_repository": "PalomarArchive/TauCetiProject--TauCeti--19ea3a09e7a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000011-v1/83769e442d55cda9d85b3927a93b286831c595ff",
+        "source_repository": "TauCetiProject/TauCeti"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Barry Mazur"
+          }
+        ],
+        "identifier": "Publications Mathématiques de l'IHÉS 47 (1977), 33–186, doi:10.1007/BF02684339",
+        "license": "unknown",
+        "relationship": "independently-proves",
+        "title": "Modular curves and the Eisenstein ideal",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/TauCetiProject/TauCeti/tree/83769e442d55cda9d85b3927a93b286831c595ff",
+        "note": "Imported as a dependency. Used: integral lattices from a Gram matrix with their level, determinant and real model; the Hecke–Schoeneberg transformation law of theta series under Γ₀(N) with the theta character trivial for a square discriminant; the corrected weight-two Eisenstein series E₂(z) − pE₂(pz) on Γ₀(p) with its q-expansion; and the criterion that at prime level a weight-two form minus the right Eisenstein multiple is a cusp form. New here: the level-11 lattice and its theta series as a form on Γ₀(11), the decomposition θ = Ẽ + c·f, and the congruence.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/rmorleysmith/morley-smith-formal/tree/main/tau-track/TauTrack/LevelEleven",
+        "note": "The author's Palomar entry for the newform of level 11: the cusp form η(z)²η(11z)² on Γ₀(11), its integer coefficients, and the fact that it spans S₂(Γ₀(11)). That entry lists this congruence as not included.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Richard Morley-Smith"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-21T09:25:34Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "aa92cbcfde6aae03807776bb6fee627bc10b8722aeed8ee19f44a4f0cc4fb29f"
+    },
+    "reviewed_at": "2026-11-21T03:30:04Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "b5ae0b9677ae6dd9f528816a75a890dd17b853c1",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "project_path": "tau-track",
+    "repository": "rmorleysmith/morley-smith-formal",
+    "repository_url": "https://github.com/rmorleysmith/morley-smith-formal",
+    "tree_url": "https://github.com/rmorleysmith/morley-smith-formal/tree/b5ae0b9677ae6dd9f528816a75a890dd17b853c1/tau-track"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "12at8gagwkog"
+  },
+  "title": "The Eisenstein congruence modulo 5 for the newform of level 11",
+  "trust": {
+    "challenge_bytes": 1849,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Data.Int.ModEq",
+      "Mathlib.NumberTheory.Divisors",
+      "Mathlib.NumberTheory.ModularForms.CongruenceSubgroups",
+      "Mathlib.NumberTheory.ModularForms.DedekindEta",
+      "Mathlib.NumberTheory.ModularForms.QExpansion"
+    ],
+    "challenge_lines": 43,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "3467e57627dff2c93178ed2099e5ea2c24daa8258c625d2b23acff47a6518f4f",
+    "evidence_path": "evidence/PALOMAR-2026-11-21-000011-v1/af1716b3e4f1809abfad2dd05ab50d8a90fe3f38ba25666658265d5e50f6e8fd/",
+    "evidence_tree_sha256": "af1716b3e4f1809abfad2dd05ab50d8a90fe3f38ba25666658265d5e50f6e8fd",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "d0582eedd9983a0404ddfd337e6ee947bc4e7fd690ad00eb4ba2de03893af9e2",
+    "protected_config_sha256": "34f9f54bca96c8337f425127eccb3d4aa41fcfba19f7790093d7cba329342bb1",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44845151751,
+    "solution_sha256": "27cc1f25e51f34eeaca9dc7d62c0172bd480a3a2348e8ea9d5f3de8cc23ac26b",
+    "tool_digests": {
+      "bwrap": "9eff782146e395d7b37e4b59a8f61114c9eecb953801d5b1b0e5de016536cca0",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "b35cb10cf2ced51a2fd1880cfdbf75c71ab7a35a",
+    "verified_at": "2026-11-21T02:28:37Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44845151751"
+  },
+  "version": 1
+}

@@ -1,0 +1,470 @@
+{
+  "abstract": "Hadwiger (Math. Ann. 127, 1954) extended Dehn's invariant to convex polytopes in R^n: for the faces of codimension 2, the sum of their (n-2)-dimensional volume tensored with the dihedral angle modulo rational multiples of pi is kept under dissection. This entry defines that invariant from the set alone, in every finite-dimensional real inner product space: at each point the cone of directions that stay in the set, its lineality space, and, where that space has codimension 2, the angle of the cone in the orthogonal plane; the invariant sums (n-2)-dimensional Hausdorff measure tensored with the angle class, in R tensor_Q (R / Q pi). It proves the bridge: scissors-congruent convex polytopes (pieces are convex polytopes moved by isometries) have the same invariant, in every dimension, also for finite unions of convex polytopes. In R^4 it computes the invariant of the six regular polytopes: zero for the tesseract, the 16-cell, the 24-cell and the 120-cell; for the 5-cell it is A5 tensor arccos(1/4) and for the 600-cell A600 tensor (4 pi / 3 - arccos(1/4)), where A is the area of the ridge points, positive in both; arccos(1/4) is not a rational multiple of pi (Niven's theorem in Mathlib). Hence no similar copy of the 5-cell or of the 600-cell is scissors congruent to a similar copy of the tesseract, the 16-cell, the 24-cell or the 120-cell, and, because the 600-cell's dihedral angle is 4 pi / 3 minus the 5-cell's, their invariants have opposite signs and no similar copy of the 5-cell is scissors congruent to a similar copy of the 600-cell. The non-congruence of the regular simplex and the cube is Hadwiger's (1954, section V); the entry claims no new mathematics, only the formalization. The 600-cell needs the face structure: at every ridge point the two tight facets are neighbours across a triangle; this is proved from exact Z[phi] data (its 600 facet normals, 120 corners and, for every facet, its four corners and four neighbours) checked by kernel evaluation, with a barycentric argument on the facet. Not formalized: Jessen's converse in R^4 (equal volume and equal invariant imply scissors congruence), Hadwiger's other invariants in higher dimensions, and the identification of the set invariant with the face sum for every convex polytope (the six polytopes are computed directly). The library reuses the Dehn Canon development (registered PALOMAR-2026-11-20-000003) for convex polytopes, cones, wedge angles, cuts and dissections. Audience: researchers on scissors congruence, valuations on polytopes and regular polytopes, and Mathlib contributors.",
+  "authors": [
+    {
+      "github": "DICTOR-Master",
+      "name": "DICTO",
+      "orcid": "0009-0001-2620-2036",
+      "orcid_record_checked_at": "2026-11-20T11:40:22Z"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-21-000004-v1/fec91b4c61caa6d3f3c81593c57800d8a602061ede17db6d96d8884f94688615/",
+    "artifact_tree_sha256": "fec91b4c61caa6d3f3c81593c57800d8a602061ede17db6d96d8884f94688615",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-20T12:27:12Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.MG"
+    ],
+    "msc2020": [
+      "52B45",
+      "52B11",
+      "52B15",
+      "03B35"
+    ]
+  },
+  "first_registered_on": "2026-11-21",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "DehnHadwiger4D.dehnHadwiger_eq_of_scissorsCongruent",
+      "DehnHadwiger4D.dehnHadwigerSum_eq_of_scissors",
+      "DehnHadwiger4D.dehnHadwiger_tesseract",
+      "DehnHadwiger4D.dehnHadwiger_cell16",
+      "DehnHadwiger4D.dehnHadwiger_cell24",
+      "DehnHadwiger4D.arccos_quarter_not_ratPi",
+      "DehnHadwiger4D.dehnHadwiger_cell5_eq",
+      "DehnHadwiger4D.dehnHadwiger_cell5_ne_zero",
+      "DehnHadwiger4D.dehnHadwiger_cell120",
+      "DehnHadwiger4D.dehnHadwiger_cell600_eq",
+      "DehnHadwiger4D.dehnHadwiger_cell600_ne_zero",
+      "DehnHadwiger4D.similarCell5_not_scissorsCongruent",
+      "DehnHadwiger4D.similarCell600_not_scissorsCongruent",
+      "DehnHadwiger4D.similarCell5_not_scissorsCongruent_similarCell600"
+    ]
+  },
+  "id": "PALOMAR-2026-11-21-000004",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-21T02:16:11Z",
+    "receipt_sha256": "1d38fdbe9a05d86877b43c2a8427bf92553e0dadc8b4edc287b9d17c7c331ba8",
+    "repositories": [
+      {
+        "commit": "5a2cf4ca1b3a5f14f9e2cfd5596189219bdd31e9",
+        "fork_repository": "PalomarArchive/DICTOR-Master--dehn-hadwiger-4d-lean--76fe98726f40",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000004-v1/5a2cf4ca1b3a5f14f9e2cfd5596189219bdd31e9",
+        "source_repository": "DICTOR-Master/dehn-hadwiger-4d-lean"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000004-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000004-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000004-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000004-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000004-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000004-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000004-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000004-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000004-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "H. Hadwiger"
+          }
+        ],
+        "identifier": "doi:10.1007/BF01361118",
+        "location": "Mathematische Annalen 127 (1954) 170-174 (Zbl 0055.05002)",
+        "relationship": "formalizes",
+        "title": "Zum Problem der Zerlegungsgleichheit k-dimensionaler Polyeder",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "H. Hadwiger"
+          }
+        ],
+        "identifier": "doi:10.1007/978-3-642-94702-5",
+        "location": "Springer, Berlin, 1957",
+        "relationship": "background",
+        "title": "Vorlesungen über Inhalt, Oberfläche und Isoperimetrie",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "M. Dehn"
+          }
+        ],
+        "identifier": "doi:10.1007/BF01448001",
+        "location": "Mathematische Annalen 55 (1901) 465-478",
+        "relationship": "background",
+        "title": "Ueber den Rauminhalt",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "B. Jessen"
+          }
+        ],
+        "identifier": "doi:10.7146/math.scand.a-10888",
+        "location": "Mathematica Scandinavica 22 (1968) 241-256",
+        "relationship": "background",
+        "title": "The algebra of polyhedra and the Dehn-Sydler theorem",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "B. Jessen"
+          }
+        ],
+        "location": "Nachrichten der Akademie der Wissenschaften in Göttingen, II. Math.-phys. Klasse 1972, 47-53 (Zbl 0262.52004)",
+        "relationship": "background",
+        "title": "Zur Algebra der Polytope",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "J. L. Dupont"
+          },
+          {
+            "name": "C.-H. Sah"
+          }
+        ],
+        "identifier": "doi:10.1007/BF02392750",
+        "location": "Acta Mathematica 164 (1990) 1-27",
+        "relationship": "background",
+        "title": "Homology of Euclidean groups of motions made discrete and Euclidean scissors congruences",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "J. C. Lagarias"
+          },
+          {
+            "name": "D. Moews"
+          }
+        ],
+        "identifier": "doi:10.1007/BF02574064",
+        "location": "Discrete & Computational Geometry 13 (1995) 573-583 (Zbl 0824.52014)",
+        "relationship": "background",
+        "title": "Polytopes that fill R^n and scissors congruence",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "V. G. Boltianskii"
+          }
+        ],
+        "location": "translated from the Russian, Winston and Wiley, 1978",
+        "relationship": "background",
+        "title": "Hilbert's Third Problem",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "C.-H. Sah"
+          }
+        ],
+        "location": "Research Notes in Mathematics 33, Pitman, 1979",
+        "relationship": "background",
+        "title": "Hilbert's Third Problem: Scissors Congruence",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "J. L. Dupont"
+          }
+        ],
+        "location": "Nankai Tracts in Mathematics 1, World Scientific, Singapore, 2001",
+        "relationship": "background",
+        "title": "Scissors Congruences, Group Homology and Characteristic Classes",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "github": "DICTOR-Master",
+            "name": "DICTO",
+            "orcid": "0009-0001-2620-2036",
+            "orcid_record_checked_at": "2026-11-20T11:40:22Z"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.24383552",
+        "location": "Zenodo; its Lean development is the registered Palomar entry PALOMAR-2026-11-20-000003",
+        "relationship": "background",
+        "title": "The Dehn Canon: Hilbert's Third Problem, Machine-Checked",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "github": "DICTOR-Master",
+            "name": "DICTO",
+            "orcid": "0009-0001-2620-2036",
+            "orcid_record_checked_at": "2026-11-20T11:40:22Z"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.24393967",
+        "location": "Zenodo preprint (paper #116), 20 November 2026, version 1: doi:10.5281/zenodo.24393968 (all versions: doi:10.5281/zenodo.24393967); not peer reviewed",
+        "relationship": "formalizes",
+        "title": "The Dehn–Hadwiger invariant in four dimensions: Machine-checked for the six regular polytopes, and one 600-cell balanced by 120 regular 5-cells",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/DICTOR-Master/dehn-canon-lean/blob/9ea20f6dfd64fc3f10f64b1fb59a754a77e5cf57/Challenge.lean",
+        "note": "The Dehn Canon entry (PALOMAR-2026-11-20-000003): the set-defined Dehn invariant and the bridge in dimension 3. This entry's library contains its modules on convex polytopes, cones and dissections and adds the codimension-2 invariant in every dimension and the four-dimensional results.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/mo271/FormalBook/blob/54da1cecd8f3a27faa5d46a23b273611fc4f3365/FormalBook/Chapter_10.lean",
+        "note": "Hilbert's third problem in dimension 3, in an abstract model; no higher-dimensional invariant.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/facebookresearch/atlas-lean/blob/0ab82d469546484e0e05985b2df6c1aa49d7edc9/MathlibExt/Geometry/Dissections/DehnInvariant.lean",
+        "note": "The Dehn invariant of a list of edges in dimension 3; cube versus regular tetrahedron. No higher dimensions.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/jonhanke/undergraduate-math-lean/blob/fd2d40d0aafd2cbf5a3174db3741b29b3e5de17c/UndergradKB/RepresentationTheory/DehnInvariant.lean",
+        "note": "The Dehn invariant of a list of edges in dimension 3; cube versus regular tetrahedron. No higher dimensions.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "github": "DICTOR-Master",
+        "name": "DICTO",
+        "orcid": "0009-0001-2620-2036",
+        "orcid_record_checked_at": "2026-11-20T11:40:22Z"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-21T02:15:54Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "576282f9414c05f4e98a18073f1fc59368201f2d4cf177c74795a512a195996f"
+    },
+    "reviewed_at": "2026-11-20T13:29:50Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "5a2cf4ca1b3a5f14f9e2cfd5596189219bdd31e9",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "DICTOR-Master/dehn-hadwiger-4d-lean",
+    "repository_url": "https://github.com/DICTOR-Master/dehn-hadwiger-4d-lean",
+    "tree_url": "https://github.com/DICTOR-Master/dehn-hadwiger-4d-lean/tree/5a2cf4ca1b3a5f14f9e2cfd5596189219bdd31e9"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "1yvhkx1d3z53"
+  },
+  "title": "The Dehn–Hadwiger invariant in four dimensions",
+  "trust": {
+    "challenge_bytes": 19552,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 300,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "f562c0c2d9e0d1c965a32b78ebe3da32baca184bd52334c335709c3f3913202e",
+    "evidence_path": "evidence/PALOMAR-2026-11-21-000004-v1/4cee98940ab2b56dc7763b871e086f654f3e27c8ea9510c5b56720e514468c9d/",
+    "evidence_tree_sha256": "4cee98940ab2b56dc7763b871e086f654f3e27c8ea9510c5b56720e514468c9d",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "438eec7b8c428e867072a4c15411adb21d4447c8e1a056fea7504a9dc02d394c",
+    "protected_config_sha256": "d5e8db1b8db5b3804ad050bba14b66f5c90faae749eb0666243322c76faaa46f",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44729406290,
+    "solution_sha256": "68d472e14d9c0fbc897baca186ee412343396d254ad4287d85ba0e4ed79d4223",
+    "tool_digests": {
+      "bwrap": "13ecee02362b4570ca4e9f7bf0ac5cfa9f36ea4d4f27caa551540820a6c54988",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-20T11:54:23Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44729406290"
+  },
+  "version": 1
+}

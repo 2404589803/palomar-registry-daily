@@ -1,0 +1,255 @@
+{
+  "abstract": "The four-digit Kaprekar map in base B sends an integer 0 <= x < B^4, written with four base-B digits (leading zeros allowed), to the descending arrangement of its digits minus the ascending arrangement. A cycle is a periodic orbit through an input whose digits are not all equal. Cycles are counted up to cyclic shift, including fixed points of least period one. This formalization uses only Lean 4 core and Std and proves Theorem 1 of R. Galyavin, \"Cycles of the four-digit Kaprekar map in even bases\" (2026). For B = m*2^n with m odd, n >= 1 and m >= 5, each cycle of the folded map on odd difference pairs lifts to a cycle of the same length. There is one additional cycle of length n+1 if 2^n is 1 modulo m, or one of length 2(n+1) if m = 5 and n is 2 modulo 4. The two conditions are mutually exclusive and the list is exhaustive. For m = 3, odd n gives one cycle of length 3(n+1), and even n gives two cycles of lengths n+1 and 2(n+1). Base two has two fixed points. In base 2^n for odd n >= 3 there are (n-1)/2 cycles of each length n and n+2. For even n >= 2 there are (n-2)/2 cycles of each of those lengths, one of length n/2 and one of length n/2+1. The map is stated directly as digit sorting and subtraction on natural numbers.",
+  "authors": [
+    {
+      "name": "Rustem Galyavin"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-21-000006-v1/9202b4dbd08ff25af8bf4dbdf296baedbfd379cba728918c424247a261274019/",
+    "artifact_tree_sha256": "9202b4dbd08ff25af8bf4dbdf296baedbfd379cba728918c424247a261274019",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-21T05:44:49Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.DS"
+    ],
+    "msc2020": [
+      "11A63",
+      "37P99"
+    ]
+  },
+  "first_registered_on": "2026-11-21",
+  "formalization": {
+    "challenge_path": "ChallengeTheorem1.lean",
+    "comparator_config_path": "comparator-theorem1.json",
+    "definition_names": [],
+    "formalization_metadata_path": "palomar-theorem1/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [],
+    "solution_path": "SolutionTheorem1.lean",
+    "theorem_names": [
+      "PalomarKaprekar.cycles_odd_core",
+      "PalomarKaprekar.cycles_core_three",
+      "PalomarKaprekar.cycles_base_two",
+      "PalomarKaprekar.cycles_higher_powers_two"
+    ]
+  },
+  "id": "PALOMAR-2026-11-21-000006",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-21T05:59:35Z",
+    "receipt_sha256": "a92fba25fd0fce6c8afba65c1afc49e6ab4c613d9a2af7b4acca5bddd64dfe8e",
+    "repositories": [
+      {
+        "commit": "da1c63f6fe2a221f102261a7407690255cbe143a",
+        "fork_repository": "PalomarArchive/galyavin--kaprekar-cycles-lean--cd27c54d5598",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000006-v1/da1c63f6fe2a221f102261a7407690255cbe143a",
+        "source_repository": "galyavin/kaprekar-cycles-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Rustem Galyavin"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.24358739",
+        "license": "CC-BY-4.0",
+        "location": "Theorem 1(a)–(c) and the table of cycle counts and periods in bases 2^n",
+        "relationship": "formalizes",
+        "title": "Cycles of the four-digit Kaprekar map in even bases",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "E. Chen"
+          },
+          {
+            "name": "K. Ono"
+          },
+          {
+            "name": "R. E. Schwartz"
+          },
+          {
+            "name": "D. Thakur"
+          }
+        ],
+        "identifier": "J. Integer Seq. 29 (2026), Article 26.4.7; arXiv:2606.20439",
+        "location": "Remark 28 (the unique-cycle pattern in even bases, recorded from numerical evidence); Theorem 1 (cycles in odd bases)",
+        "relationship": "background",
+        "title": "Four-digit Kaprekar dynamics in odd bases",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "H. Hasse"
+          },
+          {
+            "name": "G. D. Prichett"
+          }
+        ],
+        "identifier": "J. Reine Angew. Math. 299/300 (1978), 113-124",
+        "location": "Theorem 4.1 (all cycles in the bases 5*2^n)",
+        "relationship": "background",
+        "title": "The determination of all four-digit Kaprekar constants",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "M. Kahramanlar"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.21472450",
+        "location": "Section 5 (cycles in the bases 3*2^k)",
+        "relationship": "background",
+        "title": "Wall deflections in four-digit Kaprekar dynamics: folded doubling and the even-base 3*2^k towers",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Korea Superintelligence Labs"
+          }
+        ],
+        "identifier": "https://lean.up.railway.app/papers/kaprekar-v1.pdf (public draft, version 1, accessed 17 November 2026)",
+        "location": "Theorem 3.2, Theorem 7.1, Remark 7.2, Sections 9 and 10",
+        "relationship": "background",
+        "title": "Base scaling in four-digit Kaprekar dynamics, and an infinite family of bases with no unique terminating cycle",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-11-21-000001",
+        "note": "PALOMAR-2026-11-21-000001 compares only Corollary 2. It identifies the even bases with exactly one cycle and gives that cycle's length. Theorem 1 classifies every nonconstant cycle in every even base. It identifies all lifts from odd cores with their original periods, classifies the additional cycles and their exact periods, and counts the cycles of each length in every power of two. This includes bases with more than one cycle, for example base 4 with one fixed point and a 2-cycle. Both entries use the same development. Theorem 1 was already proved there and this entry presents its first direct comparison for the digit-sorting map.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/galyavin/kaprekar-dynamics (cycles-even-bases/ancillary/lean)",
+        "note": "The substantive Lean development of the paper (Theorem 1 and Corollary 2 for the development's step map on four-slot digit words), by the same author. SolutionTheorem1 imports a port of that development included in this repository and reuses the original Solution's proof relating its step map to the Challenge definition. The port uses Lean's module system and Lean 4.35.0-rc2.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://lean.up.railway.app/papers/kaprekar-v1.pdf",
+        "note": "The Korea Superintelligence Labs draft reports formal cycle checks for even bases up to 200. They are neither used nor ported here.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Rustem Galyavin"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-21T05:59:28Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "6ac6e581ee60d32d9814e7b87958b93ad7e4ebd5e53a6cb5c28a031f9091811e"
+    },
+    "reviewed_at": "2026-11-21T05:54:40Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "da1c63f6fe2a221f102261a7407690255cbe143a",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "2f87d751eb3f39a6bff383993eb4f550320dc7bd90c1009de50201e93effc715"
+    },
+    "repository": "galyavin/kaprekar-cycles-lean",
+    "repository_url": "https://github.com/galyavin/kaprekar-cycles-lean",
+    "tree_url": "https://github.com/galyavin/kaprekar-cycles-lean/tree/da1c63f6fe2a221f102261a7407690255cbe143a"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "e2c50ivsw0r3"
+  },
+  "title": "Cycles of the four-digit Kaprekar map in even bases",
+  "trust": {
+    "challenge_bytes": 10133,
+    "challenge_dependencies": [],
+    "challenge_imports": [],
+    "challenge_lines": 209,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "3d76eef4716570000372afc16436947736c4bf2967a58698016d46929c9cdac7",
+    "evidence_path": "evidence/PALOMAR-2026-11-21-000006-v1/ec234e8865f1de3be8f5babbe0278adbeffec22ae84905bc226fd2b9a1d41773/",
+    "evidence_tree_sha256": "ec234e8865f1de3be8f5babbe0278adbeffec22ae84905bc226fd2b9a1d41773",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "ca9b20281e6d273ca0876a1485cf6f1f272d85df79c05c790afd1fe8a6a74c2f",
+    "protected_config_sha256": "92f4802ac665b03ca41ae8c2fd5c917b12089a17337723b408124452c1f69096",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44871444762,
+    "solution_sha256": "fad6a22abd86882f4628d97c9a97a337e837973a73b97c2915c744781b3f2825",
+    "tool_digests": {
+      "bwrap": "1c78b8a0261623d0fd43b01461a4209f090c05d0864d09278ad7fdf08d21192a",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-21T05:36:08Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44871444762"
+  },
+  "version": 1
+}

@@ -1,0 +1,364 @@
+{
+  "abstract": "Lean formalizations accompanying twenty numerical linear algebra problem resolutions. They give uniform matrix-product growth and local 1/d-Hölder continuity of the joint spectral radius; two real generators with any prescribed nonnegative polynomial growth exponent; and sharp losses 2^r and 4^r for randomly pivoted Cholesky and LU. They show that concave matrix functions can destroy spectral approximation guarantees and amplify nuclear-norm excess without bound, and give sharp Frobenius transfer bounds with and without semidefinite order. Further results are the random-row adversarial deletion limit and sharp universal deletion constant, a pointwise strict tensor-train bound with unchanged worst-case supremum, and curves with rank savings delayed through any prescribed finite range of tensor powers. Counterexamples concern derivative roots of nonnegative characteristic polynomials, a q-permanent subset inequality, a geometric-mean norm inequality, and weighted log-majorisation. The development also proves the rectangular Rowland-Wu Sinkhorn identity, disconnected quotients of minimal positive semidefinite factors, stable nonsynchronised equilibria on random cubic graphs with high probability, and NP-hardness of exact determinant ranges and solution hulls for regular tridiagonal interval matrices. This repository prepares the proofs for Palomar through a single repository-root Challenge/Solution interface selecting all twenty problem resolutions. Seventeen component environments have recorded Lean 4.35.0 compilation and selected-axiom checks; the combined environment has separate current evidence. Official Palomar and independent NanoDa verification remain pending submission.",
+  "authors": [
+    {
+      "name": "Matthew J. Colbrook"
+    },
+    {
+      "name": "George Stepaniants"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-21-000005-v1/2d58f70ae5dfeedda63d7503f9c3656bca37200e2b35a72a9426874fb3d07940/",
+    "artifact_tree_sha256": "2d58f70ae5dfeedda63d7503f9c3656bca37200e2b35a72a9426874fb3d07940",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-21T01:14:25Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NA",
+      "math.FA",
+      "math.PR",
+      "math.AG",
+      "cs.CC"
+    ],
+    "msc2020": [
+      "15A18",
+      "15A23",
+      "15A45",
+      "15A60",
+      "15A69",
+      "65F10",
+      "65F55",
+      "68Q25"
+    ]
+  },
+  "first_registered_on": "2026-11-21",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "NLA.MF05.Paper.paper_real_bounded_positive_radius_growth",
+      "NLA.MF05.Paper.paper_real_bounded_zero_radius_nilpotent",
+      "NLA.MF05.Paper.paper_real_uniform_holder",
+      "NLA.MF12.Paper.paper_main_realization",
+      "NLA.MF12.Paper.paper_rational_realization",
+      "NLA.RA02.Paper.paper_sup_worst_case_constants",
+      "NLA.RA08.Paper.paper_spectral_failure",
+      "NLA.RA08.Paper.verified_paper_nuclear_counterexample",
+      "NLA.RA09.paper_ordered_matrix_norm_relative",
+      "NLA.RA09.paper_ordered_sharpness",
+      "NLA.RA09.paper_unordered_matrix_norm_relative",
+      "NLA.RA09.paper_unordered_sharpness",
+      "NLA.IE21.Paper.paper_random_rows",
+      "NLA.IE22.Paper.paper_high_aspect_supremum_limit",
+      "NLA.IE22.Paper.paper_universal_squared_rate",
+      "Reference.LexTensorExecution.actual_lexicographic_paper_algorithm",
+      "Reference.LexicographicFeasibilityBridge.product_eq_rowCount",
+      "Reference.LexTensorCompletion.lexCard_eq_card",
+      "NLA.TR27.Paper.paper_full_family",
+      "NLA.TR27.Paper.coordinateProjection_surjective",
+      "NLA.TR27.Paper.coordinateProjection_kernel",
+      "NLA.TR27.Paper.imageHomogeneousMap_eq_zero_iff",
+      "NLA.TR27.Paper.tensor_reps_nonzero",
+      "NLA.IS03.paper_counterexample",
+      "NLA.NM04.Paper.paper_rowland_wu_identity",
+      "Reference.PF02UniformPositiveOrientation.paper_all_size_disconnected_witness",
+      "Reference.MD06MainAssembly.Interface.actual_paper_md_main",
+      "Reference.MD06FiniteProbability.actual_cubic_sample_nonempty",
+      "IV04.Paper.Computational.actual_paper_iv_det",
+      "Reference.IV04FullHullHardness.iv_hull_literal_np_hard",
+      "NLA.MI19.Paper.paper_counterexample",
+      "NLA.MI21.Paper.paper_counterexample",
+      "NLA.MI22.Paper.paper_counterexample",
+      "NLA.MI22.Paper.paper_conjecture_false",
+      "NLA.MI22.singularValue._proof_1",
+      "Complexity.NTM.trace._proof_6",
+      "NLA.TR27.Paper.pivotIndex._proof_2",
+      "NLA.TR27.Paper.recoveryIndex._proof_2",
+      "NLA.TR27.Paper.recoveryOpenPoints._proof_2",
+      "Reference.LexTensorCompletion.lexIndex._proof_5",
+      "Reference.LexTensorCompletion.lexIndex._proof_2",
+      "NLA.IE21.matrixMap._proof_6",
+      "NLA.IE21.matrixMap._proof_4"
+    ]
+  },
+  "id": "PALOMAR-2026-11-21-000005",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-21T02:41:27Z",
+    "receipt_sha256": "e90a507c468f9fc185d20ec23aca93eac549969d406ca08d0fb048b28521b3fb",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000005-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000005-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000005-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000005-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000005-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000005-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000005-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000005-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000005-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "d46c1b54e85af6790d3ac0df59a9bbe8d2faaf4d",
+        "fork_repository": "PalomarArchive/MColbrook--NLA-formal-verification-20-problems--9c9b2f2379c4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000005-v1/d46c1b54e85af6790d3ac0df59a9bbe8d2faaf4d",
+        "source_repository": "MColbrook/NLA-formal-verification-20-problems"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Matthew J. Colbrook"
+          },
+          {
+            "name": "George Stepaniants"
+          }
+        ],
+        "identifier": "urn:sha256:b66976c1efa4f625f3b380fef6e945ddf4d7beea6e1b264e2f87d6790548bba5",
+        "location": "Author-provided unpublished manuscript main.tex, sections 2-17",
+        "relationship": "formalizes",
+        "title": "Numerical Linear Algebra, Explained: Twenty Problem Resolutions",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Alex Townsend",
+            "role": "Initiator of the problem collection"
+          }
+        ],
+        "identifier": "https://github.com/ajt60gaibb/OpenProblemsInNLA",
+        "relationship": "background",
+        "title": "Open Problems in Numerical Linear Algebra",
+        "type": "web discussion"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/ajt60gaibb/OpenProblemsInNLA/tree/0689db001ddc4c54f2652ed4b13b753637fef700",
+        "note": "Fourteen original proof projects were imported from this exact snapshot; later refreshes, dedicated IE-21/IE-22 proof commits and subsequent attributed imports are recorded in the source provenance ledgers. Original formalization credit, including George Stepaniants, and all component notices are preserved.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/MColbrook/big_NLA/tree/f8bc15a38bc4893753ab9c076cef2b02375e122f/lean",
+        "note": "Previous committed paper verification package. Later local extensions repaired current-paper coverage before this new repository was prepared. This identifier is historical, not a claim that the pinned commit contains the later uncommitted repairs. The new repository carries the substantive proof development rather than a thin wrapper.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Matthew J. Colbrook"
+      },
+      {
+        "name": "George Stepaniants"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-21T02:41:05Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "765583dece05e320567469f04a1c1eb28e4d40fee3b3a52dd4969225ff2ff1a6"
+    },
+    "reviewed_at": "2026-11-21T02:22:09Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "d46c1b54e85af6790d3ac0df59a9bbe8d2faaf4d",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+    },
+    "repository": "MColbrook/NLA-formal-verification-20-problems",
+    "repository_url": "https://github.com/MColbrook/NLA-formal-verification-20-problems",
+    "tree_url": "https://github.com/MColbrook/NLA-formal-verification-20-problems/tree/d46c1b54e85af6790d3ac0df59a9bbe8d2faaf4d"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "sj21htkwaiej"
+  },
+  "title": "Numerical Linear Algebra, Explained: Twenty Problem Resolutions",
+  "trust": {
+    "challenge_bytes": 101604,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Lean.Meta.Match.Match",
+      "Mathlib"
+    ],
+    "challenge_lines": 1000,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "d54a7103cc437135457dd5265ba0698e386da95a2b21943e6780113daa1f6f9b",
+    "evidence_path": "evidence/PALOMAR-2026-11-21-000005-v1/8961f7e5e0154061c9d83f6a02c138ac2748ac89694854f19befd7c723f48397/",
+    "evidence_tree_sha256": "8961f7e5e0154061c9d83f6a02c138ac2748ac89694854f19befd7c723f48397",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "596e93aa23afd8e799e199d1172ecb153f92bf816dd334668ce380c5d3b765ba",
+    "protected_config_sha256": "b0e027475c7af3fb5c82831a87967a2b2c30dcbd6c6596dfc0b9437539e50858",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44844730059,
+    "solution_sha256": "111d724677c3a5fdd10ca731cedc2583e36b0ecc8a6bf22542aed832347273c7",
+    "tool_digests": {
+      "bwrap": "42e140b505d5ee62c53d2e6b8787fa338de4b9997927e6b7c79422855bb91f15",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-21T00:45:56Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44844730059"
+  },
+  "version": 1
+}

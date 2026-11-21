@@ -1,0 +1,419 @@
+{
+  "abstract": "A rhombic monohedral polyhedron of spherical type (surface homeomorphic to a sphere, adjacent faces not coplanar) with exactly 30 faces, all of them congruent rhombi whose diagonals are in the golden ratio, in which every zone has exactly 10 faces, and whose translates by a lattice tile space face to face. This gives an example for k = 10 for the question of B. Grunbaum (Math. Intelligencer 32(4), 2010): \"Given an even integer k >= 4, is there a rhombic monohedral parallelohedron such that every zone has exactly k faces?\", where he wrote that \"no information is available for any k >= 10\". The witness is DICTO's Grunbaum-Escher Triacontahedron GET B: the rhombic triacontahedron less four oblate golden rhombohedra, a union of 16 golden rhombohedra (its exact model also has 32 vertices and 60 edges; these counts are properties of the witness, checked in the model, not part of the theorem). Two calibration theorems check that the zone definition gives 4 for the cube and 6 for the rhombic dodecahedron. Earlier solids of the same family (the rhombic triacontahedron with four corners indented) were shown on the web as space-fillers, without proof, without zone sizes and without reference to Grunbaum's question: by D. Hall (Sketchfab, 2016; the same solid as G. Inchbald's dimpled rhombic triacontahedron, by 2023) and by J. Kostick (vZome, 2022), whose concavo-convex triacon array shows GET A, a sibling of GET B. So this entry does not claim the first example for k = 10. GET B itself was not found in the sources checked. Since GET B is an indentation of the triacontahedron and is proved here to be a parallelohedron, it is also a counterexample to Grunbaum's tentative remark (same paper) that \"none of the other isozonohedra obtainable by indentation of F or T seem to be parallelohedra\". The proof checks exact data in Z[phi] by kernel evaluation (zones, congruence, separating normals, contacts, face matching, cone separation from an interior point) and derives the tiling from volume = covolume with Mathlib's fundamental domains. The entry is meant for researchers on parallelohedra and space-filling polyhedra (nonconvex parallelohedra, Venkov-McMullen belt theory) and on golden-rhombohedron polyhedra.",
+  "authors": [
+    {
+      "github": "DICTOR-Master",
+      "name": "DICTO",
+      "orcid": "0009-0001-2620-2036",
+      "orcid_record_checked_at": "2026-11-20T08:13:41Z"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-20-000013-v1/f29f8d3aa5980a3c068160526d97bf361151722bf14b0d618492e74d70f22bb1/",
+    "artifact_tree_sha256": "f29f8d3aa5980a3c068160526d97bf361151722bf14b0d618492e74d70f22bb1",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-20T08:40:05Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.MG",
+      "math.CO"
+    ],
+    "msc2020": [
+      "52C22",
+      "52B10",
+      "52C07",
+      "03B35"
+    ]
+  },
+  "first_registered_on": "2026-11-20",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "GrunbaumK10.cube_everyZoneHas",
+      "GrunbaumK10.rhombicDodecahedron_everyZoneHas",
+      "GrunbaumK10.grunbaum_k10",
+      "GrunbaumK10.grunbaum_k10_parallelohedron"
+    ]
+  },
+  "id": "PALOMAR-2026-11-20-000013",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-20T13:38:00Z",
+    "receipt_sha256": "dfac1a5cffe89d9f55e2b5cd992fecf8593c57efe21cd054fedddd742663a0ab",
+    "repositories": [
+      {
+        "commit": "a6b16c25d80fa90ea28259bad6a53d7e81d01779",
+        "fork_repository": "PalomarArchive/DICTOR-Master--grunbaum-k10-lean--952a56f0689a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000013-v1/a6b16c25d80fa90ea28259bad6a53d7e81d01779",
+        "source_repository": "DICTOR-Master/grunbaum-k10-lean"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000013-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000013-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000013-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000013-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000013-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000013-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000013-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000013-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-20-000013-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "B. Grunbaum"
+          }
+        ],
+        "identifier": "doi:10.1007/s00283-010-9138-7",
+        "location": "Mathematical Intelligencer 32(4) (2010) 5-15; the open problem in the section on nonconvex parallelohedra (author's version, University of Washington repository hdl:1773/15593, version 2/3/10, p. 17)",
+        "relationship": "formalizes",
+        "title": "The Bilinski dodecahedron, and assorted parallelohedra, zonohedra, monohedra, isozonohedra and otherhedra",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "B. Grunbaum"
+          }
+        ],
+        "location": "web page, University of Washington (faculty.washington.edu/moishe/branko/, 'Bilinski paper files'); undated, its latest references are of September 2009",
+        "relationship": "background",
+        "title": "A supplement to Bilinski's paper on rhombic dodecahedra",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "B. Grunbaum"
+          }
+        ],
+        "location": "Geombinatorics 19 (2010) 100-107",
+        "relationship": "background",
+        "title": "Tilings by some nonconvex parallelohedra",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "B. A. Venkov"
+          }
+        ],
+        "location": "Vestnik Leningradskogo Universiteta, Ser. Mat. Fiz. Khim. 9 (1954) 11-31 (in Russian)",
+        "relationship": "background",
+        "title": "On a class of Euclidean polyhedra",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "P. McMullen"
+          }
+        ],
+        "location": "Mathematika 27 (1980) 113-121",
+        "relationship": "background",
+        "title": "Convex bodies which tile space by translation",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "D. Hall"
+          }
+        ],
+        "location": "Sketchfab 3D models, published 28 June 2016 (sketchfab.com/3d-models/dimpled-rhombic-triacontahedron-construction-9e2be3ccfe7b480c846f4d431441ac19) and 11 July 2016 (sketchfab.com/3d-models/drt-with-positive-tetrahedral-translation-0ccb9676d36148189af82c77ae4bb8d8)",
+        "relationship": "background",
+        "title": "Dimpled Rhombic Triacontahedron - Construction; DRT with Positive Tetrahedral Translation",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "G. Inchbald"
+          }
+        ],
+        "location": "steelpillow.com/polyhedra/quasicr/quasicr.html (updated 6 December 2024; the dimpling text is absent from the Internet Archive copy of 31 March 2022 and present on 23 March 2023)",
+        "relationship": "background",
+        "title": "A 3-D Quasicrystal Structure? (section: Tilings and the dimpled rhombic triacontahedron)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "J. Kostick"
+          }
+        ],
+        "location": "vZome sharing page, john-kostick.github.io/vzome-sharing/2022/04/03/Triacon-array-2-part-11-46-35.html (posted 3 April 2022), and its three exported vZome models",
+        "relationship": "background",
+        "title": "Triacon arrays",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "M. Senechal"
+          },
+          {
+            "name": "J. E. Taylor"
+          }
+        ],
+        "identifier": "doi:10.1107/S2053273323001444",
+        "location": "Acta Crystallographica Section A 79 (2023) 273-279",
+        "relationship": "background",
+        "title": "Parallelohedra, old and new",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "R. Williams"
+          }
+        ],
+        "location": "Eudaemon Press, Moorpark, 1972; p. 196 (an eightfold indentation of the triacontahedron, cited by Grunbaum 2010)",
+        "relationship": "background",
+        "title": "Natural Structure",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "github": "DICTOR-Master",
+            "name": "DICTO",
+            "orcid": "0009-0001-2620-2036",
+            "orcid_record_checked_at": "2026-11-20T08:13:41Z"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.24389006",
+        "location": "Zenodo preprint (paper #115), 20 November 2026, version 1: doi:10.5281/zenodo.24389007 (all versions: doi:10.5281/zenodo.24389006); not peer reviewed",
+        "relationship": "formalizes",
+        "title": "Ten Faces in Every Zone: Grunbaum's Question at k = 10 (the DICTO Grunbaum-Escher Triacontahedron, GET A and GET B)",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "github": "DICTOR-Master",
+        "name": "DICTO",
+        "orcid": "0009-0001-2620-2036",
+        "orcid_record_checked_at": "2026-11-20T08:13:41Z"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-20T13:37:38Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "02671f2387fdf4f8f7a4de64dc455027cc242a944fdc36043e90e7ac8850b0fd"
+    },
+    "reviewed_at": "2026-11-20T09:44:22Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "The metadata claims an independent statement review but lists the reviewers as “none” and does not say who or what performed that review. Readers cannot tell whether it was a separate human or automated check, or what “independent” means. Clarify the review’s performer and basis, and make the reviewer field consistent with that account."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "a6b16c25d80fa90ea28259bad6a53d7e81d01779",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "DICTOR-Master/grunbaum-k10-lean",
+    "repository_url": "https://github.com/DICTOR-Master/grunbaum-k10-lean",
+    "tree_url": "https://github.com/DICTOR-Master/grunbaum-k10-lean/tree/a6b16c25d80fa90ea28259bad6a53d7e81d01779"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "k4d7omd9ydps"
+  },
+  "title": "Grünbaum's zone question at k = 10",
+  "trust": {
+    "challenge_bytes": 10128,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 194,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "6a57a4f7c613fee7ecb6036f8bf26f4bb521d876c648c3f8fb7aa05507cd9f55",
+    "evidence_path": "evidence/PALOMAR-2026-11-20-000013-v1/72703beb3c3a5498a4c8f5477e7cf859b459212c0bfa5119ed62d981a1774aed/",
+    "evidence_tree_sha256": "72703beb3c3a5498a4c8f5477e7cf859b459212c0bfa5119ed62d981a1774aed",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "98b1f029a680e3119c3d238be918328bbfef7325b72b2bbfff9f119bc6523fcd",
+    "protected_config_sha256": "85b4c69c9515956d98927f9c7b01f70f1d345d2158843807df634a64f8370cbd",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44700789708,
+    "solution_sha256": "fb00f68520b524fbee4a5f547db89cb9f03eb911d232be41a216b5b9f5fe9ed1",
+    "tool_digests": {
+      "bwrap": "83b89a5ff1a5e4b737cf9a0e4d8e9c79efe9fd41fadc82c3f92f4f4165c9aff0",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-20T08:26:39Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44700789708"
+  },
+  "version": 1
+}
