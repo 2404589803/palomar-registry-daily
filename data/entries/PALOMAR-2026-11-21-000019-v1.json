@@ -1,0 +1,351 @@
+{
+  "abstract": "Lean 4 and Mathlib proofs of three theorems on Serrin's overdetermined problem in epigraphs. Let Ω ⊂ ℝⁿ, n ≥ 2, be the epigraph of a continuously differentiable function g on ℝⁿ⁻¹, and let u be positive, twice continuously differentiable in Ω and continuously differentiable up to the boundary, with −Δu = f(u) in Ω, u = 0 on ∂Ω, and outward normal derivative equal to a negative constant on ∂Ω. The reaction f is continuously differentiable on [0, ∞) and satisfies f(s) − s f′(s) ≥ 0 for s > 0. (1) If log(1 + ∫_{Ω∩B_R} u²)/R has liminf zero as R → ∞, then the vertical derivative ∂u/∂xₙ is positive throughout Ω. (2) If moreover f > 0 on (0, 1), f(1) = 0, f′(1) < 0 and u < 1, and n ≤ 8, then g is affine and u depends only on the distance to the hyperplane ∂Ω. (3) Under the assumptions of (2) with n ≥ 9 instead, the same conclusion holds when g has a global linear lower bound or a global linear upper bound. Theorems (2) and (3) are the rigidity theorem of Beuvin and Farina for vertically monotone solutions (arXiv:2502.04812, Theorem 2.1, which builds on work of Wang and Wei), with the monotonicity hypothesis removed by theorem (1), for this class of reactions. Every step is proved in Lean from Mathlib, using only the standard axioms.",
+  "authors": [
+    {
+      "name": "Yongxi (Aaron) Lin"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-21-000019-v1/3a100f95f67c120bb9a3c6ad863bca9c483f543f3bac3fb74a4be9ab9bfe6462/",
+    "artifact_tree_sha256": "3a100f95f67c120bb9a3c6ad863bca9c483f543f3bac3fb74a4be9ab9bfe6462",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-21T09:42:43Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.AP"
+    ],
+    "msc2020": [
+      "35J61",
+      "35N25",
+      "35B06",
+      "35R35",
+      "49Q05"
+    ]
+  },
+  "first_registered_on": "2026-11-21",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "SerrinEpigraph.verticalDerivative_pos",
+      "SerrinEpigraph.rigidity_of_dimension_le_eight",
+      "SerrinEpigraph.rigidity_of_oneSidedLinearBound"
+    ]
+  },
+  "id": "PALOMAR-2026-11-21-000019",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-21T18:22:01Z",
+    "receipt_sha256": "7789baa4ddf86f9074cdab6197547fcc1b3ca521da55a8f7cb05c100203a0e84",
+    "repositories": [
+      {
+        "commit": "494822e27c536d515504bbb591ee64fe7d5c3777",
+        "fork_repository": "PalomarArchive/CoolRmal--serrin-epigraph--10340c714b04",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000019-v1/494822e27c536d515504bbb591ee64fe7d5c3777",
+        "source_repository": "CoolRmal/serrin-epigraph"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000019-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000019-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000019-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000019-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000019-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000019-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000019-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000019-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000019-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Yongxi (Aaron) Lin"
+          }
+        ],
+        "contributors": [
+          {
+            "name": "ChatGPT (OpenAI)",
+            "role": "Drafted the three statements, including the two rigidity corollaries and the reasoning and citations given for them, in a conversation directed by the author."
+          },
+          {
+            "name": "AI research assistants (not individually identified)",
+            "role": "Wrote the project note and research reports behind the statements, including an informal quotient-moment proof of the monotonicity theorem, under the author's direction."
+          }
+        ],
+        "location": "docs/source",
+        "relationship": "formalizes",
+        "title": "Epigraph monotonicity and rigidity statements (unpublished ChatGPT conversation directed by the author)",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Nicolas Beuvin"
+          },
+          {
+            "name": "Alberto Farina"
+          }
+        ],
+        "location": "https://arxiv.org/abs/2502.04812",
+        "relationship": "adapts",
+        "title": "Serrin's overdetermined problems on epigraphs",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Kelei Wang"
+          },
+          {
+            "name": "Juncheng Wei"
+          }
+        ],
+        "location": "https://arxiv.org/abs/1502.04680",
+        "relationship": "adapts",
+        "title": "On Serrin's overdetermined problem and a conjecture of Berestycki, Caffarelli and Nirenberg",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Kelei Wang"
+          }
+        ],
+        "location": "https://arxiv.org/abs/1401.6480",
+        "relationship": "background",
+        "title": "A new proof of Savin's theorem on Allen-Cahn equations",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Manuel del Pino"
+          },
+          {
+            "name": "Frank Pacard"
+          },
+          {
+            "name": "Juncheng Wei"
+          }
+        ],
+        "location": "https://arxiv.org/abs/1310.4528",
+        "relationship": "background",
+        "title": "Serrin's overdetermined problem and constant mean curvature surfaces",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Yongxi (Aaron) Lin"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-21T18:21:44Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "511b9edf9374d2b47d03a6b788509d844f345c520220308bb313f1626f3833e9"
+    },
+    "reviewed_at": "2026-11-21T09:57:46Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "494822e27c536d515504bbb591ee64fe7d5c3777",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "CoolRmal/serrin-epigraph",
+    "repository_url": "https://github.com/CoolRmal/serrin-epigraph",
+    "tree_url": "https://github.com/CoolRmal/serrin-epigraph/tree/494822e27c536d515504bbb591ee64fe7d5c3777"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "q9qbvtl8tvcv"
+  },
+  "title": "Serrin epigraph monotonicity and rigidity",
+  "trust": {
+    "challenge_bytes": 5599,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Calculus.Gradient.Basic",
+      "Mathlib.Analysis.InnerProductSpace.Laplacian",
+      "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+      "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+      "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace",
+      "Mathlib.Topology.Instances.EReal.Lemmas"
+    ],
+    "challenge_lines": 124,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "1ccda03fce787177c2c07fcbdafe6fef0d3ce2f2ffb60bee4a244b10a859adb7",
+    "evidence_path": "evidence/PALOMAR-2026-11-21-000019-v1/627f4deca56fd55da6e16b0ad0f4a969af5409c8cfd66d6a2fbc0d0cb4d474ee/",
+    "evidence_tree_sha256": "627f4deca56fd55da6e16b0ad0f4a969af5409c8cfd66d6a2fbc0d0cb4d474ee",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "d4496c9d4afac94a324698c5a376577e5d6cd24ebe60dbe3f354bf7df9c88aca",
+    "protected_config_sha256": "45bb7b6c0ef56d743b3aab6ab63a078f5229325a526154950e4c0f84d3bbbd2f",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44888879106,
+    "solution_sha256": "8582258709580d721ce9b85d4f8f2959e0f1af8dcaac83940f29add00447da55",
+    "tool_digests": {
+      "bwrap": "a4f8b0b65b58f1985004bb834449148b9055b023caeacda71a7b5453cce800dc",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-21T09:29:43Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44888879106"
+  },
+  "version": 1
+}

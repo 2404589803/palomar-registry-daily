@@ -1,0 +1,431 @@
+{
+  "abstract": "Lean 4 formalization of Parts (ii), (iii), and (iv) of Erdős Problem 1172. Parts (ii) and (iii) are new mathematical results proved in ZFC + GCH (Cardinal.GCH): ω₃ → (ω₂ + ω₁, ω₂ + ω)² and ω₂ → (ω₁^(ω + 2) + 2, ω₁ + 2)², matching Baumgartner, Hajnal, and Todorčević (1993, p. 2) and the 1999 Budapest problem booklet [Va99, 7.87] verbatim, both previously open in the set-theory literature. Part (iv) gives the first formalization of the known relative consistency result (Laver 1982; Foreman-Hajnal 2003) for the ω₁ + ω case posed by Erdős and Hajnal (1974, p. 272): relative to a huge cardinal κ with target θ (IsHugeWithTarget κ θ, Kanamori Theorem 24.8) and ground GCH at and above θ, the first-order theory ZFC + GCH + ω₂ → (ω₁ + ω, ω₁ + ω)² (gchPart4Theory) is syntactically consistent; the stronger simultaneous all-target question ∀ ξ < ω₂, ω₂ → (ξ)²₂ under GCH remains open and is not addressed. For Part (i), erdosproblems.com/1172's cropped-scan binary reconstruction is omitted, and the original un-cropped Baumgartner-Hajnal-Todorčević (1993, p. 2) countable-color question ω₃ → (ω₂ + 2)²_ω under GCH remains open and is not claimed (an unselected remark in Erdos1172/CountableNeighborhoodStep.lean notes that our countable-color neighborhood ideal on ω₃ recovers the known ω₂ + 1 case GCH → ω₃ → (ω₂ + 1)²_ω due to Erdős and Rado, [ErRa56]; [BHT93, Theorem 2.1]).",
+  "authors": [
+    {
+      "name": "Tokengrinder"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-22-000002-v1/5f8df4bc92c80b67571c68b483d91ade90d99fef49448dd176d7266a0b275ccf/",
+    "artifact_tree_sha256": "5f8df4bc92c80b67571c68b483d91ade90d99fef49448dd176d7266a0b275ccf",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-22T02:40:49Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.LO",
+      "math.CO"
+    ],
+    "msc2020": [
+      "03E02",
+      "03E35",
+      "03E55"
+    ]
+  },
+  "first_registered_on": "2026-11-22",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Erdos1172/Solution.lean",
+    "theorem_names": [
+      "Erdos1172.erdos_1172.parts.ii",
+      "Erdos1172.erdos_1172.parts.iii",
+      "Erdos1172.erdos_1172.parts.iv"
+    ]
+  },
+  "id": "PALOMAR-2026-11-22-000002",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-22T04:35:58Z",
+    "receipt_sha256": "f236a35e21d0273ee27ad91770ba7c1fe4c9048626d5de875bac1e206af6f740",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000002-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000002-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000002-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000002-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000002-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000002-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000002-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000002-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000002-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "7f82f613ec0489ed3e73282f3bfe75edddb037aa",
+        "fork_repository": "PalomarArchive/tokengr1nder--Erdos1172--37d4e9d0c320",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000002-v1/7f82f613ec0489ed3e73282f3bfe75edddb037aa",
+        "source_repository": "tokengr1nder/Erdos1172"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Tokengrinder"
+          }
+        ],
+        "identifier": "https://github.com/tokengr1nder/Erdos1172",
+        "license": "Apache-2.0",
+        "location": "Erdos1172/Solution.lean (erdos_1172.parts.ii, erdos_1172.parts.iii); PROOF.md",
+        "relationship": "other",
+        "title": "Proofs under GCH of the open Baumgartner-Hajnal-Todorčević ordinal partition relations ω₃ → (ω₂ + ω₁, ω₂ + ω)² and ω₂ → (ω₁^(ω + 2) + 2, ω₁ + 2)²",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "James E. Baumgartner"
+          },
+          {
+            "name": "András Hajnal"
+          },
+          {
+            "name": "Stevo Todorčević"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/math/9311207",
+        "location": "Finite and Infinite Combinatorics in Sets and Logic (NATO ASI Series, Banff 1991), Kluwer, 1993, pp. 1-17 (Theorem 2.1 and open problems on p. 2)",
+        "relationship": "other",
+        "title": "Extensions of the Erdős-Rado Theorem",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "contributors": [
+          {
+            "name": "András Hajnal",
+            "role": "editor"
+          },
+          {
+            "name": "Péter Komjáth",
+            "role": "editor"
+          },
+          {
+            "name": "Béla Bollobás",
+            "role": "editor"
+          }
+        ],
+        "identifier": "https://web.math.pmf.unizg.hr/~vjekovac/EP/Some_of_Pauls_favorite_problems.pdf",
+        "location": "Conference booklet for 'Paul Erdős and his mathematics', Budapest, July 1999, Section 7 (Set theory), items 7.86 and 7.87, p. 13",
+        "relationship": "background",
+        "title": "Some of Paul's favorite problems",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Paul Erdős"
+          },
+          {
+            "name": "Richard Rado"
+          }
+        ],
+        "identifier": "https://doi.org/10.1090/S0002-9904-1956-10036-0",
+        "location": "Bulletin of the American Mathematical Society 62 (1956), 427-489",
+        "relationship": "other",
+        "title": "A partition calculus in set theory",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Paul Erdős"
+          },
+          {
+            "name": "András Hajnal"
+          }
+        ],
+        "identifier": "https://users.renyi.hu/~p_erdos/1974-36.pdf",
+        "location": "Proceedings of the Tarski Symposium (Proc. Sympos. Pure Math., Vol. XXV), Amer. Math. Soc., 1974, pp. 269-287 (p. 272; MR0357122)",
+        "relationship": "background",
+        "title": "Unsolved and solved problems in set theory",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Richard Laver"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/S0049-237X(08)71883-4",
+        "location": "Logic Colloquium '80, Studies in Logic and the Foundations of Mathematics 108, North-Holland, 1982, pp. 173-180",
+        "relationship": "other",
+        "title": "An (ℵ₂, ℵ₂, ℵ₀)-saturated ideal on ω₁",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Matthew Foreman"
+          },
+          {
+            "name": "András Hajnal"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/s00208-002-0393-y",
+        "location": "Mathematische Annalen 325 (2003), no. 3, 583-623",
+        "relationship": "other",
+        "title": "A partition relation for successors of large cardinals",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Akihiro Kanamori"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/978-3-540-88867-3",
+        "location": "2nd ed., Springer Monographs in Mathematics, 2009, Section 24, Theorem 24.8",
+        "relationship": "background",
+        "title": "The Higher Infinite: Large Cardinals in Set Theory from Their Beginnings",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jesse Michael Han"
+          },
+          {
+            "name": "Floris van Doorn"
+          }
+        ],
+        "identifier": "https://doi.org/10.1145/3372885.3373826",
+        "location": "Proceedings of CPP 2020, ACM, pp. 353-366",
+        "relationship": "background",
+        "title": "A formal proof of the independence of the continuum hypothesis",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "identifier": "https://www.erdosproblems.com/1172",
+        "location": "Catalogue entry (last edited 2026-04-11, citing [ErHa74, p. 272] and [Va99, 7.87])",
+        "relationship": "background",
+        "title": "Erdős Problems, problem 1172",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/ianklatzco/flypitch/tree/ad649f89e9f3107b7e2ea97a58b2eafdfc80b815/flypitch4",
+        "note": "Lean 4 port by Ian Klatzco of Han-van Doorn's Flypitch Boolean-valued ZFC library, from which an 8-file core subset is vendored and ported to Lean 4.35 modules under vendor/flypitch4/ (Apache-2.0; see vendor/flypitch4/PROVENANCE.md).",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/pull/3793",
+        "note": "Unmerged Formal Conjectures pull request proposing sorry-only statement stubs for Erdős Problem 1172 (building on merged PR #4195, whose Cardinal.GCH, Cardinal.CH, and OrdinalRamsey definitions match ours token-for-token); independent and not imported here.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tokengrinder"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-22T04:35:40Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "5e83b980e00757a8596e79bf03013d5b500d30b9fe80d8ef9452bddd93b4172c"
+    },
+    "reviewed_at": "2026-11-22T04:29:30Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "7f82f613ec0489ed3e73282f3bfe75edddb037aa",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "tokengr1nder/Erdos1172",
+    "repository_url": "https://github.com/tokengr1nder/Erdos1172",
+    "tree_url": "https://github.com/tokengr1nder/Erdos1172/tree/7f82f613ec0489ed3e73282f3bfe75edddb037aa"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "xpb2fpp35azs"
+  },
+  "title": "Erdős 1172: GCH ordinal partition relations on ω₂ and ω₃ and huge-cardinal consistency of ω₂ → (ω₁ + ω)²₂",
+  "trust": {
+    "challenge_bytes": 41587,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Combinatorics.SimpleGraph.Clique",
+      "Mathlib.Order.Filter.CardinalInter",
+      "Mathlib.Order.Filter.Ultrafilter.Basic",
+      "Mathlib.SetTheory.Cardinal.Aleph",
+      "Mathlib.SetTheory.Ordinal.Exponential"
+    ],
+    "challenge_lines": 765,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "86ba059dba12089ccd6137dfe69877cb6abb9d5921aea1b7241aecd5bef42635",
+    "evidence_path": "evidence/PALOMAR-2026-11-22-000002-v1/2540145736935aae4313598b935355564a2e870eeefb42770aac666e2293d9df/",
+    "evidence_tree_sha256": "2540145736935aae4313598b935355564a2e870eeefb42770aac666e2293d9df",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "0f38f3852c6cadcc93ee95459b9e51130049e1e40c3f4dbee89f5e8f69ca34a6",
+    "protected_config_sha256": "ad9a0c64ee6c1556bcb295e02cbb726743643df6d6cc3d6251f84fb68c0cdf56",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44960299240,
+    "solution_sha256": "dbb205ec3bec26c49923139b81894987cc06e14a6fa3bd45c492ca1d6ad11fcb",
+    "tool_digests": {
+      "bwrap": "04886b43aa55fddaf095adb650e741a7200f2c60a00b39183ed9f43989d697cb",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-22T00:54:34Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44960299240"
+  },
+  "version": 1
+}

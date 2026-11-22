@@ -1,0 +1,310 @@
+{
+  "abstract": "For m ≥ 0 let u_m(n) be the numerator of the sum over k = 1, ..., n of binomial(n,k)^2 binomial(n+k,k)^2 / k^(2m+1). Peter Bala conjectured in OEIS A357513 (2022) that u_m(p-1) ≡ 0 (mod p^4) for all primes p, with finitely many exceptions that depend on m. This project gives a Lean 4 / Mathlib proof of that statement: for every m and every prime p ≥ 2m + 6, p^4 divides u_m(p-1). The proof writes T_k = binomial(p-1,k) binomial(p-1+k,k) as T_k^2 ≡ p^2/k^2 - 2p^3/k^3 (mod p^4), reduces the sum to the harmonic-type sums H(s) = sum of k^(-s) over 1 ≤ k ≤ p-1, shows H(2m+4) ≡ 0 (mod p) with the power sums of the finite field F_p, and shows H(2m+3) ≡ 0 (mod p^2) by pairing k with p - k. The compared theorem is the statement `OeisA357513.general_supercongruence` of the Formal Conjectures repository. The result is not new: Ondrej Kutal proved it in July 2026, with the exact set of exceptional primes and a Lean formalization. The proof here was found independently of Kutal's work and gives only the bound p < 2m + 6 on the exceptional primes.",
+  "authors": [
+    {
+      "name": "Felix Pernegger"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-21-000016-v1/fa14143dd9102a444d74513ccd63694a5394c63f674c00647be9b7f8e052af08/",
+    "artifact_tree_sha256": "fa14143dd9102a444d74513ccd63694a5394c63f674c00647be9b7f8e052af08",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-21T13:48:34Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11A07",
+      "11B65",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-21",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "OeisA357513.u"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "OeisA357513.general_supercongruence"
+    ]
+  },
+  "id": "PALOMAR-2026-11-21-000016",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-21T14:28:21Z",
+    "receipt_sha256": "dbef97c80e0607277a4f83fef399867fe7dda40e365b77b6108ef6c77018bcdd",
+    "repositories": [
+      {
+        "commit": "15ac7d538051d0d06d5f74e159b14a0242860ff3",
+        "fork_repository": "PalomarArchive/felixpernegger--oeis-a357513-supercongruence--db7d38bb5850",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000016-v1/15ac7d538051d0d06d5f74e159b14a0242860ff3",
+        "source_repository": "felixpernegger/oeis-a357513-supercongruence"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000016-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000016-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000016-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000016-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000016-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000016-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000016-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000016-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000016-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Peter Bala"
+          }
+        ],
+        "identifier": "https://oeis.org/A357513",
+        "license": "unknown",
+        "location": "The On-Line Encyclopedia of Integer Sequences, entry A357513 (October 2022)",
+        "relationship": "background",
+        "title": "A357513: numerator of Sum_{k=1..n} (1/k^3) binomial(n,k)^2 binomial(n+k,k)^2",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ondrej Kutal"
+          }
+        ],
+        "identifier": "https://github.com/TheSil/A357513_conjecture",
+        "license": "unknown",
+        "location": "GitHub repository TheSil/A357513_conjecture (proof.pdf and Proof.lean), July 2026",
+        "relationship": "independently-proves",
+        "title": "A proof of the generalized conjecture, with Lean formalization",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures",
+        "note": "Source of the Lean statement: `OeisA357513.general_supercongruence` in `FormalConjectures/OEIS/357513.lean`, stated there without a proof. The statement and the definition `u` of `Challenge.lean` are copies of it. The same file records an AlphaProof proof of the case m = 1 (with the exceptions p = 2 and p = 7).",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/TheSil/A357513_conjecture",
+        "note": "Ondrej Kutal's Lean formalization (Lean v4.29.0) of the stronger result with the exact exceptional set. This project does not use its code.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Felix Pernegger"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-21T14:28:00Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "ae743d7cf80e5122ce92194823d042feb580380f3fb3e9588de6f977a769dee9"
+    },
+    "reviewed_at": "2026-11-21T13:57:06Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "15ac7d538051d0d06d5f74e159b14a0242860ff3",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "felixpernegger/oeis-a357513-supercongruence",
+    "repository_url": "https://github.com/felixpernegger/oeis-a357513-supercongruence",
+    "tree_url": "https://github.com/felixpernegger/oeis-a357513-supercongruence/tree/15ac7d538051d0d06d5f74e159b14a0242860ff3"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "530jap0ltnf0"
+  },
+  "title": "OEIS A357513: u_m(p-1) ≡ 0 (mod p^4) for all primes p ≥ 2m + 6",
+  "trust": {
+    "challenge_bytes": 1346,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.BigOperators.Intervals",
+      "Mathlib.Data.Nat.Choose.Basic",
+      "Mathlib.Data.Nat.Prime.Defs",
+      "Mathlib.Data.Rat.Defs",
+      "Mathlib.Data.ZMod.Basic"
+    ],
+    "challenge_lines": 40,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "c2ed1d9fa26bc69e2a5a7b700ed23fde03e7a78f4062c4cb3e52e9c4b500a116",
+    "evidence_path": "evidence/PALOMAR-2026-11-21-000016-v1/b1ae54ef0a49aa719ed1a9ad2a93dff4824c65659f2118d898af22c517d66298/",
+    "evidence_tree_sha256": "b1ae54ef0a49aa719ed1a9ad2a93dff4824c65659f2118d898af22c517d66298",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "6794fcd14fdc03c5522602dcea50c05b15ce5c7ce8bdd09782e1b2f33bbd91d3",
+    "protected_config_sha256": "ae35fd81219491d65030ea79ab2bb3c038d7ea74612e585e88b0304d80ea4da2",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44908141014,
+    "solution_sha256": "a9448bca159b027e13648b02d451d7d8a62bd6d22447febb1a3ec84d85667f00",
+    "tool_digests": {
+      "bwrap": "c803c9ae462146f0e7e818a0c29a75149e7c97e72671f944d1776d1e72d4e7d3",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-21T13:34:05Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44908141014"
+  },
+  "version": 1
+}

@@ -1,0 +1,336 @@
+{
+  "abstract": "A Lean 4 formalization, with Mathlib, of three results of optimal control: the Pontryagin maximum principle and Filippov's theorem, following A. A. Agrachev and Yu. L. Sachkov, Control Theory from the Geometric Viewpoint (Encyclopaedia of Mathematical Sciences 87, Springer, 2004), Chapter 12 and Theorem 10.1, and Noether's theorem for optimal control, following H. J. Sussmann, Symmetries and integrals of motion in optimal control (Banach Center Publications 32, 1995), Theorem 4.1. Control systems q' = f(q, u) live on an open subset of a finite-dimensional real normed space, with measurable controls and trajectories in the sense of Caratheodory.\n\nThe maximum principle is proved with free terminal time, an integral cost and mixed boundary conditions (q(0), q(T)) in N, for strong local minimizers, with C^1 data and a compact control set: there are nu <= 0 and a Lipschitz covector curve p, with (nu, p(t)) nonzero for every t, that satisfy the adjoint equation, the maximum condition and the vanishing of the Hamiltonian for almost every t, and the transversality condition. Agrachev and Sachkov leave this case to the reader; their Lemmas 12.1 and 12.2 and Theorems 12.1-12.5 (the geometric maximum principle, free time without cost, and integral costs with fixed, separated and mixed boundary conditions) are proved too. Filippov's theorem: for a continuous control system with compact control set, convex velocity sets and bounded velocities, the attainable sets at time T and up to time T are compact; hence optimal controls exist for integral costs whose extended velocity sets are convex, with fixed or free terminal time. Both results are also proved, by the same argument, for problems posed on part of the space: trajectories confined to a closed set S (the dynamics and the cost need only be continuous, the velocities bounded and the velocity sets convex on S x U), starting in a compact set, with initial and terminal points in a closed relation, and terminal times in a window [T0, T1]. Noether's theorem: if every map of the flow of a C^1 vector field Y is a symmetry of the system that leaves the cost invariant (it may permute the controls), the momentum p(t)(Y(q(t))) is constant along every pair (q, p) that satisfies the adjoint equation and the maximum condition, for any multiplier and any set of control values. Sussmann's Theorem 4.1, for a Lie algebra acting by such symmetries and his biextremals, follows, and so does a maximum principle whose multiplier keeps every such momentum constant.\n\nEverything the proofs use is proved: existence, uniqueness and differentiable dependence of Caratheodory solutions, the variations formula and needle variations, Lebesgue points, measurable selection (Kuratowski-Ryll-Nardzewski), and the flows of C^1 vector fields with their derivative at time 0. Brouwer's fixed-point theorem is taken from the separate Lean package FixedPoint. No axiom beyond Lean's standard three is used.",
+  "authors": [
+    {
+      "name": "The-Anh Vu-Le"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-21-000015-v1/a12b48aeb101aef3c3cfcf244964ae0feb61a148c11672edff64be0d69a310c4/",
+    "artifact_tree_sha256": "a12b48aeb101aef3c3cfcf244964ae0feb61a148c11672edff64be0d69a310c4",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-21T06:43:20Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "71a2035b44e7f54a797ce799fd1b03cdd3a44684"
+  },
+  "classification": {
+    "arxiv": [
+      "math.OC"
+    ],
+    "msc2020": [
+      "49K15",
+      "49J15",
+      "93B03",
+      "93C15",
+      "34A12",
+      "70H33"
+    ]
+  },
+  "first_registered_on": "2026-11-21",
+  "formalization": {
+    "challenge_path": "OptimalControlChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "FixedPoint",
+        "repository": "vltanh/lean4-fixed-point",
+        "revision": "6894a0f32ab2432e7ae34537a4dbb83d52ae7b9d"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "9d581dfff2e41de989072ea63abf3daf69311520"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "b0256621cb88178e9ad932a53633077b3029e621"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b"
+      }
+    ],
+    "solution_path": "OptimalControlSolution.lean",
+    "theorem_names": [
+      "OptimalControlChallenge.maximum_principle",
+      "OptimalControlChallenge.isCompact_reachableSet",
+      "OptimalControlChallenge.isCompact_reachableSetLE",
+      "OptimalControlChallenge.exists_optimal_fixedTime",
+      "OptimalControlChallenge.exists_optimal_freeTime",
+      "OptimalControlChallenge.noether"
+    ]
+  },
+  "id": "PALOMAR-2026-11-21-000015",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-21T14:20:45Z",
+    "receipt_sha256": "175a9bff2520029a8aeffad374ef385fbe544564378b9bf2d541550b3a1c96a2",
+    "repositories": [
+      {
+        "commit": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000015-v1/7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000015-v1/d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000015-v1/b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000015-v1/c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "9d581dfff2e41de989072ea63abf3daf69311520",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000015-v1/9d581dfff2e41de989072ea63abf3daf69311520",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000015-v1/129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000015-v1/16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "b0256621cb88178e9ad932a53633077b3029e621",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000015-v1/b0256621cb88178e9ad932a53633077b3029e621",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000015-v1/c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "6894a0f32ab2432e7ae34537a4dbb83d52ae7b9d",
+        "fork_repository": "PalomarArchive/vltanh--lean4-fixed-point--8e5eb7b662e1",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000015-v1/6894a0f32ab2432e7ae34537a4dbb83d52ae7b9d",
+        "source_repository": "vltanh/lean4-fixed-point"
+      },
+      {
+        "commit": "7668df1add5113d6d20383663332307070919579",
+        "fork_repository": "PalomarArchive/vltanh--lean4-optimal-control--502e9f9ed14e",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000015-v1/7668df1add5113d6d20383663332307070919579",
+        "source_repository": "vltanh/lean4-optimal-control"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Andrei A. Agrachev"
+          },
+          {
+            "name": "Yuri L. Sachkov"
+          }
+        ],
+        "identifier": "doi:10.1007/978-3-662-06404-7",
+        "location": "Encyclopaedia of Mathematical Sciences 87, Springer, 2004; Chapter 12 (Lemmas 12.1-12.2, Theorems 12.1-12.5) and Theorem 10.1 (Filippov's theorem)",
+        "relationship": "formalizes",
+        "title": "Control Theory from the Geometric Viewpoint",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "H. J. Sussmann"
+          }
+        ],
+        "identifier": "https://eudml.org/doc/262687",
+        "location": "Geometry in Nonlinear Control and Differential Inclusions, Banach Center Publications 32, Institute of Mathematics, Polish Academy of Sciences, Warszawa, 1995, pp. 379-393; Theorem 4.1 (p. 389)",
+        "relationship": "formalizes",
+        "title": "Symmetries and integrals of motion in optimal control",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "R. V. Gamkrelidze"
+          }
+        ],
+        "location": "Plenum Press, New York, 1978",
+        "relationship": "background",
+        "title": "Principles of Optimal Control Theory",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/willcforte/pontryagin-lean",
+        "note": "An earlier Lean 4 development (\"An attempt to formalize Pontryagin's Maximum Principle in Lean\", May 2026) that states the key steps of the proof (Caratheodory existence, the adjoint equation, the tangent cone of the attainable set, the separation of cones, among others) as axioms, so it is not a complete formal proof. This work does not use it; its proofs follow Agrachev and Sachkov. No complete formal proof of the maximum principle was found.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "The-Anh Vu-Le"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-21T14:20:27Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "5e51245adc0f6b1873cbd55351fed314239b25994e414c02f1a37a8fdbb57279"
+    },
+    "reviewed_at": "2026-11-21T06:46:31Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "7668df1add5113d6d20383663332307070919579",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "vltanh/lean4-optimal-control",
+    "repository_url": "https://github.com/vltanh/lean4-optimal-control",
+    "tree_url": "https://github.com/vltanh/lean4-optimal-control/tree/7668df1add5113d6d20383663332307070919579"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "xezwmgdjgot7"
+  },
+  "title": "The Pontryagin maximum principle, Filippov's theorem and Noether's theorem for optimal control",
+  "trust": {
+    "challenge_bytes": 27011,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Calculus.ContDiff.Defs",
+      "Mathlib.Analysis.Convex.Basic",
+      "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+      "Mathlib.Topology.EMetricSpace.Lipschitz"
+    ],
+    "challenge_lines": 416,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "6a5fb00d8aa58a27b24c6ba671c5941f6179123d0cd2e35fd66a8e142da87dc0",
+    "evidence_path": "evidence/PALOMAR-2026-11-21-000015-v1/d687184bec640ba524c3f0b05d3b6408d9515cead87b49f6a71f449688186d5d/",
+    "evidence_tree_sha256": "d687184bec640ba524c3f0b05d3b6408d9515cead87b49f6a71f449688186d5d",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "182684058f63ba5f16bc5c705ee7e02f37df6f4ade328e9f08bfe358e1e342aa",
+    "protected_config_sha256": "93d2e4512ddf0ca4e1a4f32adc035e366f2991438702aab1226b6807386c6b8f",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44873348602,
+    "solution_sha256": "3af0834ca13bf4c352fa1955971d9d922cf4b31e88dc3e36d2f125ceef5ccb30",
+    "tool_digests": {
+      "bwrap": "3e30d81140f84e48d747c07f1d9f228b9d53590ac97a40ca9d8e7d3e4ddc9c92",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "b35cb10cf2ced51a2fd1880cfdbf75c71ab7a35a",
+    "verified_at": "2026-11-21T06:03:13Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44873348602"
+  },
+  "version": 1
+}

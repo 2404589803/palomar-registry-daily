@@ -1,0 +1,308 @@
+{
+  "abstract": "Complete Lean 4 formal proofs of two conjectures by Zhi-Wei Sun (2011) on OEIS A189286, defined by a(n) = (sum_{k=0}^n C(6k,3k) C(3k,k) C(6(n-k),3(n-k)) C(3(n-k),n-k)) / ((2n-1) C(3n,n)). This combined submission proves two distinct results: (1) an independent, self-contained elementary proof of the previously proved integrality conjecture (conjecture_1; earlier proved in T. Adamczewski, arXiv:2608.11941), via termwise p-adic divisibility using Legendre's formula and a 3-adic lifting argument; and (2) an original proof of Conjecture (ii) (conjecture_3: for every n >= 1, 8 divides a(n) and a(n)/8 is odd iff n is a power of two), via Kummer's theorem, binary submask counting, and a fixed-point-free involution mod 4. As of November 2026, conjecture_3 was listed without proof on OEIS A189286 and marked research open in FormalConjectures/OEIS/189286.lean, though no exhaustive literature search is claimed to rule out other proofs.",
+  "authors": [
+    {
+      "name": "Yuto Nakahara"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-22-000013-v1/00a46ccd344f0273cfa8ec3b46e8ae62601003b90038fc728b9211136c5b7e6b/",
+    "artifact_tree_sha256": "00a46ccd344f0273cfa8ec3b46e8ae62601003b90038fc728b9211136c5b7e6b",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-22T09:02:03Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.CO"
+    ],
+    "msc2020": [
+      "11B65",
+      "11A07"
+    ]
+  },
+  "first_registered_on": "2026-11-22",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "OeisA189286.tTerm",
+      "OeisA189286.a"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "OeisA189286.conjecture_1",
+      "OeisA189286.conjecture_3"
+    ]
+  },
+  "id": "PALOMAR-2026-11-22-000013",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-22T09:35:42Z",
+    "receipt_sha256": "af9af2f1f37b8df487ee5a13582fbc8b5dc0e7873e929509121e7a811753d436",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000013-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000013-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000013-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000013-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000013-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000013-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000013-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000013-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000013-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "10c9f2d2514e13715dfdfea20acf628bbdcd8c78",
+        "fork_repository": "PalomarArchive/YutoNakahara--oeis-a189286-lean--5b0bb14d1eae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000013-v1/10c9f2d2514e13715dfdfea20acf628bbdcd8c78",
+        "source_repository": "YutoNakahara/oeis-a189286-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "T. Adamczewski"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2608.11941",
+        "location": "https://arxiv.org/abs/2608.11941",
+        "relationship": "independently-proves",
+        "title": "OEIS Open: How many conjectures can language models turn into theorems?",
+        "type": "preprint"
+      },
+      {
+        "authors": [
+          {
+            "name": "Zhi-Wei Sun"
+          }
+        ],
+        "identifier": "https://oeis.org/A189286",
+        "location": "https://oeis.org/A189286",
+        "relationship": "background",
+        "title": "OEIS A189286",
+        "type": "database-entry"
+      },
+      {
+        "authors": [],
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/OEIS/189286.lean",
+        "license": "Apache-2.0",
+        "location": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/OEIS/189286.lean",
+        "relationship": "background",
+        "title": "Formal Conjectures: FormalConjectures/OEIS/189286.lean",
+        "type": "formalization"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/OEIS/189286.lean",
+        "note": "Challenge.lean reproduces the definitions OeisA189286.tTerm and OeisA189286.a and the statements OeisA189286.conjecture_1 and OeisA189286.conjecture_3 verbatim from Formal Conjectures.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Yuto Nakahara"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-22T09:35:21Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "5a70558d53d70bbccce0de16879b6c276594d4dde15224715fa7461a201f9db0"
+    },
+    "reviewed_at": "2026-11-22T09:19:56Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "10c9f2d2514e13715dfdfea20acf628bbdcd8c78",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "YutoNakahara/oeis-a189286-lean",
+    "repository_url": "https://github.com/YutoNakahara/oeis-a189286-lean",
+    "tree_url": "https://github.com/YutoNakahara/oeis-a189286-lean/tree/10c9f2d2514e13715dfdfea20acf628bbdcd8c78"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "cu0x7981vl5l"
+  },
+  "title": "Formal Proof of OEIS A189286 Integrality and 2-adic Divisibility Conjectures",
+  "trust": {
+    "challenge_bytes": 2061,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 64,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "6a4cf14caddd0c41acfdc1fe30c505a22948f3577119b38d369da8dc3bf00d27",
+    "evidence_path": "evidence/PALOMAR-2026-11-22-000013-v1/c2eb8a2d19eb5a85c877953433a0ec95480276592237ee26273bc6b45fd62f5f/",
+    "evidence_tree_sha256": "c2eb8a2d19eb5a85c877953433a0ec95480276592237ee26273bc6b45fd62f5f",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "fdf926bdb3607ef00622d8e29922a31c47c54c3e6fcefd754d3b8d38dfd2cbe3",
+    "protected_config_sha256": "94f514c5f5f170b74b4ebdb17abbd6052589b07150e76aca7dcba817017ec6d9",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45004438004,
+    "solution_sha256": "92fef598145586e738390fa01c8aca4965b6714bdb412bcaa58d662519344aa2",
+    "tool_digests": {
+      "bwrap": "b23916082a0d30d5759c45d8e890dd069da625c3df54ea7ac3f356c6a6c50920",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-22T08:50:30Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45004438004"
+  },
+  "version": 1
+}

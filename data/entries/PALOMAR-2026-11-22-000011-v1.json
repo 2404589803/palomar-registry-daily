@@ -1,0 +1,309 @@
+{
+  "abstract": "A machine-checked proof of the Nowakowski-Winkler theorem in the game of cops and robbers: a finite graph has cop number 1 if and only if it is dismantlable. A vertex u is a corner if some other vertex w has N[u] contained in N[w] (closed neighbourhoods), and a graph is dismantlable if corners can be deleted one at a time until one vertex is left. The proof defines a one-cop game played inside a vertex set, with a bridge lemma showing that on the whole vertex set it is exactly Formal Conjectures' game CopsCatchWithin with one cop. A general shadow-map lemma says that if f maps S into T, sends legal moves to legal moves, and a cop on f x can reach every vertex the robber can step to from x, then a cop that wins on T also wins on S, by chasing the robber's shadow f r. Folding a corner onto the vertex that covers it is such a map, so induction on dismantlability gives one direction. For the converse, following the robber's longest escape gives a corner just before capture: the robber's vertex, covered by the cop's. Folding that corner away is a retract, and a cop that wins on a set also wins on any retract of it by standing on the image of its position, so induction on the number of vertices shows every cop-win finite graph is dismantlable. As a corollary, every finite nonempty tree is dismantlable (each leaf is a corner covered by its neighbour) and so has cop number 1. This is the statement meyniel_conjecture.variants.tree of Formal Conjectures, which marks it research solved. The mathematics is classical and no mathematical priority is claimed; to our knowledge this is the first published Lean 4 formalisation.",
+  "authors": [
+    {
+      "name": "Finn Doolan"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-22-000011-v1/649c2182428e676b2c7ed2c225439a1b433ff78ffe66f109ff3157627d1476a2/",
+    "artifact_tree_sha256": "649c2182428e676b2c7ed2c225439a1b433ff78ffe66f109ff3157627d1476a2",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-22T07:35:43Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C57",
+      "91A43",
+      "05C05"
+    ]
+  },
+  "first_registered_on": "2026-11-22",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "MeynielConjecture.Step",
+      "MeynielConjecture.CopsCatchWithin",
+      "MeynielConjecture.CopsWin",
+      "MeynielConjecture.copNumber",
+      "CopWin.IsCorner",
+      "CopWin.Dismantlable"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "5e0c4e5239cb0a2d86d68a884bf52cfd963fce22"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "33131f4fb10067cb3009bf4db615d9680c1ccd6b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "CopWin.copNumber_eq_one_iff_dismantlable",
+      "CopWin.Dismantlable.copNumber_eq_one",
+      "MeynielConjecture.meyniel_conjecture.variants.tree"
+    ]
+  },
+  "id": "PALOMAR-2026-11-22-000011",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-22T08:13:42Z",
+    "receipt_sha256": "ef4f1c591f21f7bd3873881bfea26376f870b5935cefb3880b201832de0aab6a",
+    "repositories": [
+      {
+        "commit": "cc23f10713de5bdfb6afdb466ffb5547ea42fe1e",
+        "fork_repository": "PalomarArchive/finndoolan-m--cop-win-lean--784c5e990702",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000011-v1/cc23f10713de5bdfb6afdb466ffb5547ea42fe1e",
+        "source_repository": "finndoolan-m/cop-win-lean"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000011-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "33131f4fb10067cb3009bf4db615d9680c1ccd6b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000011-v1/33131f4fb10067cb3009bf4db615d9680c1ccd6b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000011-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000011-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "5e0c4e5239cb0a2d86d68a884bf52cfd963fce22",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000011-v1/5e0c4e5239cb0a2d86d68a884bf52cfd963fce22",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000011-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000011-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000011-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000011-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Richard Nowakowski"
+          },
+          {
+            "name": "Peter Winkler"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/0012-365X(83)90160-7",
+        "location": "Discrete Math. 43 (1983), 235-239. The characterisation of cop-win graphs as dismantlable graphs; this entry formalises both directions.",
+        "relationship": "formalizes",
+        "title": "Vertex-to-vertex pursuit in a graph",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Wikipedia contributors"
+          }
+        ],
+        "identifier": "https://en.wikipedia.org/wiki/Cop_number",
+        "location": "Background on the game, cop-win graphs and Meyniel's conjecture.",
+        "relationship": "background",
+        "title": "Cop number",
+        "type": "web discussion"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/blob/2207c54d0dbe960de591d280f997b195bf3f6e28/FormalConjectures/Wikipedia/MeynielConjecture.lean",
+        "note": "Supplies the statement. Challenge.lean copies meyniel_conjecture.variants.tree and the definitions it uses (Step, CopsCatchWithin, CopsWin, copNumber) with attributes removed and Mathlib imported in place of Formal Conjectures' library. CopWin/Defs.lean repeats the same definitions unchanged, and CopWin/Game.lean reuses the proofs of three API lemmas from that file.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Finn Doolan"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-22T08:13:26Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "64f931154ad7c9bb5bc7dd35e76d4d73520c7fc107c7cf0e918143fe883de1a7"
+    },
+    "reviewed_at": "2026-11-22T07:57:32Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "cc23f10713de5bdfb6afdb466ffb5547ea42fe1e",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "finndoolan-m/cop-win-lean",
+    "repository_url": "https://github.com/finndoolan-m/cop-win-lean",
+    "tree_url": "https://github.com/finndoolan-m/cop-win-lean/tree/cc23f10713de5bdfb6afdb466ffb5547ea42fe1e"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "9952siejwa88"
+  },
+  "title": "Cop-win graphs are exactly the dismantlable graphs (Nowakowski-Winkler), and trees have cop number 1",
+  "trust": {
+    "challenge_bytes": 4948,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 122,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "6091157918a8e430d93b23d17b8b065086a95befcad43c65872504ca78794d85",
+    "evidence_path": "evidence/PALOMAR-2026-11-22-000011-v1/e84c577aaff973f75c2f39c4ca9c753244fa1f9e13c76c5744786eae3f654133/",
+    "evidence_tree_sha256": "e84c577aaff973f75c2f39c4ca9c753244fa1f9e13c76c5744786eae3f654133",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "853874f60d28a535179d5d6fa8c7c87fd0ff2a7fa7b34bc46e6fe443e8175252",
+    "protected_config_sha256": "9340a35cbc1cc90c93eac0cf3cf8430019a80bb48c9130a44b35e798848d5ac2",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44995393341,
+    "solution_sha256": "d65fcc43d2954c64928af3c0ec8dfab8a15705517a71a73756c13258f4307f1e",
+    "tool_digests": {
+      "bwrap": "0f7122cfb33ee65f47894ba9b446f3f807e7c447a5ac84d56d7f0b52359e5c33",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-22T06:51:33Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44995393341"
+  },
+  "version": 1
+}

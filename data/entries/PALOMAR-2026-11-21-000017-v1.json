@@ -1,0 +1,313 @@
+{
+  "abstract": "The binary operator eml(x, y) = exp(x) - ln(y), with the constant 1 and a variable x, generates the elementary functions (Odrzywolek, arXiv:2603.21852). We formalize, in Lean 4 with Mathlib, a computable translation of Richardson expressions (built from rationals, pi, ln 2, x, +, *, sin, exp and |.|) into EML trees evaluated over the complex numbers with the principal logarithm. The translation preserves the value at every real x, including 0 and negative values, and no compiled tree ever applies log to 0 at any real input. Consequently, assuming Richardson's theorem as an explicit hypothesis, deciding whether an EML tree is identically zero on the reals, and deciding whether it has a real root, are both not computable. Both results also hold when log 0 is left undefined or is assigned any fixed value, so they do not depend on a convention for log 0. The delicate part is controlling the branch cuts of the complex logarithm: signed arithmetic is carried out through positive quantities, pi and sin are obtained through complex values with imaginary parts kept inside (-pi, pi], and the absolute value is computed as a times the sign of a, where the sign is read off the branch cut of log without ever taking log 0.",
+  "authors": [
+    {
+      "name": "Aritra Pramanik"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-21-000017-v1/928fe269f26e26a15070c30a65c5398a84c90f374561f3688b4eed652a9ff10d/",
+    "artifact_tree_sha256": "928fe269f26e26a15070c30a65c5398a84c90f374561f3688b4eed652a9ff10d",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-20T17:26:44Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.LO",
+      "cs.LO"
+    ],
+    "msc2020": [
+      "03D35",
+      "03B25",
+      "26A09",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-21",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "EmlRichardson.decE_encE",
+      "EmlRichardson.encE_decE",
+      "EmlRichardson.decR_encR",
+      "EmlRichardson.encR_decR",
+      "EmlRichardson.compiler_exists",
+      "EmlRichardson.eml_zero_undecidable_final",
+      "EmlRichardson.eml_root_undecidable_final",
+      "EmlRichardson.eml_zero_undecidable_partial",
+      "EmlRichardson.eml_root_undecidable_partial",
+      "EmlRichardson.eml_zero_undecidable_any",
+      "EmlRichardson.eml_root_undecidable_any"
+    ]
+  },
+  "id": "PALOMAR-2026-11-21-000017",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-21T15:16:19Z",
+    "receipt_sha256": "4c945ce59685b70c9e07833cf06ce8a2d63ec172a1362bb1cc768b44d335ce71",
+    "repositories": [
+      {
+        "commit": "cd3512e9e5c0182e7905effcf3fcaf85f54dc8e7",
+        "fork_repository": "PalomarArchive/Aritra-Pramanik--eml-richardson--cd27d8167e1f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000017-v1/cd3512e9e5c0182e7905effcf3fcaf85f54dc8e7",
+        "source_repository": "Aritra-Pramanik/eml-richardson"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000017-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000017-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000017-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000017-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000017-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000017-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000017-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000017-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-21-000017-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "relationship": "other",
+        "title": "Undecidability of zero-equivalence and root existence for EML trees, conditional on Richardson's theorem",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Daniel Richardson"
+          }
+        ],
+        "identifier": "Journal of Symbolic Logic 33(4):514-520, 1968; doi:10.2307/2271358",
+        "relationship": "background",
+        "title": "Some undecidable problems involving elementary functions of a real variable",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Andrzej Odrzywolek"
+          }
+        ],
+        "identifier": "arXiv:2603.21852",
+        "relationship": "background",
+        "title": "All elementary functions from a single binary operator",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/tomdif/eml-lean",
+        "note": "An existing Lean development of EML. This project defines its own EmlExpr type with the same grammar and does not depend on it.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Aritra Pramanik"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-21T15:15:55Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "9123f734c3de6f412222ef954f726bd2e9e8f9ccde42fb383bd3c4b578639994"
+    },
+    "reviewed_at": "2026-11-20T17:36:44Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "cd3512e9e5c0182e7905effcf3fcaf85f54dc8e7",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "Aritra-Pramanik/eml-richardson",
+    "repository_url": "https://github.com/Aritra-Pramanik/eml-richardson",
+    "tree_url": "https://github.com/Aritra-Pramanik/eml-richardson/tree/cd3512e9e5c0182e7905effcf3fcaf85f54dc8e7"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "8ta2xohxm6ko"
+  },
+  "title": "EML trees: zero-equivalence and root existence are undecidable, assuming Richardson's theorem",
+  "trust": {
+    "challenge_bytes": 8736,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 231,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "0b0f63f2aa18ba8927678aa19bc0780178012d1ca2261771f01b60e92afe5053",
+    "evidence_path": "evidence/PALOMAR-2026-11-21-000017-v1/52072df452eee1e62f53f3bd70269661286e9f3b35302fc2bc4a99cccf943a84/",
+    "evidence_tree_sha256": "52072df452eee1e62f53f3bd70269661286e9f3b35302fc2bc4a99cccf943a84",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "a186ed69e0b97204bf04bd13aad48e0af1e5e598ea705ac604135e42e72c2678",
+    "protected_config_sha256": "81056b1d04c6bb8755b7b20bf0a0e23c7226070808adb88c80eaf8f966c559e7",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 44773456198,
+    "solution_sha256": "2880a2633eb0e0490a6ab22075a29a83c3d0ed208359bc1c64fea26458c3625f",
+    "tool_digests": {
+      "bwrap": "0d2b41662e76d3c4f3890dccc2059ad4e74688bd3a9c792efa5efc2c37db0335",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-20T16:30:22Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44773456198"
+  },
+  "version": 1
+}
