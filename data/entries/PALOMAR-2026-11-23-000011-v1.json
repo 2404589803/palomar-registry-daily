@@ -1,0 +1,376 @@
+{
+  "abstract": "A Lean 4 proof, with no unproved steps, of Theorem 3.1 of G. Bhowmik and L. Grimmelt, The exceptional set of the Goldbach problem, arXiv 2607.27282 v2, 2026, page 9, a result the paper attributes to Hardy and Littlewood. Let E of X be the number of even integers up to X that are not a sum of two primes. The theorem is conditional on two hypotheses, Theta < 3/4 and the zero bound at Theta: every zero of every Dirichlet L-function, for every modulus and every character, primitive or not, has real part at most Theta, stated for the zeros in the open strip 0 < Re s < 1 of Mathlib's DirichletCharacter.LFunction. Under them, for every epsilon > 0 there is a constant C with E of X at most C times X to the power 2 Theta - 1/2 + epsilon for every X >= 1. The zero bound is unproved for every Theta below 1 and false for every Theta below 1/2, since the Riemann zeta function has zeros on the critical line; the generalized Riemann hypothesis gives it at Theta = 1/2, and then the bound X to the power 1/2 + epsilon. No cited input enters: the explicit formula for psi of x and chi with a primitive character, Davenport chapter 19, the Gallagher type mean square estimates of the major and minor arcs and the zero expansion are all proved in the entry. Binary Goldbach is open and is not claimed. Claude and Codex agents wrote the Lean code, with ported PrimeNumberTheoremAnd files and two other ported files credited to their authors in PORTING.md; it is offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-23-000011-v1/0155a8d55d5f860f7e1cce5eacfa7dab5254370e4778b8e56f1b986e22058cb0/",
+    "artifact_tree_sha256": "0155a8d55d5f860f7e1cce5eacfa7dab5254370e4778b8e56f1b986e22058cb0",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-23T06:58:24Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11M26",
+      "11P55"
+    ]
+  },
+  "first_registered_on": "2026-11-23",
+  "formalization": {
+    "challenge_path": "entries/bhowmikgrimmelt2026/ChallengeBhowmikGrimmelt2026.lean",
+    "comparator_config_path": "entries/bhowmikgrimmelt2026/comparator-bhowmikgrimmelt2026.json",
+    "definition_names": [
+      "LeanLab.IsGoldbachSum",
+      "LeanLab.ExceptionalSet.E",
+      "LeanLab.ExceptionalSet.PowerBound",
+      "LeanLab.BhowmikGrimmelt2026.ZeroBound",
+      "LeanLab.BhowmikGrimmelt2026.Theorem31"
+    ],
+    "formalization_metadata_path": "entries/bhowmikgrimmelt2026/formalization.yaml",
+    "lakefile_path": "entries/bhowmikgrimmelt2026/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/bhowmikgrimmelt2026/SolutionBhowmikGrimmelt2026.lean",
+    "theorem_names": [
+      "LeanLab.BhowmikGrimmelt2026.theorem31_ported1122"
+    ]
+  },
+  "id": "PALOMAR-2026-11-23-000011",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-23T08:25:03Z",
+    "receipt_sha256": "b01420bbba746242f145167e9fece70216d0344444e6baf758708ae436c4bbb3",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000011-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000011-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000011-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000011-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000011-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000011-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000011-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000011-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000011-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "016cb630df376e158b83eb02935337b57537d269",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000011-v1/016cb630df376e158b83eb02935337b57537d269",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Gautami Bhowmik"
+          },
+          {
+            "name": "Lasse Grimmelt"
+          }
+        ],
+        "identifier": "arXiv:2607.27282",
+        "license": "unknown",
+        "location": "arXiv 2607.27282 v2, 2026, Section 3, Theorem 3.1 on page 9, with the mean square 3.8 on page 13",
+        "relationship": "formalizes",
+        "title": "The exceptional set of the Goldbach problem",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "H. Davenport"
+          }
+        ],
+        "identifier": "isbn:0-387-90533-4",
+        "license": "unknown",
+        "location": "Chapters 16, 17 and 19, pages 101 to 118",
+        "relationship": "adapts",
+        "title": "Multiplicative Number Theory, second edition",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "the PrimeNumberTheoremAnd project contributors"
+          }
+        ],
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "license": "Apache-2.0",
+        "location": "commit c39a751132c88b6e8080b74c74023fd95b3d8be0, files under LeanLab/PNTPort/StrongPNT/ and LeanLab/PNTPort/Perron/Sinc.lean and Cauchy.lean",
+        "relationship": "other",
+        "title": "PrimeNumberTheoremAnd",
+        "type": "formalization"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Anthropic, PBC"
+          }
+        ],
+        "identifier": "https://github.com/anthropics/formal-math",
+        "license": "Apache-2.0",
+        "location": "commit e1a4e6508154ea59f030480661590a9fe3018011, zeta23/Zeta23/RvM/ReZeroCount.lean, ported as LeanLab/Ported/Zeta23/RvM/ReZeroCount.lean",
+        "relationship": "other",
+        "title": "formal-math, zeta23 RvM ReZeroCount",
+        "type": "formalization"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jason Hickey"
+          }
+        ],
+        "identifier": "https://beta.prove2.me",
+        "license": "Apache-2.0",
+        "location": "Prove2Me id 1038fb61-45dc-46e6-9a1c-862d2aa8430c, ported as LeanLab/BakerHarmanPintz1997/PortedVanDerCorput.lean",
+        "relationship": "other",
+        "title": "Prove2Me submission ExponentialSums.vdC_second_derivative",
+        "type": "formalization"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/sthubbar/goldbach-lean/tree/main/entries/hardylittlewood1923",
+        "note": "The Hardy-Littlewood 1923 entry of this repository proves Theorem A of Partitio Numerorum III on the paper's Hypothesis R at level Theta, the same kind of zero-free half plane hypothesis for all Dirichlet L-functions, for sums of r >= 3 primes and only for 47/64 <= Theta < 3/4. It has no statement about the binary exceptional set E of X.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "PALOMAR-2026-10-21-000005",
+        "note": "The Heath-Brown 1985 entry of this repository proves, with no hypothesis, that E of X is O of X divided by any power of log X, the theorem of van der Corput, Chudakov and Estermann, Theorem 4.3 of the survey.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-16-000013",
+        "note": "The Estermann 1938 entry of this repository proves that the exceptional set has density zero, without a zero hypothesis.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-16-000024",
+        "note": "The Pintz 2018 entry of this repository proves the weighted density and optimisation steps of Pintz's method for E of X below X to the power 0.72; the zero density inputs and the bound itself are not proved there.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-19-000032",
+        "note": "The Brüdern and Perelli 1998 entry of this repository proves their Theorem 2 on exponential sums, from Karacuba's estimate taken as a hypothesis; it does not bound E of X.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-15-000007",
+        "note": "Primes in arithmetic progressions with power-saving error from zero-free half-planes of Dirichlet L-functions, by Richard Morley-Smith, proves the bound for psi of x, q and a from a zero-free half plane Re s > Theta. Independent work; no code from it is used here. A search of the web and of the Palomar registry listing on 2026-11-22 found no earlier Lean formalization of a conditional bound for the binary Goldbach exceptional set.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-23T08:24:40Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "14cea6b83c8cb5e15e774ead9a482b69a69f74922bb29a12f5f9fc818d204d12"
+    },
+    "reviewed_at": "2026-11-23T07:18:34Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "016cb630df376e158b83eb02935337b57537d269",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/bhowmikgrimmelt2026",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/016cb630df376e158b83eb02935337b57537d269/entries/bhowmikgrimmelt2026"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "b879c3dmi200"
+  },
+  "title": "The exceptional set of the Goldbach problem",
+  "trust": {
+    "challenge_bytes": 3311,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 79,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "50748aedfa2fb5f54b4cd3c2fd8a04d44833b6a63d59d22aeace78481a46ac71",
+    "evidence_path": "evidence/PALOMAR-2026-11-23-000011-v1/710182260ed2eabc4e9715c455d47a07d21244425beff6a2bd21a653a2f37a72/",
+    "evidence_tree_sha256": "710182260ed2eabc4e9715c455d47a07d21244425beff6a2bd21a653a2f37a72",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "a94fd1e5f97deaf99f5dfc3985a042d01f2dfa8978019dd35ba0d223b03f1b86",
+    "protected_config_sha256": "72062cf4c684b62a89c24a50e334cd31a596bad2bd02b98ca34b6bb904d56404",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45115747310,
+    "solution_sha256": "894397e7715f78bcf440931af067494fdca711dc93b284b2179ac15794abfc1d",
+    "tool_digests": {
+      "bwrap": "d9f9d803c51b1211e4d39168378f1c4634ef06919f5a2c47e6c2a28705323c6b",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-23T05:28:09Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45115747310"
+  },
+  "version": 1
+}

@@ -1,0 +1,320 @@
+{
+  "abstract": "Unconditional Lean 4 + Mathlib formalization proving that there exists a unique permutation p of {1, ..., k} with every i + p(i) a Fibonacci number if and only if k belongs to Layman's sequence w(n) = floor(F_{n+3} / sqrt(5)) (equivalently Hajnal's M4 sequence). Formalizes Hajnal's (2022) \"only if\" direction and Reshetnikov's (2015, OEIS A097083) floor formula alongside a step-lemma proof of the \"if\" direction (Hajnal Conjecture 1). Companion write-up and dated prior-work searches (arXiv, OEIS, zbMATH, CORE 2026-11-20, Google Scholar 2026-11-22) are published at https://mathdiscoveries.org/results/fibonacci-sum-permutations; the \"if\" direction was not found in those logged searches (MathSciNet and print problem sections remain unsearched).",
+  "authors": [
+    {
+      "name": "Tyler B. Hughes"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-22-000029-v1/5636b2934856d37b3c009ed34a302400d15197277274743d182d4a89ed4b6f88/",
+    "artifact_tree_sha256": "5636b2934856d37b3c009ed34a302400d15197277274743d182d4a89ed4b6f88",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-22T20:18:18Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.NT"
+    ],
+    "msc2020": [
+      "05A05",
+      "11B39"
+    ]
+  },
+  "first_registered_on": "2026-11-22",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "FibSumPermChallenge.layman_unique_if",
+      "FibSumPermChallenge.hajnal_conjecture_1",
+      "FibSumPermChallenge.hajnal_conjecture_1_M4",
+      "FibSumPermChallenge.w_eq_floor_fib_div_sqrt5"
+    ]
+  },
+  "id": "PALOMAR-2026-11-22-000029",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-22T21:25:01Z",
+    "receipt_sha256": "f6239cd1e98f7ebe0061ec750dbca4d8fa2fac96d0890846fd5b4099785574ad",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000029-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000029-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000029-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000029-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000029-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000029-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000029-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000029-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000029-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "3a59cef3f7b3d9052454f129a4fa46aba2431982",
+        "fork_repository": "PalomarArchive/mathdiscoveries--fibonacci-sum-permutations--01f07b6eeb86",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000029-v1/3a59cef3f7b3d9052454f129a4fa46aba2431982",
+        "source_repository": "mathdiscoveries/fibonacci-sum-permutations"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Peter Hajnal"
+          }
+        ],
+        "identifier": "https://doi.org/10.2478/ausm-2022-0015",
+        "location": "Acta Universitatis Sapientiae, Mathematica 14(2) (2022), 231-238",
+        "relationship": "formalizes",
+        "title": "A short note on Layman permutations",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "John W. Layman"
+          }
+        ],
+        "identifier": "https://oeis.org/A097083",
+        "location": "OEIS A097083 (Layman 2004; floor formula by V. Reshetnikov 2015)",
+        "relationship": "formalizes",
+        "title": "OEIS A097083: Numbers k having a unique Fibonacci-sum permutation",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Zhi-Wei Sun"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1811.10503",
+        "location": "arXiv:1811.10503 (2018)",
+        "relationship": "background",
+        "title": "On permutations with Fibonacci sums",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Tyler B. Hughes"
+          }
+        ],
+        "identifier": "https://mathdiscoveries.org/results/fibonacci-sum-permutations",
+        "location": "Companion page, verification archive, and prior-work search log at https://mathdiscoveries.org/results/fibonacci-sum-permutations",
+        "relationship": "other",
+        "title": "Uniqueness of Fibonacci-sum permutations at Layman's numbers",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tyler B. Hughes"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-22T21:24:38Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "c7d4ec70be32bee9bbd74807b7d8008c23257d2105d22a6c5883ac473678e487"
+    },
+    "reviewed_at": "2026-11-22T20:43:50Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "3a59cef3f7b3d9052454f129a4fa46aba2431982",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "mathdiscoveries/fibonacci-sum-permutations",
+    "repository_url": "https://github.com/mathdiscoveries/fibonacci-sum-permutations",
+    "tree_url": "https://github.com/mathdiscoveries/fibonacci-sum-permutations/tree/3a59cef3f7b3d9052454f129a4fa46aba2431982"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "dzorjlmfm4q9"
+  },
+  "title": "Uniqueness Characterization of Fibonacci-Sum Permutations (Layman's Conjecture / Hajnal Conjecture 1)",
+  "trust": {
+    "challenge_bytes": 1880,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Order.Floor.Ring",
+      "Mathlib.Analysis.Real.Sqrt",
+      "Mathlib.Data.Fintype.Card",
+      "Mathlib.Data.Fintype.Perm",
+      "Mathlib.Data.Nat.Fib.Basic"
+    ],
+    "challenge_lines": 63,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "e132fe20bb59af5198cbfd8d07eadb7f09ccf67a1dac44ce66b2b610f4c5e152",
+    "evidence_path": "evidence/PALOMAR-2026-11-22-000029-v1/a965efe1900f961460a1694aa80d207b9ce4c8710a33f31a79cc6e96856d4e20/",
+    "evidence_tree_sha256": "a965efe1900f961460a1694aa80d207b9ce4c8710a33f31a79cc6e96856d4e20",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "fa6a89d42da152d99cd329418666af5046a98545efd8c4f3110f0e239216e11f",
+    "protected_config_sha256": "b23e25a9740171710ff3246e85370a7a66dca7e7bf48b7e915309c49c018f362",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45064382613,
+    "solution_sha256": "07c5a9fb0269eea5cc10f070b346156e9dc4fc58f0e82c7ce075519e8863af82",
+    "tool_digests": {
+      "bwrap": "b422cf2845b1f96f9bfbd50d937b3daf27692e2f54fac26656c15e67447347c1",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-22T20:08:05Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45064382613"
+  },
+  "version": 1
+}

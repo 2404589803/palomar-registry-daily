@@ -1,0 +1,336 @@
+{
+  "abstract": "Suzuki's screw function of the Riemann zeta function is the even function Psi defined, for t >= 0, as an archimedean profile minus the von Mangoldt weighted prime sum over n <= e^t of Lambda(n)/sqrt(n) times (t - log n); its Krein Gram kernel is G(t,u) = Psi(t) + Psi(u) - Psi(t-u). This entry uses exactly the Lean definitions of Psi and G from the registered entry PALOMAR-2026-11-14-000017 (RequestProject/V5_1.lean) and proves two results about them in Lean 4 and Mathlib.\n(1) Explicit formula, unconditional. For every real t >= 0, Psi(t), viewed as a complex number, equals the unconditionally convergent sum (a tsum over the subtype of zeros) over the nontrivial zeros rho of riemannZeta, that is the zeros with 0 < Re rho < 1, of m(rho) (exp((rho - 1/2) t) - 1) / (rho - 1/2)^2, where m(rho) is the analytic order of riemannZeta at rho. This is Suzuki's zero-sum representation of the screw function (arXiv:2206.03682, Theorem 1.1(2), eq. (1.3)). In Lean: ScrewRH.Psi_eq_tsum_zeros (t : R) (ht : 0 <= t) : ((V5_1.Psi t : R) : C) = tsum over rho in Z of zeroTerm t rho.\n(2) Gram positivity, conditional on the Riemann Hypothesis. Assuming Mathlib's RiemannHypothesis (as a hypothesis), for every N and every grid t : Fin N -> R, the N by N matrix (G(t_i, t_j)) is positive semidefinite in the quadratic-form sense: x^T M x >= 0 for every real vector x. In Lean: ScrewRH.screw_gram_psd_of_RH : RiemannHypothesis -> for all (N : Nat) (t : Fin N -> R), Horizon.IsPSDq (Matrix.of fun i j => V5_1.G (t i) (t j)). This is the direction RH implies positivity of Suzuki's Theorem 1.2 (that -Psi is a screw function in Krein's sense), restricted to finite grids. Both compared results use only propext, Quot.sound and Classical.choice.\nCombined with a Lean proof of RiemannHypothesis, (2) becomes the unconditional statement that the Gram matrix of G is positive semidefinite on every finite grid. Such a proof was announced by Levent Alpöge in November 2026 and has been reported compiled and kernel-checked by several independent parties, on Lean v4.33.1. This entry does not import that proof and makes no claim about it; result (2) is compared and verified here only as the implication from Mathlib's RiemannHypothesis.\nSignificance. The registered entry certifies positivity of the genuine screw kernel on explicit grids (three Gram matrices at fixed rational nodes); this entry upgrades that, conditionally on RiemannHypothesis, to every finite grid. It is to our knowledge the first Lean formalization of Suzuki's zero-sum representation of the screw function and of the direction RH implies screw-function positivity. Scope: positive semidefinite, not strictly positive definite; real test vectors (for this real symmetric kernel equivalent to Suzuki's complex condition (1.5), but the complex form is not stated); the converse direction (positivity implies RH) is not formalized; and nothing is claimed about the Riemann Hypothesis itself.",
+  "authors": [
+    {
+      "name": "Rohan Badade"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-23-000010-v1/fa1f4c744bf61a9e6a9fca219d64b645503791058d4cd0c69b8c302b10159560/",
+    "artifact_tree_sha256": "fa1f4c744bf61a9e6a9fca219d64b645503791058d4cd0c69b8c302b10159560",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-23T00:39:33Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.LO"
+    ],
+    "msc2020": [
+      "11M26",
+      "11M06",
+      "42A82",
+      "68V20",
+      "15B48"
+    ]
+  },
+  "first_registered_on": "2026-11-23",
+  "formalization": {
+    "challenge_path": "ChallengeScrewRH.lean",
+    "comparator_config_path": "comparator-screwrh.json",
+    "definition_names": [],
+    "formalization_metadata_path": "screwrh/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "SolutionScrewRH.lean",
+    "theorem_names": [
+      "ChallengeScrewRH.Psi_eq_tsum_zeros",
+      "ChallengeScrewRH.screw_gram_psd_of_RH"
+    ]
+  },
+  "id": "PALOMAR-2026-11-23-000010",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-23T08:14:16Z",
+    "receipt_sha256": "b61335169351334e37bbfa3ca17069a2d2e55fc3bd8d2e4755b06dd302818ffc",
+    "repositories": [
+      {
+        "commit": "a0d74d09db4d3058a1c99cd8ab9fcfee4bbc7fa5",
+        "fork_repository": "PalomarArchive/gnostrich--certified-positivity--79bf1f217491",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000010-v1/a0d74d09db4d3058a1c99cd8ab9fcfee4bbc7fa5",
+        "source_repository": "gnostrich/certified-positivity"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000010-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000010-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000010-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000010-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000010-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000010-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000010-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000010-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000010-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Masatoshi Suzuki"
+          }
+        ],
+        "identifier": "arXiv:2206.03682",
+        "license": "unknown",
+        "location": "Theorem 1.1(2), eq. (1.3) (zero-sum representation of Psi); Theorem 1.2 and eq. (1.9) (RH implies that g = -Psi is a screw function, i.e. the kernel G is non-negative definite); checked against arXiv v4 (30 May 2023)",
+        "relationship": "formalizes",
+        "title": "Aspects of the screw function corresponding to the Riemann zeta-function",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Andre Weil"
+          }
+        ],
+        "license": "unknown",
+        "location": "Comm. Sem. Math. Univ. Lund (1952), 252-265",
+        "relationship": "background",
+        "title": "Sur les \"formules explicites\" de la theorie des nombres premiers",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "The Mathlib Community"
+          }
+        ],
+        "identifier": "https://github.com/leanprover-community/mathlib4",
+        "license": "Apache-2.0",
+        "location": "Mathlib v4.35.0, as pinned by lakefile.toml and lake-manifest.json",
+        "relationship": "background",
+        "title": "mathlib4: the Lean mathematical library",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Rohan Badade"
+          }
+        ],
+        "license": "unknown",
+        "location": "papers/certified-positivity-paper.pdf in this repository",
+        "relationship": "background",
+        "title": "Certified Positivity: Formally Verified Horizon Thresholds for Truncated Weil Quadratic Forms in Lean",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-11-14-000017",
+        "note": "The registered entry from the same repository. This entry uses its definitions of the screw function and Gram kernel unchanged (V5_1.Psi, V5_1.G and their constituents, copied verbatim into both Challenge files), together with Horizon.quadForm from the same Horizon.lean. The registered entry certifies positive definiteness of the Gram matrix on three explicit grids, unconditionally; result (2) here generalizes this to positive semidefiniteness on every finite grid, conditionally on RiemannHypothesis. No compared theorem of either entry depends on a compared theorem of the other.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/CocoSgt/riemann-hypothesis-lean",
+        "note": "Levent Alpöge's Lean development of the Riemann Hypothesis (announced at https://alpo.ge/remark.pdf; mirror at the URL given as id, commit 7cbf7a0), written for Lean v4.33.1. A slice of it, 23 files and about 3.8k lines (residue_rectangle, exists_height, count_zeros_window, logDeriv_pole, logDeriv_one, analyticAt_dslope, a digamma bound, LFunction_zero_of_re_nonpos, and supporting Mellin, strip and Perron files), was ported to Lean v4.35.0 and the Lean module system, with two renames, and lives under AlpogeRH/ in this repository; each file credits the source. It is used with the author's permission and is in the import closure of both compared theorems. Its proof of RiemannHypothesis itself is not imported, and neither compared theorem depends on it.",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Rohan Badade"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-23T08:13:56Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "d60032d73dfac08307f5415586f1312cbac2c4939a9b93f5948cbabe9d9a8332"
+    },
+    "reviewed_at": "2026-11-23T00:57:04Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "The README attributes the repository’s `.lean` files broadly to Aristotle, while the entry-specific metadata attributes the new ScrewRH proofs to Claude agents and the ported AlpogeRH files to Alpöge and Claude. This leaves the public account of who produced the selected work contradictory. Qualify the README’s Aristotle account as applying to the earlier development and distinguish the provenance of these newer files."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "a0d74d09db4d3058a1c99cd8ab9fcfee4bbc7fa5",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "gnostrich/certified-positivity",
+    "repository_url": "https://github.com/gnostrich/certified-positivity",
+    "tree_url": "https://github.com/gnostrich/certified-positivity/tree/a0d74d09db4d3058a1c99cd8ab9fcfee4bbc7fa5"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "sqd5b3mvsk0f"
+  },
+  "title": "Certified Positivity: the explicit formula for Suzuki's zeta screw function, and positive semidefiniteness of its Gram kernel on every finite grid under the Riemann Hypothesis",
+  "trust": {
+    "challenge_bytes": 5159,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 122,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "93c2332d4d93e562729e2d491afa449f562d346412921f09c4b4377fa611e801",
+    "evidence_path": "evidence/PALOMAR-2026-11-23-000010-v1/9d5eb9e6f52f3a8e67b0b31b71a4080802c300c9432789fb1ec010487d76863d/",
+    "evidence_tree_sha256": "9d5eb9e6f52f3a8e67b0b31b71a4080802c300c9432789fb1ec010487d76863d",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "f75d059a84c23fad57b2a4e9d500ff0c2c42dc8f900a3fe8c0fb501083dde6f9",
+    "protected_config_sha256": "88572c1e70955d3d2eb5bfe86d920c4842a7c1d386f4589d3292fefc2ecfada0",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45077720520,
+    "solution_sha256": "596aeec01e7c7ba0352c5f1f38cf4bf4f88825bd812015b8f7d5b5af0babc41b",
+    "tool_digests": {
+      "bwrap": "21aeb01f16ccdc3abccbaa8c8c98a4f00143de9988b4b0ad6315fea41ed09f77",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-22T23:51:41Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45077720520"
+  },
+  "version": 1
+}

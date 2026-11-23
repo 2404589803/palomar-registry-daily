@@ -1,0 +1,320 @@
+{
+  "abstract": "Unconditional Lean 4 + Mathlib formalization over R of the exact maximum number m(n) of open unit cubes of the n x n x n cube [0, n]^3 met by a single plane, proving m(n) = floor((9n^2 + 4n - 17)/4) for all 3 <= n <= 32 (in particular m(10) = 230, settling the open case stated by Barany and Frankl, 2021) and for all n >= 700, refuting Barany and Frankl's Section 5 \"+2\" remark for all n >= 700, and proving the universal upper bound m(n) <= floor((9n^2 + 6n - 20)/4) for every n >= 2. The finite intermediate window 33 <= n <= 699 is not discharged inside Lean and is certified separately by exact-integer programs documented in the accompanying paper.",
+  "authors": [
+    {
+      "name": "Tyler B. Hughes"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-22-000015-v2/1646daa84fc2cc109b1087b7f6b77f037409fbe3b3e5ca87689ccb9ab0cf51d6/",
+    "artifact_tree_sha256": "1646daa84fc2cc109b1087b7f6b77f037409fbe3b3e5ca87689ccb9ab0cf51d6",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-22T21:59:42Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.MG"
+    ],
+    "msc2020": [
+      "52C07",
+      "52C35"
+    ]
+  },
+  "first_registered_on": "2026-11-22",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "CheeseCutM.maxCutCount_eq_F_ge_700",
+      "CheeseCutM.barany_frankl_plus_two_refuted_ge_700",
+      "CheeseCutM.maxCutCount_eq_F_3_to_32",
+      "CheeseCutM.maxCutCount_ten",
+      "CheeseCutM.theoremU_bound_all_ge_2",
+      "CheeseCutM.barany_frankl_lower_bound"
+    ]
+  },
+  "id": "PALOMAR-2026-11-22-000015",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-22T22:42:05Z",
+    "receipt_sha256": "6f764373e2e837edadf21613f76cc52796932980cdd1777dceb6c1f7e96eea84",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000015-v2/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000015-v2/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000015-v2/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000015-v2/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000015-v2/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000015-v2/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000015-v2/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000015-v2/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000015-v2/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "fc6e6952d97cbb596b1ca5e25a6e2d3edf63ee39",
+        "fork_repository": "PalomarArchive/mathdiscoveries--cheese-cut--76b3f7da7359",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000015-v2/fc6e6952d97cbb596b1ca5e25a6e2d3edf63ee39",
+        "source_repository": "mathdiscoveries/cheese-cut"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Imre Barany"
+          },
+          {
+            "name": "Peter Frankl"
+          }
+        ],
+        "identifier": "https://doi.org/10.1080/00029890.2021.1901463",
+        "location": "American Mathematical Monthly 128 (2021), 543-552",
+        "relationship": "formalizes",
+        "title": "How (not) to cut your cheese",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "relationship": "other",
+        "title": "The most unit cubes a plane can cut: exact bounds for 3 <= n <= 32, n >= 700, and universal upper bound for n >= 2",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Imre Barany"
+          },
+          {
+            "name": "Peter Frankl"
+          }
+        ],
+        "identifier": "https://doi.org/10.4171/JEMS/1252",
+        "location": "Journal of the European Mathematical Society 25 (2023), 2863-2877",
+        "relationship": "background",
+        "title": "Cells in the box and a hyperplane",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Eric Andres"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/S1524-0703(03)00004-3",
+        "location": "Graphical Models 65 (2003), 92-111",
+        "relationship": "background",
+        "title": "Discrete linear objects in dimension n: the standard model",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tyler B. Hughes"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-22T22:41:49Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "07ac14b245bc8a9c44b251c68c6162e4f06aac22e02138294bb93669d1d9eeff"
+    },
+    "reviewed_at": "2026-11-22T22:21:59Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "fc6e6952d97cbb596b1ca5e25a6e2d3edf63ee39",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "mathdiscoveries/cheese-cut",
+    "repository_url": "https://github.com/mathdiscoveries/cheese-cut",
+    "tree_url": "https://github.com/mathdiscoveries/cheese-cut/tree/fc6e6952d97cbb596b1ca5e25a6e2d3edf63ee39"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "9x6050wt7s0x"
+  },
+  "title": "Maximum Unit Cubes Cut by a Plane in [0, n]^3 (Cheese-Cutting Theorem M)",
+  "trust": {
+    "challenge_bytes": 4689,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+      "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+      "Mathlib.Order.Lattice.Nat"
+    ],
+    "challenge_lines": 110,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "08d2faf813589a50fd3ed386a85734ba8148419e5b05742fbca579798e189908",
+    "evidence_path": "evidence/PALOMAR-2026-11-22-000015-v2/7a32286fcbc3f17272152047e39e1fba3e1fdbcc02c8af1697b1a668d6aed3a2/",
+    "evidence_tree_sha256": "7a32286fcbc3f17272152047e39e1fba3e1fdbcc02c8af1697b1a668d6aed3a2",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "4a2ef089c4df6afe61cb2e50215dd389493b3d8fb75b74487f60e97a9eb65ee3",
+    "protected_config_sha256": "17bc9f4bd9166247b90d3b78f7064afa9bbbc0bba2af1d466cf0850dcf4472b7",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45072393204,
+    "solution_sha256": "cf6ac45ff73500f42081b7703d27a63af9f34897947a174c9bda1238b77e5e56",
+    "tool_digests": {
+      "bwrap": "2e3b691c5150e6257d0dd6d48e324a66ce9dbed8d116a8c0d63289614a14dbad",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-22T21:37:32Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45072393204"
+  },
+  "version": 2
+}

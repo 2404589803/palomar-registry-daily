@@ -1,0 +1,402 @@
+{
+  "abstract": "Seven Lean results on robust expansion. Fixed-cardinality sampling preserves robust out-expansion with an explicit expansion parameter and failure bound. Sufficiently large robust outexpanders of linear minimum semidegree have a Hamilton cycle. Robust graphs of linear minimum degree admit spanning vertex-disjoint paths between prescribed pairs. Almost regular robust graphs admit edge-disjoint realizations of small layouts with a robust remainder. The final three results prove approximate and exact Hamilton decompositions for regular digraphs and exact Hamilton decompositions for even-regular graphs.",
+  "authors": [
+    {
+      "github": "jtraverso",
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-22-000032-v1/840629dd5d50e554eee6b9d0c8a47669211ad89d54f909504483b881ddb5add9/",
+    "artifact_tree_sha256": "840629dd5d50e554eee6b9d0c8a47669211ad89d54f909504483b881ddb5add9",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-22T18:32:42Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C45",
+      "05C38",
+      "05C20",
+      "05C80",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-22",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.robust-expanders.json",
+    "definition_names": [
+      "OverfullWork.DirectedRobustExpansion.IsRealRobust",
+      "OverfullWork.DirectedRobustExpansion.IsVertexSamplingRobust",
+      "OverfullWork.RobustExpansion.IsRealRobust",
+      "OverfullWork.UniformSubsetSampling.probability",
+      "OverfullWork.DirectedSpanningConfiguration.Layout.endpointLoad",
+      "OverfullWork.DirectedSpanningConfiguration.CMSPacking.used",
+      "OverfullWork.DirectedRobustExpansion.HasSpanningCycle",
+      "OverfullWork.DirectedRobustExpansion.RobustApproximateHamiltonPacking",
+      "OverfullWork.DirectedRobustExpansion.matchingUnion"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "OverfullWork.BipartiteRegularitySource.robust_vertex_sampling_explicit",
+      "OverfullWork.DirectedAbsorbingLadder.exists_hamilton_threshold",
+      "OverfullWork.RobustSpanningLinkage.cms_lemma_3_15",
+      "OverfullWork.DirectedSpanningConfiguration.cms_lemma_3_14",
+      "OverfullWork.DirectedRobustExpansion.osthus_staden_theorem_1_1_existence",
+      "OverfullWork.DirectedRobustExpansion.kuhn_osthus_directed_decomposition",
+      "OverfullWork.DirectedRobustExpansion.cms_theorem_5_5"
+    ]
+  },
+  "id": "PALOMAR-2026-11-22-000032",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-22T22:27:41Z",
+    "receipt_sha256": "5d9c349c34961fce2dd57830b578def695b8759956e590be1971317b57a7a026",
+    "repositories": [
+      {
+        "commit": "ce7f10c99acd753956f214fa93f1b9f48ecba654",
+        "fork_repository": "PalomarArchive/jtraverso--overfull-criteria--2e39e1179caf",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000032-v1/ce7f10c99acd753956f214fa93f1b9f48ecba654",
+        "source_repository": "jtraverso/overfull-criteria"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000032-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000032-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000032-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000032-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000032-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000032-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000032-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000032-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000032-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Allan Lo"
+          },
+          {
+            "name": "Viresh Patel"
+          }
+        ],
+        "identifier": "arXiv:1507.04472",
+        "location": "Theorem 1.3, the Hamilton cycle conclusion at an eventual threshold for fixed parameters and linear minimum semidegree.",
+        "relationship": "adapts",
+        "title": "Hamilton cycles in sparse robustly expanding digraphs"
+      },
+      {
+        "authors": [
+          {
+            "name": "Yuping Gao"
+          },
+          {
+            "name": "Songling Shan"
+          }
+        ],
+        "identifier": "arXiv:2405.18494",
+        "location": "Lemma 2.8 and Theorem 2.12.",
+        "relationship": "adapts",
+        "title": "Linear arboricity of robust expanders"
+      },
+      {
+        "authors": [
+          {
+            "name": "António Girão"
+          },
+          {
+            "name": "Bertille Granet"
+          },
+          {
+            "name": "Daniela Kühn"
+          },
+          {
+            "name": "Allan Lo"
+          },
+          {
+            "name": "Deryk Osthus"
+          }
+        ],
+        "identifier": "arXiv:2010.14158",
+        "location": "Lemmas 7.3 and 14.3.",
+        "relationship": "adapts",
+        "title": "Path decompositions of tournaments"
+      },
+      {
+        "authors": [
+          {
+            "name": "Guantao Chen"
+          },
+          {
+            "name": "Jessica McDonald"
+          },
+          {
+            "name": "Songling Shan"
+          }
+        ],
+        "identifier": "arXiv:2607.02270",
+        "location": "Lemmas 3.14 and 3.15 and Theorem 5.5.",
+        "relationship": "adapts",
+        "title": "Towards the Overfull Conjecture II"
+      },
+      {
+        "authors": [
+          {
+            "name": "Deryk Osthus"
+          },
+          {
+            "name": "Katherine Staden"
+          }
+        ],
+        "identifier": "arXiv:1206.2810",
+        "location": "Theorem 1.1, existence conclusion.",
+        "relationship": "formalizes",
+        "title": "Approximate Hamilton decompositions of robustly expanding regular digraphs"
+      },
+      {
+        "authors": [
+          {
+            "name": "Daniela Kühn"
+          },
+          {
+            "name": "Deryk Osthus"
+          }
+        ],
+        "identifier": "arXiv:1202.6219",
+        "location": "Theorem 1.2, existence of directed Hamilton decompositions.",
+        "relationship": "formalizes",
+        "title": "Hamilton decompositions of regular expanders: a proof of Kelly's conjecture for large tournaments"
+      },
+      {
+        "authors": [
+          {
+            "name": "Daniela Kühn"
+          },
+          {
+            "name": "Deryk Osthus"
+          }
+        ],
+        "identifier": "arXiv:1203.0659",
+        "location": "Theorem 1.2, equivalently CMS Theorem 5.5 in the even-degree case.",
+        "relationship": "formalizes",
+        "title": "Hamilton decompositions of regular expanders: applications"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "github": "jtraverso",
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-22T22:27:21Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "d5aec8ca1f1cd6b0d65564bb6ebfc627208c5797de64731a0e2710d5b8b058b7"
+    },
+    "reviewed_at": "2026-11-22T19:37:52Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "ce7f10c99acd753956f214fa93f1b9f48ecba654",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    "repository": "jtraverso/overfull-criteria",
+    "repository_url": "https://github.com/jtraverso/overfull-criteria",
+    "tree_url": "https://github.com/jtraverso/overfull-criteria/tree/ce7f10c99acd753956f214fa93f1b9f48ecba654"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "nqz4rgba1an8"
+  },
+  "title": "Robust expanders: spanning structures and Hamilton decompositions",
+  "trust": {
+    "challenge_bytes": 12845,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Combinatorics.Digraph.Basic",
+      "Mathlib.Combinatorics.SimpleGraph.Paths",
+      "Mathlib.Data.Finset.Powerset",
+      "Mathlib.Data.List.Infix",
+      "Mathlib.Data.Nat.Choose.Basic",
+      "Mathlib.Data.Real.Basic"
+    ],
+    "challenge_lines": 304,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "837b104511eddcd097a798bdca6fb7b3488edd8a8c699fdec7be65ea2a4a58e2",
+    "evidence_path": "evidence/PALOMAR-2026-11-22-000032-v1/a6908d3f0d970dfc2ab1c434498f11cd7fdf2c9d20d528d73645c845e7b97cea/",
+    "evidence_tree_sha256": "a6908d3f0d970dfc2ab1c434498f11cd7fdf2c9d20d528d73645c845e7b97cea",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "f91abb3a1fd7a9a6806ea15ea5d2d9c855a66098e5a01cb7d510d5ebc9194ee1",
+    "protected_config_sha256": "50704f060b9793dc428f91ca5218485591a15c21d321078b41c7af5f7dda2ff6",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45052802673,
+    "solution_sha256": "1f6fdc1dcde03757378a85d649e08db13065a7bdbbf27c290b61c4824b4987dd",
+    "tool_digests": {
+      "bwrap": "95bb700479bd55083e43a19e07b6247b5dfec2f4b7b21e6f7176077cb4b377dd",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-22T18:12:43Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45052802673"
+  },
+  "version": 1
+}

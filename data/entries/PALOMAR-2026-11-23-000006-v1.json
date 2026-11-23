@@ -1,0 +1,322 @@
+{
+  "abstract": "A Lean 4 proof of the theorem of Yu. V. Linnik, Prime numbers and powers of two, Trudy Mat. Inst. Steklov 38, 1951, pages 152 to 169, in its qualitative form: conditional on the generalized Riemann hypothesis for Dirichlet L-functions, there is a constant K such that every sufficiently large even integer is the sum of two primes and at most K powers of two, each power 2^v with v >= 1. The one hypothesis is GRH, taken as an explicit hypothesis and never as an axiom: for every modulus q >= 1, every Dirichlet character chi modulo q and every s in the open strip 0 < Re s < 1, if the L-function of chi vanishes at s then Re s = 1/2. The constant K is not explicit. The theorem printed on page 154 is an asymptotic formula for the number of representations of N as two primes and exactly k powers of two, for each fixed k >= 3; the entry proves the qualitative consequence that Linnik draws from it on pages 168 and 169, and not the asymptotic formula itself. Linnik 1953 and Gallagher 1975 later removed the hypothesis GRH, and the gallagher1975 entry of this repository is the unconditional result. The route uses a repaired bound for the mixed integral of page 160 with log N to the power 7 in place of the power 6 printed in display 5.5, whose power 6 form the lab could not derive; the extra logarithm does not change the conclusion. Binary Goldbach, the case K = 0, is open and is not claimed. AI agents wrote the Lean code, Claude by Anthropic and Codex by OpenAI, as listed in PORTING.md, and it is offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-23-000006-v1/da7a1ea00dd91fb581d71ca34ab8aaaf0bce0d563d972fb324e43acfbb45c01f/",
+    "artifact_tree_sha256": "da7a1ea00dd91fb581d71ca34ab8aaaf0bce0d563d972fb324e43acfbb45c01f",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-23T04:37:07Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11P55",
+      "11M26"
+    ]
+  },
+  "first_registered_on": "2026-11-23",
+  "formalization": {
+    "challenge_path": "entries/linnik1951/ChallengeLinnik1951.lean",
+    "comparator_config_path": "entries/linnik1951/comparator-linnik1951.json",
+    "definition_names": [
+      "LeanLab.DERZ1997.GRH",
+      "LeanLab.Linnik.LinnikExact",
+      "LeanLab.Linnik.LinnikAtMost",
+      "LeanLab.Linnik.AllLargeEven"
+    ],
+    "formalization_metadata_path": "entries/linnik1951/formalization.yaml",
+    "lakefile_path": "entries/linnik1951/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/linnik1951/SolutionLinnik1951.lean",
+    "theorem_names": [
+      "LeanLab.Linnik1951.linnik1951_decomposed_final_b1122"
+    ]
+  },
+  "id": "PALOMAR-2026-11-23-000006",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-23T05:10:38Z",
+    "receipt_sha256": "ff526be6c3a6bab4c7ca2b473444ff2375610962abe9cef55cb0c3911cf73698",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000006-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000006-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000006-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000006-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000006-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000006-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000006-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000006-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000006-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "30e57afca5a1386e777c9dc5d3d008a57454f777",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000006-v1/30e57afca5a1386e777c9dc5d3d008a57454f777",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Yu. V. Linnik"
+          }
+        ],
+        "identifier": "https://www.mathnet.ru/eng/tm1114",
+        "license": "unknown",
+        "location": "Trudy Mat. Inst. Steklov 38, 1951, pages 152 to 169: the theorem on page 154; Lemma 2 on pages 156 to 159; display 5.5 on page 160; the conclusion on pages 168 and 169",
+        "relationship": "adapts",
+        "title": "Prime numbers and powers of two",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "P. X. Gallagher"
+          }
+        ],
+        "identifier": "doi:10.1007/BF01390190",
+        "license": "unknown",
+        "location": "Inventiones Mathematicae 29, 1975, pages 125-142: Lemmas 1 and 2",
+        "relationship": "background",
+        "title": "Primes and powers of 2",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Arend Mellendijk"
+          },
+          {
+            "name": "the PrimeNumberTheoremAnd project contributors"
+          }
+        ],
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "license": "Apache-2.0",
+        "location": "commit c39a751132c88b6e8080b74c74023fd95b3d8be0",
+        "relationship": "other",
+        "title": "PrimeNumberTheoremAnd",
+        "type": "formalization"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/sthubbar/goldbach-lean/tree/main/entries/gallagher1975",
+        "note": "Gallagher 1975 Theorems 1 and 2 for base 2, which give two primes and a bounded number of powers of 2 without GRH.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-23T05:10:19Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "206249bf579b68175ef70d90276106a64c3dd760db7a210edb8947812c95aff2"
+    },
+    "reviewed_at": "2026-11-23T05:02:31Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "30e57afca5a1386e777c9dc5d3d008a57454f777",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/linnik1951",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/30e57afca5a1386e777c9dc5d3d008a57454f777/entries/linnik1951"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "jgn2q5hbwfpw"
+  },
+  "title": "Prime numbers and powers of two",
+  "trust": {
+    "challenge_bytes": 2893,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 66,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "41129798559cfd4019de4a94f4135d9b91f70c647dfbef804a1463c852174fba",
+    "evidence_path": "evidence/PALOMAR-2026-11-23-000006-v1/6b0c4fd60b599e0bdd25a0be3a03258698f8ed909757461334788da4b9200725/",
+    "evidence_tree_sha256": "6b0c4fd60b599e0bdd25a0be3a03258698f8ed909757461334788da4b9200725",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "997cc68859d75055698a1db818323be004cc8cf0d630faf63ac7aa4109dd4393",
+    "protected_config_sha256": "1f062613c91ed4896d9d20455a9338851bfba38445382fbe9e1fdc71b6a3ee29",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45109979506,
+    "solution_sha256": "91e55f9f6a6b1ebf9bcdadffc0ff9c61a6719ee5e484b60b72fa3cac781dac54",
+    "tool_digests": {
+      "bwrap": "be372662e1281721309872726b80edb83a02060a1f47ed36bbc9249744e7427a",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-23T04:24:07Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45109979506"
+  },
+  "version": 1
+}

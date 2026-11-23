@@ -1,0 +1,302 @@
+{
+  "abstract": "A Lean 4 and Mathlib formalization of randomized perfect-matching and maximum-matching algorithms through the Tutte matrix, on an explicit word RAM (unit cost per instruction, including natural division and remainder; natural registers and memory cells bounded by a word bound W along the run). The machine also has exact real registers; both statements require the program to be a word program, containing no real instruction, so that every run uses only the bounded natural words. Two theorems are compared. (1) There is one fixed word program such that, for every simple graph G on the vertices 0, ..., n - 1 whose m edges (u, v), u < v, are listed once, every prime p and every W with W >= p^2 + p and W >= 3 n^2 + n + 3 m + 6, the program run on the input words (n, p, m, then u, v and the value x{u, v} in 0, ..., p - 1 for each listed edge) halts, for every substitution x of the indeterminates of the Tutte matrix by elements of ZMod p (a function on the unordered pairs of vertices), within 62 n^3 + 116 n^2 + 91 n + 24 n (floor(log2 p) + 1) + 27 m + 31 steps; and if G has a perfect matching, the fraction of the substitutions x for which the printed words are not the pairs of a perfect matching of G (every pair an edge, every vertex exactly once) is at most n / p. The program builds the substituted Tutte matrix, inverts it by Gauss-Jordan elimination modulo p and runs the elimination of Mucha and Sankowski with rank-two updates of the inverse. (2) There is one fixed word program such that, for every such G, p and W with W >= p^2 + p and W >= 15 n^2 + 2 n + 3 m + 6, the program run on the input words (n, p, m; for each listed edge u, v and the value z{u, v} in 0, ..., p - 1; then for all i, j < n the words i, n + j and the value z{i, n + j}) halts, for every assignment z in ZMod p to the unordered pairs of the 2n vertices of G padded with n vertices adjacent to every vertex of G, within 522 n^3 + 579 n^2 + 248 n + 60 n (floor(log2 p) + 1) + 54 m + 58 steps; and the fraction of the assignments z for which the printed words are not the pairs of a maximum matching of G (a matching with at least as many pairs as any matching of G) is at most 2n / p. This program computes the rank r of the substituted Tutte matrix of G modulo p (twice the matching number with high probability, by Lovasz's theorem), pads G with n - r vertices adjacent to every vertex, runs the elimination algorithm on the padded graph and prints the matched pairs of original vertices. The proofs use only the axioms propext, Classical.choice and Quot.sound.",
+  "authors": [
+    {
+      "name": "Robert D. Barish"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-22-000024-v1/af9c5e426331b249543216a423057d347d393592af9924117022245c7e6ac85f/",
+    "artifact_tree_sha256": "af9c5e426331b249543216a423057d347d393592af9924117022245c7e6ac85f",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-22T16:40:36Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.DS",
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C70",
+      "68W20",
+      "68Q25",
+      "15A09",
+      "15A03"
+    ]
+  },
+  "first_registered_on": "2026-11-22",
+  "formalization": {
+    "challenge_path": "MuchaSankowskiMatchingChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "MuchaSankowskiMatchingSolution.lean",
+    "theorem_names": [
+      "MuchaSankowski.elimination_matching_machine",
+      "MuchaSankowski.max_matching_machine"
+    ]
+  },
+  "id": "PALOMAR-2026-11-22-000024",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-22T19:53:53Z",
+    "receipt_sha256": "68fa9c2375f1b2ee8a7d6d5ee137561a79d062d8eb402d21fcd0eb89232fe372",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000024-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000024-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000024-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000024-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000024-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000024-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000024-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000024-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000024-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "42b6847a8529f51dd1ac7f2b192b889e5e3a2704",
+        "fork_repository": "PalomarArchive/RBarish-UTokyo--MuchaSankowski-PerfectAndMaximumMatching-WordRAM-Lean4--1922d64e086a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000024-v1/42b6847a8529f51dd1ac7f2b192b889e5e3a2704",
+        "source_repository": "RBarish-UTokyo/MuchaSankowski-PerfectAndMaximumMatching-WordRAM-Lean4"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "M. Mucha"
+          },
+          {
+            "name": "P. Sankowski"
+          }
+        ],
+        "location": "Proceedings of FOCS 2004, 248-255",
+        "relationship": "formalizes",
+        "title": "Maximum matchings via Gaussian elimination",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "L. Lovász"
+          }
+        ],
+        "location": "Fundamentals of Computation Theory (FCT 1979), 565-574",
+        "relationship": "formalizes",
+        "title": "On determinants, matchings, and random algorithms",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Robert D. Barish"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-22T19:53:30Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "ed6856dd2b4c06574415c65af135d3b83ebf99a83b3e99a25ad96429189fbd66"
+    },
+    "reviewed_at": "2026-11-22T17:06:06Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "42b6847a8529f51dd1ac7f2b192b889e5e3a2704",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "RBarish-UTokyo/MuchaSankowski-PerfectAndMaximumMatching-WordRAM-Lean4",
+    "repository_url": "https://github.com/RBarish-UTokyo/MuchaSankowski-PerfectAndMaximumMatching-WordRAM-Lean4",
+    "tree_url": "https://github.com/RBarish-UTokyo/MuchaSankowski-PerfectAndMaximumMatching-WordRAM-Lean4/tree/42b6847a8529f51dd1ac7f2b192b889e5e3a2704"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "1y17olbbk3h9"
+  },
+  "title": "Perfect and maximum matchings by Mucha-Sankowski elimination on a word RAM, in Lean 4",
+  "trust": {
+    "challenge_bytes": 17248,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.Combinatorics.SimpleGraph.Basic",
+      "Mathlib.Data.Fintype.Pi",
+      "Mathlib.Data.NNRat.Defs",
+      "Mathlib.Data.Nat.Log",
+      "Mathlib.Data.Sym.Card",
+      "Mathlib.Data.ZMod.Basic"
+    ],
+    "challenge_lines": 356,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "64669bff2184bba4f5460addff30b615a63a2d45d9d150f5b737dafe7b1b2c30",
+    "evidence_path": "evidence/PALOMAR-2026-11-22-000024-v1/8a94ee7fe8df1f0151dd3f2475dcd8e12a7fa8ba1ab3573aa5b87fe0f1ea90ee/",
+    "evidence_tree_sha256": "8a94ee7fe8df1f0151dd3f2475dcd8e12a7fa8ba1ab3573aa5b87fe0f1ea90ee",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "dc88d098c78e469808419b2c3e4edd3cfd7cba73b4d1f688193c3913e44b2b07",
+    "protected_config_sha256": "3536758c6716fb9d7c183de25a536bc4e5877e9e8c1f3f0925f639478f8a3f09",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45042626917,
+    "solution_sha256": "e3c63e2b25a2260bd03e40dd6b450cd124fd5d4b4e2cbad1732f47ac003bcb14",
+    "tool_digests": {
+      "bwrap": "fb81cb6140789a5a0b447a27ff8255b02913096c0615b747b4b8c17ad8498d2a",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-22T16:19:03Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45042626917"
+  },
+  "version": 1
+}

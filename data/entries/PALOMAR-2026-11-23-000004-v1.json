@@ -1,0 +1,330 @@
+{
+  "abstract": "A Lean 4 proof of Theorem 1 of Yanbo Song, The ternary Goldbach-Vinogradov theorem with almost equal Piatetski-Shapiro primes, arXiv 2012.06322 v1, 2020, with any positive margin in the window, by the deduction of Section 4 on page 9. Theorem 1 says that for 44/45 < gamma < 1 every large enough odd n is p1 + p2 + p3 with each pi a prime of the form floor of m to the power 1/gamma and |pi - n/3| <= y, for every y > n to the power 52 - 45 gamma over 8. The margin results rest on one cited input, the paper's Lemma 3, which is Theorem 3 of C. D. Pan and C. B. Pan, Goldbach Conjecture, Science Press, Beijing, 1988, taken at the exponent 7/8 as the explicit hypothesis Lemma3 7/8 and never as an axiom. From it the entry proves Theorem 1 for every window y > n to the power 52 - 45 gamma over 8 plus delta with delta > 0, and the page 9 asymptotic formula for R of n on the same windows; the paper's Lemmas 4 and 5 are proved. The exact window result also takes the transfer step of page 9 at the exact threshold, LogTransferDQ, as a second hypothesis. An independent check of the lab could not prove that transfer step at the exact threshold, since Lemma 4 holds with a loss of n to the epsilon only, so Theorem 1 at the exact window remains open here and the headline result is the margin version. Binary Goldbach is open and is not claimed; ternary Goldbach is a theorem of Helfgott 2013. AI agents wrote the Lean code, as listed in PORTING.md, and it is offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-23-000004-v1/d0721c5de0ed6885082ec95e8620f7512671597d3b62b81d988947628891536f/",
+    "artifact_tree_sha256": "d0721c5de0ed6885082ec95e8620f7512671597d3b62b81d988947628891536f",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-23T01:28:40Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11P05"
+    ]
+  },
+  "first_registered_on": "2026-11-23",
+  "formalization": {
+    "challenge_path": "entries/song2020/ChallengeSong2020.lean",
+    "comparator_config_path": "entries/song2020/comparator-song2020.json",
+    "definition_names": [
+      "LeanLab.Song2020.IsPSPrime",
+      "LeanLab.Song2020.IsAlmostEqualPSTernary",
+      "LeanLab.Song2020.SongWindow",
+      "LeanLab.Song2020.songExponent",
+      "LeanLab.Song2020.SongTheorem1",
+      "LeanLab.Song2020.State1562.eC",
+      "LeanLab.Song2020.State1562.windowPrimes",
+      "LeanLab.Song2020.State1562.psWeight",
+      "LeanLab.Song2020.State1562.fS",
+      "LeanLab.Song2020.State1562.gS",
+      "LeanLab.Song2020.State1562.singFactor",
+      "LeanLab.Song2020.State1562.singular3",
+      "LeanLab.Song2020.State1562.mainTerm",
+      "LeanLab.Song2020.State1562.RS",
+      "LeanLab.Song2020.State1562.gCube",
+      "LeanLab.Song2020.State1562.Lemma3",
+      "LeanLab.Song2020.Flag1734.LogTransferDQ"
+    ],
+    "formalization_metadata_path": "entries/song2020/formalization.yaml",
+    "lakefile_path": "entries/song2020/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/song2020/SolutionSong2020.lean",
+    "theorem_names": [
+      "LeanLab.Song2020.Palomar1122Song.songWindow_margin_of_lemma3",
+      "LeanLab.Song2020.Palomar1122Song.asymptotic_margin_of_lemma3",
+      "LeanLab.Song2020.Palomar1122Song.songTheorem1_of_lemma3_logTransfer"
+    ]
+  },
+  "id": "PALOMAR-2026-11-23-000004",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-23T01:49:09Z",
+    "receipt_sha256": "0d408a6fab04b58ad59283130dd46fbd41917fa569844dfbf832b02b928ee667",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000004-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000004-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000004-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000004-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000004-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000004-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000004-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000004-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000004-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "3f755eaa20c1f3dc53de80281e9a6e5433288f5e",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000004-v1/3f755eaa20c1f3dc53de80281e9a6e5433288f5e",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Yanbo Song"
+          }
+        ],
+        "identifier": "arXiv:2012.06322v1",
+        "license": "unknown",
+        "location": "arXiv 2012.06322 v1, 2020: Theorem 1 on page 2; Lemmas 3 to 5 in Section 3; the deduction of Section 4 on page 9",
+        "relationship": "formalizes",
+        "title": "The ternary Goldbach-Vinogradov theorem with almost equal Piatetski-Shapiro primes",
+        "type": "preprint"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "C. D. Pan"
+          },
+          {
+            "name": "C. B. Pan"
+          }
+        ],
+        "identifier": "Science Press, Beijing, 1988",
+        "license": "unknown",
+        "location": "Theorem 3, as cited in Lemma 3 of Song 2020",
+        "relationship": "background",
+        "title": "Goldbach Conjecture",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Jason Hickey"
+          }
+        ],
+        "identifier": "https://beta.prove2.me",
+        "license": "Apache-2.0",
+        "location": "Prove2Me id 1038fb61-45dc-46e6-9a1c-862d2aa8430c",
+        "relationship": "other",
+        "title": "Prove2Me submission ExponentialSums.vdC_second_derivative, the Kusmin-Landau inequality and van der Corput's second derivative test",
+        "type": "formalization"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-23T01:48:51Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "ca9c634c104ae21c7bd82050630ea2a679cfd12b9f1693ad4db018eb5e381987"
+    },
+    "reviewed_at": "2026-11-23T01:40:11Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "3f755eaa20c1f3dc53de80281e9a6e5433288f5e",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/song2020",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/3f755eaa20c1f3dc53de80281e9a6e5433288f5e/entries/song2020"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "ld70rzx99z28"
+  },
+  "title": "The ternary Goldbach-Vinogradov theorem with almost equal Piatetski-Shapiro primes",
+  "trust": {
+    "challenge_bytes": 7151,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 166,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "8fca1d54ad11ae756fd9c5b3e48bd2c7bea22a813027f64a86cf95c5f7f77408",
+    "evidence_path": "evidence/PALOMAR-2026-11-23-000004-v1/141bdd92930796d502106f83b922f49fa5e38936b1b013851337aedb13024671/",
+    "evidence_tree_sha256": "141bdd92930796d502106f83b922f49fa5e38936b1b013851337aedb13024671",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "7e2b3de03bf4081abb63b506c7c832b1e79c629c9288b58a7e4a3c48adf34bf0",
+    "protected_config_sha256": "09ee6c8b3884b09c7567c196f40cb804c6bf2f13aa52eda7695afbb07116a311",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45090349239,
+    "solution_sha256": "c81cccb7405d00af1c0a699a430c31867920dba91960a3564ccad2e4df6260b1",
+    "tool_digests": {
+      "bwrap": "45f32047c38890cc2e5108ffd4b7f646ec737d2a7ac4c43a3a12ce521b4c2496",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-23T00:53:04Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45090349239"
+  },
+  "version": 1
+}
