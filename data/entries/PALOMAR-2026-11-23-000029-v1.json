@@ -1,0 +1,308 @@
+{
+  "abstract": "Formalization of Basic Functional Categories, Functional Categories, the pointfree CoEndoYoneda Isomorphism Theorem, and its equivalence with computational purity (monad idempotency) for Kleisli categories. Given a category C and a functional functor FF : Type u ⥤ C, we define the CoYoneda endofunctor CYEF(Z) = CYF(Z) ⋙ FF, the global-like endofunctor G = CYEF(FF(T)), and prove the CoEndoYoneda isomorphism (CYEF(Z) ⟶ (EF ⋙ G)) ≃ (FF(T) ⟶ G(EF(Z))). We prove that evaluating the forward isomorphism on id_G recovers the terminal unit component η.app(FF(T)), verify that Type u with the identity functor is a canonical Functional Category, and prove that for the Kleisli category KleisliCat M of a lawful monad M with canonical identity-on-objects functor KFF, BasicFunctionalCategory (KleisliCat M) (KFF M) holds if and only if M is an idempotent (pure) monad. Finally, we derive the terminal subsingleton theorem (IsPure M → Subsingleton (M T)) and classify seven standard computational effects (Option, List, Read, Write, State, Cont, and ErrorState/IO).",
+  "authors": [
+    {
+      "name": "Luc Duponcheel"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-23-000029-v1/c265955931a15dacab86ad418d4b81ce8884463d63035948a0aedb14d9a2f683/",
+    "artifact_tree_sha256": "c265955931a15dacab86ad418d4b81ce8884463d63035948a0aedb14d9a2f683",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-23T20:53:41Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.PL",
+      "math.CT",
+      "cs.LO"
+    ],
+    "msc2020": [
+      "18A40",
+      "18C15",
+      "18C20",
+      "68N18",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-23",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "CoEndoYonedaAndPurity.η_eq_T",
+      "CoEndoYonedaAndPurity.fz_to_τz_commute",
+      "CoEndoYonedaAndPurity.to_from_proof_hom",
+      "CoEndoYonedaAndPurity.from_to_proof'",
+      "CoEndoYonedaAndPurity.ηFFT_is_η_at_FFT",
+      "CoEndoYonedaAndPurity.set_is_functional_category",
+      "CoEndoYonedaAndPurity.idempotent_iff_isPure",
+      "CoEndoYonedaAndPurity.kleisliBasicFunctionalCategory_iff_idempotent",
+      "CoEndoYonedaAndPurity.isPure_implies_monadicTerminalTypeSubSingleton",
+      "CoEndoYonedaAndPurity.maybe_not_pure",
+      "CoEndoYonedaAndPurity.list_not_pure",
+      "CoEndoYonedaAndPurity.read_purity_implies",
+      "CoEndoYonedaAndPurity.write_purity_implies",
+      "CoEndoYonedaAndPurity.state_purity_implies",
+      "CoEndoYonedaAndPurity.cont_purity_implies",
+      "CoEndoYonedaAndPurity.io_not_pure"
+    ]
+  },
+  "id": "PALOMAR-2026-11-23-000029",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-23T21:33:51Z",
+    "receipt_sha256": "6cf46b736930ebeedbdbca93807dc56f56959ee9bc0537794ba5a788a02b2140",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000029-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000029-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000029-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000029-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000029-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000029-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000029-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000029-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000029-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "f1dc299de367d64c59ab05f4af608580c55ab415",
+        "fork_repository": "PalomarArchive/LucDuponcheelAtGitHub--coendoyoneda-and-purity--2496ac6cd771",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000029-v1/f1dc299de367d64c59ab05f4af608580c55ab415",
+        "source_repository": "LucDuponcheelAtGitHub/coendoyoneda-and-purity"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Luc Duponcheel"
+          }
+        ],
+        "identifier": "https://github.com/LucDuponcheelAtGitHub/coEndoYoneda-and-purity/blob/main/tex/paper.pdf",
+        "license": "Apache-2.0",
+        "location": "https://github.com/LucDuponcheelAtGitHub/coEndoYoneda-and-purity/blob/main/tex/paper.pdf",
+        "relationship": "formalizes",
+        "title": "The CoEndoYoneda Lemma and its Relationship to Purity for Kleisli Categories with an Idempotent Monad: A Pointfree Categorical Characterization of Purity",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/LucDuponcheelAtGitHub/utrecht_2026_10_26/blob/main/src/CoEndoYoneda.lagda.md",
+        "note": "Companion Cubical Agda formalization of Basic Functional Categories, Functional Categories, the CoEndoYoneda Isomorphism Theorem, the Kleisli purity equivalence, and the seven computational effect classifications, with which this Lean 4 formalization is synchronized in terminology and structure.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Luc Duponcheel"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-23T21:33:29Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "98a9d1c26b200d619ba3738092851744af24c4cad4de6e872c7c77940328bcac"
+    },
+    "reviewed_at": "2026-11-23T21:23:40Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "The claimed complete formalization of the seven effect classifications exceeds the selected Lean results: for Read, Write, State, and Cont, the compared theorems prove only that purity implies a subsingleton parameter, while the paper's classification states equivalences. Qualify the structured scope and record the unformalized converses as a known gap, or compare proofs of those converses."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "f1dc299de367d64c59ab05f4af608580c55ab415",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "LucDuponcheelAtGitHub/coendoyoneda-and-purity",
+    "repository_url": "https://github.com/LucDuponcheelAtGitHub/coendoyoneda-and-purity",
+    "tree_url": "https://github.com/LucDuponcheelAtGitHub/coendoyoneda-and-purity/tree/f1dc299de367d64c59ab05f4af608580c55ab415"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "jr31zd0qq8z2"
+  },
+  "title": "The CoEndoYoneda Lemma and its Relationship to Purity for Kleisli Categories with an Idempotent Monad",
+  "trust": {
+    "challenge_bytes": 10162,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Group.Defs",
+      "Mathlib.CategoryTheory.Category.KleisliCat",
+      "Mathlib.CategoryTheory.Yoneda"
+    ],
+    "challenge_lines": 268,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "4392521bbac81bc9dbd50f892251ce3d43332c7333d7178f5570db70233cb62b",
+    "evidence_path": "evidence/PALOMAR-2026-11-23-000029-v1/23f5cfb99b6265e144b66f5dbc10e870e4795d311cac148c774d436eaf2d673b/",
+    "evidence_tree_sha256": "23f5cfb99b6265e144b66f5dbc10e870e4795d311cac148c774d436eaf2d673b",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "ee4a7a68e515da46e23f27a0c9d8d845eb3c4225cbf5206b8604b2ee6c30f4f8",
+    "protected_config_sha256": "b5e6ffede8d5be138d765607d2a9db81d79d2c369d6d95f79fd07f497c5257ab",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45261035451,
+    "solution_sha256": "822fa3bb9bf0fab61a5ec4aa3ec07563d1bed712d062b315566c1e6ce5c9edbc",
+    "tool_digests": {
+      "bwrap": "abe8cba960132e5bffe3640f9aee0db9cfc67608076a8c89cea3ff5aa93a4f02",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-23T20:40:27Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45261035451"
+  },
+  "version": 1
+}

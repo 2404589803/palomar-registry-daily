@@ -1,0 +1,310 @@
+{
+  "abstract": "A Boolean function f of n variables is BLF if f(x) is bit j of K + a_1 x_1 + ... + a_n x_n for some integers K, a_i and some bit position j. The development proves, for every n, that the floors of (K + a.x) / 2^j satisfy every parallelogram inequality on the cube, that every threshold function is BLF, and that BLF is closed under XOR with GF(2)-affine functions; and it proves the exact counts |BLF(n)| = 4, 16, 208 and 10368 for n = 1, 2, 3 and 4 by a verified pruned search checked by the kernel, that BLF(3) is exactly the threshold functions XOR GF(2)-affine functions, and that BLF(4) adds exactly the affine translates of bit 1 of x1 + x2 + x3 + x4, which is not itself threshold XOR affine. It also proves, for every n, that f is BLF iff f = floor(t + r.x) mod 2 for real t and r; the selector lemma (z AND T(x) is bit j of an integer affine form iff T has integer weights with sum of absolute values below 2^j), with a gated threshold showing that no bit position below 4 serves every BLF function of five variables; and, through a square identity, that two and three steps of Rule 110 are not BLF.",
+  "authors": [
+    {
+      "name": "Joseph S. Farland"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-23-000031-v1/4c01ae76796592a5521c02148961ccbf81d78031df7f2efeab52f30951f4f399/",
+    "artifact_tree_sha256": "4c01ae76796592a5521c02148961ccbf81d78031df7f2efeab52f30951f4f399",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-23T20:45:31Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "cs.DM"
+    ],
+    "msc2020": [
+      "06E30",
+      "52C35",
+      "05A15",
+      "94C11",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-23",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "BLF.floor_parallelogram",
+      "BLF.threshold_isBLF",
+      "BLF.isBLF_xor_affB",
+      "BLF.blf_count_one",
+      "BLF.blf_count_two",
+      "BLF.blf_count_three",
+      "BLF.blf_count_four",
+      "BLF.blf_three_iff_threshold_xor_affine",
+      "BLF.blf_four_iff",
+      "BLF.bitOneSum_isBLF_not_txa",
+      "BLF.isBLF_iff_floor",
+      "BLF.selector_iff",
+      "BLF.gated_threshold_bit_four",
+      "BLF.blf_five_needs_bit_four",
+      "BLF.rule110Two_not_isBLF",
+      "BLF.rule110Three_not_isBLF"
+    ]
+  },
+  "id": "PALOMAR-2026-11-23-000031",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-23T22:03:59Z",
+    "receipt_sha256": "f80cca0eb26a11c7c584a741b6ce816b9a30590a1bb2851693766cf6f3f862a3",
+    "repositories": [
+      {
+        "commit": "728b97b34458166a1a5bbf87097bd16871a0072e",
+        "fork_repository": "PalomarArchive/jkfarland-bot--BLF--247c65191eda",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000031-v1/728b97b34458166a1a5bbf87097bd16871a0072e",
+        "source_repository": "jkfarland-bot/BLF"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000031-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000031-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000031-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000031-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000031-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000031-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000031-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000031-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000031-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.24467977",
+        "license": "CC-BY-4.0",
+        "location": "Preprint, Zenodo, 2026 (all versions; numbering of version 1.1)",
+        "relationship": "formalizes",
+        "title": "Boolean functions that are one bit of a linear form: a toric identity, exact counts and asymptotics",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "R. N. Spann"
+          }
+        ],
+        "license": "unknown",
+        "location": "MIT Research Laboratory of Electronics, Quarterly Progress Report 76 (1965), 241-247",
+        "relationship": "background",
+        "title": "Modular threshold functions",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Joseph S. Farland"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-23T22:03:34Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "acb98a66e1c4387f766ae12e65f7835a3960b33eb431d1f070095d1cca4d5881"
+    },
+    "reviewed_at": "2026-11-23T21:02:20Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "728b97b34458166a1a5bbf87097bd16871a0072e",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jkfarland-bot/BLF",
+    "repository_url": "https://github.com/jkfarland-bot/BLF",
+    "tree_url": "https://github.com/jkfarland-bot/BLF/tree/728b97b34458166a1a5bbf87097bd16871a0072e"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "gimde54fdp8v"
+  },
+  "title": "BLF: Boolean functions that are one bit of a linear form",
+  "trust": {
+    "challenge_bytes": 7640,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 172,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "f131eb0bfc40d9c8fcf9a6d3aaa819f4fa33480bdafa80cf2f4c07a67aa44690",
+    "evidence_path": "evidence/PALOMAR-2026-11-23-000031-v1/f6f45439152d1c6be0f6e07071dddf590bf228ee33d62a9b8959ca8aef7be989/",
+    "evidence_tree_sha256": "f6f45439152d1c6be0f6e07071dddf590bf228ee33d62a9b8959ca8aef7be989",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "86c8b874b171adde7695f41973f103012d385ded07291952cb476e3c217529bc",
+    "protected_config_sha256": "aa644d059feb59dcea4a59a2d630f38ed9a44f7d2bf4938191732c2eb4f4a72d",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45259214785,
+    "solution_sha256": "8e40164f900914931da5d9edd100d4ca7b76a98dd2119ebde6569c97016ab9b9",
+    "tool_digests": {
+      "bwrap": "92f131041a1dce1644e6b7d50fc4a92996b74d674d9280731fdd8a0e10456af4",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-23T20:35:06Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45259214785"
+  },
+  "version": 1
+}

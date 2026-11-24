@@ -1,0 +1,346 @@
+{
+  "abstract": "Unconditional Lean 4 + Mathlib formalization of Carmichael's totient conjecture lower-bound and density-transfer theory (zero sorry, zero native_decide, standard axioms only): proves 10^10,117 < x unconditionally for every Carmichael counterexample x (10^10,240 < x in Case I and 10^10,117 < x in Case II via 161 kernel-checked Lucas primality ladders, surpassing Masai and Valette's 1982 bound of 10^10,000), the unconditional pure-kernel limiting singleton density bound liminf V1(X)/V(X) < 10^-5,057, totient-value and density transfer via Ford's (1998) Lemmas 7.4-7.5 and Chebyshev's prime lower bound, Ford's Lemma 7.2 prime-square forcing rule, Klee's (1947) minimal-counterexample structure, Pomerance's (1974) sufficient condition, Ford's reduction to k = 6, and the unconditional bound m >= 32,000 for Ford's k = 10 divisible-preimage problem, plus non-vacuity witnesses. Scope note: the larger 10^100,000,160,994 Carmichael bound, 10^-50,000,080,497 density bound, and m >= 10^60 k = 10 bound in the companion manuscript (https://mathdiscoveries.org/results/carmichael-totient) rely on external exact-integer certificates whose soundness and transfer theorems are proved in this library.",
+  "authors": [
+    {
+      "name": "Tyler B. Hughes"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-23-000023-v1/dbccdb228631b8664112ba092ecdffc7086061b1879967ee9128418509d0bf4f/",
+    "artifact_tree_sha256": "dbccdb228631b8664112ba092ecdffc7086061b1879967ee9128418509d0bf4f",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-23T18:34:17Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11A25",
+      "11N64",
+      "11Y11"
+    ]
+  },
+  "first_registered_on": "2026-11-23",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "CarmichaelChallenge.carmichael_case1_gt_10_pow_10240",
+      "CarmichaelChallenge.carmichael_case2_gt_10_pow_10117",
+      "CarmichaelChallenge.carmichael_counterexample_gt_10_pow_10117",
+      "CarmichaelChallenge.ford_lemma_7_2",
+      "CarmichaelChallenge.minimal_counterexample_structure",
+      "CarmichaelChallenge.pomerance_sufficient_condition",
+      "CarmichaelChallenge.no_k6_witness_implies_carmichael",
+      "CarmichaelChallenge.k10_witness_ge_32000",
+      "CarmichaelChallenge.totient_eq_ten_iff",
+      "CarmichaelChallenge.k11_witness_110",
+      "CarmichaelChallenge.totient_value_gt_of_forced_primes",
+      "CarmichaelChallenge.ford_lemma_7_4_7_5",
+      "CarmichaelChallenge.liminf_V1_div_V_le_two_div_min",
+      "CarmichaelChallenge.carmichael_liminf_density_lt_10_pow_neg_5057"
+    ]
+  },
+  "id": "PALOMAR-2026-11-23-000023",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-23T19:15:49Z",
+    "receipt_sha256": "8c74df6d70b0de2c9058dd91596880921f1218a2739b0e152fb1420c77e7af68",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000023-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000023-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000023-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000023-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000023-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000023-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000023-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000023-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000023-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "dda5359be7001d87eff993046e7b9a632474dbf1",
+        "fork_repository": "PalomarArchive/mathdiscoveries--carmichael-totient--aedbf4b7117b",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000023-v1/dda5359be7001d87eff993046e7b9a632474dbf1",
+        "source_repository": "mathdiscoveries/carmichael-totient"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Robert D. Carmichael"
+          }
+        ],
+        "identifier": "https://doi.org/10.1090/S0002-9904-1922-03504-5",
+        "location": "Bull. Amer. Math. Soc. 28 (1922), 109-110",
+        "relationship": "background",
+        "title": "Note on Euler's phi-function",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Victor L. Klee Jr."
+          }
+        ],
+        "identifier": "https://doi.org/10.1090/S0002-9904-1947-08940-0",
+        "location": "Bull. Amer. Math. Soc. 53 (1947), 1183-1186",
+        "relationship": "formalizes",
+        "title": "On a conjecture of Carmichael",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Carl Pomerance"
+          }
+        ],
+        "identifier": "https://doi.org/10.1090/S0002-9939-1974-0347717-1",
+        "location": "Proc. Amer. Math. Soc. 43 (1974), 297-298",
+        "relationship": "formalizes",
+        "title": "On Carmichael's conjecture",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Pierre Masai"
+          },
+          {
+            "name": "Alain Valette"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/0022-314X(82)90018-6",
+        "location": "J. Number Theory 15 (1982), 344-347",
+        "relationship": "formalizes",
+        "title": "A lower bound for a counterexample to Carmichael's conjecture",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Kevin Ford"
+          }
+        ],
+        "identifier": "https://doi.org/10.1023/A:1009761909132",
+        "location": "Ramanujan J. 2 (1998), 67-151",
+        "relationship": "formalizes",
+        "title": "The distribution of totients",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tyler B. Hughes"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-23T19:15:26Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "bb33536757511fd89ac70baeb9d617923dfad9d3125e71fa2035fc8f13a2dfc0"
+    },
+    "reviewed_at": "2026-11-23T18:53:11Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "The claim of a six-kernel replay overstates the checking substantiated by the pinned evidence. State the checks actually documented, or provide pinned evidence for the additional kernel replays."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "dda5359be7001d87eff993046e7b9a632474dbf1",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "mathdiscoveries/carmichael-totient",
+    "repository_url": "https://github.com/mathdiscoveries/carmichael-totient",
+    "tree_url": "https://github.com/mathdiscoveries/carmichael-totient/tree/dda5359be7001d87eff993046e7b9a632474dbf1"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "bu1w8maai07r"
+  },
+  "title": "Carmichael's Totient Conjecture: Kernel-Verified 10^10,117 Lower Bound, 10^-5,057 Density Bound, Structural Theory, and Ford's k = 10 Descent",
+  "trust": {
+    "challenge_bytes": 7054,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+      "Mathlib.Data.Nat.Factorization.Basic",
+      "Mathlib.Data.Nat.Totient",
+      "Mathlib.Order.LiminfLimsup"
+    ],
+    "challenge_lines": 164,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "b04b2bb157b62d1b8f6a12535e73636c90a733cf62c2d6dca76121764ec86b17",
+    "evidence_path": "evidence/PALOMAR-2026-11-23-000023-v1/8aec7a3c68903bccde3507301fe1f9fcf77194b058d73e4386b1d5ee367ca661/",
+    "evidence_tree_sha256": "8aec7a3c68903bccde3507301fe1f9fcf77194b058d73e4386b1d5ee367ca661",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "54053d1e9f3352d956ca65d02fe4094b1e7b9f3289231c5f516d4722c3eba358",
+    "protected_config_sha256": "82ae77a34102fb85265b0dcad309161eca427de416e7e36cd9afd59fe72094e0",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45206353097,
+    "solution_sha256": "284eb1440a5bd83f19043f77e7de2f9dde198b3d80713f08016145e10e34e34b",
+    "tool_digests": {
+      "bwrap": "0853ddcebcba30c0e9debe3df6e3f31fd16d0090adffc2126da2a38c46099766",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-23T15:38:31Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45206353097"
+  },
+  "version": 1
+}

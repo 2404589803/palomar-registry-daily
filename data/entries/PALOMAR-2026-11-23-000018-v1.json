@@ -1,0 +1,308 @@
+{
+  "abstract": "Lean 4 and Mathlib formalization resolving all four main conjectures (A, B, C, D) and the Section 6 real-positivity question from Joseph Malkoun's preprint \"Finite graphs and configurations of points\" (arXiv:2508.13472v3), alongside unconditional positive theorems for linear paths LG_n and small trees. Using strictly propext, Quot.sound, and Classical.choice (zero sorry, zero admit, zero native_decide), the repository formalizes: (1) a bipartite quaternionic time-reversal Gram reduction extending Malkoun's Theorem 4.1 to all finite simple bipartite graphs (MalkounBipartite); (2) formal planar homotopy disproofs of Conjectures A, B, and Section 6 on the connected K_4-barbell B_8 (MalkounCounterexample), the 7-vertex 2-vertex-connected graph H_7 = K_4 ∪_{2e} K_3 (k4e2k3Graph in MalkounN7Counterexample; smallest counterexample found in our numerical scan — absence of connected counterexamples on n <= 6 vertices is an empirical numerical-search observation, not formally proved), and the 8-vertex triangle-free 3-regular 3-vertex-connected Wagner graph M_8 (wagnerGraph in MalkounWagnerCounterexample); (3) refutations of General Conjecture D at m=6 (rank-3 matrix on C_6) and Rank-2 Spinor Conjecture D at m=12 (2x12 Gaussian-integer witness on C_{12}) alongside unconditional Conjecture C for LG_3, LG_4, K_{1,3}, and LG_5 (MalkounConjectureD); (4) an exact planar 120-degree pinwheel zero A_{T_{10}}(x) = 0 on the 10-vertex cubic cherry tree T_{10} (cherryTree10 in MalkounConjectureC) refuting Conjecture C, tree-restricted Conjecture D, and planar tree Conjectures A and B simultaneously (absence of tree violations on 4 <= n <= 9 vertices is likewise a numerical search observation, not formally proved), plus exact integer Hopf coordinates on the 15-vertex path graph pathGraphN 15 (LG_{15}) giving Re(A_{LG_{15}}) = -40605770611892600000 / 58001564658819600000 < 0; and (5) unconditional Path Conjectures B and A (|A_{LG_n}(x)| >= 1 for all n and x in C_{LG_n}(R^3)) via an exact hyperbolic SU(2) Lyapunov transfer invariant, together with unconditional Planar Path Conjecture C (Re >= 1 for all n whenever z_u = 0) (MalkounPathPositivity). Across the 12 compared declarations in Challenge.lean, six state pure existential or negative refutations whose witnesses (B_8, C_6, C_{12}, T_{10}) reside inside Solution.lean/Matematyka/, four explicitly bind the witnesses k4e2k3Graph (Fin 7), wagnerGraph (Fin 8), cherryTree10 (Fin 10), and pathGraphN 15 (Fin 15) along with coplanarity (x.1 u 2 = 0) where advertised, and two prove unconditional path positivity for all n. Topological graph planarity of H_7, vertex-transitivity of M_8, and 50-digit mpmath companion scans lie outside the formal Lean theorems.",
+  "authors": [
+    {
+      "name": "Tomasz Tarłowski"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-23-000018-v1/7286648586dfbcb3ba4dd73813e0696a992b36051a120a28b55f6ec5a2971366/",
+    "artifact_tree_sha256": "7286648586dfbcb3ba4dd73813e0696a992b36051a120a28b55f6ec5a2971366",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-22T18:29:10Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math-ph",
+      "math.MG",
+      "math.CO",
+      "cs.LO"
+    ],
+    "msc2020": [
+      "05C50",
+      "51M15",
+      "81Q70",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-23",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Challenge.disproof_malkoun_conjecture_A",
+      "Challenge.disproof_malkoun_conjecture_B",
+      "Challenge.disproof_malkoun_section_6",
+      "Challenge.disproof_malkoun_n7_biconnected_conjecture_A",
+      "Challenge.disproof_malkoun_wagner_triangleFree_conjecture_A",
+      "Challenge.disproof_malkoun_conjecture_D",
+      "Challenge.disproof_malkoun_rank2_conjecture_D",
+      "Challenge.disproof_malkoun_conjecture_C",
+      "Challenge.disproof_malkoun_tree_conjecture_A",
+      "Challenge.disproof_malkoun_path_conjecture_C_neg_re",
+      "Challenge.malkounAmplitude_pathGraphN_norm_ge_one",
+      "Challenge.malkounAmplitude_pathGraphN_planar_re_ge_one"
+    ]
+  },
+  "id": "PALOMAR-2026-11-23-000018",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-23T17:25:28Z",
+    "receipt_sha256": "89e4b978109e88b8879730139c20dd583664d58e1482bee44511cef94429336d",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000018-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000018-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000018-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000018-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000018-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000018-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000018-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000018-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000018-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "b5ca46b71c592daebb0ea728eae05514c0262cca",
+        "fork_repository": "PalomarArchive/tomasztarlowski--malkoun-conjectures-counterexamples--59188eef6175",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000018-v1/b5ca46b71c592daebb0ea728eae05514c0262cca",
+        "source_repository": "tomasztarlowski/malkoun-conjectures-counterexamples"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Tomasz Tarłowski"
+          }
+        ],
+        "identifier": "https://github.com/tomasztarlowski/malkoun-conjectures-counterexamples/blob/main/paper/malkoun_counterexamples.pdf",
+        "relationship": "formalizes",
+        "title": "Counterexamples to All Four Malkoun Conjectures A–D, Planar Tree Zeros, and Unconditional Path Positivity",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Joseph Malkoun"
+          }
+        ],
+        "identifier": "arXiv:2508.13472",
+        "relationship": "other",
+        "title": "Finite graphs and configurations of points",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Elliott H. Lieb"
+          }
+        ],
+        "location": "Journal of Mathematics and Mechanics 16 (1966), 127–134",
+        "relationship": "background",
+        "title": "Proofs of some conjectures on permanents",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tomasz Tarłowski"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-23T17:25:04Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "07267262ae329f9c97810c2d6a79b854806a24ec80382ba7f2d7fa41aaa1e234"
+    },
+    "reviewed_at": "2026-11-22T19:32:08Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "b5ca46b71c592daebb0ea728eae05514c0262cca",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    "repository": "tomasztarlowski/malkoun-conjectures-counterexamples",
+    "repository_url": "https://github.com/tomasztarlowski/malkoun-conjectures-counterexamples",
+    "tree_url": "https://github.com/tomasztarlowski/malkoun-conjectures-counterexamples/tree/b5ca46b71c592daebb0ea728eae05514c0262cca"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "0zdb8le1xen5"
+  },
+  "title": "Counterexamples to All Four Malkoun Conjectures (A–D), Planar Tree Zeros, and Unconditional Path Positivity",
+  "trust": {
+    "challenge_bytes": 15314,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 298,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "fc184c57dcc77cbe0efaf0a038b92dc28a6ba82de1eb4822002666cb4c6c183a",
+    "evidence_path": "evidence/PALOMAR-2026-11-23-000018-v1/51183e5cd7ab931f52cd84b42540699bbdcc7fd516c8891965ef123e86f6053c/",
+    "evidence_tree_sha256": "51183e5cd7ab931f52cd84b42540699bbdcc7fd516c8891965ef123e86f6053c",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      }
+    ],
+    "mechanical_report_sha256": "8617b1b2626881fd38d0fe173c0119f61892f6857f2105f7922fb0e4e110cc51",
+    "protected_config_sha256": "33b596e3b2ead66a4df04951073652e469ebe2224cb90cb9370eafbfd1230d45",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45049533551,
+    "solution_sha256": "af38bd77e03f077164670cce998c00229d6ab3d7d711811dd8ac4682c900520f",
+    "tool_digests": {
+      "bwrap": "10614cded78da7a28c185fd80b1432d9471af10f0cde64334167b8d4d4f2e168",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-22T17:56:38Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45049533551"
+  },
+  "version": 1
+}

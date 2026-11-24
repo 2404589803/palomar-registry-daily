@@ -1,0 +1,400 @@
+{
+  "abstract": "A Lean 4 proof of the main results of A. Languasco, J. Pintz and A. Zaccagnini, On the sum of two primes and k powers of two, Bull. London Math. Soc. 39, 2007, pages 771 to 780, conditional on three results of the literature that the paper cites. For k >= 1 the entry proves that all but O of X^{3/5} times log X to the power 10 even N <= X are sums of two primes and k powers of two; the paper's main theorem, the asymptotic formula for the weighted number of such representations outside an exceptional set of the same size, on the even N in J of X = [2X/3, X], with the main term coefficient 2 c0 C of k and N, where c0 is the twin prime constant; and Corollary 4.2 of the paper on the major arcs. The three cited inputs are explicit hypotheses, never axioms: the explicit formula of Lemma 4.1 of the paper, which it quotes from J. Pintz, ELAZ 2004, Theorem 10; the zero density theorem of M. Jutila 1977, Theorem 1, display 1.8, as printed; and the zero free region of H. Iwaniec 1974, Theorem 2, page 97, as printed, read for nonreal characters. The real zero bound for real characters, which the paper cites from Pintz 1976 and Goldfeld and Schinzel 1975, is proved here from Siegel's theorem. The coefficient 2 c0 C of k and N is the one that the paper's own display 2 gives; the printed theorem states C of k and N in [1, 2] and omits the factor 2 c0, and the entry does not claim the range [1, 2]. Binary Goldbach, the case k = 0, is open and is not claimed. AI agents wrote the Lean code, Claude by Anthropic with a few leaves from other lab provers listed in PORTING.md, and it is offered for human audit.",
+  "authors": [
+    {
+      "name": "Steve Hubbard"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-23-000024-v1/4501fbe68d57516c59f73983f730922c4ac994a4d338998a3a598aaf51cc52c4/",
+    "artifact_tree_sha256": "4501fbe68d57516c59f73983f730922c4ac994a4d338998a3a598aaf51cc52c4",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-23T17:36:38Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11P32",
+      "11P55",
+      "11M26",
+      "11N05"
+    ]
+  },
+  "first_registered_on": "2026-11-23",
+  "formalization": {
+    "challenge_path": "entries/languascopintzzaccagnini2007/ChallengeLanguascoPintzZaccagnini2007.lean",
+    "comparator_config_path": "entries/languascopintzzaccagnini2007/comparator-languascopintzzaccagnini2007.json",
+    "definition_names": [
+      "LeanLab.LPZ2007.Lg",
+      "LeanLab.LPZ2007.Lp",
+      "LeanLab.LPZ2007.Rpp",
+      "LeanLab.LPZ2007.xi",
+      "LeanLab.LPZ2007.fd",
+      "LeanLab.LPZ2007.OddSqf",
+      "LeanLab.LPZ2007.Sing",
+      "LeanLab.SchnirelmannGoldbach.r",
+      "LeanLab.ChenExplicit.twinC",
+      "LeanLab.LPZ2007.jcount",
+      "LeanLab.LPZ2007.Ckterm",
+      "LeanLab.LPZ2007.Ck",
+      "LeanLab.LPZ2007.phase131",
+      "LeanLab.LPZ2007.primeSum131",
+      "LeanLab.LPZ2007.powerSum131",
+      "LeanLab.LPZ2007.arcQ131",
+      "LeanLab.LPZ2007.majorArcs131",
+      "LeanLab.LPZ2007.majorContribution131",
+      "LeanLab.LPZ2007.evenJ131",
+      "LeanLab.LPZ2007.coefficient131",
+      "LeanLab.LPZ2007.AdmissibleP131",
+      "LeanLab.LPZ2007.RepairedMainJ131",
+      "LeanLab.LPZ2007.exponentTuples131",
+      "LeanLab.LPZ2007.primeRepresentationCount131",
+      "LeanLab.LPZ2007.allPrimeExceptions131",
+      "LeanLab.LPZ2007.binaryMajor131",
+      "LeanLab.LPZ2007.oddRad131",
+      "LeanLab.LPZ2007.ExceptionalModuli131",
+      "LeanLab.LPZ2007.Nonexceptional131",
+      "LeanLab.LPZ2007.Cor42OnWindow131",
+      "LeanLab.LPZ2007.Lfun481",
+      "LeanLab.LPZ2007.zeroBox481",
+      "LeanLab.LPZ2007.gammaPair481",
+      "LeanLab.LPZ2007.zeroSign481",
+      "LeanLab.LPZ2007.Lemma41Statement481",
+      "LeanLab.LPZ2007.jutilaRect481",
+      "LeanLab.LPZ2007.JutilaTheorem18_481",
+      "LeanLab.LPZ2007.IwaniecTheorem2_1123"
+    ],
+    "formalization_metadata_path": "entries/languascopintzzaccagnini2007/formalization.yaml",
+    "lakefile_path": "entries/languascopintzzaccagnini2007/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "entries/languascopintzzaccagnini2007/SolutionLanguascoPintzZaccagnini2007.lean",
+    "theorem_names": [
+      "LeanLab.LPZ2007.cor42_of_three_inputs",
+      "LeanLab.LPZ2007.repaired_mainJ131_of_three_inputs",
+      "LeanLab.LPZ2007.global_primes_of_three_inputs"
+    ]
+  },
+  "id": "PALOMAR-2026-11-23-000024",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-23T19:24:10Z",
+    "receipt_sha256": "cc1c4563f3c355784d78948a4c2388c1fa1b1d86d7e492f6a073758ba7f59c58",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000024-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000024-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000024-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000024-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000024-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000024-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000024-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000024-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000024-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "05fe86a4649a4bb2728244a8805ec6bbc822d250",
+        "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000024-v1/05fe86a4649a4bb2728244a8805ec6bbc822d250",
+        "source_repository": "sthubbar/goldbach-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "A. Languasco"
+          },
+          {
+            "name": "J. Pintz"
+          },
+          {
+            "name": "A. Zaccagnini"
+          }
+        ],
+        "identifier": "doi:10.1112/blms/bdm062",
+        "license": "unknown",
+        "location": "Bulletin of the London Mathematical Society 39, 2007, pages 771 to 780: the Theorem, Lemma 4.1 and Corollary 4.2 on pages 774 and 775, the major and minor arcs and the singular series average on pages 775 to 779, and the abstract for the count of prime representations",
+        "relationship": "adapts",
+        "title": "On the sum of two primes and k powers of two",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "J. Pintz"
+          }
+        ],
+        "identifier": "MR2310184",
+        "license": "unknown",
+        "location": "Elementare und Analytische Zahlentheorie, Proceedings of the ELAZ conference 2004, Franz Steiner Verlag, Stuttgart 2006, pages 220 to 254, Theorem 10",
+        "relationship": "background",
+        "title": "Recent results on the Goldbach conjecture",
+        "type": "inproceedings"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "M. Jutila"
+          }
+        ],
+        "identifier": "doi:10.7146/math.scand.a-11701",
+        "license": "unknown",
+        "location": "Mathematica Scandinavica 41, 1977, page 46, Theorem 1, display 1.8",
+        "relationship": "background",
+        "title": "On Linnik's constant",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "H. Iwaniec"
+          }
+        ],
+        "identifier": "doi:10.1007/BF01405163",
+        "license": "unknown",
+        "location": "Inventiones Mathematicae 23, 1974, pages 97 to 104, page 97, Theorem 2",
+        "relationship": "background",
+        "title": "On zeros of Dirichlet's L series",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Arend Mellendijk"
+          },
+          {
+            "name": "the PrimeNumberTheoremAnd project contributors"
+          }
+        ],
+        "identifier": "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd",
+        "license": "Apache-2.0",
+        "location": "commit c39a751132c88b6e8080b74c74023fd95b3d8be0",
+        "relationship": "other",
+        "title": "PrimeNumberTheoremAnd",
+        "type": "formalization"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/sthubbar/goldbach-lean/tree/main/entries/linnik1951",
+        "note": "Registered entry of this repository: Linnik 1951 in its qualitative form, two primes and a bounded number of powers of two, conditional on GRH.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/sthubbar/goldbach-lean/tree/main/entries/gallagher1975",
+        "note": "Registered entry of this repository: Gallagher 1975 Theorems 1 and 2 for base 2, two primes and a bounded number of powers of two without GRH.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Steve Hubbard"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-23T19:23:48Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "13402b093cdb10c46b72d02a72249caaba340cad1724f4a361a37b4b9bda8c77"
+    },
+    "reviewed_at": "2026-11-23T17:57:18Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "05fe86a4649a4bb2728244a8805ec6bbc822d250",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "entries/languascopintzzaccagnini2007",
+    "repository": "sthubbar/goldbach-lean",
+    "repository_url": "https://github.com/sthubbar/goldbach-lean",
+    "tree_url": "https://github.com/sthubbar/goldbach-lean/tree/05fe86a4649a4bb2728244a8805ec6bbc822d250/entries/languascopintzzaccagnini2007"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "avng9xnkubyw"
+  },
+  "title": "On the sum of two primes and k powers of two",
+  "trust": {
+    "challenge_bytes": 17769,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 416,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "7779a187a7e33ef7f43216a7522a8b8b811a0a88ab40d4659741f59264bf132b",
+    "evidence_path": "evidence/PALOMAR-2026-11-23-000024-v1/113004c20aa3f1f8f281703f6f8d96bbd0e0782240281e2183bd65a181e87106/",
+    "evidence_tree_sha256": "113004c20aa3f1f8f281703f6f8d96bbd0e0782240281e2183bd65a181e87106",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "bdf321ed2a5fccf6fcec0d03b8cca460a190ccd680cae8fa25f395a29b6dc282",
+    "protected_config_sha256": "a385e8f8ffe3e8426e5b4abf9e27c6db92a002b49f32d03951d23fb194e6651a",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45180775556,
+    "solution_sha256": "8cf00802a8598b04925077caf8dd5d605f284e6115e28fd1fbca5c5806c007ee",
+    "tool_digests": {
+      "bwrap": "59a09c9fe76e46993a436251f71e3f8a1d23a68428998d51b66c1bcf667fe197",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-23T13:18:07Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45180775556"
+  },
+  "version": 1
+}

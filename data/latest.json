@@ -1,14 +1,2275 @@
 {
-  "fetched_at": "2026-11-23T10:41:33.655000+00:00",
+  "fetched_at": "2026-11-24T12:24:11.690776+00:00",
   "results": {
     "schema_version": 1,
-    "revision": 1140,
-    "release": "3d0bd9c75f6eb2c2137bb8c2273d38c8332e8f9eb54499922b70187b6d2d70b3",
+    "revision": 1177,
+    "release": "22f8ebc22206adeaff2303e1b308187a5da8dde75d14c2afd3491f15dccfae77",
     "totals": {
-      "results": 1308,
-      "projects": 992
+      "results": 1338,
+      "projects": 1017
     },
     "entries": [
+      {
+        "abbreviated": false,
+        "abstract": "Unconditional Lean 4 + Mathlib formalization (208 audited declarations, zero sorry, zero native_decide, standard axioms only) covering three families of exact girth theorems for the Lazebnik-Ustimenko algebraically defined bipartite graphs D(k, F), separating original results from an independent kernel proof of an earlier binary theorem: (1) Original result: exact girth D(9, F) = girth D(10, F) = 14 for every finite field F with |F| >= 4 in both the working (DS28 Section 6.1) and original minus-sign representations, closing characteristics 2 and 3 (q = 2^m >= 4 and q = 3^m >= 9, left open by Pikuta 2008), closing the empty DS28 Table 7 cells (9, 27), (10, 27), (9, 32), (10, 32), and proving at least two admissible cycle parameters exist whenever |F| >= 4; (2) Independent Lean 4 proof of the earlier complete binary girth law of Cheng, Chen, and Tang (2014) (quoted in Xu, Cheng, and Tang 2023, Example 1): girth D(k, 2) = 2^s for every s >= 3 and every k >= 2 with 2^(s-1) - 4 < k <= 2^s - 4 in both sign models, proved independently via an affine unipotent 4-step operator T4(p) = (I + N)p + b over ZMod 2, and applied (D2_girth_gt_16_of_ge_13) to prove girth D(k, 2) >= 32 with no 16-cycle for every k >= 13, refuting the conflicting printed claim D(k, 2) ~= 2^(k-3) C_16 (k >= 5) in Lazebnik-Sun-Wang (2017) and Lazebnik-Wang DS28 (2026); and (3) Original kernel-verified exact ternary girths D(k, 3) including k = 15, 16 (girth 20), k = 47, 48 (52), k = 55, 56 (60), k = 79, 80 (84), k = 99 (104), and k = 103, 104 (108), together with the unconditional tightening 56 <= girth D(52, 3) <= 60. Companion manuscript and verification archive: https://mathdiscoveries.org/results/lazebnik-ustimenko.",
+        "authors": [
+          {
+            "name": "Tyler B. Hughes"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C38",
+            "05C35",
+            "05C25"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "LazebnikUstimenkoChallenge.D9_D10_exact_girth_14_all_q_ge_4",
+            "LazebnikUstimenkoChallenge.D9_D10_orig_exact_girth_14_all_q_ge_4",
+            "LazebnikUstimenkoChallenge.D9_D10_exact_girth_14_galoisField",
+            "LazebnikUstimenkoChallenge.DS28_table7_blank_cells_27_32",
+            "LazebnikUstimenkoChallenge.card_admissible_ge_two_of_card_ge_four",
+            "LazebnikUstimenkoChallenge.D2_exact_girth_law",
+            "LazebnikUstimenkoChallenge.D2_exact_girth_orig_law",
+            "LazebnikUstimenkoChallenge.D2_girth_gt_16_of_ge_13",
+            "LazebnikUstimenkoChallenge.D3_exact_girths_highlights",
+            "LazebnikUstimenkoChallenge.D3_k52_bounds_56_60"
+          ]
+        },
+        "id": "PALOMAR-2026-11-24-000009",
+        "path": "entries/PALOMAR-2026-11-24-000009-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "ba3e40579b1a93f927b768ea55fa0b05a740dcd5",
+              "fork_repository": "PalomarArchive/mathdiscoveries--lazebnik-ustimenko--6eefc4df297c",
+              "source_repository": "mathdiscoveries/lazebnik-ustimenko"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "4a5b04eec3847b4f331936ec6afb86d4d8ad80e314466d0ad3a1ae374caae3be",
+          "version": 1
+        },
+        "published_at": "2026-11-24T06:59:45Z",
+        "source": {
+          "commit": "ba3e40579b1a93f927b768ea55fa0b05a740dcd5",
+          "project_path": null,
+          "repository": "mathdiscoveries/lazebnik-ustimenko"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Exact Girths of Lazebnik-Ustimenko Graphs D(k, q): Girth 14 for All |F| >= 4, Independent Proof of the Binary Girth Law, and Ternary Girths",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For an integer r >= 2 and a finite set N of primes, the random Euler product model for Dirichlet characters of order r replaces chi(q) by independent uniform r-th roots of unity. The development proves that the order-r local factor E|1 - z/q|^(-2) equals (1 + q^-r)/((1 - q^-2)(1 - q^-r)), that its ratio to the full-circle factor (1 - q^-2)^(-1), multiplied over the primes outside N, is zeta^(N)(r)^2 / zeta^(N)(2r), that this correction factor is also the sum of (ab)^-r over the coprime pairs of integers prime to N, and that the model mean is zeta^(N)(2) zeta^(N)(r)^2 / zeta^(N)(2r). The factor exceeds 1, decreases strictly in r and tends to 1; for r = 2k and N empty it equals -binom(4k,2k) B_{2k}^2/(2 B_{4k}). For r = 4 and N = {2} it is 35/34, the ratio by which the limit of Louboutin's mean square of L(1, chi) with the factor at 2 removed changes when the average is restricted to quartic characters; with the forced factor 4/5 at 2 the development also proves the constants pi^2/10, 7 pi^2/68, 7 pi^2/36 and 7/136 = (1/20)(35/34) = (7/72)(9/17). It also identifies the pairs the model keeps: for positive m, n the average of z^m conj(z^n) is 1 exactly when m/n is an r-th power in Q, that is when (m, n) = (d a^r, d b^r) with a, b coprime, and 0 otherwise. Modulo a single prime p with r | p - 1 it proves the finite-character counterpart: there are exactly r Dirichlet characters mod p with chi^r = 1, the sum of chi(a) conj(chi(b)) over them is r when a/b is a nonzero r-th power mod p and 0 otherwise, so every pair (d a^r, d b^r) prime to p survives with sum r; by contrast, summed over all characters mod p, chi(m) conj(chi(n)) has sum 0 for distinct m, n < p. Release v1.2 adds the finite part of the Chebyshev bias in families p = a (mod M) of fixed order r: with rho_s(t) the average of exp(2 pi i u t/s) over the units u mod s, the sum over t < s of rho_s(c t) is s when s | c and 0 otherwise; for M > 0 and s | M the squares in Z/s x| (Z/M)^x give the prime-square term of the explicit formula as s times the square-root count beta(M, a, s) = #{y in (Z/M)^x : y^2 = a, y = -1 (mod s)}, a count of residue classes (the same finite-sum identity over the representatives 0 <= x < M holds for all M and s > 0, but is only an arithmetic identity there: vacuous at M = 0, representative-dependent when s does not divide M); beta does not decrease as s decreases along divisibility, at s = r it is 0 unless a is a square in H = ker((Z/M)^x -> (Z/r)^x) and is then the number of square roots of 1 in H; and for the imaginary families (r even, M = 2r, a = 1 + r) beta vanishes for every s unless 8 | r, and for s = r/d with d odd in every case.",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11M06",
+            "11M20",
+            "11R42",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "FixedOrderFactor.muAvg_eq",
+            "FixedOrderFactor.tendsto_muAvg",
+            "FixedOrderFactor.modelMean_eq",
+            "FixedOrderFactor.hasProd_correctionFactor",
+            "FixedOrderFactor.hasProd_muAvg",
+            "FixedOrderFactor.tendsto_modelMean",
+            "FixedOrderFactor.hasSum_coprime_pairs",
+            "FixedOrderFactor.correctionFactor_even",
+            "FixedOrderFactor.correctionFactor_eq_mul",
+            "FixedOrderFactor.one_lt_correctionFactor",
+            "FixedOrderFactor.correctionFactor_succ_lt",
+            "FixedOrderFactor.tendsto_correctionFactor",
+            "FixedOrderFactor.correctionFactor_four_two",
+            "FixedOrderFactor.localTerm_I_half",
+            "FixedOrderFactor.quartic_constants",
+            "FixedOrderFactor.sum_char_pow_eq_one",
+            "FixedOrderFactor.card_char_pow_eq_one",
+            "FixedOrderFactor.sum_char_pow_eq_one_of_pow",
+            "FixedOrderFactor.sum_char_all",
+            "FixedOrderFactor.div_eq_pow_iff",
+            "FixedOrderFactor.model_pair_average",
+            "FixedOrderFactor.sum_orbitAvg_mul",
+            "FixedOrderFactor.sum_orbitAvg_eq_zero",
+            "FixedOrderFactor.sum_orbitAvg_square_finite",
+            "FixedOrderFactor.sqrtCount_eq_card_zmod",
+            "FixedOrderFactor.sum_orbitAvg_square",
+            "FixedOrderFactor.sqrtCount_le_of_dvd",
+            "FixedOrderFactor.sqrtCount_top",
+            "FixedOrderFactor.sqrtCount_top_dichotomy",
+            "FixedOrderFactor.sqrtCount_imaginary",
+            "FixedOrderFactor.sqrtCount_table"
+          ]
+        },
+        "id": "PALOMAR-2026-10-20-000010",
+        "path": "entries/PALOMAR-2026-10-20-000010-v4.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "0fe8ba61171e15fe0864313357dcc8ed7e8a64e5",
+              "fork_repository": "PalomarArchive/jkfarland-bot--FixedOrderFactor-lean--c8161d9d4229",
+              "source_repository": "jkfarland-bot/FixedOrderFactor-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "ea498316be407f5de0ddfaa262e0c280f6561792c8ce42d70bc8165a75ac3b60",
+          "version": 4
+        },
+        "published_at": "2026-11-24T06:44:23Z",
+        "source": {
+          "commit": "0fe8ba61171e15fe0864313357dcc8ed7e8a64e5",
+          "project_path": null,
+          "repository": "jkfarland-bot/FixedOrderFactor-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "FixedOrderFactor: the order-r correction factor for mean squares of L(1, chi), and the factor 35/34",
+        "trust": {
+          "level": "high"
+        },
+        "version": 4,
+        "versions": 4
+      },
+      {
+        "abbreviated": false,
+        "abstract": "The Legendre family of elliptic curves y^2 = x(x-1)(x-λ) has the period function F(λ) = 2F1(1/2, 1/2; 1; λ), taken here as Mathlib's ordinaryHypergeometric. Its Picard–Fuchs operator is λ(1-λ) y'' + (1-2λ) y' - y/4. The second Frobenius solution at λ = 0 is L(λ) = F(λ) log λ + G(λ), with G(λ) = sum over n of a_n h_n λ^n, a_n = (C(2n,n)/4^n)^2 the Taylor coefficients of F, and h_n = sum_{k=1}^{n} 2/(k(2k-1)). Let D be the slit unit disc, the open unit disc minus (-1, 0]. This entry proves, in Lean 4 and Mathlib, seven statements.\n(1) F is holomorphic on the unit disc and solves the Picard–Fuchs equation there. (2) Period integral: for |λ| < 1, F(λ) = (1/π) ∫_0^1 dx / (sqrt(x(1-x)) (1-λx)^{1/2}), with the principal branch of the complex power. (3) Wronskian: F L' - F' L = 1/(λ(1-λ)) on D. (4) Solution space: a function y is holomorphic on D and solves the Picard–Fuchs equation on D if and only if y = aF + bL on D for some complex constants a, b. (5) F and L are linearly independent on D. (6) Local monodromy at 0: there is a function holomorphic on the unit disc slit along [0, 1) that equals L on the open upper half-disc and L + 2πi F on the open lower half-disc; that is, L continues analytically across (-1, 0) to L + 2πi F, while F is holomorphic on the whole disc. In the basis (F, L), the local monodromy at 0 is therefore [[1, 2πi], [0, 1]]. (7) Connection formula: on the lens where |λ| < 1 and |λ - 1| < 1, F(1-λ) = (4 log 2 · F(λ) - L(λ))/π. This expresses the solution regular at λ = 1 in the Frobenius basis at λ = 0; its constants come from the classical asymptotic K(k) = log(4/k') + o(1) as k → 1, which is proved here from the period integral.\nThe proofs are a power-series treatment of the equation and of G (whose coefficients satisfy a harmonic-number recursion), Abel's identity for the Wronskian, a uniqueness theorem for holomorphic solutions with vanishing Cauchy data at an ordinary point (derivative recursion, Taylor series and the identity theorem; Mathlib's ODE uniqueness is for real time only), term-by-term integration of the binomial series against Beta integrals, and an explicit estimate of the complete elliptic integral near its logarithmic singularity. All seven results are classical; this is, to our knowledge, their first Lean formalization. Scope: everything is local to λ = 0 (and, for (7), to the lens); the global monodromy group Γ(2) and analytic continuation along paths are not formalized; the elliptic curve, its differential forms and its homology do not appear, so \"period\" refers to the integral formula (2).",
+        "authors": [
+          {
+            "name": "Rohan Badade"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CA",
+            "math.LO"
+          ],
+          "msc2020": [
+            "33C05",
+            "34M35",
+            "33E05",
+            "14D05",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "LegendreChallenge.F_solves_picardFuchs",
+            "LegendreChallenge.F_eq_period_integral",
+            "LegendreChallenge.wronskian_F_L",
+            "LegendreChallenge.solution_space",
+            "LegendreChallenge.F_L_linearIndependent",
+            "LegendreChallenge.monodromy_at_zero",
+            "LegendreChallenge.connection_formula"
+          ]
+        },
+        "id": "PALOMAR-2026-11-24-000008",
+        "path": "entries/PALOMAR-2026-11-24-000008-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "5856d40623d3d9895077e760c124408d1ae494ee",
+              "fork_repository": "PalomarArchive/gnostrich--legendre-monodromy--baa723f45b03",
+              "source_repository": "gnostrich/legendre-monodromy"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "3f5a2c668051ba290a11653d5256e4990418abc3c0f445c8cfb50a6092699fb8",
+          "version": 1
+        },
+        "published_at": "2026-11-24T06:24:47Z",
+        "source": {
+          "commit": "5856d40623d3d9895077e760c124408d1ae494ee",
+          "project_path": null,
+          "repository": "gnostrich/legendre-monodromy"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The Legendre family: Picard–Fuchs equation, period integral, solution space, local monodromy and connection formula for 2F1(1/2,1/2;1;λ)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For an odd prime p, an odd character chi modulo p and m >= 0, the multiplier family C(a) = sum over 0 < n < p/2 of chi(n) (-1)^(n + <a n^(2m)>) has Fourier transform over the characters 2 sum_a conj(psi)(a) C(a) = G(conj psi) G(chi psi^(2m)), with the multiplier constant G(psi) = sum_m psi(m) (-1)^m, which is 2 (1 - 2 psi(2)) B_(1,psi) for odd psi and 0 for even psi (the Bernoulli expression is false for even psi). The development proves this Mellin duality over any commutative ring, its inversion over the odd complex characters and its form bilinear in first Bernoulli numbers, the half-sum identity, the exponent family and its two collapses. At p = 5 (mod 8), for the quartic character, it proves the coset decomposition of the family, its exact sums over the cosets of the fourth powers, conjugate dynamics, the two second-moment identities, the decomposition of the second-order products of the band-parity companion by coprime pairs, and Parseval's identity for the band weight. Through the inversion and Parseval's identity over the odd characters it proves, for every a not divisible by p, the exact second moment sum over odd chi of |sum over odd psi of psi(a) (1 - 2 conj(psi)(2)) (1 - 2 chi(2) psi(2)^2) B_(1,conj psi) B_(1,chi psi^2)|^2 = ((p - 1)/2)^4.",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11L40",
+            "11A15",
+            "11B68",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "MellinDuality.multiplier_constant_half",
+            "MellinDuality.multiplier_constant_even",
+            "MellinDuality.half_sum_identity",
+            "MellinDuality.multiplier_constant_bern",
+            "MellinDuality.mellin_duality",
+            "MellinDuality.mellin_duality_inverse",
+            "MellinDuality.mellin_duality_bernoulli",
+            "MellinDuality.mellin_duality_quartic",
+            "MellinDuality.parity_dictionary",
+            "MellinDuality.exponent_family_dual",
+            "MellinDuality.exponent_collapse_first",
+            "MellinDuality.exponent_collapse_second",
+            "MellinDuality.cosets_as_fibers",
+            "MellinDuality.coset_decomposition",
+            "MellinDuality.gamma_identities",
+            "MellinDuality.exponent_terminal_values",
+            "MellinDuality.coset_trace_values",
+            "MellinDuality.coset_trace_second",
+            "MellinDuality.family_mean_values",
+            "MellinDuality.conjugate_dynamics_squaring",
+            "MellinDuality.second_moments",
+            "MellinDuality.gcd_decomposition",
+            "MellinDuality.band_sum_interval",
+            "MellinDuality.pair_structure_identities",
+            "MellinDuality.parseval_identity",
+            "MellinDuality.parseval_any_weight",
+            "MellinDuality.multiplier_family_interval",
+            "MellinDuality.parseval_odd_characters",
+            "MellinDuality.bernoulli_mean_square_identity"
+          ]
+        },
+        "id": "PALOMAR-2026-11-02-000019",
+        "path": "entries/PALOMAR-2026-11-02-000019-v2.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "f7db24563547f918f183438ff866cc91ebc8758c",
+              "fork_repository": "PalomarArchive/jkfarland-bot--MellinDuality--0105682cec7c",
+              "source_repository": "jkfarland-bot/MellinDuality"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "af9340cc63cd671fe1c7beb4c29c0e8712fba24654bbc3fdd5374900f90f97ac",
+          "version": 2
+        },
+        "published_at": "2026-11-24T06:00:37Z",
+        "source": {
+          "commit": "f7db24563547f918f183438ff866cc91ebc8758c",
+          "project_path": null,
+          "repository": "jkfarland-bot/MellinDuality"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "MellinDuality: Mellin duality for the band-parity companion",
+        "trust": {
+          "level": "high"
+        },
+        "version": 2,
+        "versions": 2
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Formalization of the principal mathematical results of Heng Li and Xizhi Liu, Unbounded GHZ dimension from fixed-order multiphoton sources. The current registration scope consists of three configurations selecting 20 theorems: quantitative rigid-hypergraph growth and prescribed dimension, harmonic and logarithmic upper bounds, the finite extrema f_3(9)=13, f_3(6)=10 and g_3(3)=6 with balanced uniqueness, and the connection to coherent source amplitudes, exact photon-number postselection, normalized GHZ states and optimal equal-weight success probability. Additional compiled supplementary families, finite seeds and threshold proofs are retained as an optional extension outside this registration scope. COVERAGE_AUDIT.md records exact coverage and alternative proofs; each selected Comparator configuration fixes its recorded declarations.",
+        "authors": [
+          {
+            "name": "Xizhi Liu"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "quant-ph"
+          ],
+          "msc2020": [
+            "05C65",
+            "05C70"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "RigidGHZ.Growth.balanced_growth",
+            "RigidGHZ.Growth.balanced_growth_integer",
+            "RigidGHZ.Growth.prescribed_dimension",
+            "RigidGHZ.UpperBounds.unrestricted_harmonic_shadow",
+            "RigidGHZ.UpperBounds.balanced_partite_harmonic_bound",
+            "RigidGHZ.UpperBounds.unrestricted_floor_bound",
+            "RigidGHZ.UpperBounds.balanced_partite_floor_bound",
+            "RigidGHZ.UpperBounds.unrestricted_log_bound",
+            "RigidGHZ.UpperBounds.balanced_partite_log_bound"
+          ]
+        },
+        "id": "PALOMAR-2026-11-24-000007",
+        "path": "entries/PALOMAR-2026-11-24-000007-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "92a4ec9870602cc466a346e97edef26736ce21c4",
+              "fork_repository": "PalomarArchive/xliu2022--GHZ-unbounded-lean--995e36bdd681",
+              "source_repository": "xliu2022/GHZ-unbounded-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "09025988e9ea3757585e42fbb92d1363302c5b5eeb18f3a25906586182b0a7b0",
+          "version": 1
+        },
+        "published_at": "2026-11-24T05:50:20Z",
+        "source": {
+          "commit": "92a4ec9870602cc466a346e97edef26736ce21c4",
+          "project_path": null,
+          "repository": "xliu2022/GHZ-unbounded-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Rigid hypergraphs for unbounded GHZ dimension",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For a prime p let a = v_2(p-1), m = (p-1)/2^a, H_a the subgroup of (Z/p)^x of order m and s(x) = (-1)^<x>. The development proves the tower of band-parity laws of Paper I of the author's series: the cyclotomic tower (every coordinate of the band-parity sum of the character of order 2^a is congruent modulo 4 to an explicit count), the band-parity tower f_a = sum over H_a of s(u) s(u^2) = m (mod 4) at every odd prime, the doubling count sum over 2H_a of s(u) s(2u) = 2 N_a - m, the imaginary law e_a = 2 N_a - m (mod 4) at every prime p = 1 (mod 4) with its level-3 form, the collapse e_a = +-f_a when 2 is a 2^(a-1)-th power residue, and E. Lehmer's criterion for 2 to be a 2k-th power residue. It also proves the power-map family, the companion law Re C = Im C = kappa (mod 4) at p = 1 (mod 8), and Lehmer-type invariants of the inversion map modulo 4; and, modulo 8, the joint-parity form, the dichotomy, squaring cycles and the order-three pair, the defect lemma, odd multipliers as floor sums and the fifth-interval formula linking M_H(5) to B_{1,theta_p}.",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11A15",
+            "11L40",
+            "11R29",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "BandParityTower.Ha_spec",
+            "BandParityTower.coordinates_exact",
+            "BandParityTower.lag_identity_level_four",
+            "BandParityTower.cyclotomic_tower",
+            "BandParityTower.band_parity_tower",
+            "BandParityTower.doubling_count",
+            "BandParityTower.imaginary_law",
+            "BandParityTower.imaginary_law_three",
+            "BandParityTower.imaginary_law_two",
+            "BandParityTower.collapse_criterion",
+            "BandParityTower.lehmer_theorem_five",
+            "BandParityTower.power_map_family",
+            "BandParityTower.companion_law_one_mod_eight",
+            "BandParityTower.lehmer_invariants",
+            "BandParityTower.joint_parity_form",
+            "BandParityTower.hminus_mod_eight",
+            "BandParityTower.mod_eight_dichotomy",
+            "BandParityTower.squaring_cycles",
+            "BandParityTower.squaring_on_H",
+            "BandParityTower.cube_root_cycle",
+            "BandParityTower.e_as_correlation",
+            "BandParityTower.order_three_pair",
+            "BandParityTower.real_part_eq_fTower",
+            "BandParityTower.multiplier_identity",
+            "BandParityTower.multiplier_count_sum",
+            "BandParityTower.defect_congruence",
+            "BandParityTower.odd_multipliers",
+            "BandParityTower.fifth_interval_formula"
+          ]
+        },
+        "id": "PALOMAR-2026-11-02-000005",
+        "path": "entries/PALOMAR-2026-11-02-000005-v3.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "9fc4e776b596e5b121f8e1dcc46b17d27de30022",
+              "fork_repository": "PalomarArchive/jkfarland-bot--Bandparitytower--5c24f1f12bf3",
+              "source_repository": "jkfarland-bot/Bandparitytower"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "0debe421e2b6520af3f5379a6490b110f0e4d3822cca127253b792659d72a59b",
+          "version": 3
+        },
+        "published_at": "2026-11-24T05:04:54Z",
+        "source": {
+          "commit": "9fc4e776b596e5b121f8e1dcc46b17d27de30022",
+          "project_path": null,
+          "repository": "jkfarland-bot/Bandparitytower"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "BandParityTower: the band-parity tower and its limit modulo eight",
+        "trust": {
+          "level": "high"
+        },
+        "version": 3,
+        "versions": 3
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Unconditional Lean 4 + Mathlib formalization (514 audited declarations, zero sorry, zero native_decide, standard axioms only) resolving all four questions and observations (Q1, Q2, O1, O2) from Badkobeh and Ochem (Theoret. Comput. Sci. 588, 2015) for the 5-letter morphic fixed point b5 = f5^omega(0) (0 -> 01, 1 -> 23, 2 -> 4, 3 -> 21, 4 -> 0). The library identifies b5 as the exact 5-interval coding of a golden-ratio 3-interval exchange on (-phi^2/2, phi^3/2) via the -1/phi left eigenvector, proving unconditionally that (Q1) b5 has exact factor complexity 4n + 1 for every n >= 0, (O1) g_fib(b5) has the exact same factors as the Fibonacci word with complexity n + 1, (O2) g_rf(b5) has the exact same factors as the Rote-Fibonacci word with complexity 2n for n >= 1, and (Q2) the critical exponent of b5 is exactly (5 + sqrt(5))/4 and is strictly unattained. It also proves the sharp second-order bound |w|/p < (5 + sqrt(5))/4 - (7 - sqrt(5))/(8p) with exact unattained deficit infimum (7 - sqrt(5))/4, asymptotic critical exponent E*(b5) = (5 + sqrt(5))/4, irrationality of E(b5), reversal-swap (3 <-> 4) language invariance, ternary 3-IET collapse complexity 2n + 1, unbounded balance defect, and the exact 5th-order A005252 length recurrence. Companion manuscript and verification archive: https://mathdiscoveries.org/results/badkobeh-ochem-word-b5.",
+        "authors": [
+          {
+            "name": "Tyler B. Hughes"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "cs.FL"
+          ],
+          "msc2020": [
+            "68R15",
+            "37B10",
+            "11B85"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "BadkobehOchemB5Challenge.b5_codes_interval_translation",
+            "BadkobehOchemB5Challenge.b5_factor_complexity",
+            "BadkobehOchemB5Challenge.b5_sturmian_projection",
+            "BadkobehOchemB5Challenge.b5_rote_fibonacci_projection",
+            "BadkobehOchemB5Challenge.b5_critical_exponent",
+            "BadkobehOchemB5Challenge.b5_sharp_second_order_and_deficit",
+            "BadkobehOchemB5Challenge.b5_asymp_critExp_and_irrational",
+            "BadkobehOchemB5Challenge.b5_language_rev_swap34_invariant",
+            "BadkobehOchemB5Challenge.pi3B5_factor_complexity",
+            "BadkobehOchemB5Challenge.b5_not_C_balanced",
+            "BadkobehOchemB5Challenge.fB5_iter_length_rec"
+          ]
+        },
+        "id": "PALOMAR-2026-11-24-000006",
+        "path": "entries/PALOMAR-2026-11-24-000006-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "74397f4d895335fbb817a89368e2ed514e3b4af7",
+              "fork_repository": "PalomarArchive/mathdiscoveries--badkobeh-ochem-word-b5--53a5d3cbff9c",
+              "source_repository": "mathdiscoveries/badkobeh-ochem-word-b5"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "2cb4d605cb049bf02d5ed081c0e13487e1ea56dea84306b054ada5329667e546",
+          "version": 1
+        },
+        "published_at": "2026-11-24T03:49:10Z",
+        "source": {
+          "commit": "74397f4d895335fbb817a89368e2ed514e3b4af7",
+          "project_path": null,
+          "repository": "mathdiscoveries/badkobeh-ochem-word-b5"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Badkobeh and Ochem's Word b5: Interval-Exchange Coding, Factor Complexity 4n + 1, Projections, and Critical Exponent",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Formalization of dimension-independent exponential entropy-quotient bounds for laws on finite vector spaces over F₂. For every ε > 0 a subspace of dimension at most 2^(320(1+ε)/ε) H(X) makes the quotient entropy at most (1+ε) times its independent-doubling entropy increment, which does not exceed the original increment. The development also proves logarithmic rigidity for sparse laws and finite weighted families, necessity of exponential dependence on 1/ε, two-input almost-additivity, and concentration of moderate-doubling sets on subspace cosets. Entropies are in bits. The entropic Marton input is obtained from the pinned PFR formalization through a proved translation to probability mass functions. The selected results are Theorems 1.1, 1.2 and 8.2, Proposition 9.3, and Corollaries 9.2 and 9.4 of arXiv:2610.38525v1; no optimality of the constant 320 is claimed.",
+        "authors": [
+          {
+            "name": "Josiah Park"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "cs.IT"
+          ],
+          "msc2020": [
+            "11B30",
+            "94A17"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "EntropyLean.exponential_entropy_quotient",
+            "EntropyLean.sparse_rigidity",
+            "EntropyLean.weighted_family_rigidity",
+            "EntropyLean.exponential_scale_necessary",
+            "EntropyLean.two_input_almost_additivity",
+            "EntropyLean.coset_concentration",
+            "EntropyLean.exists_large_coset"
+          ]
+        },
+        "id": "PALOMAR-2026-11-24-000005",
+        "path": "entries/PALOMAR-2026-11-24-000005-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "aa2181293de3f3cbc3f319dc10ce76620ad9e780",
+              "fork_repository": "PalomarArchive/JosiahPark--entropy-palomar-v2--c4eb27b0a1bf",
+              "source_repository": "JosiahPark/entropy-palomar-v2"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "36860071458179dc7fbcfdfeb7532dd41dd4adcbb7490e38ea94381387c9434b",
+          "version": 1
+        },
+        "published_at": "2026-11-24T03:25:20Z",
+        "source": {
+          "commit": "aa2181293de3f3cbc3f319dc10ce76620ad9e780",
+          "project_path": null,
+          "repository": "JosiahPark/entropy-palomar-v2"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Dimension-free exponential entropy quotients over F₂",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib proof of the main results of Dubova, Yang, Yau and Yin, \"Delocalization of two-dimensional random band matrices\" (arXiv:2503.07606). The model is the complex Gaussian block band matrix on the torus Z_L^2 with L^2 blocks of size W x W, N = W^2 L^2, and band width W >= N^c for some c > 0. This entry contains Theorem 2.2 (delocalization of the bulk eigenvectors), Theorem 2.3 (the local semicircle law, (4)-(5)), Theorem 2.4 (generalized quantum unique ergodicity, (8)-(9)) and Theorem 2.5 (quantum diffusion, (10)-(13)); they have no hypotheses other than their parameters, and no result of another work is assumed for them. The library also proves Theorem 2.6 (bulk universality) from one external input, stated as an explicit hypothesis; that theorem is not part of this entry.",
+        "authors": [
+          {
+            "name": "Jun Yin"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.PR",
+            "math-ph"
+          ],
+          "msc2020": [
+            "60B20",
+            "15B52",
+            "82B44"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "RBM.Endpoints.theorem_2_2",
+            "RBM.Endpoints.theorem_2_3",
+            "RBM.Endpoints.theorem_2_4",
+            "RBM.Endpoints.theorem_2_5"
+          ]
+        },
+        "id": "PALOMAR-2026-11-24-000004",
+        "path": "entries/PALOMAR-2026-11-24-000004-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "e58fa3313a17fb8a755c285d1537e5cd988b2a29",
+              "fork_repository": "PalomarArchive/JYin80--Lean-RBM2d_arxiv-2503.07606--4ddd2ec17254",
+              "source_repository": "JYin80/Lean-RBM2d_arxiv-2503.07606"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "cc98101e4e9b7a4fdf061411e21fdab3e3996ac1cf8ba4fb1a148562532f5ef7",
+          "version": 1
+        },
+        "published_at": "2026-11-24T03:04:39Z",
+        "source": {
+          "commit": "e58fa3313a17fb8a755c285d1537e5cd988b2a29",
+          "project_path": null,
+          "repository": "JYin80/Lean-RBM2d_arxiv-2503.07606"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Delocalization of two-dimensional random band matrices",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean formalization of the two main theorems of Chen, McDonald, and Shan. Theorem 1.3 proves the overfull criterion for sufficiently large robust expanders with linear maximum degree, weak Vizing adjacency, and few vertices of large degree deficit. Theorem 1.4 gives the criterion for sufficiently large simple graphs whose maximum degree is at least (1 + epsilon) times half the order, for every fixed positive epsilon. The proof includes the reduction to critical graphs, the two stopping routes, and the coloring of the canonical completion.",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C15",
+            "05C35",
+            "05C45",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "OverfullWork.CMSTrimmingRound.cms_theorem_1_3",
+            "OverfullWork.Gate8J.cms_theorem_1_4"
+          ]
+        },
+        "id": "PALOMAR-2026-11-24-000003",
+        "path": "entries/PALOMAR-2026-11-24-000003-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "932d0cd927c8e3f6d3993e76087363d122f2fdcb",
+              "fork_repository": "PalomarArchive/jtraverso--overfull-criteria--2e39e1179caf",
+              "source_repository": "jtraverso/overfull-criteria"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "416bb13bfa24c849e027c449b67538b0d073876e05141d7df756babda660bb63",
+          "version": 1
+        },
+        "published_at": "2026-11-24T02:55:00Z",
+        "source": {
+          "commit": "932d0cd927c8e3f6d3993e76087363d122f2fdcb",
+          "project_path": null,
+          "repository": "jtraverso/overfull-criteria"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Towards the Overfull Conjecture II in Lean",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For a prime p = 5 (mod 8) let chi be the quartic Dirichlet character with chi(2) = i, with values in the Gaussian integers, and let C(p) = f + i e be the sum of chi(n) (-1)^floor(n^2/p) over 0 < n < p/2. The development proves that f = (p-1)/4 (mod 4) and e = kappa (mod 4) for every such p, where kappa is the sum of the Legendre symbols (n/p) over 0 < n < p/4. The mechanism is a matching lemma: for sign functions sigma, tau and a bijection pi, the correlation sum sigma(x) tau(pi x) is congruent modulo 4 to the sum of the two marginals minus the number of terms, so it does not depend on pi. Along the way it proves the parity dictionary (-1)^floor(n^2/p) = s(n) s(n^2) with s(x) = (-1)^<x>, the coset form f = sum over the fourth powers H of s(u) s(u^2) and e = the same sum over 2H, the lag identity sum over 2H of s(u) s(2u) = kappa exactly, the exact coset parities sum_H s = k + 2t and sum_{2H} s = t - 2k where B_{1,chi} = k + i t, and the Coordinate Congruence kappa = (p-1)/4 + k + t (mod 4). It also proves the odd-subgroup congruence: for an odd modulus N >= 3, a subgroup H of (Z/N)^x of odd order h, a coset X = xH and an even exponent e >= 2, the band-parity sum of X and -X over (0, N/2) equals sum over X of s(u) s(u^e) and is congruent to h - 2 alpha(X) - 2 alpha(X^e) modulo 4, where alpha counts elements with odd least residue.",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11A15",
+            "11L40",
+            "11R29",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "BandParity.matching",
+            "BandParity.matching_indep",
+            "BandParity.existsUnique_pinned",
+            "BandParity.neg_one_pow_band",
+            "BandParity.T_eq",
+            "BandParity.odd_k",
+            "BandParity.odd_t",
+            "BandParity.bandSum_re",
+            "BandParity.bandSum_im",
+            "BandParity.lag_identity",
+            "BandParity.bandSum_re_modEq",
+            "BandParity.bandSum_im_modEq",
+            "BandParity.coset_parities",
+            "BandParity.bandSum_im_modEq_coords",
+            "BandParity.coordinate_congruence",
+            "BandParity.cosetBandSum_eq",
+            "BandParity.odd_subgroup_congruence"
+          ]
+        },
+        "id": "PALOMAR-2026-10-27-000018",
+        "path": "entries/PALOMAR-2026-10-27-000018-v2.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "fbfb3238d24857762f8a4ecd7fa33fc48ffd30a0",
+              "fork_repository": "PalomarArchive/jkfarland-bot--Bandparity--4643317fd5e0",
+              "source_repository": "jkfarland-bot/Bandparity"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "f6c71558308e51edd77c6c13bca67befb00e4c1e0bd4e27c948aae79f599b9ad",
+          "version": 2
+        },
+        "published_at": "2026-11-24T01:57:54Z",
+        "source": {
+          "commit": "fbfb3238d24857762f8a4ecd7fa33fc48ffd30a0",
+          "project_path": null,
+          "repository": "jkfarland-bot/Bandparity"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "BandParity: the band-parity sum of a quartic character, two laws modulo 4",
+        "trust": {
+          "level": "high"
+        },
+        "version": 2,
+        "versions": 2
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Lean formalization of a literal 334-state Turing machine, its external consistency equivalence, and conditional independence from ZFC + I3.",
+        "authors": [
+          {
+            "name": "James Chang"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.LO",
+            "cs.LO"
+          ],
+          "msc2020": [
+            "03F30",
+            "03D10"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PalomarI3334.exactClaim"
+          ]
+        },
+        "id": "PALOMAR-2026-11-24-000002",
+        "path": "entries/PALOMAR-2026-11-24-000002-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "e71174d78877133222a7784fa371ced827fa6aca",
+              "fork_repository": "PalomarArchive/jamesyc--BusyBeaver--390b52bb5ea7",
+              "source_repository": "jamesyc/BusyBeaver"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "939b9cc2894c446cf2da05e7b7c1bd8ff6b237a8ef6a243dd0cf2afc4d04a13c",
+          "version": 1
+        },
+        "published_at": "2026-11-24T01:12:50Z",
+        "source": {
+          "commit": "e71174d78877133222a7784fa371ced827fa6aca",
+          "project_path": "I3-334",
+          "repository": "jamesyc/BusyBeaver"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "I3-334 conditional independence from ZFC + I3",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For k >= 2 and a subgroup H of odd order n of the unit group (Z/kZ)^x, the sum S(H,k) of the Dedekind sums s(h,k) over h in H satisfies: 12k S(H,k) is an integer congruent to n(k-1)(k-2) modulo 16, and the modulus 16 cannot be replaced by 32 (an explicit pair of order-3 subgroups of (Z/63Z)^x). The development also proves a congruence modulo 8 for every subgroup, a congruence for 2k S(H,k) when 3 does not divide k, and, for primes p > 3 and n > 1, that 2S(H,p) is an integer congruent to n(p-1)/2 modulo 8, which refines Louboutin's parity theorem and gives 12S(H,p) - p congruent to 3n(p-1) - p modulo 48. The proof formalizes Meyer's formula 12k s(h,k) = (k-1)(k-2) - 4I(h,k), where I(h,k) counts the inversions of x -> hx mod k, and the facts that these inversion counts are even on squares and equal for inverse elements.",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11F20",
+            "11M20",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "DedekindSubgroups.theorem_1_1",
+            "DedekindSubgroups.theorem_1_1_optimal",
+            "DedekindSubgroups.remark_3_4",
+            "DedekindSubgroups.corollary_4_1",
+            "DedekindSubgroups.theorem_1_2",
+            "DedekindSubgroups.theorem_1_2_louboutin"
+          ]
+        },
+        "id": "PALOMAR-2026-10-20-000005",
+        "path": "entries/PALOMAR-2026-10-20-000005-v2.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "72a259c1f63e8c56033cf75e36a4cb72b3791790",
+              "fork_repository": "PalomarArchive/jkfarland-bot--DedekindSubgroups-lean--eea92f4129af",
+              "source_repository": "jkfarland-bot/DedekindSubgroups-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "56ddee7c1edf90fbd42c4af0bde609b395ebcc933ce901d91279046be18bc521",
+          "version": 2
+        },
+        "published_at": "2026-11-24T01:03:50Z",
+        "source": {
+          "commit": "72a259c1f63e8c56033cf75e36a4cb72b3791790",
+          "project_path": null,
+          "repository": "jkfarland-bot/DedekindSubgroups-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "DedekindSubgroups: a congruence modulo 16 for sums of Dedekind sums over subgroups of odd order",
+        "trust": {
+          "level": "high"
+        },
+        "version": 2,
+        "versions": 2
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean development of the construction of an ordinary finite 3-uniform hypergraph with transcendental Turán density, via a quadrant Green kernel, finite positive rooted obstructions, rational optimization with free root weights, and an ordinary single-graph product transfer. The complete unconditional Lean proof includes an executable finite witness and the ordinary extremal-density limit. The full source build and final transitive axiom audit have passed. Independent statement comparison and the permitted-axiom check passed, and Lean and NanoDa accepted the solution. The selected con-ron replay produced a recognized advisory fuel decline.",
+        "authors": [
+          {
+            "name": "Xizhi Liu"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "math.LO"
+          ],
+          "msc2020": [
+            "05C65",
+            "05D05",
+            "03B35"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "TranscendentalTuran.main_result"
+          ]
+        },
+        "id": "PALOMAR-2026-11-24-000001",
+        "path": "entries/PALOMAR-2026-11-24-000001-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "4edf80b2ff9b308644a52d97dee3194326d21180",
+              "fork_repository": "PalomarArchive/xliu2022--transcendental-turan-lean--04117771ec61",
+              "source_repository": "xliu2022/transcendental-turan-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "879080e84717e1a9f67962ba52b597b9fa0b8b4fc7ed49bb9df53b30eadd444f",
+          "version": 1
+        },
+        "published_at": "2026-11-24T00:02:58Z",
+        "source": {
+          "commit": "4edf80b2ff9b308644a52d97dee3194326d21180",
+          "project_path": null,
+          "repository": "xliu2022/transcendental-turan-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "A Three-Graph with Transcendental Turán Density",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Conjecture 213 of DeLaViña's Written on the Wall II (Graffiti.pc) says that a simple connected graph G on n > 1 vertices has a Hamiltonian path if 2 + lm(Ḡ) ≤ γ₂(Ḡ), where Ḡ is the complement of G, lm(Ḡ) the lower median of the degree sequence of Ḡ and γ₂(Ḡ) the 2-domination number of Ḡ. The package proves the conjecture as stated, with no hypothesis beyond the source's. The main theorem reads the lower median as the middle term d_{⌈n/2⌉} of the degree sequence (d_{n/2} for even n, the median d_{(n+1)/2} for odd n). For odd n the catalogue's definition 68 names the term d_{(n+1)/2+1}, which is not the middle term; that literal reading is proved as a variant theorem, which follows from the main one because the literal term is never smaller.",
+        "authors": [
+          {
+            "name": "Jiří Chmel"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C45",
+            "05C69",
+            "05C07"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "WrittenOnTheWallII.GraphConjecture213.conjecture213",
+            "WrittenOnTheWallII.GraphConjecture213.conjecture213.variants.literal"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000036",
+        "path": "entries/PALOMAR-2026-11-23-000036-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "73a888bf7966a2a726baf5ce7cfd3f9a6018b4ee",
+              "fork_repository": "PalomarArchive/jirichmel--wowii-213-palomar--e551b76deed0",
+              "source_repository": "jirichmel/wowii-213-palomar"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "9c33b5911301839c964ec55b8af0dd0b98dad3d086611837360025e34f52f7fe",
+          "version": 1
+        },
+        "published_at": "2026-11-23T23:39:44Z",
+        "source": {
+          "commit": "73a888bf7966a2a726baf5ce7cfd3f9a6018b4ee",
+          "project_path": null,
+          "repository": "jirichmel/wowii-213-palomar"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "WOWII Conjecture 213 holds (a Hamiltonian path)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Unconditional pure core Lean 4 formalization (zero external dependencies, zero Mathlib imports, zero sorry, zero native_decide, standard axioms only) determining the exact last exception c*(k) for the 2-colour Rado number R(c, k) of x + y + c = kz for every integer k >= 3, where c*(k) = k(k^2 + k - 4)/2 for odd k and k(k^2 - 2)/2 for even k. Both halves are formalized unconditionally: (1) an original reflection proof (x |-> N+1-x) of the upper half R(c, k) = LB(c, k) for every valid c > c*(k) (valid means k odd or c even), and (2) Martinelli and Schaal's (2007) Lemma 3 lower half showing non-forcing at LB(c*(k), k), i.e., there exists a 2-colouring of [1, LB(c*(k), k)] with no monochromatic solution of x + y + c*(k) = k z (so ¬ Forced (c*(k)) k (LB (c*(k)) k) and c*(k) is an exception to R(c, k) = LB(c, k); finite existence of R(c*(k), k) itself is not formalized). In nu_iff, the property \"R(c, k) = LB(c, k) for all valid c >= v\" holds iff c*(k) < v, so the least integer cutoff is c*(k) + 1 while the least valid cutoff nu(k) (requiring Valid nu(k) k, i.e., even when k is even) is c*(k) + 1 for odd k and c*(k) + 2 for even k, giving least valid cutoffs 13, 30, 66, 104, 183, 250, 388, 492 for k = 3..10 and settling the Kim-Song-Hwang (2023) conjecture nu(5) = 66.",
+        "authors": [
+          {
+            "name": "Tyler B. Hughes"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05D10",
+            "11B75"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "RadoNuChallenge.rado_last_exception",
+            "RadoNuChallenge.rado_eq_LB",
+            "RadoNuChallenge.not_forced_cstar",
+            "RadoNuChallenge.nu_iff",
+            "RadoNuChallenge.nu_5_eq_66",
+            "RadoNuChallenge.nu_small_values"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000035",
+        "path": "entries/PALOMAR-2026-11-23-000035-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "8c0c3e402d081b1315530ff3e0e509c5589a9de3",
+              "fork_repository": "PalomarArchive/mathdiscoveries--rado-numbers-last-exception--a04443996e37",
+              "source_repository": "mathdiscoveries/rado-numbers-last-exception"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "9219f3eefdf1128f79de3bbdfcc855bb10fb18fd4f82030ef8505b64efa18757",
+          "version": 1
+        },
+        "published_at": "2026-11-23T23:32:19Z",
+        "source": {
+          "commit": "8c0c3e402d081b1315530ff3e0e509c5589a9de3",
+          "project_path": null,
+          "repository": "mathdiscoveries/rado-numbers-last-exception"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The Last Exception for Two-Colour Rado Numbers of x + y + c = kz",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For each complex terminal two-plane in dimension five, two real orthonormal terminal frames preserve all five coordinate weights and bracket the compressed two-step Hardy success for every positive Schmidt spectrum. The same two frames work throughout this family of spectra. For spectra proportional to (s,2,3,4,5) with 0<s≤2, the exact maximum at unrestricted endpoint ranks is attained by the real pairs (2,4) and (3,5).",
+        "authors": [
+          {
+            "name": "Stephanie Alexander"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "quant-ph",
+            "math.OC"
+          ],
+          "msc2020": [
+            "81P45",
+            "90C22"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "HardyFive.planar_decomposition",
+            "HardyFive.real_endpoints_all_spectra",
+            "HardyFive.Spectator.spectator_curve_maximum"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000034",
+        "path": "entries/PALOMAR-2026-11-23-000034-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "34467e5d53a296f80805bf5d75c61dfbec6343a8",
+              "fork_repository": "PalomarArchive/stalex444--pdt-five-level-hardy-ladder--9bf17cde2199",
+              "source_repository": "stalex444/pdt-five-level-hardy-ladder"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "c5fbb62cc37c50627f8660c4f7af7456e513e6157498473ed6006154d26623f7",
+          "version": 1
+        },
+        "published_at": "2026-11-23T23:25:13Z",
+        "source": {
+          "commit": "34467e5d53a296f80805bf5d75c61dfbec6343a8",
+          "project_path": null,
+          "repository": "stalex444/pdt-five-level-hardy-ladder"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Real Measurements and Sharp Pairing in the Five-Level Hardy Ladder",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 and Mathlib formalization of the planar separator theorem of Lipton and Tarjan and of nested dissection. A plane graph is a Mathlib simple graph on a finite vertex type with a rotation system (a permutation of the darts cycling the darts at each vertex) such that the graph is connected and Euler's formula |V| + |F| = |E| + 2 holds for the set F of faces (so it has at least one edge: faces are cycles of darts, and the one-vertex graph has none). Eight theorems are compared: (1) the separator theorem with constant 6: for nonnegative vertex weights of total at most 1, a set of at most 6 sqrt(n) vertices splits the n vertices into two parts with no edge between them, each of weight at most 2/3; (2) the same for every set U of vertices, with at most 6 sqrt(|U|) vertices of U; (3) every plane graph has a separator tree covering all vertices in which every subtree with k vertices has a separator (or leaf set) and a boundary of at most 50000 sqrt(k) vertices each and parts of at most 2k/3 vertices; (4) the same for the square of a plane graph of maximum degree at most D, with 40 (1062 (D + 1)^2 + 1) in place of 50000; (5) for any separator tree with constants alpha and beta, the filled graph of elimination in its nested dissection order has at most alpha (alpha + beta) n (1 + log_{3/2} n) edges; (6), (7) for every plane graph, and for the square of every plane graph of maximum degree at most D, there are a separator tree covering all vertices and the permutation listing its nested dissection order such that the filled graph of that order has at most 2 T^2 n (1 + log_{3/2} n) edges (T as in (3) and (4)), and, for every matrix over a field whose off-diagonal nonzero entries are edges of the graph, permuted into that order, elimination restricted to the filled graph computes exactly the matrix after the n in-place elimination steps M_ij - M_ik M_kk^(-1) M_kj, with at most 48 T^3 n^(3/2) ring operations counted in a writer monad that charges every addition, subtraction, negation, multiplication and inversion of the explicit algorithm; the inverse is Lean's totalized field inverse (0^(-1) = 0), so these steps are Gaussian elimination without pivoting when the pivots are nonzero and leave the matrix unchanged at a zero pivot; (8) one fixed word program (no real instruction) for an explicit word RAM (unit cost per instruction, natural registers and memory cells bounded by W along the run) prints, for a plane graph with n vertices, m darts and natural vertex weights, a separator of at most 6 sqrt(n) + 3 vertices whose two parts each weigh at most 2/3 of the total, within 320m + 191n + 403 steps for word bounds at least 16m + 12n + 3 (total weight) + 22. The proofs use only the axioms propext, Classical.choice and Quot.sound.",
+        "authors": [
+          {
+            "name": "Robert D. Barish"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "cs.DS"
+          ],
+          "msc2020": [
+            "05C10",
+            "05C85",
+            "65F05",
+            "65F50",
+            "68Q25",
+            "68W40"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PlanarSeparator.separator_theorem",
+            "PlanarSeparator.separator_theorem_induced",
+            "PlanarSeparator.sepTree_exists",
+            "PlanarSeparator.square_sepTree_exists",
+            "PlanarSeparator.fill_bound",
+            "PlanarSeparator.planar_nested_dissection",
+            "PlanarSeparator.square_nested_dissection",
+            "PlanarSeparator.separator_machine"
+          ]
+        },
+        "id": "PALOMAR-2026-11-21-000007",
+        "path": "entries/PALOMAR-2026-11-21-000007-v2.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "c87cf9f615831f52ca113348a8ace96feff37a6b",
+              "fork_repository": "PalomarArchive/RBarish-UTokyo--PlanarSeparator-NestedDissection-WordRAM-Lean4--199851cfb370",
+              "source_repository": "RBarish-UTokyo/PlanarSeparator-NestedDissection-WordRAM-Lean4"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "fe3d600802df7bce311fdb7e6168db2613f66175ec1d25a38f10533b78dfecde",
+          "version": 2
+        },
+        "published_at": "2026-11-23T23:14:28Z",
+        "source": {
+          "commit": "c87cf9f615831f52ca113348a8ace96feff37a6b",
+          "project_path": null,
+          "repository": "RBarish-UTokyo/PlanarSeparator-NestedDissection-WordRAM-Lean4"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The planar separator theorem and nested dissection, with a linear-time separator program on a word RAM, in Lean 4",
+        "trust": {
+          "level": "high"
+        },
+        "version": 2,
+        "versions": 2
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Unconditional Lean 4 + Mathlib formalization (zero sorry, zero native_decide, standard axioms only) establishing two explicit 37-digit Zhang K2 strong pseudoprimes n1 = 2481162833436289154832260656117034821 (121 bits) and n2 = 5959902256870799858089729225626992341 (123 bits) to the first 20 prime bases (2 through 71, defined via Mathlib's Nat.nth Nat.Prime), giving the upper bound psi_20 <= n1 < 2^121 (OEIS A014233). All four prime factors are certified inside the Lean kernel via Pratt certificates backed by Mathlib's lucas_primality, and both witnesses are proved to fail the strong test at the 21st prime 73 while passing Fermat at 73. The K2 Fermat and 2-adic order criteria formalize specializations of Gerhard Jaeschke's 1993 results. The companion manuscript also presents the exact strong-liar fraction (1 + 2*4^(-e))/6 and base-2 cap <= 3/16, the exact sieve count A(b) and 10,135,125-class wheel mod 401,120,980,260, the Jacobsthal character sum -(2/b) with exact b mod 8 cell counts, and the K_{a/b} Legendre obstruction. Lean covers 6 of the manuscript's 8 main claims. The other 2 are external sieve computations. AI research agents built and directed by Tyler B. Hughes generated and checked the work. No human mathematician has yet refereed the proof. Companion manuscript and verification archive: https://mathdiscoveries.org/results/spsp-psi20.",
+        "authors": [
+          {
+            "name": "Tyler B. Hughes"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11Y11",
+            "11A51",
+            "11N36"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "SpspPsi20Challenge.main_two_witnesses",
+            "SpspPsi20Challenge.psi_20_le_n₁",
+            "SpspPsi20Challenge.k2_fermat_and_sprp_criteria",
+            "SpspPsi20Challenge.k2_strongLiar_share_and_base2_cap",
+            "SpspPsi20Challenge.sieve_admissible_and_wheel",
+            "SpspPsi20Challenge.k2_jacobsthal_and_cells",
+            "SpspPsi20Challenge.k_gen_legendre_of_ratio",
+            "SpspPsi20Challenge.nth_prime_20"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000033",
+        "path": "entries/PALOMAR-2026-11-23-000033-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "f586e90ce583ad95a8ac2406adda5fc4bb905cbd",
+              "fork_repository": "PalomarArchive/mathdiscoveries--spsp-psi20--2818378352fd",
+              "source_repository": "mathdiscoveries/spsp-psi20"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "50191030504f7afb56865c442f639ff25fc9eeecd714023a1bc28f49f6e496d3",
+          "version": 1
+        },
+        "published_at": "2026-11-23T22:23:09Z",
+        "source": {
+          "commit": "f586e90ce583ad95a8ac2406adda5fc4bb905cbd",
+          "project_path": null,
+          "repository": "mathdiscoveries/spsp-psi20"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Two 37-Digit 20-Base Strong Pseudoprimes (psi_20 <= n1 < 2^121), Order Criteria, and Exact Sieve Laws",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Conjecture 399b of DeLaViña's Written on the Wall II (Graffiti.pc) says that every connected graph G on n > 2 vertices satisfies γ₂(G) ≤ WP(Ḡ) + ⌊3/α(G[A₃])⌋, where γ₂ is the 2-domination number, WP(Ḡ) the Welsh–Powell invariant of the complement (the largest k with k + d_k ≤ n, the degrees of G taken in nondecreasing order) and A₃ the set of vertices of degree at least three. The package proves the negation, for connected graphs on more than two vertices whose set A₃ is nonempty, with a connected graph F₃ on 12 vertices (graph6 KCOfFFb?~?[?) that has γ₂ = 7, WP(Ḡ) = 6 and α(G[A₃]) = 4, so that 7 > 6 = 6 + ⌊3/4⌋.",
+        "authors": [
+          {
+            "name": "Jiří Chmel"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C69",
+            "05C07",
+            "05C15"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "WrittenOnTheWallII.GraphConjecture399b.conjecture399b"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000032",
+        "path": "entries/PALOMAR-2026-11-23-000032-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "b65a7380a63104d790d0107c1d37363812d4a7d2",
+              "fork_repository": "PalomarArchive/jirichmel--wowii-399b-palomar--d63d287a55c5",
+              "source_repository": "jirichmel/wowii-399b-palomar"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "91719c4c9dd63a2514fcf83e7582409da93d1b0de55cd33304b4fc38f436dc26",
+          "version": 1
+        },
+        "published_at": "2026-11-23T22:13:48Z",
+        "source": {
+          "commit": "b65a7380a63104d790d0107c1d37363812d4a7d2",
+          "project_path": null,
+          "repository": "jirichmel/wowii-399b-palomar"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "WOWII Conjecture 399b is false (a 12-vertex counterexample)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Boolean function f of n variables is BLF if f(x) is bit j of K + a_1 x_1 + ... + a_n x_n for some integers K, a_i and some bit position j. The development proves, for every n, that the floors of (K + a.x) / 2^j satisfy every parallelogram inequality on the cube, that every threshold function is BLF, and that BLF is closed under XOR with GF(2)-affine functions; and it proves the exact counts |BLF(n)| = 4, 16, 208 and 10368 for n = 1, 2, 3 and 4 by a verified pruned search checked by the kernel, that BLF(3) is exactly the threshold functions XOR GF(2)-affine functions, and that BLF(4) adds exactly the affine translates of bit 1 of x1 + x2 + x3 + x4, which is not itself threshold XOR affine. It also proves, for every n, that f is BLF iff f = floor(t + r.x) mod 2 for real t and r; the selector lemma (z AND T(x) is bit j of an integer affine form iff T has integer weights with sum of absolute values below 2^j), with a gated threshold showing that no bit position below 4 serves every BLF function of five variables; and, through a square identity, that two and three steps of Rule 110 are not BLF.",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "cs.DM"
+          ],
+          "msc2020": [
+            "06E30",
+            "52C35",
+            "05A15",
+            "94C11",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "BLF.floor_parallelogram",
+            "BLF.threshold_isBLF",
+            "BLF.isBLF_xor_affB",
+            "BLF.blf_count_one",
+            "BLF.blf_count_two",
+            "BLF.blf_count_three",
+            "BLF.blf_count_four",
+            "BLF.blf_three_iff_threshold_xor_affine",
+            "BLF.blf_four_iff",
+            "BLF.bitOneSum_isBLF_not_txa",
+            "BLF.isBLF_iff_floor",
+            "BLF.selector_iff",
+            "BLF.gated_threshold_bit_four",
+            "BLF.blf_five_needs_bit_four",
+            "BLF.rule110Two_not_isBLF",
+            "BLF.rule110Three_not_isBLF"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000031",
+        "path": "entries/PALOMAR-2026-11-23-000031-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "728b97b34458166a1a5bbf87097bd16871a0072e",
+              "fork_repository": "PalomarArchive/jkfarland-bot--BLF--247c65191eda",
+              "source_repository": "jkfarland-bot/BLF"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "4c01ae76796592a5521c02148961ccbf81d78031df7f2efeab52f30951f4f399",
+          "version": 1
+        },
+        "published_at": "2026-11-23T22:03:34Z",
+        "source": {
+          "commit": "728b97b34458166a1a5bbf87097bd16871a0072e",
+          "project_path": null,
+          "repository": "jkfarland-bot/BLF"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "BLF: Boolean functions that are one bit of a linear form",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Repeated uses of the diagonal parity phase from the roots of X⁴−X−1 on the balanced two-qubit product state give squared concurrences dense in the unit interval after every finite cutoff. No finite iterate has the two-step Hardy-optimal Schmidt spectrum. An explicit population change on the first qubit gives that spectrum in one use of the same gate.",
+        "authors": [
+          {
+            "name": "Stephanie Alexander"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "quant-ph",
+            "math.NT"
+          ],
+          "msc2020": [
+            "81P40",
+            "11R16"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "HardyOrbit.parameters_exist",
+            "HardyOrbit.optimal_schmidt_weights",
+            "HardyOrbit.balanced_orbit_dense",
+            "HardyOrbit.hardy_approached_never_attained",
+            "HardyOrbit.one_gate_exact_preparation"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000030",
+        "path": "entries/PALOMAR-2026-11-23-000030-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "f429c1aebe11efa845bd7bd299ebb5072bf2b001",
+              "fork_repository": "PalomarArchive/stalex444--pdt-quartic-gate-hardy-optimum--d6ae5cf9ec25",
+              "source_repository": "stalex444/pdt-quartic-gate-hardy-optimum"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "323ead575fb0c8c0e0ecf369dd95f092c3ded04426a130eee3095018eba29abb",
+          "version": 1
+        },
+        "published_at": "2026-11-23T21:48:24Z",
+        "source": {
+          "commit": "f429c1aebe11efa845bd7bd299ebb5072bf2b001",
+          "project_path": null,
+          "repository": "stalex444/pdt-quartic-gate-hardy-optimum"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The Quartic Gate and the Two-Step Hardy Optimum",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Formalization of Basic Functional Categories, Functional Categories, the pointfree CoEndoYoneda Isomorphism Theorem, and its equivalence with computational purity (monad idempotency) for Kleisli categories. Given a category C and a functional functor FF : Type u ⥤ C, we define the CoYoneda endofunctor CYEF(Z) = CYF(Z) ⋙ FF, the global-like endofunctor G = CYEF(FF(T)), and prove the CoEndoYoneda isomorphism (CYEF(Z) ⟶ (EF ⋙ G)) ≃ (FF(T) ⟶ G(EF(Z))). We prove that evaluating the forward isomorphism on id_G recovers the terminal unit component η.app(FF(T)), verify that Type u with the identity functor is a canonical Functional Category, and prove that for the Kleisli category KleisliCat M of a lawful monad M with canonical identity-on-objects functor KFF, BasicFunctionalCategory (KleisliCat M) (KFF M) holds if and only if M is an idempotent (pure) monad. Finally, we derive the terminal subsingleton theorem (IsPure M → Subsingleton (M T)) and classify seven standard computational effects (Option, List, Read, Write, State, Cont, and ErrorState/IO).",
+        "authors": [
+          {
+            "name": "Luc Duponcheel"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "cs.PL",
+            "math.CT",
+            "cs.LO"
+          ],
+          "msc2020": [
+            "18A40",
+            "18C15",
+            "18C20",
+            "68N18",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "CoEndoYonedaAndPurity.η_eq_T",
+            "CoEndoYonedaAndPurity.fz_to_τz_commute",
+            "CoEndoYonedaAndPurity.to_from_proof_hom",
+            "CoEndoYonedaAndPurity.from_to_proof'",
+            "CoEndoYonedaAndPurity.ηFFT_is_η_at_FFT",
+            "CoEndoYonedaAndPurity.set_is_functional_category",
+            "CoEndoYonedaAndPurity.idempotent_iff_isPure",
+            "CoEndoYonedaAndPurity.kleisliBasicFunctionalCategory_iff_idempotent",
+            "CoEndoYonedaAndPurity.isPure_implies_monadicTerminalTypeSubSingleton",
+            "CoEndoYonedaAndPurity.maybe_not_pure",
+            "CoEndoYonedaAndPurity.list_not_pure",
+            "CoEndoYonedaAndPurity.read_purity_implies",
+            "CoEndoYonedaAndPurity.write_purity_implies",
+            "CoEndoYonedaAndPurity.state_purity_implies",
+            "CoEndoYonedaAndPurity.cont_purity_implies",
+            "CoEndoYonedaAndPurity.io_not_pure"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000029",
+        "path": "entries/PALOMAR-2026-11-23-000029-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "f1dc299de367d64c59ab05f4af608580c55ab415",
+              "fork_repository": "PalomarArchive/LucDuponcheelAtGitHub--coendoyoneda-and-purity--2496ac6cd771",
+              "source_repository": "LucDuponcheelAtGitHub/coendoyoneda-and-purity"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "c265955931a15dacab86ad418d4b81ce8884463d63035948a0aedb14d9a2f683",
+          "version": 1
+        },
+        "published_at": "2026-11-23T21:33:29Z",
+        "source": {
+          "commit": "f1dc299de367d64c59ab05f4af608580c55ab415",
+          "project_path": null,
+          "repository": "LucDuponcheelAtGitHub/coendoyoneda-and-purity"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "The CoEndoYoneda Lemma and its Relationship to Purity for Kleisli Categories with an Idempotent Monad",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "In a finite split graph whose host neighborhoods are independent in the residual core graph, a proper assignment missing L required pairs realizes the residual integral-fractional packing gap to within 2L. Deleting q crossing edges from a complete assignment changes the gap by at most 2q. For a split presentation with core size c and at least 2c hosts, the gap is at most twice the sum of endpoint omissions in excess of floor(c/2).",
+        "authors": [
+          {
+            "name": "Juan Pablo Traverso Gianini"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C70",
+            "05C15"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "SplitGapIIRegistry.gap_stability_of_partial_assignment",
+            "SplitGapIIRegistry.gap_stability_after_cross_deletions",
+            "SplitGapIIRegistry.series_gap_le_of_vertex_excess"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000028",
+        "path": "entries/PALOMAR-2026-11-23-000028-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "cf86a53a6aa6e6db6b5e55c36381edbeb80ec200",
+              "fork_repository": "PalomarArchive/jtraverso--split-clique-partition-gap-ii--7ea79274f46e",
+              "source_repository": "jtraverso/split-clique-partition-gap-ii"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "615051bda3f74a1ed09466649502230cf15d4573507ee5d31e4593fe9e570b13",
+          "version": 1
+        },
+        "published_at": "2026-11-23T20:44:59Z",
+        "source": {
+          "commit": "cf86a53a6aa6e6db6b5e55c36381edbeb80ec200",
+          "project_path": null,
+          "repository": "jtraverso/split-clique-partition-gap-ii"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Stability of the Clique Partition Gap in Split Graphs",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A crystalline tempered distribution on a positive-dimensional Euclidean space is a finite sum of translated and modulated full-rank lattice Dirac combs with complex coefficients if and only if its support and spectrum each admit a polynomial count of degree equal to the dimension in one closed half-ball along divergent radii. The two unit normals and the two radius sequences may be chosen independently. The geometric result gives a single bound on the number of sites of a locally finite set in the measured half-space in every open unit ball, from its ordered patch-volume bound and its half-ball count. Distinct sites may be arbitrarily close.",
+        "authors": [
+          {
+            "name": "Jamie Martin"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CA",
+            "math.CO"
+          ],
+          "msc2020": [
+            "42B10",
+            "11B30"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "HalfBall.geometric_local_count",
+            "HalfBall.half_ball_theorem_iff"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000027",
+        "path": "entries/PALOMAR-2026-11-23-000027-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "26a1a8aac74a801aec62a84984f22a171a32b6fc",
+              "fork_repository": "PalomarArchive/balancedscorpion--meyer-half-ball--12e0e09a1760",
+              "source_repository": "balancedscorpion/meyer-half-ball"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "4501d168392aee64c4be45712f27a98716aedd1da5076f1774d39c7fdb55be74",
+          "version": 1
+        },
+        "published_at": "2026-11-23T20:15:51Z",
+        "source": {
+          "commit": "26a1a8aac74a801aec62a84984f22a171a32b6fc",
+          "project_path": null,
+          "repository": "balancedscorpion/meyer-half-ball"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Independent physical and spectral half-ball counts characterize finite sums of lattice combs",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib proof of the main results of Yang, Yau and Yin, \"Delocalization and quantum diffusion of random band matrices in high dimensions I: Self-energy renormalization\" (arXiv:2104.12048), proved together with part \"II: T-expansion\" (arXiv:2107.05795). The model is the Gaussian random band matrix on the torus Z_L^d with band width W and a variance profile given by a symmetric Schwartz function, for L^{c_1} <= W <= L^{1-c_0}. For every dimension d >= 8: Theorem 1.3 of part I (weak delocalization of the bulk eigenvectors, (1.12) and (1.13)), Theorem 1.4 (the local law (1.19), down to eta = W^2 / L^{2-eps}), and Theorem 1.5 with Corollaries 1.6 and 1.7 (quantum diffusion: the expansion of E T_{xy} and E|G_{xy}|^2 with the renormalized diffusive matrix, the bounds on the self-energies, and the diffusion approximation in Fourier space). No result of another work is assumed; every result that the papers use is proved in the library from Mathlib.",
+        "authors": [
+          {
+            "name": "Jun Yin"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.PR",
+            "math-ph"
+          ],
+          "msc2020": [
+            "60B20",
+            "15B52",
+            "82B44"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "RBM8D.theorem_1_3",
+            "RBM8D.theorem_1_4",
+            "RBM8D.theorem_1_5"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000026",
+        "path": "entries/PALOMAR-2026-11-23-000026-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "ef6925da94375be7dea700833b390c36feb9ae5c",
+              "fork_repository": "PalomarArchive/JYin80--Lean-Band8d_arXiv-2104.12048--4620a6c4c500",
+              "source_repository": "JYin80/Lean-Band8d_arXiv-2104.12048"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "7d31f9ddc17607120bb1869337970c4d0f0e74e692f7a0b14e8f6da5394cce30",
+          "version": 1
+        },
+        "published_at": "2026-11-23T19:59:24Z",
+        "source": {
+          "commit": "ef6925da94375be7dea700833b390c36feb9ae5c",
+          "project_path": null,
+          "repository": "JYin80/Lean-Band8d_arXiv-2104.12048"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Delocalization and quantum diffusion of random band matrices in high dimensions",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib proof of the main results of Yau and Yin, \"Delocalization of one-dimensional random band matrices\" (arXiv:2501.01718). The model is the complex Gaussian block band matrix with L blocks of size W, N = WL, and band width W >= N^{1/2+c}. This entry contains Theorem 2.2 (delocalization of the bulk eigenvectors, (2.10)), Theorem 2.3 (the local semicircle law, (2.3)-(2.4)), Theorem 2.4 (quantum diffusion, (2.6)-(2.9)) and Theorem 2.5 (quantum unique ergodicity, (2.12)-(2.13)); they have no hypotheses other than their parameters, and no result of another work is assumed for them. The library also proves Theorem 2.6 (bulk universality) from one external input, stated as an explicit hypothesis; that theorem is not part of this entry.",
+        "authors": [
+          {
+            "name": "Jun Yin"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.PR",
+            "math-ph"
+          ],
+          "msc2020": [
+            "60B20",
+            "15B52",
+            "82B44"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "RBM.Paper.theorem_2_2",
+            "RBM.Paper.theorem_2_3",
+            "RBM.Paper.theorem_2_4",
+            "RBM.Paper.theorem_2_5"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000025",
+        "path": "entries/PALOMAR-2026-11-23-000025-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "89e0161eccb8792a158bb31c67ace33aaf67c89c",
+              "fork_repository": "PalomarArchive/JYin80--Lean-RBM1d_arxiv-2501.01718--e720d6518a62",
+              "source_repository": "JYin80/Lean-RBM1d_arxiv-2501.01718"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "4342beaedb7b77d626cbbbb8bb0013b0694ed04a651a4dc618e2f7f79c8787c0",
+          "version": 1
+        },
+        "published_at": "2026-11-23T19:43:05Z",
+        "source": {
+          "commit": "89e0161eccb8792a158bb31c67ace33aaf67c89c",
+          "project_path": null,
+          "repository": "JYin80/Lean-RBM1d_arxiv-2501.01718"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Delocalization of one-dimensional random band matrices",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 proof of the main results of A. Languasco, J. Pintz and A. Zaccagnini, On the sum of two primes and k powers of two, Bull. London Math. Soc. 39, 2007, pages 771 to 780, conditional on three results of the literature that the paper cites. For k >= 1 the entry proves that all but O of X^{3/5} times log X to the power 10 even N <= X are sums of two primes and k powers of two; the paper's main theorem, the asymptotic formula for the weighted number of such representations outside an exceptional set of the same size, on the even N in J of X = [2X/3, X], with the main term coefficient 2 c0 C of k and N, where c0 is the twin prime constant; and Corollary 4.2 of the paper on the major arcs. The three cited inputs are explicit hypotheses, never axioms: the explicit formula of Lemma 4.1 of the paper, which it quotes from J. Pintz, ELAZ 2004, Theorem 10; the zero density theorem of M. Jutila 1977, Theorem 1, display 1.8, as printed; and the zero free region of H. Iwaniec 1974, Theorem 2, page 97, as printed, read for nonreal characters. The real zero bound for real characters, which the paper cites from Pintz 1976 and Goldfeld and Schinzel 1975, is proved here from Siegel's theorem. The coefficient 2 c0 C of k and N is the one that the paper's own display 2 gives; the printed theorem states C of k and N in [1, 2] and omits the factor 2 c0, and the entry does not claim the range [1, 2]. Binary Goldbach, the case k = 0, is open and is not claimed. AI agents wrote the Lean code, Claude by Anthropic with a few leaves from other lab provers listed in PORTING.md, and it is offered for human audit.",
+        "authors": [
+          {
+            "name": "Steve Hubbard"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11P32",
+            "11P55",
+            "11M26",
+            "11N05"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "LeanLab.LPZ2007.cor42_of_three_inputs",
+            "LeanLab.LPZ2007.repaired_mainJ131_of_three_inputs",
+            "LeanLab.LPZ2007.global_primes_of_three_inputs"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000024",
+        "path": "entries/PALOMAR-2026-11-23-000024-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "05fe86a4649a4bb2728244a8805ec6bbc822d250",
+              "fork_repository": "PalomarArchive/sthubbar--goldbach-lean--98d36766e5ae",
+              "source_repository": "sthubbar/goldbach-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "4501fbe68d57516c59f73983f730922c4ac994a4d338998a3a598aaf51cc52c4",
+          "version": 1
+        },
+        "published_at": "2026-11-23T19:23:48Z",
+        "source": {
+          "commit": "05fe86a4649a4bb2728244a8805ec6bbc822d250",
+          "project_path": "entries/languascopintzzaccagnini2007",
+          "repository": "sthubbar/goldbach-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "On the sum of two primes and k powers of two",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Unconditional Lean 4 + Mathlib formalization of Carmichael's totient conjecture lower-bound and density-transfer theory (zero sorry, zero native_decide, standard axioms only): proves 10^10,117 < x unconditionally for every Carmichael counterexample x (10^10,240 < x in Case I and 10^10,117 < x in Case II via 161 kernel-checked Lucas primality ladders, surpassing Masai and Valette's 1982 bound of 10^10,000), the unconditional pure-kernel limiting singleton density bound liminf V1(X)/V(X) < 10^-5,057, totient-value and density transfer via Ford's (1998) Lemmas 7.4-7.5 and Chebyshev's prime lower bound, Ford's Lemma 7.2 prime-square forcing rule, Klee's (1947) minimal-counterexample structure, Pomerance's (1974) sufficient condition, Ford's reduction to k = 6, and the unconditional bound m >= 32,000 for Ford's k = 10 divisible-preimage problem, plus non-vacuity witnesses. Scope note: the larger 10^100,000,160,994 Carmichael bound, 10^-50,000,080,497 density bound, and m >= 10^60 k = 10 bound in the companion manuscript (https://mathdiscoveries.org/results/carmichael-totient) rely on external exact-integer certificates whose soundness and transfer theorems are proved in this library.",
+        "authors": [
+          {
+            "name": "Tyler B. Hughes"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.NT"
+          ],
+          "msc2020": [
+            "11A25",
+            "11N64",
+            "11Y11"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "CarmichaelChallenge.carmichael_case1_gt_10_pow_10240",
+            "CarmichaelChallenge.carmichael_case2_gt_10_pow_10117",
+            "CarmichaelChallenge.carmichael_counterexample_gt_10_pow_10117",
+            "CarmichaelChallenge.ford_lemma_7_2",
+            "CarmichaelChallenge.minimal_counterexample_structure",
+            "CarmichaelChallenge.pomerance_sufficient_condition",
+            "CarmichaelChallenge.no_k6_witness_implies_carmichael",
+            "CarmichaelChallenge.k10_witness_ge_32000",
+            "CarmichaelChallenge.totient_eq_ten_iff",
+            "CarmichaelChallenge.k11_witness_110",
+            "CarmichaelChallenge.totient_value_gt_of_forced_primes",
+            "CarmichaelChallenge.ford_lemma_7_4_7_5",
+            "CarmichaelChallenge.liminf_V1_div_V_le_two_div_min",
+            "CarmichaelChallenge.carmichael_liminf_density_lt_10_pow_neg_5057"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000023",
+        "path": "entries/PALOMAR-2026-11-23-000023-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "dda5359be7001d87eff993046e7b9a632474dbf1",
+              "fork_repository": "PalomarArchive/mathdiscoveries--carmichael-totient--aedbf4b7117b",
+              "source_repository": "mathdiscoveries/carmichael-totient"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "dbccdb228631b8664112ba092ecdffc7086061b1879967ee9128418509d0bf4f",
+          "version": 1
+        },
+        "published_at": "2026-11-23T19:15:26Z",
+        "source": {
+          "commit": "dda5359be7001d87eff993046e7b9a632474dbf1",
+          "project_path": null,
+          "repository": "mathdiscoveries/carmichael-totient"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Carmichael's Totient Conjecture: Kernel-Verified 10^10,117 Lower Bound, 10^-5,057 Density Bound, Structural Theory, and Ford's k = 10 Descent",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "For an N-vertex graph G, let z = log N and F = max(1, rank over F₂ of its zero-diagonal adjacency matrix divided by z). There are absolute positive constants b,c such that F ≤ c(log z)^(1/3) implies reg(G) > z^(1+b/F) for all sufficiently large N, uniformly in G and F. The formalization proves the fixed-rank and critical-rank corollaries, a sparse off-diagonal error reduction with retained order N²/(2N+4e), and the corresponding strict uniform bound and its particular consequences for minimum binary rank over diagonal completions. The proof constructs physical trace cells, proves their mixing and candidate estimates, replaces controller packets with prescribed integer row sums, and constructs and installs a reserve correcting every bounded even-total degree defect.",
+        "authors": [
+          {
+            "name": "Arthur Ramos"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO"
+          ],
+          "msc2020": [
+            "05C35",
+            "05C50",
+            "05C55"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "BinaryAdjacencyRank.uniform_binary_rank_bound",
+            "BinaryAdjacencyRank.fixed_binary_rank_bound",
+            "BinaryAdjacencyRank.critical_binary_rank_bound",
+            "BinaryAdjacencyRank.uniform_minimum_binary_rank_bound",
+            "BinaryAdjacencyRank.sparse_error_reduction"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000022",
+        "path": "entries/PALOMAR-2026-11-23-000022-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "ac239f9f8cacc0c1cd3d92fa2e61cdbff47d8e70",
+              "fork_repository": "PalomarArchive/Arthur742Ramos--Arthur742Ramos-binary-adjacency-rank--4a6c867ef5a0",
+              "source_repository": "Arthur742Ramos/Arthur742Ramos-binary-adjacency-rank"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "4b9cf01ca0a8974cdbf1db19a7831edfa2511ce82463fc4ebbcdf1b1fee72729",
+          "version": 1
+        },
+        "published_at": "2026-11-23T19:04:08Z",
+        "source": {
+          "commit": "ac239f9f8cacc0c1cd3d92fa2e61cdbff47d8e70",
+          "project_path": null,
+          "repository": "Arthur742Ramos/Arthur742Ramos-binary-adjacency-rank"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Binary adjacency rank and regular induced subgraphs",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Lean 4 formalization of Theorems 1.1, 1.3 and 1.4 of the paper \"Structured coordinate systems in Lᵖ(ℝ)\" by D. Freeman, L. Liehr and M. A. Taylor (arXiv:2610.18709v2). For every 1 ≤ p < ∞ and every ε > 0 there is a Schauder basis of Lᵖ(ℝ) that consists of non-negative functions and has basis constant less than 1 + ε, and no Schauder basis of non-negative functions has basis constant 1. For every 2 ≤ p < ∞ there are a nonzero real-valued function f ∈ Lᵖ(ℝ) and real numbers λₙ such that the translates f(· − λₙ) form a Schauder basis of Lᵖ(ℝ), over the real and over the complex scalars. For p = 2 and every ε > 0, the function f can be chosen such that it extends to an entire function and the basis constant is less than 1 + ε. For p > 2 and every unbounded set S ⊆ ℝ, the function f can be chosen non-negative and such that it extends to an entire function, with all λₙ in S.",
+        "authors": [
+          {
+            "name": "Daniel Freeman"
+          },
+          {
+            "name": "Lukas Liehr"
+          },
+          {
+            "name": "Mitchell A. Taylor"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.FA"
+          ],
+          "msc2020": []
+        },
+        "formalization": {
+          "theorem_names": [
+            "SchauderLp.nonneg_basis",
+            "SchauderLp.translate_basis",
+            "SchauderLp.translate_basis_L2",
+            "SchauderLp.translate_basis_nonneg"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000021",
+        "path": "entries/PALOMAR-2026-11-23-000021-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "019baf621badf812dc9439eebe5a0c48367448bb",
+              "fork_repository": "PalomarArchive/lukasliehr--Structured-Coordinate-Systems--393a6899a9f5",
+              "source_repository": "lukasliehr/Structured-Coordinate-Systems"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "58f732c48ee2658daaa722e8ec69f0e438928d58774a66a7778398fecbf7340c",
+          "version": 1
+        },
+        "published_at": "2026-11-23T18:27:17Z",
+        "source": {
+          "commit": "019baf621badf812dc9439eebe5a0c48367448bb",
+          "project_path": null,
+          "repository": "lukasliehr/Structured-Coordinate-Systems"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Structured coordinate systems in Lᵖ(ℝ)",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A machine-checked proof of Butson's theorem (1962): if a Butson-type Hadamard matrix H(p, n) exists, with p prime and n at least 2, then p divides n. A Butson-type Hadamard matrix H(k, n), for k > 0, is an n by n complex matrix whose entries are k-th roots of unity and whose rows are mutually orthogonal, M M* = n I; H(2, n) are the real Hadamard matrices. The statement and definition are those of Formal Conjectures (ButsonHadamardMatrix.lean), copied verbatim. The proof is the standard vanishing-sum argument: two orthogonal rows give a vanishing sum of n p-th roots of unity; counting how often each power of exp(2 pi i / p) occurs gives a rational polynomial of degree below p vanishing at that root, so the p-th cyclotomic polynomial 1 + X + ... + X^(p-1) divides it, every power occurs equally often, and p divides n.",
+        "authors": [
+          {
+            "name": "Zayn Blore"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "math.NT"
+          ],
+          "msc2020": [
+            "05B20",
+            "15B34",
+            "11R18"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "ButsonHadamardMatrix.butson_prime_divisibility"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000020",
+        "path": "entries/PALOMAR-2026-11-23-000020-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "fc604cc55d9e4b70ac409469c5c13032f7f3888b",
+              "fork_repository": "PalomarArchive/zblore--butson-hadamard-lean--f2e714e23c28",
+              "source_repository": "zblore/butson-hadamard-lean"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "79d358967cb6fa34aaaa30f584622fe382ed429c17692f696d2bfd66fb1b5813",
+          "version": 1
+        },
+        "published_at": "2026-11-23T18:08:16Z",
+        "source": {
+          "commit": "fc604cc55d9e4b70ac409469c5c13032f7f3888b",
+          "project_path": null,
+          "repository": "zblore/butson-hadamard-lean"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Butson's prime divisibility theorem",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 and Mathlib formalization of Kasteleyn's method for counting perfect matchings of plane graphs. Graphs are Mathlib simple graphs on a finite vertex type (no loops, no multiple edges); a rotation system is a permutation of the darts that cycles the darts leaving each vertex, its faces are the cycles of the face permutation, and it is plane if the graph is connected and Euler's formula |V| + |F| = |E| + 2 holds, F the set of faces. A Kasteleyn orientation with respect to a face f0 is an orientation of the edges in which every face other than f0 has an odd number of clockwise darts. Since faces are cycles of darts, a graph without edges has no faces in this representation; a connected graph without edges is a single vertex, which is not plane in this sense and is treated by a separate theorem. Five theorems are compared: (1) every rotation system of a connected graph with at least one edge has a Kasteleyn orientation with respect to any face f0; (2) for a plane rotation system, a Kasteleyn orientation and edge weights in any commutative ring, the Pfaffian of the signed weighted adjacency matrix (defined by expansion along the first row for a linear order on the vertices) equals, up to a sign +1 or -1, the sum over the perfect matchings of the products of their edge weights; (3) with unit weights the Pfaffian is plus or minus the number of perfect matchings and the determinant of the signed adjacency matrix is its square; (4) one fixed word program for an explicit word RAM (unit cost per instruction, natural registers and memory cells bounded by a word bound W along the run; the machine also has exact real registers, and a word program contains no instruction that uses them) computes a Kasteleyn orientation of every rotation system of a connected graph with at least one edge, with F faces and S darts, given by a standard encoding of 4 + F + 3S words, within 36F + 39S + 27 steps with every natural word at most 4F + 5S + 8; (5) a connected graph without edges has one vertex, no darts and no perfect matching, and the Pfaffian and determinant identities of (2) and (3) hold for it, both sides being 0. The proofs use only the axioms propext, Classical.choice and Quot.sound.",
+        "authors": [
+          {
+            "name": "Robert D. Barish"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.CO",
+            "cs.DS"
+          ],
+          "msc2020": [
+            "05C70",
+            "05C10",
+            "05C85",
+            "15A15",
+            "68Q25"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Kasteleyn.orientation_exists",
+            "Kasteleyn.pfaffian_formula",
+            "Kasteleyn.matching_count",
+            "Kasteleyn.linear_time_orientation",
+            "Kasteleyn.edgeless_case"
+          ]
+        },
+        "id": "PALOMAR-2026-11-20-000015",
+        "path": "entries/PALOMAR-2026-11-20-000015-v2.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "85d71d0499d47f3da2af9e754deeb39003bbf13f",
+              "fork_repository": "PalomarArchive/RBarish-UTokyo--Kasteleyn-Pfaffian-WordRAM-Lean4--a380c7938f5a",
+              "source_repository": "RBarish-UTokyo/Kasteleyn-Pfaffian-WordRAM-Lean4"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "83eee1dac2dfa9f34448ba24a59c49e3ab051e61f158e5303c2ef7e25745ca3b",
+          "version": 2
+        },
+        "published_at": "2026-11-23T17:46:43Z",
+        "source": {
+          "commit": "85d71d0499d47f3da2af9e754deeb39003bbf13f",
+          "project_path": null,
+          "repository": "RBarish-UTokyo/Kasteleyn-Pfaffian-WordRAM-Lean4"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Kasteleyn orientations and the Pfaffian method for plane graphs, with a linear-time orientation, in Lean 4",
+        "trust": {
+          "level": "high"
+        },
+        "version": 2,
+        "versions": 2
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A Lean 4 / Mathlib proof of the main results of Knowles and Yin, \"Anisotropic local laws for random matrices\" (arXiv:1410.3516). The sample covariance matrix is Q = T X X* T* with X an M x N matrix of independent centred real entries of variance 1/N (Assumption 2.1). Proved, for real matrices and real deterministic vectors, at fixed N >= N_0 with explicit constants: the anisotropic and averaged local laws (Theorem 3.6), the law outside the spectrum (Theorem 3.7), Corollary 3.9, the rigidity of the eigenvalues (Theorem 3.12), edge universality (Theorem 3.18), the local laws for general T (Proposition 11.1), and for deformed Wigner matrices the local laws (Theorem 12.2), the rigidity of the extreme eigenvalues (Theorem 12.4) and edge universality (Theorem 12.5). No result of another work is assumed for these statements; every result that the paper uses for them is proved in the library from Mathlib.",
+        "authors": [
+          {
+            "name": "Jun Yin"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.PR",
+            "math-ph"
+          ],
+          "msc2020": [
+            "60B20",
+            "15B52",
+            "82B44"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Anisotropic.thm_3_6",
+            "Anisotropic.thm_3_7",
+            "Anisotropic.cor_3_9",
+            "Anisotropic.thm_3_12",
+            "Anisotropic.thm_3_18",
+            "Anisotropic.prop_11_1",
+            "Anisotropic.thm_12_2_aniso",
+            "Anisotropic.thm_12_2_avg",
+            "Anisotropic.thm_12_4",
+            "Anisotropic.thm_12_5"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000019",
+        "path": "entries/PALOMAR-2026-11-23-000019-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "e053d8fdff5a63dfbd476687509e1dc06be98712",
+              "fork_repository": "PalomarArchive/JYin80--Lean-Anisotropic_arXiv-1410.3516--43c77942d24c",
+              "source_repository": "JYin80/Lean-Anisotropic_arXiv-1410.3516"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "9fa0770870754c6d30ab8108da36915931ff0bdd959da15abce15cf956496d75",
+          "version": 1
+        },
+        "published_at": "2026-11-23T17:38:29Z",
+        "source": {
+          "commit": "e053d8fdff5a63dfbd476687509e1dc06be98712",
+          "project_path": null,
+          "repository": "JYin80/Lean-Anisotropic_arXiv-1410.3516"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Anisotropic local laws for random matrices",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "Lean 4 and Mathlib formalization resolving all four main conjectures (A, B, C, D) and the Section 6 real-positivity question from Joseph Malkoun's preprint \"Finite graphs and configurations of points\" (arXiv:2508.13472v3), alongside unconditional positive theorems for linear paths LG_n and small trees. Using strictly propext, Quot.sound, and Classical.choice (zero sorry, zero admit, zero native_decide), the repository formalizes: (1) a bipartite quaternionic time-reversal Gram reduction extending Malkoun's Theorem 4.1 to all finite simple bipartite graphs (MalkounBipartite); (2) formal planar homotopy disproofs of Conjectures A, B, and Section 6 on the connected K_4-barbell B_8 (MalkounCounterexample), the 7-vertex 2-vertex-connected graph H_7 = K_4 ∪_{2e} K_3 (k4e2k3Graph in MalkounN7Counterexample; smallest counterexample found in our numerical scan — absence of connected counterexamples on n <= 6 vertices is an empirical numerical-search observation, not formally proved), and the 8-vertex triangle-free 3-regular 3-vertex-connected Wagner graph M_8 (wagnerGraph in MalkounWagnerCounterexample); (3) refutations of General Conjecture D at m=6 (rank-3 matrix on C_6) and Rank-2 Spinor Conjecture D at m=12 (2x12 Gaussian-integer witness on C_{12}) alongside unconditional Conjecture C for LG_3, LG_4, K_{1,3}, and LG_5 (MalkounConjectureD); (4) an exact planar 120-degree pinwheel zero A_{T_{10}}(x) = 0 on the 10-vertex cubic cherry tree T_{10} (cherryTree10 in MalkounConjectureC) refuting Conjecture C, tree-restricted Conjecture D, and planar tree Conjectures A and B simultaneously (absence of tree violations on 4 <= n <= 9 vertices is likewise a numerical search observation, not formally proved), plus exact integer Hopf coordinates on the 15-vertex path graph pathGraphN 15 (LG_{15}) giving Re(A_{LG_{15}}) = -40605770611892600000 / 58001564658819600000 < 0; and (5) unconditional Path Conjectures B and A (|A_{LG_n}(x)| >= 1 for all n and x in C_{LG_n}(R^3)) via an exact hyperbolic SU(2) Lyapunov transfer invariant, together with unconditional Planar Path Conjecture C (Re >= 1 for all n whenever z_u = 0) (MalkounPathPositivity). Across the 12 compared declarations in Challenge.lean, six state pure existential or negative refutations whose witnesses (B_8, C_6, C_{12}, T_{10}) reside inside Solution.lean/Matematyka/, four explicitly bind the witnesses k4e2k3Graph (Fin 7), wagnerGraph (Fin 8), cherryTree10 (Fin 10), and pathGraphN 15 (Fin 15) along with coplanarity (x.1 u 2 = 0) where advertised, and two prove unconditional path positivity for all n. Topological graph planarity of H_7, vertex-transitivity of M_8, and 50-digit mpmath companion scans lie outside the formal Lean theorems.",
+        "authors": [
+          {
+            "name": "Tomasz Tarłowski"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math-ph",
+            "math.MG",
+            "math.CO",
+            "cs.LO"
+          ],
+          "msc2020": [
+            "05C50",
+            "51M15",
+            "81Q70",
+            "68V20"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "Challenge.disproof_malkoun_conjecture_A",
+            "Challenge.disproof_malkoun_conjecture_B",
+            "Challenge.disproof_malkoun_section_6",
+            "Challenge.disproof_malkoun_n7_biconnected_conjecture_A",
+            "Challenge.disproof_malkoun_wagner_triangleFree_conjecture_A",
+            "Challenge.disproof_malkoun_conjecture_D",
+            "Challenge.disproof_malkoun_rank2_conjecture_D",
+            "Challenge.disproof_malkoun_conjecture_C",
+            "Challenge.disproof_malkoun_tree_conjecture_A",
+            "Challenge.disproof_malkoun_path_conjecture_C_neg_re",
+            "Challenge.malkounAmplitude_pathGraphN_norm_ge_one",
+            "Challenge.malkounAmplitude_pathGraphN_planar_re_ge_one"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000018",
+        "path": "entries/PALOMAR-2026-11-23-000018-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "b5ca46b71c592daebb0ea728eae05514c0262cca",
+              "fork_repository": "PalomarArchive/tomasztarlowski--malkoun-conjectures-counterexamples--59188eef6175",
+              "source_repository": "tomasztarlowski/malkoun-conjectures-counterexamples"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "7286648586dfbcb3ba4dd73813e0696a992b36051a120a28b55f6ec5a2971366",
+          "version": 1
+        },
+        "published_at": "2026-11-23T17:25:04Z",
+        "source": {
+          "commit": "b5ca46b71c592daebb0ea728eae05514c0262cca",
+          "project_path": null,
+          "repository": "tomasztarlowski/malkoun-conjectures-counterexamples"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Counterexamples to All Four Malkoun Conjectures (A–D), Planar Tree Zeros, and Unconditional Path Positivity",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "We study how local changes affect waves in an infinite Ammann–Beenker network, a mathematical model with an octagonal structure.\n\nAt a particular energy, the network has two localized wave patterns, which we call A and B. An earlier theorem, registered with Palomar as PALOMAR-2026-11-06-000012, proved that these two patterns account for all independent states at that energy in the entire infinite network.\n\nFurther results proved in Lean establish that, at this special setting, no other real energy level lies within a distance of 1/128 of their common energy.\n\nWe can influence the two localized patterns in two different ways.\n\nThe first is to change a parameter that affects the first ring of the network. This raises or lowers the energy of A by exactly the parameter change, while leaving the energy of B unchanged. Both patterns remain exact eigenstates of the infinite system, without spreading outside their original localized forms. The spectral gap was proved at the original setting; for sufficiently small changes to this parameter, separation from the other energy levels also follows from the general eigenvalue-stability estimates already established in Lean.\n\nThe second is to change the strength of a single edge connecting the two rings. Here the situation is more subtle. One combination of the original patterns, called the dark state, remains protected at the original energy. The other, called the bright state, responds to the change and interacts with the rest of the infinite network.\n\nOur main theorem proves what actually happens in this second case. For a sufficiently small, nonzero edge change, there are exactly two distinct real energy levels represented by eigenvectors in a specified narrow range. One remains fixed, while the other moves upward when the edge is strengthened and downward when it is weakened. Each level has only one independent wave pattern.\n\nThe theorem also gives two precise numerical guarantees. The moving energy differs from the original energy plus one quarter of the edge change by no more than 112 times the square of that change. For a normalized wave at the moving energy, the size of the part extending beyond the original two-state space is at most 64 times the square root of 7, multiplied by the absolute size of the edge change.\n\nThis means that we can make the external part of the moving wave as small as desired while keeping the two energy levels distinct. These are exact results for the infinite system, not predictions from a simplified two-state model.\n\nWhat happens if the edge change is temporary? Separate theorems, already proved in Lean, study an edge change applied for a period of time and then switched off. They give a bound on the wave's component outside the original two-state space: no more than 512 times the absolute size of the edge change, multiplied by the initial wave's size. This bound is independent of the duration of the pulse and of the time elapsed after switching it off.\n\nThese temporal conclusions are conditional: they assume that the supplied evolution preserves norms, preserves the operator's mathematical domain, and commutes with the relevant Hamiltonian during each stage. A general physical quantum propagator has not yet been constructed in this formalization.\n\nThe results fit together in a natural way. Changing the first-ring parameter offers an exact way to adjust the relative energies of the two original patterns without changing their shapes. Changing the connecting edge produces a genuine energy separation involving a bright-derived state, while the associated spreading into the infinite network can be kept small. The temporal results complement these spectral findings by showing that, under suitable evolution assumptions, the wave remains close to the original two-state space during and after a temporary edge change.\n\nTogether, these results provide a mathematical foundation for investigating whether changes to the first-ring parameter and to the connecting edge can be combined to control localized waves. They do not yet prove that any desired mixture of the two original patterns can be prepared. The results concern the real infinite-operator model, not a separately proved classification of the complete complex spectrum.\n\nThe research direction was conceived and directed by Alessandro Odasso, who is not a mathematician. According to the maintainer, AI generated the mathematical proofs and Lean formalizations under his direction. The originality and scientific significance of these results have not yet been independently assessed.",
+        "authors": [
+          {
+            "name": "Alessandro Odasso"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.SP",
+            "cond-mat.mes-hall"
+          ],
+          "msc2020": [
+            "47A55",
+            "47B25"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "SpectralGeometry.AmmannBeenker.admitted_zero",
+            "SpectralGeometry.AmmannBeenker.mate_involutive",
+            "SpectralGeometry.AmmannBeenker.compactA_mem_domain",
+            "SpectralGeometry.AmmannBeenker.compactB_mem_domain",
+            "SpectralGeometry.AmmannBeenker.compactSiteA_admitted",
+            "SpectralGeometry.AmmannBeenker.compactSiteB_admitted",
+            "SpectralGeometry.AmmannBeenker.crossing_final_signed_bright_spectral_splitting"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000017",
+        "path": "entries/PALOMAR-2026-11-23-000017-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "7b68540619ab45e5233b2d5ec8273829b3fbba77",
+              "fork_repository": "PalomarArchive/alexodas--spectral_geometry--d3c275959859",
+              "source_repository": "alexodas/spectral_geometry"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "a8f40eb77984c4fcd63bc0f0d513ca9cbd2ecceb256d374786c8dce492d1563f",
+          "version": 1
+        },
+        "published_at": "2026-11-23T11:14:06Z",
+        "source": {
+          "commit": "7b68540619ab45e5233b2d5ec8273829b3fbba77",
+          "project_path": null,
+          "repository": "alexodas/spectral_geometry"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "A One-Edge Change Splits Two Energy Levels in an Infinite Ammann–Beenker Graph",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
+      {
+        "abbreviated": false,
+        "abstract": "A binary 192-state machine with a contextual scanner that, under consistency of first-order ZF, runs forever and has no ZF proof of its nonhalting. Arithmetic Sigma-1 soundness implies unprovability in both directions. The halting sentence expresses the literal machine's behavior in every ZF model.",
+        "authors": [
+          {
+            "name": "James Chang"
+          }
+        ],
+        "classification": {
+          "arxiv": [
+            "math.LO",
+            "cs.LO"
+          ],
+          "msc2020": [
+            "03F30",
+            "03D10"
+          ]
+        },
+        "formalization": {
+          "theorem_names": [
+            "PalomarZF192.exact192Claim",
+            "PalomarZF192.nonhalting_of_consistent"
+          ]
+        },
+        "id": "PALOMAR-2026-11-23-000016",
+        "path": "entries/PALOMAR-2026-11-23-000016-v1.json",
+        "preservation": {
+          "repositories": [
+            {
+              "commit": "bd3f7575b2277addb6c043201b0404d6016564be",
+              "fork_repository": "PalomarArchive/jamesyc--BusyBeaver--390b52bb5ea7",
+              "source_repository": "jamesyc/BusyBeaver"
+            }
+          ]
+        },
+        "preview": {
+          "artifact_tree_sha256": "75977f976456f844399f64b273101f4515f13fbed7cda3fbbbe8763e66edc749",
+          "version": 1
+        },
+        "published_at": "2026-11-23T10:44:07Z",
+        "source": {
+          "commit": "bd3f7575b2277addb6c043201b0404d6016564be",
+          "project_path": "ZF192",
+          "repository": "jamesyc/BusyBeaver"
+        },
+        "source_omitted": false,
+        "status": "registered",
+        "title": "Conditional ZF-independence of the exact 192-state machine",
+        "trust": {
+          "level": "high"
+        },
+        "version": 1,
+        "versions": 1
+      },
       {
         "abbreviated": false,
         "abstract": "We formally verify in Lean 4 the following statement: if g : ℝ → ℝ is a continuous, integrable and totally positive function and if α, β > 0 satisfy αβ < 1, then the Gabor system {e^{2πiβnx} g(x − αm) : m, n ∈ ℤ} is a frame for L²(ℝ). This is the new implication in the solution of the frame set problem for totally positive functions, which is Theorem 1.1 of the paper \"Gabor Frames of Totally Positive Functions: A Complete Characterization\" by de Dios Pont, Gröchenig, Liehr, Shafkulovska and Taylor (arXiv:2608.04992).",
@@ -3629,70 +5890,6 @@
       },
       {
         "abbreviated": false,
-        "abstract": "A Lean 4 and Mathlib formalization of the planar separator theorem of Lipton and Tarjan and of nested dissection. A plane graph is a Mathlib simple graph on a finite vertex type with a rotation system (a permutation of the darts cycling the darts at each vertex) such that the graph is connected and Euler's formula |V| + |F| = |E| + 2 holds for the set F of faces (so it has at least one edge: faces are cycles of darts, and the one-vertex graph has none). Eight theorems are compared: (1) the separator theorem with constant 6: for nonnegative vertex weights of total at most 1, a set of at most 6 sqrt(n) vertices splits the n vertices into two parts with no edge between them, each of weight at most 2/3; (2) the same for every set U of vertices, with at most 6 sqrt(|U|) vertices of U; (3) every plane graph has a separator tree covering all vertices in which every subtree with k vertices has a separator (or leaf set) and a boundary of at most 50000 sqrt(k) vertices each and parts of at most 2k/3 vertices; (4) the same for the square of a plane graph of maximum degree at most D, with 40 (1062 (D + 1)^2 + 1) in place of 50000; (5) for any separator tree with constants alpha and beta, the filled graph of elimination in its nested dissection order has at most alpha (alpha + beta) n (1 + log_{3/2} n) edges; (6), (7) for every plane graph, and for the square of every plane graph of maximum degree at most D, there are a separator tree covering all vertices and the permutation listing its nested dissection order such that the filled graph of that order has at most 2 T^2 n (1 + log_{3/2} n) edges (T as in (3) and (4)), and, for every matrix over a field whose off-diagonal nonzero entries are edges of the graph, permuted into that order, elimination restricted to the filled graph computes exactly the matrix after the n in-place elimination steps M_ij - M_ik M_kk^(-1) M_kj, with at most 48 T^3 n^(3/2) ring operations counted in a writer monad that charges every addition, subtraction, negation, multiplication and inversion of the explicit algorithm; the inverse is Lean's totalized field inverse (0^(-1) = 0), so these steps are Gaussian elimination without pivoting when the pivots are nonzero and leave the matrix unchanged at a zero pivot; (8) one fixed program for an explicit word RAM (unit cost per instruction, natural registers and memory cells bounded by W along the run) prints, for a plane graph with n vertices, m darts and natural vertex weights, a separator of at most 6 sqrt(n) + 3 vertices whose two parts each weigh at most 2/3 of the total, within 320m + 191n + 403 steps for word bounds at least 16m + 12n + 3 (total weight) + 22. The proofs use only the axioms propext, Classical.choice and Quot.sound.",
-        "authors": [
-          {
-            "name": "Robert D. Barish"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.CO",
-            "cs.DS"
-          ],
-          "msc2020": [
-            "05C10",
-            "05C85",
-            "65F05",
-            "65F50",
-            "68Q25",
-            "68W40"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "PlanarSeparator.separator_theorem",
-            "PlanarSeparator.separator_theorem_induced",
-            "PlanarSeparator.sepTree_exists",
-            "PlanarSeparator.square_sepTree_exists",
-            "PlanarSeparator.fill_bound",
-            "PlanarSeparator.planar_nested_dissection",
-            "PlanarSeparator.square_nested_dissection",
-            "PlanarSeparator.separator_machine"
-          ]
-        },
-        "id": "PALOMAR-2026-11-21-000007",
-        "path": "entries/PALOMAR-2026-11-21-000007-v1.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "0b5373fd782ef11c5b049f03fa69506948092c05",
-              "fork_repository": "PalomarArchive/RBarish-UTokyo--PlanarSeparator-NestedDissection-WordRAM-Lean4--199851cfb370",
-              "source_repository": "RBarish-UTokyo/PlanarSeparator-NestedDissection-WordRAM-Lean4"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "489d8c9630a16a990a8c946ead80a3cc3536e3ab8907766f6dd000c8dd9d0161",
-          "version": 1
-        },
-        "published_at": "2026-11-21T06:10:11Z",
-        "source": {
-          "commit": "0b5373fd782ef11c5b049f03fa69506948092c05",
-          "project_path": null,
-          "repository": "RBarish-UTokyo/PlanarSeparator-NestedDissection-WordRAM-Lean4"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "The planar separator theorem and nested dissection, with a linear-time separator program on a word RAM, in Lean 4",
-        "trust": {
-          "level": "high"
-        },
-        "version": 1,
-        "versions": 1
-      },
-      {
-        "abbreviated": false,
         "abstract": "The four-digit Kaprekar map in base B sends an integer 0 <= x < B^4, written with four base-B digits (leading zeros allowed), to the descending arrangement of its digits minus the ascending arrangement. A cycle is a periodic orbit through an input whose digits are not all equal. Cycles are counted up to cyclic shift, including fixed points of least period one. This formalization uses only Lean 4 core and Std and proves Theorem 1 of R. Galyavin, \"Cycles of the four-digit Kaprekar map in even bases\" (2026). For B = m*2^n with m odd, n >= 1 and m >= 5, each cycle of the folded map on odd difference pairs lifts to a cycle of the same length. There is one additional cycle of length n+1 if 2^n is 1 modulo m, or one of length 2(n+1) if m = 5 and n is 2 modulo 4. The two conditions are mutually exclusive and the list is exhaustive. For m = 3, odd n gives one cycle of length 3(n+1), and even n gives two cycles of lengths n+1 and 2(n+1). Base two has two fixed points. In base 2^n for odd n >= 3 there are (n-1)/2 cycles of each length n and n+2. For even n >= 2 there are (n-2)/2 cycles of each of those lengths, one of length n/2 and one of length n/2+1. The map is stated directly as digit sorting and subtraction on natural numbers.",
         "authors": [
           {
@@ -4788,66 +6985,6 @@
         "source_omitted": false,
         "status": "registered",
         "title": "Erdős–Kac theorem",
-        "trust": {
-          "level": "high"
-        },
-        "version": 1,
-        "versions": 1
-      },
-      {
-        "abbreviated": false,
-        "abstract": "A Lean 4 and Mathlib formalization of Kasteleyn's method for counting perfect matchings of plane graphs. Graphs are Mathlib simple graphs on a finite vertex type (no loops, no multiple edges); a rotation system is a permutation of the darts that cycles the darts leaving each vertex, its faces are the cycles of the face permutation, and it is plane if the graph is connected and Euler's formula V + F = E + 2 holds. A Kasteleyn orientation with respect to a face f0 is an orientation of the edges in which every face other than f0 has an odd number of clockwise darts. Since faces are cycles of darts, a graph without edges has no faces in this representation; a connected graph without edges is a single vertex, which is not plane in this sense and is treated by a separate theorem. Five theorems are compared: (1) every rotation system of a connected graph with at least one edge has a Kasteleyn orientation with respect to any face f0; (2) for a plane rotation system, a Kasteleyn orientation and edge weights in any commutative ring, the Pfaffian of the signed weighted adjacency matrix (defined by expansion along the first row for a linear order on the vertices) equals, up to a sign +1 or -1, the sum over the perfect matchings of the products of their edge weights; (3) with unit weights the Pfaffian is plus or minus the number of perfect matchings and the determinant of the signed adjacency matrix is its square; (4) one fixed program for an explicit word RAM (unit cost per instruction, natural registers and memory cells bounded by a word bound W along the run) computes a Kasteleyn orientation of every rotation system of a connected graph with at least one edge, with F faces and S darts, given by a standard encoding of 4 + F + 3S words, within 36F + 39S + 27 steps with every natural word at most 4F + 5S + 8; (5) a connected graph without edges has one vertex, no darts and no perfect matching, and the Pfaffian and determinant identities of (2) and (3) hold for it, both sides being 0. The proofs use only the axioms propext, Classical.choice and Quot.sound.",
-        "authors": [
-          {
-            "name": "Robert D. Barish"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.CO",
-            "cs.DS"
-          ],
-          "msc2020": [
-            "05C70",
-            "05C10",
-            "05C85",
-            "15A15",
-            "68Q25"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "Kasteleyn.orientation_exists",
-            "Kasteleyn.pfaffian_formula",
-            "Kasteleyn.matching_count",
-            "Kasteleyn.linear_time_orientation",
-            "Kasteleyn.edgeless_case"
-          ]
-        },
-        "id": "PALOMAR-2026-11-20-000015",
-        "path": "entries/PALOMAR-2026-11-20-000015-v1.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "e7e967074349944cf909a772218b5fda5c274485",
-              "fork_repository": "PalomarArchive/RBarish-UTokyo--Kasteleyn-Pfaffian-WordRAM-Lean4--a380c7938f5a",
-              "source_repository": "RBarish-UTokyo/Kasteleyn-Pfaffian-WordRAM-Lean4"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "774370d8929da3fd665e5276a5dd28e2c00e89fd0b13ce5c9abea9ce142ed41a",
-          "version": 1
-        },
-        "published_at": "2026-11-20T14:24:47Z",
-        "source": {
-          "commit": "e7e967074349944cf909a772218b5fda5c274485",
-          "project_path": null,
-          "repository": "RBarish-UTokyo/Kasteleyn-Pfaffian-WordRAM-Lean4"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "Kasteleyn orientations and the Pfaffian method for plane graphs, with a linear-time orientation, in Lean 4",
         "trust": {
           "level": "high"
         },
@@ -22158,87 +24295,6 @@
       },
       {
         "abbreviated": false,
-        "abstract": "For a prime p let a = v_2(p-1), m = (p-1)/2^a, H_a the subgroup of (Z/p)^x of order m and s(x) = (-1)^<x>. The development proves the tower of band-parity laws of Paper I of the author's series: the cyclotomic tower (every coordinate of the band-parity sum of the character of order 2^a is congruent modulo 4 to an explicit count), the band-parity tower f_a = sum over H_a of s(u) s(u^2) = m (mod 4) at every odd prime, the doubling count sum over 2H_a of s(u) s(2u) = 2 N_a - m, the imaginary law e_a = 2 N_a - m (mod 4) at every prime p = 1 (mod 4) with its level-3 form, the collapse e_a = +-f_a when 2 is a 2^(a-1)-th power residue, and E. Lehmer's criterion for 2 to be a 2k-th power residue. It also proves the power-map family, the companion law Re C = Im C = kappa (mod 4) at p = 1 (mod 8), and Lehmer-type invariants of the inversion map modulo 4; and, modulo 8, the joint-parity form, the dichotomy, squaring cycles and the order-three pair, the defect lemma, odd multipliers as floor sums and the fifth-interval formula linking M_H(5) to B_{1,theta_p}.",
-        "authors": [
-          {
-            "name": "Joseph S. Farland"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.NT"
-          ],
-          "msc2020": [
-            "11A15",
-            "11L40",
-            "11R29",
-            "68V20"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "BandParityTower.Ha_spec",
-            "BandParityTower.coordinates_exact",
-            "BandParityTower.lag_identity_level_four",
-            "BandParityTower.cyclotomic_tower",
-            "BandParityTower.band_parity_tower",
-            "BandParityTower.doubling_count",
-            "BandParityTower.imaginary_law",
-            "BandParityTower.imaginary_law_three",
-            "BandParityTower.imaginary_law_two",
-            "BandParityTower.collapse_criterion",
-            "BandParityTower.lehmer_theorem_five",
-            "BandParityTower.power_map_family",
-            "BandParityTower.companion_law_one_mod_eight",
-            "BandParityTower.lehmer_invariants",
-            "BandParityTower.joint_parity_form",
-            "BandParityTower.hminus_mod_eight",
-            "BandParityTower.mod_eight_dichotomy",
-            "BandParityTower.squaring_cycles",
-            "BandParityTower.squaring_on_H",
-            "BandParityTower.cube_root_cycle",
-            "BandParityTower.e_as_correlation",
-            "BandParityTower.order_three_pair",
-            "BandParityTower.real_part_eq_fTower",
-            "BandParityTower.multiplier_identity",
-            "BandParityTower.multiplier_count_sum",
-            "BandParityTower.defect_congruence",
-            "BandParityTower.odd_multipliers",
-            "BandParityTower.fifth_interval_formula"
-          ]
-        },
-        "id": "PALOMAR-2026-11-02-000005",
-        "path": "entries/PALOMAR-2026-11-02-000005-v2.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "fd1508a32a25bbe8a6070aee6128e6e7aca1b1b9",
-              "fork_repository": "PalomarArchive/jkfarland-bot--Bandparitytower--5c24f1f12bf3",
-              "source_repository": "jkfarland-bot/Bandparitytower"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "a223db9882f5dc7721f314fe16e6ab2c5a48ed10fca23aea3a9887e32ee66f8a",
-          "version": 2
-        },
-        "published_at": "2026-11-03T07:22:35Z",
-        "source": {
-          "commit": "fd1508a32a25bbe8a6070aee6128e6e7aca1b1b9",
-          "project_path": null,
-          "repository": "jkfarland-bot/Bandparitytower"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "BandParityTower: the band-parity tower and its limit modulo eight",
-        "trust": {
-          "level": "high"
-        },
-        "version": 2,
-        "versions": 2
-      },
-      {
-        "abbreviated": false,
         "abstract": "Proves that closed terms with numeral normal forms and those with nonnumerical normal forms form disjoint r.e. effectively inseparable languages.",
         "authors": [
           {
@@ -22357,90 +24413,6 @@
         },
         "version": 1,
         "versions": 1
-      },
-      {
-        "abbreviated": false,
-        "abstract": "For an integer r >= 2 and a finite set N of primes, the random Euler product model for Dirichlet characters of order r replaces chi(q) by independent uniform r-th roots of unity. The development proves that the order-r local factor E|1 - z/q|^(-2) equals (1 + q^-r)/((1 - q^-2)(1 - q^-r)), that its ratio to the full-circle factor (1 - q^-2)^(-1), multiplied over the primes outside N, is zeta^(N)(r)^2 / zeta^(N)(2r), that this correction factor is also the sum of (ab)^-r over the coprime pairs of integers prime to N, and that the model mean is zeta^(N)(2) zeta^(N)(r)^2 / zeta^(N)(2r). The factor exceeds 1, decreases strictly in r and tends to 1; for r = 2k and N empty it equals -binom(4k,2k) B_{2k}^2/(2 B_{4k}). For r = 4 and N = {2} it is 35/34, the ratio by which the limit of Louboutin's mean square of L(1, chi) with the factor at 2 removed changes when the average is restricted to quartic characters; with the forced factor 4/5 at 2 the development also proves the constants pi^2/10, 7 pi^2/68, 7 pi^2/36 and 7/136 = (1/20)(35/34) = (7/72)(9/17). It also identifies the pairs the model keeps: for positive m, n the average of z^m conj(z^n) is 1 exactly when m/n is an r-th power in Q, that is when (m, n) = (d a^r, d b^r) with a, b coprime, and 0 otherwise. Modulo a single prime p with r | p - 1 it proves the finite-character counterpart: there are exactly r Dirichlet characters mod p with chi^r = 1, the sum of chi(a) conj(chi(b)) over them is r when a/b is a nonzero r-th power mod p and 0 otherwise, so every pair (d a^r, d b^r) prime to p survives with sum r; by contrast, summed over all characters mod p, chi(m) conj(chi(n)) has sum 0 for distinct m, n < p. Release v1.2 adds the finite part of the Chebyshev bias in families p = a (mod M) of fixed order r: with rho_s(t) the average of exp(2 pi i u t/s) over the units u mod s, the sum over t < s of rho_s(c t) is s when s | c and 0 otherwise; for M > 0 and s | M the squares in Z/s x| (Z/M)^x give the prime-square term of the explicit formula as s times the square-root count beta(M, a, s) = #{y in (Z/M)^x : y^2 = a, y = -1 (mod s)}, a count of residue classes (the same finite-sum identity over the representatives 0 <= x < M holds for all M and s > 0, but is only an arithmetic identity there: vacuous at M = 0, representative-dependent when s does not divide M); beta does not decrease as s decreases along divisibility, at s = r it is 0 unless a is a square in H = ker((Z/M)^x -> (Z/r)^x) and is then the number of square roots of 1 in H; and for the imaginary families (r even, M = 2r, a = 1 + r) beta vanishes for every s unless 8 | r, and for s = r/d with d odd in every case.",
-        "authors": [
-          {
-            "name": "Joseph S. Farland"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.NT"
-          ],
-          "msc2020": [
-            "11M06",
-            "11M20",
-            "11R42",
-            "68V20"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "FixedOrderFactor.muAvg_eq",
-            "FixedOrderFactor.tendsto_muAvg",
-            "FixedOrderFactor.modelMean_eq",
-            "FixedOrderFactor.hasProd_correctionFactor",
-            "FixedOrderFactor.hasProd_muAvg",
-            "FixedOrderFactor.tendsto_modelMean",
-            "FixedOrderFactor.hasSum_coprime_pairs",
-            "FixedOrderFactor.correctionFactor_even",
-            "FixedOrderFactor.correctionFactor_eq_mul",
-            "FixedOrderFactor.one_lt_correctionFactor",
-            "FixedOrderFactor.correctionFactor_succ_lt",
-            "FixedOrderFactor.tendsto_correctionFactor",
-            "FixedOrderFactor.correctionFactor_four_two",
-            "FixedOrderFactor.localTerm_I_half",
-            "FixedOrderFactor.quartic_constants",
-            "FixedOrderFactor.sum_char_pow_eq_one",
-            "FixedOrderFactor.card_char_pow_eq_one",
-            "FixedOrderFactor.sum_char_pow_eq_one_of_pow",
-            "FixedOrderFactor.sum_char_all",
-            "FixedOrderFactor.div_eq_pow_iff",
-            "FixedOrderFactor.model_pair_average",
-            "FixedOrderFactor.sum_orbitAvg_mul",
-            "FixedOrderFactor.sum_orbitAvg_eq_zero",
-            "FixedOrderFactor.sum_orbitAvg_square_finite",
-            "FixedOrderFactor.sqrtCount_eq_card_zmod",
-            "FixedOrderFactor.sum_orbitAvg_square",
-            "FixedOrderFactor.sqrtCount_le_of_dvd",
-            "FixedOrderFactor.sqrtCount_top",
-            "FixedOrderFactor.sqrtCount_top_dichotomy",
-            "FixedOrderFactor.sqrtCount_imaginary",
-            "FixedOrderFactor.sqrtCount_table"
-          ]
-        },
-        "id": "PALOMAR-2026-10-20-000010",
-        "path": "entries/PALOMAR-2026-10-20-000010-v3.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "74f4fc5b5253c181a2ba67bf3220a7c0b5fcf6fd",
-              "fork_repository": "PalomarArchive/jkfarland-bot--FixedOrderFactor-lean--c8161d9d4229",
-              "source_repository": "jkfarland-bot/FixedOrderFactor-lean"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "38b2e925e86c5ee46d9f83615baf60a7da37f1cbb5e24b4f23b3b4c92f8bc736",
-          "version": 3
-        },
-        "published_at": "2026-11-03T05:22:19Z",
-        "source": {
-          "commit": "74f4fc5b5253c181a2ba67bf3220a7c0b5fcf6fd",
-          "project_path": null,
-          "repository": "jkfarland-bot/FixedOrderFactor-lean"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "FixedOrderFactor: the order-r correction factor for mean squares of L(1, chi), and the factor 35/34",
-        "trust": {
-          "level": "high"
-        },
-        "version": 3,
-        "versions": 3
       },
       {
         "abbreviated": false,
@@ -23457,88 +25429,6 @@
         "source_omitted": false,
         "status": "registered",
         "title": "Cofinite numerical domains of closed lambda programs",
-        "trust": {
-          "level": "high"
-        },
-        "version": 1,
-        "versions": 1
-      },
-      {
-        "abbreviated": false,
-        "abstract": "For an odd prime p, an odd character chi modulo p and m >= 0, the multiplier family C(a) = sum over 0 < n < p/2 of chi(n) (-1)^(n + <a n^(2m)>) has Fourier transform over the characters 2 sum_a conj(psi)(a) C(a) = G(conj psi) G(chi psi^(2m)), with the multiplier constant G(psi) = sum_m psi(m) (-1)^m = 2 (1 - 2 psi(2)) B_(1,psi). The development proves this Mellin duality over any commutative ring, its inversion over the odd complex characters and its form bilinear in first Bernoulli numbers, the half-sum identity, the exponent family and its two collapses. At p = 5 (mod 8), for the quartic character, it proves the coset decomposition of the family, its exact sums over the cosets of the fourth powers, conjugate dynamics, the two second-moment identities, the decomposition of the second-order products of the band-parity companion by coprime pairs, and Parseval's identity for the band weight. Through the inversion and Parseval's identity over the odd characters it proves, for every a not divisible by p, the exact second moment sum over odd chi of |sum over odd psi of psi(a) (1 - 2 conj(psi)(2)) (1 - 2 chi(2) psi(2)^2) B_(1,conj psi) B_(1,chi psi^2)|^2 = ((p - 1)/2)^4.",
-        "authors": [
-          {
-            "name": "Joseph S. Farland"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.NT"
-          ],
-          "msc2020": [
-            "11L40",
-            "11A15",
-            "11B68",
-            "68V20"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "MellinDuality.multiplier_constant_half",
-            "MellinDuality.multiplier_constant_even",
-            "MellinDuality.half_sum_identity",
-            "MellinDuality.multiplier_constant_bern",
-            "MellinDuality.mellin_duality",
-            "MellinDuality.mellin_duality_inverse",
-            "MellinDuality.mellin_duality_bernoulli",
-            "MellinDuality.mellin_duality_quartic",
-            "MellinDuality.parity_dictionary",
-            "MellinDuality.exponent_family_dual",
-            "MellinDuality.exponent_collapse_first",
-            "MellinDuality.exponent_collapse_second",
-            "MellinDuality.cosets_as_fibers",
-            "MellinDuality.coset_decomposition",
-            "MellinDuality.gamma_identities",
-            "MellinDuality.exponent_terminal_values",
-            "MellinDuality.coset_trace_values",
-            "MellinDuality.coset_trace_second",
-            "MellinDuality.family_mean_values",
-            "MellinDuality.conjugate_dynamics_squaring",
-            "MellinDuality.second_moments",
-            "MellinDuality.gcd_decomposition",
-            "MellinDuality.band_sum_interval",
-            "MellinDuality.pair_structure_identities",
-            "MellinDuality.parseval_identity",
-            "MellinDuality.parseval_any_weight",
-            "MellinDuality.multiplier_family_interval",
-            "MellinDuality.parseval_odd_characters",
-            "MellinDuality.bernoulli_mean_square_identity"
-          ]
-        },
-        "id": "PALOMAR-2026-11-02-000019",
-        "path": "entries/PALOMAR-2026-11-02-000019-v1.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "1a5228293f894c9779404d39808b250705e30137",
-              "fork_repository": "PalomarArchive/jkfarland-bot--MellinDuality--0105682cec7c",
-              "source_repository": "jkfarland-bot/MellinDuality"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "04bb64c7f21c04097fc8571959da790523dafe82eac6a508c313a80d80918c64",
-          "version": 1
-        },
-        "published_at": "2026-11-02T21:07:35Z",
-        "source": {
-          "commit": "1a5228293f894c9779404d39808b250705e30137",
-          "project_path": null,
-          "repository": "jkfarland-bot/MellinDuality"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "MellinDuality: Mellin duality for the band-parity companion",
         "trust": {
           "level": "high"
         },
@@ -33036,76 +34926,6 @@
       },
       {
         "abbreviated": false,
-        "abstract": "For a prime p = 5 (mod 8) let chi be the quartic Dirichlet character with chi(2) = i, with values in the Gaussian integers, and let C(p) = f + i e be the sum of chi(n) (-1)^floor(n^2/p) over 0 < n < p/2. The development proves that f = (p-1)/4 (mod 4) and e = kappa (mod 4) for every such p, where kappa is the sum of the Legendre symbols (n/p) over 0 < n < p/4. The mechanism is a matching lemma: for sign functions sigma, tau and a bijection pi, the correlation sum sigma(x) tau(pi x) is congruent modulo 4 to the sum of the two marginals minus the number of terms, so it does not depend on pi. Along the way it proves the parity dictionary (-1)^floor(n^2/p) = s(n) s(n^2) with s(x) = (-1)^<x>, the coset form f = sum over the fourth powers H of s(u) s(u^2) and e = the same sum over 2H, the lag identity sum over 2H of s(u) s(2u) = kappa exactly, the exact coset parities sum_H s = k + 2t and sum_{2H} s = t - 2k where B_{1,chi} = k + i t, and the Coordinate Congruence kappa = (p-1)/4 + k + t (mod 4). It also proves the odd-subgroup congruence: for an odd modulus N >= 3, a subgroup H of (Z/N)^x of odd order h, a coset X = xH and an even exponent e >= 2, the band-parity sum of X and -X over (0, N/2) equals sum over X of s(u) s(u^e) and is congruent to h - 2 alpha(X) - 2 alpha(X^e) modulo 4, where alpha counts elements with odd least residue.",
-        "authors": [
-          {
-            "name": "Joseph S. Farland"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.NT"
-          ],
-          "msc2020": [
-            "11A15",
-            "11L40",
-            "11R29",
-            "68V20"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "BandParity.matching",
-            "BandParity.matching_indep",
-            "BandParity.existsUnique_pinned",
-            "BandParity.neg_one_pow_band",
-            "BandParity.T_eq",
-            "BandParity.odd_k",
-            "BandParity.odd_t",
-            "BandParity.bandSum_re",
-            "BandParity.bandSum_im",
-            "BandParity.lag_identity",
-            "BandParity.bandSum_re_modEq",
-            "BandParity.bandSum_im_modEq",
-            "BandParity.coset_parities",
-            "BandParity.bandSum_im_modEq_coords",
-            "BandParity.coordinate_congruence",
-            "BandParity.cosetBandSum_eq",
-            "BandParity.odd_subgroup_congruence"
-          ]
-        },
-        "id": "PALOMAR-2026-10-27-000018",
-        "path": "entries/PALOMAR-2026-10-27-000018-v1.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "890a306dcb94aaf290ca390e553f9c2ba39de246",
-              "fork_repository": "PalomarArchive/jkfarland-bot--Bandparity--4643317fd5e0",
-              "source_repository": "jkfarland-bot/Bandparity"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "70bdc0f0f1782c2350f7037da2c1c89d47988787373cbf4747e967f9673c6505",
-          "version": 1
-        },
-        "published_at": "2026-10-27T19:19:02Z",
-        "source": {
-          "commit": "890a306dcb94aaf290ca390e553f9c2ba39de246",
-          "project_path": null,
-          "repository": "jkfarland-bot/Bandparity"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "BandParity: the band-parity sum of a quartic character, two laws modulo 4",
-        "trust": {
-          "level": "high"
-        },
-        "version": 1,
-        "versions": 1
-      },
-      {
-        "abbreviated": false,
         "abstract": "For integers 0 < b < a, let P(a,b) count the positive terms obtained by repeatedly replacing x by a mod x, starting at b. This development proves the uniform bound P(a,b) ≤ C_ε a^((41301 - 3 sqrt(82849))/137480 + ε) for every ε > 0, including the external coefficient-uniform affine-curve theorem and the effective Hilbert specialisation sieve, and its rational instance 4317/14677. It also proves the exterior-lattice exponents 471/1559 - 6 sqrt(105)/7795 and 153/520, the joint-invariant exponents (1310-sqrt(655))/4365, 2201/7480 and 128/435 and the earlier exponents 45/152, 8/27, 11/37, 23/77, and 3/10. It also proves a bound O(a^(1/4) sqrt R), where R minus one counts rises in the quotient increments, and positivity and integrality of the orbit's Hankel invariants. A separate conditional theorem gives O(a^(3/10) sqrt(log log(3a))) assuming two explicitly stated analytic estimates whose proofs are not formalised. The polar bound uses the proved orbit identity, actual common-base bound of four, degree-twelve residue labels, uniform arithmetic specialisation count, and full-pattern completion count with arbitrary common divisors. These establish the six-term local estimate without additional hypotheses. The conjectured O((log a)^2) bound remains open.",
         "authors": [
           {
@@ -40246,64 +42066,6 @@
         },
         "version": 2,
         "versions": 2
-      },
-      {
-        "abbreviated": false,
-        "abstract": "For k >= 2 and a subgroup H of odd order n of the unit group (Z/kZ)^x, the sum S(H,k) of the Dedekind sums s(h,k) over h in H satisfies: 12k S(H,k) is an integer congruent to n(k-1)(k-2) modulo 16, and the modulus 16 cannot be replaced by 32 (an explicit pair of order-3 subgroups of (Z/63Z)^x). The development also proves a congruence modulo 8 for every subgroup, a congruence for 2k S(H,k) when 3 does not divide k, and, for primes p > 3 and n > 1, that 2S(H,p) is an integer congruent to n(p-1)/2 modulo 8, which refines Louboutin's parity theorem and gives 12S(H,p) - p congruent to 3n(p-1) - p modulo 48. The proof formalizes Meyer's formula 12k s(h,k) = (k-1)(k-2) - 4I(h,k), where I(h,k) counts the inversions of x -> hx mod k, and the facts that these inversion counts are even on squares and equal for inverse elements.",
-        "authors": [
-          {
-            "name": "Joseph S. Farland"
-          }
-        ],
-        "classification": {
-          "arxiv": [
-            "math.NT"
-          ],
-          "msc2020": [
-            "11F20",
-            "11M20",
-            "68V20"
-          ]
-        },
-        "formalization": {
-          "theorem_names": [
-            "DedekindSubgroups.theorem_1_1",
-            "DedekindSubgroups.theorem_1_1_optimal",
-            "DedekindSubgroups.remark_3_4",
-            "DedekindSubgroups.corollary_4_1",
-            "DedekindSubgroups.theorem_1_2",
-            "DedekindSubgroups.theorem_1_2_louboutin"
-          ]
-        },
-        "id": "PALOMAR-2026-10-20-000005",
-        "path": "entries/PALOMAR-2026-10-20-000005-v1.json",
-        "preservation": {
-          "repositories": [
-            {
-              "commit": "cb87faf157821154dc1beef7aad753d889211ad9",
-              "fork_repository": "PalomarArchive/jkfarland-bot--DedekindSubgroups-lean--eea92f4129af",
-              "source_repository": "jkfarland-bot/DedekindSubgroups-lean"
-            }
-          ]
-        },
-        "preview": {
-          "artifact_tree_sha256": "7f7030c3b9e314c2ea93a9ca40c0bc93771213e01d4d0b2368794cb78862c278",
-          "version": 1
-        },
-        "published_at": "2026-10-20T01:51:59Z",
-        "source": {
-          "commit": "cb87faf157821154dc1beef7aad753d889211ad9",
-          "project_path": null,
-          "repository": "jkfarland-bot/DedekindSubgroups-lean"
-        },
-        "source_omitted": false,
-        "status": "registered",
-        "title": "DedekindSubgroups: a congruence modulo 16 for sums of Dedekind sums over subgroups of odd order",
-        "trust": {
-          "level": "high"
-        },
-        "version": 1,
-        "versions": 1
       },
       {
         "abbreviated": false,
@@ -78737,52 +80499,53 @@
         "versions": 3
       }
     ],
-    "previous": "eyJyZXZpc2lvbiI6MTE0MCwicXVlcnkiOiJkYWM0MmMwNjU1ZDNkY2MwZWVjNzFhNTg5ZjQ3MzAzYjk5NDQyZjdmNGJlMGNkYjc0ZGI5ZWM4MmQ3ZDdlYzc1IiwiZGlyZWN0aW9uIjoicHJldmlvdXMiLCJkYXRlIjoiMjAyNi0wOC0xOFQyMzoyMDoxN1oiLCJpZCI6IlBBTE9NQVItMjAyNi0wOC0xOC0wMDAwMDMifQ==",
+    "previous": "eyJyZXZpc2lvbiI6MTE3NywicXVlcnkiOiJkYWM0MmMwNjU1ZDNkY2MwZWVjNzFhNTg5ZjQ3MzAzYjk5NDQyZjdmNGJlMGNkYjc0ZGI5ZWM4MmQ3ZDdlYzc1IiwiZGlyZWN0aW9uIjoicHJldmlvdXMiLCJkYXRlIjoiMjAyNi0wOC0yMFQwMDoyMzoyM1oiLCJpZCI6IlBBTE9NQVItMjAyNi0wOC0xMy0wMDAwMDEifQ==",
     "next": null,
     "dropped": [],
     "message": null,
-    "pages_fetched": 53
+    "pages_fetched": 54
   },
   "changes": {
     "added": [
-      "PALOMAR-2026-11-23-000015",
-      "PALOMAR-2026-11-23-000014",
-      "PALOMAR-2026-11-23-000013",
-      "PALOMAR-2026-11-22-000018",
-      "PALOMAR-2026-11-23-000012",
-      "PALOMAR-2026-11-23-000011",
-      "PALOMAR-2026-11-23-000010",
-      "PALOMAR-2026-11-23-000009",
-      "PALOMAR-2026-11-23-000008",
-      "PALOMAR-2026-11-23-000007",
-      "PALOMAR-2026-11-23-000006",
-      "PALOMAR-2026-11-22-000027",
-      "PALOMAR-2026-11-23-000005",
-      "PALOMAR-2026-11-23-000004",
-      "PALOMAR-2026-11-23-000003",
-      "PALOMAR-2026-11-23-000002",
-      "PALOMAR-2026-11-23-000001",
-      "PALOMAR-2026-11-22-000015",
-      "PALOMAR-2026-11-22-000033",
-      "PALOMAR-2026-11-22-000032",
-      "PALOMAR-2026-11-22-000031",
-      "PALOMAR-2026-11-22-000030",
-      "PALOMAR-2026-11-22-000029",
-      "PALOMAR-2026-11-22-000028",
-      "PALOMAR-2026-11-22-000026",
-      "PALOMAR-2026-11-22-000025",
-      "PALOMAR-2026-11-22-000024",
-      "PALOMAR-2026-11-22-000023",
-      "PALOMAR-2026-11-22-000022",
-      "PALOMAR-2026-11-22-000021",
-      "PALOMAR-2026-11-22-000020",
-      "PALOMAR-2026-11-22-000019",
-      "PALOMAR-2026-11-22-000017",
-      "PALOMAR-2026-11-22-000016",
-      "PALOMAR-2026-11-22-000014"
+      "PALOMAR-2026-11-24-000009",
+      "PALOMAR-2026-11-24-000008",
+      "PALOMAR-2026-11-24-000007",
+      "PALOMAR-2026-11-24-000006",
+      "PALOMAR-2026-11-24-000005",
+      "PALOMAR-2026-11-24-000004",
+      "PALOMAR-2026-11-24-000003",
+      "PALOMAR-2026-11-24-000002",
+      "PALOMAR-2026-11-24-000001",
+      "PALOMAR-2026-11-23-000036",
+      "PALOMAR-2026-11-23-000035",
+      "PALOMAR-2026-11-23-000034",
+      "PALOMAR-2026-11-23-000033",
+      "PALOMAR-2026-11-23-000032",
+      "PALOMAR-2026-11-23-000031",
+      "PALOMAR-2026-11-23-000030",
+      "PALOMAR-2026-11-23-000029",
+      "PALOMAR-2026-11-23-000028",
+      "PALOMAR-2026-11-23-000027",
+      "PALOMAR-2026-11-23-000026",
+      "PALOMAR-2026-11-23-000025",
+      "PALOMAR-2026-11-23-000024",
+      "PALOMAR-2026-11-23-000023",
+      "PALOMAR-2026-11-23-000022",
+      "PALOMAR-2026-11-23-000021",
+      "PALOMAR-2026-11-23-000020",
+      "PALOMAR-2026-11-23-000019",
+      "PALOMAR-2026-11-23-000018",
+      "PALOMAR-2026-11-23-000017",
+      "PALOMAR-2026-11-23-000016"
     ],
     "updated": [
-      "PALOMAR-2026-11-22-000009"
+      "PALOMAR-2026-10-20-000010",
+      "PALOMAR-2026-11-02-000019",
+      "PALOMAR-2026-11-02-000005",
+      "PALOMAR-2026-10-27-000018",
+      "PALOMAR-2026-10-20-000005",
+      "PALOMAR-2026-11-21-000007",
+      "PALOMAR-2026-11-20-000015"
     ],
     "absent": []
   },

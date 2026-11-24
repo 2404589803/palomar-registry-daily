@@ -1,0 +1,423 @@
+{
+  "abstract": "Unconditional Lean 4 + Mathlib formalization (208 audited declarations, zero sorry, zero native_decide, standard axioms only) covering three families of exact girth theorems for the Lazebnik-Ustimenko algebraically defined bipartite graphs D(k, F), separating original results from an independent kernel proof of an earlier binary theorem: (1) Original result: exact girth D(9, F) = girth D(10, F) = 14 for every finite field F with |F| >= 4 in both the working (DS28 Section 6.1) and original minus-sign representations, closing characteristics 2 and 3 (q = 2^m >= 4 and q = 3^m >= 9, left open by Pikuta 2008), closing the empty DS28 Table 7 cells (9, 27), (10, 27), (9, 32), (10, 32), and proving at least two admissible cycle parameters exist whenever |F| >= 4; (2) Independent Lean 4 proof of the earlier complete binary girth law of Cheng, Chen, and Tang (2014) (quoted in Xu, Cheng, and Tang 2023, Example 1): girth D(k, 2) = 2^s for every s >= 3 and every k >= 2 with 2^(s-1) - 4 < k <= 2^s - 4 in both sign models, proved independently via an affine unipotent 4-step operator T4(p) = (I + N)p + b over ZMod 2, and applied (D2_girth_gt_16_of_ge_13) to prove girth D(k, 2) >= 32 with no 16-cycle for every k >= 13, refuting the conflicting printed claim D(k, 2) ~= 2^(k-3) C_16 (k >= 5) in Lazebnik-Sun-Wang (2017) and Lazebnik-Wang DS28 (2026); and (3) Original kernel-verified exact ternary girths D(k, 3) including k = 15, 16 (girth 20), k = 47, 48 (52), k = 55, 56 (60), k = 79, 80 (84), k = 99 (104), and k = 103, 104 (108), together with the unconditional tightening 56 <= girth D(52, 3) <= 60. Companion manuscript and verification archive: https://mathdiscoveries.org/results/lazebnik-ustimenko.",
+  "authors": [
+    {
+      "name": "Tyler B. Hughes"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-24-000009-v1/4a5b04eec3847b4f331936ec6afb86d4d8ad80e314466d0ad3a1ae374caae3be/",
+    "artifact_tree_sha256": "4a5b04eec3847b4f331936ec6afb86d4d8ad80e314466d0ad3a1ae374caae3be",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-24T06:31:58Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C38",
+      "05C35",
+      "05C25"
+    ]
+  },
+  "first_registered_on": "2026-11-24",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "LazebnikUstimenkoChallenge.D9_D10_exact_girth_14_all_q_ge_4",
+      "LazebnikUstimenkoChallenge.D9_D10_orig_exact_girth_14_all_q_ge_4",
+      "LazebnikUstimenkoChallenge.D9_D10_exact_girth_14_galoisField",
+      "LazebnikUstimenkoChallenge.DS28_table7_blank_cells_27_32",
+      "LazebnikUstimenkoChallenge.card_admissible_ge_two_of_card_ge_four",
+      "LazebnikUstimenkoChallenge.D2_exact_girth_law",
+      "LazebnikUstimenkoChallenge.D2_exact_girth_orig_law",
+      "LazebnikUstimenkoChallenge.D2_girth_gt_16_of_ge_13",
+      "LazebnikUstimenkoChallenge.D3_exact_girths_highlights",
+      "LazebnikUstimenkoChallenge.D3_k52_bounds_56_60"
+    ]
+  },
+  "id": "PALOMAR-2026-11-24-000009",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-24T07:00:15Z",
+    "receipt_sha256": "37809d2bfa117842201f12f177148f3e71a9dd7c6c212c0cb09b55b62613f6c1",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000009-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000009-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000009-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000009-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000009-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000009-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000009-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000009-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000009-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "ba3e40579b1a93f927b768ea55fa0b05a740dcd5",
+        "fork_repository": "PalomarArchive/mathdiscoveries--lazebnik-ustimenko--6eefc4df297c",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000009-v1/ba3e40579b1a93f927b768ea55fa0b05a740dcd5",
+        "source_repository": "mathdiscoveries/lazebnik-ustimenko"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Tyler B. Hughes"
+          }
+        ],
+        "identifier": "https://mathdiscoveries.org/results/lazebnik-ustimenko",
+        "location": "Companion manuscript (Draft 3), verification archive, and prior-work notes at https://mathdiscoveries.org/results/lazebnik-ustimenko",
+        "relationship": "other",
+        "title": "Exact Girths of Lazebnik-Ustimenko Graphs D(k, q): Girth 14 Across All Characteristics, Binary Girth Law Verification, and Ternary Girths",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Xiaoyan Cheng"
+          },
+          {
+            "name": "Wenbing Chen"
+          },
+          {
+            "name": "Yuansheng Tang"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/j.disc.2014.07.004",
+        "location": "Discrete Math. 335 (2014), 25-34 (Zbl 1298.05227)",
+        "relationship": "independently-proves",
+        "title": "On the girth of the bipartite graph D(k, q)",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ming Xu"
+          },
+          {
+            "name": "Xiaoyan Cheng"
+          },
+          {
+            "name": "Yuansheng Tang"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/j.ffa.2023.102296",
+        "location": "Finite Fields Appl. 92 (2023), 102296 (arXiv:2209.01896), Theorem 2, Example 1 (p. 11), and Table 1 (p. 12)",
+        "relationship": "background",
+        "title": "Girth of the algebraic bipartite graph D(k, q)",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Felix Lazebnik"
+          },
+          {
+            "name": "Vasiliy A. Ustimenko"
+          },
+          {
+            "name": "Andrew J. Woldar"
+          }
+        ],
+        "identifier": "https://doi.org/10.1090/S0273-0979-1995-00569-0",
+        "location": "Bull. Amer. Math. Soc. (N.S.) 32 (1995), 73-79 (arXiv:math/9501231)",
+        "relationship": "background",
+        "title": "A new series of dense graphs of high girth",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Zoltan Furedi"
+          },
+          {
+            "name": "Felix Lazebnik"
+          },
+          {
+            "name": "Akos Seress"
+          },
+          {
+            "name": "Vasiliy A. Ustimenko"
+          },
+          {
+            "name": "Andrew J. Woldar"
+          }
+        ],
+        "identifier": "https://doi.org/10.1006/jctb.1995.1033",
+        "location": "J. Combin. Theory Ser. B 64 (1995), no. 2, 228-239",
+        "relationship": "background",
+        "title": "Graphs of Prescribed Girth and Bi-Degree",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Piotr Pikuta"
+          }
+        ],
+        "identifier": "https://admjournal.luguniv.edu.ua/index.php/adm/article/view/810",
+        "location": "Algebra Discrete Math. (2008), no. 2, 83-88, Theorem 2.2",
+        "relationship": "background",
+        "title": "Exact values of girth for some graphs D(k, q) and upper bounds of the order of cages",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Felix Lazebnik"
+          },
+          {
+            "name": "Shuxing Sun"
+          },
+          {
+            "name": "Yingli Wang"
+          }
+        ],
+        "identifier": "https://bpb-us-w2.wpmucdn.com/sites.udel.edu/dist/3/7714/files/2022/03/Lazebnik_Sun_Wang_12_2016.pdf",
+        "location": "Lect. Notes Semin. Interdiscip. Mat. 14 (2017), 105-142, Section 6 (Conjecture 5, Problem 8)",
+        "relationship": "background",
+        "title": "Some families of graphs, hypergraphs and digraphs defined by systems of equations: a survey",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Felix Lazebnik"
+          },
+          {
+            "name": "Yingli Wang"
+          }
+        ],
+        "identifier": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/ds28/pdf/",
+        "location": "Electron. J. Combin. (2026), Dynamic Survey #DS28, pp. 37, 41-42, and Tables 4 and 7",
+        "relationship": "background",
+        "title": "Some families of graphs, hypergraphs and digraphs defined by triangular systems of polynomial equations",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tyler B. Hughes"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-24T06:59:45Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "ab88ca48a03f1f9c986b73b6250c49afa6cd7cd452bce9bf80478c691a9b453b"
+    },
+    "reviewed_at": "2026-11-24T06:49:46Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "ba3e40579b1a93f927b768ea55fa0b05a740dcd5",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "mathdiscoveries/lazebnik-ustimenko",
+    "repository_url": "https://github.com/mathdiscoveries/lazebnik-ustimenko",
+    "tree_url": "https://github.com/mathdiscoveries/lazebnik-ustimenko/tree/ba3e40579b1a93f927b768ea55fa0b05a740dcd5"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "woyvohao8ykm"
+  },
+  "title": "Exact Girths of Lazebnik-Ustimenko Graphs D(k, q): Girth 14 for All |F| >= 4, Independent Proof of the Binary Girth Law, and Ternary Girths",
+  "trust": {
+    "challenge_bytes": 9572,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Ring.Defs",
+      "Mathlib.Combinatorics.SimpleGraph.Basic",
+      "Mathlib.Data.Fin.Basic",
+      "Mathlib.Data.Fintype.Basic",
+      "Mathlib.Data.ZMod.Basic",
+      "Mathlib.FieldTheory.Finite.GaloisField",
+      "Mathlib.SetTheory.Cardinal.Finite"
+    ],
+    "challenge_lines": 206,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "b213343ee1d779af51fb11afbe2e4f651d92798ce8e240f0a2e6baddbdffb184",
+    "evidence_path": "evidence/PALOMAR-2026-11-24-000009-v1/7766e47c705f8cefbd17bda8488c5ca66f68946d1333551f08da14680845ae63/",
+    "evidence_tree_sha256": "7766e47c705f8cefbd17bda8488c5ca66f68946d1333551f08da14680845ae63",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "a88185951de6ac94f13c68bc376fe75e311203085754dc1936940f871fec2c66",
+    "protected_config_sha256": "0d16fdefa1fa8f59c9d37e5f002ca03e4cc6f98bed09e7b27b88453109708632",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45329302726,
+    "solution_sha256": "2d6a94b6547dd62d4c10c20495dc25246fec369c8f2c55e45b3c22ae2aee8a20",
+    "tool_digests": {
+      "bwrap": "909a3032274120bf7d8227032624f51a9b0eee813976d5066406e4f8375b1b1e",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-24T04:56:33Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45329302726"
+  },
+  "version": 1
+}

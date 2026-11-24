@@ -1,0 +1,318 @@
+{
+  "abstract": "The Legendre family of elliptic curves y^2 = x(x-1)(x-λ) has the period function F(λ) = 2F1(1/2, 1/2; 1; λ), taken here as Mathlib's ordinaryHypergeometric. Its Picard–Fuchs operator is λ(1-λ) y'' + (1-2λ) y' - y/4. The second Frobenius solution at λ = 0 is L(λ) = F(λ) log λ + G(λ), with G(λ) = sum over n of a_n h_n λ^n, a_n = (C(2n,n)/4^n)^2 the Taylor coefficients of F, and h_n = sum_{k=1}^{n} 2/(k(2k-1)). Let D be the slit unit disc, the open unit disc minus (-1, 0]. This entry proves, in Lean 4 and Mathlib, seven statements.\n(1) F is holomorphic on the unit disc and solves the Picard–Fuchs equation there. (2) Period integral: for |λ| < 1, F(λ) = (1/π) ∫_0^1 dx / (sqrt(x(1-x)) (1-λx)^{1/2}), with the principal branch of the complex power. (3) Wronskian: F L' - F' L = 1/(λ(1-λ)) on D. (4) Solution space: a function y is holomorphic on D and solves the Picard–Fuchs equation on D if and only if y = aF + bL on D for some complex constants a, b. (5) F and L are linearly independent on D. (6) Local monodromy at 0: there is a function holomorphic on the unit disc slit along [0, 1) that equals L on the open upper half-disc and L + 2πi F on the open lower half-disc; that is, L continues analytically across (-1, 0) to L + 2πi F, while F is holomorphic on the whole disc. In the basis (F, L), the local monodromy at 0 is therefore [[1, 2πi], [0, 1]]. (7) Connection formula: on the lens where |λ| < 1 and |λ - 1| < 1, F(1-λ) = (4 log 2 · F(λ) - L(λ))/π. This expresses the solution regular at λ = 1 in the Frobenius basis at λ = 0; its constants come from the classical asymptotic K(k) = log(4/k') + o(1) as k → 1, which is proved here from the period integral.\nThe proofs are a power-series treatment of the equation and of G (whose coefficients satisfy a harmonic-number recursion), Abel's identity for the Wronskian, a uniqueness theorem for holomorphic solutions with vanishing Cauchy data at an ordinary point (derivative recursion, Taylor series and the identity theorem; Mathlib's ODE uniqueness is for real time only), term-by-term integration of the binomial series against Beta integrals, and an explicit estimate of the complete elliptic integral near its logarithmic singularity. All seven results are classical; this is, to our knowledge, their first Lean formalization. Scope: everything is local to λ = 0 (and, for (7), to the lens); the global monodromy group Γ(2) and analytic continuation along paths are not formalized; the elliptic curve, its differential forms and its homology do not appear, so \"period\" refers to the integral formula (2).",
+  "authors": [
+    {
+      "name": "Rohan Badade"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-24-000008-v1/3f5a2c668051ba290a11653d5256e4990418abc3c0f445c8cfb50a6092699fb8/",
+    "artifact_tree_sha256": "3f5a2c668051ba290a11653d5256e4990418abc3c0f445c8cfb50a6092699fb8",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-24T06:07:20Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CA",
+      "math.LO"
+    ],
+    "msc2020": [
+      "33C05",
+      "34M35",
+      "33E05",
+      "14D05",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-24",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "LegendreChallenge.F_solves_picardFuchs",
+      "LegendreChallenge.F_eq_period_integral",
+      "LegendreChallenge.wronskian_F_L",
+      "LegendreChallenge.solution_space",
+      "LegendreChallenge.F_L_linearIndependent",
+      "LegendreChallenge.monodromy_at_zero",
+      "LegendreChallenge.connection_formula"
+    ]
+  },
+  "id": "PALOMAR-2026-11-24-000008",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-24T06:25:05Z",
+    "receipt_sha256": "427962cfac99226239436ca73fefd000b95244e0fed3d4fb398a212e59ece94d",
+    "repositories": [
+      {
+        "commit": "5856d40623d3d9895077e760c124408d1ae494ee",
+        "fork_repository": "PalomarArchive/gnostrich--legendre-monodromy--baa723f45b03",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000008-v1/5856d40623d3d9895077e760c124408d1ae494ee",
+        "source_repository": "gnostrich/legendre-monodromy"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000008-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000008-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000008-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000008-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000008-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000008-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000008-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000008-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000008-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "A. B. Olde Daalhuis"
+          }
+        ],
+        "identifier": "https://dlmf.nist.gov/15",
+        "license": "unknown",
+        "location": "Eq. 15.10.1 (the hypergeometric equation; a = b = 1/2, c = 1 gives the Picard–Fuchs operator here); Eq. 15.10.8 with n = 1 (the logarithmic second solution at z = 0); Eq. 15.6.1 (Euler's integral, giving the period integral at a = b = 1/2, c = 1); Eq. 15.8.10 with m = 0 (the logarithmic connection formula for F(a,b;a+b;z), giving the connection formula at a = b = 1/2). Checked against the DLMF online edition in November 2026.",
+        "relationship": "formalizes",
+        "title": "NIST Digital Library of Mathematical Functions, Chapter 15 (Hypergeometric Function)",
+        "type": "reference work"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "B. C. Carlson"
+          }
+        ],
+        "identifier": "https://dlmf.nist.gov/19",
+        "license": "unknown",
+        "location": "Eq. 19.5.1 (K(k) = (π/2) F(1/2,1/2;1;k^2)); Eqs. 19.12.1 and 19.12.3 (the expansion of K(k) near k = 1, whose leading term is log(4/k'))",
+        "relationship": "background",
+        "title": "NIST Digital Library of Mathematical Functions, Chapter 19 (Elliptic Integrals)",
+        "type": "reference work"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "The Mathlib Community"
+          }
+        ],
+        "identifier": "https://github.com/leanprover-community/mathlib4",
+        "license": "Apache-2.0",
+        "location": "Mathlib v4.35.0, as pinned by lakefile.toml and lake-manifest.json",
+        "relationship": "background",
+        "title": "mathlib4: the Lean mathematical library",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Rohan Badade"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-24T06:24:47Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "f628749a544995f3e8c451805c2ed57c2b968e527b03f327746d4f19c6e878bb"
+    },
+    "reviewed_at": "2026-11-24T06:19:05Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "The repeated claim that these results are the first Lean formalization, even qualified by 'to our knowledge,' has no documented literature or prior-formalization search to support that priority claim. Identify a credible search and its scope, or state that priority among Lean formalizations is unknown."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "5856d40623d3d9895077e760c124408d1ae494ee",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "gnostrich/legendre-monodromy",
+    "repository_url": "https://github.com/gnostrich/legendre-monodromy",
+    "tree_url": "https://github.com/gnostrich/legendre-monodromy/tree/5856d40623d3d9895077e760c124408d1ae494ee"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "oxwdkhwqc4hk"
+  },
+  "title": "The Legendre family: Picard–Fuchs equation, period integral, solution space, local monodromy and connection formula for 2F1(1/2,1/2;1;λ)",
+  "trust": {
+    "challenge_bytes": 5438,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 123,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "80961b734965eb3c48015ab7c915da432a7a183b67a522c8a36e66e42932c32b",
+    "evidence_path": "evidence/PALOMAR-2026-11-24-000008-v1/45e965f3df515ac266080d53e14eb8e37ff3a795c575d1e78cc756c848b38802/",
+    "evidence_tree_sha256": "45e965f3df515ac266080d53e14eb8e37ff3a795c575d1e78cc756c848b38802",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "96639e0d54e70d8a98638549040cf66f9618185838a4f656dd307e9b39facc99",
+    "protected_config_sha256": "16880dce7ddf7997e4dbcdfe9f69adb4495075ffc5f57de68c431449b4e225a7",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45335778064,
+    "solution_sha256": "585a34ddfb1d9328be57890eb531a0ce8f7cd9f23019953ce21757d315a6cdae",
+    "tool_digests": {
+      "bwrap": "2d4ac5c21b8b8da4a1781a37ef7ea75304d2ae1bd62f84ef59b126ee86474867",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-24T05:52:08Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45335778064"
+  },
+  "version": 1
+}

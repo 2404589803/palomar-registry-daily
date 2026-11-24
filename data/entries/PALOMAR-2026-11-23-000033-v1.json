@@ -1,0 +1,355 @@
+{
+  "abstract": "Unconditional Lean 4 + Mathlib formalization (zero sorry, zero native_decide, standard axioms only) establishing two explicit 37-digit Zhang K2 strong pseudoprimes n1 = 2481162833436289154832260656117034821 (121 bits) and n2 = 5959902256870799858089729225626992341 (123 bits) to the first 20 prime bases (2 through 71, defined via Mathlib's Nat.nth Nat.Prime), giving the upper bound psi_20 <= n1 < 2^121 (OEIS A014233). All four prime factors are certified inside the Lean kernel via Pratt certificates backed by Mathlib's lucas_primality, and both witnesses are proved to fail the strong test at the 21st prime 73 while passing Fermat at 73. The K2 Fermat and 2-adic order criteria formalize specializations of Gerhard Jaeschke's 1993 results. The companion manuscript also presents the exact strong-liar fraction (1 + 2*4^(-e))/6 and base-2 cap <= 3/16, the exact sieve count A(b) and 10,135,125-class wheel mod 401,120,980,260, the Jacobsthal character sum -(2/b) with exact b mod 8 cell counts, and the K_{a/b} Legendre obstruction. Lean covers 6 of the manuscript's 8 main claims. The other 2 are external sieve computations. AI research agents built and directed by Tyler B. Hughes generated and checked the work. No human mathematician has yet refereed the proof. Companion manuscript and verification archive: https://mathdiscoveries.org/results/spsp-psi20.",
+  "authors": [
+    {
+      "name": "Tyler B. Hughes"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-23-000033-v1/50191030504f7afb56865c442f639ff25fc9eeecd714023a1bc28f49f6e496d3/",
+    "artifact_tree_sha256": "50191030504f7afb56865c442f639ff25fc9eeecd714023a1bc28f49f6e496d3",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-23T21:42:45Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11Y11",
+      "11A51",
+      "11N36"
+    ]
+  },
+  "first_registered_on": "2026-11-23",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "SpspPsi20Challenge.main_two_witnesses",
+      "SpspPsi20Challenge.psi_20_le_n₁",
+      "SpspPsi20Challenge.k2_fermat_and_sprp_criteria",
+      "SpspPsi20Challenge.k2_strongLiar_share_and_base2_cap",
+      "SpspPsi20Challenge.sieve_admissible_and_wheel",
+      "SpspPsi20Challenge.k2_jacobsthal_and_cells",
+      "SpspPsi20Challenge.k_gen_legendre_of_ratio",
+      "SpspPsi20Challenge.nth_prime_20"
+    ]
+  },
+  "id": "PALOMAR-2026-11-23-000033",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-23T22:23:36Z",
+    "receipt_sha256": "f8807a883a1c7b752be5dade79e37b78d48cbc79e08112bb85dced7717c6f20c",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000033-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000033-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000033-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000033-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000033-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000033-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000033-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000033-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000033-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "f586e90ce583ad95a8ac2406adda5fc4bb905cbd",
+        "fork_repository": "PalomarArchive/mathdiscoveries--spsp-psi20--2818378352fd",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000033-v1/f586e90ce583ad95a8ac2406adda5fc4bb905cbd",
+        "source_repository": "mathdiscoveries/spsp-psi20"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Tyler B. Hughes"
+          }
+        ],
+        "identifier": "https://mathdiscoveries.org/results/spsp-psi20",
+        "location": "Companion manuscript, verification archive, and prior-work search log at https://mathdiscoveries.org/results/spsp-psi20",
+        "relationship": "other",
+        "title": "Two 37-Digit 20-Base Strong Pseudoprimes: Kernel-Verified Certificates, Order Criteria, and Exact Sieve Laws",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Vaughan R. Pratt"
+          }
+        ],
+        "identifier": "https://doi.org/10.1137/0204018",
+        "location": "SIAM J. Comput. 4 (1975), no. 3, 214-220",
+        "relationship": "background",
+        "title": "Every prime has a succinct certificate",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Gerhard Jaeschke"
+          }
+        ],
+        "identifier": "https://doi.org/10.1090/S0025-5718-1993-1192971-8",
+        "location": "Math. Comp. 61 (1993), no. 204, 915-926, Propositions 1 and 4 and the remark on p. 919",
+        "relationship": "formalizes",
+        "title": "On strong pseudoprimes to several bases",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Daniel Bleichenbacher"
+          }
+        ],
+        "identifier": "https://doi.org/10.3929/ethz-a-001627804",
+        "location": "Ph.D. thesis, Diss. ETH No. 11404, ETH Zurich, 1996, Table 3.2",
+        "relationship": "background",
+        "title": "Efficiency and security of cryptosystems based on number theory"
+      },
+      {
+        "authors": [
+          {
+            "name": "Zhenxiang Zhang"
+          }
+        ],
+        "identifier": "https://doi.org/10.1090/S0025-5718-07-01977-1",
+        "location": "Math. Comp. 76 (2007), no. 260, 2095-2107",
+        "relationship": "background",
+        "title": "Two kinds of strong pseudoprimes up to 10^36",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jonathan P. Sorenson"
+          },
+          {
+            "name": "Jonathan Webster"
+          }
+        ],
+        "identifier": "https://doi.org/10.1090/mcom/3134",
+        "location": "Math. Comp. 86 (2017), no. 304, 985-1003",
+        "relationship": "background",
+        "title": "Strong pseudoprimes to twelve prime bases",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tyler B. Hughes"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-23T22:23:09Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "f7473208735011065706390d58cf89078cb839e3bb323bde0f85e35da764b2d9"
+    },
+    "reviewed_at": "2026-11-23T21:56:56Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "f586e90ce583ad95a8ac2406adda5fc4bb905cbd",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "mathdiscoveries/spsp-psi20",
+    "repository_url": "https://github.com/mathdiscoveries/spsp-psi20",
+    "tree_url": "https://github.com/mathdiscoveries/spsp-psi20/tree/f586e90ce583ad95a8ac2406adda5fc4bb905cbd"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "v9d25up3p0g3"
+  },
+  "title": "Two 37-Digit 20-Base Strong Pseudoprimes (psi_20 <= n1 < 2^121), Order Criteria, and Exact Sieve Laws",
+  "trust": {
+    "challenge_bytes": 10052,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Ring.Parity",
+      "Mathlib.Data.Nat.ModEq",
+      "Mathlib.Data.Nat.Prime.Nth",
+      "Mathlib.Data.ZMod.Basic",
+      "Mathlib.Data.ZMod.Units",
+      "Mathlib.GroupTheory.OrderOfElement",
+      "Mathlib.NumberTheory.LegendreSymbol.QuadraticReciprocity",
+      "Mathlib.NumberTheory.Padics.PadicVal.Basic",
+      "Mathlib.Order.Lattice.Nat"
+    ],
+    "challenge_lines": 200,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "053b5f55d7f34d5e1c6f1bae33f1a2cbdef7b5ac781ce4a17bf089722c599cdc",
+    "evidence_path": "evidence/PALOMAR-2026-11-23-000033-v1/6369c938c770925e227b366a63fd14299615361a6a5a4bdaf99278a210e67093/",
+    "evidence_tree_sha256": "6369c938c770925e227b366a63fd14299615361a6a5a4bdaf99278a210e67093",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "0d3c5579f4527b3e6ac3ecea28228deae6c437572aeb00ca9063fd9e52732c49",
+    "protected_config_sha256": "2c511866083a8c77276af9fa565ec75caecd2937ba42def7dc32f9491db865b0",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45267479170,
+    "solution_sha256": "f6f5b094944ecd66003a4044d06312929db5276d5708de392ab31669ce11d3d7",
+    "tool_digests": {
+      "bwrap": "9611c576f9a74390357fe1b0e088287e18386029d8ae6ab33b7de604d57717b4",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-23T21:19:08Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45267479170"
+  },
+  "version": 1
+}

@@ -1,0 +1,348 @@
+{
+  "abstract": "Unconditional Lean 4 + Mathlib formalization (514 audited declarations, zero sorry, zero native_decide, standard axioms only) resolving all four questions and observations (Q1, Q2, O1, O2) from Badkobeh and Ochem (Theoret. Comput. Sci. 588, 2015) for the 5-letter morphic fixed point b5 = f5^omega(0) (0 -> 01, 1 -> 23, 2 -> 4, 3 -> 21, 4 -> 0). The library identifies b5 as the exact 5-interval coding of a golden-ratio 3-interval exchange on (-phi^2/2, phi^3/2) via the -1/phi left eigenvector, proving unconditionally that (Q1) b5 has exact factor complexity 4n + 1 for every n >= 0, (O1) g_fib(b5) has the exact same factors as the Fibonacci word with complexity n + 1, (O2) g_rf(b5) has the exact same factors as the Rote-Fibonacci word with complexity 2n for n >= 1, and (Q2) the critical exponent of b5 is exactly (5 + sqrt(5))/4 and is strictly unattained. It also proves the sharp second-order bound |w|/p < (5 + sqrt(5))/4 - (7 - sqrt(5))/(8p) with exact unattained deficit infimum (7 - sqrt(5))/4, asymptotic critical exponent E*(b5) = (5 + sqrt(5))/4, irrationality of E(b5), reversal-swap (3 <-> 4) language invariance, ternary 3-IET collapse complexity 2n + 1, unbounded balance defect, and the exact 5th-order A005252 length recurrence. Companion manuscript and verification archive: https://mathdiscoveries.org/results/badkobeh-ochem-word-b5.",
+  "authors": [
+    {
+      "name": "Tyler B. Hughes"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-24-000006-v1/2cb4d605cb049bf02d5ed081c0e13487e1ea56dea84306b054ada5329667e546/",
+    "artifact_tree_sha256": "2cb4d605cb049bf02d5ed081c0e13487e1ea56dea84306b054ada5329667e546",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-24T03:19:44Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "cs.FL"
+    ],
+    "msc2020": [
+      "68R15",
+      "37B10",
+      "11B85"
+    ]
+  },
+  "first_registered_on": "2026-11-24",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "BadkobehOchemB5Challenge.b5_codes_interval_translation",
+      "BadkobehOchemB5Challenge.b5_factor_complexity",
+      "BadkobehOchemB5Challenge.b5_sturmian_projection",
+      "BadkobehOchemB5Challenge.b5_rote_fibonacci_projection",
+      "BadkobehOchemB5Challenge.b5_critical_exponent",
+      "BadkobehOchemB5Challenge.b5_sharp_second_order_and_deficit",
+      "BadkobehOchemB5Challenge.b5_asymp_critExp_and_irrational",
+      "BadkobehOchemB5Challenge.b5_language_rev_swap34_invariant",
+      "BadkobehOchemB5Challenge.pi3B5_factor_complexity",
+      "BadkobehOchemB5Challenge.b5_not_C_balanced",
+      "BadkobehOchemB5Challenge.fB5_iter_length_rec"
+    ]
+  },
+  "id": "PALOMAR-2026-11-24-000006",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-24T03:49:30Z",
+    "receipt_sha256": "cebc881c84b7b188d5620757d2b8fc821b193fc0cab4dfd344ae33001c1c2d34",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000006-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000006-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000006-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000006-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000006-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000006-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000006-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000006-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000006-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "74397f4d895335fbb817a89368e2ed514e3b4af7",
+        "fork_repository": "PalomarArchive/mathdiscoveries--badkobeh-ochem-word-b5--53a5d3cbff9c",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000006-v1/74397f4d895335fbb817a89368e2ed514e3b4af7",
+        "source_repository": "mathdiscoveries/badkobeh-ochem-word-b5"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Tyler B. Hughes"
+          }
+        ],
+        "identifier": "https://mathdiscoveries.org/results/badkobeh-ochem-word-b5",
+        "location": "Companion manuscript, verification archive, and prior-work search log at https://mathdiscoveries.org/results/badkobeh-ochem-word-b5",
+        "relationship": "other",
+        "title": "Badkobeh-Ochem's Word b5: Interval-Exchange Coding, Complexity 4n + 1, Rote-Fibonacci, and Critical Exponent",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Golnaz Badkobeh"
+          },
+          {
+            "name": "Pascal Ochem"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/j.tcs.2015.04.018",
+        "location": "Theoretical Computer Science 588 (2015), 73-80",
+        "relationship": "background",
+        "title": "Characterization of some binary words with few squares",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Golnaz Badkobeh"
+          },
+          {
+            "name": "Pascal Ochem"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2312.10757",
+        "location": "arXiv:2312.10757v2 (2025); Theoretical Computer Science 1072 (2026), 115875",
+        "relationship": "background",
+        "title": "More characterizations of morphic words",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Chen Fei Du"
+          },
+          {
+            "name": "Hamoon Mousavi"
+          },
+          {
+            "name": "Luke Schaeffer"
+          },
+          {
+            "name": "Jeffrey Shallit"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/j.tcs.2015.08.005",
+        "location": "Theoretical Computer Science 628 (2016), 88-100",
+        "relationship": "background",
+        "title": "A study of the Rote-Fibonacci word",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tyler B. Hughes"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-24T03:49:10Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "3df6bd599531e5365322f5811870b8928cb113ec1cba91ee3bc05859a78e4d5e"
+    },
+    "reviewed_at": "2026-11-24T03:43:38Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "74397f4d895335fbb817a89368e2ed514e3b4af7",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "mathdiscoveries/badkobeh-ochem-word-b5",
+    "repository_url": "https://github.com/mathdiscoveries/badkobeh-ochem-word-b5",
+    "tree_url": "https://github.com/mathdiscoveries/badkobeh-ochem-word-b5/tree/74397f4d895335fbb817a89368e2ed514e3b4af7"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "u0the45qzb3z"
+  },
+  "title": "Badkobeh and Ochem's Word b5: Interval-Exchange Coding, Factor Complexity 4n + 1, Projections, and Critical Exponent",
+  "trust": {
+    "challenge_bytes": 10400,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Real.Sqrt",
+      "Mathlib.Data.Fin.Basic",
+      "Mathlib.Data.List.OfFn",
+      "Mathlib.Data.Set.Card",
+      "Mathlib.NumberTheory.Real.Irrational",
+      "Mathlib.Order.ConditionallyCompleteLattice.Basic"
+    ],
+    "challenge_lines": 254,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "dd38e10c3ce8eec57635303eaeb5ff98fc2c384a9b060f5eff7b741fa10fdc33",
+    "evidence_path": "evidence/PALOMAR-2026-11-24-000006-v1/9a91b46eb6ecc9eecadf6de548bc5c4e8b85ae2ffb98b81be325207e3c6e9b63/",
+    "evidence_tree_sha256": "9a91b46eb6ecc9eecadf6de548bc5c4e8b85ae2ffb98b81be325207e3c6e9b63",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "d8d46f20e4a64591dfcce1b758b26330e3e3ce02430b4efec3beff841e602120",
+    "protected_config_sha256": "77cf15fcc071900c3e15f57c05953447c83d66e82c2b714d1025429e150ea8c5",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45315581080,
+    "solution_sha256": "64720f22809ea4c85bbd55c2040fd0b9977600d57a48953e03c1876028fd20a0",
+    "tool_digests": {
+      "bwrap": "06993a3f09cd17c2078a092c10c08a95667855e0f4abd919cc1bb07212f2c2e5",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-24T03:08:00Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45315581080"
+  },
+  "version": 1
+}
