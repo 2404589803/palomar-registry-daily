@@ -1,0 +1,298 @@
+{
+  "abstract": "A Lean 4 / Mathlib proof of the main result of Yau and Yin, \"The Second Order Upper Bound for the Ground Energy of a Bose Gas\" (J. Stat. Phys. 136 (2009), arXiv:0903.5347). For N bosons in the box [0, L]^3 with periodic boundary condition, interacting through a pair potential V that is a nonnegative even Schwartz function, not identically zero and small enough that the Born series converges, the ground state energy per particle e_0 satisfies limsup_{rho -> 0+} limsup_{L -> infinity, N/L^3 -> rho} (e_0 - g_0 rho) / (g_0^{5/2} rho^{3/2}) <= 16/(15 pi^2), where g_0 = int V(1 - w) = 4 pi a, 1 - w is the zero-energy scattering solution and a is the scattering length. This is the upper bound in the Lee–Huang–Yang formula e_0 = 4 pi a rho (1 + (128/(15 sqrt(pi))) (rho a^3)^{1/2} + ...). The formalization also proves that the zero-energy scattering solution exists and is unique under these hypotheses, that the Gaussian potential satisfies them, and that the statement is not vacuous (g_0 > 0, the energies are nonnegative, the filter of the thermodynamic limit is proper). Everything the paper takes as known (scattering theory, Riemann sums on the dual lattice, the variational principle, the passage between periodic and Dirichlet boundary conditions) is proved in the library from Mathlib.",
+  "authors": [
+    {
+      "name": "Jun Yin"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-24-000013-v1/4ba8891fb44fb278577bf1c39a15f31b379b39c80e82dd9d40b16c767468f26e/",
+    "artifact_tree_sha256": "4ba8891fb44fb278577bf1c39a15f31b379b39c80e82dd9d40b16c767468f26e",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-24T08:26:51Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "f7a4dc6867f8df27778b2b320763ec9e3b7be070"
+  },
+  "classification": {
+    "arxiv": [
+      "math-ph"
+    ],
+    "msc2020": [
+      "82B10",
+      "81V73"
+    ]
+  },
+  "first_registered_on": "2026-11-24",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc1",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "625d8914199bc567cca9b91f90e8e5afafa5ae51"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "c2d7840c65673533e15b499f25beecdc6227f7d8"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "9d39f9bb0c30aa2f6200808805ff16e6ce950890"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "b3cc36c295aa5e3e3c0197b09a6556298e710447"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "17137fad38a2cc782ff00b323a13c3a991d085ab"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "cbdde3aa2665915fb286c48bcd4cdf885c629511"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "6d26f8bb4b2bb78f929ad160feac508866821316"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "4453b52d2468f4c346a8711d728c0742e7483c9b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "34d2efffcb6dc8d5f3537cf6a7f88bfaa999ec49"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "LHYUpper.leeHuangYangUpperBound"
+    ]
+  },
+  "id": "PALOMAR-2026-11-24-000013",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-24T08:47:14Z",
+    "receipt_sha256": "10f39d57501858fafbe6568c5bdffa2030c381f04138b0ad20f874bd0d4e4d5f",
+    "repositories": [
+      {
+        "commit": "8ebcec657b7bfa157668a33e6265fa4ac5f8b199",
+        "fork_repository": "PalomarArchive/JYin80--Lean-LHYUpper_arXiv-0903.5347--454512f7bf2d",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000013-v1/8ebcec657b7bfa157668a33e6265fa4ac5f8b199",
+        "source_repository": "JYin80/Lean-LHYUpper_arXiv-0903.5347"
+      },
+      {
+        "commit": "cbdde3aa2665915fb286c48bcd4cdf885c629511",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000013-v1/cbdde3aa2665915fb286c48bcd4cdf885c629511",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "4453b52d2468f4c346a8711d728c0742e7483c9b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000013-v1/4453b52d2468f4c346a8711d728c0742e7483c9b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "b3cc36c295aa5e3e3c0197b09a6556298e710447",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000013-v1/b3cc36c295aa5e3e3c0197b09a6556298e710447",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "9d39f9bb0c30aa2f6200808805ff16e6ce950890",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000013-v1/9d39f9bb0c30aa2f6200808805ff16e6ce950890",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "625d8914199bc567cca9b91f90e8e5afafa5ae51",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000013-v1/625d8914199bc567cca9b91f90e8e5afafa5ae51",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "c2d7840c65673533e15b499f25beecdc6227f7d8",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000013-v1/c2d7840c65673533e15b499f25beecdc6227f7d8",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "17137fad38a2cc782ff00b323a13c3a991d085ab",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000013-v1/17137fad38a2cc782ff00b323a13c3a991d085ab",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "6d26f8bb4b2bb78f929ad160feac508866821316",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000013-v1/6d26f8bb4b2bb78f929ad160feac508866821316",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "34d2efffcb6dc8d5f3537cf6a7f88bfaa999ec49",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000013-v1/34d2efffcb6dc8d5f3537cf6a7f88bfaa999ec49",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "endorsed",
+        "authors": [
+          {
+            "name": "Horng-Tzer Yau"
+          },
+          {
+            "name": "Jun Yin"
+          }
+        ],
+        "identifier": "arXiv:0903.5347",
+        "license": "unknown",
+        "location": "J. Stat. Phys. 136 (2009), no. 3, 453-503, doi:10.1007/s10955-009-9792-3; https://arxiv.org/abs/0903.5347",
+        "relationship": "formalizes",
+        "title": "The Second Order Upper Bound for the Ground Energy of a Bose Gas",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "T. D. Lee"
+          },
+          {
+            "name": "Kerson Huang"
+          },
+          {
+            "name": "C. N. Yang"
+          }
+        ],
+        "location": "Phys. Rev. 106 (1957), 1135-1145",
+        "relationship": "background",
+        "title": "Eigenvalues and eigenfunctions of a Bose system of hard spheres and its low-temperature properties",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Jun Yin"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-24T08:46:54Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "134a0cb47bdb7a9ca92314d0418c1de7944648b638e06326c1029e9d995ba98a"
+    },
+    "reviewed_at": "2026-11-24T08:42:30Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "8ebcec657b7bfa157668a33e6265fa4ac5f8b199",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "ce3d75fb908d8d9765e4fb7280b63c3d4c8ecdccf4b4997bba16909d9dc52006"
+    },
+    "repository": "JYin80/Lean-LHYUpper_arXiv-0903.5347",
+    "repository_url": "https://github.com/JYin80/Lean-LHYUpper_arXiv-0903.5347",
+    "tree_url": "https://github.com/JYin80/Lean-LHYUpper_arXiv-0903.5347/tree/8ebcec657b7bfa157668a33e6265fa4ac5f8b199"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "rwkswv1mntt0"
+  },
+  "title": "The second order (Lee–Huang–Yang) upper bound for the ground state energy of a dilute Bose gas",
+  "trust": {
+    "challenge_bytes": 10105,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 196,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "ba723400493bcf56a28093ecd5239cfdc8edf77a6ddf3718e6df6c541cbcf5fc",
+    "evidence_path": "evidence/PALOMAR-2026-11-24-000013-v1/2a9cbcce2040352e6dd2be77b031c641f310358548bcc7361771dbc5af5e3fd0/",
+    "evidence_tree_sha256": "2a9cbcce2040352e6dd2be77b031c641f310358548bcc7361771dbc5af5e3fd0",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc1/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc1/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "058e33055aca2551d80dae2b6a15f9fac6faf88d446a8a60e45065e088b142f1",
+    "protected_config_sha256": "441a1214fd311505387bbe481c694bbfe098ba96ba909732a5661ed65db09d31",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45352061641,
+    "solution_sha256": "4dcf25e3f0ccb51d6673b679ac9f416f0b2eb12da295340e2bb2992b7cad7be2",
+    "tool_digests": {
+      "bwrap": "caa0315c6f5e56ff076a1d5a664532fee391a75ff783dbc149069ccff79c0990",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "c9afcddf514a6772bd4d649f7cfc04eff0b9f15e",
+    "verified_at": "2026-11-24T08:06:39Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45352061641"
+  },
+  "version": 1
+}

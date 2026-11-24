@@ -1,0 +1,403 @@
+{
+  "abstract": "The node f(w) = w1 w2 on the closed unit square [0,1]^2 has one distinguished function, P(s) = -log s. This entry proves in Lean 4 and Mathlib that P is the density of states of the node, and that the zeta function, partition function and free energy of the toy singular learning model K(w) = (w1 w2)^2 with uniform prior on [0,1]^2 are explicit transforms of it; it also states the monodromy of the logarithm in Mathlib's covering-space sense, and treats the general monomial (normal-crossing) zeta function and free energy. Eleven statements are compared.\n(1) Density of states: the pushforward of Lebesgue measure on [0,1]^2 under w -> w1 w2 equals the measure on (0,1] with density -log s. (The function -log s is also the integral over the fibre {w1 w2 = s} of the Gelfand–Leray form dw1/w1; this interpretation is not separately stated.) (2) For real z, the learning zeta function zeta(z) = integral over [0,1]^2 of ((w1 w2)^2)^z is finite (the integrand is integrable) if and only if z > -1/2, and (3) for z > -1/2 it equals 1/(2z+1)^2. The closed form has a double pole at -1/2, which in Watanabe's singular learning theory corresponds to learning coefficient 1/2 and multiplicity 2; meromorphic continuation is not stated. (4)-(6) Monomial (normal-crossing) zeta function. For natural numbers k_1, ..., k_d, real h_1, ..., h_d, K(w) = prod_j w_j^(2 k_j) and the (unnormalized) prior density phi(w) = prod_j w_j^(h_j) on [0,1]^d: (4) K^z phi is integrable on the cube if and only if 2 k_j z + h_j + 1 > 0 for every j (real z); (5) then zeta(z) = integral of K^z phi = prod_j 1/(2 k_j z + h_j + 1); and (6) if all k_j > 0, lambda = min_j (h_j + 1)/(2 k_j) and m >= 1 is the number of indices attaining it, then (z + lambda)^m zeta(z) tends to a nonzero limit as z -> -lambda from above, i.e. zeta has a pole of order exactly m at -lambda (real variable, one-sided). This is the normal-crossing form to which singular learning theory reduces a model after resolution of singularities, where (lambda, m) are the learning coefficient and its multiplicity; the resolution step is not formalized. (2)-(3) are the case d = 2, k = (1,1), h = 0, stated on R x R and proved separately through (1). (10)-(11) Monomial free energy: for the same models with all k_j > 0 and h_j > -1, the partition function Z(n) = integral over [0,1]^d of exp(-n K) phi satisfies Z(n) = Theta(n^(-lambda) (log n)^(m-1)) as real n -> infinity (upper and lower bounds by constant multiples), so F(n) = -log Z(n) = lambda log n - (m - 1) log log n + O(1). This is Watanabe's free-energy asymptotic for models in normal-crossing form; the node's (7)-(8) are its d = 2 instance, sharpened there to exact constants. The proof is an induction on the dimension, integrating out one coordinate at a time with one-variable Laplace-type estimates. (7) Sharp partition function: Z(n) = integral over [0,1]^2 of exp(-n (w1 w2)^2) satisfies Z(n) = (sqrt(pi)/(4 sqrt(n))) (log n + gamma + 2 log 2) + O(exp(-n)) as real n -> infinity, where gamma is the Euler–Mascheroni constant. (8) Free energy: F(n) = -log Z(n) satisfies F(n) - (1/2 log n - log log n) -> log(4/sqrt(pi)), the form lambda log n - (m - 1) log log n + O(1) of Watanabe's asymptotics with lambda = 1/2, m = 2, here with the exact constant. (9) Monodromy of the logarithm: for Mathlib's covering map exp from the complex plane to the punctured plane and the loop theta -> exp(2 pi i theta) based at 1, IsCoveringMap.monodromy sends the fibre point 0 to 2 pi i. Lifts through exp are continuations of log, so P = -log continues to P - 2 pi i around s = 0: the unipotent monodromy of the node's period.\nIn the Lean development, (2), (3), (7) and (8) are derived from the same transfer lemma, a consequence of (1): an integral over the square of a function of w1 w2 equals the integral over (0,1] of that function against -log s. The zeta function is then the Mellin transform of -log s and the partition function its Gaussian Laplace transform. The exact constant in (7) comes from Mathlib's value of the derivative of the Gamma function at 1/2. Scope: real variables throughout; (1)-(3) and (7)-(8) concern one explicit model with uniform prior on the closed unit square, and (4)-(6), (10)-(11) monomial models on the closed unit cube; resolution of singularities, the reduction of general models to normal-crossing form (hence the free-energy asymptotic for general models), b-functions and Picard–Lefschetz theory are not formalized, and (9) is the monodromy of the logarithm itself, not of a family of cycles. All results are classical or elementary consequences of classical results; we searched the Palomar registry and Mathlib (November 2026) and found no prior formalization of them, but did not search other sources, so priority among Lean formalizations is unknown.",
+  "authors": [
+    {
+      "name": "Rohan Badade"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-24-000014-v1/3785c1f3978846c7f3b936ece7c89df99a8bfafeff17e11ab86a366b0916493a/",
+    "artifact_tree_sha256": "3785c1f3978846c7f3b936ece7c89df99a8bfafeff17e11ab86a366b0916493a",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-24T08:38:40Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.ST",
+      "math.LO"
+    ],
+    "msc2020": [
+      "62F15",
+      "14B05",
+      "28A35",
+      "41A60",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-24",
+  "formalization": {
+    "challenge_path": "ChallengeNode.lean",
+    "comparator_config_path": "comparator-node.json",
+    "definition_names": [],
+    "formalization_metadata_path": "node/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "SolutionNode.lean",
+    "theorem_names": [
+      "NodeChallenge.node_density_of_states",
+      "NodeChallenge.node_learning_zeta_integrable",
+      "NodeChallenge.node_learning_zeta",
+      "NodeChallenge.monomial_zeta_integrable",
+      "NodeChallenge.monomial_zeta",
+      "NodeChallenge.monomial_pole",
+      "NodeChallenge.monomial_partition_asymptotic",
+      "NodeChallenge.monomial_free_energy",
+      "NodeChallenge.node_partition_sharp",
+      "NodeChallenge.node_free_energy",
+      "NodeChallenge.node_period_monodromy"
+    ]
+  },
+  "id": "PALOMAR-2026-11-24-000014",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-24T09:18:48Z",
+    "receipt_sha256": "746541b87479714cf20145828d743511c98d746cf93b299880931edae156b8f5",
+    "repositories": [
+      {
+        "commit": "3da8345cf256a57d9dc448ce9735b632841190d8",
+        "fork_repository": "PalomarArchive/gnostrich--legendre-monodromy--baa723f45b03",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000014-v1/3da8345cf256a57d9dc448ce9735b632841190d8",
+        "source_repository": "gnostrich/legendre-monodromy"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000014-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000014-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000014-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000014-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000014-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000014-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000014-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000014-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000014-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Sumio Watanabe"
+          }
+        ],
+        "identifier": "doi:10.1017/CBO9780511800474",
+        "license": "unknown",
+        "location": "Cambridge Monographs on Applied and Computational Mathematics 25, Cambridge University Press, 2009; the zeta function of a singular model, the learning coefficient and its multiplicity, and the asymptotic Z(n) ~ C n^(-lambda) (log n)^(m-1), F = lambda log n - (m-1) log log n + O(1). Equation and theorem numbers were not checked against a copy of the book.",
+        "relationship": "formalizes",
+        "title": "Algebraic Geometry and Statistical Learning Theory",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "V. I. Arnold"
+          },
+          {
+            "name": "S. M. Gusein-Zade"
+          },
+          {
+            "name": "A. N. Varchenko"
+          }
+        ],
+        "license": "unknown",
+        "location": "Birkhäuser, Monographs in Mathematics 83, 1988: Gelfand–Leray forms, the monodromy of a node, and the link between monodromy and the asymptotics of integrals",
+        "relationship": "background",
+        "title": "Singularities of Differentiable Maps, Volume II: Monodromy and Asymptotics of Integrals",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Masaki Kashiwara"
+          }
+        ],
+        "license": "unknown",
+        "location": "Inventiones Mathematicae 38 (1976), 33-53",
+        "relationship": "background",
+        "title": "B-functions and holonomic systems",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Bernard Malgrange"
+          }
+        ],
+        "license": "unknown",
+        "location": "Astérisque 101-102 (1983), 243-267",
+        "relationship": "background",
+        "title": "Polynôme de Bernstein-Sato et cohomologie évanescente",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Matthew Pugh"
+          },
+          {
+            "name": "Jo Grundy"
+          },
+          {
+            "name": "Corina Cirstea"
+          },
+          {
+            "name": "Nick Harris"
+          }
+        ],
+        "identifier": "arXiv:2502.13810",
+        "license": "unknown",
+        "location": "arXiv v1, 19 February 2025",
+        "relationship": "background",
+        "title": "Learning Is a Kan Extension",
+        "type": "preprint"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Matthew Pugh"
+          },
+          {
+            "name": "Jo Grundy"
+          },
+          {
+            "name": "Corina Cirstea"
+          },
+          {
+            "name": "Nick Harris"
+          }
+        ],
+        "identifier": "arXiv:2604.15100",
+        "license": "unknown",
+        "location": "arXiv v1, 16 April 2026",
+        "relationship": "background",
+        "title": "Presenting Neural Networks via Coherent Functors",
+        "type": "preprint"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "The Mathlib Community"
+          }
+        ],
+        "identifier": "https://github.com/leanprover-community/mathlib4",
+        "license": "Apache-2.0",
+        "location": "Mathlib v4.35.0, as pinned by lakefile.toml and lake-manifest.json",
+        "relationship": "background",
+        "title": "mathlib4: the Lean mathematical library",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-11-24-000008",
+        "note": "The other registered entry from this repository (the Legendre family: Picard–Fuchs equation, period, solution space, local monodromy and connection formula). Thematic link only: near lambda = 0 the Legendre curve degenerates through the node xy = lambda, and the logarithmic solution there has the same unipotent monodromy. No code, definition or compared statement is shared, and neither entry's compared theorems depend on the other's.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Rohan Badade"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-24T09:18:28Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "ea6012d02b73026a0a394eea0a8d898a75e4be47f715556a42a809937cf34fb2"
+    },
+    "reviewed_at": "2026-11-24T08:56:19Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "3da8345cf256a57d9dc448ce9735b632841190d8",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "gnostrich/legendre-monodromy",
+    "repository_url": "https://github.com/gnostrich/legendre-monodromy",
+    "tree_url": "https://github.com/gnostrich/legendre-monodromy/tree/3da8345cf256a57d9dc448ce9735b632841190d8"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "mc74uov5rz04"
+  },
+  "title": "One node, one density: the density of states of w1 w2 on the unit square; the zeta function, sharp partition function and free energy of the singular learning model K = (w1 w2)^2; and the zeta function, learning coefficient, multiplicity and free energy of monomial (normal-crossing) models",
+  "trust": {
+    "challenge_bytes": 10068,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 184,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "6077f8937b9137426ad95fb8c593f3826b7f8e99ed357f69d184c48363b144ba",
+    "evidence_path": "evidence/PALOMAR-2026-11-24-000014-v1/8ac4ac4bd459c89000af97ea26a6476c182570670ecab5592476c07fb8f813b5/",
+    "evidence_tree_sha256": "8ac4ac4bd459c89000af97ea26a6476c182570670ecab5592476c07fb8f813b5",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "49adb7c6542fc323bcb6a7da8e30be8daeddaee1affe0c71b67a636a152f6b08",
+    "protected_config_sha256": "3ca61200dbdc2058316ea6d33fcd00d9ddec2f771bac03ec1fae630abb8fcf3d",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45353984433,
+    "solution_sha256": "d8fa43a6f6a0e849bec7bb32cb58c8d8e9f74edb8265bfe2330dc6fe8546bd21",
+    "tool_digests": {
+      "bwrap": "a098a3be8817abfabb2e3069904ff58fb3e5b485679a699f08ac0cf2dde21e32",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-24T08:17:20Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45353984433"
+  },
+  "version": 1
+}
