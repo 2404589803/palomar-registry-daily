@@ -1,0 +1,318 @@
+{
+  "abstract": "Lean 4 formalization of the paper 'An 83/84 approximation for three-occurrence Horn formulas above the Unique Games thresholds'. The compared results are: the three-occurrence formula T_H built from a cubic graph, its explicit clause semantics (at most one negative literal per clause, with a proved complement-variable translation to standard Horn clauses that preserves satisfaction), the exact identity OPT(T_H) = 4n + m + alpha, the repair lemma, the number of clauses and the three occurrences of every variable, and the 83/84 approximation ratio transferred from a cubic independent-set guarantee, together with the degree-d ratio arithmetic. The supporting modules also formalize the MAX-CUT reduction, the conflict graph and the lift of a Goemans-Williamson cut to the 83/84 ratio. Goemans-Williamson, Berman-Fujito and the Unique Games thresholds are cited hypotheses, not reproved.",
+  "authors": [
+    {
+      "name": "Frank Vega",
+      "orcid": "0000-0001-8210-4126",
+      "orcid_record_checked_at": "2026-11-24T21:51:37Z"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-24-000021-v2/d898e2d464105a7f5d0a3fe026b7618cfa070c526a6a30a334a1c7d63e2e1a13/",
+    "artifact_tree_sha256": "d898e2d464105a7f5d0a3fe026b7618cfa070c526a6a30a334a1c7d63e2e1a13",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-24T22:04:36Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "cs.CC",
+      "cs.DS"
+    ],
+    "msc2020": []
+  },
+  "first_registered_on": "2026-11-24",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "PalomaMax2SAT.CubicPublic.repairedSet_independent",
+      "PalomaMax2SAT.CubicPublic.repairedSet_card_lower_bound",
+      "PalomaMax2SAT.CubicPublic.exact_three_occurrence_identity",
+      "PalomaMax2SAT.CubicPublic.ratio_83_84_from_cubic_mis",
+      "PalomaMax2SAT.CubicPublic.ratio_83_84_arithmetic",
+      "PalomaMax2SAT.SemanticPublic.satCount_eq_score",
+      "PalomaMax2SAT.SemanticPublic.optimum_identity",
+      "PalomaMax2SAT.SemanticPublic.formula_horn",
+      "PalomaMax2SAT.SemanticPublic.formula_dual_horn",
+      "PalomaMax2SAT.SemanticPublic.complement_satisfied",
+      "PalomaMax2SAT.SemanticPublic.formula_size",
+      "PalomaMax2SAT.SemanticPublic.three_occurrences",
+      "PalomaMax2SAT.DegreePublic.baseline_degree_d",
+      "PalomaMax2SAT.DegreePublic.baseline_exceeds_83_84",
+      "PalomaMax2SAT.DegreePublic.ratio_degree_d_from_mis",
+      "PalomaMax2SAT.DegreePublic.bf_degree_d",
+      "PalomaMax2SAT.DegreePublic.two_branch_degree_21",
+      "PalomaMax2SAT.DegreePublic.threshold_degree_d"
+    ]
+  },
+  "id": "PALOMAR-2026-11-24-000021",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-24T22:24:14Z",
+    "receipt_sha256": "7939950f2ef46023dbf94b03a630f7b9e4c680f13b2414010933056924e35563",
+    "repositories": [
+      {
+        "commit": "b5e6527c7215bdc1f0d50f369183afe1bd091b70",
+        "fork_repository": "PalomarArchive/frankvegadelgado--paloma--bed17c23b0e3",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000021-v2/b5e6527c7215bdc1f0d50f369183afe1bd091b70",
+        "source_repository": "frankvegadelgado/paloma"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000021-v2/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000021-v2/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000021-v2/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000021-v2/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000021-v2/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000021-v2/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000021-v2/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000021-v2/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000021-v2/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Frank Vega"
+          }
+        ],
+        "relationship": "formalizes",
+        "title": "An 83/84 approximation for three-occurrence Horn formulas above the Unique Games thresholds",
+        "type": "manuscript"
+      },
+      {
+        "authors": [
+          {
+            "name": "Michel X. Goemans"
+          },
+          {
+            "name": "David P. Williamson"
+          }
+        ],
+        "relationship": "background",
+        "title": "Improved approximation algorithms for maximum cut and satisfiability problems using semidefinite programming"
+      },
+      {
+        "authors": [
+          {
+            "name": "Piotr Berman"
+          },
+          {
+            "name": "Toshihiro Fujito"
+          }
+        ],
+        "relationship": "background",
+        "title": "On approximation properties of the independent set problem for low degree graphs"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "github": "frankvegadelgado",
+        "name": "Frank Vega"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-24T22:23:52Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "24603c8143f9bad6d029db7a5c4da8ba486bd137f496bf4c3097b5f74e46cc76"
+    },
+    "reviewed_at": "2026-11-24T22:19:55Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "b5e6527c7215bdc1f0d50f369183afe1bd091b70",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    "repository": "frankvegadelgado/paloma",
+    "repository_url": "https://github.com/frankvegadelgado/paloma",
+    "tree_url": "https://github.com/frankvegadelgado/paloma/tree/b5e6527c7215bdc1f0d50f369183afe1bd091b70"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "8f23s94otj2v"
+  },
+  "title": "PalomaMax2SAT: an 83/84 approximation for three-occurrence Horn formulas above the Unique Games thresholds",
+  "trust": {
+    "challenge_bytes": 26494,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 605,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "8d49ea3ae132fed9affdffd316fadb7cb25814612862513c23eee77a82d16c66",
+    "evidence_path": "evidence/PALOMAR-2026-11-24-000021-v2/12c82af8b13880abd1d8ef9c6bdb23d23a2ab20536ecf6e02ba41e7af81473c4/",
+    "evidence_tree_sha256": "12c82af8b13880abd1d8ef9c6bdb23d23a2ab20536ecf6e02ba41e7af81473c4",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "8e614c814f791f4eb5e22c365bd2cf6724eb2bbbdf9e7ff7ed0c54a52e1f003a",
+    "protected_config_sha256": "6ed2bc50fcfa8c44d924e4d18eeae52b108d0894b45f21553b0352b06a0cae3a",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45495212891,
+    "solution_sha256": "509cc4f83c8af9944b790d26c8a06117fac22ef80323ffcf626c37be42921e59",
+    "tool_digests": {
+      "bwrap": "e5c29e28a6136373621d9801f6b39687bffe8edde862ae3c198d604b30fc9984",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-24T21:54:34Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45495212891"
+  },
+  "version": 2
+}

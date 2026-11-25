@@ -1,0 +1,355 @@
+{
+  "abstract": "For n >= 1 let S_n be the mean of the least residues of the squares modulo n and f(n) = sum_{j <= n/4} floor(sqrt(jn)) - (n^2 - 1)/12. Chamberland and Dilcher (arXiv:2510.04387) evaluated f(p) through class numbers and stated five conjectures for composite n. The development proves, for every n >= 1, the reduction of f(n) to S_n and s(n) = #{k < n : n | k^2} in the four classes of n modulo 4 (lattice points under the parabola and the pairing k -> n - k), and the divisor form of the formula for S_n: (n - s(n))/2 - S_n = sum_{d | n} G(d), where G(d) is a sawtooth sum of phi_d = sum_{e | d} mu(d/e) cnt(e, .) and cnt(e, b) counts the square roots of b modulo e. It proves that G vanishes on d = 1, 2 (mod 4), that G(c) = -(1/c) sum_{a<c} a (-c/a) when -c is a fundamental discriminant, and the conductor recursion G(l^2 c) = (l - (-c/l)) G(c) for every prime l and every c > 0 with c = 0, 3 (mod 4); with Dirichlet's class number formula and the conductor formula (quoted) these give G(c) = h*(-c). It derives Conjectures 7.1 (with the sign of one term corrected), 7.2, 7.3 and 7.4 of Chamberland and Dilcher, their formulas (7.3) and (7.4) for n = pq, Bunyakovsky's identity f(p) = 0 for p = 1 (mod 4) and their Proposition 1.2, with the class numbers in Bernoulli form, and Conjecture 7.5 (the limits of f(n)/n) unconditionally, from the bound defect(n)^2 <= n sqrt(n) (1 + log n)^3, proved with the discrete Fourier transform on Z/n, explicit Fourier coefficients of the sawtooth and Weyl differencing for the quadratic Gauss sums (no class numbers). A second proof of Conjecture 7.5 from the class number bound |G(c)| <= C sqrt(c) (1 + log c), stated as a hypothesis, follows the first proof in the note.",
+  "authors": [
+    {
+      "name": "Joseph S. Farland"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-24-000022-v1/5d01298a35ea12becc65ed3e387938bdc23a6229d8151e0e204d5b3b154c3a57/",
+    "artifact_tree_sha256": "5d01298a35ea12becc65ed3e387938bdc23a6229d8151e0e204d5b3b154c3a57",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-24T20:52:11Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11A15",
+      "11R29",
+      "11L05",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-24",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "MeanResidue.f_mod_four_eq_one",
+      "MeanResidue.f_mod_four_eq_three",
+      "MeanResidue.f_mod_four_eq_zero",
+      "MeanResidue.f_mod_four_eq_two",
+      "MeanResidue.cnt_eq_sum_jacobi",
+      "MeanResidue.cnt_unit",
+      "MeanResidue.s_squarefree",
+      "MeanResidue.defect_squarefree",
+      "MeanResidue.S_squarefree",
+      "MeanResidue.conj_7_3_one",
+      "MeanResidue.conj_7_3_three",
+      "MeanResidue.conj_7_4",
+      "MeanResidue.bunyakovsky",
+      "MeanResidue.f_prime_three",
+      "MeanResidue.S_pq",
+      "MeanResidue.f_pq",
+      "MeanResidue.cnt_pow_add_two_mul_sq",
+      "MeanResidue.cnt_two_pow_unit",
+      "MeanResidue.defect_eq_sum_G",
+      "MeanResidue.moebius_defect",
+      "MeanResidue.G_one_mod_four",
+      "MeanResidue.G_two_mod_four",
+      "MeanResidue.defect_odd",
+      "MeanResidue.G_squarefree",
+      "MeanResidue.G_peel",
+      "MeanResidue.G_fundamental",
+      "MeanResidue.G_conductor",
+      "MeanResidue.conj_7_1",
+      "MeanResidue.conj_7_2",
+      "MeanResidue.conj_7_5_of_class_number_bound",
+      "MeanResidue.defect_sq_le",
+      "MeanResidue.conj_7_5"
+    ]
+  },
+  "id": "PALOMAR-2026-11-24-000022",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-24T21:19:35Z",
+    "receipt_sha256": "02c67e998ce8d573412976186730578487f38c54738799c19cd8ccc9d399d5c5",
+    "repositories": [
+      {
+        "commit": "80e74661521fb6e71f174b8782131ab13542966c",
+        "fork_repository": "PalomarArchive/jkfarland-bot--MeanResidue--667718f295f1",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000022-v1/80e74661521fb6e71f174b8782131ab13542966c",
+        "source_repository": "jkfarland-bot/MeanResidue"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000022-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000022-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000022-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000022-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000022-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000022-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000022-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000022-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-24-000022-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "license": "CC-BY-4.0",
+        "location": "Preprint, Zenodo, 2026, https://doi.org/10.5281/zenodo.24508995 (v1.0); all versions https://doi.org/10.5281/zenodo.24508994",
+        "relationship": "formalizes",
+        "title": "Mean quadratic residues, floor sums of square roots, and class numbers: the conjectures of Chamberland and Dilcher",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "N.-P. Skoruppa"
+          },
+          {
+            "name": "D. Zagier"
+          }
+        ],
+        "license": "unknown",
+        "location": "Invent. Math. 94 (1988), 113-146",
+        "relationship": "background",
+        "title": "Jacobi forms and a certain space of modular forms",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "OEIS contributors (formula by O. Kutal, 2026)"
+          }
+        ],
+        "license": "CC-BY-SA-4.0",
+        "location": "https://oeis.org/A048153",
+        "relationship": "background",
+        "title": "OEIS A048153: a(n) = Sum_{k=1..n} (k^2 mod n)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "M. Chamberland"
+          },
+          {
+            "name": "K. Dilcher"
+          }
+        ],
+        "license": "unknown",
+        "location": "arXiv:2510.04387",
+        "relationship": "formalizes",
+        "title": "Sums of the floor function related to class numbers of imaginary quadratic fields",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Joseph S. Farland"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-24T21:19:18Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "7a356c8fc983e560a24595bc09762394be01fa72d3e92b32ad8fdf4c68038d54"
+    },
+    "reviewed_at": "2026-11-24T21:13:35Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "80e74661521fb6e71f174b8782131ab13542966c",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jkfarland-bot/MeanResidue",
+    "repository_url": "https://github.com/jkfarland-bot/MeanResidue",
+    "tree_url": "https://github.com/jkfarland-bot/MeanResidue/tree/80e74661521fb6e71f174b8782131ab13542966c"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "ty8rhy5y8asp"
+  },
+  "title": "MeanResidue: mean quadratic residues, floor sums of square roots and the conjectures of Chamberland and Dilcher",
+  "trust": {
+    "challenge_bytes": 13435,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 276,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "4999fac60c46526d10156e77f3ed631532448b16baa22a9ff0352220f1bdbfb1",
+    "evidence_path": "evidence/PALOMAR-2026-11-24-000022-v1/b1031911c93ef4ef33ba4ea9c561c7896aedfc11ab909693d53449fcdba6f8c3/",
+    "evidence_tree_sha256": "b1031911c93ef4ef33ba4ea9c561c7896aedfc11ab909693d53449fcdba6f8c3",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "7ef0b3fcef96fff2c4ad210f4f221e595d96d6b98ab21516679b499bb0beb37e",
+    "protected_config_sha256": "884a85b01a874d0bdb43c386a02e73a571082caa2e91f51bb3577e80e96cb163",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45481739025,
+    "solution_sha256": "1cc98f2cda8357d8a5f04e9c9fc287adf998506abf78226adc32435f286d43fd",
+    "tool_digests": {
+      "bwrap": "3ccefb1e4eee49c41341507182ce331160c3e4115a24be7691807350275d3b27",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-24T20:36:46Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45481739025"
+  },
+  "version": 1
+}

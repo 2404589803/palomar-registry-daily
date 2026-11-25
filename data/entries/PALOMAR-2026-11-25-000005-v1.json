@@ -1,0 +1,470 @@
+{
+  "abstract": "A formalization of A. Agazzi et al., Sharp higher integrability theory, Part I: the L^p-norm of the Beurling–Ahlfors transform (arXiv:2609.28311v2). With A z = a₊ z + a₋ z̄, the integrand L (A) = |a₊|² − |a₋|² for |a₊| + |a₋| ≤ 1 and 2|a₊| − 1 otherwise is quasiconvex on R^{2×2}: the integral over the torus of L (A + Dφ) − L (A) is nonnegative for every matrix A and every smooth (in fact every Lipschitz) periodic map φ (Theorem 1).\n\nHence (Corollary 2) the Burkholder integrands B_p are quasiconvex for every 1 < p < ∞, and the norm of the Beurling–Ahlfors transform on L^p(C) is p* − 1, p* = max (p, p/(p − 1)): Iwaniec's conjecture of 1982. Also proved: the Hessian case of Theorem 1, the uniqueness of the projection in Lemma 4, and Astala's sharp higher integrability of quasiconformal maps as a consequence of Corollary 2, with its sharpness. The cited results that the paper uses are proved too (Kinderlehrer–Stampacchia, Baernstein–Montgomery-Smith, Guerra, Lehto); the results it cites only for context, such as the earlier upper bounds for the norm and the earlier quasiconvexity results, are not formalized.",
+  "authors": [
+    {
+      "name": "The-Anh Vu-Le"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-25-000005-v1/db637cb1daab29888c20cf4f6b4afc6c6bc991cb67a1121b2564c56721eb8e48/",
+    "artifact_tree_sha256": "db637cb1daab29888c20cf4f6b4afc6c6bc991cb67a1121b2564c56721eb8e48",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-24T22:53:58Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "71a2035b44e7f54a797ce799fd1b03cdd3a44684"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CV",
+      "math.AP"
+    ],
+    "msc2020": [
+      "30C62",
+      "42B20",
+      "49J45",
+      "26B25"
+    ]
+  },
+  "first_registered_on": "2026-11-25",
+  "formalization": {
+    "challenge_path": "palomar/Agazzi/Challenge.lean",
+    "comparator_config_path": "palomar/Agazzi/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "palomar/Agazzi/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "BanachProbability",
+        "repository": "vltanh/lean4-banach-probability",
+        "revision": "dc3966ce34fbc31b2936a0ca9b8a50356d690ae1"
+      },
+      {
+        "name": "HarmonicAnalysis",
+        "repository": "vltanh/lean4-harmonic-analysis",
+        "revision": "4c9fb088fe3ed7452430f825730e3d23fa4d0a6a"
+      },
+      {
+        "name": "CalculusOfVariations",
+        "repository": "vltanh/lean4-calculus-of-variations",
+        "revision": "a3778e447c557dd8eb81b84f47db4aa9ed0070d0"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "9d581dfff2e41de989072ea63abf3daf69311520"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "b0256621cb88178e9ad932a53633077b3029e621"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b"
+      }
+    ],
+    "solution_path": "palomar/Agazzi/Solution.lean",
+    "theorem_names": [
+      "AgazziChallenge.det_eq",
+      "AgazziChallenge.opNorm_eq",
+      "AgazziChallenge.volume_unitSquare",
+      "AgazziChallenge.beurling_dzbar",
+      "AgazziChallenge.theorem1",
+      "AgazziChallenge.corollary2",
+      "AgazziChallenge.corollary2_norm",
+      "AgazziChallenge.pStar_sub_one_of_le_two",
+      "AgazziChallenge.pStar_sub_one_of_two_le",
+      "AgazziChallenge.theorem1_hessian",
+      "AgazziChallenge.astala",
+      "AgazziChallenge.astala_sharp"
+    ]
+  },
+  "id": "PALOMAR-2026-11-25-000005",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-25T01:48:16Z",
+    "receipt_sha256": "1511d265bd8b65ec636caf80ee396914ca0c83b07aae28fbe0a5dc774daab081",
+    "repositories": [
+      {
+        "commit": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000005-v1/7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000005-v1/d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000005-v1/b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000005-v1/c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "9d581dfff2e41de989072ea63abf3daf69311520",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000005-v1/9d581dfff2e41de989072ea63abf3daf69311520",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000005-v1/129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000005-v1/16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "b0256621cb88178e9ad932a53633077b3029e621",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000005-v1/b0256621cb88178e9ad932a53633077b3029e621",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000005-v1/c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "dc3966ce34fbc31b2936a0ca9b8a50356d690ae1",
+        "fork_repository": "PalomarArchive/vltanh--lean4-banach-probability--04f2a236eae4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000005-v1/dc3966ce34fbc31b2936a0ca9b8a50356d690ae1",
+        "source_repository": "vltanh/lean4-banach-probability"
+      },
+      {
+        "commit": "a3778e447c557dd8eb81b84f47db4aa9ed0070d0",
+        "fork_repository": "PalomarArchive/vltanh--lean4-calculus-of-variations--3d6c27e30b9f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000005-v1/a3778e447c557dd8eb81b84f47db4aa9ed0070d0",
+        "source_repository": "vltanh/lean4-calculus-of-variations"
+      },
+      {
+        "commit": "4c9fb088fe3ed7452430f825730e3d23fa4d0a6a",
+        "fork_repository": "PalomarArchive/vltanh--lean4-harmonic-analysis--3e73471a9847",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000005-v1/4c9fb088fe3ed7452430f825730e3d23fa4d0a6a",
+        "source_repository": "vltanh/lean4-harmonic-analysis"
+      },
+      {
+        "commit": "f310788a42a6935fd9e24092f9df95e2682afb3b",
+        "fork_repository": "PalomarArchive/vltanh--lean4-iwaniec--6efed3985ecf",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000005-v1/f310788a42a6935fd9e24092f9df95e2682afb3b",
+        "source_repository": "vltanh/lean4-iwaniec"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Andrea Agazzi"
+          },
+          {
+            "name": "Kari Astala"
+          },
+          {
+            "name": "Rodrigo Bañuelos"
+          },
+          {
+            "name": "Giuseppe Bruno"
+          },
+          {
+            "name": "Gabriele Cassese"
+          },
+          {
+            "name": "Daniel Faraco"
+          },
+          {
+            "name": "André Guerra"
+          },
+          {
+            "name": "Mahdi Hormozi"
+          },
+          {
+            "name": "Bernd Kirchheim"
+          },
+          {
+            "name": "Aleksis Koski"
+          },
+          {
+            "name": "Vjekoslav Kovač"
+          },
+          {
+            "name": "Jan Kristensen"
+          },
+          {
+            "name": "Federico Pasqualotto"
+          },
+          {
+            "name": "István Prause"
+          },
+          {
+            "name": "Eero Saksman"
+          },
+          {
+            "name": "Vladimír Šverák"
+          },
+          {
+            "name": "László Székelyhidi"
+          },
+          {
+            "name": "Riccardo Tione"
+          },
+          {
+            "name": "Alexander Volberg"
+          },
+          {
+            "name": "Hang Yang"
+          }
+        ],
+        "identifier": "arXiv:2609.28311v2",
+        "location": "https://arxiv.org/abs/2609.28311v2",
+        "relationship": "formalizes",
+        "title": "Sharp Higher Integrability Theory, Part I: The L^p-norm of the Beurling–Ahlfors transform",
+        "type": "preprint"
+      },
+      {
+        "authors": [
+          {
+            "name": "Albert Baernstein II"
+          },
+          {
+            "name": "Stephen J. Montgomery-Smith"
+          }
+        ],
+        "identifier": "arXiv:math/9709215v2",
+        "location": "Acta Univ. Upsaliensis Skr. Uppsala Univ. C Organ. Hist. 64 (1999), 92–109",
+        "relationship": "background",
+        "title": "Some conjectures about integral means of ∂f and ∂̄f",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "André Guerra"
+          }
+        ],
+        "identifier": "arXiv:2608.23388v1",
+        "location": "https://arxiv.org/abs/2608.23388v1",
+        "relationship": "background",
+        "title": "Quasiconvexity of the Burkholder function on symmetric matrices",
+        "type": "preprint"
+      },
+      {
+        "authors": [
+          {
+            "name": "David Kinderlehrer"
+          },
+          {
+            "name": "Guido Stampacchia"
+          }
+        ],
+        "location": "SIAM Classics in Applied Mathematics 31, 2000, Chapter I, Lemma 2.1 and Theorem 2.3",
+        "relationship": "background",
+        "title": "An introduction to variational inequalities and their applications",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Olli Lehto"
+          }
+        ],
+        "location": "Ann. Acad. Sci. Fenn. Ser. A I 371 (1965)",
+        "relationship": "background",
+        "title": "Remarks on the integrability of the derivatives of quasiconformal mappings",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Kari Astala"
+          }
+        ],
+        "location": "Acta Math. 173 (1994), 37–60",
+        "relationship": "background",
+        "title": "Area distortion of quasiconformal mappings",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Tadeusz Iwaniec"
+          }
+        ],
+        "location": "Z. Anal. Anwendungen 1 (1982)",
+        "relationship": "background",
+        "title": "Extremal inequalities in Sobolev spaces and quasiconformal mappings",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/facebookresearch/atlas-lean",
+        "note": "States Lehto's bound and Iwaniec's conjecture without proof (as listed by lean4-harmonic-analysis); not consulted.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "The-Anh Vu-Le"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-25T01:47:47Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "bff686259337e1f8e84e1d461db74ee05aef279caa7540da52836d1600a1fa83"
+    },
+    "reviewed_at": "2026-11-24T23:36:43Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "f310788a42a6935fd9e24092f9df95e2682afb3b",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "vltanh/lean4-iwaniec",
+    "repository_url": "https://github.com/vltanh/lean4-iwaniec",
+    "tree_url": "https://github.com/vltanh/lean4-iwaniec/tree/f310788a42a6935fd9e24092f9df95e2682afb3b"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "g2liteaml0iz"
+  },
+  "title": "Iwaniec's conjecture: the quasiconvexity of L and the L^p norm of the Beurling–Ahlfors transform (Agazzi et al., arXiv:2609.28311)",
+  "trust": {
+    "challenge_bytes": 14605,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.CStarAlgebra.Matrix",
+      "Mathlib.Analysis.Calculus.ContDiff.Defs",
+      "Mathlib.Analysis.Calculus.FDeriv.Basic",
+      "Mathlib.Analysis.Complex.Basic",
+      "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+      "Mathlib.MeasureTheory.Function.LpSeminorm.Basic",
+      "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.Complex"
+    ],
+    "challenge_lines": 264,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "573547ee35a735172d24c5fb4fab0cb38affdf9d49e5a72d5d2490a9149ba935",
+    "evidence_path": "evidence/PALOMAR-2026-11-25-000005-v1/83cde6389190aec2eca94b63ba271aea385419f3ec5c8c63c5a560137bb471c0/",
+    "evidence_tree_sha256": "83cde6389190aec2eca94b63ba271aea385419f3ec5c8c63c5a560137bb471c0",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "c82a538bc9d70b4aa6ff0396e0eed518124ee88e50a60697a4baed12fc19ac81",
+    "protected_config_sha256": "ae52532d1fe854b46e1245b745b159abcf79fea3c398c704c76aa614f96e3ae2",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45495969954,
+    "solution_sha256": "a463454519cfb1f96feb86555e4107c5228e9e3c4a547fcba3f93fea756eb60d",
+    "tool_digests": {
+      "bwrap": "503ff72a42eb04c0584ccac047ccf217fed63440bed08705c5dd0d0a5ba7d8c7",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "b35cb10cf2ced51a2fd1880cfdbf75c71ab7a35a",
+    "verified_at": "2026-11-24T22:01:55Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45495969954"
+  },
+  "version": 1
+}

@@ -1,0 +1,366 @@
+{
+  "abstract": "Let b(n, l) be the number of parking functions of length n whose maximum displacement is exactly l, where the displacement of a car is the distance between the spot it takes and its preferred spot. The formalization proves in Lean 4 with Mathlib that for every n >= 1 the sequence b(n, 0), b(n, 1), ..., b(n, n-1) is unimodal, which is Conjecture 6.5 of Celano, Elder, Hadaway, Harris, Martin, Priestley and Udell (arXiv:2507.07243). The numbers b(n, l) are defined directly from the parking process. The proof starts from a recursion for the number of parking functions whose maximum displacement is at most a given bound, proved in the library from the parking process, and follows the sign of the difference b(n, k) - b(n, k-1) along columns k as n grows. Rows with n <= 16 and several finite ranges are settled by tables that Lean's kernel evaluates in exact integer arithmetic; analytic estimates, including Robbins' bounds for the factorial, settle the remaining ranges. The proof depends only on the axioms propext, Classical.choice and Quot.sound. It was found, written and formalized by AI sessions of an autonomous research system; no person has refereed it.",
+  "authors": [
+    {
+      "name": "Jaehyoung Kim"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-25-000002-v1/7cd3c4c0203e7ecb23d707e33d532497bf83f68ac3ce6137bc2d568b47d07f94/",
+    "artifact_tree_sha256": "7cd3c4c0203e7ecb23d707e33d532497bf83f68ac3ce6137bc2d568b47d07f94",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-24T19:46:14Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "71a2035b44e7f54a797ce799fd1b03cdd3a44684"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05A20",
+      "05A15",
+      "05A16"
+    ]
+  },
+  "first_registered_on": "2026-11-25",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "9d581dfff2e41de989072ea63abf3daf69311520"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "b0256621cb88178e9ad932a53633077b3029e621"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Parking.root_unimodal"
+    ]
+  },
+  "id": "PALOMAR-2026-11-25-000002",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-25T00:46:14Z",
+    "receipt_sha256": "dcb869c0b27ee357b578402f7cc7c99d4000d1fd7730b9db704782db53aeaed3",
+    "repositories": [
+      {
+        "commit": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000002-v1/7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000002-v1/d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000002-v1/b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000002-v1/c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "9d581dfff2e41de989072ea63abf3daf69311520",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000002-v1/9d581dfff2e41de989072ea63abf3daf69311520",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000002-v1/129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000002-v1/16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "b0256621cb88178e9ad932a53633077b3029e621",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000002-v1/b0256621cb88178e9ad932a53633077b3029e621",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000002-v1/c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "61ecdf2eb6b2e81ae61fae5df07cae879f3bd157",
+        "fork_repository": "PalomarArchive/MegasKomnenos--parking-unimodality--bac7bca7f495",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000002-v1/61ecdf2eb6b2e81ae61fae5df07cae879f3bd157",
+        "source_repository": "MegasKomnenos/parking-unimodality"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "relationship": "other",
+        "title": "Unimodality of the maximum-displacement counts of parking functions (Conjecture 6.5 of arXiv:2507.07243), proved for every n",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "K. Celano"
+          },
+          {
+            "name": "J. Elder"
+          },
+          {
+            "name": "K. P. Hadaway"
+          },
+          {
+            "name": "P. E. Harris"
+          },
+          {
+            "name": "J. L. Martin"
+          },
+          {
+            "name": "A. Priestley"
+          },
+          {
+            "name": "G. Udell"
+          }
+        ],
+        "identifier": "arXiv:2507.07243v2",
+        "location": "https://arxiv.org/abs/2507.07243",
+        "relationship": "other",
+        "title": "ℓ-Interval parking functions: Foata invariance, statistic generating functions, and ciphers",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "T. Aguilar-Fraga"
+          },
+          {
+            "name": "J. Elder"
+          },
+          {
+            "name": "R. E. Garcia"
+          },
+          {
+            "name": "K. P. Hadaway"
+          },
+          {
+            "name": "P. E. Harris"
+          },
+          {
+            "name": "K. J. Harry"
+          },
+          {
+            "name": "I. B. Hogan"
+          },
+          {
+            "name": "J. Johnson"
+          },
+          {
+            "name": "J. Kretschmann"
+          },
+          {
+            "name": "K. Lawson-Chavanu"
+          },
+          {
+            "name": "J. C. Martínez Mori"
+          },
+          {
+            "name": "C. D. Monroe"
+          },
+          {
+            "name": "D. Quiñonez"
+          },
+          {
+            "name": "D. Tolson III"
+          },
+          {
+            "name": "D. A. Williams II"
+          }
+        ],
+        "identifier": "arXiv:2311.14055",
+        "location": "Discrete Math. Theor. Comput. Sci. 26(1) (2024), Paper 10; https://arxiv.org/abs/2311.14055",
+        "relationship": "background",
+        "title": "Interval and ℓ-interval rational parking functions",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "identifier": "doi:10.5281/zenodo.24110810",
+        "location": "https://doi.org/10.5281/zenodo.24110810",
+        "relationship": "other",
+        "title": "parking-unimodality-2026-11-10 (knowledge base of the earlier research run)",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Jaehyoung Kim"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-25T00:45:49Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "41c687fb0bebba384b2e672a280e7b0826d2e498af2a9e6940a1620fec25d97c"
+    },
+    "reviewed_at": "2026-11-24T20:10:00Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "61ecdf2eb6b2e81ae61fae5df07cae879f3bd157",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "MegasKomnenos/parking-unimodality",
+    "repository_url": "https://github.com/MegasKomnenos/parking-unimodality",
+    "tree_url": "https://github.com/MegasKomnenos/parking-unimodality/tree/61ecdf2eb6b2e81ae61fae5df07cae879f3bd157"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "k6nhulqoft7p"
+  },
+  "title": "Unimodality of parking functions by maximum displacement",
+  "trust": {
+    "challenge_bytes": 5435,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.Data.Fintype.Pi",
+      "Mathlib.Data.List.OfFn"
+    ],
+    "challenge_lines": 100,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "20cf9f910ae2bcf9820eca46c7245f7b0d89abd8f17bfc6f94d57afff918bbf6",
+    "evidence_path": "evidence/PALOMAR-2026-11-25-000002-v1/dd293d7d4ee70b0a033142f105428faadba5a3c05992b1ebc3cab80d26c02d3b/",
+    "evidence_tree_sha256": "dd293d7d4ee70b0a033142f105428faadba5a3c05992b1ebc3cab80d26c02d3b",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "61b592689c06bfdd3be056eb165b972630f9a436375bd084c81be0e22e337873",
+    "protected_config_sha256": "91f35c1e3198d3db1fed4502e27dc49ca20d736005d87a689f606dcb1bb75501",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45467066104,
+    "solution_sha256": "fef4c1eb9b8c90f4410620d0a71ab99b6cdc36c3bb176f1d3dde4e47953c7f1e",
+    "tool_digests": {
+      "bwrap": "b65aae5eb5834af127b1d3f5e5e298728e91d1f68d9677490199a8d5ff2c40da",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "b35cb10cf2ced51a2fd1880cfdbf75c71ab7a35a",
+    "verified_at": "2026-11-24T19:19:07Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45467066104"
+  },
+  "version": 1
+}

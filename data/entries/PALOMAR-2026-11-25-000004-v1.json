@@ -1,0 +1,441 @@
+{
+  "abstract": "Unconditional Lean 4 (v4.35.0) + Mathlib formalization establishing exact values of the balanced-sequence repetition threshold RTB(d) for alphabets of size 7, 9, and 10: RTB(7) = RTB*(7) = 6/5 < 5/4, RTB(9) = RTB*(9) = 8/7 < 7/6, and RTB(10) = RTB*(10) = 9/8 < 8/7, refuting three of the six values (d - 2)/(d - 3) listed as established for 5 <= d <= 10 in papers from 2018 to 2023. Each infimum is proved both from below via an exhaustive finite prefix-refutation witness tree checked by kernel reduction (905, 2941, and 4868 nodes respectively) and from above via an explicit 1-balanced Sturmian-colouring witness (v7, v9, v10) using all d letters and attaining its critical exponent as a maximum over minimal-period factors. Main results in the companion paper: 6 of 6 in Lean 4 (100%) · 12 of 12 abstract claims in Lean 4 (100%) · 18 of 18 paper claims in Lean 4 (100%) · 0 by external certificate · 0 by written proof. Within BalancedRepetitionThreshold, 11 of 13 Lean files import Mathlib; all 26 compared theorems in Solution.lean and all 193 public theorems in BalancedRepetitionThreshold compile with zero sorry, zero native_decide, and Lean's standard axioms only. The cases d = 5, 6, 8, and d >= 11 are not addressed. Companion working paper and verification archives are hosted at https://mathdiscoveries.org/results/balanced-sequences-critical-exponent.",
+  "authors": [
+    {
+      "name": "Tyler B. Hughes"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-25-000004-v1/11760df9c32639d2874e8fa30b465157b35d085a87747638b2d4e4230ce43fc0/",
+    "artifact_tree_sha256": "11760df9c32639d2874e8fa30b465157b35d085a87747638b2d4e4230ce43fc0",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-25T00:36:40Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "cs.FL"
+    ],
+    "msc2020": [
+      "68R15",
+      "05A05",
+      "11J70",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-25",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "BalancedRepetitionThresholdChallenge.rtb_7_eq",
+      "BalancedRepetitionThresholdChallenge.rtb_9_eq",
+      "BalancedRepetitionThresholdChallenge.rtb_10_eq",
+      "BalancedRepetitionThresholdChallenge.rtb_7_lt_printed",
+      "BalancedRepetitionThresholdChallenge.rtb_9_lt_printed",
+      "BalancedRepetitionThresholdChallenge.rtb_10_lt_printed",
+      "BalancedRepetitionThresholdChallenge.rtb_strict_7_eq",
+      "BalancedRepetitionThresholdChallenge.rtb_strict_9_eq",
+      "BalancedRepetitionThresholdChallenge.rtb_strict_10_eq",
+      "BalancedRepetitionThresholdChallenge.critExp_ge_7",
+      "BalancedRepetitionThresholdChallenge.critExp_ge_9",
+      "BalancedRepetitionThresholdChallenge.critExp_ge_10",
+      "BalancedRepetitionThresholdChallenge.v7_isBalanced",
+      "BalancedRepetitionThresholdChallenge.v9_isBalanced",
+      "BalancedRepetitionThresholdChallenge.v10_isBalanced",
+      "BalancedRepetitionThresholdChallenge.v7_usesAllLetters",
+      "BalancedRepetitionThresholdChallenge.v9_usesAllLetters",
+      "BalancedRepetitionThresholdChallenge.v10_usesAllLetters",
+      "BalancedRepetitionThresholdChallenge.v7_attains",
+      "BalancedRepetitionThresholdChallenge.v9_attains",
+      "BalancedRepetitionThresholdChallenge.v10_attains",
+      "BalancedRepetitionThresholdChallenge.v7_critExp_eq",
+      "BalancedRepetitionThresholdChallenge.v9_critExp_eq",
+      "BalancedRepetitionThresholdChallenge.v10_critExp_eq",
+      "BalancedRepetitionThresholdChallenge.sSup_minPeriodExponentSet_eq_critExp",
+      "BalancedRepetitionThresholdChallenge.r22_1_1_main"
+    ]
+  },
+  "id": "PALOMAR-2026-11-25-000004",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-25T01:06:32Z",
+    "receipt_sha256": "fec927914823bd00794338e37c9bcc75b9b75001ef5082e2af271ed244ad8d39",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000004-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000004-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000004-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000004-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000004-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000004-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000004-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000004-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000004-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "86129061c9ba84904cfdefb4b2e19e0b854eacaa",
+        "fork_repository": "PalomarArchive/mathdiscoveries--balanced-sequences-critical-exponent--22558b58dd61",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000004-v1/86129061c9ba84904cfdefb4b2e19e0b854eacaa",
+        "source_repository": "mathdiscoveries/balanced-sequences-critical-exponent"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Tyler B. Hughes"
+          }
+        ],
+        "identifier": "https://mathdiscoveries.org/results/balanced-sequences-critical-exponent",
+        "location": "Companion page, working paper, verification archives, and prior-work notes at https://mathdiscoveries.org/results/balanced-sequences-critical-exponent",
+        "relationship": "other",
+        "title": "Balanced-Sequence Repetition Threshold Refutation: Exact RTB(7) = 6/5, RTB(9) = 8/7, and RTB(10) = 9/8",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "Narad Rampersad"
+          },
+          {
+            "name": "Jeffrey Shallit"
+          },
+          {
+            "name": "Élise Vandomme"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1801.05334",
+        "location": "arXiv:1801.05334 (2018); Theoretical Computer Science 777 (2019), 454-463",
+        "relationship": "background",
+        "title": "Critical exponents of infinite balanced words",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Aseem R. Baranwal"
+          },
+          {
+            "name": "Jeffrey Shallit"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1902.00503",
+        "location": "arXiv:1902.00503 (2019)",
+        "relationship": "background",
+        "title": "Critical exponent of infinite balanced words via the Pell number system",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Francesco Dolce"
+          },
+          {
+            "name": "Ľubomíra Dvořáková"
+          },
+          {
+            "name": "Edita Pelantová"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2108.07503",
+        "location": "arXiv:2108.07503 (2022)",
+        "relationship": "background",
+        "title": "On balanced sequences and their critical exponent",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Ľubomíra Dvořáková"
+          },
+          {
+            "name": "Edita Pelantová"
+          },
+          {
+            "name": "Daniela Opočenská"
+          },
+          {
+            "name": "Arseny M. Shur"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2112.02854",
+        "location": "arXiv:2112.02854 (2021); Theoretical Computer Science 922 (2022)",
+        "relationship": "background",
+        "title": "On minimal critical exponent of balanced sequences",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Ľubomíra Dvořáková"
+          },
+          {
+            "name": "Daniela Opočenská"
+          },
+          {
+            "name": "Edita Pelantová"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2208.00366",
+        "location": "arXiv:2208.00366 (2022)",
+        "relationship": "background",
+        "title": "Asymptotic repetitive threshold of balanced sequences",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Ľubomíra Dvořáková"
+          },
+          {
+            "name": "Edita Pelantová"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2211.11877",
+        "location": "arXiv:2211.11877 (2022)",
+        "relationship": "background",
+        "title": "An upper bound on asymptotic repetitive threshold of balanced sequences via colouring of the Fibonacci sequence",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Ľubomíra Dvořáková"
+          },
+          {
+            "name": "Edita Pelantová"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2309.00988",
+        "location": "arXiv:2309.00988 (2023)",
+        "relationship": "background",
+        "title": "The repetition threshold of episturmian sequences",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Pascal Hubert"
+          }
+        ],
+        "location": "Theoretical Computer Science 242 (2000), 91-108",
+        "relationship": "background",
+        "title": "Suites équilibrées",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tyler B. Hughes"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-25T01:06:08Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "709b007dc36f769acda8ccf04978ed55bd40d1b03a328a533829a2b47847524a"
+    },
+    "reviewed_at": "2026-11-25T00:51:04Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "86129061c9ba84904cfdefb4b2e19e0b854eacaa",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "mathdiscoveries/balanced-sequences-critical-exponent",
+    "repository_url": "https://github.com/mathdiscoveries/balanced-sequences-critical-exponent",
+    "tree_url": "https://github.com/mathdiscoveries/balanced-sequences-critical-exponent/tree/86129061c9ba84904cfdefb4b2e19e0b854eacaa"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "bexah5ekmgc2"
+  },
+  "title": "Balanced-Sequence Repetition Threshold Refutation: Exact RTB(7) = 6/5, RTB(9) = 8/7, and RTB(10) = 9/8",
+  "trust": {
+    "challenge_bytes": 11999,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Real.Sqrt",
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.Data.EReal.Basic",
+      "Mathlib.Data.Fin.Basic",
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.Data.List.Count"
+    ],
+    "challenge_lines": 253,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "59244bdece2235444c02c2fe055b421c4281bf8deb31bd766fccda884d7751f6",
+    "evidence_path": "evidence/PALOMAR-2026-11-25-000004-v1/d1936e06cc0fe4004ab7e7e49851763625a8731107582650f0e7604495cc7c4a/",
+    "evidence_tree_sha256": "d1936e06cc0fe4004ab7e7e49851763625a8731107582650f0e7604495cc7c4a",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "f1ce27b222418a6398fc25feee5818707a0f7e7b185fe51e540b32dd7ee4aeb8",
+    "protected_config_sha256": "110f8f4c289c16beb90d1060ee6c516c83f2c1fb8c1265d4a280e96e6021d12e",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45504821344,
+    "solution_sha256": "6de2c775d8af646cee2b4f9112a5e73cc1e03adf421148cac8e0ea0eed3b99e6",
+    "tool_digests": {
+      "bwrap": "4cb4b9cbf3f1f5809b49850a1812e0e9682b1d58a1f98a9950b19a38e7ac08b1",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-24T22:59:50Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45504821344"
+  },
+  "version": 1
+}
