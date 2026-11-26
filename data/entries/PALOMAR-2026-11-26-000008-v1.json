@@ -1,0 +1,420 @@
+{
+  "abstract": "Lean 4 (v4.35.0) + Mathlib formalization of the base-b last-digit Collatz family f_b(n) = n/2 (even n) and (n mod b)*n + 1 (odd n), focusing on the base-10 Ouroboros map f = f_10 and stating the open OuroborosConjecture definition alongside 38 unconditionally proved compared theorems (zero sorry, zero native_decide, standard axioms only). Collectively, the 38 theorems establish six principal result families: (1) small-base resolutions, including base-4 equivalence to the classical 3x+1 Collatz conjecture and global convergence to 1 in bases 2 and 5; (2) base-10 exponential Terras stopping-time descent (p_k <= 1.124953 * 0.996423^k) and density-one descent, together with a complete all-even-base stopping-time dichotomy (p_infty(b) = 0 iff b in {2, 4, 6, 10}) and even-base drift classification; (3) the base-10 basin-of-1 modulo-30 residue law, exact 2-adic Cantor closure and ultrametric isometry, and exact Hausdorff and box-counting dimension dim_H = dim_B = beta = -log_2 a (plus congruence-class completions and exact base-b suffix-closure dimension in every base b >= 2); (4) sharp pure-kernel basin growth bounds (0.0145 X^(399/800) <= N_1(X) <= C X^0.6245 with limsup (log N_1 / log X) <= 0.6245 < beta, N_5(X) > 0.02134 X^(13/20), and strict separation N_1(X)/N_5(X) <= C X^(-0.0255) -> 0); (5) universal odd-base Markov absorption for all odd b >= 3 and a certified 905/999 odd-base survey through b <= 1999 (27 trap-only and 878 split rational densities, plus explicit b = 3, 5, 7, 13 evaluations); and (6) base-10 cycle obstructions (digit-cancellation, halving-budget, K > 64000 tail, and unconditional classification of all cycles with m <= 3 odd members alongside the two known cycles through 1 and 5). Main results in the companion paper: 15 of 16 proved main results in Lean 4 (94%) · 1 of 16 by external computation (exhaustive sweep and cycle lower bounds through 10^15) · 0 by written proof · Global conjecture open. Within this package, 19 library modules in Ouroboros/ (plus Challenge.lean and Solution.lean) import Mathlib directly while the 104 finite certificate shards (BasinFiveCert*, EvenBasesCert, BasinOneLowerCert*, BasinOneUpperCert*, and OddSurveyCert*) verify finite integer inequalities by Init-only kernel reduction (rfl). Companion working paper, exact external checkers, and logged prior-work searches are published at https://mathdiscoveries.org/results/the-ouroboros-conjecture.html.",
+  "authors": [
+    {
+      "name": "Tyler B. Hughes"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-26-000008-v1/e4199dd6df59b1e70829bc62ecdf935c20d3cd86bfc1a662de7c3a3dc9c4a4ea/",
+    "artifact_tree_sha256": "e4199dd6df59b1e70829bc62ecdf935c20d3cd86bfc1a662de7c3a3dc9c4a4ea",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-25T14:12:43Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT",
+      "math.DS"
+    ],
+    "msc2020": [
+      "11B83",
+      "37P99",
+      "60J10"
+    ]
+  },
+  "first_registered_on": "2026-11-26",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "OuroborosChallenge.prop_base4_reaches_three_iff",
+      "OuroborosChallenge.prop_base4_iff_collatz",
+      "OuroborosChallenge.prop_base2_reaches_one",
+      "OuroborosChallenge.prop_base5_reaches_one",
+      "OuroborosChallenge.thm_terras_bound",
+      "OuroborosChallenge.thm_terras_density_one",
+      "OuroborosChallenge.thm_residue_law",
+      "OuroborosChallenge.thm_basin1_lower",
+      "OuroborosChallenge.thm_basin1_upper_explicit",
+      "OuroborosChallenge.thm_basin1_density_zero",
+      "OuroborosChallenge.thm_basin5_tight",
+      "OuroborosChallenge.cor_basin_separation_unconditional",
+      "OuroborosChallenge.cor_basin_separation_tendsto_zero_unconditional",
+      "OuroborosChallenge.thm_even_bases",
+      "OuroborosChallenge.prop_near_zero_band",
+      "OuroborosChallenge.cor_drift_growth",
+      "OuroborosChallenge.prop_odd_runaway",
+      "OuroborosChallenge.thm_odd_trapdoor_rootless",
+      "OuroborosChallenge.lem_base17_runaway",
+      "OuroborosChallenge.thm_odd_densities_rootless",
+      "OuroborosChallenge.cycle_n5_eq_n3_add_n7",
+      "OuroborosChallenge.lem_halving_budget",
+      "OuroborosChallenge.thm_cycle_tail_64000",
+      "OuroborosChallenge.cycle_m1_unique",
+      "OuroborosChallenge.cycle_m2_classification",
+      "OuroborosChallenge.cycle_m3_unique",
+      "OuroborosChallenge.f_cycle_one",
+      "OuroborosChallenge.f_cycle_five",
+      "OuroborosChallenge.lem_weighted_tree3",
+      "OuroborosChallenge.thm_basin5_sharp",
+      "OuroborosChallenge.thm_basin5_sharp_gt",
+      "OuroborosChallenge.thm_even_stopping",
+      "OuroborosChallenge.thm_cantor",
+      "OuroborosChallenge.thm_suffix_class",
+      "OuroborosChallenge.cor_suffix_dimension",
+      "OuroborosChallenge.thm_basin_sharp",
+      "OuroborosChallenge.thm_odd_survey",
+      "OuroborosChallenge.thm_odd_table_examples"
+    ]
+  },
+  "id": "PALOMAR-2026-11-26-000008",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-26T02:11:25Z",
+    "receipt_sha256": "0ec935298f633627f1b1d2ff0eb72fa7457d4ff459a6d18a262cfa29d0aca674",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000008-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000008-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000008-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000008-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000008-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000008-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000008-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000008-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000008-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "139adcd3dcc87dd5751b0bede68d73f7c7a1592c",
+        "fork_repository": "PalomarArchive/mathdiscoveries--the-ouroboros-conjecture--2935174e404f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000008-v1/139adcd3dcc87dd5751b0bede68d73f7c7a1592c",
+        "source_repository": "mathdiscoveries/the-ouroboros-conjecture"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Tyler B. Hughes"
+          }
+        ],
+        "identifier": "https://mathdiscoveries.org/results/the-ouroboros-conjecture.html",
+        "location": "Companion page, working paper, verification archives, and prior-work search log at https://mathdiscoveries.org/results/the-ouroboros-conjecture.html",
+        "relationship": "other",
+        "title": "The Ouroboros Conjecture: Competing Attractors in Base 10 Among Last-Digit Collatz Maps",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "Riho Terras"
+          }
+        ],
+        "identifier": "https://doi.org/10.4064/aa-30-3-241-252",
+        "location": "Acta Arithmetica 30(3) (1976), 241-252",
+        "relationship": "background",
+        "title": "A stopping time problem on the positive integers",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "K. R. Matthews"
+          },
+          {
+            "name": "A. M. Watts"
+          }
+        ],
+        "identifier": "https://doi.org/10.4064/aa-43-2-167-175",
+        "location": "Acta Arithmetica 43(2) (1984), 167-175",
+        "relationship": "background",
+        "title": "A generalization of Hasse's generalization of the Syracuse algorithm",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "G. M. Leigh"
+          }
+        ],
+        "identifier": "https://doi.org/10.4064/aa-46-2-125-143",
+        "location": "Acta Arithmetica 46(2) (1986), 125-143",
+        "relationship": "background",
+        "title": "A Markov process underlying the generalized Syracuse algorithm",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Ilia Krasikov"
+          },
+          {
+            "name": "Jeffrey C. Lagarias"
+          }
+        ],
+        "identifier": "https://doi.org/10.4064/aa109-3-4",
+        "location": "Acta Arithmetica 109(3) (2003), 237-258",
+        "relationship": "background",
+        "title": "Bounds for the 3x+1 problem using difference inequalities",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "John L. Simons"
+          }
+        ],
+        "identifier": "https://doi.org/10.4064/aa131-3-2",
+        "location": "Acta Arithmetica 131(3) (2008), 217-254",
+        "relationship": "background",
+        "title": "On the (non-)existence of m-cycles for generalized Syracuse sequences",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Emre Yolcu"
+          },
+          {
+            "name": "Scott Aaronson"
+          },
+          {
+            "name": "Marijn J. H. Heule"
+          }
+        ],
+        "identifier": "https://doi.org/10.1007/s10817-022-09658-8",
+        "location": "Journal of Automated Reasoning 67 (2023), article 15",
+        "relationship": "background",
+        "title": "An automated approach to the Collatz conjecture",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Augusto Santi"
+          }
+        ],
+        "identifier": "https://math.stackexchange.com/q/5113307",
+        "location": "Mathematics Stack Exchange, 10 December 2025",
+        "relationship": "background",
+        "title": "A Collatz-type dynamical system with alternating multipliers (3 and 5): three attractors and huge excursions",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tyler B. Hughes"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-26T02:11:00Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "554c6d40ae3ca0b8dedd213311eeda39304768430dee75849612b8d49d479f20"
+    },
+    "reviewed_at": "2026-11-25T14:25:20Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "The indexed account presents exact densities among the base-7 table evaluations, but the selected statements give base-7 absorption masses and a trapdoor density, not an exact divergence density. Narrow that prose to the quantities established, or add a compared density theorem for the intended claim."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "139adcd3dcc87dd5751b0bede68d73f7c7a1592c",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "mathdiscoveries/the-ouroboros-conjecture",
+    "repository_url": "https://github.com/mathdiscoveries/the-ouroboros-conjecture",
+    "tree_url": "https://github.com/mathdiscoveries/the-ouroboros-conjecture/tree/139adcd3dcc87dd5751b0bede68d73f7c7a1592c"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "i8aqlr9dqi8z"
+  },
+  "title": "The Ouroboros Conjecture: Competing Attractors in Base 10 Among Last-Digit Collatz Maps",
+  "trust": {
+    "challenge_bytes": 41996,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.SpecialFunctions.Log.Base",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.Data.Nat.Factorization.Basic",
+      "Mathlib.Logic.Function.Iterate",
+      "Mathlib.MeasureTheory.Measure.Hausdorff",
+      "Mathlib.NumberTheory.Padics.PadicIntegers",
+      "Mathlib.NumberTheory.Padics.PadicVal.Basic",
+      "Mathlib.NumberTheory.Padics.RingHoms",
+      "Mathlib.Order.Interval.Finset.Nat",
+      "Mathlib.Topology.Algebra.InfiniteSum.Basic",
+      "Mathlib.Topology.Instances.Nat",
+      "Mathlib.Topology.MetricSpace.HausdorffDimension"
+    ],
+    "challenge_lines": 702,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "d3df56cb9272ae92908ef090efe0a75ee8a9e9c4afdf70a0ba1483e77fac70bd",
+    "evidence_path": "evidence/PALOMAR-2026-11-26-000008-v1/df4102ebc464ce94929b052f269309c0f4eb85a02ce5404b56e33e8978ee634e/",
+    "evidence_tree_sha256": "df4102ebc464ce94929b052f269309c0f4eb85a02ce5404b56e33e8978ee634e",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      }
+    ],
+    "mechanical_report_sha256": "8b7d12ed9f5389ddb964b9aeddf44fc48557b5f2159f6ca3af8a1158d8944101",
+    "protected_config_sha256": "a27e033f5e54e6b3d3791953b4ad2229ef341735c2ba77eebe5961e542728535",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45564379693,
+    "solution_sha256": "534cd90bba73c995f70a1f5f453959e9fca57b66435fc86aca59c4dea499a078",
+    "tool_digests": {
+      "bwrap": "5085c2b6cb64b4bc170786eea1fa972a79742a32d8da655bedcbe210cbb6fd9f",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-25T13:22:02Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45564379693"
+  },
+  "version": 1
+}

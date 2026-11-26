@@ -1,0 +1,393 @@
+{
+  "abstract": "Let b(n, l) be the number of parking functions of length n whose maximum displacement is exactly l, where the displacement of a car is the distance between the spot it takes and its preferred spot, and call the sequence b(n, 0), b(n, 1), ..., b(n, n-1) row n. The formalization proves two theorems in Lean 4 with Mathlib. The first, the staircase (Parking.staircase), says that for every n >= 2 there is a position p such that row n rises strictly up to b(n, p), satisfies b(n, p+1) <= b(n, p), and falls strictly from b(n, p+1) on, and such that row n+1 either has the same shape with the same p or rises strictly up to b(n+1, p+1) and falls strictly after it. So every row is strictly increasing and then strictly decreasing, except that the entry directly after the peak may be equal to the peak, and the peak stays or moves one position to the right when the length grows by one. The second (Parking.unimodal_via_staircase) is the corollary that for every n >= 1 row n is unimodal, which is Conjecture 6.5 of Celano, Elder, Hadaway, Harris, Martin, Priestley and Udell (arXiv:2507.07243). The numbers b(n, l) are defined directly from the parking process. The staircase is obtained by induction on n from two rules for the sign of the step b(n, k) - b(n, k-1): a positive step stays positive one row down in the same column, and a step that is not positive is followed by a negative step one row down and one column to the right. The rules are proved region by region: tables that Lean's kernel evaluates in exact integer arithmetic settle the small columns, and analytic estimates settle the large ones. The proof depends only on the axioms propext, Classical.choice and Quot.sound. The unimodality had been proved before, by another route, in the formalization MegasKomnenos/parking-unimodality (PALOMAR-2026-11-25-000002), on whose library this proof is built. As far as a literature search found, the staircase is first presented by this formalization and the package from which it was made; that it is new is not established. The proof was found, written and formalized by AI sessions. A person has read the two Lean statements, with the definitions they use, against the statements in words; no person has refereed the mathematics.",
+  "authors": [
+    {
+      "name": "Jaehyoung Kim"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-26-000014-v1/54ebbfefb3a5fc5f90e61d608ebaa69d5d4bd10abc7acc2c699dcf5664b7db78/",
+    "artifact_tree_sha256": "54ebbfefb3a5fc5f90e61d608ebaa69d5d4bd10abc7acc2c699dcf5664b7db78",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-25T15:13:51Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "71a2035b44e7f54a797ce799fd1b03cdd3a44684"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05A20",
+      "05A15",
+      "05A16"
+    ]
+  },
+  "first_registered_on": "2026-11-26",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "9d581dfff2e41de989072ea63abf3daf69311520"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "b0256621cb88178e9ad932a53633077b3029e621"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Parking.staircase",
+      "Parking.unimodal_via_staircase"
+    ]
+  },
+  "id": "PALOMAR-2026-11-26-000014",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-26T03:45:18Z",
+    "receipt_sha256": "bef371129a27547f293ec2fdada9e1442d28032cc829763bef39e21e0d1e8e5d",
+    "repositories": [
+      {
+        "commit": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000014-v1/7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000014-v1/d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000014-v1/b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000014-v1/c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "9d581dfff2e41de989072ea63abf3daf69311520",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000014-v1/9d581dfff2e41de989072ea63abf3daf69311520",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000014-v1/129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000014-v1/16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "b0256621cb88178e9ad932a53633077b3029e621",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000014-v1/b0256621cb88178e9ad932a53633077b3029e621",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000014-v1/c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "f8ef19eaa4f5a4d1f196ea7f5b2e3789048df263",
+        "fork_repository": "PalomarArchive/MegasKomnenos--parking-staircase--ec0ff8e5f3db",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000014-v1/f8ef19eaa4f5a4d1f196ea7f5b2e3789048df263",
+        "source_repository": "MegasKomnenos/parking-staircase"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [],
+        "relationship": "other",
+        "title": "The staircase theorem for the maximum-displacement counts of parking functions: every row rises strictly to a peak and falls strictly after it, with at most one pair of equal neighbours directly after the peak, and the peak stays or moves one position to the right when the length grows by one",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "no-response",
+        "authors": [
+          {
+            "name": "K. Celano"
+          },
+          {
+            "name": "J. Elder"
+          },
+          {
+            "name": "K. P. Hadaway"
+          },
+          {
+            "name": "P. E. Harris"
+          },
+          {
+            "name": "J. L. Martin"
+          },
+          {
+            "name": "A. Priestley"
+          },
+          {
+            "name": "G. Udell"
+          }
+        ],
+        "identifier": "arXiv:2507.07243v2",
+        "location": "Conjecture 6.5; Table 1; Example 2.8 and Section 6; https://arxiv.org/abs/2507.07243",
+        "relationship": "other",
+        "title": "ℓ-Interval parking functions: Foata invariance, statistic generating functions, and ciphers",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "T. Aguilar-Fraga"
+          },
+          {
+            "name": "J. Elder"
+          },
+          {
+            "name": "R. E. Garcia"
+          },
+          {
+            "name": "K. P. Hadaway"
+          },
+          {
+            "name": "P. E. Harris"
+          },
+          {
+            "name": "K. J. Harry"
+          },
+          {
+            "name": "I. B. Hogan"
+          },
+          {
+            "name": "J. Johnson"
+          },
+          {
+            "name": "J. Kretschmann"
+          },
+          {
+            "name": "K. Lawson-Chavanu"
+          },
+          {
+            "name": "J. C. Martínez Mori"
+          },
+          {
+            "name": "C. D. Monroe"
+          },
+          {
+            "name": "D. Quiñonez"
+          },
+          {
+            "name": "D. Tolson III"
+          },
+          {
+            "name": "D. A. Williams II"
+          }
+        ],
+        "identifier": "doi:10.46298/dmtcs.12598",
+        "location": "Theorem 3.7; Discrete Math. Theor. Comput. Sci. 26(1) (2024), Paper 10; arXiv:2311.14055",
+        "relationship": "background",
+        "title": "Interval and ℓ-interval rational parking functions",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "N. Petersson"
+          }
+        ],
+        "identifier": "ISBN 978-91-506-2050-4",
+        "location": "Theorem 2.1 of the summary; doctoral thesis, Uppsala Dissertations in Mathematics 63, Uppsala University, 2009",
+        "relationship": "background",
+        "title": "The maximum displacement for linear probing hashing",
+        "type": "other"
+      },
+      {
+        "authors": [],
+        "identifier": "https://github.com/MegasKomnenos/do-math/tree/f70448b977718d449348874d98098e6e803d1299/solved/parking-unimodality",
+        "location": "paper/paper.pdf, 143 pages, in the folder solved/parking-unimodality of MegasKomnenos/do-math at commit f70448b977718d449348874d98098e6e803d1299",
+        "relationship": "other",
+        "title": "Unimodality of the number of parking functions with a given maximum displacement",
+        "type": "other"
+      },
+      {
+        "authors": [],
+        "identifier": "doi:10.5281/zenodo.24110810",
+        "location": "https://doi.org/10.5281/zenodo.24110810",
+        "relationship": "other",
+        "title": "parking-unimodality-2026-11-10 (knowledge base of the earlier research run)",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/MegasKomnenos/parking-unimodality",
+        "note": "Registered in Palomar as PALOMAR-2026-11-25-000002, at commit 61ecdf2eb6b2e81ae61fae5df07cae879f3bd157, by the same author. It proves the unimodality of every row as Parking.root_unimodal, whose Lean statement is the one of Parking.unimodal_via_staircase here, over the same definitions. Its route is different: it excludes, in each row, a descent that is followed by an ascent, and it does not determine how the peak of a row stands to the peak of the next row. The present work builds on its library: of the 62 modules of that library, 52 are in this repository under Parking/, with the same code and with the module comments of five of them reworded, and the 28 modules under Staircase/ are new. The staircase is not proved there. One module of that library, Parking/Peak.lean, which is not among the 52 and whose statements are not compared declarations of that entry, contains Parking.row_peak: for n >= 335, row n does not decrease up to a position p, rises strictly from b(n, 81) to b(n, p), satisfies b(n, p+1) <= b(n, p) and falls strictly from b(n, p+1) on, and p lies within a stated distance of order n^(2/3) of the right end of the row. The staircase says more in three respects, since it holds for every n >= 2, is strict from the first entry on, and relates the peaks of consecutive rows, and less in one, since it gives no bound for the position of the peak. No other formalization of either theorem is known.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Jaehyoung Kim"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-26T03:44:58Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "ab645b97ec32ae912b62e2e232971cec47fa9d9d37744df86e609f8fcfdc015e"
+    },
+    "reviewed_at": "2026-11-25T15:25:41Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "f8ef19eaa4f5a4d1f196ea7f5b2e3789048df263",
+    "license": {
+      "declared_identifier": "CC-BY-4.0",
+      "detected_identifier": "CC-BY-4.0",
+      "path": "LICENSE",
+      "sha256": "f5b745ef98087f531e719ee8ca6a96809444573ecc7173c6fa68eaad39b3cc3f"
+    },
+    "repository": "MegasKomnenos/parking-staircase",
+    "repository_url": "https://github.com/MegasKomnenos/parking-staircase",
+    "tree_url": "https://github.com/MegasKomnenos/parking-staircase/tree/f8ef19eaa4f5a4d1f196ea7f5b2e3789048df263"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "9n1fcszddwxu"
+  },
+  "title": "The staircase theorem for parking functions counted by maximum displacement",
+  "trust": {
+    "challenge_bytes": 8809,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.Data.Fintype.Pi",
+      "Mathlib.Data.List.OfFn"
+    ],
+    "challenge_lines": 152,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "a7d0dfaf0100b02f61401eae48ef6b7911370e27248d4f8b075be3bf3f15df3c",
+    "evidence_path": "evidence/PALOMAR-2026-11-26-000014-v1/82a9f608465a01e34c73d46dbfaa4b05e9168d73130ab47fbb117a429991383b/",
+    "evidence_tree_sha256": "82a9f608465a01e34c73d46dbfaa4b05e9168d73130ab47fbb117a429991383b",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "c886818f84bcd51e7eb80d1bfd18f8d219c72ec0cf63b3ab2a29b7d0177f9713",
+    "protected_config_sha256": "452f39037ffea29e3665207e66f75a622ebf68156512d29d94eeb697a5b56e4b",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45634558762,
+    "solution_sha256": "d2fbf2fdb0621061d256386f4ec782a32f57456415daf2a1c4f3e3af4280086c",
+    "tool_digests": {
+      "bwrap": "181e2e467eda53f06237d853a3497495e903164889eda3b6461e7d68cf603914",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "b35cb10cf2ced51a2fd1880cfdbf75c71ab7a35a",
+    "verified_at": "2026-11-25T14:43:20Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45634558762"
+  },
+  "version": 1
+}

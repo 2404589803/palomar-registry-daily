@@ -1,0 +1,354 @@
+{
+  "abstract": "An infinite Ammann–Beenker network is a mathematical graph with octagonal geometry. In this particular network, two localized wave patterns share a special energy, as established in [PALOMAR-2026-11-06-000012 (version 1)](https://palomar-registry.org/entry?id=PALOMAR-2026-11-06-000012&version=1). [PALOMAR-2026-11-23-000017 (version 1)](https://palomar-registry.org/entry?id=PALOMAR-2026-11-23-000017&version=1) describes how changing a single edge splits their energy. [PALOMAR-2026-11-25-000001 (version 1)](https://palomar-registry.org/entry.html?id=PALOMAR-2026-11-25-000001&version=1) shows how two coordinated controls can prepare any normalized mixture of the two patterns, up to a common phase, without leakage. The present theorem asks whether their energies can also remain separated from all the other energies while those controls are active.\n\nThe first control changes a common onsite parameter on eight first-ring vertices by a signed amount δ. The second changes eight distinct inter-ring edges, with no shared endpoints, by a signed amount η. The two localized patterns span a space that both controls preserve exactly. Its two energy levels have midpoint E* + δ/2 + η, where E* is their original common energy, and half-spacing s = √(δ²/4 + η²). Both levels have genuine nonzero eigenvectors of the full infinite operator; they coincide only when both controls vanish. The orthogonal complement is also preserved on the natural operator domain.\n\nAt zero control, the certified gap around E* is 1/128. Write ρ = |δ| + 2|η| for the combined control size. The new theorem proves that if ρ/2 + s is less than 1/128, the complete real spectrum contains exactly the two controlled energies in the closed interval between them. Each is separated from every other real spectral energy by at least 1/128 − ρ/2 − s, which is strictly positive. Every eigenvector at either controlled energy lies entirely in the original localized space. The case of coincident energies at zero control is included.\n\nSince s is at most ρ/2, the simpler condition ρ < 1/128 also guarantees protection, with separation at least 1/128 − ρ. This includes either control acting alone, with |δ| < 1/128 or |η| < 1/256, respectively. These bounds are sufficient, not claimed optimal.\n\nThe result is proved in Lean for the full infinite operator with its confining potential and natural domain, not for a finite sample or a two-state approximation. It adds a quantitative energy gap to exact geometric decoupling. It provides a foundation for studying imperfect controls, but does not prove noise tolerance, arbitrary-strength protection, experimental feasibility or general quantum dynamics.",
+  "authors": [
+    {
+      "name": "Alessandro Odasso"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-26-000015-v1/69b498a3c54d2c0c49b622d543ce980c46672be3cf4559f6e5524bd7d21d9a0c/",
+    "artifact_tree_sha256": "69b498a3c54d2c0c49b622d543ce980c46672be3cf4559f6e5524bd7d21d9a0c",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-25T15:29:45Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.SP",
+      "cond-mat.mes-hall"
+    ],
+    "msc2020": [
+      "47A55",
+      "47B25"
+    ]
+  },
+  "first_registered_on": "2026-11-26",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "palomar/spectral-protection-during-coordinated-control/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "SpectralGeometry.AmmannBeenker.admitted_zero",
+      "SpectralGeometry.AmmannBeenker.mate_involutive",
+      "SpectralGeometry.AmmannBeenker.compactA_mem_domain",
+      "SpectralGeometry.AmmannBeenker.compactB_mem_domain",
+      "SpectralGeometry.AmmannBeenker.centralLift_admitted",
+      "SpectralGeometry.AmmannBeenker.coordinatedRingPair_adjacent",
+      "SpectralGeometry.AmmannBeenker.coordinatedRing_disjoint",
+      "SpectralGeometry.AmmannBeenker.coordinatedRing_matching",
+      "SpectralGeometry.AmmannBeenker.coordinatedLevelRadius_eq_zero_iff",
+      "SpectralGeometry.AmmannBeenker.coordinatedPlane_eigenvalue_iff",
+      "SpectralGeometry.AmmannBeenker.coordinatedHamiltonian_plane_commutes",
+      "SpectralGeometry.AmmannBeenker.coordinatedHamiltonian_complement_commutes",
+      "SpectralGeometry.AmmannBeenker.coordinatedCluster_centered_condition_of_budget",
+      "SpectralGeometry.AmmannBeenker.coordinatedCluster_centered_gap_ge",
+      "SpectralGeometry.AmmannBeenker.coordinatedCluster_centered_isolation"
+    ]
+  },
+  "id": "PALOMAR-2026-11-26-000015",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-26T03:50:09Z",
+    "receipt_sha256": "06fb5dcbd57fad3daf6c8de47349bebe0cec135e460cab75bf85bb0b4e3b37bd",
+    "repositories": [
+      {
+        "commit": "8e381387b9e54b88e8884cded11164277cec6d21",
+        "fork_repository": "PalomarArchive/alexodas--spectral_geometry--d3c275959859",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000015-v1/8e381387b9e54b88e8884cded11164277cec6d21",
+        "source_repository": "alexodas/spectral_geometry"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000015-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000015-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000015-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000015-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000015-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000015-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000015-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000015-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000015-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Alessandro Odasso"
+          }
+        ],
+        "identifier": "https://github.com/alexodas/spectral_geometry",
+        "relationship": "other",
+        "title": "Spectral Protection During Coordinated Control on an Infinite Ammann–Beenker Graph",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "M. Ö. Oktel"
+          }
+        ],
+        "identifier": "https://doi.org/10.1103/PhysRevB.104.014204",
+        "relationship": "background",
+        "title": "Strictly localized states in the octagonal Ammann–Beenker quasicrystal",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "M. Röntgen"
+          },
+          {
+            "name": "C. V. Morfonios"
+          },
+          {
+            "name": "P. Schmelcher"
+          }
+        ],
+        "identifier": "https://doi.org/10.1103/PhysRevB.97.035161",
+        "relationship": "background",
+        "title": "Compact localized states and flat bands from local symmetry partitioning",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "F. P. M. Beenker"
+          }
+        ],
+        "identifier": "https://pure.tue.nl/ws/files/4269555/253166.pdf",
+        "relationship": "background",
+        "title": "Algebraic theory of non-periodic tilings of the plane by two simple building blocks: a square and a rhombus",
+        "type": "other"
+      },
+      {
+        "authors": [],
+        "identifier": "https://github.com/leanprover-community/mathlib4",
+        "relationship": "background",
+        "title": "Mathlib4 — Lean mathematical library",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-11-06-000012",
+        "note": "Earlier exact crossing multiplicity on the infinite graph.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-23-000017",
+        "note": "Earlier signed single-edge spectral splitting; the current theorem uses coordinated controls.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-25-000001",
+        "note": "Exact leakage-free preparation under the same coordinated controls; the new theorem establishes static energetic protection.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Alessandro Odasso"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-26T03:49:51Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "65812ee715f613c805da3a443912ae473eb7ba123d38b5bebbfc5963d7c8d30d"
+    },
+    "reviewed_at": "2026-11-25T17:46:26Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "8e381387b9e54b88e8884cded11164277cec6d21",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "alexodas/spectral_geometry",
+    "repository_url": "https://github.com/alexodas/spectral_geometry",
+    "tree_url": "https://github.com/alexodas/spectral_geometry/tree/8e381387b9e54b88e8884cded11164277cec6d21"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "2hc1p77en4bs"
+  },
+  "title": "Spectral Protection During Coordinated Control on an Infinite Ammann–Beenker Graph",
+  "trust": {
+    "challenge_bytes": 23830,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 706,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "de8d3609d161e1db7377f30b941db6f2c489f637770859866b7f106ad2544a24",
+    "evidence_path": "evidence/PALOMAR-2026-11-26-000015-v1/a6edc4d0ff001f69a5bf954bf9dee837bae5c06a82c5a9e1b63a4207d2850736/",
+    "evidence_tree_sha256": "a6edc4d0ff001f69a5bf954bf9dee837bae5c06a82c5a9e1b63a4207d2850736",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "8bbc78900c4d37a629b884f52b188171c6f805bfb9cc915668bc38b50e9fc9d6",
+    "protected_config_sha256": "d83f52a809f04ec9398f2fe4128fa89862201d87e39ca66ee8e45457cae7c920",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45637277086,
+    "solution_sha256": "e9a54a88f26078b33273f85696a0bd2b41dba335ebe5211d50e006aa2823a9dd",
+    "tool_digests": {
+      "bwrap": "1f98c65bf886986f6f6ae0ae96567b010457274d60a66e125ce40d47eb9f21b6",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-25T15:02:33Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45637277086"
+  },
+  "version": 1
+}

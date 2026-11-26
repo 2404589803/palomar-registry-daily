@@ -1,0 +1,773 @@
+{
+  "abstract": "Complete and unconditional. A Lean 4 formalization of G. Cassese, \"A solution to Morrey's problem in R^{2 x m}\" (arXiv:2608.03488v3, 2026): rank-one convex integrands on 2 x m matrices, m >= 3, that are nowhere quasiconvex, so that with Šverák's theorem only 2 x 2 remains open; and p-homogeneous examples answering Kirchheim and Kristensen's homogeneous problem negatively.\n\nEvery result that the paper proves is proved, with no hypothesis beyond the paper's: Theorem 1.2 (every p > 1, 2 x m for m large, by the paper's UMD route, and a second time by its elementary route), Theorem 1.3 (a quartic on 2 x 3, and p near 4), Corollary 5.3 (its transpose on 3 x 2), the consequences that only 2 x 2 remains, Theorem 1.4 (d x d, every p, and p = 4 for d >= 588), Theorem 1.5 (4 x 2, every p != 2) and Corollary 1.6. The results of other works that the proofs use are proved too, in their sources' terms: Burkholder's inequalities and functions, UMD theory for L^p and the Schatten classes, decoupling, the Kahane-Khintchine and non-commutative Khintchine inequalities, transference for homogeneous multipliers, Dragičević's lower bound for the square of the Beurling-Ahlfors transform, Dacorogna's formula for the quasiconvex envelope, Kristensen's smoothing and the textbook facts of the calculus of variations, by the arguments of their sources (named substitutes stand for a few steps that a source takes from a work that was not read, only recalls, or states without proof: see fidelity). They come from three Lake packages written for this project (lean4-harmonic-analysis, lean4-banach-probability, lean4-calculus-of-variations). The repository formalizes other papers on Morrey's problem too, each its own submission.",
+  "authors": [
+    {
+      "name": "The-Anh Vu-Le"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-26-000018-v1/981f3385b86edb2ac7d3c653b946508b3c8d83aac574a15720aafcdaf65a3e2e/",
+    "artifact_tree_sha256": "981f3385b86edb2ac7d3c653b946508b3c8d83aac574a15720aafcdaf65a3e2e",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-25T17:49:53Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "71a2035b44e7f54a797ce799fd1b03cdd3a44684"
+  },
+  "classification": {
+    "arxiv": [
+      "math.AP",
+      "math.FA",
+      "math.PR"
+    ],
+    "msc2020": [
+      "49J45",
+      "26B25",
+      "60G42",
+      "46B09",
+      "42B15",
+      "46L53"
+    ]
+  },
+  "first_registered_on": "2026-11-26",
+  "formalization": {
+    "challenge_path": "palomar/Cassese/Challenge.lean",
+    "comparator_config_path": "palomar/Cassese/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "palomar/Cassese/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "Iwaniec",
+        "repository": "vltanh/lean4-iwaniec",
+        "revision": "e4922fa6bfdadbe5fe22231c91b69044dac89bab"
+      },
+      {
+        "name": "BanachProbability",
+        "repository": "vltanh/lean4-banach-probability",
+        "revision": "dc3966ce34fbc31b2936a0ca9b8a50356d690ae1"
+      },
+      {
+        "name": "CalculusOfVariations",
+        "repository": "vltanh/lean4-calculus-of-variations",
+        "revision": "a3778e447c557dd8eb81b84f47db4aa9ed0070d0"
+      },
+      {
+        "name": "HarmonicAnalysis",
+        "repository": "vltanh/lean4-harmonic-analysis",
+        "revision": "4c9fb088fe3ed7452430f825730e3d23fa4d0a6a"
+      },
+      {
+        "name": "FixedPoint",
+        "repository": "vltanh/lean4-fixed-point",
+        "revision": "5f650f00b1db63837a452696331a98ca886b94a8"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "9d581dfff2e41de989072ea63abf3daf69311520"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "b0256621cb88178e9ad932a53633077b3029e621"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b"
+      }
+    ],
+    "solution_path": "palomar/Cassese/Solution.lean",
+    "theorem_names": [
+      "CasseseChallenge.theorem1_2",
+      "CasseseChallenge.theorem1_3_a",
+      "CasseseChallenge.theorem1_3_b",
+      "CasseseChallenge.theorem1_4",
+      "CasseseChallenge.theorem1_4_four",
+      "CasseseChallenge.theorem1_5",
+      "CasseseChallenge.corollary1_6",
+      "CasseseChallenge.corollary5_3",
+      "CasseseChallenge.morrey_landscape",
+      "CasseseChallenge.homMorrey_landscape",
+      "CasseseChallenge.projL3_mem"
+    ]
+  },
+  "id": "PALOMAR-2026-11-26-000018",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-26T04:12:27Z",
+    "receipt_sha256": "2e2db83783a5b11dc449e204477fca5471133376015c3cf33378e516b9631301",
+    "repositories": [
+      {
+        "commit": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000018-v1/7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000018-v1/d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000018-v1/b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000018-v1/c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "9d581dfff2e41de989072ea63abf3daf69311520",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000018-v1/9d581dfff2e41de989072ea63abf3daf69311520",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000018-v1/129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000018-v1/16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "b0256621cb88178e9ad932a53633077b3029e621",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000018-v1/b0256621cb88178e9ad932a53633077b3029e621",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000018-v1/c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "dc3966ce34fbc31b2936a0ca9b8a50356d690ae1",
+        "fork_repository": "PalomarArchive/vltanh--lean4-banach-probability--04f2a236eae4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000018-v1/dc3966ce34fbc31b2936a0ca9b8a50356d690ae1",
+        "source_repository": "vltanh/lean4-banach-probability"
+      },
+      {
+        "commit": "a3778e447c557dd8eb81b84f47db4aa9ed0070d0",
+        "fork_repository": "PalomarArchive/vltanh--lean4-calculus-of-variations--3d6c27e30b9f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000018-v1/a3778e447c557dd8eb81b84f47db4aa9ed0070d0",
+        "source_repository": "vltanh/lean4-calculus-of-variations"
+      },
+      {
+        "commit": "5f650f00b1db63837a452696331a98ca886b94a8",
+        "fork_repository": "PalomarArchive/vltanh--lean4-fixed-point--8e5eb7b662e1",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000018-v1/5f650f00b1db63837a452696331a98ca886b94a8",
+        "source_repository": "vltanh/lean4-fixed-point"
+      },
+      {
+        "commit": "4c9fb088fe3ed7452430f825730e3d23fa4d0a6a",
+        "fork_repository": "PalomarArchive/vltanh--lean4-harmonic-analysis--3e73471a9847",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000018-v1/4c9fb088fe3ed7452430f825730e3d23fa4d0a6a",
+        "source_repository": "vltanh/lean4-harmonic-analysis"
+      },
+      {
+        "commit": "e4922fa6bfdadbe5fe22231c91b69044dac89bab",
+        "fork_repository": "PalomarArchive/vltanh--lean4-iwaniec--6efed3985ecf",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000018-v1/e4922fa6bfdadbe5fe22231c91b69044dac89bab",
+        "source_repository": "vltanh/lean4-iwaniec"
+      },
+      {
+        "commit": "a7a9a583ad05f36ca7b6db2ac22f9f4434e4ee6f",
+        "fork_repository": "PalomarArchive/vltanh--lean4-morrey--cfc079acea49",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000018-v1/a7a9a583ad05f36ca7b6db2ac22f9f4434e4ee6f",
+        "source_repository": "vltanh/lean4-morrey"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Gabriele Cassese"
+          }
+        ],
+        "identifier": "arXiv:2608.03488v3",
+        "location": "https://arxiv.org/abs/2608.03488v3",
+        "relationship": "formalizes",
+        "title": "A solution to Morrey's problem in R^{2 x m}",
+        "type": "preprint"
+      },
+      {
+        "authors": [
+          {
+            "name": "Vladimír Šverák"
+          }
+        ],
+        "identifier": "Proc. Roy. Soc. Edinburgh Sect. A 120 (1992), 185-189",
+        "relationship": "background",
+        "title": "Rank-one convexity does not imply quasiconvexity",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Adam Osękowski"
+          }
+        ],
+        "identifier": "Monografie Matematyczne 72, Birkhäuser (2012)",
+        "relationship": "background",
+        "title": "Sharp martingale and semimartingale inequalities",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Donald L. Burkholder"
+          }
+        ],
+        "identifier": "Astérisque 157-158 (1988), 75-94",
+        "location": "https://www.numdam.org/item/AST_1988__157-158__75_0/",
+        "relationship": "background",
+        "title": "Sharp inequalities for martingales and stochastic integrals",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Gabriele Cassese"
+          }
+        ],
+        "identifier": "arXiv:2512.02784; J. Math. Pures Appl. 213 (2026)",
+        "location": "https://arxiv.org/abs/2512.02784",
+        "relationship": "background",
+        "title": "Martingales, laminates and minimal Korn inequalities",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Tuomas Hytönen"
+          },
+          {
+            "name": "Jan van Neerven"
+          },
+          {
+            "name": "Mark Veraar"
+          },
+          {
+            "name": "Lutz Weis"
+          }
+        ],
+        "identifier": "Springer (2016, 2017)",
+        "relationship": "background",
+        "title": "Analysis in Banach Spaces, Volumes I and II",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Narcisse Randrianantoanina"
+          }
+        ],
+        "identifier": "J. Funct. Anal. 194 (2002), 181-212; arXiv:math/0111264",
+        "location": "https://arxiv.org/abs/math/0111264",
+        "relationship": "background",
+        "title": "Non-commutative martingale transforms",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Gilles Pisier"
+          }
+        ],
+        "identifier": "Cambridge Studies in Advanced Mathematics 155 (2016)",
+        "relationship": "background",
+        "title": "Martingales in Banach spaces",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Sonja Cox"
+          },
+          {
+            "name": "Mark Veraar"
+          }
+        ],
+        "identifier": "Electron. Commun. Probab. 12 (2007), 421-433",
+        "relationship": "background",
+        "title": "Some remarks on tangent martingale difference sequences in L^1-spaces",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Ivan Yaroslavtsev"
+          }
+        ],
+        "identifier": "Indag. Math. 29 (2018), 1290-1309",
+        "relationship": "background",
+        "title": "Even Fourier multipliers and martingale transforms in infinite dimensions",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Gilles Pisier"
+          },
+          {
+            "name": "Quanhua Xu"
+          }
+        ],
+        "identifier": "North-Holland (2003), 1459-1517",
+        "relationship": "background",
+        "title": "Non-commutative L^p-spaces (Handbook of the Geometry of Banach Spaces 2)",
+        "type": "book chapter"
+      },
+      {
+        "authors": [
+          {
+            "name": "Françoise Lust-Piquard"
+          },
+          {
+            "name": "Gilles Pisier"
+          }
+        ],
+        "identifier": "Ark. Mat. 29 (1991), 241-260",
+        "relationship": "background",
+        "title": "Non commutative Khintchine and Paley inequalities",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Terry R. McConnell"
+          }
+        ],
+        "identifier": "Trans. Amer. Math. Soc. 285 (1984), 739-757",
+        "location": "https://doi.org/10.1090/s0002-9947-1984-0752501-x",
+        "relationship": "background",
+        "title": "On Fourier multiplier transformations of Banach-valued functions",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Donald L. Burkholder"
+          }
+        ],
+        "identifier": "Conference on harmonic analysis in honor of Antoni Zygmund (Chicago, 1981), Wadsworth (1983), 270-286",
+        "location": "https://doi.org/10.1007/978-1-4419-7245-3_26",
+        "relationship": "background",
+        "title": "A geometric condition that implies the existence of certain singular integrals of Banach-space-valued functions",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Marcel Riesz"
+          }
+        ],
+        "identifier": "Math. Z. 27 (1928), 218-244",
+        "location": "https://doi.org/10.1007/BF01171098",
+        "relationship": "background",
+        "title": "Sur les fonctions conjuguées",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Gilles Pisier"
+          }
+        ],
+        "identifier": "Astérisque 247 (1998)",
+        "location": "https://www.numdam.org/item/AST_1998__247__R1_0/",
+        "relationship": "background",
+        "title": "Non-commutative vector valued L_p-spaces and completely p-summing maps",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Donald Sarason"
+          }
+        ],
+        "identifier": "Trans. Amer. Math. Soc. 127 (1967), 179-203",
+        "relationship": "background",
+        "title": "Generalized interpolation in H^infinity",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Henry Helson"
+          },
+          {
+            "name": "David Lowdenslager"
+          }
+        ],
+        "identifier": "Acta Math. 99 (1958), 165-202",
+        "relationship": "background",
+        "title": "Prediction theory and Fourier series in several variables",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Henry Helson"
+          },
+          {
+            "name": "David Lowdenslager"
+          }
+        ],
+        "identifier": "Acta Math. 106 (1961), 175-213",
+        "relationship": "background",
+        "title": "Prediction theory and Fourier series in several variables. II",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Nicole Tomczak-Jaegermann"
+          }
+        ],
+        "identifier": "Studia Math. 50 (1974), 163-182",
+        "relationship": "background",
+        "title": "The moduli of smoothness and convexity and the Rademacher averages of trace classes S_p",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "David Sutter"
+          },
+          {
+            "name": "Mario Berta"
+          },
+          {
+            "name": "Marco Tomamichel"
+          }
+        ],
+        "identifier": "Comm. Math. Phys. 352 (2017), 37-58; arXiv:1604.03023",
+        "location": "https://arxiv.org/abs/1604.03023",
+        "relationship": "background",
+        "title": "Multivariate trace inequalities",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Bernard Maurey"
+          },
+          {
+            "name": "Gilles Pisier"
+          }
+        ],
+        "identifier": "Studia Math. 58 (1976), 45-90",
+        "relationship": "background",
+        "title": "Séries de variables aléatoires vectorielles indépendantes et propriétés géométriques des espaces de Banach",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jean-Christophe Bourin"
+          },
+          {
+            "name": "Teng Zhang"
+          }
+        ],
+        "identifier": "arXiv:2610.30538",
+        "location": "https://arxiv.org/abs/2610.30538",
+        "relationship": "background",
+        "title": "Matrix triangle inequalities: past, present, and future",
+        "type": "preprint"
+      },
+      {
+        "authors": [
+          {
+            "name": "Rajendra Bhatia"
+          }
+        ],
+        "identifier": "Graduate Texts in Mathematics 169, Springer (1997)",
+        "relationship": "background",
+        "title": "Matrix Analysis",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Oliver Dragičević"
+          }
+        ],
+        "identifier": "Arch. Math. 96 (2011), 463-471",
+        "relationship": "background",
+        "title": "Some remarks on the L^p estimates for powers of the Ahlfors-Beurling operator",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Andrea Carbonaro"
+          },
+          {
+            "name": "Oliver Dragičević"
+          },
+          {
+            "name": "Vjekoslav Kovač"
+          }
+        ],
+        "identifier": "Math. Ann. 386 (2023), 1081-1125; arXiv:2109.08369",
+        "location": "https://arxiv.org/abs/2109.08369",
+        "relationship": "background",
+        "title": "Sharp L^p estimates of powers of the complex Riesz transform",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Filip Rindler"
+          }
+        ],
+        "identifier": "Universitext, Springer (2018); 2nd ed., Graduate Texts in Mathematics 310 (2026)",
+        "relationship": "background",
+        "title": "Calculus of Variations",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "David Kinderlehrer"
+          },
+          {
+            "name": "Pablo Pedregal"
+          }
+        ],
+        "identifier": "Arch. Rational Mech. Anal. 115 (1991), 329-365",
+        "relationship": "background",
+        "title": "Characterizations of Young measures generated by gradients",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Bernard Dacorogna"
+          }
+        ],
+        "identifier": "Applied Mathematical Sciences 78, Springer, 2nd ed. (2008)",
+        "relationship": "background",
+        "title": "Direct Methods in the Calculus of Variations",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jan Kristensen"
+          }
+        ],
+        "identifier": "Ann. Inst. H. Poincaré Anal. Non Linéaire 16 (1999), 1-13",
+        "location": "https://www.numdam.org/item/AIHPC_1999__16_1_1_0/",
+        "relationship": "background",
+        "title": "On the non-locality of quasiconvexity",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/vltanh/lean4-harmonic-analysis",
+        "note": "Written for this project by the same AI system: Fourier multipliers and duality, transference from the torus to the plane, Poisson summation, Dragičević's lower bound for the square of the Beurling-Ahlfors transform, smooth periodic Fourier series; in its vector-valued part, which uses lean4-banach-probability, the Hilbert transform, Mihlin multipliers and Littlewood-Paley inequalities in UMD spaces, matrix-valued Hardy functions, Paley's inequality in the Schatten classes and the non-commutative Khintchine inequality. Published; lakefile.toml requires it from GitHub at a pinned commit.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/vltanh/lean4-banach-probability",
+        "note": "Written for this project by the same AI system: Burkholder's inequality, its sharpness and Burkholder's function, UMD theory (dyadic and complex constants, decoupling, extrapolation, L^p, zig-zag concavity), Kahane-Khintchine and hypercontractivity, Schatten classes, type 2 and K-convexity, Randrianantoanina's non-commutative martingale transforms (and the non-commutative Khintchine inequality by exchangeable pairs, which is not used here). Published; lakefile.toml requires it from GitHub at a pinned commit.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/vltanh/lean4-calculus-of-variations",
+        "note": "Written for this project by the same AI system: rank-one convexity and quasiconvexity, Dacorogna's formula, minors and null Lagrangians, quadratic forms, Kristensen's smoothing, distributional second derivatives on R. Published; lakefile.toml requires it from GitHub at a pinned commit.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/Gabriele-Cassese/MorreyTwoComponentsLean",
+        "note": "The author's own Lean formalization of Theorem 1.2 and of Theorem 1.3 at p = 4, made with an AI system and released without a license. The proofs here were written without consulting it, and nothing from it was used; searches and checks of 21-22 November 2026 displayed parts of it (README, first lines of declarations, some statements, about 180 lines of one file: docs/Cassese/CREDITS.md). This formalization covers the whole paper (Theorems 1.4, 1.5, Corollaries 1.6, 5.2-5.4, Sections 6 and 7) and the cited results that its proofs use.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/sergioconti/so3-r1c-and-not-qc",
+        "note": "Conti, Dolzmann and Dondl's Lean formalization of a 3 x 3 example; not a formalization of this paper. The proofs here were written without consulting it, and nothing from it was used; searches and checks of 21-22 November 2026 displayed parts of it (docs/Cassese/CREDITS.md).",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "palomar/Sverak in this repository",
+        "note": "The formalization of Šverák (1992), imported by this library (Šverák's example, the consequences after Theorem 1.3).",
+        "relationship": "other"
+      },
+      {
+        "identifier": "palomar/Pedregal in this repository",
+        "note": "The audit of Pedregal's claimed proof for 2 x 2, in the same repository.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "The-Anh Vu-Le"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-26T04:12:00Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "a833fca87048c642b1358def6783797307d8c7613106f5e44d8429ac4999fe05"
+    },
+    "reviewed_at": "2026-11-25T18:34:21Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "a7a9a583ad05f36ca7b6db2ac22f9f4434e4ee6f",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "vltanh/lean4-morrey",
+    "repository_url": "https://github.com/vltanh/lean4-morrey",
+    "tree_url": "https://github.com/vltanh/lean4-morrey/tree/a7a9a583ad05f36ca7b6db2ac22f9f4434e4ee6f"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "jkrx9o9429rq"
+  },
+  "title": "Cassese 2026: Morrey's problem in R^{2 x m}, in Lean",
+  "trust": {
+    "challenge_bytes": 18306,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Calculus.FDeriv.Basic",
+      "Mathlib.Analysis.Complex.Basic",
+      "Mathlib.Analysis.Convex.Function",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.LinearAlgebra.Matrix.Rank",
+      "Mathlib.LinearAlgebra.UnitaryGroup",
+      "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+      "Mathlib.MeasureTheory.Integral.IntegrableOn",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+      "Mathlib.RingTheory.MvPolynomial.Homogeneous",
+      "Mathlib.Topology.EMetricSpace.Lipschitz",
+      "Mathlib.Topology.Instances.Matrix",
+      "Mathlib.Topology.Semicontinuity.Defs"
+    ],
+    "challenge_lines": 315,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "3b020c4b8be22e16c10f71c85ea83f47c80db9ecc15f6a2a206e38937c72627a",
+    "evidence_path": "evidence/PALOMAR-2026-11-26-000018-v1/6446610016c671282ae310367c3f2e1a6833361dcc7cd3ef90fc6232bfbdd2e0/",
+    "evidence_tree_sha256": "6446610016c671282ae310367c3f2e1a6833361dcc7cd3ef90fc6232bfbdd2e0",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "520672aae7f509d17b59152ac32af4ee897d5fd8f6c5246f014046c8d31c3ed0",
+    "protected_config_sha256": "6133cfe6c75b280c32907fbfa3d99100eace54df70afac8e3991f3e58276deea",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45657458491,
+    "solution_sha256": "926c2751eb8f3c77f288877413ce216bb69579a7a522c942b76107e584107a8d",
+    "tool_digests": {
+      "bwrap": "84215019aa226421ca1dc8e6fa9de2e1f5a12d94f2e5cd504a04d59adfd1d37c",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "b35cb10cf2ced51a2fd1880cfdbf75c71ab7a35a",
+    "verified_at": "2026-11-25T16:59:12Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45657458491"
+  },
+  "version": 1
+}

@@ -1,0 +1,426 @@
+{
+  "abstract": "A string rewriting system is a finite set of rules l -> r between words. Its derivation graph has the words as vertices and the rewriting steps x l y -> x r y as edges. This entry proves in Lean 4 and Mathlib Squier's theorem: for a terminating system, one resolution cell per critical pair generates every homotopy between parallel zig-zag paths of derivations. Hence a finite convergent system over a finite alphabet has finite derivation type (Squier, Otto and Kobayashi 1994). Nine statements are compared.\nHomotopy modulo a set B of 2-cells (pairs of parallel paths) is the smallest relation on parallel paths that contains B and the independence squares (two steps rewriting disjoint factors commute), identifies a step followed by its inverse, in either order, with the empty path, is an equivalence relation, and is compatible with concatenation, inversion and whiskering by contexts x _ y. B is a homotopy basis if any two parallel paths are homotopic modulo B. A system has finite derivation type if it has a finite homotopy basis. A critical branching is a pair of distinct, non-independent steps from a common word with minimal context, that is, an overlap or an inclusion of two left-hand sides.\n(1) Newman's lemma for an arbitrary relation: terminating and locally confluent implies confluent. (2) The critical pair lemma for string rewriting: a system is locally confluent if and only if every critical branching is joinable. (3) Hence a terminating system is confluent if and only if its critical branchings are joinable. (4) Over a finite alphabet, a finite system has finitely many critical branchings. (5) Squier's theorem in homotopy-basis form: for a terminating system, every set of cells containing, for each critical branching, a cell formed by the branching and some resolution of it (in either orientation) is a homotopy basis. The resolutions are arbitrary, so every choice of one resolution per critical pair gives a homotopy basis. (6) Squier's theorem: a finite convergent system over a finite alphabet has finite derivation type. (7) Non-degeneracy: the homotopy relation does not identify everything. For the system aa -> e, bb -> e, bab -> aba and no cells, the two one-step rewrites aaa -> a are not homotopic, which a parity-weighted count of aa-steps detects. (8)-(9) That system, a complete presentation of the symmetric group S3 = <a, b | a^2 = b^2 = 1, bab = aba>, is terminating and confluent, and its five explicit critical-pair cells form a homotopy basis.\nThe proof of (5) follows Squier and Guiraud–Malbos. Normal-form paths are chosen by well-founded recursion. A noetherian induction then shows that every step followed by the normal-form path of its target is homotopic to the normal-form path of its source, resolving each local branching as an independence square, a trivial branching, or a whiskered critical cell. All results are classical. We searched for a previous machine-checked proof of Squier's theorem (November 2026) and found none; priority among formalizations is nevertheless unknown.",
+  "authors": [
+    {
+      "name": "Rohan Badade"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-26-000002-v1/919530aec75de436e168a59bdf4bf1dfb0ec453f2e0c33327112d7de92120856/",
+    "artifact_tree_sha256": "919530aec75de436e168a59bdf4bf1dfb0ec453f2e0c33327112d7de92120856",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-24T21:23:26Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CT",
+      "cs.LO"
+    ],
+    "msc2020": [
+      "68Q42",
+      "20M05",
+      "18N30",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-26",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "SquierChallenge.newman",
+      "SquierChallenge.critical_pair_lemma",
+      "SquierChallenge.confluent_iff_criticalPairs_joinable",
+      "SquierChallenge.criticalBranchings_finite",
+      "SquierChallenge.squier_homotopy_basis",
+      "SquierChallenge.squier_finiteDerivationType",
+      "SquierChallenge.homotopy_nondegenerate",
+      "SquierChallenge.s3_convergent",
+      "SquierChallenge.s3_homotopy_basis"
+    ]
+  },
+  "id": "PALOMAR-2026-11-26-000002",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-26T00:50:48Z",
+    "receipt_sha256": "e12eed6fa81d52744a27043d5bd24e632c29eec67ad7378deb27c9fb4662039a",
+    "repositories": [
+      {
+        "commit": "37d3c23a413fe810f2e7f9306775306a1e4e13ad",
+        "fork_repository": "PalomarArchive/gnostrich--sqier--5fe4fa19dd24",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000002-v1/37d3c23a413fe810f2e7f9306775306a1e4e13ad",
+        "source_repository": "gnostrich/sqier"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000002-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000002-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000002-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000002-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000002-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000002-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000002-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000002-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000002-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Craig C. Squier"
+          },
+          {
+            "name": "Friedrich Otto"
+          },
+          {
+            "name": "Yuji Kobayashi"
+          }
+        ],
+        "identifier": "doi:10.1016/0304-3975(94)90175-9",
+        "license": "unknown",
+        "location": "Theoretical Computer Science 131(2) (1994), 271-294; Theorem 5.2 (critical-pair cells form a homotopy basis) and Theorem 5.3 (finite convergent presentations have finite derivation type), theorem numbers as cited by Guiraud and Malbos (2018). The original was not consulted directly.",
+        "relationship": "formalizes",
+        "title": "A finiteness condition for rewriting systems",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Yves Guiraud"
+          },
+          {
+            "name": "Philippe Malbos"
+          }
+        ],
+        "identifier": "doi:10.1017/S0960129516000220",
+        "license": "unknown",
+        "location": "Mathematical Structures in Computer Science 28(2) (2018), 155-201; arXiv:1402.2587. Lemma 3.1.5 (critical branching lemma), Theorem 3.1.6 (Newman's lemma), Section 4.1 (homotopy bases, finite derivation type), Theorems 4.3.2 and 4.3.3 (Squier's theorems).",
+        "relationship": "formalizes",
+        "title": "Polygraphs of finite derivation type",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "M. H. A. Newman"
+          }
+        ],
+        "identifier": "doi:10.2307/1968867",
+        "license": "unknown",
+        "location": "Annals of Mathematics (2) 43(2) (1942), 223-243; Theorem 3",
+        "relationship": "formalizes",
+        "title": "On theories with a combinatorial definition of \"equivalence\"",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Donald E. Knuth"
+          },
+          {
+            "name": "Peter B. Bendix"
+          }
+        ],
+        "identifier": "doi:10.1016/B978-0-08-012975-4.50028-X",
+        "license": "unknown",
+        "location": "Computational Problems in Abstract Algebra (J. Leech, ed.), Pergamon, 1970, 263-297",
+        "relationship": "background",
+        "title": "Simple word problems in universal algebras",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Ronald V. Book"
+          },
+          {
+            "name": "Friedrich Otto"
+          }
+        ],
+        "identifier": "doi:10.1007/978-1-4613-9771-7",
+        "license": "unknown",
+        "location": "Springer, 1993",
+        "relationship": "background",
+        "title": "String-Rewriting Systems",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Dimitri Ara"
+          },
+          {
+            "name": "Albert Burroni"
+          },
+          {
+            "name": "Yves Guiraud"
+          },
+          {
+            "name": "Philippe Malbos"
+          },
+          {
+            "name": "François Métayer"
+          },
+          {
+            "name": "Samuel Mimram"
+          }
+        ],
+        "identifier": "doi:10.1017/9781009498968",
+        "license": "unknown",
+        "location": "Cambridge University Press, 2025; arXiv:2312.00429",
+        "relationship": "background",
+        "title": "Polygraphs: From Rewriting to Higher Categories",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "The Mathlib Community"
+          }
+        ],
+        "identifier": "https://github.com/leanprover-community/mathlib4",
+        "license": "Apache-2.0",
+        "location": "Mathlib v4.35.0, as pinned by lakefile.toml and lake-manifest.json",
+        "relationship": "background",
+        "title": "mathlib4: the Lean mathematical library",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://bitbucket.org/fplab/confluencecoherence",
+        "note": "Kraus and von Raumer, \"A rewriting coherence theorem with applications in homotopy type theory\", Mathematical Structures in Computer Science 32(7) (2022), 982-1014, doi:10.1017/S0960129523000026, formalized in Agda. It proves an abstract coherence theorem (a terminating generalised 2-polygraph, closed under congruence and cancelling inverses, with a Winkler–Buchberger structure, has a homotopy basis), a relative of Squier's theorem for abstract rewriting. It has no critical pairs of string rewriting systems and no finite derivation type. No code is shared.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/leanprover/cslib",
+        "note": "CSLib (Lean 4) contains Newman's lemma for abstract relations (Cslib/Foundations/Relation/Confluence.lean), an earlier Lean proof of result (1). Not used here.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://www.isa-afp.org/entries/First_Order_Rewriting.html",
+        "note": "The Isabelle AFP (Abstract Rewriting; First-Order Rewriting, from IsaFoR) contains Newman's lemma and the critical pair lemma for term rewriting. Kim (ITP 2025, LIPIcs.ITP.2025.10) proves a critical pair lemma for semi-Thue systems in Isabelle. These are earlier proofs of results of the kind of (1)-(3), in other systems; neither contains homotopy bases or finite derivation type.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "PALOMAR-2026-09-01-000010",
+        "note": "Thematic link only (confluence certificates via decreasing diagrams); no code, definition or statement is shared.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Rohan Badade"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-26T00:50:31Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "684adbd6b2d6f2c6e033f285d1be5487ad8a83b8b60131a06064fd22b717fd57"
+    },
+    "reviewed_at": "2026-11-24T21:50:00Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "37d3c23a413fe810f2e7f9306775306a1e4e13ad",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "gnostrich/sqier",
+    "repository_url": "https://github.com/gnostrich/sqier",
+    "tree_url": "https://github.com/gnostrich/sqier/tree/37d3c23a413fe810f2e7f9306775306a1e4e13ad"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "olp48vsjtgbm"
+  },
+  "title": "Squier's theorem: finite convergent string rewriting systems have finite derivation type, with Newman's lemma, the critical pair lemma and the symmetric group S3 as a worked example",
+  "trust": {
+    "challenge_bytes": 19906,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 395,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "917d9d67de547edcb769b18c574e2eb3e72a73e7f5c045d9d6399ea3a5dcd8df",
+    "evidence_path": "evidence/PALOMAR-2026-11-26-000002-v1/50f49bc8d43b0e987da770afc3eac7b65ace396a908145f14d474f2d61365eeb/",
+    "evidence_tree_sha256": "50f49bc8d43b0e987da770afc3eac7b65ace396a908145f14d474f2d61365eeb",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "4622ce3f01bab2b7d10184833a65c18f10305c683db0929731208207179f4e5e",
+    "protected_config_sha256": "5e9f6b91a011884c0cf2e1776bc0aca8b07dfb7eb2a6ec43a850a73606a8c713",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45486599438,
+    "solution_sha256": "bea8b64a33cab079c41a621c040d47751dd24578086b17c9289b87dfdd86f1b4",
+    "tool_digests": {
+      "bwrap": "478396581bd31fb33df3e38b7049698712b1dce10b4e4bf3e8e382a12f17a52b",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-24T21:03:38Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45486599438"
+  },
+  "version": 1
+}

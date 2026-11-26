@@ -1,0 +1,353 @@
+{
+  "abstract": "A Lean 4 / Mathlib proof that a finite simple graph G has a total colouring with Δ(G) + 2 colours (a map on V ⊕ E(G) giving different colours to adjacent vertices, to distinct edges with a common endpoint, and to incident vertex–edge pairs) in three situations: (1) tcc_of_independent: G has an independent set S with |V| ≤ |S| + Δ + 1 (Yap–Wang–Zhang 1989, Lemma 2.2; Yap–Chew 1992, Lemma 2.4); (2) tcc_of_card_le_maxDegree_add_three: Δ(G) ≥ |V| − 3 (Yap–Wang–Zhang 1989, Theorem 2.3 and the closing remarks); (3) tcc_of_card_le_maxDegree_add_four: Δ(G) ≥ |V| − 4, for every finite simple graph (no further hypothesis; Yap–Wang–Zhang 1989, Theorem 2.4). The proofs use Yap's apex-vertex technique: a new vertex joined to the vertices outside one or two independent pairs, matchings found by the enlarge-matching argument (when Δ ≥ 7 or G has three pairwise non-adjacent vertices) or, when G has no three pairwise non-adjacent vertices, the two alternating matchings of a Hamiltonian path through the vertices outside the pairs, and Fournier's theorem (PALOMAR-2026-11-08-000009) or Vizing's theorem (PALOMAR-2026-10-15-000004), both imported as lake dependencies, in place of the Chetwynd–Hilton theorem on three vertices of maximum degree and Kostochka's theorem for Δ ≤ 4 used in the original paper.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-26-000023-v1/62b44de824484bcc015073cf1a86dc735cf83da733e2a10de9eaff8dc3216ad3/",
+    "artifact_tree_sha256": "62b44de824484bcc015073cf1a86dc735cf83da733e2a10de9eaff8dc3216ad3",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-25T19:30:43Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C15"
+    ]
+  },
+  "first_registered_on": "2026-11-26",
+  "formalization": {
+    "challenge_path": "TCCHighChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "TCCHigh.IsTotalColoring"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "fournier",
+        "repository": "jtraverso/fournier-class-one",
+        "revision": "b7baf7b17023d2a2a6dd9650c0706fcabb3bc227"
+      },
+      {
+        "name": "ccjs_overfull",
+        "repository": "jtraverso/overfull-critical-graphs",
+        "revision": "b85da9ac66e0fb8b9873a8bea0c057f78c9d186c"
+      },
+      {
+        "name": "vizing",
+        "repository": "jtraverso/vizing",
+        "revision": "33b2de836095cf92bc1dec33b6f8787e4036bbc6"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "TCCHighSolution.lean",
+    "theorem_names": [
+      "TCCHigh.tcc_of_independent",
+      "TCCHigh.tcc_of_card_le_maxDegree_add_three",
+      "TCCHigh.tcc_of_card_le_maxDegree_add_four"
+    ]
+  },
+  "id": "PALOMAR-2026-11-26-000023",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-26T04:50:00Z",
+    "receipt_sha256": "279abb3cc5d77081d390c7123558e5197fd5d66bfd9658ca06493aa5f8c22f54",
+    "repositories": [
+      {
+        "commit": "b7baf7b17023d2a2a6dd9650c0706fcabb3bc227",
+        "fork_repository": "PalomarArchive/jtraverso--fournier-class-one--5f73bebe9b0a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000023-v1/b7baf7b17023d2a2a6dd9650c0706fcabb3bc227",
+        "source_repository": "jtraverso/fournier-class-one"
+      },
+      {
+        "commit": "b85da9ac66e0fb8b9873a8bea0c057f78c9d186c",
+        "fork_repository": "PalomarArchive/jtraverso--overfull-critical-graphs--d8fd3a0c3ee4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000023-v1/b85da9ac66e0fb8b9873a8bea0c057f78c9d186c",
+        "source_repository": "jtraverso/overfull-critical-graphs"
+      },
+      {
+        "commit": "8a8237f9101019356846900f7aab8b9f753b0209",
+        "fork_repository": "PalomarArchive/jtraverso--total-colouring-high-degree--2813fa31ba5b",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000023-v1/8a8237f9101019356846900f7aab8b9f753b0209",
+        "source_repository": "jtraverso/total-colouring-high-degree"
+      },
+      {
+        "commit": "33b2de836095cf92bc1dec33b6f8787e4036bbc6",
+        "fork_repository": "PalomarArchive/jtraverso--vizing--01fa5f875100",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000023-v1/33b2de836095cf92bc1dec33b6f8787e4036bbc6",
+        "source_repository": "jtraverso/vizing"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000023-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000023-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000023-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000023-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000023-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000023-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000023-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000023-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000023-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "H. P. Yap"
+          },
+          {
+            "name": "Wang Jian-Fang"
+          },
+          {
+            "name": "Zhang Zhongfu"
+          }
+        ],
+        "identifier": "doi:10.1017/S1446788700033176",
+        "license": "all rights reserved",
+        "location": "J. Austral. Math. Soc. (Series A) 47 (1989), 445–452: Lemma 2.2, Theorems 2.3 and 2.4",
+        "relationship": "formalizes",
+        "title": "Total chromatic number of graphs of high degree",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "H. P. Yap"
+          },
+          {
+            "name": "K. H. Chew"
+          }
+        ],
+        "identifier": "doi:10.1017/S1446788700035801",
+        "license": "all rights reserved",
+        "location": "J. Austral. Math. Soc. (Series A) 53 (1992), 219–228: Lemma 2.4",
+        "relationship": "formalizes",
+        "title": "Total chromatic number of graphs of high degree, II",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-11-08-000009 (jtraverso/fournier-class-one @ b7baf7b)",
+        "note": "Pinned dependency: Fournier's theorem FournierLib.fournier.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-10-15-000004 (jtraverso/vizing @ 33b2de8)",
+        "note": "Transitive dependency: Vizing's theorem LeanPool.Vizing.lineGraph_colorable.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-04-000009 v2 (jtraverso/overfull-critical-graphs @ b85da9a)",
+        "note": "Transitive dependency of Fournier's theorem (Vizing's adjacency lemma).",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-26T04:49:36Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "01cddfd316ad744571a2c73bf854b3f3c10ad8cccae86e38e4cae51609037805"
+    },
+    "reviewed_at": "2026-11-25T19:55:33Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "8a8237f9101019356846900f7aab8b9f753b0209",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jtraverso/total-colouring-high-degree",
+    "repository_url": "https://github.com/jtraverso/total-colouring-high-degree",
+    "tree_url": "https://github.com/jtraverso/total-colouring-high-degree/tree/8a8237f9101019356846900f7aab8b9f753b0209"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "vfjihaj049y3"
+  },
+  "title": "The total colouring conjecture for graphs of high maximum degree (Yap–Wang–Zhang)",
+  "trust": {
+    "challenge_bytes": 3725,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Combinatorics.SimpleGraph.Finite"
+    ],
+    "challenge_lines": 71,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "2c787c81a1184de0002ea886c7c0c39235217f01bf8a092a4ed18726de96e78a",
+    "evidence_path": "evidence/PALOMAR-2026-11-26-000023-v1/53efeaada7f5d2e0ca8e782d29e39f03c0fa03634748157120ff8eebda37195c/",
+    "evidence_tree_sha256": "53efeaada7f5d2e0ca8e782d29e39f03c0fa03634748157120ff8eebda37195c",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "1f6ff94514fc350189251e496d7655814f3da4cfe1ede1282842f767d79f54d0",
+    "protected_config_sha256": "cad256c1f2be326726a7806b38952c304c185771de6c4de992f52edc82613041",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45684071194,
+    "solution_sha256": "5130ded8af268f23d3ca760aab0413d31ff0743b54497b5427d8ad8f9bf6590b",
+    "tool_digests": {
+      "bwrap": "4e3c406251a4ff620ba833751e5fd40a2c5acb096468b14e772a526ece4dfebe",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-25T19:23:03Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45684071194"
+  },
+  "version": 1
+}

@@ -1,0 +1,381 @@
+{
+  "abstract": "Aristotle (De Caelo III.8) claimed that regular tetrahedra fill space; the refutation is credited to Regiomontanus, and the history is told by Lagarias and Zong (2012). This entry proves in Lean that there is no tiling of 3-space by similar copies of the regular tetrahedron, and the same for the regular octahedron, dodecahedron and icosahedron. Tiles are convex polytopes, need not meet face to face, and may each have their own scale. With helper tiles whose dihedral angles are nonnegative rational multiples of pi (cubes, for instance), no tile is a copy of the polyhedron; in a tiling by the five Platonic polyhedra and such helpers, no tile is a dodecahedron or an icosahedron. The proof reads each dihedral angle from the set, uses that the angles round an edge add up to 2 pi (each a dihedral angle, pi or 2 pi), and that pi, arctan of the golden ratio, arccos(1/sqrt 6) and arccos(sqrt(2/3)) are linearly independent over Q, by Niven's theorem (Mathlib niven) and a field argument. Tilings are locally finite by definition, and each polyhedron is one fixed set in exact coordinates. None of these theorems is new; the entry gives their Lean proofs. Audience: researchers on tilings and polyhedra, and Mathlib contributors.",
+  "authors": [
+    {
+      "github": "DICTOR-Master",
+      "name": "DICTO",
+      "orcid": "0009-0001-2620-2036",
+      "orcid_record_checked_at": "2026-11-25T22:27:56Z"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-26-000029-v1/ba1d0da9bef764946d445fc0a3f9c8c0e4628d85e3ae5bf2f93faaf4cec31f81/",
+    "artifact_tree_sha256": "ba1d0da9bef764946d445fc0a3f9c8c0e4628d85e3ae5bf2f93faaf4cec31f81",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-25T22:59:26Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.MG"
+    ],
+    "msc2020": [
+      "52C22",
+      "52B10",
+      "11J72",
+      "03B35"
+    ]
+  },
+  "first_registered_on": "2026-11-26",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "PlatonicFillLean.aristotle_error",
+      "PlatonicFillLean.octa_alone",
+      "PlatonicFillLean.dodeca_alone",
+      "PlatonicFillLean.icosa_alone",
+      "PlatonicFillLean.no_tetra",
+      "PlatonicFillLean.no_octa",
+      "PlatonicFillLean.no_dodeca",
+      "PlatonicFillLean.no_icosa",
+      "PlatonicFillLean.platonic_mix"
+    ]
+  },
+  "id": "PALOMAR-2026-11-26-000029",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-26T05:45:11Z",
+    "receipt_sha256": "cae4d2a36a67153af4de47da973c35bdd3bd75c967f76b449155f569bdbd22e7",
+    "repositories": [
+      {
+        "commit": "541a0fab604e569b17b8173ab63691920095b3bd",
+        "fork_repository": "PalomarArchive/DICTOR-Master--platonic-fill-lean--a3c4797874d2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000029-v1/541a0fab604e569b17b8173ab63691920095b3bd",
+        "source_repository": "DICTOR-Master/platonic-fill-lean"
+      },
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000029-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000029-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000029-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000029-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000029-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000029-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000029-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000029-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000029-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "J. C. Lagarias"
+          },
+          {
+            "name": "C. Zong"
+          }
+        ],
+        "identifier": "doi:10.1090/noti918",
+        "location": "Notices of the American Mathematical Society 59 (2012) 1540-1549",
+        "relationship": "independently-proves",
+        "title": "Mysteries in packing regular tetrahedra",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Aristotle"
+          }
+        ],
+        "location": "Book III, chapter 8",
+        "relationship": "background",
+        "title": "De Caelo (On the Heavens), Book III, chapter 8",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Regiomontanus (Johannes Müller)"
+          }
+        ],
+        "location": "Known through the histories cited here (Lagarias-Zong 2012; history notes of UC Riverside, Math 153)",
+        "relationship": "background",
+        "title": "Regiomontanus's refutation of Aristotle's claim (15th century)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "I. Niven"
+          }
+        ],
+        "location": "Carus Mathematical Monographs 11, Mathematical Association of America (1956)",
+        "relationship": "background",
+        "title": "Irrational Numbers",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "R. Gabbrielli"
+          },
+          {
+            "name": "Y. Jiao"
+          },
+          {
+            "name": "S. Torquato"
+          }
+        ],
+        "identifier": "doi:10.1103/PhysRevE.86.041141",
+        "location": "Physical Review E 86 (2012) 041141; page 3",
+        "relationship": "independently-proves",
+        "title": "Families of tessellations of space by elementary polyhedra via retessellations of face-centered-cubic and related tilings",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "J. H. Conway"
+          },
+          {
+            "name": "C. Radin"
+          },
+          {
+            "name": "L. Sadun"
+          }
+        ],
+        "identifier": "arXiv:math-ph/9812019",
+        "location": "Discrete and Computational Geometry 22 (1999) 321-332; Table 3",
+        "relationship": "background",
+        "title": "On angles whose squared trigonometric functions are rational",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/DICTOR-Master/dehn-packets-lean/blob/3ba4cfc48c83fb6daac6b6cfbe6ed0aa5dd9445e/Challenge.lean",
+        "note": "The Dehn packets entry. This entry's Packets/ library is a byte-identical copy of 36 of its modules (the Dehn Canon modules under Packets/Canon, Angles, Rings, Tiling, Cones, Lemma2, Pieces, Exact, Values, GenDH, GenIH): tilings, the edge-angle sum, the independence of pi, alpha, beta, gamma, similar copies, the dodecahedron and the icosahedron. New here: PlatonicFill/ (the tetrahedron, octahedron and cube, the five dihedral angles, the weights and the theorems).",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/DICTOR-Master/dehn-canon-lean/blob/9ea20f6dfd64fc3f10f64b1fb59a754a77e5cf57/Challenge.lean",
+        "note": "The Dehn Canon entry (PALOMAR-2026-11-20-000003): the set-defined angle used here, through the Dehn packets entry.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "github": "DICTOR-Master",
+        "name": "DICTO",
+        "orcid": "0009-0001-2620-2036",
+        "orcid_record_checked_at": "2026-11-25T22:27:56Z"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-26T05:44:52Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "b4d32693793445611b2e98618aa7c22906cd8b507813d52ce8237313e47b469a"
+    },
+    "reviewed_at": "2026-11-26T00:46:10Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "541a0fab604e569b17b8173ab63691920095b3bd",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "DICTOR-Master/platonic-fill-lean",
+    "repository_url": "https://github.com/DICTOR-Master/platonic-fill-lean",
+    "tree_url": "https://github.com/DICTOR-Master/platonic-fill-lean/tree/541a0fab604e569b17b8173ab63691920095b3bd"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "jp49mcbhh8yo"
+  },
+  "title": "Aristotle's Error, Machine-Checked: Regular Tetrahedra Do Not Fill Space",
+  "trust": {
+    "challenge_bytes": 11749,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 274,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "5cb304fe2346b8b9206022ff41db727d40e5b644279b9c821de6245f048f7098",
+    "evidence_path": "evidence/PALOMAR-2026-11-26-000029-v1/83ed99d460e9a9dcef1be75843e0b9fbbf4e9b153ca9f5d806a1904b9973eca6/",
+    "evidence_tree_sha256": "83ed99d460e9a9dcef1be75843e0b9fbbf4e9b153ca9f5d806a1904b9973eca6",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "76cb410e06b5881e80b6e0b34dd29cc929816e04e6c5a6b0aad2d3d327863fef",
+    "protected_config_sha256": "d86e232d89d18fe95d5cca30626cd8ab2e288d5be79c4fad114aed347b9f0e29",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45713345931,
+    "solution_sha256": "18cece1be46284bc384a6f9e20300674fdc0191a53c078b62319720c354dab0e",
+    "tool_digests": {
+      "bwrap": "a5c16dc605701efb95d15297aa5fdccdb30bcf0d3b707d7dd91a4a5fa71dc584",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-25T22:36:27Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45713345931"
+  },
+  "version": 1
+}

@@ -1,0 +1,380 @@
+{
+  "abstract": "Lean 4 (v4.35.0) + Mathlib formalization of structural theorems, edge-dual linear-programming relaxations (Lemma W and refinements), Lemma C, local obstruction rules, unconditional counterexample lower bounds, explicit ceiling witnesses, and conditional transfer theorems for Giuga's conjecture (1950). Across 21 compared theorems (zero sorry, zero native_decide, standard axioms only), Lean 4 proves unconditionally that every Giuga counterexample has at least 578 distinct prime factors and exceeds 10^1803 (at least 1,804 decimal digits), constructs an explicit 8,135-prime normal odd prime set (40,733 digits) and an explicit 8,138-prime witness satisfying all seven local counterexample rules (40,751 digits), proves all forms of Lemma W, Lemma C, and the mod-8 count congruence, and proves conditional lifting theorems reaching >= 8,138 prime factors and > 10^40747 (>= 40,748 decimal digits) from explicit depth-6 frontier hypotheses. Main results in the companion paper: 0 of 2 headline theorems purely in Lean 4 (0%) · 2 of 2 by Lean 4 + external exact-integer certificates (all 15 prefixes below 17). Existence of a Giuga counterexample remains open. Companion working paper, exact integer checker, and prior-work search log: https://mathdiscoveries.org/results/giuga.",
+  "authors": [
+    {
+      "name": "Tyler B. Hughes"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-26-000006-v1/85be17bcf09acef5ecdbdd5d6d3213795718e215f1a17bc5c3981491ce75041f/",
+    "artifact_tree_sha256": "85be17bcf09acef5ecdbdd5d6d3213795718e215f1a17bc5c3981491ce75041f",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-25T11:28:51Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11A41",
+      "11Y11",
+      "90C05"
+    ]
+  },
+  "first_registered_on": "2026-11-26",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "GiugaChallenge.unconditional_normal_set_575",
+      "GiugaChallenge.giuga_unconditional_578_primes",
+      "GiugaChallenge.giuga_unconditional_gt_10_pow_1803",
+      "GiugaChallenge.exists_normal_odd_prime_set_8135",
+      "GiugaChallenge.exists_ceiling_witness_8138",
+      "GiugaChallenge.lemma_w_edge_dual_count",
+      "GiugaChallenge.lemma_w_edge_dual_prod",
+      "GiugaChallenge.lemma_w_frontier_count",
+      "GiugaChallenge.lemma_w_refinement2_strict",
+      "GiugaChallenge.lemma_w_refinement2_route_a",
+      "GiugaChallenge.lemma_C_general",
+      "GiugaChallenge.odd_prime_8135_ge_83341",
+      "GiugaChallenge.giuga_reciprocity_rule",
+      "GiugaChallenge.giuga_residue_mod_8",
+      "GiugaChallenge.giuga_exactness_rule",
+      "GiugaChallenge.giuga_card_mod_eight",
+      "GiugaChallenge.lemma_C_91476",
+      "GiugaChallenge.cor_giuga_8138_primes",
+      "GiugaChallenge.cor_giuga_gt_10_pow_36083",
+      "GiugaChallenge.lemma_C_prod_gt_10_pow_446177",
+      "GiugaChallenge.cor_giuga_route_a_gt_10_pow_40747"
+    ]
+  },
+  "id": "PALOMAR-2026-11-26-000006",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-26T01:53:02Z",
+    "receipt_sha256": "cbeacb45a33b189729abe4aaa1424c1276c9084808372fc651d3ca2b3d78969d",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000006-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000006-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000006-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000006-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000006-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000006-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000006-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000006-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000006-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "e87302f3dfa576dc2dc742404641a07ad3d1cc82",
+        "fork_repository": "PalomarArchive/mathdiscoveries--giuga-conjecture-counterexample--9d061ff62c11",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000006-v1/e87302f3dfa576dc2dc742404641a07ad3d1cc82",
+        "source_repository": "mathdiscoveries/giuga-conjecture-counterexample"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Tyler B. Hughes"
+          }
+        ],
+        "identifier": "https://mathdiscoveries.org/results/giuga",
+        "location": "Companion page, working paper, exact integer checker, and prior-work search log at https://mathdiscoveries.org/results/giuga",
+        "relationship": "other",
+        "title": "How Many Prime Factors Could a Counterexample to Giuga's Conjecture Have?",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "Giuseppe Giuga"
+          }
+        ],
+        "identifier": "https://zbmath.org/0045.01801",
+        "location": "Ist. Lombardo Sci. Lett., Rend., Cl. Sci. Mat. Natur., III. Ser. 14(83) (1951), 511-518",
+        "relationship": "background",
+        "title": "Su una presumibile proprietà caratteristica dei numeri primi",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Edmondo Bedocchi"
+          }
+        ],
+        "identifier": "https://zbmath.org/0598.10018",
+        "location": "Riv. Mat. Univ. Parma, IV. Ser. 11 (1985), 229-236",
+        "relationship": "background",
+        "title": "Note on a conjecture on prime numbers",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "D. Borwein"
+          },
+          {
+            "name": "J. M. Borwein"
+          },
+          {
+            "name": "P. B. Borwein"
+          },
+          {
+            "name": "R. Girgensohn"
+          }
+        ],
+        "identifier": "https://doi.org/10.1080/00029890.1996.12004697",
+        "location": "The American Mathematical Monthly 103(1) (1996), 40-50",
+        "relationship": "background",
+        "title": "Giuga's Conjecture on Primality",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jonathan Borwein"
+          },
+          {
+            "name": "Christopher Maitland"
+          },
+          {
+            "name": "Matthew Skerritt"
+          }
+        ],
+        "identifier": "https://zbmath.org/1284.11002",
+        "location": "Integers 13 (2013), Paper A67",
+        "relationship": "background",
+        "title": "Computation of an improved lower bound to Giuga's primality conjecture",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Nikolaos Mavrotheris"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.22085830",
+        "location": "Zenodo preprint (2026)",
+        "relationship": "background",
+        "title": "Characteristic-vector congruences for weak primary pseudoperfect and Giuga numbers",
+        "type": "preprint"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tyler B. Hughes"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-26T01:52:41Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "f79d018e3136b08bb0e556c3f034bea2a608ddd463ee29f581b1bebcde076b99"
+    },
+    "reviewed_at": "2026-11-25T13:11:13Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "e87302f3dfa576dc2dc742404641a07ad3d1cc82",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "mathdiscoveries/giuga-conjecture-counterexample",
+    "repository_url": "https://github.com/mathdiscoveries/giuga-conjecture-counterexample",
+    "tree_url": "https://github.com/mathdiscoveries/giuga-conjecture-counterexample/tree/e87302f3dfa576dc2dc742404641a07ad3d1cc82"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "t08dkrolodu1"
+  },
+  "title": "How Many Prime Factors Could a Counterexample to Giuga's Conjecture Have?",
+  "trust": {
+    "challenge_bytes": 15130,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+      "Mathlib.Algebra.BigOperators.Ring.Finset",
+      "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.Data.Nat.Factorization.Basic",
+      "Mathlib.Data.Nat.ModEq"
+    ],
+    "challenge_lines": 316,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "e0be9f7a7615809b4cdfc99f38ee097f684bff22ed243e57dc994999893003ea",
+    "evidence_path": "evidence/PALOMAR-2026-11-26-000006-v1/cac800e69da90087e92c1b44cd81b125ac6051eac07b4c2315620547478a24b1/",
+    "evidence_tree_sha256": "cac800e69da90087e92c1b44cd81b125ac6051eac07b4c2315620547478a24b1",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "4e4fa4c9f6eabcf0f1cc0b4a261b70eea3510a185b085eca7e24ef3e15ba525f",
+    "protected_config_sha256": "6ebe8b85d5841dfb71d94de89b4e44e80589421c46e03870ce165891d3e88f3b",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45557952695,
+    "solution_sha256": "f82b3d0fcfdeb972520a76ab803d721c94b3f955bbd9ec86f5154e58e33950eb",
+    "tool_digests": {
+      "bwrap": "6d0c4f34da9a0613e226a1bf61918eeb6700a64ee5827fa00609ff800be3d271",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-25T06:42:14Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45557952695"
+  },
+  "version": 1
+}

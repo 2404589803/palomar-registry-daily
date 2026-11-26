@@ -1,0 +1,350 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of the domination inequality (Lemma dom of P. Keevash, \"The existence of designs II\", arXiv:1802.05900, recalled there from \"The existence of designs\", Lemma 2.4; a form of Freedman's inequality) for random variables on a finite product of independent uniformly random permutations. All statements are exact finite inequalities on the space of all tuples (ω_c)_{c∈ι} of permutations ω_c of [a_c], ι finite, with the uniform measure. (1) DesignsII.freedman_perm: let F be a real function of the tuple, b_c ≥ 0 with b_c ≤ C (C > 0) such that changing the coordinate c changes F by at most b_c, and m_c such that for each c either b_c ≤ m_c, or F depends on ω_c only through an event E_c ⊆ Perm([a_c]) and 2·P(E_c)·b_c ≤ m_c; if ∑_c m_c > 0, then for every λ > 0, P(F − E F ≥ λ) ≤ exp(−λ²/(2C(λ + ∑_c m_c))). (2) DesignsII.count_tail_perm: for a counting variable X = #{β ∈ D : Ev_β}, if each event Ev_β (β ∈ D) is unaffected by the coordinates c with β ∉ Inf_c, |D ∩ Inf_c| ≤ C for every c, and for each c either |D ∩ Inf_c| ≤ m_c or the events Ev_β (β ∈ D ∩ Inf_c) depend on ω_c only through an event E_c with 2·P(E_c)·|D ∩ Inf_c| ≤ m_c, then, if ∑_c m_c > 0, for every λ > 0, P(|X − E X| ≥ λ) ≤ 2·exp(−λ²/(2C(λ + ∑_c m_c))). The point of these variance-sensitive bounds, as opposed to the bounded-differences inequality (Lemma lip3 of the paper, which gives P(|X − E X| > t) ≤ 2exp(−t²/(2B)) with B = ∑_c a_c b_c²), is that a coordinate whose change can move X by a large amount b_c, but only with small probability, contributes 2·P(E_c)·b_c instead of a_c·b_c² to the variance proxy; in the nibble of the paper (Lemma 3.9) the degree of an atom is a count of copies whose activation coordinates have exactly this form, and the bounded-differences bound is too weak there when q − r ≥ 2. Mathlib does not contain these results.",
+  "authors": [
+    {
+      "name": "Juan Pablo Traverso Gianini"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-25-000007-v1/e52c6d7ae8dcdef6b6d7fbb2839bd81463174ef741968e4bb950c9de81fb5e1a/",
+    "artifact_tree_sha256": "e52c6d7ae8dcdef6b6d7fbb2839bd81463174ef741968e4bb950c9de81fb5e1a",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-25T02:07:14Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "math.PR",
+      "math.CO"
+    ],
+    "msc2020": [
+      "60E15",
+      "60G42",
+      "05A05"
+    ]
+  },
+  "first_registered_on": "2026-11-25",
+  "formalization": {
+    "challenge_path": "DesignsIIConcChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "c55e6e786f49471c72fbddbec5415808896aec1e"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "3b7c8101932390d60e92a3f3d917901d5b5a773b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      },
+      {
+        "name": "egj_pseudorandom",
+        "repository": "jtraverso/pseudorandom-hypergraph-matchings",
+        "revision": "3957f3c0dbc34fd310cb5fecf7941fddc9ef6c8f"
+      },
+      {
+        "name": "counting_sts",
+        "repository": "jtraverso/counting-steiner-triple-systems",
+        "revision": "52fda83038df7442c576e17edffba591db703cb8"
+      },
+      {
+        "name": "keevash_triangle",
+        "repository": "jtraverso/keevash-triangle-decompositions",
+        "revision": "274272da83ddb513437e4394bb79995c215954ee"
+      },
+      {
+        "name": "keevash_designs2_ext",
+        "repository": "jtraverso/keevash-designs-ii-extension-lemma",
+        "revision": "033861405884cecb052530b636e2f76e51aa21f5"
+      }
+    ],
+    "solution_path": "DesignsIIConcSolution.lean",
+    "theorem_names": [
+      "DesignsII.freedman_perm",
+      "DesignsII.count_tail_perm"
+    ]
+  },
+  "id": "PALOMAR-2026-11-25-000007",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-25T02:37:16Z",
+    "receipt_sha256": "2d94ce8f6cbc3d1f95516eab3e38f4e083caaa1279c039792348666b86b0640c",
+    "repositories": [
+      {
+        "commit": "52fda83038df7442c576e17edffba591db703cb8",
+        "fork_repository": "PalomarArchive/jtraverso--counting-steiner-triple-systems--25dd3ac3d9ea",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000007-v1/52fda83038df7442c576e17edffba591db703cb8",
+        "source_repository": "jtraverso/counting-steiner-triple-systems"
+      },
+      {
+        "commit": "a5d3dbf29551287854557e3e2d6828b5d815cec3",
+        "fork_repository": "PalomarArchive/jtraverso--keevash-designs-ii-concentration--f0cdf5a5ed39",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000007-v1/a5d3dbf29551287854557e3e2d6828b5d815cec3",
+        "source_repository": "jtraverso/keevash-designs-ii-concentration"
+      },
+      {
+        "commit": "033861405884cecb052530b636e2f76e51aa21f5",
+        "fork_repository": "PalomarArchive/jtraverso--keevash-designs-ii-extension-lemma--34b2df4b4733",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000007-v1/033861405884cecb052530b636e2f76e51aa21f5",
+        "source_repository": "jtraverso/keevash-designs-ii-extension-lemma"
+      },
+      {
+        "commit": "274272da83ddb513437e4394bb79995c215954ee",
+        "fork_repository": "PalomarArchive/jtraverso--keevash-triangle-decompositions--8091ac93e742",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000007-v1/274272da83ddb513437e4394bb79995c215954ee",
+        "source_repository": "jtraverso/keevash-triangle-decompositions"
+      },
+      {
+        "commit": "3957f3c0dbc34fd310cb5fecf7941fddc9ef6c8f",
+        "fork_repository": "PalomarArchive/jtraverso--pseudorandom-hypergraph-matchings--40c1ca802506",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000007-v1/3957f3c0dbc34fd310cb5fecf7941fddc9ef6c8f",
+        "source_repository": "jtraverso/pseudorandom-hypergraph-matchings"
+      },
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000007-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000007-v1/3b7c8101932390d60e92a3f3d917901d5b5a773b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000007-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000007-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "c55e6e786f49471c72fbddbec5415808896aec1e",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000007-v1/c55e6e786f49471c72fbddbec5415808896aec1e",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000007-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000007-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000007-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-25-000007-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Peter Keevash"
+          }
+        ],
+        "identifier": "arXiv:1802.05900",
+        "license": "all rights reserved",
+        "location": "arXiv:1802.05900v1: Section 2 (Probabilistic methods), Definition of (C,μ)-dominated variables and Lemma dom (recalled from 'The existence of designs', Lemma 2.4); used in the proof of Lemma 3.9 (nibble)",
+        "relationship": "formalizes",
+        "title": "The existence of designs II",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "David A. Freedman"
+          }
+        ],
+        "identifier": "doi:10.1214/aop/1176996452",
+        "license": "all rights reserved",
+        "location": "The Annals of Probability 3 (1975), 100–118",
+        "relationship": "other",
+        "title": "On tail probabilities for martingales",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-11-17-000009 v1 (jtraverso/keevash-designs-ii-extension-lemma @ 0338614)",
+        "note": "Pinned dependency: the product space of permutations, probG, ratio, meanG and the counting variables are imported, not copied; the Challenge repeats the definitions verbatim.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-10-17-000004 v1 (jtraverso/pseudorandom-hypergraph-matchings @ 3957f3c)",
+        "note": "Pinned dependency: Freedman's inequality for martingales (PseudorandomLib.Freedman).",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Juan Pablo Traverso Gianini"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-25T02:36:49Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "c31630644ca01215b4e6a0fc0d606ea8aa70e005c4c08f743c07d5ee225e8c7b"
+    },
+    "reviewed_at": "2026-11-25T02:22:47Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "a5d3dbf29551287854557e3e2d6828b5d815cec3",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jtraverso/keevash-designs-ii-concentration",
+    "repository_url": "https://github.com/jtraverso/keevash-designs-ii-concentration",
+    "tree_url": "https://github.com/jtraverso/keevash-designs-ii-concentration/tree/a5d3dbf29551287854557e3e2d6828b5d815cec3"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "sgesgddzfhje"
+  },
+  "title": "Keevash, The existence of designs II: Lemma dom (Freedman's inequality) for independent uniform permutations",
+  "trust": {
+    "challenge_bytes": 4257,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 122,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "80f3a8a4d0143f2a168fe03f00925287c9c23ed16d6b20704d70429be8dabb26",
+    "evidence_path": "evidence/PALOMAR-2026-11-25-000007-v1/68b9ef46091249e646de5f2ff38baacd2fdbd7e62ad426538043ef7a35b15d34/",
+    "evidence_tree_sha256": "68b9ef46091249e646de5f2ff38baacd2fdbd7e62ad426538043ef7a35b15d34",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "83d724c33afcc5ca1ff1ca00ea3a7e0ee41bac99665fc6a6074c81e299ef987b",
+    "protected_config_sha256": "00deb2c8523b15dcc8527171ee3fdd29eb6a4b1a7526972599a3858a4aea76b3",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45529093087,
+    "solution_sha256": "dd9e918ba8dc0f7a47af9df6e082a220402d66f3107442066d4ba43aa85755a8",
+    "tool_digests": {
+      "bwrap": "a35a95d78ac697058ce52b05737e25137d217b97497453dddb9c94826bf1dccc",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-25T01:58:15Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45529093087"
+  },
+  "version": 1
+}

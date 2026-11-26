@@ -1,0 +1,350 @@
+{
+  "abstract": "A Lean 4 formalisation, built on mathlib, of L. Niebel, \"Lions' Maximal Regularity Problem for Divergence-Form Differential Operators: Failure at the 1/2-Hölder Endpoint\" (arXiv:2608.11194v2), an arXiv preprint. J.-L. Lions asked whether the variational solution of u' + A(t)u = f, u(0) = 0, with forms of bounded measurable coefficients, has maximal L^2-regularity, u' in L^2(0,T;H), when f is in L^2(0,T;H). The paper shows that 1/2-Hölder continuity in time with values in L^infinity does not suffice: on the interval (0,pi) it constructs a bounded, uniformly elliptic, real scalar coefficient, 1/2-Hölder continuous in time with values in L^infinity(0,pi) and arbitrarily close to 1, a continuous L^2-valued forcing, and the unique Lions variational solution, whose time derivative is not square integrable (Theorem 1.1); and, by zero extension, tensorisation and parabolic rescaling, real symmetric isotropic counterexamples on R^d and on every bounded domain of R^d, d >= 1 (Corollary 1.2). The compared theorems are Theorem 1.1 and Corollary 1.2, stated in Challenge.lean in the paper's spaces H = L^2, V = H^1_0 (the closure of the graphs of C^1_c functions) and V' (its anti-dual), with uniqueness of the Lions solution. The repository formalises, in its own terms and with every deviation recorded in DEVIATIONS.md, the other numbered statements of the paper, one of them in part (Corollary 7.1 directly, without the cited sufficiency theorems and the operator-theoretic side conditions), with no counterpart for Remark 3.1 (a comment without a claim), and proves Lions' uniqueness theorem in the paper's complex spaces; about 21,000 lines of Lean in 61 library modules; every theorem of the library depends only on the standard axioms propext, Classical.choice and Quot.sound, and there is no sorry outside the two deliberate ones in Challenge.lean.",
+  "authors": [
+    {
+      "name": "Lukas Niebel"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-26-000017-v1/0622cf53d50fbc60724e45021fc844f12718c0cad167cef4bff9425e40e6ed44/",
+    "artifact_tree_sha256": "0622cf53d50fbc60724e45021fc844f12718c0cad167cef4bff9425e40e6ed44",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-25T16:48:22Z",
+    "renderer_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.AP",
+      "math.FA"
+    ],
+    "msc2020": [
+      "35K90",
+      "35B65",
+      "35R05"
+    ]
+  },
+  "first_registered_on": "2026-11-26",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "LionsC12Challenge.lions_counterexample_interval",
+      "LionsC12Challenge.lions_counterexample_domain"
+    ]
+  },
+  "id": "PALOMAR-2026-11-26-000017",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-26T03:58:46Z",
+    "receipt_sha256": "7af0ca14f3f85b82dfd8b09dca78cd94af20b549175489a44323bd5cf035327f",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000017-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000017-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000017-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000017-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000017-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000017-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000017-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000017-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000017-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "4748ed9d2d3c6e6644ba3dcbe9acd46828853369",
+        "fork_repository": "PalomarArchive/lukasniebel--lions_C12_lean--23802c172a61",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000017-v1/4748ed9d2d3c6e6644ba3dcbe9acd46828853369",
+        "source_repository": "lukasniebel/lions_C12_lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Lukas Niebel"
+          }
+        ],
+        "identifier": "arXiv:2608.11194v2",
+        "location": "https://arxiv.org/abs/2608.11194v2",
+        "relationship": "formalizes",
+        "title": "Lions' Maximal Regularity Problem for Divergence-Form Differential Operators: Failure at the 1/2-Hölder Endpoint",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "D. Dier"
+          }
+        ],
+        "identifier": "doi:10.1016/j.jmaa.2014.12.006",
+        "location": "J. Math. Anal. Appl. 425 (2015), no. 1, 33-54",
+        "relationship": "background",
+        "title": "Non-autonomous maximal regularity for forms of bounded variation",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "B. H. Haak"
+          },
+          {
+            "name": "E. M. Ouhabaz"
+          }
+        ],
+        "identifier": "doi:10.1007/s00208-015-1199-7",
+        "location": "Math. Ann. 363 (2015), no. 3-4, 1117-1145",
+        "relationship": "background",
+        "title": "Maximal regularity for non-autonomous evolution equations",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "M. Achache"
+          },
+          {
+            "name": "E. M. Ouhabaz"
+          }
+        ],
+        "identifier": "doi:10.1016/j.jde.2018.09.015",
+        "location": "J. Differential Equations 266 (2019), no. 6, 3654-3678",
+        "relationship": "background",
+        "title": "Lions' maximal regularity problem with H^{1/2}-regularity in time",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "P. Auscher"
+          },
+          {
+            "name": "M. Egert"
+          }
+        ],
+        "identifier": "doi:10.1007/s00013-016-0934-y",
+        "location": "Arch. Math. (Basel) 107 (2016), no. 3, 271-284",
+        "relationship": "background",
+        "title": "On non-autonomous maximal regularity for elliptic operators in divergence form",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Lukas Niebel"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-26T03:58:24Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "81354589977e3251d19aef06b9478d3098f323efaf242decc71c5d90f4a5e4d7"
+    },
+    "reviewed_at": "2026-11-25T17:01:53Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "4748ed9d2d3c6e6644ba3dcbe9acd46828853369",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "lukasniebel/lions_C12_lean",
+    "repository_url": "https://github.com/lukasniebel/lions_C12_lean",
+    "tree_url": "https://github.com/lukasniebel/lions_C12_lean/tree/4748ed9d2d3c6e6644ba3dcbe9acd46828853369"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "dqz9ygcfs600"
+  },
+  "title": "Lions' maximal regularity problem for divergence-form differential operators: failure at the 1/2-Hölder endpoint",
+  "trust": {
+    "challenge_bytes": 19899,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Calculus.ContDiff.Defs",
+      "Mathlib.Analysis.Calculus.Deriv.Basic",
+      "Mathlib.Analysis.InnerProductSpace.Adjoint",
+      "Mathlib.Analysis.InnerProductSpace.LinearMap",
+      "Mathlib.Analysis.InnerProductSpace.PiL2",
+      "Mathlib.Analysis.InnerProductSpace.ProdL2",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+      "Mathlib.MeasureTheory.Function.L2Space",
+      "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+      "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.Basic"
+    ],
+    "challenge_lines": 316,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "950b4489e50f6c0983a6d148bc8c1e00c8b7fc3e7dc03dbbe095311d5d83ff08",
+    "evidence_path": "evidence/PALOMAR-2026-11-26-000017-v1/522b46d4e48ebad7993f048ebf02dcb24045ad3a74a3690c6b713097109bc72f/",
+    "evidence_tree_sha256": "522b46d4e48ebad7993f048ebf02dcb24045ad3a74a3690c6b713097109bc72f",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "1f98f43bc29bed92b3d8c958de40ed467ce3a562f593f77507d81a619ee31be8",
+    "protected_config_sha256": "5894baf6dbfe332b677017ce3d72d1b76ba55a1f063b0e82bc6e7457358d9341",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45645413966,
+    "solution_sha256": "76eff883d4694f738dffde8e95c0b358c374f47d35ab6b68f04221bc831f1942",
+    "tool_digests": {
+      "bwrap": "b0125f0b10fa80a8de5589cd94a69f8ad5ed8d7194a9610583e7de351d6ce9ee",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-25T15:40:30Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45645413966"
+  },
+  "version": 1
+}

@@ -1,0 +1,470 @@
+{
+  "abstract": "For a finite set A of positive integers let f_A(t) = sum over a in A of cos(2 pi a t), and call D(A) = -min_t f_A(t) the depth of A. Chowla conjectured in 1965 that there is an absolute constant c > 0 such that every nonempty A satisfies min_t f_A(t) < -c sqrt(|A|) (Chowla's cosine problem; Erdős Problem #510). This project is a complete Lean 4 / Mathlib formalization of a counterexample from the manuscript \"A prime-square counterexample to Chowla's cosine conjecture\" (included as manuscript/chowla_prime_square.pdf): for every eps > 0 there are arbitrarily large finite sets A of positive integers with f_A(t) > -eps sqrt(|A|) for every real t. The manuscript, including the counterexample and its proof, was produced by the AI model Astra 6.2, prompted by Shengtong Zhang. The Lean formalization was then written by Claude Opus 5.5 agents in Cursor. Two theorems are compared. The main one, `Erdos510.erdos_510`, is the negation of the statement of Erdős Problem #510 in Google DeepMind's formal-conjectures repository, copied verbatim from FormalConjectures/ErdosProblems/510.lean at commit 7db2ea3 (where it is tagged research open). The second, `cosine_counterexample`, is Theorem 1 of the manuscript, which states exactly the result above. The proof follows the manuscript. A binary profile given by horizontal slices of an annulus is smoothed so that a Fourier multiplier in the logarithm of the radius (computed through the Laplace and Mellin transforms of the Bessel function J_0 and Legendre duplication) produces a family with nonnegative Fourier transform. Auxiliary circle coordinates make the label frequencies primitive integer vectors, a Chinese remainder construction maps them to multiplicatively independent integers, and characters modulo a prime square with an explicit Gauss-sum identity and equidistributed phases realize the required multipliers. Poisson summation over residue classes gives a lower bound for the weighted cosine sum, and the weights are rounded to a set using Spencer's discrepancy theorem, which is proved here from a partial-colouring lemma, together with a discrete de la Vallée-Poussin interpolation bound. The proof uses only the axioms propext, Classical.choice and Quot.sound.",
+  "authors": [
+    {
+      "name": "Shengtong Zhang"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-26-000032-v1/03e9b95e848a3eb17f27163542b4e7d197768dbc28049f3512cd527ad7025171/",
+    "artifact_tree_sha256": "03e9b95e848a3eb17f27163542b4e7d197768dbc28049f3512cd527ad7025171",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-26T05:19:55Z",
+    "renderer_commit": "09f1d4a3a146a7ed531e54e99e8f0e1bbf283cba",
+    "verso_commit": "6674cf83c82a2c260bf5827d44e58f26568f7cbe"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CA",
+      "math.NT",
+      "math.CO"
+    ],
+    "msc2020": [
+      "42A05",
+      "11L03",
+      "11K38",
+      "33C10"
+    ]
+  },
+  "first_registered_on": "2026-11-26",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "054b228ce0ac61d767c6e71ba73a24728f191b72"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ff055a2fcc835935e0ae607339b455a5f5896b4b"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "b4b25a3886a16daacaf6615c2eea7170a6e8f458"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "50810f72af7618bee62fe9800dc26e806c188703"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Erdos510.erdos_510",
+      "cosine_counterexample"
+    ]
+  },
+  "id": "PALOMAR-2026-11-26-000032",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-26T06:05:24Z",
+    "receipt_sha256": "14ba4337a4eca1f60e7ae5972eee4216e2167e752a04d257de5ac006ba5ff92e",
+    "repositories": [
+      {
+        "commit": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000032-v1/66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000032-v1/b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000032-v1/8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000032-v1/4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000032-v1/fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000032-v1/054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000032-v1/2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000032-v1/ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "50810f72af7618bee62fe9800dc26e806c188703",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000032-v1/50810f72af7618bee62fe9800dc26e806c188703",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "23b05e1a1668ee82b595de99a9e870db95adb927",
+        "fork_repository": "PalomarArchive/shengtongz--chowla-cosine-counterexample--a1d3577dbb55",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000032-v1/23b05e1a1668ee82b595de99a9e870db95adb927",
+        "source_repository": "shengtongz/chowla-cosine-counterexample"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Astra 6.2 (AI model), prompted by Shengtong Zhang"
+          }
+        ],
+        "identifier": "manuscript/chowla_prime_square.pdf in this repository (6 pages; not otherwise published)",
+        "license": "Apache-2.0",
+        "location": "Theorem 1 and its proof: Lemma 2 (Section 1), Lemma 3 (Section 2), Sections 3-5, Lemma 4 (Section 6)",
+        "relationship": "formalizes",
+        "title": "A prime-square counterexample to Chowla's cosine conjecture",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Sarvadaman Chowla"
+          }
+        ],
+        "identifier": "J. Reine Angew. Math. 217 (1965), 128-132",
+        "location": "p. 130, eq. (14)",
+        "relationship": "background",
+        "title": "Some applications of a method of A. Selberg",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "identifier": "https://www.erdosproblems.com/510",
+        "relationship": "background",
+        "title": "Erdős Problem #510 (Chowla's cosine problem)",
+        "type": "web discussion"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jean Bourgain"
+          }
+        ],
+        "identifier": "Acta Arith. 45 (1986), 381-389; doi:10.4064/aa-45-4-381-389",
+        "relationship": "background",
+        "title": "Sur le minimum d'une somme de cosinus",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Imre Z. Ruzsa"
+          }
+        ],
+        "identifier": "Acta Arith. 111 (2004), 179-186; doi:10.4064/aa111-2-6",
+        "relationship": "background",
+        "title": "Negative values of cosine sums",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Tom Sanders"
+          }
+        ],
+        "identifier": "Israel J. Math. 179 (2010), 1-28; doi:10.1007/s11856-010-0071-4; arXiv:0807.5104",
+        "relationship": "background",
+        "title": "Chowla's cosine problem",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Zhihan Jin"
+          },
+          {
+            "name": "Aleksa Milojević"
+          },
+          {
+            "name": "István Tomon"
+          },
+          {
+            "name": "Shengtong Zhang"
+          }
+        ],
+        "identifier": "arXiv:2509.03490",
+        "relationship": "background",
+        "title": "From small eigenvalues to large cuts, and Chowla's cosine problem",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Benjamin Bedert"
+          }
+        ],
+        "identifier": "arXiv:2509.05260",
+        "relationship": "background",
+        "title": "Polynomial bounds for the Chowla Cosine Problem",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Fredy Yip"
+          }
+        ],
+        "identifier": "arXiv:2610.01657",
+        "relationship": "background",
+        "title": "Lower bounds for the magnitude of the minimum eigenvalue of graphs with applications to MaxCut and Chowla's cosine problem",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Abhishek Shankar"
+          }
+        ],
+        "identifier": "arXiv:2609.05338",
+        "relationship": "background",
+        "title": "A Log-Free n^{1/5} Bound for Chowla's Cosine Problem",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Abhishek Shankar"
+          }
+        ],
+        "identifier": "arXiv:2611.11144",
+        "relationship": "background",
+        "title": "A Quarter-Power Bound for Chowla's Cosine Problem",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Bryan Bu"
+          },
+          {
+            "name": "Fayzan Khan"
+          },
+          {
+            "name": "Hyunjun Yi"
+          },
+          {
+            "name": "Atharv Jha"
+          },
+          {
+            "name": "Ishaan Chandupatla"
+          },
+          {
+            "name": "Madhav Nagpal"
+          }
+        ],
+        "identifier": "arXiv:2610.17160",
+        "relationship": "background",
+        "title": "A Half-Constant Upper Bound for Chowla's Cosine Problem",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Knowledge Sense"
+          }
+        ],
+        "identifier": "https://github.com/KnowledgeSense/math/tree/91f1bdd2a10abeb28acc742ce3ee884874caf124/preprints/Chowlas-Cosine-Problem-with-Near-Unit-Coefficients-October-12-2026",
+        "relationship": "background",
+        "title": "Chowla's cosine problem with near-unit coefficients",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Joel Spencer"
+          }
+        ],
+        "identifier": "Trans. Amer. Math. Soc. 289 (1985), 679-706",
+        "relationship": "background",
+        "title": "Six standard deviations suffice",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "identifier": "https://dlmf.nist.gov/10.22.E43",
+        "location": "Equations 10.9.1 and 10.22.43",
+        "relationship": "background",
+        "title": "NIST Digital Library of Mathematical Functions, Sections 10.9 and 10.22",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures/blob/7db2ea3b91bfbd0ab620215163e6c488bbb916d5/FormalConjectures/ErdosProblems/510.lean",
+        "note": "Statement of Erdős Problem #510 as Erdos510.erdos_510, tagged research open. The main compared theorem of this repository is its negation, with the namespace, open declarations and statement text copied verbatim from this file; following that repository's convention for disproved problems, the theorem keeps the name erdos_510. This repository does not depend on formal-conjectures.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/KnowledgeSense/math/tree/91f1bdd2a10abeb28acc742ce3ee884874caf124/preprints/Chowlas-Cosine-Problem-with-Near-Unit-Coefficients-October-12-2026/lean",
+        "note": "Lean formalization of a lower bound for cosine sums with coefficients in [0.99, 1.01] (minimum at most -N^(1/9)/20). It concerns the other side of the problem and is consistent with the counterexample.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/rjwalters/lean-genius/blob/15110ef2440acd23105e78d2dc522311736f1b75/proofs/Proofs/Erdos510WIP01.lean",
+        "note": "Work-in-progress file of elementary Lean lemmas about these cosine sums; it does not address the conjecture itself.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Shengtong Zhang"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-26T06:05:00Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "fd4487df71ba72c277924a06c0a30e25aff0d8b8f096cd93d143bfe7ff232d68"
+    },
+    "reviewed_at": "2026-11-26T05:38:25Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "23b05e1a1668ee82b595de99a9e870db95adb927",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "shengtongz/chowla-cosine-counterexample",
+    "repository_url": "https://github.com/shengtongz/chowla-cosine-counterexample",
+    "tree_url": "https://github.com/shengtongz/chowla-cosine-counterexample/tree/23b05e1a1668ee82b595de99a9e870db95adb927"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "zhez4w60eyvi"
+  },
+  "title": "A counterexample to Chowla's cosine conjecture",
+  "trust": {
+    "challenge_bytes": 2245,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 51,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "910b22b7c74ed4a49349806f78ba131b1d87a8ac6b2ef834176ba4a5240a1a6b",
+    "evidence_path": "evidence/PALOMAR-2026-11-26-000032-v1/8c3e295dee353b2f48cfc1d1318f8e7dde98e6560d99b63704b9b07a095ad3e1/",
+    "evidence_tree_sha256": "8c3e295dee353b2f48cfc1d1318f8e7dde98e6560d99b63704b9b07a095ad3e1",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "580354362af1c5b89a9644fff628d8d32fe957840f0e4ae52f9607031c8e2543",
+    "protected_config_sha256": "90065f26138ee7e3f8de2cb26e9077b12db3f84df59c7bfe1e3802f6dc0f5c43",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45742098526,
+    "solution_sha256": "b4a41aef5d97ed8234d1762571825b036637d26acd886c077b46f92047f79ae5",
+    "tool_digests": {
+      "bwrap": "385db0c289c5190469a752cc32b00eec9591cfb452c865f2b0800669420bbd04",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+    "verified_at": "2026-11-26T02:30:55Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45742098526"
+  },
+  "version": 1
+}
