@@ -1,0 +1,392 @@
+{
+  "abstract": "Self-contained, pure-kernel Lean 4 formalization proving that for every integer n ≥ 3 (both odd and even), no unimodular Alltop phase function exists on 𝔽₂ⁿ and no n-qubit pure state generates 2ⁿ pairwise mutually unbiased orthonormal bases under the n-qubit Pauli (product Weyl–Heisenberg) group. Resolves Conjecture 1 and the unrestricted product-WH MUB question of Damski et al. (arXiv:2603.15550) and rules out the product WH-MUB maximizer mechanism conjectured by Liu, Low, and Yin (Quantum Sci. Technol. 11, 015035, 2026; Open Quantum Problem E28) for n ≥ 4. Also formalizes sharpness at n = 2, the strong odd-n two-valued Pauli-spectrum obstruction, the strict phase-state Gowers U³ bound > 2 - 2⁻ⁿ, and exact closed-form Pauli 4th moments for a GL(n, 𝔽₂)-invariant spike+uniform family recovering the 3-qubit Hoggar SIC (F₃ = 16/9) and certifying a 4-qubit unit state with F₄ < 2.150521. AI-assistance disclosure: the bulk of the technical work (proof discovery, Lean 4 formalization, companion scripts, and manuscript drafting) was carried out using AI systems under the author's problem selection, direction, and oversight; mathematical validity of all compared theorems rests on Lean 4's kernel verification.",
+  "authors": [
+    {
+      "name": "Zhaoting Ye"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-27-000023-v1/bfb2661cd87562bfd34add9cb4f4c62b80a8f121ea48d843f61211dc0ecc4a50/",
+    "artifact_tree_sha256": "bfb2661cd87562bfd34add9cb4f4c62b80a8f121ea48d843f61211dc0ecc4a50",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-27T08:16:41Z",
+    "renderer_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "verso_commit": "6674cf83c82a2c260bf5827d44e58f26568f7cbe"
+  },
+  "classification": {
+    "arxiv": [
+      "quant-ph",
+      "math.CO"
+    ],
+    "msc2020": [
+      "81P45",
+      "05B20",
+      "11T23",
+      "81P15"
+    ]
+  },
+  "first_registered_on": "2026-11-27",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "054b228ce0ac61d767c6e71ba73a24728f191b72"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ff055a2fcc835935e0ae607339b455a5f5896b4b"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "b4b25a3886a16daacaf6615c2eea7170a6e8f458"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "50810f72af7618bee62fe9800dc26e806c188703"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "MultiQubitMUB.Challenge.no_alltop_f2",
+      "MultiQubitMUB.Challenge.exists_alltop_two",
+      "MultiQubitMUB.Challenge.phasePauliMoment4_gt_mub",
+      "MultiQubitMUB.Challenge.no_pauli_two_valued_odd",
+      "MultiQubitMUB.Challenge.no_pauli_mub_fiducial",
+      "MultiQubitMUB.Challenge.damski_conjecture_1",
+      "MultiQubitMUB.Challenge.exists_pauli_mub_fiducial_two",
+      "MultiQubitMUB.Challenge.pauliMoment4_spikeState",
+      "MultiQubitMUB.Challenge.hoggar_sic_three",
+      "MultiQubitMUB.Challenge.four_qubit_spike_bound"
+    ]
+  },
+  "id": "PALOMAR-2026-11-27-000023",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-27T08:34:48Z",
+    "receipt_sha256": "a853bc6764c3401cc510be3bad234984b88980bb2edadd6a4477115021c4c6ff",
+    "repositories": [
+      {
+        "commit": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000023-v1/66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000023-v1/b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000023-v1/8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000023-v1/4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000023-v1/fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000023-v1/054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000023-v1/2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000023-v1/ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "50810f72af7618bee62fe9800dc26e806c188703",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000023-v1/50810f72af7618bee62fe9800dc26e806c188703",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "495c0ca91672f27efc9400eedb2ffc8b906c8995",
+        "fork_repository": "PalomarArchive/LingyeNBird--multi-qubit-mub-nonexistence--ed0a3c74c9f6",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000023-v1/495c0ca91672f27efc9400eedb2ffc8b906c8995",
+        "source_repository": "LingyeNBird/multi-qubit-mub-nonexistence"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Zhaoting Ye"
+          }
+        ],
+        "identifier": "https://doi.org/10.5281/zenodo.24566133",
+        "license": "MIT",
+        "location": "https://github.com/LingyeNBird/multi-qubit-mub-nonexistence",
+        "relationship": "other",
+        "title": "Non-Existence of Multi-Qubit Pauli-Covariant MUB Fiducial States and Alltop Phase Functions on F_2^n (n >= 3)",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "Bogdan S. Damski"
+          },
+          {
+            "name": "Rafał Bistroń"
+          },
+          {
+            "name": "Diego Ponterio"
+          },
+          {
+            "name": "Jakub Czartowski"
+          },
+          {
+            "name": "Karol Życzkowski"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2603.15550",
+        "location": "arXiv:2603.15550v2 (2026)",
+        "relationship": "background",
+        "title": "Product Weyl–Heisenberg covariant mutually unbiased bases and extremal non-stabilizerness",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Qiaofeng Liu"
+          },
+          {
+            "name": "Ian Low"
+          },
+          {
+            "name": "Zhewei Yin"
+          }
+        ],
+        "identifier": "https://doi.org/10.1088/2058-9565/ae3028",
+        "location": "Quantum Sci. Technol. 11, 015035 (2026); arXiv:2502.17550",
+        "relationship": "background",
+        "title": "Maximal Magic for Two-qubit States",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "contributors": [
+          {
+            "name": "Jean-Philippe Bruneton",
+            "role": "catalogue maintainer"
+          }
+        ],
+        "identifier": "https://openquantumproblems.com/p/E28",
+        "location": "https://openquantumproblems.com/p/E28",
+        "relationship": "background",
+        "title": "Open Quantum Problem E28: Maximal stabilizer Rényi entropy without a Weyl–Heisenberg SIC",
+        "type": "other"
+      },
+      {
+        "authors": [
+          {
+            "name": "Chris Godsil"
+          },
+          {
+            "name": "Aidan Roy"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/j.ejc.2008.01.002",
+        "location": "Eur. J. Comb. 30, 246–262 (2009); arXiv:quant-ph/0511004",
+        "relationship": "background",
+        "title": "Equiangular lines, mutually unbiased bases, and spin models",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "William O. Alltop"
+          }
+        ],
+        "identifier": "https://doi.org/10.1109/TIT.1980.1056185",
+        "location": "IEEE Trans. Inf. Theory 26(3), 350–354 (1980)",
+        "relationship": "background",
+        "title": "Complex sequences with low periodic correlations",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Stuart G. Hoggar"
+          }
+        ],
+        "identifier": "https://doi.org/10.1023/A:1005009727232",
+        "location": "Geom. Dedicata 69(3), 287–289 (1998)",
+        "relationship": "background",
+        "title": "64 Lines from a Quaternionic Polytope",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://palomar-registry.org/entry?id=PALOMAR-2026-11-27-000019&version=1",
+        "note": "Companion Lean 4 formalization by the same author (two-qubit-maximal-magic, PALOMAR-2026-11-27-000019 v1; Zenodo concept DOI 10.5281/zenodo.24565157) proving the sharp n = 2 maximal magic conjecture for all α >= 2.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Zhaoting Ye"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-27T08:34:23Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "1a9733db6729b0fef51328d7a42ca8cd16f86c55e90b3439c9c7a973e956aaef"
+    },
+    "reviewed_at": "2026-11-27T08:29:47Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "495c0ca91672f27efc9400eedb2ffc8b906c8995",
+    "license": {
+      "declared_identifier": "MIT",
+      "detected_identifier": "MIT",
+      "path": "LICENSE",
+      "sha256": "7128cd524b8e716c0c6291b2591ae75cf39a18f561994d90d5a0379320ce00bb"
+    },
+    "repository": "LingyeNBird/multi-qubit-mub-nonexistence",
+    "repository_url": "https://github.com/LingyeNBird/multi-qubit-mub-nonexistence",
+    "tree_url": "https://github.com/LingyeNBird/multi-qubit-mub-nonexistence/tree/495c0ca91672f27efc9400eedb2ffc8b906c8995"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "wamebr6ghv47"
+  },
+  "title": "Non-Existence of Multi-Qubit Pauli-Covariant MUB Fiducial States and Alltop Phase Functions on F_2^n (n >= 3)",
+  "trust": {
+    "challenge_bytes": 9638,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Real.Sqrt",
+      "Mathlib.Basic.Complex.Basic",
+      "Mathlib.Data.ZMod.Basic"
+    ],
+    "challenge_lines": 187,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "531825686dfa5e950968c8f3bc275c26e3923c942026b4fb1ab3ab83d7e26f3a",
+    "evidence_path": "evidence/PALOMAR-2026-11-27-000023-v1/18370bf0fdf07e56f3c57492cde913f25fbebc110b37635c12e8898cf2404c73/",
+    "evidence_tree_sha256": "18370bf0fdf07e56f3c57492cde913f25fbebc110b37635c12e8898cf2404c73",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "18d9c94f9679e1a623f21250a1ac8fb0d82d15c99182790b153264aa5ace1f12",
+    "protected_config_sha256": "a5b258b8a2e65678e2ca662e82af74b00cb77d39c98c4a9ab83f10603bd0470b",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45963059360,
+    "solution_sha256": "3d6200db4f34999e647e62638f943bac972156f64f6eaa83afbd9ac21db39cdf",
+    "tool_digests": {
+      "bwrap": "f4e2239ceab0a6a22577ddc97d5bc9f35f69198dc2bd9c005fc241fbbbfc2024",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+    "verified_at": "2026-11-27T08:09:42Z",
+    "workflow_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45963059360"
+  },
+  "version": 1
+}

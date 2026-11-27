@@ -1,0 +1,359 @@
+{
+  "abstract": "Unconditional Lean 4 + Mathlib formalization for Graham and Harary's hypercube diameter-preserving spanning subgraph problem: proves the universal lower bound 2^n + ceil((2^n - 2n)/(n - 1)) <= f(n) for all n >= 2, raises the asymptotic second-term coefficient to 3/2 on the scale 2^n/(n - 1), and certifies 39 <= f(5) <= 40, f(6) >= 76, f(7) >= 150, f(8) >= 294, and lower bounds for every dimension 17 <= n <= 32. Coverage by this package's Palomar comparison: of the companion paper's 14 main results, 5 are compared in Lean in full (36%; Theorems 1, 3, 9 and 11 and Proposition 13) and 1 in part (Proposition 12: its instances f(6) >= 76 and f(8) >= 294, not its general certificate bridge); 7 more (Corollary 2, Proposition 4, Lemma 5, Theorem 6 and Propositions 7, 8 and 10) are proved in this package's Lean library but not compared; Proposition 14 is outside this comparison (the Lean library rules out valid 19-edge subgraphs of Q_4; its count of 8,320 labelled 20-edge graphs in 30 classes is by external enumeration only); Conjecture 15 is open and not counted. Companion write-up and prior-work search log (including Google Scholar sweep on 2026-11-22) are published at https://mathdiscoveries.org/results/hypercube-edge-bounds; no priority is claimed over unread sources (the full body of Bouabdallah-Delorme-Djelloul 1995 and Djelloul's 1993 thesis could not be accessed).",
+  "authors": [
+    {
+      "name": "Tyler B. Hughes"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-22-000030-v2/f45b0fd45ddd7d15b1b0b4eba02de2d17988c19c71fd3d985ea39407ce4c76a9/",
+    "artifact_tree_sha256": "f45b0fd45ddd7d15b1b0b4eba02de2d17988c19c71fd3d985ea39407ce4c76a9",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-27T05:56:25Z",
+    "renderer_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C35",
+      "05C12"
+    ]
+  },
+  "first_registered_on": "2026-11-22",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "HypercubeChallenge.theorem1_f_lower_bound_nat",
+      "HypercubeChallenge.theorem5_asymptotic_three_halves",
+      "HypercubeChallenge.f_five_bounds",
+      "HypercubeChallenge.f_six_ge_76",
+      "HypercubeChallenge.f_seven_ge_150",
+      "HypercubeChallenge.f_eight_ge_294",
+      "HypercubeChallenge.theorem14_bounds_17_to_32"
+    ]
+  },
+  "id": "PALOMAR-2026-11-22-000030",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-27T09:40:47Z",
+    "receipt_sha256": "2d393885629c144fa873d8826e12fde3bb00c545e1b33b43e8e72f6dafe4faf5",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000030-v2/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000030-v2/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000030-v2/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000030-v2/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000030-v2/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000030-v2/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000030-v2/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000030-v2/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000030-v2/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "ec3165871de22110cde995b21d1a62b8a2901317",
+        "fork_repository": "PalomarArchive/mathdiscoveries--hypercube-edge-bounds--42641d0206a7",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000030-v2/ec3165871de22110cde995b21d1a62b8a2901317",
+        "source_repository": "mathdiscoveries/hypercube-edge-bounds"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Tyler B. Hughes"
+          }
+        ],
+        "identifier": "https://mathdiscoveries.org/results/hypercube-edge-bounds",
+        "location": "https://mathdiscoveries.org/results/hypercube-edge-bounds",
+        "relationship": "formalizes",
+        "title": "How Few Edges Preserve a Hypercube's Diameter? Exact Conservation Laws and Kernel-Checked Bounds",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Niall Graham"
+          },
+          {
+            "name": "Frank Harary"
+          }
+        ],
+        "location": "Discrete Applied Mathematics 37/38 (1992), 265-274",
+        "relationship": "background",
+        "title": "Changing and unchanging the diameter of a hypercube",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. Bouabdallah"
+          },
+          {
+            "name": "Charles Delorme"
+          },
+          {
+            "name": "S. Djelloul"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/0166-218X(95)00023-K",
+        "location": "Discrete Applied Mathematics 63 (1995), 91-95",
+        "relationship": "independently-proves",
+        "title": "Edge deletion preserving the diameter of the hypercube",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Pál Erdős"
+          },
+          {
+            "name": "Peter Hamburger"
+          },
+          {
+            "name": "Raymond E. Pippert"
+          },
+          {
+            "name": "William D. Weakley"
+          }
+        ],
+        "location": "Journal of Graph Theory 23(2) (1996), 119-128",
+        "relationship": "independently-proves",
+        "title": "Hypercube subgraphs with minimal detours",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Rajko Nenadov"
+          },
+          {
+            "name": "Mehtaab Sawhney"
+          },
+          {
+            "name": "Benny Sudakov"
+          },
+          {
+            "name": "Adam Zsolt Wagner"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1910.09868",
+        "location": "arXiv:1910.09868 (2019)",
+        "relationship": "independently-proves",
+        "title": "Bounded Degree Spanners of the Hypercube",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tyler B. Hughes"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-27T09:40:26Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "b543f1fb0c0b903f7f88ef43c9285591223daefebf87fc87c9f5303222c5fac6"
+    },
+    "reviewed_at": "2026-11-27T06:09:47Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "ec3165871de22110cde995b21d1a62b8a2901317",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "mathdiscoveries/hypercube-edge-bounds",
+    "repository_url": "https://github.com/mathdiscoveries/hypercube-edge-bounds",
+    "tree_url": "https://github.com/mathdiscoveries/hypercube-edge-bounds/tree/ec3165871de22110cde995b21d1a62b8a2901317"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "o5p6858rnnlk"
+  },
+  "title": "Lower Bounds on Diameter-Preserving Spanning Subgraphs of the Hypercube",
+  "trust": {
+    "challenge_bytes": 2745,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Combinatorics.SimpleGraph.Diam",
+      "Mathlib.Combinatorics.SimpleGraph.Metric",
+      "Mathlib.Data.Rat.Defs",
+      "Mathlib.InformationTheory.Hamming"
+    ],
+    "challenge_lines": 68,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "6d37851331dcea0f6a05ea2771a19ee9e1bb51364a209c11d79387bb9ca927a4",
+    "evidence_path": "evidence/PALOMAR-2026-11-22-000030-v2/a729bc750f5989d7b06826683d2fcd17234bbd95d437c27f27f8f67f3c800ed9/",
+    "evidence_tree_sha256": "a729bc750f5989d7b06826683d2fcd17234bbd95d437c27f27f8f67f3c800ed9",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "2ea8dc89ee9df939ab9b0aa96eb89eb9c0d18cf11e12a9c5623dd83f8b056a1d",
+    "protected_config_sha256": "7de6208295c7baeb1f33a9aaccd540ee54e77b46a3e369735c71c5d701536005",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45947051057,
+    "solution_sha256": "f44766baf06aa4350491a34ff44e9a4fa8dc69f1b3577bd9599176c268e2320d",
+    "tool_digests": {
+      "bwrap": "21156a69cbc35bc83e538525edf78854a227c7aec04637bc13f453e0ea1018e1",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-27T05:43:03Z",
+    "workflow_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45947051057"
+  },
+  "version": 2
+}

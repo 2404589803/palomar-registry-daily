@@ -1,0 +1,504 @@
+{
+  "abstract": "An original result on Morrey's problem for integrands on real 2x2 matrices, proved in Lean 4: for every p > 0, an F that is isotropic (invariant under rotations on both sides), positively p-homogeneous and rank-one convex is quasiconvex (Theorem A). The proof for integrands that change sign integrates scaled truncated determinants over the radius (Proposition 6.8: for every convex N with N(0) <= 0, an explicit radial function of N is quasiconvex). What a sign condition adds, range by range:\n\nFor p >= 2 and F >= 0, F is polyconvex, hence quasiconvex, with a polyaffine support at every matrix in closed form (Theorems 1.1 and 1.2); this answers Question 1.7 of Guerra and Kristensen (Arch. Ration. Mech. Anal. 245, 2022), who proved it at the multiples of orthogonal matrices. For p > 2, F is polyconvex if and only if it is rank-one convex and nonnegative, and for p = 2 no sign condition is needed (Theorem 1.3). For 1 <= p < 2 and F >= 0, F has at every matrix a touching minorant that is a nonnegative combination of the Burkholder function and its mirror image (Theorem 1.5). Hence, for 1 < p < 2, F is quasiconvex (Corollary 1.6 (a)), by the quasiconvexity of the Burkholder function, which Proposition 6.8 gives for every p > 1 (Corollary 6.11). Proposition 6.8 rests on the quasiconvexity of the truncated determinant, claimed as Theorem 1 of the preprint of Agazzi et al., arXiv:2609.28311, and taken here from lean4-iwaniec, the Lean formalization with which that preprint was audited. For p = 1, F is convex, with no sign condition, a theorem of Dacorogna (Corollary 1.6 (b)). For 0 < p < 1, F is zero, with neither isotropy nor a sign condition (Proposition 1.7).\n\nThe paper is docs/HomogeneousIsotropic/paper/main.tex in the repository.",
+  "authors": [
+    {
+      "name": "The-Anh Vu-Le"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-26-000059-v1/599ec2c49964c00b7c53c89c09832dc922af0aa6d863c5f7fb46c0281cad9031/",
+    "artifact_tree_sha256": "599ec2c49964c00b7c53c89c09832dc922af0aa6d863c5f7fb46c0281cad9031",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-26T15:58:32Z",
+    "renderer_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "verso_commit": "71a2035b44e7f54a797ce799fd1b03cdd3a44684"
+  },
+  "classification": {
+    "arxiv": [
+      "math.AP",
+      "math.OC"
+    ],
+    "msc2020": [
+      "49J45",
+      "26B25",
+      "30C62"
+    ]
+  },
+  "first_registered_on": "2026-11-26",
+  "formalization": {
+    "challenge_path": "palomar/HomogeneousIsotropic/Challenge.lean",
+    "comparator_config_path": "palomar/HomogeneousIsotropic/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "palomar/HomogeneousIsotropic/formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "Iwaniec",
+        "repository": "vltanh/lean4-iwaniec",
+        "revision": "e4922fa6bfdadbe5fe22231c91b69044dac89bab"
+      },
+      {
+        "name": "BanachProbability",
+        "repository": "vltanh/lean4-banach-probability",
+        "revision": "dc3966ce34fbc31b2936a0ca9b8a50356d690ae1"
+      },
+      {
+        "name": "CalculusOfVariations",
+        "repository": "vltanh/lean4-calculus-of-variations",
+        "revision": "a3778e447c557dd8eb81b84f47db4aa9ed0070d0"
+      },
+      {
+        "name": "HarmonicAnalysis",
+        "repository": "vltanh/lean4-harmonic-analysis",
+        "revision": "4c9fb088fe3ed7452430f825730e3d23fa4d0a6a"
+      },
+      {
+        "name": "FixedPoint",
+        "repository": "vltanh/lean4-fixed-point",
+        "revision": "5f650f00b1db63837a452696331a98ca886b94a8"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "9d581dfff2e41de989072ea63abf3daf69311520"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "c61286b7b63cbfd563b28e11e81d0a18233a044a"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "16259c0d07d61ee37d999d05b5cf96338b8daa11"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "7d11bfa88558f8d3d90afdf6bd877ed70001498d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "b0256621cb88178e9ad932a53633077b3029e621"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b"
+      }
+    ],
+    "solution_path": "palomar/HomogeneousIsotropic/Solution.lean",
+    "theorem_names": [
+      "HomogeneousIsotropicChallenge.det_eq_norm_sq_sub",
+      "HomogeneousIsotropicChallenge.opNorm_eq",
+      "HomogeneousIsotropicChallenge.theorem1_1",
+      "HomogeneousIsotropicChallenge.theorem1_2",
+      "HomogeneousIsotropicChallenge.theorem1_3_a",
+      "HomogeneousIsotropicChallenge.theorem1_3_b",
+      "HomogeneousIsotropicChallenge.corollary1_4",
+      "HomogeneousIsotropicChallenge.theorem1_5",
+      "HomogeneousIsotropicChallenge.theorem1_5_identity",
+      "HomogeneousIsotropicChallenge.corollary1_6_a",
+      "HomogeneousIsotropicChallenge.corollary1_6_b",
+      "HomogeneousIsotropicChallenge.proposition1_7",
+      "HomogeneousIsotropicChallenge.theoremA",
+      "HomogeneousIsotropicChallenge.proposition6_8"
+    ]
+  },
+  "id": "PALOMAR-2026-11-26-000059",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-26T20:20:27Z",
+    "receipt_sha256": "af35dc45f204fa594346cea97f630ace5b4eb7a1ac075a8e3714eb36c2de7c2d",
+    "repositories": [
+      {
+        "commit": "7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000059-v1/7d11bfa88558f8d3d90afdf6bd877ed70001498d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000059-v1/d4c39b228d4a06f3b00748c2c445a7b9f056a6e3",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000059-v1/b8cc5dd0a36233b88a6ed5a7dbf1207d09338c60",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000059-v1/c61286b7b63cbfd563b28e11e81d0a18233a044a",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "9d581dfff2e41de989072ea63abf3daf69311520",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000059-v1/9d581dfff2e41de989072ea63abf3daf69311520",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000059-v1/129d1ba9a16bc0660f46c79e9fb041ef5d5d80de",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000059-v1/16259c0d07d61ee37d999d05b5cf96338b8daa11",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "b0256621cb88178e9ad932a53633077b3029e621",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000059-v1/b0256621cb88178e9ad932a53633077b3029e621",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000059-v1/c09cb1e4f1e6e1c231a1175a12b681b075054a1b",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "dc3966ce34fbc31b2936a0ca9b8a50356d690ae1",
+        "fork_repository": "PalomarArchive/vltanh--lean4-banach-probability--04f2a236eae4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000059-v1/dc3966ce34fbc31b2936a0ca9b8a50356d690ae1",
+        "source_repository": "vltanh/lean4-banach-probability"
+      },
+      {
+        "commit": "a3778e447c557dd8eb81b84f47db4aa9ed0070d0",
+        "fork_repository": "PalomarArchive/vltanh--lean4-calculus-of-variations--3d6c27e30b9f",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000059-v1/a3778e447c557dd8eb81b84f47db4aa9ed0070d0",
+        "source_repository": "vltanh/lean4-calculus-of-variations"
+      },
+      {
+        "commit": "5f650f00b1db63837a452696331a98ca886b94a8",
+        "fork_repository": "PalomarArchive/vltanh--lean4-fixed-point--8e5eb7b662e1",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000059-v1/5f650f00b1db63837a452696331a98ca886b94a8",
+        "source_repository": "vltanh/lean4-fixed-point"
+      },
+      {
+        "commit": "4c9fb088fe3ed7452430f825730e3d23fa4d0a6a",
+        "fork_repository": "PalomarArchive/vltanh--lean4-harmonic-analysis--3e73471a9847",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000059-v1/4c9fb088fe3ed7452430f825730e3d23fa4d0a6a",
+        "source_repository": "vltanh/lean4-harmonic-analysis"
+      },
+      {
+        "commit": "e4922fa6bfdadbe5fe22231c91b69044dac89bab",
+        "fork_repository": "PalomarArchive/vltanh--lean4-iwaniec--6efed3985ecf",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000059-v1/e4922fa6bfdadbe5fe22231c91b69044dac89bab",
+        "source_repository": "vltanh/lean4-iwaniec"
+      },
+      {
+        "commit": "a7a9a583ad05f36ca7b6db2ac22f9f4434e4ee6f",
+        "fork_repository": "PalomarArchive/vltanh--lean4-morrey--cfc079acea49",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000059-v1/a7a9a583ad05f36ca7b6db2ac22f9f4434e4ee6f",
+        "source_repository": "vltanh/lean4-morrey"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "The-Anh Vu-Le"
+          }
+        ],
+        "identifier": "docs/HomogeneousIsotropic/paper/main.tex in this repository",
+        "location": "https://github.com/vltanh/lean4-morrey/blob/main/docs/HomogeneousIsotropic/paper/main.tex",
+        "relationship": "other",
+        "title": "Morrey's problem for homogeneous isotropic integrands in the plane",
+        "type": "original-proof"
+      },
+      {
+        "authors": [],
+        "identifier": "https://github.com/vltanh/lean4-morrey/pull/1",
+        "location": "https://github.com/vltanh/lean4-morrey/blob/4bf5a73bbe3159381891833d03c7c25a4cdf1741/docs/research/IWANIEC_MORREY_PGE2_POLYCONVEXITY.md",
+        "relationship": "other",
+        "title": "Research notes of pull request 1: rank-one convexity implies polyconvexity for nonnegative isotropic p-homogeneous integrands, p >= 2; and the addendum on 1 < p < 2",
+        "type": "research note"
+      },
+      {
+        "authors": [
+          {
+            "name": "André Guerra"
+          },
+          {
+            "name": "Jan Kristensen"
+          }
+        ],
+        "identifier": "Arch. Ration. Mech. Anal. 245 (2022), 479-500; arXiv:2112.10563",
+        "location": "https://doi.org/10.1007/s00205-022-01792-2",
+        "relationship": "background",
+        "title": "Automatic quasiconvexity of homogeneous isotropic rank-one convex integrands",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Andrea Agazzi"
+          },
+          {
+            "name": "Kari Astala"
+          },
+          {
+            "name": "Rodrigo Bañuelos"
+          },
+          {
+            "name": "Giuseppe Bruno"
+          },
+          {
+            "name": "Gabriele Cassese"
+          },
+          {
+            "name": "Daniel Faraco"
+          },
+          {
+            "name": "André Guerra"
+          },
+          {
+            "name": "Mahdi Hormozi"
+          },
+          {
+            "name": "Bernd Kirchheim"
+          },
+          {
+            "name": "Aleksis Koski"
+          },
+          {
+            "name": "Vjekoslav Kovač"
+          },
+          {
+            "name": "Jan Kristensen"
+          },
+          {
+            "name": "Federico Pasqualotto"
+          },
+          {
+            "name": "István Prause"
+          },
+          {
+            "name": "Eero Saksman"
+          },
+          {
+            "name": "Vladimír Šverák"
+          },
+          {
+            "name": "László Székelyhidi"
+          },
+          {
+            "name": "Riccardo Tione"
+          },
+          {
+            "name": "Alexander Volberg"
+          },
+          {
+            "name": "Hang Yang"
+          }
+        ],
+        "identifier": "arXiv:2609.28311v2",
+        "location": "https://arxiv.org/abs/2609.28311v2",
+        "relationship": "background",
+        "title": "Sharp Higher Integrability Theory, Part I: The L^p-norm of the Beurling-Ahlfors transform",
+        "type": "preprint"
+      },
+      {
+        "authors": [
+          {
+            "name": "Bernard Dacorogna"
+          }
+        ],
+        "identifier": "Calculus of variations, applications and computations (Pont-à-Mousson, 1994), Pitman Res. Notes Math. Ser. 326, Longman, 1995, 84-99",
+        "relationship": "background",
+        "title": "On rank one convex functions which are homogeneous of degree one",
+        "type": "article"
+      },
+      {
+        "authors": [
+          {
+            "name": "Bernard Dacorogna"
+          },
+          {
+            "name": "Hideyuki Koshigoe"
+          }
+        ],
+        "identifier": "Ann. Fac. Sci. Toulouse Math. (6) 2 (1993), 163-184",
+        "location": "https://www.numdam.org/item/AFST_1993_6_2_2_163_0/",
+        "relationship": "background",
+        "title": "On the different notions of convexity for rotationally invariant functions",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "palomar/Cassese in this repository",
+        "note": "The formalization of Cassese, arXiv:2608.03488v3, in the same repository: rank-one convex integrands on 2 x m matrices, m >= 3, that are not quasiconvex. The result here concerns the case 2 x 2, which that paper leaves open. No code is shared except general lemmas.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "palomar/Sverak and palomar/Pedregal in this repository",
+        "note": "The formalization of Šverák 1992 and the audit of Pedregal, arXiv:1905.06571v5, in the same repository, each with its own Challenge and metadata.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/vltanh/lean4-iwaniec",
+        "note": "The formalization of Agazzi et al., arXiv:2609.28311v2. The proofs use its quasiconvexity of the truncated determinant (Agazzi.quasiconvex_integrandL) and its continuity (Agazzi.continuous_integrandL), its identity for the operator norm (Agazzi.opNorm_eq), and the lemma that a positive multiple of a quasiconvex function is quasiconvex (Agazzi.quasiconvex_const_mul).",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/vltanh/lean4-calculus-of-variations",
+        "note": "Provides rank-one convexity, quasiconvexity, the null Lagrangian property of minors and the local Lipschitz continuity of rank-one convex functions, used by the proofs only.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "The-Anh Vu-Le"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-26T20:20:04Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "0fd885675f8da052830f4fbef69536bc9e79cac4eb229e1643e60e57eb5ecb81"
+    },
+    "reviewed_at": "2026-11-26T16:28:03Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "The Challenge's stated Burkholder decomposition conflicts with the selected Lean identity. For example, at p = 1, c₀ = 1 and m = 0, the module's coefficients double the asserted function. Correct the module prose to use denominator 2 (2 − p); the Lean statement need not change."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "a7a9a583ad05f36ca7b6db2ac22f9f4434e4ee6f",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "vltanh/lean4-morrey",
+    "repository_url": "https://github.com/vltanh/lean4-morrey",
+    "tree_url": "https://github.com/vltanh/lean4-morrey/tree/a7a9a583ad05f36ca7b6db2ac22f9f4434e4ee6f"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "6vvnyq2k4gla"
+  },
+  "title": "Morrey's problem for homogeneous isotropic integrands on 2x2 matrices, in Lean",
+  "trust": {
+    "challenge_bytes": 17656,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.CStarAlgebra.Matrix",
+      "Mathlib.Analysis.Calculus.FDeriv.Basic",
+      "Mathlib.Analysis.Complex.Basic",
+      "Mathlib.Analysis.Convex.Function",
+      "Mathlib.Analysis.Matrix.MeasurableSpace",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.Data.List.TFAE",
+      "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+      "Mathlib.LinearAlgebra.Matrix.Rank",
+      "Mathlib.LinearAlgebra.UnitaryGroup",
+      "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+      "Mathlib.MeasureTheory.Integral.IntegrableOn",
+      "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+      "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+      "Mathlib.Topology.EMetricSpace.Lipschitz",
+      "Mathlib.Topology.Instances.Matrix"
+    ],
+    "challenge_lines": 318,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "9dbe64509c46441ae22e18242473e09a3ae70431968db44457f47d33ddffa474",
+    "evidence_path": "evidence/PALOMAR-2026-11-26-000059-v1/ef35dc169ed554c87060ffe87415aa8b50f25193dacf8afec4aa38f1fe13fb0d/",
+    "evidence_tree_sha256": "ef35dc169ed554c87060ffe87415aa8b50f25193dacf8afec4aa38f1fe13fb0d",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0-rc2/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "5da9c5751a85b7ad534e040a4b27205b373e2057ddf771eb660fb82fd6e4f037",
+    "protected_config_sha256": "7fdb9f3773d32f22f00576e54d87ad773c7f2c92c95e26bcc367d571d4d647bd",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45851315639,
+    "solution_sha256": "913fb43e168232fdba41d48c0e0b2532ba790947bf9d1da786a01b8d12034515",
+    "tool_digests": {
+      "bwrap": "f262b87afd8f497355e586a312ccf7e22f23a2b691153bd6a167edd3fb8755ff",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "b35cb10cf2ced51a2fd1880cfdbf75c71ab7a35a",
+    "verified_at": "2026-11-26T15:45:17Z",
+    "workflow_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45851315639"
+  },
+  "version": 1
+}

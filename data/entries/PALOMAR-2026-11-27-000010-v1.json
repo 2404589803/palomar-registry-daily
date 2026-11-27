@@ -1,0 +1,422 @@
+{
+  "abstract": "The permutohedron in R^n is the convex hull of the rearrangements of (n, n-1, ..., 1). This entry proves that for every ordered partition of the coordinates into m nonempty blocks the corresponding face is an exposed face of dimension n - m, and conversely that every nonempty exposed face is the face of an ordered partition, with k blocks when its dimension is n - k. For the ridges (m = 3, blocks of sizes a, b, c) it proves that the plane through the centre and the ridge is {y : sum y = 0, c(a+b) sum over B1 + a(b+c) sum over B3 = 0}; that two ridges give the same plane exactly when they are equal or reverses, or both have a = c and the same or complementary middle blocks; and that the number of distinct planes is the closed formula of OEIS A402191 for every n >= 3 (values 3, 15, 65, 225, 770, 2443 for n = 3 to 8); for n >= 3 the count is also proved for the set of planes through the centre and the nonempty exposed faces of dimension n - 3, defined without partitions. For the planes through the centre parallel to the facets (the resonance arrangement), it proves that two facets share a plane exactly when their sets are equal or complementary, that there are 2^(n-1) - 1 such planes, that each facet is nonempty and its plane has dimension n - 2, and exactly which of them are also ridge planes: all of them for odd n, all but 2^(n-2) for even n. The source paper (DICTO, The Vacuus and the Resonus) calls the two families the Vacuus and the Resonus. The proofs build on TauCeti's formalization of Rado's theorem. Audience: readers of polytope geometry and Mathlib users working with convex sets and permutations.",
+  "authors": [
+    {
+      "github": "DICTOR-Master",
+      "name": "DICTO",
+      "orcid": "0009-0001-2620-2036",
+      "orcid_record_checked_at": "2026-11-27T00:57:47Z"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-27-000010-v1/eb448616f40c5df9a9f3409694fa1ed589d6ebe081557ae99c8439db05a47bc3/",
+    "artifact_tree_sha256": "eb448616f40c5df9a9f3409694fa1ed589d6ebe081557ae99c8439db05a47bc3",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-27T01:06:55Z",
+    "renderer_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "verso_commit": "c0fce8ca212d6a33d010c3be09bec07dfa3b9ed4"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.MG"
+    ],
+    "msc2020": [
+      "52B12",
+      "52C35",
+      "52B05",
+      "05A15"
+    ]
+  },
+  "first_registered_on": "2026-11-27",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.37.0-rc1",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "31ce06eaadf4a200c0e1407c5f10953cf606b8f8"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "0d8633efc105d6b15b59a8103614ae0291ee8827"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "146200e1ecbf7397e361475b5c0905adc5fe0670"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "cf947504529b8e2ee114e852133d13e4ac923e9b"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "197b8bdfd8bbfea6dff6ac04170a710b231c3aaa"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "637fdbb8689a3387a82568b07355231f892144d7"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ad0c9f87cfe7b41b93446472004724a1646a22f4"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "87486d547af639cb39c01f0d2f8025aa47d7dde1"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c830de39b67d5d447d854a4e390fff9bb0a9c897"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "VR.flagFace_isExposed",
+      "VR.finrank_vectorSpan_flagFace",
+      "VR.facet_isExposed",
+      "VR.vectorSpan_facet",
+      "VR.finrank_vectorSpan_facet",
+      "VR.exposed_eq_flagFace",
+      "VR.exposed_eq_flagFace_of_finrank",
+      "VR.ridge_eq_flagFace",
+      "VR.facet_eq_facet",
+      "VR.span_centred_ridge",
+      "VR.plate_eq_iff",
+      "VR.card_plateSet",
+      "VR.plateSet_eq_ridge_planes",
+      "VR.card_ridge_planes",
+      "VR.plates_three",
+      "VR.plates_four",
+      "VR.plates_five",
+      "VR.plates_six",
+      "VR.plates_seven",
+      "VR.plates_eight",
+      "VR.dirs_eq_iff",
+      "VR.vectorSpan_facet_eq_iff",
+      "VR.card_resonusSet",
+      "VR.resonus_three",
+      "VR.resonus_four",
+      "VR.resonus_five",
+      "VR.resonus_six",
+      "VR.resonus_seven",
+      "VR.resonus_eight",
+      "VR.resonus_parallel",
+      "VR.dirs_eq_plate_iff",
+      "VR.resonusSet_subset_plateSet_of_odd",
+      "VR.card_resonus_diff_plate_even"
+    ]
+  },
+  "id": "PALOMAR-2026-11-27-000010",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-27T01:41:20Z",
+    "receipt_sha256": "0c51b9715e893f55c1a6c8e2ac3593731d3d271c53c0a14b3c30a72834351f7a",
+    "repositories": [
+      {
+        "commit": "883c589ae57aba19542e62df657be3111d0da105",
+        "fork_repository": "PalomarArchive/DICTOR-Master--permutohedron-planes-lean--c5ed4a0d4e94",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000010-v1/883c589ae57aba19542e62df657be3111d0da105",
+        "source_repository": "DICTOR-Master/permutohedron-planes-lean"
+      },
+      {
+        "commit": "637fdbb8689a3387a82568b07355231f892144d7",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000010-v1/637fdbb8689a3387a82568b07355231f892144d7",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "87486d547af639cb39c01f0d2f8025aa47d7dde1",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000010-v1/87486d547af639cb39c01f0d2f8025aa47d7dde1",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "cf947504529b8e2ee114e852133d13e4ac923e9b",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000010-v1/cf947504529b8e2ee114e852133d13e4ac923e9b",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "146200e1ecbf7397e361475b5c0905adc5fe0670",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000010-v1/146200e1ecbf7397e361475b5c0905adc5fe0670",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "31ce06eaadf4a200c0e1407c5f10953cf606b8f8",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000010-v1/31ce06eaadf4a200c0e1407c5f10953cf606b8f8",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "0d8633efc105d6b15b59a8103614ae0291ee8827",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000010-v1/0d8633efc105d6b15b59a8103614ae0291ee8827",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "197b8bdfd8bbfea6dff6ac04170a710b231c3aaa",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000010-v1/197b8bdfd8bbfea6dff6ac04170a710b231c3aaa",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ad0c9f87cfe7b41b93446472004724a1646a22f4",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000010-v1/ad0c9f87cfe7b41b93446472004724a1646a22f4",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c830de39b67d5d447d854a4e390fff9bb0a9c897",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000010-v1/c830de39b67d5d447d854a4e390fff9bb0a9c897",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "github": "DICTOR-Master",
+            "name": "DICTO",
+            "orcid": "0009-0001-2620-2036",
+            "orcid_record_checked_at": "2026-11-27T00:57:47Z"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.24521889",
+        "location": "Zenodo, Version 1 (all versions: doi:10.5281/zenodo.24521888); Theorem 3 (i) to (iv) and Theorem 5",
+        "relationship": "formalizes",
+        "title": "The Vacuus and the Resonus: Form and Emptiness in the Planes of Polyhedra",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "github": "DICTOR-Master",
+            "name": "DICTO",
+            "orcid": "0009-0001-2620-2036",
+            "orcid_record_checked_at": "2026-11-27T00:57:47Z"
+          }
+        ],
+        "identifier": "doi:10.5281/zenodo.24121177",
+        "location": "Zenodo (#105, Version 4); Theorem 3 (the count), with the normal formula and the coincidence rule used in its proof",
+        "relationship": "formalizes",
+        "title": "DICTO 1:2 Truncated Octahedron: The 4D Vacuus of the Permutohedron",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "R. Rado"
+          }
+        ],
+        "identifier": "doi:10.1112/jlms/s1-27.1.1",
+        "location": "J. London Math. Soc. 27 (1952) 1-6",
+        "relationship": "background",
+        "title": "An inequality",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "H. Kamiya"
+          },
+          {
+            "name": "A. Takemura"
+          },
+          {
+            "name": "H. Terao"
+          }
+        ],
+        "identifier": "arXiv:1003.0040",
+        "location": "Adv. Appl. Math. 47 (2011) 379-400; Section 3 (the restricted all-subset arrangement)",
+        "relationship": "background",
+        "title": "Ranking patterns of unfolding models of codimension one",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "S. Shadrin"
+          },
+          {
+            "name": "M. Shapiro"
+          },
+          {
+            "name": "A. Vainshtein"
+          }
+        ],
+        "identifier": "arXiv:math/0611442",
+        "location": "Adv. Math. 217 (2008) 79-96; the resonance arrangement",
+        "relationship": "background",
+        "title": "Chamber behavior of double Hurwitz numbers in genus 0",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "James Baker"
+          }
+        ],
+        "identifier": "https://oeis.org/A402191",
+        "location": "OEIS sequence A402191",
+        "relationship": "background",
+        "title": "A402191: Number of distinct hyperplanes through the center of the (n-1)-dimensional permutohedron that are spanned by its ridges (faces of codimension 2)",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "G. M. Ziegler"
+          }
+        ],
+        "identifier": "doi:10.1007/978-1-4613-8431-1",
+        "location": "Graduate Texts in Mathematics 152, Springer (1995); Example 0.10 (the permutohedron and its faces)",
+        "relationship": "background",
+        "title": "Lectures on Polytopes",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/TauCetiProject/TauCeti/blob/6d810e58e90dc1a8f89e5cb6056ee36c26da67d3/TauCeti/Analysis/Convex/PermutationOrbit.lean",
+        "note": "TauCeti's formalization of Rado's theorem (mem_convexHull_range_comp_perm_iff and the prefix-sum lemmas). Three of its files are copied into this entry under Vendor/TauCeti/ (Apache-2.0; see NOTICE and fidelity) and the face proofs use them. Not part of this entry's claims.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "github": "DICTOR-Master",
+        "name": "DICTO",
+        "orcid": "0009-0001-2620-2036",
+        "orcid_record_checked_at": "2026-11-27T00:57:47Z"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-27T01:41:03Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "bf89172ac39f25d51d941cb2850e428a9302924c1c536ee5019a7ad6a40050a9"
+    },
+    "reviewed_at": "2026-11-27T01:23:46Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "883c589ae57aba19542e62df657be3111d0da105",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "DICTOR-Master/permutohedron-planes-lean",
+    "repository_url": "https://github.com/DICTOR-Master/permutohedron-planes-lean",
+    "tree_url": "https://github.com/DICTOR-Master/permutohedron-planes-lean/tree/883c589ae57aba19542e62df657be3111d0da105"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "sstm14by1aod"
+  },
+  "title": "Planes Through the Centre of the Permutohedron: Faces, Vacuus Plates and Their Count, in Lean",
+  "trust": {
+    "challenge_bytes": 17476,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 321,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "b3d152ce01dd3b17520630cd323fd353835a1f164cd6f3e5f400b0d02e0634d6",
+    "evidence_path": "evidence/PALOMAR-2026-11-27-000010-v1/01d8e2f2351b1d6eacfea30eb55197de6c613bba9ed508a8a4599ed56862f60e/",
+    "evidence_tree_sha256": "01d8e2f2351b1d6eacfea30eb55197de6c613bba9ed508a8a4599ed56862f60e",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.37.0-rc1/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.37.0-rc1/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "1e73b4bc95832bb50214bb4e0cee3652c6e3c5c87e45323ee05aeb4c74eec877",
+    "protected_config_sha256": "e558a66f1b2c7b5aa1641ed999bf0a424adac5ed3c9f215dd213b398bc1adbff",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45919736764,
+    "solution_sha256": "10669d7a278bc86d85710a45d23c48b473069c7ffa945c15f8dcc0b83488bc3d",
+    "tool_digests": {
+      "bwrap": "00783a0997eb062c1441bae4b9c91e19de1ea908cdef253591079e0f71158564",
+      "con-ron": "e3241d3bb154d40ee92671440497d1a51564dd6f654aa7d01e8812ee04d73ce9",
+      "lake": "2242a9c340f63af2aab8b8475030e2fcffaa3f24a46ce6851747a797e9e6b429",
+      "lean": "d42bdbe506509e88ecadfef183c0df6f55ddb4dd0c7a9933cb224000c0688490",
+      "leanchecker": "437c52be453b0bd769f2c9f852f4a8f1668888a8e7c50b063722e534c5993dd0",
+      "leanexport": "4f5226680a15811444273975284fcb78cf7f8e6af7afa6312ab41a5b945b8542",
+      "nanoda_bin": "5c34d6124b19dfd23c7d0377b520893cf8adec5c23fa0c809dde9e38eb201ffe"
+    },
+    "toolchain_commit": "0b77e12952ad39077d80d8bd6b66d601f225c321",
+    "verified_at": "2026-11-27T01:00:28Z",
+    "workflow_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45919736764"
+  },
+  "version": 1
+}

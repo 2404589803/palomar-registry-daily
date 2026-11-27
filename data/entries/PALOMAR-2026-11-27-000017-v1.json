@@ -1,0 +1,567 @@
+{
+  "abstract": "Every non-Hadamard real sign matrix has a direction of strictly negative curvature when its entries are allowed to vary through complex phases. We prove an energy-only criterion for unique one-entry repair and construct infinitely many matrices trapped under every one-entry and two-entry sign change. Further results classify rank-two Gram defects and provide constructive phase escape and exact rounding certificates. We also characterize four-phase accessibility under row and column phases, prove a signed complex-structure criterion for the corresponding real Hadamard construction from quaternary matrices, and give quantitative Fourier-Dita obstructions showing when these phase-based families cannot reach fourth-root entries. See README.md for the main theorem statements, RESULTS.md for further results, paper/main.pdf for proofs and citations, and TECHNICAL.md for formalization coverage and build details.",
+  "authors": [
+    {
+      "name": "Joshua Mark"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-27-000017-v1/32a224ca590cee88c50173d614efbd4087bcb01d88b56419e98e967325187131/",
+    "artifact_tree_sha256": "32a224ca590cee88c50173d614efbd4087bcb01d88b56419e98e967325187131",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-27T05:52:51Z",
+    "renderer_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "math.FA"
+    ],
+    "msc2020": [
+      "05B20",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-27",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "PhaseGeometry.Indexed.rowGram",
+      "PhaseGeometry.Indexed.gramEnergy",
+      "PhaseGeometry.Indexed.flipCell",
+      "PhaseGeometry.Indexed.IsSign",
+      "PhaseGeometry.Indexed.cubicEntry",
+      "PhaseGeometry.Indexed.columnGram",
+      "PhaseGeometry.Indexed.tensorTrap",
+      "PhaseGeometry.Indexed.rowChanges",
+      "PhaseGeometry.Indexed.weightedDegree",
+      "PhaseGeometry.Indexed.upperWeights",
+      "PhaseGeometry.Indexed.switchSigns",
+      "PhaseGeometry.Indexed.normalizeSigns",
+      "PhaseGeometry.Indexed.normalFour",
+      "PhaseGeometry.Indexed.normalizedFourHadamards",
+      "PhaseGeometry.Indexed.repairBase",
+      "PhaseGeometry.Indexed.repairRow",
+      "PhaseGeometry.Indexed.repairEnergy",
+      "PhaseGeometry.Indexed.repairBlock",
+      "PhaseGeometry.Indexed.repairLayers",
+      "PhaseGeometry.Indexed.repairRowPath",
+      "PhaseGeometry.negativeQuadraticCode_decidable",
+      "PhaseGeometry.checkIntegerHadamard",
+      "PhaseGeometry.oneEntryRepairCandidates",
+      "PhaseGeometry.IsFourthRoot",
+      "PhaseGeometry.pivotDephase",
+      "PhaseGeometry.HasFourPhaseGauge",
+      "PhaseGeometry.complexRowGram",
+      "PhaseGeometry.pivotFourthError",
+      "PhaseGeometry.fourthGramDeficit",
+      "PhaseGeometry.rowRoundingError",
+      "PhaseGeometry.totalRoundingError",
+      "PhaseGeometry.IsQuaternaryHadamard",
+      "PhaseGeometry.euclideanOperatorNorm",
+      "PhaseGeometry.matrixFrobeniusSq",
+      "PhaseGeometry.fourthPowerMatrix",
+      "PhaseGeometry.rhoFourth",
+      "PhaseGeometry.IsNearestFourthRoot",
+      "PhaseGeometry.phaseTransform",
+      "PhaseGeometry.permuteMatrix",
+      "PhaseGeometry.characterMatrix",
+      "PhaseGeometry.finCharacterMatrix",
+      "PhaseGeometry.blockCoordinates",
+      "PhaseGeometry.ditaMatrix",
+      "PhaseGeometry.signPermutationMatrix",
+      "PhaseGeometry.IsSignedPermutation",
+      "PhaseGeometry.complexRealification",
+      "PhaseGeometry.IsQuaternaryRealificationEquivalent"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "PhaseGeometry.constructive_bilinear_escape",
+      "PhaseGeometry.constructive_bilinear_escape_margin",
+      "PhaseGeometry.positive_semidefinite_zero_orthogonal",
+      "PhaseGeometry.cayley_unit_circle",
+      "PhaseGeometry.quantized_energy_minimum",
+      "PhaseGeometry.quantized_threshold_parameter",
+      "PhaseGeometry.trap8_energy",
+      "PhaseGeometry.repaired8_gram",
+      "PhaseGeometry.trap8_three_flip_escape",
+      "PhaseGeometry.trap8_escape_barrier_witness",
+      "PhaseGeometry.trap8_every_one_flip_raises",
+      "PhaseGeometry.trap8_four_row_repair_energies",
+      "PhaseGeometry.even_gaussian_gap",
+      "PhaseGeometry.gaussian_gap",
+      "PhaseGeometry.even_rounding_error_threshold",
+      "PhaseGeometry.single_flip_energy_change",
+      "PhaseGeometry.two_flip_same_row",
+      "PhaseGeometry.two_flip_same_column",
+      "PhaseGeometry.two_flip_distinct_row_column",
+      "PhaseGeometry.single_flip_change_eight_times_odd",
+      "PhaseGeometry.single_flip_nonzero",
+      "PhaseGeometry.layered_gram",
+      "PhaseGeometry.layered_energy",
+      "PhaseGeometry.layered_orthogonal_iff",
+      "PhaseGeometry.layer_update_energy_change",
+      "PhaseGeometry.layered_flip_is_strip",
+      "PhaseGeometry.layered_strip_energy_change",
+      "PhaseGeometry.layered_row_replacement",
+      "PhaseGeometry.integer_hadamard_iff_rows",
+      "PhaseGeometry.layered_hadamard_iff",
+      "PhaseGeometry.layered_strip_changed_card",
+      "PhaseGeometry.trap8_every_one_flip_ge160",
+      "PhaseGeometry.trap8_every_two_flips_nonnegative",
+      "PhaseGeometry.trap8_minimum_escape_distance",
+      "PhaseGeometry.trap8_minimum_escape_barrier",
+      "PhaseGeometry.trap_tensor_energy",
+      "PhaseGeometry.trap_one_strip_energy_lower",
+      "PhaseGeometry.trap_two_strip_energy_lower",
+      "PhaseGeometry.strip_escape_energy_path",
+      "PhaseGeometry.trap_strip_minimum_barrier",
+      "PhaseGeometry.trap_strip_minimum_steps",
+      "PhaseGeometry.strip_escape_changes_three_m",
+      "PhaseGeometry.strip_escape_changes_only_one_row",
+      "PhaseGeometry.Indexed.tensorTrap_isSign",
+      "PhaseGeometry.Indexed.tensorTrap_energy",
+      "PhaseGeometry.Indexed.tensorTrap_single_cost",
+      "PhaseGeometry.Indexed.tensorTrap_minimum_single_cost",
+      "PhaseGeometry.Indexed.tensorTrap_minimum_two_cost",
+      "PhaseGeometry.Indexed.tensorTrap_zero_energy_competitor",
+      "PhaseGeometry.Indexed.tensorTrap_strict_local_minimum",
+      "PhaseGeometry.Indexed.exists_power_two_hadamard",
+      "PhaseGeometry.Indexed.power_two_strict_traps",
+      "PhaseGeometry.Indexed.repaired_pair_budget",
+      "PhaseGeometry.Indexed.weighted_repair_budget",
+      "PhaseGeometry.Indexed.weighted_repair_lower_bound",
+      "PhaseGeometry.Indexed.defect_graph_repair_lower_bound",
+      "PhaseGeometry.Indexed.switchSigns_energy",
+      "PhaseGeometry.Indexed.switchSigns_flip",
+      "PhaseGeometry.Indexed.normalizeSigns_properties",
+      "PhaseGeometry.Indexed.order_four_local_minimum_iff",
+      "PhaseGeometry.Indexed.normalizedFourHadamards_card",
+      "PhaseGeometry.Indexed.normalizedFourHadamards_exact",
+      "PhaseGeometry.Indexed.repairBlock_energy",
+      "PhaseGeometry.Indexed.repairBlock_strict",
+      "PhaseGeometry.Indexed.repairBlock_row_update",
+      "PhaseGeometry.Indexed.repairBlock_endpoint",
+      "PhaseGeometry.Indexed.repairBlock_changed_count",
+      "PhaseGeometry.Indexed.repairRowPath_endpoints",
+      "PhaseGeometry.Indexed.repairRowPath_one_row",
+      "PhaseGeometry.Indexed.repairRowPath_cost",
+      "PhaseGeometry.Indexed.repairRowPath_strict",
+      "PhaseGeometry.Indexed.repairRowPath_step_count",
+      "PhaseGeometry.Indexed.repairRowPath_join",
+      "PhaseGeometry.Indexed.repairRowPath_start",
+      "PhaseGeometry.Indexed.repairRowPath_finish",
+      "PhaseGeometry.Indexed.repairBase_isSign",
+      "PhaseGeometry.Indexed.repairRowPath_isSign",
+      "PhaseGeometry.phase_integer_hessian_rectangle_formula",
+      "PhaseGeometry.phase_hessian_quadratic_identification",
+      "PhaseGeometry.phaseBilinearForm_row_value",
+      "PhaseGeometry.phase_energy_second_nonnegative_of_orthogonal",
+      "PhaseGeometry.columnPairDirection_firstGram",
+      "PhaseGeometry.columnPairDirection_quadratic_zero",
+      "PhaseGeometry.phaseBilinearForm_transpose",
+      "PhaseGeometry.phase_psd_uniform_cubic",
+      "PhaseGeometry.phase_strict_saddle_classification",
+      "PhaseGeometry.integer_phase_direction_exists",
+      "PhaseGeometry.integer_phase_escape_search",
+      "PhaseGeometry.integer_pair_kernel_escape",
+      "PhaseGeometry.columnPairEscape_negative",
+      "PhaseGeometry.integer_pair_or_null_escape",
+      "PhaseGeometry.rational_cayley_backtracking",
+      "PhaseGeometry.nonhadamard_rational_backtracking",
+      "PhaseGeometry.realCayleyEntry_quotient",
+      "PhaseGeometry.cayleyTwoAtLeastTwo",
+      "PhaseGeometry.rank_two_nonlocal_repair_examples",
+      "PhaseGeometry.symmetricOuter_energy",
+      "PhaseGeometry.symmetricOuter_disjoint_rank_two",
+      "PhaseGeometry.rectangular_flip_rank_energy",
+      "PhaseGeometry.symmetric_rank_two_disjoint_factorization",
+      "PhaseGeometry.rank_two_gram_determinant_identity",
+      "PhaseGeometry.rank_two_gram_discrete_quantization",
+      "PhaseGeometry.complete_rank_two_quantization",
+      "PhaseGeometry.complete_rank_two_attainment",
+      "PhaseGeometry.rankTwoTwoAtLeastTwo",
+      "PhaseGeometry.one_entry_hadamard_neighbor_unique",
+      "PhaseGeometry.real_completion_missing_row",
+      "PhaseGeometry.integer_completion_missing_row",
+      "PhaseGeometry.energy_threshold_star_structure",
+      "PhaseGeometry.energy_only_one_entry_repair",
+      "PhaseGeometry.low_rank_threshold_exact_repair",
+      "PhaseGeometry.checkIntegerHadamard_correct",
+      "PhaseGeometry.threshold_repair_candidates_singleton",
+      "PhaseGeometry.fourth_root_iff",
+      "PhaseGeometry.pivotDephase_unit",
+      "PhaseGeometry.fourth_power_cross_ratio_criterion",
+      "PhaseGeometry.unit_mul_conj",
+      "PhaseGeometry.pivotDephase_gram",
+      "PhaseGeometry.pivotDephase_hadamard_gram",
+      "PhaseGeometry.four_phase_gauge_iff_cross_ratios",
+      "PhaseGeometry.gram_normSq_four_cycles",
+      "PhaseGeometry.pivot_fourth_error",
+      "PhaseGeometry.sum_four_reorder",
+      "PhaseGeometry.pivot_fourth_error_sum",
+      "PhaseGeometry.fourthGramDeficit_nonneg",
+      "PhaseGeometry.exists_pivot_fourth_error_le",
+      "PhaseGeometry.unit_fourth_normSq_error",
+      "PhaseGeometry.root_one_rounding_bound",
+      "PhaseGeometry.root_rounding_bound_from_sector",
+      "PhaseGeometry.exists_fourth_root_rounding_bound",
+      "PhaseGeometry.exists_matrix_fourth_root_rounding",
+      "PhaseGeometry.exists_pivot_fourth_root_rounding",
+      "PhaseGeometry.fourth_root_unit",
+      "PhaseGeometry.fourth_root_mul_conj",
+      "PhaseGeometry.fourth_root_gaussian",
+      "PhaseGeometry.fourth_root_sum_gaussian",
+      "PhaseGeometry.fourth_root_sum_small_zero",
+      "PhaseGeometry.fourth_root_sum_even_small_zero",
+      "PhaseGeometry.fourth_root_gram_small_zero",
+      "PhaseGeometry.fourth_root_even_gram_small_zero",
+      "PhaseGeometry.rounded_row_gram_bound",
+      "PhaseGeometry.rounded_gram_global_bound",
+      "PhaseGeometry.rounded_exact_of_error_small",
+      "PhaseGeometry.rounded_exact_of_even_error_small",
+      "PhaseGeometry.rounding_error_swap",
+      "PhaseGeometry.finite_dephasing_rounding_certificate",
+      "PhaseGeometry.finite_dephasing_even_rounding_certificate",
+      "PhaseGeometry.no_quaternary_deficit_lower",
+      "PhaseGeometry.no_quaternary_even_deficit_lower",
+      "PhaseGeometry.row_gram_difference_bound",
+      "PhaseGeometry.gram_difference_global_bound",
+      "PhaseGeometry.rounded_gram_norm_approximation",
+      "PhaseGeometry.two_objective_rounding_certificate",
+      "PhaseGeometry.complex_sum_mul_norm_sq_le",
+      "PhaseGeometry.euclidean_matrix_apply_entries",
+      "PhaseGeometry.euclidean_matrix_apply_sq_bound",
+      "PhaseGeometry.euclideanOperatorNorm_le_frobenius",
+      "PhaseGeometry.euclideanOperatorNorm_gram",
+      "PhaseGeometry.fourthGramDeficit_eq_matrix",
+      "PhaseGeometry.fourthGramDeficit_operator_bound",
+      "PhaseGeometry.fourthGramDeficit_rho_bound",
+      "PhaseGeometry.deficit_lt_of_rho_threshold",
+      "PhaseGeometry.rho_finite_rounding_certificate",
+      "PhaseGeometry.rho_even_finite_rounding_certificate",
+      "PhaseGeometry.no_quaternary_rho_separation",
+      "PhaseGeometry.no_quaternary_even_rho_separation",
+      "PhaseGeometry.exists_nearest_fourth_root_bound",
+      "PhaseGeometry.exists_nearest_matrix_rounding",
+      "PhaseGeometry.finite_dephasing_nearest_rounding_certificate",
+      "PhaseGeometry.rho_nearest_rounding_certificate",
+      "PhaseGeometry.pivot_search_card",
+      "PhaseGeometry.unit_fourth_power_lipschitz",
+      "PhaseGeometry.fourth_root_power_error_bound",
+      "PhaseGeometry.rhoFourth_le_one",
+      "PhaseGeometry.matrix_sum_norm_le_operator",
+      "PhaseGeometry.unit_matrix_error_identity",
+      "PhaseGeometry.fourth_power_error_operator_lower",
+      "PhaseGeometry.quaternary_distance_lower_bound",
+      "PhaseGeometry.phase_diagonal_unitary",
+      "PhaseGeometry.euclideanOperatorNorm_phase_transform",
+      "PhaseGeometry.rhoFourth_phase_invariant",
+      "PhaseGeometry.permutation_matrix_unitary",
+      "PhaseGeometry.euclideanOperatorNorm_permute",
+      "PhaseGeometry.rhoFourth_permutation_invariant",
+      "PhaseGeometry.equivalent_quaternary_distance_lower",
+      "PhaseGeometry.ones_euclideanOperatorNorm",
+      "PhaseGeometry.rhoFourth_one_iff_four_phase_gauge",
+      "PhaseGeometry.rhoFourth_one_iff_quaternary_phase_equivalent",
+      "PhaseGeometry.standard_character_sum",
+      "PhaseGeometry.characterMatrix_unit",
+      "PhaseGeometry.characterMatrix_gram",
+      "PhaseGeometry.fourier_fourth_power",
+      "PhaseGeometry.fourier_character_gram_matrix",
+      "PhaseGeometry.fourier_character_rows_independent",
+      "PhaseGeometry.characterMatrix_rank_image",
+      "PhaseGeometry.zmod_mul_image_card",
+      "PhaseGeometry.powered_fourier_character_rank",
+      "PhaseGeometry.fourth_fourier_character_rank",
+      "PhaseGeometry.powered_fourier_operator_sq",
+      "PhaseGeometry.powered_fourier_operator_norm",
+      "PhaseGeometry.fourier_rhoFourth",
+      "PhaseGeometry.fin_character_unit",
+      "PhaseGeometry.fin_fourier_hadamard_gram",
+      "PhaseGeometry.fin_powered_fourier_rank",
+      "PhaseGeometry.fourier_phase_accessible_iff_dvd_four",
+      "PhaseGeometry.fourier_rhoFourth_orbit",
+      "PhaseGeometry.dita_unit",
+      "PhaseGeometry.dita_hadamard_gram",
+      "PhaseGeometry.dita_fourth_operator_sq_bound",
+      "PhaseGeometry.dita_rhoFourth_bound",
+      "PhaseGeometry.dita_equivalent_distance_bound",
+      "PhaseGeometry.dita_not_four_phase_accessible",
+      "PhaseGeometry.signed_intertwining_quaternary_forward",
+      "PhaseGeometry.signed_complex_structure_criterion"
+    ]
+  },
+  "id": "PALOMAR-2026-11-27-000017",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-27T06:12:34Z",
+    "receipt_sha256": "9b9835cdbccdb777fc32d149920104983fdd8109aa5c52283146ef6fe21f0016",
+    "repositories": [
+      {
+        "commit": "4e9f7ebd7c0fcbea4d939f19091cbb3875acc76c",
+        "fork_repository": "PalomarArchive/L-iet--HadamardPhaseGeometry--e344a5d87fc8",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000017-v1/4e9f7ebd7c0fcbea4d939f19091cbb3875acc76c",
+        "source_repository": "L-iet/HadamardPhaseGeometry"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000017-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000017-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000017-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000017-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000017-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000017-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000017-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000017-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000017-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Joshua Mark"
+          }
+        ],
+        "location": "paper/main.tex",
+        "relationship": "formalizes",
+        "title": "Phase geometry, discrete traps, and exact rounding for Hadamard matrices",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "location": "https://arxiv.org/abs/quant-ph/0512154",
+        "relationship": "background",
+        "title": "A concise guide to complex Hadamard matrices",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "location": "https://doi.org/10.3934/dcdss.2019147",
+        "relationship": "background",
+        "title": "Informing the structure of complex Hadamard matrix spaces using a flow",
+        "type": "paper"
+      },
+      {
+        "authors": [],
+        "location": "https://arxiv.org/abs/math/0507515",
+        "relationship": "background",
+        "title": "Switching operations for Hadamard matrices",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Joshua Mark"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-27T06:12:14Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "ca6b08dce390633700026cb5210cf1a01416b476e7cee0281eab9c4ca695f159"
+    },
+    "reviewed_at": "2026-11-27T06:06:59Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "4e9f7ebd7c0fcbea4d939f19091cbb3875acc76c",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "L-iet/HadamardPhaseGeometry",
+    "repository_url": "https://github.com/L-iet/HadamardPhaseGeometry",
+    "tree_url": "https://github.com/L-iet/HadamardPhaseGeometry/tree/4e9f7ebd7c0fcbea4d939f19091cbb3875acc76c"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "krrfuemzhsog"
+  },
+  "title": "Gram defects, phase escape, and exact rounding",
+  "trust": {
+    "challenge_bytes": 81272,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar",
+      "Mathlib.Analysis.SpecialFunctions.Sqrt",
+      "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv",
+      "Mathlib.Data.Nat.Bitwise",
+      "Mathlib.LinearAlgebra.Eigenspace.Basic",
+      "Mathlib.LinearAlgebra.Matrix.HadamardMatrix",
+      "Mathlib.LinearAlgebra.Matrix.Permutation",
+      "Mathlib.LinearAlgebra.Matrix.Rank"
+    ],
+    "challenge_lines": 999,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "104e4fd70d546cae987d036ac5365f819556607e5d94b2d9965337e3adbab025",
+    "evidence_path": "evidence/PALOMAR-2026-11-27-000017-v1/67b9259779a892b895eb84cf70c2b1f1522875d9b661b49914daf4760616ebee/",
+    "evidence_tree_sha256": "67b9259779a892b895eb84cf70c2b1f1522875d9b661b49914daf4760616ebee",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "b1e577f7da01c993336285f5476ee4552ebae6fbf2f64d1a21a352a830254a09",
+    "protected_config_sha256": "690adf16ca3b7e381f967175a2e20fc9bc5e8019631e85fea5ef8037716d237e",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45945588313,
+    "solution_sha256": "3eab4963c4b5b26305bc55afad07b6a10e412986f45d4c036027f2da6aa19deb",
+    "tool_digests": {
+      "bwrap": "906880ea2f9c41969027bb5b827591a706be6e7f819430d69fe46b41e26c63e5",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-27T05:31:43Z",
+    "workflow_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45945588313"
+  },
+  "version": 1
+}

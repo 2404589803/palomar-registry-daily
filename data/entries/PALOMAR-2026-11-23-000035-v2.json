@@ -1,0 +1,255 @@
+{
+  "abstract": "Unconditional pure core Lean 4 formalization (zero external dependencies, zero Mathlib imports, zero sorry, zero native_decide, standard axioms only) determining the exact last exception c*(k) for the 2-colour Rado number R(c, k) of x + y + c = kz for every integer k >= 3, where c*(k) = k(k^2 + k - 4)/2 for odd k and k(k^2 - 2)/2 for even k. Both halves are formalized unconditionally: (1) the companion paper's reflection proof (x |-> N+1-x) of the upper half R(c, k) = LB(c, k) for every valid c > c*(k) (valid means k odd or c even) combined with the general lower bound LB(c, k) of Martinelli and Schaal (2007, Lemma 2), and (2) an explicit boundary colouring showing non-forcing at LB(c*(k), k), i.e., there exists a 2-colouring of [1, LB(c*(k), k)] with no monochromatic solution of x + y + c*(k) = k z (so ¬ Forced (c*(k)) k (LB (c*(k)) k) and c*(k) is an exception to R(c, k) = LB(c, k); finite existence of R(c*(k), k) itself is not formalized). In nu_iff, the property \"R(c, k) = LB(c, k) for all valid c >= v\" holds iff c*(k) < v, so the least integer cutoff is c*(k) + 1 while the least valid cutoff nu(k) (requiring Valid nu(k) k, i.e., even when k is even) is c*(k) + 1 for odd k and c*(k) + 2 for even k, giving least valid cutoffs 13, 30, 66, 104, 183, 250, 388, 492 for k = 3..10 and settling the Kim-Song-Hwang (2023) conjecture nu(5) = 66. Coverage by this package's Palomar comparison: of the companion paper's 6 main results, 3 are compared in Lean in full (50%; Theorem 1 and Corollaries 2 and 3); Theorems 4 and 5 and Lemma 6 are proved in this package's Lean library but not compared. Abstract claims: 3 of 6 compared in Lean (50%).",
+  "authors": [
+    {
+      "name": "Tyler B. Hughes"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-23-000035-v2/08999bcba5afa0edec29b5cd1e94e51f34193f09ed5f4f6395e4c7623d3a9679/",
+    "artifact_tree_sha256": "08999bcba5afa0edec29b5cd1e94e51f34193f09ed5f4f6395e4c7623d3a9679",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-26T11:52:56Z",
+    "renderer_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05D10",
+      "11B75"
+    ]
+  },
+  "first_registered_on": "2026-11-23",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "RadoNuChallenge.rado_last_exception",
+      "RadoNuChallenge.rado_eq_LB",
+      "RadoNuChallenge.not_forced_cstar",
+      "RadoNuChallenge.nu_iff",
+      "RadoNuChallenge.nu_5_eq_66",
+      "RadoNuChallenge.nu_small_values"
+    ]
+  },
+  "id": "PALOMAR-2026-11-23-000035",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-26T22:29:27Z",
+    "receipt_sha256": "a631cef81a60161eb993c2b49052ad68372cf8d4cb11c2834a1ce9437f93ac0d",
+    "repositories": [
+      {
+        "commit": "cc81d1ad5d3d85dfb84bd022c7298d9df1d5c1f5",
+        "fork_repository": "PalomarArchive/mathdiscoveries--rado-numbers-last-exception--a04443996e37",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-23-000035-v2/cc81d1ad5d3d85dfb84bd022c7298d9df1d5c1f5",
+        "source_repository": "mathdiscoveries/rado-numbers-last-exception"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Bernie Martinelli"
+          },
+          {
+            "name": "Daniel Schaal"
+          }
+        ],
+        "location": "Ars Combinatoria 85 (2007), 33-42",
+        "relationship": "formalizes",
+        "title": "On Generalized Schur Numbers for x_1 + x_2 + c = kx_3",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Tyler B. Hughes"
+          }
+        ],
+        "identifier": "https://mathdiscoveries.org/results/rado-numbers-last-exception",
+        "location": "https://mathdiscoveries.org/results/rado-numbers-last-exception",
+        "relationship": "formalizes",
+        "title": "The Last Exception for Two-Colour Rado Numbers of x + y + c = kz for Every k >= 3",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Byeong Moon Kim"
+          },
+          {
+            "name": "Byung Chul Song"
+          },
+          {
+            "name": "Woonjae Hwang"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/j.disc.2023.113597",
+        "location": "Discrete Mathematics 346 (2023), 113597",
+        "relationship": "independently-proves",
+        "title": "Two-color Rado number of x + y + c = kz for large c",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "S. Jones"
+          },
+          {
+            "name": "D. Schaal"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/j.disc.2004.06.022",
+        "location": "Discrete Mathematics 289 (2004), 63-69",
+        "relationship": "background",
+        "title": "Two-color Rado numbers for x + y + c = kz",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "A. Kézdy"
+          },
+          {
+            "name": "H. Snevily"
+          },
+          {
+            "name": "S. White"
+          }
+        ],
+        "location": "Electronic Journal of Combinatorics 16 (2009), 1-13",
+        "relationship": "independently-proves",
+        "title": "Generalized Schur numbers for x_1 + x_2 + c = 3x_3",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "S. Guo"
+          }
+        ],
+        "location": "Ars Combinatoria 94 (2010), 257-264",
+        "relationship": "background",
+        "title": "Two-color Rado number for x + y + c = 4z",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tyler B. Hughes"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-26T22:29:19Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "9d9665cdefc71cb9cfe07e26b41389bd7decefc604866c934ec5c45b31ab9fa0"
+    },
+    "reviewed_at": "2026-11-26T12:11:50Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "cc81d1ad5d3d85dfb84bd022c7298d9df1d5c1f5",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "mathdiscoveries/rado-numbers-last-exception",
+    "repository_url": "https://github.com/mathdiscoveries/rado-numbers-last-exception",
+    "tree_url": "https://github.com/mathdiscoveries/rado-numbers-last-exception/tree/cc81d1ad5d3d85dfb84bd022c7298d9df1d5c1f5"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "1badabczey7z"
+  },
+  "title": "The Last Exception for Two-Colour Rado Numbers of x + y + c = kz",
+  "trust": {
+    "challenge_bytes": 5641,
+    "challenge_dependencies": [],
+    "challenge_imports": [],
+    "challenge_lines": 114,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "1554df055e8d78f9ded1155b4cea96bfb05d30a6f7f34f7a1d45d25dc6d09e77",
+    "evidence_path": "evidence/PALOMAR-2026-11-23-000035-v2/4ea3341bfbb0aed68a1d693e57d464c03b2fa2bffdf819303e8f5f1d0ef89d21/",
+    "evidence_tree_sha256": "4ea3341bfbb0aed68a1d693e57d464c03b2fa2bffdf819303e8f5f1d0ef89d21",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "6bb61c652adfde8dfe09d8c3edc4fbacc893e8f09cd80fe8e9e04baedcdf096d",
+    "protected_config_sha256": "c879dde23ce1f49278881149202f3e68cac0e430dde2dd42181a6e915f7a0a4e",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45813474946,
+    "solution_sha256": "ab8d8e8a2339b45698f93134f97dcb6b1dda33314dca408af253cc6ff2383997",
+    "tool_digests": {
+      "bwrap": "bd0983f4fba498a5a0ca0926dd0b6fddacd6a5b96dec736965919ec528c8f2db",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-26T11:48:02Z",
+    "workflow_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45813474946"
+  },
+  "version": 2
+}

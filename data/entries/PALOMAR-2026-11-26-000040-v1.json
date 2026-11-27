@@ -1,0 +1,420 @@
+{
+  "abstract": "A Lean 4 proof that symmetric informationally complete POVMs (SIC-POVMs) exist in every finite dimension. The compared statement is OpenQuantumProblem23.sicPOVMs from google-deepmind/formal-conjectures, the existence form of Open Quantum Problem 23 and of Zauner's conjecture: for every d >= 1 there are d^2 unit vectors in C^d whose pairwise squared overlaps all equal 1/(d+1). The configuration also compares the eleven benchmark theorems of the same file, which state the cases d = 56, 58, 59, 60, 64, 68, 69, 70, 71, 72 and 75. The mathematics is due to Radchenko and Wheeler, who build the required vectors from special values of the modular quantum dilogarithm and show by class field theory that a suitable Galois automorphism exists, together with the reduction of Appleby, Flammia and Kopp from such \"ghost\" vectors to SIC-POVMs. The Lean proof follows the argument of these sources in five parts: the reduction to a ghost fiducial with a unimodular Galois flip, the finite identities for the special values, their algebraicity by a 2-adic argument, the analytic properties of Faddeev's quantum dilogarithm, and the reciprocity argument through ray class fields, Artin reciprocity and the Chebotarev density theorem. Class field theory comes from the external Lean library of N. Yamaguchi and the Chebotarev density theorem from a vendored, ported copy of the library of C. Birkbeck. The repository also proves, as a further result outside the compared configuration, the existence of rank-r SICs of Appleby, Flammia and Kopp for r >= 1, d > 2r + 1 and r(d - r) dividing d^2 - 1. All proofs depend only on propext, Classical.choice and Quot.sound, and no sorry remains outside the deliberate placeholders of the Challenge. An earlier, independent Lean formalization of SIC existence by Māris Ozols exists, with its own statements.",
+  "authors": [
+    {
+      "name": "Yaoling Yang"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-26-000040-v1/7dd5affab4c3184d906e1346b4b577b9a5bfc24cbd59d7a056c9f424ba392611/",
+    "artifact_tree_sha256": "7dd5affab4c3184d906e1346b4b577b9a5bfc24cbd59d7a056c9f424ba392611",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-26T05:27:52Z",
+    "renderer_commit": "09f1d4a3a146a7ed531e54e99e8f0e1bbf283cba",
+    "verso_commit": "6674cf83c82a2c260bf5827d44e58f26568f7cbe"
+  },
+  "classification": {
+    "arxiv": [
+      "quant-ph",
+      "math.NT"
+    ],
+    "msc2020": [
+      "81P15",
+      "11R37",
+      "11R42",
+      "05B30"
+    ]
+  },
+  "first_registered_on": "2026-11-26",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "Nyll",
+        "repository": "n-yamaguchi-0729/ClassFieldTheory",
+        "revision": "fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "054b228ce0ac61d767c6e71ba73a24728f191b72"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ff055a2fcc835935e0ae607339b455a5f5896b4b"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "b4b25a3886a16daacaf6615c2eea7170a6e8f458"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "50810f72af7618bee62fe9800dc26e806c188703"
+      }
+    ],
+    "solution_path": "SICLean/Solution.lean",
+    "theorem_names": [
+      "OpenQuantumProblem23.sicPOVMs",
+      "OpenQuantumProblem23.hasSICPOVM_56",
+      "OpenQuantumProblem23.hasSICPOVM_58",
+      "OpenQuantumProblem23.hasSICPOVM_59",
+      "OpenQuantumProblem23.hasSICPOVM_60",
+      "OpenQuantumProblem23.hasSICPOVM_64",
+      "OpenQuantumProblem23.hasSICPOVM_68",
+      "OpenQuantumProblem23.hasSICPOVM_69",
+      "OpenQuantumProblem23.hasSICPOVM_70",
+      "OpenQuantumProblem23.hasSICPOVM_71",
+      "OpenQuantumProblem23.hasSICPOVM_72",
+      "OpenQuantumProblem23.hasSICPOVM_75"
+    ]
+  },
+  "id": "PALOMAR-2026-11-26-000040",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-26T10:33:37Z",
+    "receipt_sha256": "3d53266d0b22c1e349378c0bdd1264f24ea3807e8cd96010836224ccc2f3e8f3",
+    "repositories": [
+      {
+        "commit": "e74571352233162adee70895903d82f8465fd054",
+        "fork_repository": "PalomarArchive/Hertaspace--sic-povm-lean--21ee6dfd4ddc",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000040-v1/e74571352233162adee70895903d82f8465fd054",
+        "source_repository": "Hertaspace/sic-povm-lean"
+      },
+      {
+        "commit": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000040-v1/66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000040-v1/b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000040-v1/8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000040-v1/4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000040-v1/fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000040-v1/054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000040-v1/2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000040-v1/ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "50810f72af7618bee62fe9800dc26e806c188703",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000040-v1/50810f72af7618bee62fe9800dc26e806c188703",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565",
+        "fork_repository": "PalomarArchive/n-yamaguchi-0729--ClassFieldTheory--3f633fedd613",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-26-000040-v1/fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565",
+        "source_repository": "n-yamaguchi-0729/ClassFieldTheory"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "D. Radchenko"
+          },
+          {
+            "name": "C. Wheeler"
+          }
+        ],
+        "identifier": "arXiv:2609.21892",
+        "location": "Theorems 2, 3, 7 and 11 and Proposition 8, version 2",
+        "relationship": "formalizes",
+        "title": "Real quadratic fields and finite quantum dilogarithms I",
+        "type": "preprint (arXiv), not known to us to be refereed"
+      },
+      {
+        "authors": [
+          {
+            "name": "D. Radchenko"
+          },
+          {
+            "name": "C. Wheeler"
+          }
+        ],
+        "identifier": "https://www.danrad.net/papers/stark-reciprocity.pdf",
+        "location": "Proposition 7, using Theorems 5 and 8 and Proposition 4. Version dated 4 October 2026, accessed October 2026",
+        "relationship": "formalizes",
+        "title": "Stark units for real quadratic fields and reciprocity laws",
+        "type": "preprint (author's web page), not known to us to be refereed"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "M. Appleby"
+          },
+          {
+            "name": "S. T. Flammia"
+          },
+          {
+            "name": "G. S. Kopp"
+          }
+        ],
+        "identifier": "arXiv:2501.03970",
+        "location": "Theorem 1.46 and the reduction from ghost SICs with a unimodular Galois flip to SICs",
+        "relationship": "formalizes",
+        "title": "A constructive approach to Zauner's conjecture via the Stark conjectures",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "M. Appleby"
+          },
+          {
+            "name": "S. T. Flammia"
+          },
+          {
+            "name": "G. S. Kopp"
+          }
+        ],
+        "identifier": "arXiv:2609.39192",
+        "location": "extension of the twisted convolution identity to all ranks",
+        "relationship": "formalizes",
+        "title": "The twisted convolution identity and ghost r-SICs from finite quantum dilogarithms",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "L. D. Faddeev"
+          }
+        ],
+        "identifier": "arXiv:hep-th/9504111",
+        "location": "Lett. Math. Phys. 34 (1995), 249-254",
+        "relationship": "background",
+        "title": "Discrete Heisenberg-Weyl group and modular group",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "IQOQI Vienna Open Quantum Problems collection"
+          }
+        ],
+        "identifier": "https://oqp.iqoqi.oeaw.ac.at/sic-povms-and-zauners-conjecture",
+        "location": "problem 23, existence formulation",
+        "relationship": "background",
+        "title": "SIC-POVMs and Zauner's conjecture (Open Quantum Problem 23)",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "The Formal Conjectures Authors (Google DeepMind)"
+          }
+        ],
+        "identifier": "https://github.com/google-deepmind/formal-conjectures",
+        "license": "Apache-2.0",
+        "location": "FormalConjectures/OpenQuantumProblems/23.lean at commit 90d18f666eb98adec4eee4d12f1d37e30b4eb204",
+        "relationship": "background",
+        "title": "Formal statement of Open Quantum Problem 23 in formal-conjectures (OpenQuantumProblems/23.lean)",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/marozols/SIC-existence",
+        "note": "An earlier Lean 4 formalization of the existence of SIC-POVMs by Māris Ozols, made public on 9 October 2026, with its own statements. We learned of it after completing and releasing this formalization. We did not use its code and did not compare the two developments line by line.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/n-yamaguchi-0729/ClassFieldTheory",
+        "note": "Nyll, by Naganori Yamaguchi, Apache-2.0. Supplies ray class fields and Artin reciprocity. Used by the Solution only, pinned in lake-manifest.json at commit fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565, and not in the import closure of the Challenge. Two short theorems of Nyll are restated unchanged in SICLean/NyllBridge/RayClassSubgroup.lean, because their upstream files are not yet Lean modules at that commit. A fork at the commit used by release v1.0 is kept at Hertaspace/ClassFieldTheory.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/CBirkbeck/chebotarev-density",
+        "note": "Chebotarev density theorem, development branch at commit 8575c9df1ae0a61120ab5c964c7911414254bec7, Apache-2.0, by Chris Birkbeck with commits by Riccardo Brasca. Vendored under CebotarevDensity/ and ported to the Lean and Mathlib versions of this repository. Eight files were changed for release v1.0, as listed in CebotarevDensity/PROVENANCE.md and PORTING.diff, and seven files received small further adaptations for release v1.1 (Lean v4.36.0), also listed in PROVENANCE.md. Used by the Solution only.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://github.com/google-deepmind/formal-conjectures",
+        "note": "The definitions and statements of Open Quantum Problem 23 are those of formal-conjectures (Apache-2.0), kept verbatim in Challenge.lean and SICLean/Statement.lean.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Yaoling Yang"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-26T10:33:14Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "fc6814a72aa5dab4882efa5bc6c6d24ce8c55f1e435bb5057b7a1cea0aea8998"
+    },
+    "reviewed_at": "2026-11-26T05:48:53Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [
+      "The proof account leaves out the algebraic-geometric steps needed to establish algebraicity, making the 2-adic argument sound sufficient on its own. Explain the finite-or-cofinite coordinate-image step and the transfer to complex solutions alongside the valuation argument."
+    ]
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "e74571352233162adee70895903d82f8465fd054",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "Hertaspace/sic-povm-lean",
+    "repository_url": "https://github.com/Hertaspace/sic-povm-lean",
+    "tree_url": "https://github.com/Hertaspace/sic-povm-lean/tree/e74571352233162adee70895903d82f8465fd054"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "enw3tqgkfv2e"
+  },
+  "title": "SIC-POVMs exist in every dimension (Open Quantum Problem 23): a Lean 4 formalization",
+  "trust": {
+    "challenge_bytes": 4049,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 98,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "d6ee57b14bdc9f536896458a2251e9e629bdbe93d55f01d28af963b5ef845e8a",
+    "evidence_path": "evidence/PALOMAR-2026-11-26-000040-v1/ca365cca899b61b8359b205ff8cff7f600d23ea732e58e377559b773a00f4a43/",
+    "evidence_tree_sha256": "ca365cca899b61b8359b205ff8cff7f600d23ea732e58e377559b773a00f4a43",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "45359ec6022c02a360971a367ab2b151882deb54f22105030f5fdd0850bef12c",
+    "protected_config_sha256": "45417b9de1356a94f23e13464f36ffd341eb6179ff23cd2ee1b61abd102ff977",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 45755702568,
+    "solution_sha256": "2a183a38a0908e25e171fac8d953786add3993445a9df2626e6fcab10b21ec34",
+    "tool_digests": {
+      "bwrap": "b65f4956357f1073ceafccca85d5b0c3275b9bcacadb1e9cd448a4db42e600bb",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+    "verified_at": "2026-11-26T05:11:34Z",
+    "workflow_commit": "24814ca38882f835af270f61ae1b8031bb15e584",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45755702568"
+  },
+  "version": 1
+}
