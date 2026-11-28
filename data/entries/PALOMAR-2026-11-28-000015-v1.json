@@ -1,0 +1,376 @@
+{
+  "abstract": "A Lean 4 proof that both of Tokareva's conjectures on bent functions are false, following Feng, Jiang, Li, Li and Tang (arXiv:2610.32239). The bent-sum conjecture says that, for even n, every Boolean function on 𝔽₂ⁿ of algebraic degree at most n/2 is a sum of two bent functions; the function x₁x₂(x₃x₄ + x₅x₆ + x₇x₈) on 𝔽₂⁸ is a counterexample, and the paper's family gives one in every even dimension n ≥ 8. The derivative conjecture says that every balanced function of degree at most n/2 − 1 with a nonzero period is a derivative g(x) + g(x + a) of a bent function; x₂ + f₈(x₃, …, x₁₀) on 𝔽₂¹⁰ is a counterexample. The proof formalizes the paper's divisibility theorem (if x₁⋯x_k · s is a sum of two bent functions with 2k < n, then 2^(k+1) divides the weight of s), via Fourier inversion and Parseval on 𝔽₂ᵐ, and one direction of Shaporenko's lemma. A separate module proves that x₁x₂ + x₃x₄ + x₅x₆ + x₇x₈ is bent, so the definitions are not vacuous.",
+  "authors": [
+    {
+      "name": "David I. Goldstick"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-28-000015-v1/42a650378c4b23ae8027ee588ea4b65b2cd49c421c216b9e0c7a6299fd21b8fb/",
+    "artifact_tree_sha256": "42a650378c4b23ae8027ee588ea4b65b2cd49c421c216b9e0c7a6299fd21b8fb",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-28T02:57:01Z",
+    "renderer_commit": "952cc3697b3f335c6cc0c21932e55ee92921dd35",
+    "verso_commit": "6674cf83c82a2c260bf5827d44e58f26568f7cbe"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "cs.IT"
+    ],
+    "msc2020": [
+      "06E30",
+      "94D10",
+      "94A60"
+    ]
+  },
+  "first_registered_on": "2026-11-28",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "054b228ce0ac61d767c6e71ba73a24728f191b72"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ff055a2fcc835935e0ae607339b455a5f5896b4b"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "b4b25a3886a16daacaf6615c2eea7170a6e8f458"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "50810f72af7618bee62fe9800dc26e806c188703"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Tokareva.not_tokarevaConjecture",
+      "Tokareva.exists_not_isBentSum",
+      "Tokareva.not_tokarevaDerivativeConjecture"
+    ]
+  },
+  "id": "PALOMAR-2026-11-28-000015",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-28T03:23:00Z",
+    "receipt_sha256": "8fac39746e21ad16b0dcfe8b7a49f02e48dffe3e721415d8ce270b67ef13ba15",
+    "repositories": [
+      {
+        "commit": "105292f972eff7afd3ce695814c0c59bcd17dc3c",
+        "fork_repository": "PalomarArchive/innov8ion--tokareva-bent-counterexamples--b612f0095209",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000015-v1/105292f972eff7afd3ce695814c0c59bcd17dc3c",
+        "source_repository": "innov8ion/tokareva-bent-counterexamples"
+      },
+      {
+        "commit": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000015-v1/66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000015-v1/b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000015-v1/8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000015-v1/4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000015-v1/fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000015-v1/054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000015-v1/2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000015-v1/ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "50810f72af7618bee62fe9800dc26e806c188703",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000015-v1/50810f72af7618bee62fe9800dc26e806c188703",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Yansong Feng"
+          },
+          {
+            "name": "Hao Jiang"
+          },
+          {
+            "name": "Guancheng Li"
+          },
+          {
+            "name": "Tianyi Li"
+          },
+          {
+            "name": "Lili Tang"
+          }
+        ],
+        "identifier": "arXiv:2610.32239",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2610.32239",
+        "relationship": "formalizes",
+        "title": "A counterexample to Tokareva's conjecture on sums of two bent functions",
+        "type": "preprint"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Alexander Shaporenko"
+          }
+        ],
+        "identifier": "doi:10.1007/s10623-022-01167-4",
+        "license": "unknown",
+        "location": "Designs, Codes and Cryptography 91(5) (2023), 1607–1625",
+        "relationship": "background",
+        "title": "Derivatives of bent functions in connection with the bent sum decomposition problem",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Natalia Tokareva"
+          }
+        ],
+        "identifier": "doi:10.3934/amc.2011.5.609",
+        "license": "unknown",
+        "location": "Advances in Mathematics of Communications 5(4) (2011), 609–621",
+        "relationship": "background",
+        "title": "On the number of bent functions from iterative constructions: lower bounds and hypotheses",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Natalia N. Tokareva"
+          }
+        ],
+        "identifier": "doi:10.17223/2226308X/9/14",
+        "license": "unknown",
+        "location": "Prikladnaya Diskretnaya Matematika. Prilozhenie 9 (2016), 35 (in Russian)",
+        "relationship": "background",
+        "title": "On the set of derivatives of a Boolean bent function",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Vladimir N. Potapov"
+          }
+        ],
+        "identifier": "doi:10.1109/Redundancy59964.2023.10330175",
+        "license": "unknown",
+        "location": "REDUNDANCY 2023, IEEE, 51–53",
+        "relationship": "background",
+        "title": "Existence of balanced functions that are not derivative of bent functions",
+        "type": "conference paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Máté Róbert Kepes"
+          },
+          {
+            "name": "Anita Kercsó-Molnár"
+          },
+          {
+            "name": "András Viczián"
+          }
+        ],
+        "identifier": "arXiv:2611.06744",
+        "license": "unknown",
+        "location": "https://arxiv.org/abs/2611.06744",
+        "relationship": "background",
+        "title": "A family of symmetric counterexamples to the bent sum decomposition conjecture",
+        "type": "preprint"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/Polarnova/CryptBoolean",
+        "note": "A Lean library of cryptographic Boolean functions (Walsh transforms, bent functions, algebraic degree). This formalization does not depend on it; its definitions are self-contained over Mathlib.",
+        "relationship": "independent"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "David I. Goldstick"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-28T03:22:40Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "95c7593fa65e622fda073ec632d7f938e3bc3a5066169145ed5f67a709c0512a"
+    },
+    "reviewed_at": "2026-11-28T03:11:35Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "105292f972eff7afd3ce695814c0c59bcd17dc3c",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "innov8ion/tokareva-bent-counterexamples",
+    "repository_url": "https://github.com/innov8ion/tokareva-bent-counterexamples",
+    "tree_url": "https://github.com/innov8ion/tokareva-bent-counterexamples/tree/105292f972eff7afd3ce695814c0c59bcd17dc3c"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "3tlevo58yf34"
+  },
+  "title": "Counterexamples to Tokareva's conjectures on bent functions",
+  "trust": {
+    "challenge_bytes": 4294,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 93,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "9a31533d06a3bf98fc02b86e0822011c5ae481f49220866412e41a15f6c2dbfd",
+    "evidence_path": "evidence/PALOMAR-2026-11-28-000015-v1/6bb6c2a9645936947e7bd18c0e55c05e55839fbfa39facec574bd9c4573f417e/",
+    "evidence_tree_sha256": "6bb6c2a9645936947e7bd18c0e55c05e55839fbfa39facec574bd9c4573f417e",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "6bf8595f5bcd23924498a6267f9a1e47f91c40d126dacae782428c38ae1a5f66",
+    "protected_config_sha256": "ce719dcf256b5f44de33432cf9d4201798123e41e9e235d7233fdb2dcb19beee",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 46098998001,
+    "solution_sha256": "9e350b70991967f795f50e50e21f0d48bec671c541a257f4b51ef2626d5e4b0e",
+    "tool_digests": {
+      "bwrap": "7af3120b1862ff9c831d496db829444bc4d8344e75dacee6021a1221bf1b4bdb",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+    "verified_at": "2026-11-28T02:40:28Z",
+    "workflow_commit": "952cc3697b3f335c6cc0c21932e55ee92921dd35",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/46098998001"
+  },
+  "version": 1
+}

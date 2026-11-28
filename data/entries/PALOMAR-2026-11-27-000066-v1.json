@@ -1,0 +1,416 @@
+{
+  "abstract": "Lean 4 proof that Friedan's entropy inequality holds without the assumption that the Hamiltonians commute, answering the quantum question of MathOverflow 138395: for Hermitian n × n matrices H₀, H₁ and 0 ≤ a ≤ 1, with Gibbs states ρ_H = e^{−H}/Z(H), von Neumann entropies S(H), H_a = (1 − a)H₀ + aH₁ and K = Z(H_a)/(Z(H₀)^{1−a} Z(H₁)^a), K² S(H_a) ≤ (1 − a) S(H₀) + a S(H₁). Also proved: the same for m Hamiltonians, and a S(ρ) + (1 − a) S(σ) ≥ K² S(M/K), K = tr M, for the log-Euclidean mean of m faithful states, the α-z means (positive semidefinite states, any z > 0), the Kubo–Ando mean and the multivariate product means. The proof bounds the spectrum of the mean by weak log-majorization (Ky Fan, Horn, Ando–Hiai), shows that g(x) = (Σ eˣⁱ)² H(softmax x) is increasing and Schur-convex, and reduces to the classical inequality at the aligned commuting pair.",
+  "authors": [
+    {
+      "name": "Ming-Chih Kao"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-27-000066-v1/244e142b1c18aae3d769e847ac8de7e9254ffb469c0404a005e5ccd45eae0de7/",
+    "artifact_tree_sha256": "244e142b1c18aae3d769e847ac8de7e9254ffb469c0404a005e5ccd45eae0de7",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-27T19:18:13Z",
+    "renderer_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "verso_commit": "6674cf83c82a2c260bf5827d44e58f26568f7cbe"
+  },
+  "classification": {
+    "arxiv": [
+      "math-ph",
+      "quant-ph"
+    ],
+    "msc2020": [
+      "81P17",
+      "15A42",
+      "47A64",
+      "94A17"
+    ]
+  },
+  "first_registered_on": "2026-11-27",
+  "formalization": {
+    "challenge_path": "palomar/friedan-quantum/Challenge.lean",
+    "comparator_config_path": "palomar/friedan-quantum/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "palomar/friedan-quantum/formalization.yaml",
+    "lakefile_path": "palomar/friedan-quantum/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "Physlib",
+        "repository": "leanprover-community/physlib",
+        "revision": "edc607c2e6cbcc2f9c40c750e5c10a8490d32470"
+      },
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "054b228ce0ac61d767c6e71ba73a24728f191b72"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ff055a2fcc835935e0ae607339b455a5f5896b4b"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "b4b25a3886a16daacaf6615c2eea7170a6e8f458"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "50810f72af7618bee62fe9800dc26e806c188703"
+      }
+    ],
+    "solution_path": "palomar/friedan-quantum/Solution.lean",
+    "theorem_names": [
+      "FriedanQuantum.friedan_question",
+      "FriedanQuantum.alphaZ_psd",
+      "FriedanQuantum.kuboAndo",
+      "FriedanQuantum.hamiltonians_multi",
+      "FriedanQuantum.logEuclidean_multi",
+      "FriedanQuantum.product_multi"
+    ]
+  },
+  "id": "PALOMAR-2026-11-27-000066",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-27T19:33:00Z",
+    "receipt_sha256": "e1391eaad5ac517715be88071dc6256c7d4ce8fa6bc0ff7fb21611c811de75fb",
+    "repositories": [
+      {
+        "commit": "d14852e8a06ddbcc736de00de5a3d936b500222c",
+        "fork_repository": "PalomarArchive/koolkao--left-to-solve-palomar--f48f6ecf0cc2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000066-v1/d14852e8a06ddbcc736de00de5a3d936b500222c",
+        "source_repository": "koolkao/left-to-solve-palomar"
+      },
+      {
+        "commit": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000066-v1/66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000066-v1/b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000066-v1/8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000066-v1/4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000066-v1/fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "edc607c2e6cbcc2f9c40c750e5c10a8490d32470",
+        "fork_repository": "PalomarArchive/leanprover-community--physlib--6e0fa48494fa",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000066-v1/edc607c2e6cbcc2f9c40c750e5c10a8490d32470",
+        "source_repository": "leanprover-community/physlib"
+      },
+      {
+        "commit": "054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000066-v1/054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000066-v1/2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000066-v1/ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "50810f72af7618bee62fe9800dc26e806c188703",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000066-v1/50810f72af7618bee62fe9800dc26e806c188703",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Ming-Chih Kao"
+          }
+        ],
+        "identifier": "https://github.com/koolkao/friedan-entropy-inequality/tree/0f4ba65dc126f59e7158fbcbc01548baa78cf21d",
+        "license": "Apache-2.0",
+        "location": "https://github.com/koolkao/friedan-entropy-inequality (QUANTUM.md, quantum-lean/), commit 0f4ba65dc126f59e7158fbcbc01548baa78cf21d (v1.3.0), 27 Nov 2026",
+        "relationship": "other",
+        "title": "Friedan's entropy inequality for non-commuting Hamiltonians and for weighted geometric means of density matrices (Theorem 2 and quantum Theorem M), first presented with this formalization",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Daniel Friedan"
+          }
+        ],
+        "identifier": "https://mathoverflow.net/q/138395",
+        "license": "CC-BY-SA-3.0",
+        "location": "https://mathoverflow.net/q/138395 (2013), last paragraphs (the quantum question)",
+        "relationship": "background",
+        "title": "An Entropy Inequality (generalized)",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "K. Fan"
+          }
+        ],
+        "identifier": "doi:10.1073/pnas.35.11.652",
+        "location": "Proc. Natl. Acad. Sci. USA 35 (1949), 652–655",
+        "relationship": "background",
+        "title": "On a theorem of Weyl concerning eigenvalues of linear transformations I",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "A. Horn"
+          }
+        ],
+        "identifier": "doi:10.1073/pnas.36.7.374",
+        "location": "Proc. Natl. Acad. Sci. USA 36 (1950), 374–375",
+        "relationship": "background",
+        "title": "On the singular values of a product of completely continuous operators",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "T. Ando"
+          },
+          {
+            "name": "F. Hiai"
+          }
+        ],
+        "identifier": "doi:10.1016/0024-3795(94)90484-7",
+        "location": "Linear Algebra Appl. 197–198 (1994), 113–131",
+        "relationship": "background",
+        "title": "Log majorization and complementary Golden–Thompson type inequalities",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "K. M. R. Audenaert"
+          },
+          {
+            "name": "N. Datta"
+          }
+        ],
+        "identifier": "doi:10.1063/1.4906367",
+        "location": "J. Math. Phys. 56 (2015), 022202, eqs. (2)–(6)",
+        "relationship": "background",
+        "title": "α-z-Rényi relative entropies",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "F. Kubo"
+          },
+          {
+            "name": "T. Ando"
+          }
+        ],
+        "identifier": "doi:10.1007/BF01371042",
+        "location": "Math. Ann. 246 (1980), 205–224",
+        "relationship": "background",
+        "title": "Means of positive linear operators",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Meta Platforms, Inc. and affiliates"
+          }
+        ],
+        "identifier": "https://github.com/facebookresearch/atlas-lean/blob/44517525f25d2f7ce7a99e1bce7567d9583c9c4f/MathlibExt/Analysis/InnerProductSpace/KyFan.lean",
+        "license": "Apache-2.0",
+        "location": "facebookresearch/atlas-lean, commit 44517525f25d2f7ce7a99e1bce7567d9583c9c4f",
+        "relationship": "other",
+        "title": "atlas-lean, MathlibExt/Analysis/InnerProductSpace/KyFan.lean",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [],
+        "identifier": "https://github.com/leanprover-community/physlib/tree/edc607c2e6cbcc2f9c40c750e5c10a8490d32470",
+        "license": "Apache-2.0",
+        "location": "leanprover-community/physlib, commit edc607c2e6cbcc2f9c40c750e5c10a8490d32470",
+        "relationship": "other",
+        "title": "physlib (leanprover-community/physlib)",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/koolkao/friedan-entropy-inequality/tree/0f4ba65dc126f59e7158fbcbc01548baa78cf21d",
+        "note": "The original public Lean development (same author; quantum-lean/, Lean v4.36.0, Mathlib fc4f59e, physlib edc607c, without the module system). This entry copies FriedanQ/, FriedanMulti/ and FriedanQM/ into the module system unchanged apart from the header (the vendored Ky Fan file gets back its upstream module syntax); the statement checks FriedanQ/Check.lean and FriedanQM/Check.lean become Solution.lean, with new names and the same statements.",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ming-Chih Kao"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-27T19:32:34Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "18ada528c2674cf0813e9e855a451e42a72e6c8955e794cebb9a9f2af8b3e6a6"
+    },
+    "reviewed_at": "2026-11-27T19:30:41Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "d14852e8a06ddbcc736de00de5a3d936b500222c",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "palomar/friedan-quantum",
+    "repository": "koolkao/left-to-solve-palomar",
+    "repository_url": "https://github.com/koolkao/left-to-solve-palomar",
+    "tree_url": "https://github.com/koolkao/left-to-solve-palomar/tree/d14852e8a06ddbcc736de00de5a3d936b500222c/palomar/friedan-quantum"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "phut4zi171cf"
+  },
+  "title": "Friedan's entropy inequality for non-commuting Hamiltonians (the quantum question of MathOverflow 138395), for m Hamiltonians and for other matrix geometric means",
+  "trust": {
+    "challenge_bytes": 9108,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 147,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "e2d5512ea77bb700254a9e29112e6805dc41a880ab241c2dcbf8e9b43c756a8a",
+    "evidence_path": "evidence/PALOMAR-2026-11-27-000066-v1/3c40b0226ca32eba312c981996b6fcd2cef641ce549d24b42b92c63dabc4e924/",
+    "evidence_tree_sha256": "3c40b0226ca32eba312c981996b6fcd2cef641ce549d24b42b92c63dabc4e924",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "046726e6fb8d6f14db567d1bfd5481eac189acae6360191f0ba077deb1a0529c",
+    "protected_config_sha256": "0699d2c1c22700da85376a6849302dbd44a9b0ee57461ebb69fa789ad79a8c3c",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 46053777281,
+    "solution_sha256": "7f1ef635245eeb7a18af5b7a278193854e84172a85c957118e82a0bf59ed9785",
+    "tool_digests": {
+      "bwrap": "2a4e1bcfd78897974872685a5ed99b871df83ac21b108abbecf4da4b31fb43bc",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+    "verified_at": "2026-11-27T19:08:54Z",
+    "workflow_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/46053777281"
+  },
+  "version": 1
+}

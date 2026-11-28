@@ -1,0 +1,344 @@
+{
+  "abstract": "Lean 4 proof that for P = N(-mu, 1) and Q = N(mu, 1) truncated to an interval [a, b] (a < b), or to any interval of positive length, d_H^2(P,Q) <= d_H(P,Q) <= d_TV(P,Q) with d_TV = (1/2)||P - Q||_1 and d_H^2 = (1/2)||sqrt P - sqrt Q||_2^2, strictly d_H < d_TV for mu != 0, which answers MathOverflow question 184460 positively; and the inequality behind it: for a log-concave f >= 0 on R with f cosh integrable and integral of f sinh zero, (int f cosh)(int f cosh - int f) <= (int f |sinh|)^2, strictly for strictly log-concave f.",
+  "authors": [
+    {
+      "name": "Ming-Chih Kao"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-28-000030-v1/0702654ab70f2d74104be921d6bdc23705d5863e9ce08393f1c5b2fa1da64494/",
+    "artifact_tree_sha256": "0702654ab70f2d74104be921d6bdc23705d5863e9ce08393f1c5b2fa1da64494",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-28T06:46:54Z",
+    "renderer_commit": "952cc3697b3f335c6cc0c21932e55ee92921dd35",
+    "verso_commit": "6674cf83c82a2c260bf5827d44e58f26568f7cbe"
+  },
+  "classification": {
+    "arxiv": [
+      "math.PR",
+      "math.ST",
+      "cs.IT"
+    ],
+    "msc2020": [
+      "60E15",
+      "62B10",
+      "26D15"
+    ]
+  },
+  "first_registered_on": "2026-11-28",
+  "formalization": {
+    "challenge_path": "palomar/mo184460-hellinger-tv/Challenge.lean",
+    "comparator_config_path": "palomar/mo184460-hellinger-tv/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "palomar/mo184460-hellinger-tv/formalization.yaml",
+    "lakefile_path": "palomar/mo184460-hellinger-tv/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "054b228ce0ac61d767c6e71ba73a24728f191b72"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ff055a2fcc835935e0ae607339b455a5f5896b4b"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "b4b25a3886a16daacaf6615c2eea7170a6e8f458"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "50810f72af7618bee62fe9800dc26e806c188703"
+      }
+    ],
+    "solution_path": "palomar/mo184460-hellinger-tv/Solution.lean",
+    "theorem_names": [
+      "MO184460.answer",
+      "MO184460.answer_strict",
+      "MO184460.chain_interval",
+      "MO184460.thm3",
+      "MO184460.thm3_strict"
+    ]
+  },
+  "id": "PALOMAR-2026-11-28-000030",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-28T08:03:30Z",
+    "receipt_sha256": "0f45e8268845407416c16e90e94797a442b3d9747f717d9064829964618d47c4",
+    "repositories": [
+      {
+        "commit": "1ac420518579ebacea81c14eb2c2fc6173be74dc",
+        "fork_repository": "PalomarArchive/koolkao--left-to-solve-palomar--f48f6ecf0cc2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000030-v1/1ac420518579ebacea81c14eb2c2fc6173be74dc",
+        "source_repository": "koolkao/left-to-solve-palomar"
+      },
+      {
+        "commit": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000030-v1/66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000030-v1/b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000030-v1/8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000030-v1/4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000030-v1/fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000030-v1/054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000030-v1/2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000030-v1/ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "50810f72af7618bee62fe9800dc26e806c188703",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000030-v1/50810f72af7618bee62fe9800dc26e806c188703",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Ming-Chih Kao"
+          }
+        ],
+        "identifier": "https://github.com/koolkao/mo184460-hellinger-tv/tree/b2b49dcf336bcab5835d78cab9686f7ba9ee4b79",
+        "license": "Apache-2.0",
+        "location": "https://github.com/koolkao/mo184460-hellinger-tv (NOTE.md, MO184460.lean, Check.lean), commit b2b49dcf336bcab5835d78cab9686f7ba9ee4b79, 27 Nov 2026",
+        "relationship": "other",
+        "title": "Answer to MathOverflow 184460 (Hellinger <= total variation for truncated Gaussians), first presented with this formalization",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Alexander (MathOverflow user 39824)"
+          }
+        ],
+        "identifier": "https://mathoverflow.net/questions/184460",
+        "license": "CC-BY-SA-3.0",
+        "location": "https://mathoverflow.net/questions/184460 (asked 15 Oct 2014)",
+        "relationship": "background",
+        "title": "Total variation and Hellinger distance inequality between truncated Gaussians",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "J. Melbourne"
+          },
+          {
+            "name": "M. Roysdon"
+          },
+          {
+            "name": "C. Tang"
+          },
+          {
+            "name": "T. Tkocz"
+          }
+        ],
+        "identifier": "doi:10.1112/jlms.70461",
+        "location": "J. London Math. Soc. 113(3) (2026), Lemma 6 and Theorem 1 (arXiv:2505.00944)",
+        "relationship": "background",
+        "title": "From simplex slicing to sharp reverse Hölder inequalities",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "P. Harremoës"
+          },
+          {
+            "name": "I. Vajda"
+          }
+        ],
+        "identifier": "doi:10.1109/TIT.2011.2137353",
+        "location": "IEEE Trans. Inform. Theory 57(6) (2011) 3230-3235",
+        "relationship": "background",
+        "title": "On pairs of f-divergences and their joint range",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/koolkao/mo184460-hellinger-tv/tree/b2b49dcf336bcab5835d78cab9686f7ba9ee4b79",
+        "note": "The original public Lean development (same author, Lean v4.36.0, Mathlib fc4f59e, without the module system). This entry copies MO184460.lean and Check.lean into the module system unchanged apart from the header, the dropped #print axioms report and the namespaces (MO184460 -> HellingerTV, MO184460Check -> HellingerTVCheck).",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ming-Chih Kao"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-28T08:03:09Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "53e50b57296ff7943a699ba94d6b60afe93e1a9d9fd7cae7e444cdcb0716af9e"
+    },
+    "reviewed_at": "2026-11-28T07:23:22Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "1ac420518579ebacea81c14eb2c2fc6173be74dc",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "palomar/mo184460-hellinger-tv",
+    "repository": "koolkao/left-to-solve-palomar",
+    "repository_url": "https://github.com/koolkao/left-to-solve-palomar",
+    "tree_url": "https://github.com/koolkao/left-to-solve-palomar/tree/1ac420518579ebacea81c14eb2c2fc6173be74dc/palomar/mo184460-hellinger-tv"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "p6f5dqtm67l7"
+  },
+  "title": "Hellinger distance <= total variation for truncated Gaussians (MathOverflow 184460)",
+  "trust": {
+    "challenge_bytes": 4715,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 78,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "8ef854148b8fbc5ce539f0a17313b139cebc209d2383e74bd3d64091adc71a39",
+    "evidence_path": "evidence/PALOMAR-2026-11-28-000030-v1/b2b62e6a0cc84d3dcca44ad87bd85808535ba01c9fb586b38b85f52c79c91ee9/",
+    "evidence_tree_sha256": "b2b62e6a0cc84d3dcca44ad87bd85808535ba01c9fb586b38b85f52c79c91ee9",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "273c1d234176d30adb7f7e45d04ee9cbc97c3dec686497bea4e76d5616dfb264",
+    "protected_config_sha256": "edeb16eded384b1dae022112ab4d1ccb2d787f2a3c58923ff801bff5ec245a55",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 46117284814,
+    "solution_sha256": "c223c6500fe0d09d4561441c85fb163867710f14b16aeb75fb71116df6faeab6",
+    "tool_digests": {
+      "bwrap": "d28db05615c2260d291d8c47de4eedd27d867dfd9d0f5bf66dbefe59ff6874ff",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+    "verified_at": "2026-11-28T06:39:54Z",
+    "workflow_commit": "952cc3697b3f335c6cc0c21932e55ee92921dd35",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/46117284814"
+  },
+  "version": 1
+}

@@ -1,0 +1,346 @@
+{
+  "abstract": "A Lean 4 and Mathlib formalization of an exact decision procedure, on an explicit word RAM, for the connectivity of the perfect matchings of a hexagonal plane graph under hexagonal face flips. A hexagonal plane graph is a finite simple graph with a rotation system satisfying Euler's formula |V| + |F| = |E| + 2 (F the set of faces), a designated outer face and a designated set of other faces (the defects), such that every remaining face is a hexagon, bounded by six darts with six distinct tails; the graph is 2-connected, every vertex has degree 2 or 3, and a vertex of degree 2 lies on the outer face or on a defect. A hexagonal face flip replaces a perfect matching M, in which a hexagonal face alternates, by M with the matched and unmatched edges of that face exchanged; the graph is flip connected if every perfect matching is reached from every other by hexagonal face flips. One theorem is compared: there are six fixed word programs for a word RAM (unit cost per instruction, natural registers and memory cells bounded by a word bound W along the run; the machine also has exact real registers, and a word program contains no instruction that uses them) such that (i) isPrime, on the input [q], prints [1] if q is prime and [0] otherwise, within 8 floor(sqrt q) + 16 steps whenever W >= 4q + 8; (ii) for every hexagonal plane graph with n vertices and edge set E and every numbering of its faces, darts and vertices, orient (on a fixed encoding of the rotation system), ray (on that encoding and the number of a defect) and, for every prime p, defect and z = 1 or z = -1, the chain signs, build, detMod (each reading what the previous program printed) run within the stated step and word bounds (225n + 99 and 189n + 86 steps for orient and ray; 84n + 18, 9n^2 + 66n + 21 and 11n^3 + 37n^2 + 12n floor(log2 p) + 62n + 17 steps for the chain), the chain printing one word; (iii) the first 2|E| + 3 primes are at most 16 (2|E| + 3)^2; and (iv) the graph is flip connected exactly when, for each of the first 2|E| + 3 primes, the words printed for z = 1 and z = -1 agree for every defect. The programs compute the determinants, modulo p, of the signed adjacency matrices of a Kasteleyn orientation with the edges crossed by the ray weighted by z; the theorem itself states only the runs and the exact decision. The proofs use only the axioms propext, Classical.choice and Quot.sound.",
+  "authors": [
+    {
+      "name": "Robert D. Barish"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-28-000032-v1/e79b489024f2c3f813d0422f199eb2a63c74c428d083c4d90e3bbc59d688946f/",
+    "artifact_tree_sha256": "e79b489024f2c3f813d0422f199eb2a63c74c428d083c4d90e3bbc59d688946f",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-28T08:05:26Z",
+    "renderer_commit": "952cc3697b3f335c6cc0c21932e55ee92921dd35",
+    "verso_commit": "9f8096e40b31715b1d8d5997f15a0bd832f7e37d"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO",
+      "cs.DS"
+    ],
+    "msc2020": [
+      "05C70",
+      "05C10",
+      "05C85",
+      "68Q25",
+      "68W40"
+    ]
+  },
+  "first_registered_on": "2026-11-28",
+  "formalization": {
+    "challenge_path": "DeterministicFlipChallenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "95e037bfdc31d3916ac615446847fb01960e2719"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "75d936c7af167cc93fac0d31237682fc2204591d"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "2842b9871b04862f944c032e34052cb9448ccb71"
+      }
+    ],
+    "solution_path": "DeterministicFlipSolution.lean",
+    "theorem_names": [
+      "FlipConnectivity.deterministic_pfaffian_test"
+    ]
+  },
+  "id": "PALOMAR-2026-11-28-000032",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-28T08:46:45Z",
+    "receipt_sha256": "106c7ce179b9bad366c5763506b9a0b7acbd1894fa7b867ca1ae44a349e196e8",
+    "repositories": [
+      {
+        "commit": "75d936c7af167cc93fac0d31237682fc2204591d",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000032-v1/75d936c7af167cc93fac0d31237682fc2204591d",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000032-v1/ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000032-v1/10930f8138f0462dbd744a91fc03a16fae0e046f",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "95e037bfdc31d3916ac615446847fb01960e2719",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000032-v1/95e037bfdc31d3916ac615446847fb01960e2719",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000032-v1/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000032-v1/e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000032-v1/4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000032-v1/786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "2842b9871b04862f944c032e34052cb9448ccb71",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000032-v1/2842b9871b04862f944c032e34052cb9448ccb71",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "e0c5e674efbf5723eca65bf6bf21402fa35e7abf",
+        "fork_repository": "PalomarArchive/RBarish-UTokyo--PlanarHexagonFlipConnectivity-WordRAM-Lean4--232ca5f042e0",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000032-v1/e0c5e674efbf5723eca65bf6bf21402fa35e7abf",
+        "source_repository": "RBarish-UTokyo/PlanarHexagonFlipConnectivity-WordRAM-Lean4"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Robert D. Barish"
+          }
+        ],
+        "relationship": "other",
+        "title": "Pfaffian test modulo the first 2|E| + 3 primes for flip connectivity on the word RAM",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "P. W. Kasteleyn"
+          }
+        ],
+        "location": "Journal of Mathematical Physics 4 (1963), 287-293",
+        "relationship": "background",
+        "title": "Dimer statistics and phase transitions",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "N. C. Saldanha"
+          },
+          {
+            "name": "C. Tomei"
+          },
+          {
+            "name": "M. A. Casarin Jr."
+          },
+          {
+            "name": "D. Romualdo"
+          }
+        ],
+        "location": "Discrete and Computational Geometry 14 (1995), 207-233",
+        "relationship": "background",
+        "title": "Spaces of domino tilings",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "H. Zhang"
+          },
+          {
+            "name": "F. Zhang"
+          }
+        ],
+        "location": "Discrete Applied Mathematics 105 (2000), 291-311",
+        "relationship": "background",
+        "title": "Plane elementary bipartite graphs",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "W. P. Thurston"
+          }
+        ],
+        "location": "American Mathematical Monthly 97 (1990), 757-773",
+        "relationship": "background",
+        "title": "Conway's tiling groups",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Robert D. Barish"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-28T08:46:26Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "df80b91905c6aea3fa381b31fbfe303815e95967bcd4ee907925623db341a044"
+    },
+    "reviewed_at": "2026-11-28T08:15:04Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "e0c5e674efbf5723eca65bf6bf21402fa35e7abf",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "RBarish-UTokyo/PlanarHexagonFlipConnectivity-WordRAM-Lean4",
+    "repository_url": "https://github.com/RBarish-UTokyo/PlanarHexagonFlipConnectivity-WordRAM-Lean4",
+    "tree_url": "https://github.com/RBarish-UTokyo/PlanarHexagonFlipConnectivity-WordRAM-Lean4/tree/e0c5e674efbf5723eca65bf6bf21402fa35e7abf"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "8y8742b7phiz"
+  },
+  "title": "Flip connectivity of perfect matchings under hexagonal face flips, decided exactly by Pfaffians modulo the first 2|E| + 3 primes, on a word RAM, in Lean 4",
+  "trust": {
+    "challenge_bytes": 25750,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.SpecialFunctions.Log.Base",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected",
+      "Mathlib.Combinatorics.SimpleGraph.DegreeSum",
+      "Mathlib.Combinatorics.SimpleGraph.Matching",
+      "Mathlib.Data.Nat.Log",
+      "Mathlib.Data.ZMod.Basic",
+      "Mathlib.GroupTheory.Perm.Cycle.Basic",
+      "Mathlib.GroupTheory.Perm.Cycle.Factors",
+      "Mathlib.NumberTheory.PrimeCounting"
+    ],
+    "challenge_lines": 543,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "611418c6532d42e8b5c85ed0defa62c967d9b57f1e7d359735b1419408e512a0",
+    "evidence_path": "evidence/PALOMAR-2026-11-28-000032-v1/f7ab8d8f9a1bd04913f2682499683ba5382f392b00d2f5c8228f47b35499215f/",
+    "evidence_tree_sha256": "f7ab8d8f9a1bd04913f2682499683ba5382f392b00d2f5c8228f47b35499215f",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "1491ab32057a70501be29852dbe3fb2b31e044083228db97ab8df6ce1b8bf0a6",
+    "protected_config_sha256": "a680f9b3ef73c7b74e20d18d25f386a67d6f3792ca90224c015f177506ca0d06",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 46122849415,
+    "solution_sha256": "472f1de44d26ea5be32456d57f6f0514ce5e5bacbc30234aef2f0685d540f2aa",
+    "tool_digests": {
+      "bwrap": "e2447d46665e77290158aa870741867fce8b928477331f6e15445f2f16d4a611",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-28T07:52:13Z",
+    "workflow_commit": "952cc3697b3f335c6cc0c21932e55ee92921dd35",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/46122849415"
+  },
+  "version": 1
+}

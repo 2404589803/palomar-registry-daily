@@ -1,0 +1,328 @@
+{
+  "abstract": "Pure core Lean 4 (zero Mathlib imports) formalization refuting Conjecture 7.2 of Erickson et al. (JCTA 2025) on standard Young tableau multiset reconstruction for every k >= 8, proving no additive bound n >= k + c holds for multiset reconstruction, proving the universal two-row lower bound N(k) >= N_2(k) >= 3k for every k >= 2, and establishing the pure-kernel lifting framework, k = 3 lower bound for 2 <= n <= 10 and unique n = 14 separation, and k = 4 lower bound for 2 <= n <= 12 (Main results: 8 of 13 in Lean (62%, plus 8 supporting lemmas = 16 compared Lean theorems covering 16 of 21 all proved claims) · 5 by Lean lemmas plus independent computational certificates; zero sorry, zero native_decide, standard axioms only). Exact thresholds N(k) for k >= 7 and Conjecture 7.2 at k = 7 on 15 <= n < N(7) remain open. Companion page: https://mathdiscoveries.org/results/syt-hook-conjecture-refutation.",
+  "authors": [
+    {
+      "name": "Tyler B. Hughes"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-28-000025-v1/46b4455f1a4538aa5292883a8e8b777165db42bc6b8f7ce2e054301f0f15591b/",
+    "artifact_tree_sha256": "46b4455f1a4538aa5292883a8e8b777165db42bc6b8f7ce2e054301f0f15591b",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-28T05:38:24Z",
+    "renderer_commit": "952cc3697b3f335c6cc0c21932e55ee92921dd35",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05E10",
+      "05A05"
+    ]
+  },
+  "first_registered_on": "2026-11-28",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "SytHookConjectureRefutation.lemma1_largest_entry",
+      "SytHookConjectureRefutation.lemma2_monotone_in_k",
+      "SytHookConjectureRefutation.lemma3_minor_shapes",
+      "SytHookConjectureRefutation.lemma4_ambiguous_triples",
+      "SytHookConjectureRefutation.lemma5_step_and_lifting",
+      "SytHookConjectureRefutation.lemma6_top_part_invariance",
+      "SytHookConjectureRefutation.lemma7_two_row_deletion",
+      "SytHookConjectureRefutation.theorem4_general_lower_bound",
+      "SytHookConjectureRefutation.theorem8ab_two_row_propagation",
+      "SytHookConjectureRefutation.lemma8_hook_minor_multiset",
+      "SytHookConjectureRefutation.lemma9_padding",
+      "SytHookConjectureRefutation.lemma10_kdeck_hook_bridge",
+      "SytHookConjectureRefutation.theorem5_refute_conjecture_7_2",
+      "SytHookConjectureRefutation.theorem6_no_additive_multiset_bound",
+      "SytHookConjectureRefutation.theorem1_k3_sharpness_and_n14_triple",
+      "SytHookConjectureRefutation.theorem2_k4_lower_bound"
+    ]
+  },
+  "id": "PALOMAR-2026-11-28-000025",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-28T05:58:31Z",
+    "receipt_sha256": "3fa5116d0b08f2de4733c6b7f0aaa5ee9d65063394c9cca336e598a45cb05fdd",
+    "repositories": [
+      {
+        "commit": "50fd9068d88625dbfb8bd1c8c66380a5411a141c",
+        "fork_repository": "PalomarArchive/mathdiscoveries--syt-hook-conjecture-refutation--f9b59ee599ef",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000025-v1/50fd9068d88625dbfb8bd1c8c66380a5411a141c",
+        "source_repository": "mathdiscoveries/syt-hook-conjecture-refutation"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Tyler B. Hughes"
+          }
+        ],
+        "identifier": "https://mathdiscoveries.org/results/syt-hook-conjecture-refutation",
+        "location": "https://mathdiscoveries.org/results/syt-hook-conjecture-refutation",
+        "relationship": "formalizes",
+        "title": "Refutation of Erickson et al. (JCTA 2025) Standard Young Tableau Reconstruction Conjecture 7.2 for Every k >= 8, General Lower Bound N(k) >= 3k, and Exact Thresholds N(3)..N(6)",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "William Q. Erickson"
+          },
+          {
+            "name": "Daniel Herden"
+          },
+          {
+            "name": "Jonathan Meddaugh"
+          },
+          {
+            "name": "Mark R. Sepanski"
+          },
+          {
+            "name": "Cordell Hammon"
+          },
+          {
+            "name": "Jasmin Mohn"
+          },
+          {
+            "name": "Indalecio Ruiz-Bolaños"
+          }
+        ],
+        "identifier": "doi:10.1016/j.jcta.2024.105950",
+        "location": "https://doi.org/10.1016/j.jcta.2024.105950",
+        "relationship": "adapts",
+        "title": "Young tableau reconstruction via minors",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Maria Monks"
+          }
+        ],
+        "identifier": "doi:10.1016/j.jcta.2007.12.012",
+        "location": "https://doi.org/10.1016/j.jcta.2007.12.012",
+        "relationship": "adapts",
+        "title": "The solution to the partition reconstruction problem",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "B. Manvel"
+          },
+          {
+            "name": "A. Meyerowitz"
+          },
+          {
+            "name": "A. Schwenk"
+          },
+          {
+            "name": "K. Smith"
+          },
+          {
+            "name": "P. Stockmeyer"
+          }
+        ],
+        "identifier": "doi:10.1016/0012-365X(91)90026-X",
+        "location": "https://doi.org/10.1016/0012-365X(91)90026-X",
+        "relationship": "independently-proves",
+        "title": "Reconstruction of sequences",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jonas Golm"
+          },
+          {
+            "name": "Mina Nahvi"
+          },
+          {
+            "name": "Ryan Gabrys"
+          },
+          {
+            "name": "Olgica Milenkovic"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2201.12671",
+        "location": "https://arxiv.org/abs/2201.12671",
+        "relationship": "adapts",
+        "title": "The gapped k-deck problem",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Alan J. Cain"
+          },
+          {
+            "name": "Erkko Lehtonen"
+          }
+        ],
+        "identifier": "doi:10.1016/j.jcta.2021.105578",
+        "location": "https://doi.org/10.1016/j.jcta.2021.105578",
+        "relationship": "background",
+        "title": "Reconstructing Young tableaux",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Johan Chrisnata"
+          },
+          {
+            "name": "Han Mao Kiah"
+          },
+          {
+            "name": "Sankeerth Rao"
+          },
+          {
+            "name": "Alexander Vardy"
+          },
+          {
+            "name": "Eitan Yaakobi"
+          },
+          {
+            "name": "Hanwen Yao"
+          }
+        ],
+        "identifier": "doi:10.1109/ISCIT.2019.8905191",
+        "location": "https://doi.org/10.1109/ISCIT.2019.8905191",
+        "relationship": "background",
+        "title": "On the number of distinct k-decks: enumeration and bounds",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "OEIS Foundation Inc."
+          }
+        ],
+        "identifier": "https://oeis.org/A335892",
+        "location": "https://oeis.org/A335892",
+        "relationship": "background",
+        "title": "OEIS A335892: Smallest value of N such that two distinct binary words of length N share the same n-deck",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tyler B. Hughes"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-28T05:58:21Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "28bd735df5006d1ecc64cb7eb079856b73fb9ee061c7a7dd528502ba4f924488"
+    },
+    "reviewed_at": "2026-11-28T05:55:01Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "50fd9068d88625dbfb8bd1c8c66380a5411a141c",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "mathdiscoveries/syt-hook-conjecture-refutation",
+    "repository_url": "https://github.com/mathdiscoveries/syt-hook-conjecture-refutation",
+    "tree_url": "https://github.com/mathdiscoveries/syt-hook-conjecture-refutation/tree/50fd9068d88625dbfb8bd1c8c66380a5411a141c"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "e6ht0n19kg16"
+  },
+  "title": "Refutation of Erickson et al. (JCTA 2025) Standard Young Tableau Reconstruction Conjecture 7.2 for Every k >= 8, General Lower Bound N(k) >= 3k, and Pure-Kernel Lifting Framework",
+  "trust": {
+    "challenge_bytes": 42249,
+    "challenge_dependencies": [],
+    "challenge_imports": [],
+    "challenge_lines": 875,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "2fe4f2e77f811da1aaac29dcd79a638af88e79d126582c8a4b6abf1c9d42cee2",
+    "evidence_path": "evidence/PALOMAR-2026-11-28-000025-v1/d7b5ebdbcf8a50e6fa940a0c86b02a6574e9727e0256e7269fb12aeefc83728b/",
+    "evidence_tree_sha256": "d7b5ebdbcf8a50e6fa940a0c86b02a6574e9727e0256e7269fb12aeefc83728b",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "95a4815273cd445a9578ae8b3e508211a99554314f89704b16a2b576c0db1f64",
+    "protected_config_sha256": "a4264ae0bf250caccdacedc6952a92dc2404e8f7867348b4b340be4d5763e484",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 46112048286,
+    "solution_sha256": "4a2f196cdcb11970567c114b4482be67aa4a356b2a3e532c7b18e9712c9e7372",
+    "tool_digests": {
+      "bwrap": "b32af970e9f939f001fe6333821f8cd477a9351dff2e661634a6c5310a0e2627",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-28T05:28:19Z",
+    "workflow_commit": "952cc3697b3f335c6cc0c21932e55ee92921dd35",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/46112048286"
+  },
+  "version": 1
+}

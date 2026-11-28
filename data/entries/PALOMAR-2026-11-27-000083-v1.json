@@ -1,0 +1,336 @@
+{
+  "abstract": "Lean 4 proof that for all gX, gY, gZ > 0, with X ~ N(gX, gX), Y ~ N(gY, gY), Z ~ N(gZ, gZ) and Y, Z independent, neither tanh Y · tanh Z nor tanh X stochastically dominates the other: the c.d.f.s of U = tanh X and V = tanh Y · tanh Z cross on (−1, 1). So the answer to MathOverflow question 505921 (is there gX > 0 with tanh Y tanh Z ⪰_st tanh X?) is no for every gY, gZ > 0. Both laws satisfy the belief-propagation consistency (LLR symmetry) condition; two consistent laws that are stochastically ordered are equal; and the two laws differ near 0 (small-ball masses O(ε) for U, at least of order ε log(1/ε) for V).",
+  "authors": [
+    {
+      "name": "Ming-Chih Kao"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-27-000083-v1/6cfe9bb495f4526d4423f8cfdcb3d43ff50d9d1cf343d46a6ea3b72793cf98bc/",
+    "artifact_tree_sha256": "6cfe9bb495f4526d4423f8cfdcb3d43ff50d9d1cf343d46a6ea3b72793cf98bc",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-27T22:09:39Z",
+    "renderer_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "verso_commit": "6674cf83c82a2c260bf5827d44e58f26568f7cbe"
+  },
+  "classification": {
+    "arxiv": [
+      "math.PR",
+      "cs.IT"
+    ],
+    "msc2020": [
+      "60E15",
+      "60E05",
+      "94A24"
+    ]
+  },
+  "first_registered_on": "2026-11-27",
+  "formalization": {
+    "challenge_path": "palomar/mo505921-tanh-dominance/Challenge.lean",
+    "comparator_config_path": "palomar/mo505921-tanh-dominance/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "palomar/mo505921-tanh-dominance/formalization.yaml",
+    "lakefile_path": "palomar/mo505921-tanh-dominance/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "054b228ce0ac61d767c6e71ba73a24728f191b72"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ff055a2fcc835935e0ae607339b455a5f5896b4b"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "b4b25a3886a16daacaf6615c2eea7170a6e8f458"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "50810f72af7618bee62fe9800dc26e806c188703"
+      }
+    ],
+    "solution_path": "palomar/mo505921-tanh-dominance/Solution.lean",
+    "theorem_names": [
+      "MO505921.mo505921_Ioo",
+      "MO505921.mo505921",
+      "MO505921.mo505921_iIndep",
+      "MO505921.no_gX_Ioo"
+    ]
+  },
+  "id": "PALOMAR-2026-11-27-000083",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-27T22:31:34Z",
+    "receipt_sha256": "84a41115dd76ddec973b89a9dd069e84599947e6d6053c891c3da21ce279571c",
+    "repositories": [
+      {
+        "commit": "d14852e8a06ddbcc736de00de5a3d936b500222c",
+        "fork_repository": "PalomarArchive/koolkao--left-to-solve-palomar--f48f6ecf0cc2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000083-v1/d14852e8a06ddbcc736de00de5a3d936b500222c",
+        "source_repository": "koolkao/left-to-solve-palomar"
+      },
+      {
+        "commit": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000083-v1/66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000083-v1/b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000083-v1/8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000083-v1/4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000083-v1/fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000083-v1/054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000083-v1/2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000083-v1/ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "50810f72af7618bee62fe9800dc26e806c188703",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000083-v1/50810f72af7618bee62fe9800dc26e806c188703",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Ming-Chih Kao"
+          }
+        ],
+        "identifier": "https://github.com/koolkao/mo505921-tanh-dominance/tree/25c3c9124f47df41a312f283451699a36b73a2df",
+        "license": "Apache-2.0",
+        "location": "https://github.com/koolkao/mo505921-tanh-dominance (NOTE.md, MO505921.lean, Check.lean), commit 25c3c9124f47df41a312f283451699a36b73a2df, 27 Nov 2026",
+        "relationship": "other",
+        "title": "Complete negative answer to MathOverflow 505921 (tanh Y · tanh Z and tanh X are never stochastically ordered), first presented with this formalization",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "tituf (MathOverflow user 58793)"
+          }
+        ],
+        "identifier": "https://mathoverflow.net/questions/505921",
+        "license": "CC-BY-SA-4.0",
+        "location": "https://mathoverflow.net/questions/505921 (asked 14 Dec 2025)",
+        "relationship": "background",
+        "title": "Stochastic dominance tanh Y tanh Z ⪰ tanh X",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "T. Richardson"
+          },
+          {
+            "name": "R. Urbanke"
+          }
+        ],
+        "identifier": "doi:10.1017/CBO9780511791338",
+        "location": "Cambridge University Press, 2008 (Def. 4.11, (4.13)–(4.14), Example 4.25, Theorem 4.30, as numbered in the authors' 2007 draft)",
+        "relationship": "background",
+        "title": "Modern Coding Theory",
+        "type": "book"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "M. Shaked"
+          },
+          {
+            "name": "J. G. Shanthikumar"
+          }
+        ],
+        "identifier": "doi:10.1007/978-0-387-34675-5",
+        "location": "Springer, 2007, §1.A",
+        "relationship": "background",
+        "title": "Stochastic Orders",
+        "type": "book"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/koolkao/mo505921-tanh-dominance/tree/25c3c9124f47df41a312f283451699a36b73a2df",
+        "note": "The original public Lean development (same author, Lean v4.36.0, Mathlib fc4f59e, without the module system). This entry copies MO505921.lean and Check.lean into the module system unchanged apart from the header and the namespace (MO505921 → TanhDominance, so that Solution.lean can state the compared theorems under the names MO505921.*), and adds Ioo.lean.",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ming-Chih Kao"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-27T22:31:17Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "69bc7bdea8244954e2750b26152b6b90741193171d99073f8e56c20ae7418800"
+    },
+    "reviewed_at": "2026-11-27T22:27:00Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "d14852e8a06ddbcc736de00de5a3d936b500222c",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "palomar/mo505921-tanh-dominance",
+    "repository": "koolkao/left-to-solve-palomar",
+    "repository_url": "https://github.com/koolkao/left-to-solve-palomar",
+    "tree_url": "https://github.com/koolkao/left-to-solve-palomar/tree/d14852e8a06ddbcc736de00de5a3d936b500222c/palomar/mo505921-tanh-dominance"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "p7kcx7nccd52"
+  },
+  "title": "tanh Y · tanh Z and tanh X are never stochastically ordered for mean = variance Gaussians (a negative answer to MathOverflow 505921)",
+  "trust": {
+    "challenge_bytes": 5325,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 94,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "42108c585398b7b8448be7f87b60f6636f355de796bc0570c26505c077e96865",
+    "evidence_path": "evidence/PALOMAR-2026-11-27-000083-v1/59edd48019b41475819df6ce549e609f2ef4c5e48b1cbbcd22ab44e003050b25/",
+    "evidence_tree_sha256": "59edd48019b41475819df6ce549e609f2ef4c5e48b1cbbcd22ab44e003050b25",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "153bf0ca3195c2c485cbf56dfc55ad30a5755fb64bbc555114060064f6d1bc4b",
+    "protected_config_sha256": "620d168495bdc31d09fde7e0f58f56c8ada0b0d7929624ce21d547a7940a7e05",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 46073446181,
+    "solution_sha256": "905a8c77977b215a7abb5c4337227d3c59e6c8de574ce227e39894d412b1aab7",
+    "tool_digests": {
+      "bwrap": "3d620d76f841de1ba62a6da486565903da63a62c9dd91d2bdfe660e614ad9f7b",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+    "verified_at": "2026-11-27T22:00:30Z",
+    "workflow_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/46073446181"
+  },
+  "version": 1
+}

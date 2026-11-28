@@ -1,0 +1,359 @@
+{
+  "abstract": "A machine-checked proof of Gisin's theorem for two finite-dimensional systems of any dimensions: a pure state violates the CHSH inequality, for some choice of +/-1-valued observables on each side, if and only if it is not a product state. A vector of the joint system is a function psi : m x n -> C on a product basis, an observable is a Hermitian involution, the correlation of A and B is <psi, (A (x) B) psi> with Mathlib's Kronecker product, and the CHSH expression is <A0 B0> + <A0 B1> + <A1 B0> - <A1 B1>. Also proved separately: a unit product vector satisfies |CHSH| <= 2 for all such observables. The proof of the violation splits off two Schmidt terms of a non-product vector without a full singular value decomposition, from two eigenvectors of Psi Psi^H with positive eigenvalues, measures Z and X on Alice's two-dimensional span and cZ +/- tX on Bob's, with c and t chosen from the two Schmidt coefficients sigma0, sigma1, and acts as the identity on the orthogonal complements; the rest of the vector then contributes exactly its squared norm times 2, and the total is 2 + 2(sqrt(N^2 + C^2) - N) > 2, where N = sigma0^2 + sigma1^2 and C = 2 sigma0 sigma1 > 0. Controls exercise a product vector, the Bell state, a weakly entangled two-qubit state and a 3 x 3 state with three Schmidt terms.",
+  "authors": [
+    {
+      "name": "Zayn Blore"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-27-000046-v1/458c3377c57bc220be21651e42fb5f2287a1c1d14dd0aeaf2a149993fe0cc8bb/",
+    "artifact_tree_sha256": "458c3377c57bc220be21651e42fb5f2287a1c1d14dd0aeaf2a149993fe0cc8bb",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-27T14:10:46Z",
+    "renderer_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "verso_commit": "8fc7a297f14d5adc1a551b5b4ecf283c08bd691f"
+  },
+  "classification": {
+    "arxiv": [
+      "quant-ph",
+      "math-ph"
+    ],
+    "msc2020": [
+      "81P40",
+      "81P15",
+      "15A18"
+    ]
+  },
+  "first_registered_on": "2026-11-27",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "5e0c4e5239cb0a2d86d68a884bf52cfd963fce22"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "29ff470276c725ae01505d55b17148c18fc7dfd3"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "7e81a29bda33a6b257bd37557a6aa6aebe175d96"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "33131f4fb10067cb3009bf4db615d9680c1ccd6b"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "843844fa601dd56767b1eb22b7ada5b64d5e567a"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "Gisin.abs_chsh_le_of_isProduct",
+      "Gisin.gisin"
+    ]
+  },
+  "id": "PALOMAR-2026-11-27-000046",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-27T14:48:05Z",
+    "receipt_sha256": "6ce5658cdc03515f3953b8a24a7aae99dac6aab6345425887c4ff9954c8e70fa",
+    "repositories": [
+      {
+        "commit": "a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000046-v1/a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "33131f4fb10067cb3009bf4db615d9680c1ccd6b",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000046-v1/33131f4fb10067cb3009bf4db615d9680c1ccd6b",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000046-v1/7e81a29bda33a6b257bd37557a6aa6aebe175d96",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000046-v1/29ff470276c725ae01505d55b17148c18fc7dfd3",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "5e0c4e5239cb0a2d86d68a884bf52cfd963fce22",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000046-v1/5e0c4e5239cb0a2d86d68a884bf52cfd963fce22",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000046-v1/fb13df72ecefd8ddbf9291021d7f33a8673eb57b",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000046-v1/c643bbb3c24f8a25f9c14e3a6b1ceb13d01f3de1",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000046-v1/37b0ba0b26109cf9f9c541f0f9557e50cfa1a3b9",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000046-v1/843844fa601dd56767b1eb22b7ada5b64d5e567a",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "1bd2e4d38109dae927af9aff626856e4b62177b7",
+        "fork_repository": "PalomarArchive/zblore--gisin-lean--52eb86bd5c9e",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000046-v1/1bd2e4d38109dae927af9aff626856e4b62177b7",
+        "source_repository": "zblore/gisin-lean"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "N. Gisin"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/0375-9601(91)90805-I",
+        "location": "Phys. Lett. A 154 (1991), no. 5-6, 201-202.",
+        "relationship": "formalizes",
+        "title": "Bell's inequality holds for all non-product states",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "N. Brunner"
+          },
+          {
+            "name": "D. Cavalcanti"
+          },
+          {
+            "name": "S. Pironio"
+          },
+          {
+            "name": "V. Scarani"
+          },
+          {
+            "name": "S. Wehner"
+          }
+        ],
+        "identifier": "https://doi.org/10.1103/RevModPhys.86.419",
+        "location": "Rev. Mod. Phys. 86 (2014), no. 2, 419-478; arXiv:1303.2849.",
+        "relationship": "formalizes",
+        "title": "Bell nonlocality",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "S. Popescu"
+          },
+          {
+            "name": "D. Rohrlich"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/0375-9601(92)90711-T",
+        "location": "Phys. Lett. A 166 (1992), no. 5-6, 293-297.",
+        "relationship": "background",
+        "title": "Generic quantum nonlocality",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/stalex444/werner-window/tree/81c70fe45f81da86c25254f3eb52123d504b452c",
+        "note": "Palomar PALOMAR-2026-09-01-000003. Among other results it proves that every separable density matrix has CHSH expectation at most 2 at arbitrary finite local dimensions and Hermitian-involution settings (EntangledBorn.separable_chsh_le_general). Applied with Alice's observables negated it also gives -S <= 2, so for a unit product vector it implies all of this repository's abs_chsh_le_of_isProduct. It also exhibits the Bell state at the Tsirelson value. It does not state that every non-product pure state violates CHSH; that direction, and the equivalence, are what is new here.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://isa-afp.org/entries/TsirelsonBound.html",
+        "note": "Isabelle/HOL, Archive of Formal Proofs: M. Echenim, M. Mhalla and C. Mori, \"The CHSH inequality: Tsirelson's upper-bound and other results\" (2023). Proves that separable density matrices cannot violate the CHSH bound, Tsirelson's bound, and that the Bell state attains it. Covers the product bound; does not state Gisin's theorem.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://isa-afp.org/entries/Projective_Measurements.html",
+        "note": "Isabelle/HOL, Archive of Formal Proofs: M. Echenim, \"Quantum projective measurements and the CHSH inequality\" (2021). Projective measurements, the CHSH inequality and its quantum violation. Does not state Gisin's theorem.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/stalex444/pdt-lean/tree/0dae307fb786a3d180bba137a44555a1bf645637",
+        "note": "Palomar PALOMAR-2026-08-19-000007. Operator-level CHSH results for Mathlib's IsCHSHTuple: the Landau identity, Tsirelson's bound in norm form, the classical constant under a commuting party. Not about states; does not state Gisin's theorem.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/stalex444/tsirelson-contractions/tree/ef7bd3b81c4cda7030329bc1057df7b00e9efb9b",
+        "note": "Palomar PALOMAR-2026-10-28-000030. The same operator-level CHSH bounds for self-adjoint contractions, by dilation, with state corollaries bounding the CHSH value. Does not state Gisin's theorem.",
+        "relationship": "independent"
+      },
+      {
+        "identifier": "https://github.com/zblore/csd-lean4/blob/0b6012ce2c572ebc115675a3022fa3a90eb0beb7/CsdLean4/LF6/GisinTheorem.lean",
+        "note": "The author's earlier two-qubit case inside the CSD project: for c|00> + s|11> with real c, s > 0, explicit Pauli settings give the CHSH value 2 sqrt(1 + 4c^2 s^2) (gisin_chsh_value, gisin_chsh_violation). Not imported here; the idea of tilting Bob's settings by the concurrence is reused in the two-dimensional step.",
+        "relationship": "other"
+      },
+      {
+        "identifier": "https://github.com/leanprover-community/mathlib4/blob/5e0c4e5239cb0a2d86d68a884bf52cfd963fce22/Mathlib/Algebra/Star/CHSH.lean",
+        "note": "Mathlib's CHSH_inequality_of_comm and tsirelson_inequality, for CHSH tuples in an ordered star-ring. Abstract operator inequalities; they say nothing about states. Not used.",
+        "relationship": "other"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Zayn Blore"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-27T14:47:41Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "ec12995f3e74ccea6d75fbf3cb6daeb4e5b32d96d3a27c04dc1e1a933a3775e7"
+    },
+    "reviewed_at": "2026-11-27T14:20:31Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "1bd2e4d38109dae927af9aff626856e4b62177b7",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "repository": "zblore/gisin-lean",
+    "repository_url": "https://github.com/zblore/gisin-lean",
+    "tree_url": "https://github.com/zblore/gisin-lean/tree/1bd2e4d38109dae927af9aff626856e4b62177b7"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "z00cy45oqbu4"
+  },
+  "title": "Gisin's theorem for two finite-dimensional systems",
+  "trust": {
+    "challenge_bytes": 3661,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Analysis.Complex.Basic",
+      "Mathlib.LinearAlgebra.Matrix.Hermitian",
+      "Mathlib.LinearAlgebra.Matrix.Kronecker"
+    ],
+    "challenge_lines": 80,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "407a110a83b8bdffa5242ce7de2b3ee1ed74d522876dcebf21d46952dfb6a3f5",
+    "evidence_path": "evidence/PALOMAR-2026-11-27-000046-v1/baaac1ad92e5f8e4a64fad951f5dd92fa500030313a651bad56643a4f05f5a25/",
+    "evidence_tree_sha256": "baaac1ad92e5f8e4a64fad951f5dd92fa500030313a651bad56643a4f05f5a25",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "92e9ff8cec5833fd40e773838915be1ac87a58847c930958b9086b431595f8a3",
+    "protected_config_sha256": "ff03e3b3fcccdc8f3ca5992b5b241105067ae0803aec521a2e71cbdea74e6f04",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 46010158634,
+    "solution_sha256": "51e5bab7fbf984f3fb9c04dec8e18d4e6b4a011c49131e4c2e41b3b876a5051a",
+    "tool_digests": {
+      "bwrap": "a384295f568b18ed78a66d224ad17a575c337a1609c58c4dab296dc9f0e36d89",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+    "verified_at": "2026-11-27T13:51:08Z",
+    "workflow_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/46010158634"
+  },
+  "version": 1
+}

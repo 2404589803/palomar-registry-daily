@@ -1,0 +1,320 @@
+{
+  "abstract": "A Lean 4 / Mathlib disproof of Conjecture 267 of E. DeLaViña's \"Written on the Wall II\" (a conjecture of the computer program Graffiti.pc, posted Feb. 23, 2007, status O): \"If G is a simple connected graph such that girth(G) ≥ 5, then γ_t(G) ≥ CEIL[dist_avg(A,V)], where A is the set of minimum degree vertices.\" The counterexample is a connected graph on 14 vertices and 16 edges with girth exactly 5 (graph6 M???C@?G?oA_w_A{?). Its unique vertex of minimum degree has distance sum 67 to the other vertices, so ⌈dist_avg(A,V)⌉ = ⌈67/13⌉ = 6, while {3, 6, 11, 12, 13} is a total dominating set, so γ_t(G) = 5. An exhaustive nauty search shows no connected graph of girth at least 5 on at most 13 vertices is a counterexample. The conjecture had already been refuted (with a different, 21-vertex counterexample) by AI Village agents in August 2026; this project contributes the Lean formalization and the smaller counterexample. Because the girth is exactly 5, the disproof holds whether acyclic graphs are given girth 0 (Mathlib's convention, used in the statement) or infinite girth.",
+  "authors": [
+    {
+      "name": "Ari Gilchrist"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-27-000072-v2/258b8e3322580f5a1f720b78a635dcdb631cd8c0decbce8662eb53ef6b832d12/",
+    "artifact_tree_sha256": "258b8e3322580f5a1f720b78a635dcdb631cd8c0decbce8662eb53ef6b832d12",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-27T23:21:02Z",
+    "renderer_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "verso_commit": "6674cf83c82a2c260bf5827d44e58f26568f7cbe"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05C69",
+      "05C12",
+      "05C38"
+    ]
+  },
+  "first_registered_on": "2026-11-27",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "054b228ce0ac61d767c6e71ba73a24728f191b72"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ff055a2fcc835935e0ae607339b455a5f5896b4b"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "b4b25a3886a16daacaf6615c2eea7170a6e8f458"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "50810f72af7618bee62fe9800dc26e806c188703"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "WrittenOnTheWallII.GraphConjecture267.conjecture267_false"
+    ]
+  },
+  "id": "PALOMAR-2026-11-27-000072",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-27T23:41:47Z",
+    "receipt_sha256": "69be9795248e69947c3f889b178806cca1b4ad0ae88209c3b4250261d5493775",
+    "repositories": [
+      {
+        "commit": "4c9d27cc80f7e657e8df118d3de26c56fb841d3d",
+        "fork_repository": "PalomarArchive/Ari-Gilchrist--wowii-conjecture-267--0d57a4ad1c50",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000072-v2/4c9d27cc80f7e657e8df118d3de26c56fb841d3d",
+        "source_repository": "Ari-Gilchrist/wowii-conjecture-267"
+      },
+      {
+        "commit": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000072-v2/66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000072-v2/b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000072-v2/8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000072-v2/4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000072-v2/fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000072-v2/054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000072-v2/2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000072-v2/ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "50810f72af7618bee62fe9800dc26e806c188703",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000072-v2/50810f72af7618bee62fe9800dc26e806c188703",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "AI Village agents (Claude Opus 5; confirmation by Claude Opus 4.8)"
+          }
+        ],
+        "identifier": "https://gitlab.com/ai-village-agents/village/graffiti-verification/-/blob/main/verify/independent/opus48_confirms_267.md",
+        "location": "verify/independent/opus48_confirms_267.md (24 Aug 2026)",
+        "relationship": "background",
+        "title": "WOW-II conjecture 267 is false (AI Village disproof #170, independently confirmed)",
+        "type": "web discussion"
+      },
+      {
+        "authors": [],
+        "relationship": "other",
+        "title": "A 14-vertex girth-5 counterexample to Written on the Wall II Conjecture 267",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Ermelinda DeLaViña"
+          }
+        ],
+        "contributors": [
+          {
+            "name": "Graffiti.pc",
+            "role": "computer program that generated the conjecture"
+          }
+        ],
+        "identifier": "http://cms.uhd.edu/faculty/delavinae/research/wowII/all.html",
+        "location": "Conjecture 267 (Feb. 23, 2007)",
+        "relationship": "background",
+        "title": "Written on the Wall II (Conjectures of Graffiti.pc), Conjecture 267",
+        "type": "web discussion"
+      },
+      {
+        "authors": [
+          {
+            "name": "Wyatt J. Desormeaux"
+          },
+          {
+            "name": "Michael A. Henning"
+          }
+        ],
+        "identifier": "doi:10.1007/s10878-014-9708-2",
+        "relationship": "background",
+        "title": "Lower bounds on the total domination number of a graph",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ari Gilchrist"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-27T23:41:25Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "ec4c8803266d2794b3de80c32f459928c997ebda957c854397fdd37948d9ebbe"
+    },
+    "reviewed_at": "2026-11-27T23:35:49Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "4c9d27cc80f7e657e8df118d3de26c56fb841d3d",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "Ari-Gilchrist/wowii-conjecture-267",
+    "repository_url": "https://github.com/Ari-Gilchrist/wowii-conjecture-267",
+    "tree_url": "https://github.com/Ari-Gilchrist/wowii-conjecture-267/tree/4c9d27cc80f7e657e8df118d3de26c56fb841d3d"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "2w01rcy8nmir"
+  },
+  "title": "Written on the Wall II Conjecture 267 is false (a 14-vertex counterexample of girth 5)",
+  "trust": {
+    "challenge_bytes": 2971,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+      "Mathlib.Algebra.Order.Floor.Ring",
+      "Mathlib.Combinatorics.SimpleGraph.Finite",
+      "Mathlib.Combinatorics.SimpleGraph.Girth",
+      "Mathlib.Combinatorics.SimpleGraph.Metric"
+    ],
+    "challenge_lines": 64,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "411b8b19086ce6320981b70866b8c121071df147bd256bcd9e878fbccd5591a7",
+    "evidence_path": "evidence/PALOMAR-2026-11-27-000072-v2/5d89f29b550daac195901368d8da9e2a0703337806cde0b9d13111900e966589/",
+    "evidence_tree_sha256": "5d89f29b550daac195901368d8da9e2a0703337806cde0b9d13111900e966589",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "00acb546549e0dad91ca42a894858fca0b3e7a047e4e89fdc10f387e3071a3c5",
+    "protected_config_sha256": "0a308fac2d9a4b971bb3bed5ecc229515a3b492468a64d40baa580723c32a563",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 46080234093,
+    "solution_sha256": "03b88a85991ab7c8edd7ebc2d8d7dceb0d34e2a69e81bc12b616cdbfe59de234",
+    "tool_digests": {
+      "bwrap": "c0d469be8cceb219fbeadfbbb9f48ca90d3ac0e8cb2c31f415858d79de89c534",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+    "verified_at": "2026-11-27T23:06:01Z",
+    "workflow_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/46080234093"
+  },
+  "version": 2
+}

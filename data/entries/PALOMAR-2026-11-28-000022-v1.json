@@ -1,0 +1,343 @@
+{
+  "abstract": "For e, n >= 1 let S_e(n) be the mean of the least residues of the e-th powers modulo n, s_e(n) = #{k < n : n | k^e} and defect_e(n) = (n - s_e(n))/2 - S_e(n). The development proves, for every e and every n >= 1, the divisor form defect_e(n) = sum_{d | n} G_e(d), where G_e(d) is a sawtooth sum of the Moebius-inverted counts of e-th roots modulo d. For odd e it gives G_e = 0, so that S_e(n) = (n - s_e(n))/2. For every e >= 1 and n >= 1 it gives the closed form G_e(n) = - sum_tau [psi_tau odd] B_1(psi_tau) prod_{p | n} W_p(tau), a sum over choices of local Dirichlet characters chi_p modulo prime powers p^c dividing n, with explicit local weights built from psi_tau(p). Only the odd primitive characters with psi^e = 1 contribute. The proof is elementary: - root counts modulo prime powers (dilation, vanishing, small levels); - character orthogonality for the unit counts; - changeLevel for the primitive part; - the inflation, dilation and parity properties of the sawtooth functional. For e = 2 the result is the formula of the MeanResidue release, which is Proposition A.2 (a = 1) of Skoruppa and Zagier. For prime moduli the evaluation is classical. No statement for e >= 3 and composite n was found in the literature. Nothing is quoted.",
+  "authors": [
+    {
+      "name": "Joseph S. Farland"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-28-000022-v1/ed620b09c6886e327d3d7675615557d4a891618a2868523b0538bea46ddba49a/",
+    "artifact_tree_sha256": "ed620b09c6886e327d3d7675615557d4a891618a2868523b0538bea46ddba49a",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-28T03:50:04Z",
+    "renderer_commit": "952cc3697b3f335c6cc0c21932e55ee92921dd35",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11A15",
+      "11R29",
+      "11L05",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-28",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "MeanPowerResidue.defect_eq_sum_G",
+      "MeanPowerResidue.moebius_defect",
+      "MeanPowerResidue.G_of_odd",
+      "MeanPowerResidue.S_of_odd",
+      "MeanPowerResidue.cnt_dilate",
+      "MeanPowerResidue.card_roots_eq_sum_char",
+      "MeanPowerResidue.G_closed_form"
+    ]
+  },
+  "id": "PALOMAR-2026-11-28-000022",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-28T05:25:41Z",
+    "receipt_sha256": "e23fb6b3e757c56d3e94bacbddc3ebc118d3d15ca1bc087dfc522915a0a54e92",
+    "repositories": [
+      {
+        "commit": "13d6786f335a5a859e88ef6fb2fa161623826479",
+        "fork_repository": "PalomarArchive/jkfarland-bot--MeanPowerResidue--bcf6c2ed99eb",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000022-v1/13d6786f335a5a859e88ef6fb2fa161623826479",
+        "source_repository": "jkfarland-bot/MeanPowerResidue"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000022-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000022-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000022-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000022-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000022-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000022-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000022-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000022-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000022-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "license": "CC-BY-4.0",
+        "location": "Preprint, Zenodo, 2026, all versions https://doi.org/10.5281/zenodo.24617087 (v1.0: https://doi.org/10.5281/zenodo.24617088)",
+        "relationship": "formalizes",
+        "title": "The mean e-th power residue modulo any n, formalized in Lean",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Joseph S. Farland"
+          }
+        ],
+        "license": "Apache-2.0",
+        "location": "Zenodo, 2026, all versions https://doi.org/10.5281/zenodo.24507181",
+        "relationship": "background",
+        "title": "MeanResidue: a Lean 4 formalization of mean quadratic residues, floor sums of square roots, and the conjectures of Chamberland and Dilcher",
+        "type": "software"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "N.-P. Skoruppa"
+          },
+          {
+            "name": "D. Zagier"
+          }
+        ],
+        "license": "unknown",
+        "location": "Invent. Math. 94 (1988), 113-146",
+        "relationship": "background",
+        "title": "Jacobi forms and a certain space of modular forms",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "M. R. Murty"
+          },
+          {
+            "name": "R. Thangadurai"
+          }
+        ],
+        "license": "unknown",
+        "location": "Proc. Amer. Math. Soc. 139 (2011), 1277-1289",
+        "relationship": "background",
+        "title": "The class number of Q(sqrt(-p)) and digits of 1/p",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "OEIS contributors"
+          }
+        ],
+        "license": "CC-BY-SA-4.0",
+        "location": "https://oeis.org/A048157",
+        "relationship": "background",
+        "title": "OEIS A048157: a(n) = Sum_{k=1..n} (k^4 mod n)",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Joseph S. Farland"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-28T05:25:22Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "f84a75826f48e4126885b58b081bb96410e538a355c36872c78153cb3d0c2572"
+    },
+    "reviewed_at": "2026-11-28T04:03:58Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "13d6786f335a5a859e88ef6fb2fa161623826479",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "jkfarland-bot/MeanPowerResidue",
+    "repository_url": "https://github.com/jkfarland-bot/MeanPowerResidue",
+    "tree_url": "https://github.com/jkfarland-bot/MeanPowerResidue/tree/13d6786f335a5a859e88ef6fb2fa161623826479"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "y4djok1peehr"
+  },
+  "title": "MeanPowerResidue: the mean e-th power residue modulo any n",
+  "trust": {
+    "challenge_bytes": 7047,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 161,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "27c0c3a5e2f9e811bc12bacb81d937de43bea81e64adf312adf92ff99534645f",
+    "evidence_path": "evidence/PALOMAR-2026-11-28-000022-v1/6dae2798852ba1a1fcf7849df7b34495a6ab52d48bc20ca09f8ed473a034315c/",
+    "evidence_tree_sha256": "6dae2798852ba1a1fcf7849df7b34495a6ab52d48bc20ca09f8ed473a034315c",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "1ad9bd896ebba4c8a66734158ac573eb8467267d821e25666b6d6479092ed077",
+    "protected_config_sha256": "8efe21842e88b3a595de592451d91427483e81905663bba0871f109e6fe4f751",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 46103877155,
+    "solution_sha256": "71d5c27c9a824930ca9b64e2cacdc861f47fb2cedb43988cc3488ae7c9daea66",
+    "tool_digests": {
+      "bwrap": "e7a8c7cbfe2f01a4e310bf00fe78a76556d83a6580cec54b8eab325677716015",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-28T03:44:34Z",
+    "workflow_commit": "952cc3697b3f335c6cc0c21932e55ee92921dd35",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/46103877155"
+  },
+  "version": 1
+}

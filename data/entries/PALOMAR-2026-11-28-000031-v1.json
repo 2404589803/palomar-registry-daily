@@ -1,0 +1,342 @@
+{
+  "abstract": "Lean 4 proof that for independent X ~ Bin(k, 1-p) and Y ~ Bin(k, p), k >= 1, 0 < g < 1 and 0 < l <= (1+g)/2, f_k(p) = P((1+g)X + lY > k) is strictly decreasing in p on [0, 1], which answers MathOverflow question 478827 (g, l in (0,1), g >= l) positively, both for the explicit binomial sum and for Mathlib's binomial measure; and that strict (even weak) decrease fails for k = 10, g = 1/7, l = 99/100, so the general claim (Fact 1 of Arigapudi, Heller and Schreiber, arXiv:2107.08423) does not hold for all g, l in (0,1).",
+  "authors": [
+    {
+      "name": "Ming-Chih Kao"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-28-000031-v1/fa1f0b50c3d837adf64ff076ebc327028aed8fba89d1a0131ed8653cc8fcd4dc/",
+    "artifact_tree_sha256": "fa1f0b50c3d837adf64ff076ebc327028aed8fba89d1a0131ed8653cc8fcd4dc",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-28T06:15:51Z",
+    "renderer_commit": "952cc3697b3f335c6cc0c21932e55ee92921dd35",
+    "verso_commit": "6674cf83c82a2c260bf5827d44e58f26568f7cbe"
+  },
+  "classification": {
+    "arxiv": [
+      "math.PR",
+      "econ.TH"
+    ],
+    "msc2020": [
+      "60E15",
+      "60C05",
+      "91A22"
+    ]
+  },
+  "first_registered_on": "2026-11-28",
+  "formalization": {
+    "challenge_path": "palomar/mo478827-binomial-monotone/Challenge.lean",
+    "comparator_config_path": "palomar/mo478827-binomial-monotone/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "palomar/mo478827-binomial-monotone/formalization.yaml",
+    "lakefile_path": "palomar/mo478827-binomial-monotone/lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "054b228ce0ac61d767c6e71ba73a24728f191b72"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ff055a2fcc835935e0ae607339b455a5f5896b4b"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "b4b25a3886a16daacaf6615c2eea7170a6e8f458"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "50810f72af7618bee62fe9800dc26e806c188703"
+      }
+    ],
+    "solution_path": "palomar/mo478827-binomial-monotone/Solution.lean",
+    "theorem_names": [
+      "MO478827.theorem1",
+      "MO478827.answer",
+      "MO478827.prop2_not_antitone",
+      "MO478827.fact1_fails",
+      "MO478827.prob_of_indep",
+      "MO478827.theorem1_measure",
+      "MO478827.answer_measure"
+    ]
+  },
+  "id": "PALOMAR-2026-11-28-000031",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-28T08:08:22Z",
+    "receipt_sha256": "e4859731860fb0e098da47a8de32de06e980e237999da2c54afc6c9af807edf9",
+    "repositories": [
+      {
+        "commit": "1ac420518579ebacea81c14eb2c2fc6173be74dc",
+        "fork_repository": "PalomarArchive/koolkao--left-to-solve-palomar--f48f6ecf0cc2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000031-v1/1ac420518579ebacea81c14eb2c2fc6173be74dc",
+        "source_repository": "koolkao/left-to-solve-palomar"
+      },
+      {
+        "commit": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000031-v1/66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000031-v1/b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000031-v1/8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000031-v1/4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000031-v1/fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000031-v1/054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000031-v1/2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000031-v1/ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "50810f72af7618bee62fe9800dc26e806c188703",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000031-v1/50810f72af7618bee62fe9800dc26e806c188703",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "Ming-Chih Kao"
+          }
+        ],
+        "identifier": "https://github.com/koolkao/mo478827-binomial-monotone/tree/3d17061d300988d21b3b1f23cf4bf91b6129dc62",
+        "license": "Apache-2.0",
+        "location": "https://github.com/koolkao/mo478827-binomial-monotone (NOTE.md, MO478827.lean, Check.lean), commit 3d17061d300988d21b3b1f23cf4bf91b6129dc62, 27 Nov 2026",
+        "relationship": "other",
+        "title": "Answer to MathOverflow 478827 (strict monotonicity of P((1+g)X + lY > k) in p), first presented with this formalization",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "EGT (MathOverflow user 151054)"
+          }
+        ],
+        "identifier": "https://mathoverflow.net/questions/478827",
+        "license": "CC-BY-SA-4.0",
+        "location": "https://mathoverflow.net/questions/478827 (asked 14 Sep 2024)",
+        "relationship": "background",
+        "title": "Probability of sum of i.i.d. random variables being positive",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "S. Arigapudi"
+          },
+          {
+            "name": "Y. Heller"
+          },
+          {
+            "name": "A. Schreiber"
+          }
+        ],
+        "identifier": "arXiv:2107.08423",
+        "location": "https://arxiv.org/abs/2107.08423 (v4), eq. (3.2) and Fact 1",
+        "relationship": "background",
+        "title": "Sampling dynamics and stable mixing in hawk-dove games",
+        "type": "preprint"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "S. Arigapudi"
+          },
+          {
+            "name": "Y. Heller"
+          }
+        ],
+        "identifier": "doi:10.1016/j.geb.2025.03.003",
+        "location": "Games Econ. Behav. 151 (2025) 148-161",
+        "relationship": "background",
+        "title": "Sampling dynamics and stable mixing in hawk-dove games (journal version)",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/koolkao/mo478827-binomial-monotone/tree/3d17061d300988d21b3b1f23cf4bf91b6129dc62",
+        "note": "The original public Lean development (same author, Lean v4.36.0, Mathlib fc4f59e, without the module system). This entry copies MO478827.lean and Check.lean into the module system unchanged apart from the header, the dropped #print axioms report and the namespaces (MO478827 -> BinomialMonotone, MO478827Check -> BinomialMonotoneCheck).",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Ming-Chih Kao"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-28T08:08:03Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "7bc2cb7871dcd8f061cedcbb607a71599d39ad3385c4c2c2079ca118dc7429a8"
+    },
+    "reviewed_at": "2026-11-28T06:33:45Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "1ac420518579ebacea81c14eb2c2fc6173be74dc",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "project_path": "palomar/mo478827-binomial-monotone",
+    "repository": "koolkao/left-to-solve-palomar",
+    "repository_url": "https://github.com/koolkao/left-to-solve-palomar",
+    "tree_url": "https://github.com/koolkao/left-to-solve-palomar/tree/1ac420518579ebacea81c14eb2c2fc6173be74dc/palomar/mo478827-binomial-monotone"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "xip2rlwjwb27"
+  },
+  "title": "P((1+g)X + lY > k) is strictly decreasing in p when 2l <= 1+g (MathOverflow 478827)",
+  "trust": {
+    "challenge_bytes": 5447,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 101,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "d19588ca213fd672deafb6690fac1ebcb9b108409754f2a8b2f0ada916f22815",
+    "evidence_path": "evidence/PALOMAR-2026-11-28-000031-v1/b6d5e591a7870339a233f880d2e333e2b5c5cfa7f57ed5ad109872cbaa347898/",
+    "evidence_tree_sha256": "b6d5e591a7870339a233f880d2e333e2b5c5cfa7f57ed5ad109872cbaa347898",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "74b1fb9803be4b6537973ba0b308fa377133f3bfb54811b12635049985af787b",
+    "protected_config_sha256": "19878ad408f5d1664a8563522ffad9104e9675c1be37f0f84af9c7deed8378ca",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 46114184986,
+    "solution_sha256": "a86ff9c5af645cd76eee1d540dd2721f7512f5a9ace6b53e1cda620243e50a47",
+    "tool_digests": {
+      "bwrap": "414ebaec7b3cb8767d24c38f07f082dbea372a6ee3ca72a8efc586048c33bd28",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+    "verified_at": "2026-11-28T05:58:20Z",
+    "workflow_commit": "952cc3697b3f335c6cc0c21932e55ee92921dd35",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/46114184986"
+  },
+  "version": 1
+}

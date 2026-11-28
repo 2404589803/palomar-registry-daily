@@ -1,0 +1,825 @@
+{
+  "abstract": "For m≥1 complex fields, add one real trilinear term per unordered triple of distinct fields to Σᵢ Re(zᵢ³). If the resulting cubic’s real gradient norm depends only on |z|, then m is 1, 4 or 13. Both larger cases occur. Up to real isometry for the trace metric, their cubics are √6 times the trace of the Jordan cube on traceless Hermitian 3×3 matrices over ℂ and the octonions, respectively.\n\nFor a finite-dimensional real Euclidean cubic W(x)=d(x,x,x) with symmetric trilinear form d, define ⟨x∘y,z⟩=d(x,y,z). Assume the eikonal law |x∘x|²=c|x|⁴ with c>0. Every orthogonal decomposition into at least two nonzero product-closed subspaces consists of four lines, four planes, thirteen planes, or nine planes and an eight-dimensional block. Each pattern occurs at c=1.\n\nFor an orthogonal decomposition of such an eikonal cubic into three or more closed planes, a triple’s share is ½tr(PQ), where P and Q project orthogonally onto the third plane and the span of products from the first two, respectively. Shares lie in [0,1]. For each pair the remaining shares sum to two. For thirteen planes at least 52 unordered triples have positive share.\n\nFor triples of pairwise unbiased orthonormal bases of ℍ³, the planes spanned by their rank-one projectors centered at I/3 have minimum share 1−1/√3. Every pairwise unbiased family has at most five bases. In the Albert algebra of Hermitian 3×3 octonionic matrices, twelve pairwise unbiased Jordan frames have a thirteenth unbiased to all, unique up to ordering its idempotents. Systems of thirteen pairwise unbiased Albert frames with exactly 52 unordered triples of positive trace share exist and form one orbit under Jordan automorphisms and relabelling of the frames and of their idempotents.\n\nCompare cubics of equal eikonal strength c, each decomposed into at least two orthogonal closed planes. Scaling mixed terms by t gives Wₜ with energy |∇Wₜ|²/(9c). On a common decomposition, energy on every three-plane sum determines t and, for t∉{0,1}, W and Wₜ up to one sign. At t=0 or t=1, another eikonal cubic of the same strength on the same plane system gives identical energy everywhere at t, and its scaled cubic lies outside {Wₜ, −Wₜ}. If both parameters are positive and differ from one, equal energies everywhere identify the planes up to permutation.\n\nThis Lean development accompanies the paper of the same title, which is available at https://github.com/macgregor-sudo/cartan-cubic-planes/releases/tag/v1.0.0 and has been submitted to Hexagon. The README states all thirteen compared theorems and lists further results.",
+  "authors": [
+    {
+      "name": "Robert R. MacGregor",
+      "orcid": "0009-0003-1734-8054",
+      "orcid_record_checked_at": "2026-11-27T19:49:21Z"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-27-000073-v1/6cf7bffae366118dc6ba69c588ff50122f0b7bab0b1f26f3d7b9fd3afa4d8fdc/",
+    "artifact_tree_sha256": "6cf7bffae366118dc6ba69c588ff50122f0b7bab0b1f26f3d7b9fd3afa4d8fdc",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-27T20:23:32Z",
+    "renderer_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "verso_commit": "6674cf83c82a2c260bf5827d44e58f26568f7cbe"
+  },
+  "classification": {
+    "arxiv": [
+      "math.RA",
+      "math.DG",
+      "quant-ph",
+      "math.RT",
+      "cs.LO"
+    ],
+    "msc2020": [
+      "17C40",
+      "53C42",
+      "17A75",
+      "17B20",
+      "81P16",
+      "35F20",
+      "11E76",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-27",
+  "formalization": {
+    "challenge_path": "src/CartanCubicPlanes/Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.36.0",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
+      },
+      {
+        "name": "albert_sequential_measurements",
+        "repository": "macgregor-sudo/albert-sequential-measurements",
+        "revision": "10e5ca8ce341a1cb3a812569d3081005a40007c8"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "054b228ce0ac61d767c6e71ba73a24728f191b72"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "ff055a2fcc835935e0ae607339b455a5f5896b4b"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "b4b25a3886a16daacaf6615c2eea7170a6e8f458"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "50810f72af7618bee62fe9800dc26e806c188703"
+      }
+    ],
+    "solution_path": "src/CartanCubicPlanes/Solution.lean",
+    "theorem_names": [
+      "Challenge.fields_classification",
+      "Challenge.fields_realizations",
+      "Challenge.closed_decomposition_classification",
+      "Challenge.closed_decomposition_realizations",
+      "Challenge.sum_rule",
+      "Challenge.energy_recovery_labeled",
+      "Challenge.energy_recovery_endpoints",
+      "Challenge.energy_recovery_unlabelled",
+      "Challenge.Quaternionic.quaternionicLowerBound",
+      "Challenge.Quaternionic.quaternionicFiveBound",
+      "Challenge.albertCompletion",
+      "Challenge.albertSparsestSystem",
+      "Challenge.thirteen_plane_share_support"
+    ]
+  },
+  "id": "PALOMAR-2026-11-27-000073",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-27T20:47:58Z",
+    "receipt_sha256": "297796a69b7c118ff98dab2dc868d89bcfcdc2755ddccf6328cad5632ac0f06d",
+    "repositories": [
+      {
+        "commit": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000073-v1/66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000073-v1/b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000073-v1/8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000073-v1/4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000073-v1/fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000073-v1/054b228ce0ac61d767c6e71ba73a24728f191b72",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000073-v1/2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000073-v1/ff055a2fcc835935e0ae607339b455a5f5896b4b",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "50810f72af7618bee62fe9800dc26e806c188703",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000073-v1/50810f72af7618bee62fe9800dc26e806c188703",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "10e5ca8ce341a1cb3a812569d3081005a40007c8",
+        "fork_repository": "PalomarArchive/macgregor-sudo--albert-sequential-measurements--f3879fcf9120",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000073-v1/10e5ca8ce341a1cb3a812569d3081005a40007c8",
+        "source_repository": "macgregor-sudo/albert-sequential-measurements"
+      },
+      {
+        "commit": "38a79db212924d3f85f38d86277330d833f8c83f",
+        "fork_repository": "PalomarArchive/macgregor-sudo--cartan-cubic-planes--83bf9d096afd",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000073-v1/38a79db212924d3f85f38d86277330d833f8c83f",
+        "source_repository": "macgregor-sudo/cartan-cubic-planes"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Robert R. MacGregor"
+          }
+        ],
+        "identifier": "https://github.com/macgregor-sudo/cartan-cubic-planes/releases/tag/v1.0.0",
+        "location": "Theorem A, Theorem B and the results indexed in docs/PAPER-COVERAGE.tsv",
+        "relationship": "formalizes",
+        "title": "On the planes of Cartan's cubics and the missing seven",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "É. Cartan"
+          }
+        ],
+        "identifier": "doi:10.1007/BF01580289",
+        "location": "Part I, §I, nos. 2–6, pp. 337–341, Eqs. (13)–(17), and Part II, §§VII–IX, pp. 359–367",
+        "relationship": "background",
+        "title": "Sur des familles remarquables d'hypersurfaces isoparamétriques dans les espaces sphériques",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "V. G. Tkachev"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1001.2387v2",
+        "location": "Theorem 1.1, Eq. (3) and §3",
+        "relationship": "independently-proves",
+        "title": "A generalization of Cartan's theorem on isoparametric cubics",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. Hurwitz"
+          }
+        ],
+        "identifier": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN252457811_1898/LOG_0034.pdf",
+        "location": "1898, pp. 309–316",
+        "relationship": "background",
+        "title": "Über die Composition der quadratischen Formen von beliebig vielen Variabeln",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "J. C. Baez"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/math/0105155",
+        "location": "§1.1, Theorem 1; §2.2; §4.1, Eq. (19); §4.3, Table 5",
+        "relationship": "background",
+        "title": "The octonions",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "T. A. Springer"
+          },
+          {
+            "name": "F. D. Veldkamp"
+          }
+        ],
+        "identifier": "doi:10.1007/978-3-662-12622-6",
+        "location": "Chapters 1 and 5",
+        "relationship": "background",
+        "title": "Octonions, Jordan Algebras and Exceptional Groups",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "D. J. F. Fox"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1905.00071",
+        "location": "§8, p. 36, Eqs. (8.4)–(8.6)",
+        "relationship": "background",
+        "title": "Harmonic cubic homogeneous polynomials such that the norm-squared of the Hessian is a multiple of the Euclidean quadratic form",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "I. Yokota"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/0902.0431v1",
+        "location": "§§1.14–1.16, Lemmas 2.1.1(2) and 2.2.1(2), Prop. 2.3.7, Prop. 2.4.1(2), Thms. 2.6.1 and 2.7.1, Prop. 2.8.2, and §2.12",
+        "relationship": "background",
+        "title": "Exceptional Lie groups",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Jacques Tits"
+          }
+        ],
+        "identifier": "Indagationes Mathematicae 28 (1966), 223–237",
+        "location": "pp. 223–237. Cited in J. C. Baez, The octonions, §4.3, reference [96].",
+        "relationship": "background",
+        "title": "Algèbres alternatives, algèbres de Jordan et algèbres de Lie exceptionnelles",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "N. Jacobson"
+          }
+        ],
+        "identifier": "doi:10.1090/coll/039",
+        "location": "p. 412, as cited in Elduque and Kochetov, arXiv:1009.1218v3, Remark 6.5",
+        "relationship": "background",
+        "title": "Structure and Representations of Jordan Algebras",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "T. Moran"
+          },
+          {
+            "name": "S. Pumplün"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2403.16342",
+        "location": "§1.4, Eq. (13), and §2.1, Theorems 3(i) and 4(i)",
+        "relationship": "background",
+        "title": "A generalization of the first Tits construction",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Robert R. MacGregor"
+          }
+        ],
+        "identifier": "https://hexagonmath.org/abs/2611.00340v2",
+        "location": "§4.2, Eqs. (10)–(11), and Appendix A.1",
+        "relationship": "background",
+        "title": "On the local geometry of the tight 39-point code in the octonionic projective plane",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "H. Cohn"
+          },
+          {
+            "name": "A. Kumar"
+          },
+          {
+            "name": "G. Minton"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1308.3188v4",
+        "location": "§8.2, Theorem 8.3, and Table 2.3",
+        "relationship": "background",
+        "title": "Optimal simplices and codes in projective spaces",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "O. Chterental"
+          },
+          {
+            "name": "D. Ž. Đoković"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/0708.4051v1",
+        "location": "§4, p. 15, Theorems 5.1 and 5.4, proof of Theorem 5.4, pp. 24–25, and Problem 6.3",
+        "relationship": "background",
+        "title": "On orthostochastic, unistochastic and qustochastic matrices",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "D. McNulty"
+          },
+          {
+            "name": "S. Weigert"
+          }
+        ],
+        "identifier": "doi:10.22331/q-2026-04-01-2051",
+        "location": "§9.3",
+        "relationship": "background",
+        "title": "Mutually unbiased bases in composite dimensions -- a review",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "S. Brierley"
+          },
+          {
+            "name": "S. Weigert"
+          },
+          {
+            "name": "I. Bengtsson"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/0907.4097v2",
+        "location": "§2.2, Eqs. (6)–(11), pp. 4–5",
+        "relationship": "background",
+        "title": "All mutually unbiased bases in dimensions two to five",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "M. Hall, Jr."
+          }
+        ],
+        "identifier": "Wiley, New York, 1986, 2nd edition",
+        "location": "2nd ed., Wiley, New York, 1986. Order-three projective planes.",
+        "relationship": "background",
+        "title": "Combinatorial Theory",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "D. R. Hughes"
+          },
+          {
+            "name": "F. C. Piper"
+          }
+        ],
+        "identifier": "Graduate Texts in Mathematics 6, Springer, New York, 1973",
+        "location": "Graduate Texts in Mathematics 6, Springer, New York, 1973. Order-three projective planes.",
+        "relationship": "background",
+        "title": "Projective Planes",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "R. L. Griess, Jr."
+          }
+        ],
+        "identifier": "doi:10.1016/0021-8693(90)90176-O",
+        "location": "Eqs. (2.9), (4.3)–(4.6)",
+        "relationship": "background",
+        "title": "A Moufang loop, the exceptional Jordan algebra, and a cubic form in 27 variables",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "C. Draper Fontanals"
+          },
+          {
+            "name": "C. Martín González"
+          }
+        ],
+        "identifier": "doi:10.4171/RMI/585",
+        "location": "§2.4, Eq. (4), and §3.4",
+        "relationship": "background",
+        "title": "Gradings on the Albert algebra and on 𝔣₄",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. Elduque"
+          },
+          {
+            "name": "M. Kochetov"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1009.1462",
+        "location": "§4.5, Theorem 4.8 and Remark 4.9",
+        "relationship": "background",
+        "title": "Weyl groups of fine gradings on matrix algebras, octonions and the Albert algebra",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "P. O. Boykin"
+          },
+          {
+            "name": "M. Sitharam"
+          },
+          {
+            "name": "P. H. Tiep"
+          },
+          {
+            "name": "P. Wocjan"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/quant-ph/0506089",
+        "location": "Theorems 5.1–5.2",
+        "relationship": "background",
+        "title": "Mutually unbiased bases and orthogonal decompositions of Lie algebras",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. W. Knapp"
+          }
+        ],
+        "identifier": "https://www.math.stonybrook.edu/~aknapp/pdf-files/1-27.pdf",
+        "location": "Theorem 3.6, p. 16, and §3, pp. 16–17",
+        "relationship": "background",
+        "title": "Structure theory of semisimple Lie groups",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. Elduque"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/0810.2737",
+        "location": "§1 and Theorem 3.5",
+        "relationship": "background",
+        "title": "Jordan gradings on exceptional simple Lie algebras",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "A. I. Kostrikin"
+          },
+          {
+            "name": "P. H. Tiep"
+          }
+        ],
+        "identifier": "doi:10.1515/9783110901757",
+        "location": "Theorem 3.1.2, pp. 85–86",
+        "relationship": "background",
+        "title": "Orthogonal Decompositions and Integral Lattices",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "G. Höhn"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2609.25086v1",
+        "location": "Lemma 5.1",
+        "relationship": "background",
+        "title": "The unique extremal threemodular lattice of rank 26, the generalized hexagon (2,8), and the tight Cayley-plane 5-design",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "F. Zhang"
+          }
+        ],
+        "identifier": "doi:10.1016/0024-3795(95)00543-9",
+        "location": "Spectral results for quaternionic Hermitian matrices",
+        "relationship": "background",
+        "title": "Quaternions and matrices of quaternions",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "L. Rodman"
+          }
+        ],
+        "identifier": "Princeton University Press, Princeton, 2014",
+        "location": "Theorem 5.3.6, as cited in arXiv:2012.03621, §3.1",
+        "relationship": "background",
+        "title": "Topics in Quaternion Linear Algebra",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "C. Chevalley"
+          },
+          {
+            "name": "R. D. Schafer"
+          }
+        ],
+        "identifier": "doi:10.1073/pnas.36.2.137",
+        "location": "pp. 137–141",
+        "relationship": "background",
+        "title": "The exceptional simple Lie algebras F₄ and E₆",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "R. D. Schafer"
+          }
+        ],
+        "identifier": "Academic Press, 1966",
+        "location": "Academic Press, 1966. Commutator derivations in Jordan algebras.",
+        "relationship": "background",
+        "title": "An Introduction to Nonassociative Algebras",
+        "type": "book"
+      },
+      {
+        "authors": [
+          {
+            "name": "M. Hogervorst"
+          },
+          {
+            "name": "C. Toldo"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2010.16222",
+        "location": "Eqs. (3.12)–(3.16)",
+        "relationship": "background",
+        "title": "Bounds on multiscalar CFTs in the ε expansion",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "P. Liendo"
+          },
+          {
+            "name": "J. Rong"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2107.14515",
+        "location": "Eqs. (2.1)–(2.4), p. 5",
+        "relationship": "background",
+        "title": "Seeking SUSY fixed points in the 4−ε expansion",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "H. Osborn"
+          },
+          {
+            "name": "A. Stergiou"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1707.06165v7",
+        "location": "Appendix C, Eqs. (C.5)–(C.7), p. 57",
+        "relationship": "background",
+        "title": "Seeking fixed points in multiple coupling scalar theories in the ε expansion",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "I. Jack"
+          },
+          {
+            "name": "H. Osborn"
+          },
+          {
+            "name": "T. Steudtner"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2301.10903v3",
+        "location": "§7.2, Eqs. (7.13)–(7.14), (7.23)–(7.24), pp. 20–22",
+        "relationship": "background",
+        "title": "Explorations in scalar fermion theories: β-functions, supersymmetry and fixed points",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "J. Rong"
+          },
+          {
+            "name": "N. Su"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1910.08578v1",
+        "location": "Eq. (2.10), Table III, p. 9",
+        "relationship": "background",
+        "title": "Bootstrapping the 𝒩 = 1 Wess–Zumino models in three dimensions",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://github.com/macgregor-sudo/albert-sequential-measurements/tree/10e5ca8ce341a1cb3a812569d3081005a40007c8",
+        "note": "Albert Sequential Measurements v2.0.0 supplies the native compact Albert algebra and operators. Its standalone statement supplies Cayley–Dickson and octonionic Hermitian coordinate definitions.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://palomar-registry.org/entry?id=PALOMAR-2026-11-27-000005&version=1",
+        "note": "Palomar v1 registers the exact pinned Albert Sequential Measurements dependency and Challenge coordinate source at 10e5ca8ce341a1cb3a812569d3081005a40007c8.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://palomar-registry.org/entry?id=PALOMAR-2026-09-13-000001&version=1",
+        "note": "First Tits coordinates and identities adapted from the split-frame source at dd06ef5d423a0e4a5d814d2c221e999b98887ee1. The source headers and notices identify the specific files.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://palomar-registry.org/entry?id=PALOMAR-2026-10-16-000013&version=1",
+        "note": "The pinned sequential-measurements package carries the native Glennie Jordan algebra adapted from the compact Albert recognition source at 40d3b344180d9ddb78aaa2876873377c1e631515.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://palomar-registry.org/entry?id=PALOMAR-2026-10-29-000034&version=1",
+        "note": "ThirteenPlanes/NativeTits.lean specializes the compact first-Tits coordinates TitsS.titsOfNative from Proofs/TitsForm.lean in the earlier tight 39-point formalization. The specialization uses the pinned native Albert carrier and takes the third slot by conjugate transpose. Original source at https://github.com/macgregor-sudo/tight-39-code/blob/46f01c135aacea9003435e7f1dc99b4a69568e83/Proofs/TitsForm.lean#L61.",
+        "relationship": "adapts"
+      },
+      {
+        "identifier": "https://palomar-registry.org/entry?id=PALOMAR-2026-08-29-000018&version=1",
+        "note": "The isotope proofs use CompositionAlgebras.Composition.Defs and CompositionAlgebras.Composition.Classification through the attributed port of composition-algebras at 98d4437ce1bfd8d042b8383e0cfe28ec3e595eee in the sequential-measurements package.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "https://github.com/TauCetiProject/TauCeti/tree/d91980bdc255e6e50506be147ad9bcb88eb9fcc0",
+        "note": "The proof library includes four complete Apache-2.0 Tau Ceti modules at d91980bdc255e6e50506be147ad9bcb88eb9fcc0. Each preserves its original source and notices and has one appended provenance comment. THIRD_PARTY_NOTICES.md lists the exact files and links.",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Robert R. MacGregor"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-27T20:47:30Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "fe7eb47b12ff64dd457693df2b312864fab2921ea309dc2992b0524ad559e3d5"
+    },
+    "reviewed_at": "2026-11-27T20:34:46Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "38a79db212924d3f85f38d86277330d833f8c83f",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "repository": "macgregor-sudo/cartan-cubic-planes",
+    "repository_url": "https://github.com/macgregor-sudo/cartan-cubic-planes",
+    "tree_url": "https://github.com/macgregor-sudo/cartan-cubic-planes/tree/38a79db212924d3f85f38d86277330d833f8c83f"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "jsrjyrvbhr6u"
+  },
+  "title": "On the planes of Cartan's cubics and the missing seven",
+  "trust": {
+    "challenge_bytes": 24304,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Quaternion",
+      "Mathlib.Analysis.Calculus.Gradient.Basic",
+      "Mathlib.LinearAlgebra.Trace"
+    ],
+    "challenge_lines": 394,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "318ce31d33dfe732bf3f257d93846be25f569c51a514f2e48495f3109f1e85db",
+    "evidence_path": "evidence/PALOMAR-2026-11-27-000073-v1/f5bf6471b3e778f9368269109720366a9ebd33bf31a9f77c4de461cc7a799a91/",
+    "evidence_tree_sha256": "f5bf6471b3e778f9368269109720366a9ebd33bf31a9f77c4de461cc7a799a91",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.36.0/bin/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "88d481d2e7aeed3c81281c9d9ed579cbb8a79b9f15b361860f18cb381cae8839",
+    "protected_config_sha256": "21d6843fe29a072e8a29b1b67c1085cc7e78fb7643dea96d6e3bee1a8a20d5d0",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 46059290981,
+    "solution_sha256": "61780c9bb5483f798df0f52f63d9694c7b4851f13ce9f4ed1b65dcc8bba13d45",
+    "tool_digests": {
+      "bwrap": "b538fea1e10424650ecf94996b00b695441b94dc7d38610aba2127ea059560f6",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "42678ccbc2605e2f892540dc7236e009fdd1224e823d104dfd72725d2f1a52d2",
+      "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "leanchecker": "2b2ff08805ace61c935b023f8114ac3f7f1d3bc79cb4e8c47ef7801a5af58798",
+      "leanexport": "8298d4412a1f8986b5dbfd1d9925211778d8d320fc47b72040c8fdfdd5b603d5",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+    "verified_at": "2026-11-27T20:08:06Z",
+    "workflow_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/46059290981"
+  },
+  "version": 1
+}

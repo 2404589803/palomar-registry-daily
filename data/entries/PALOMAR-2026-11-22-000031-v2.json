@@ -1,0 +1,325 @@
+{
+  "abstract": "Unconditional Lean 4 + Mathlib formalization of the companion paper's refutation of McNamara and Steingrimsson's Question 9.5 (2015) via an explicit 19-element closed interval [213, 2574613] of largest rank size 7 and width 8, and of its proof that for every k >= 1 there exists a principal downset [empty, tau_k] whose width exceeds its largest rank size by exactly k. Companion write-up and dated prior-work searches (arXiv, CORE 2026-11-20, Google Scholar 2026-11-22, Zenodo, DataCite, HAL, OSF, and Elizalde-McNamara 2015 / Vatter 2026) are published at https://mathdiscoveries.org/results/pattern-poset-not-sperner; no prior non-Sperner interval of the classical pattern poset was found in those logged searches, while Pouzet-Rosenberg (1986), Burosch et al. (1990, 1996), and print monographs remain unread/unsearched. Coverage by this package's Palomar comparison: of the companion paper's 9 main results, 2 are compared in Lean in full (22%; Corollary 1 and Theorem 3) and 2 in part (Proposition 2: the interval's size 19 and largest rank size 7, not its full list of rank sizes; Theorem 8: deficiency exactly k for some principal downset, not for the named downset [empty, tau_k]); Theorem 4 and Propositions 5, 6 and 7, with the full Proposition 2 and Theorem 8, are proved in this package's Lean library but not compared; Proposition 9 is by certificate only; Conjecture 10 is open and not counted.",
+  "authors": [
+    {
+      "name": "Tyler B. Hughes"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-22-000031-v2/f9c71f814be333f4459b4166fc9bcec1a2698b05ebe261620e34302f9ea22cc1/",
+    "artifact_tree_sha256": "f9c71f814be333f4459b4166fc9bcec1a2698b05ebe261620e34302f9ea22cc1",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-27T22:04:53Z",
+    "renderer_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.CO"
+    ],
+    "msc2020": [
+      "05A05",
+      "06A07"
+    ]
+  },
+  "first_registered_on": "2026-11-22",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "PatternPosetChallenge.mcnamara_steingrimsson_Q9_5_false",
+      "PatternPosetChallenge.downset_exact_deficiency"
+    ]
+  },
+  "id": "PALOMAR-2026-11-22-000031",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-28T02:03:16Z",
+    "receipt_sha256": "b86ff336c1618aa86e69556817c3517cc5e59612b2073cee830d31b81b7e01a8",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000031-v2/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000031-v2/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000031-v2/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000031-v2/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000031-v2/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000031-v2/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000031-v2/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000031-v2/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000031-v2/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "89892fe807911ba85ec02b0b3691a2936fc244ad",
+        "fork_repository": "PalomarArchive/mathdiscoveries--pattern-poset-not-sperner--d18252bef273",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000031-v2/89892fe807911ba85ec02b0b3691a2936fc244ad",
+        "source_repository": "mathdiscoveries/pattern-poset-not-sperner"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Tyler B. Hughes"
+          }
+        ],
+        "identifier": "https://mathdiscoveries.org/results/pattern-poset-not-sperner",
+        "location": "https://mathdiscoveries.org/results/pattern-poset-not-sperner",
+        "relationship": "formalizes",
+        "title": "Non-Sperner Intervals and Unbounded Exact Deficiency in the Classical Permutation Pattern Poset",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Peter R. W. McNamara"
+          },
+          {
+            "name": "Einar Steingrimsson"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/j.jcta.2015.02.009",
+        "location": "Journal of Combinatorial Theory, Series A 134 (2015), 1-35 (arXiv:1305.5569), Question 9.5",
+        "relationship": "background",
+        "title": "On the topology of the permutation pattern poset",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Sergi Elizalde"
+          },
+          {
+            "name": "Peter R. W. McNamara"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/1508.05963",
+        "location": "arXiv:1508.05963 (2015)",
+        "relationship": "background",
+        "title": "The structure of the consecutive pattern poset",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "Vincent Vatter"
+          }
+        ],
+        "identifier": "https://arxiv.org/abs/2602.16355",
+        "location": "arXiv:2602.16355 (2026), Conjecture 2.1",
+        "relationship": "background",
+        "title": "An assortment of problems in permutation patterns: unimodality, equivalence, derangements, and sorting",
+        "type": "paper"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tyler B. Hughes"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-28T02:02:57Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "2d2432887148ee9a88e58d725379728dc5bcbcde71ac0d28a302a9d5bd49cc9d"
+    },
+    "reviewed_at": "2026-11-27T22:20:04Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "89892fe807911ba85ec02b0b3691a2936fc244ad",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "mathdiscoveries/pattern-poset-not-sperner",
+    "repository_url": "https://github.com/mathdiscoveries/pattern-poset-not-sperner",
+    "tree_url": "https://github.com/mathdiscoveries/pattern-poset-not-sperner/tree/89892fe807911ba85ec02b0b3691a2936fc244ad"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "oronkxd359d7"
+  },
+  "title": "Non-Sperner Intervals and Exact Deficiency Family in the Permutation Pattern Poset",
+  "trust": {
+    "challenge_bytes": 3745,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.Data.Finset.Image",
+      "Mathlib.Data.Finset.Lattice.Fold",
+      "Mathlib.Data.Finset.Powerset",
+      "Mathlib.Data.Fintype.Perm",
+      "Mathlib.Order.Hom.Basic"
+    ],
+    "challenge_lines": 95,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "e23e93df186b163365debcc37c223f9d4b72d510b6e9cef4cdac062bb33c8526",
+    "evidence_path": "evidence/PALOMAR-2026-11-22-000031-v2/55e3abaf724e49cc9f6db8639955100061a0015ae2d912941a41f12df7069363/",
+    "evidence_tree_sha256": "55e3abaf724e49cc9f6db8639955100061a0015ae2d912941a41f12df7069363",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "6217f8d7afff5cd1640700d7642a975abc7bb992a7e86cc8ea2269050b71fbbb",
+    "protected_config_sha256": "d798c6a1260cefb48d22e849372ee1438f38b75f3e80c61c9d4db7cf79279ebb",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 46073048823,
+    "solution_sha256": "ef1ef58e0fae4d3c90579aebc59813c2021a36694b52b2b5e5c6f7d21c512312",
+    "tool_digests": {
+      "bwrap": "ffe6fd206b32865ec9a77b8363b212969b82d3c41c198ee418a6805a31abc57d",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-27T21:55:34Z",
+    "workflow_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/46073048823"
+  },
+  "version": 2
+}

@@ -1,0 +1,381 @@
+{
+  "abstract": "Can the same two localized wave patterns occur arbitrarily many times in one infinite network, without spreading into the rest of it? For the specific octagonal Ammann–Beenker graph studied here, the answer is yes.\n\nThe network is built by projecting selected points of a four-dimensional integer lattice into the plane. Its graph Laplacian L assigns the same weight, 1/16, to each edge. Two known compact wave patterns, A and B, live on separate eight-site rings of a central seventeen-vertex patch. Their amplitudes alternate between +1 and −1 and vanish elsewhere. They have exact eigenvalues 3/16 and 1/4, respectively.\n\nThe new theorem proves that for any finite number N, we can find N copies of this patch arbitrarily far from the origin and farther apart than any prescribed separation. The copies include the complete surrounding candidate neighborhoods, with both present and absent vertices preserved. These neighborhoods do not overlap. This is possible because certain lattice translations move arbitrarily far in physical space while their displacement in the internal projection tends to zero.\n\nEach copy carries the same two localized waves, with exactly the original amplitudes and eigenvalues. The eigenvector equations hold at every vertex of the infinite graph, even outside the patch, where the contributions cancel. Every copied wave has squared norm eight. The two waves in each copy, and all waves in different copies, are mutually orthogonal. Thus the construction gives 2N nonzero, mutually orthogonal compact eigenvectors on a single infinite graph. No artificial boundary, numerical approximation or global translation symmetry is assumed.\n\nWhy is this interesting? The earlier results established an isolated two-state system at one location. The new result proves that its underlying compact wave patterns can be replicated at arbitrarily many separated locations, providing a geometric and spectral foundation for placing local two-state systems on the same network. It does not yet make them degenerate, individually isolated or independently controllable qubits: the two Laplacian eigenvalues differ. Engineering distinct degenerate rest energies, proving spectral isolation and implementing local control are the next research goals.\n\nRepetitivity of cut-and-project sets and compact localized states are established research topics. This result certifies their concrete combination for the specified graph and Laplacian, not a claim of priority or experimental feasibility. The full 129-module Lean/Mathlib library passed verification, and all 16 selected propositions passed independent comparison using the Lean default, NanoDa and con-ron kernels. No Palomar registration or independent human peer review is claimed for this seventh candidate.",
+  "authors": [
+    {
+      "name": "Alessandro Odasso"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-27-000067-v1/7f212f8b128c3b3a5b55df85f18bad359055b8cccbb05c030f5ebe61094e9e6b/",
+    "artifact_tree_sha256": "7f212f8b128c3b3a5b55df85f18bad359055b8cccbb05c030f5ebe61094e9e6b",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-27T19:17:16Z",
+    "renderer_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.SP",
+      "cond-mat.mes-hall"
+    ],
+    "msc2020": [
+      "52C23",
+      "05C50",
+      "05C63",
+      "47A75"
+    ]
+  },
+  "first_registered_on": "2026-11-27",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "palomar/recurrent-compact-mode-pairs/comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "SpectralGeometry.AmmannBeenker.admitted_zero",
+      "SpectralGeometry.AmmannBeenker.mate_involutive",
+      "SpectralGeometry.AmmannBeenker.interaction_apply",
+      "SpectralGeometry.AmmannBeenker.centralLift_admitted",
+      "SpectralGeometry.AmmannBeenker.centralPatch_card",
+      "SpectralGeometry.AmmannBeenker.internal_window_boundary_avoided",
+      "SpectralGeometry.AmmannBeenker.finite_pattern_recurrence",
+      "SpectralGeometry.AmmannBeenker.finite_pattern_disjoint_copies",
+      "SpectralGeometry.AmmannBeenker.central_recurrence_neighbors_exact",
+      "SpectralGeometry.AmmannBeenker.central_recurrence_disjoint_copies",
+      "SpectralGeometry.AmmannBeenker.central_translate_eigenvector",
+      "SpectralGeometry.AmmannBeenker.translatedCompactA_eigenvector",
+      "SpectralGeometry.AmmannBeenker.translatedCompactB_eigenvector",
+      "SpectralGeometry.AmmannBeenker.translatedCompact_inner_products",
+      "SpectralGeometry.AmmannBeenker.central_translate_support",
+      "SpectralGeometry.AmmannBeenker.exact_recurrent_compact_mode_pairs"
+    ]
+  },
+  "id": "PALOMAR-2026-11-27-000067",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-27T19:57:17Z",
+    "receipt_sha256": "006dc190c3803e6b66896d9483a3be4b9acd1584d8db68d1e061444708d73ece",
+    "repositories": [
+      {
+        "commit": "64f16eae7785e0c0657bab67c83fa3631c3376bc",
+        "fork_repository": "PalomarArchive/alexodas--spectral_geometry--d3c275959859",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000067-v1/64f16eae7785e0c0657bab67c83fa3631c3376bc",
+        "source_repository": "alexodas/spectral_geometry"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000067-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000067-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000067-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000067-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000067-v1/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000067-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000067-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000067-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-27-000067-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "authors": [
+          {
+            "name": "Alessandro Odasso"
+          }
+        ],
+        "identifier": "https://github.com/alexodas/spectral_geometry",
+        "relationship": "other",
+        "title": "Exact Recurrence and Spatial Replication of Compact Localized Eigenstates on an Infinite Ammann–Beenker Graph",
+        "type": "original-proof"
+      },
+      {
+        "authors": [
+          {
+            "name": "M. Ö. Oktel"
+          }
+        ],
+        "identifier": "https://doi.org/10.1103/PhysRevB.104.014204",
+        "relationship": "background",
+        "title": "Strictly localized states in the octagonal Ammann–Beenker quasicrystal",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "M. Röntgen"
+          },
+          {
+            "name": "C. V. Morfonios"
+          },
+          {
+            "name": "P. Schmelcher"
+          }
+        ],
+        "identifier": "https://doi.org/10.1103/PhysRevB.97.035161",
+        "relationship": "background",
+        "title": "Compact localized states and flat bands from local symmetry partitioning",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "James J. Walton"
+          }
+        ],
+        "identifier": "https://doi.org/10.1016/j.indag.2024.03.003",
+        "relationship": "background",
+        "title": "A characterisation of linear repetitivity for cut and project sets with general polytopal windows",
+        "type": "paper"
+      },
+      {
+        "authors": [
+          {
+            "name": "F. P. M. Beenker"
+          }
+        ],
+        "identifier": "https://pure.tue.nl/ws/files/4269555/253166.pdf",
+        "relationship": "background",
+        "title": "Algebraic theory of non-periodic tilings of the plane by two simple building blocks: a square and a rhombus",
+        "type": "other"
+      },
+      {
+        "authors": [],
+        "identifier": "https://github.com/leanprover-community/mathlib4",
+        "relationship": "background",
+        "title": "Mathlib4 — Lean mathematical library",
+        "type": "other"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "PALOMAR-2026-11-06-000012",
+        "note": "Version 1: exact crossing multiplicity on the specified infinite graph. The quantitative baseline gap is a separate Lean-verified theorem.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-23-000017",
+        "note": "Version 1: signed splitting under a single-edge change, with explicit energy and leakage bounds; the fifth theorem uses coordinated controls.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-25-000001",
+        "note": "Version 1: exact leakage-free preparation from dark up to global phase using three unit-duration coordinated pulses; the fifth theorem extends this to variable durations and prescribed spectral protection.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-26-000015",
+        "note": "Version 1: centered full real-spectral isolation for ideal coordinated controls; the fifth theorem combines it with variable-duration exact preparation.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-27-000003",
+        "note": "Version 1: protected exact state preparation on the original confined model. The present result replicates compact eigenvectors of the shared graph Laplacian; it does not transfer that control theorem.",
+        "relationship": "builds-on"
+      },
+      {
+        "identifier": "PALOMAR-2026-11-27-000042",
+        "note": "Version 1: bounded plateau isolation of the central pair. This result concerns the Laplacian, not transfer of the isolated double eigenvalue.",
+        "relationship": "builds-on"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Alessandro Odasso"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "registered_at": "2026-11-27T19:56:51Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "1de07b78ec2da06411056fb5961d41c1994b3234e3de1a31657dd0e6ac2cbbb2"
+    },
+    "reviewed_at": "2026-11-27T19:28:15Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "64f16eae7785e0c0657bab67c83fa3631c3376bc",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "alexodas/spectral_geometry",
+    "repository_url": "https://github.com/alexodas/spectral_geometry",
+    "tree_url": "https://github.com/alexodas/spectral_geometry/tree/64f16eae7785e0c0657bab67c83fa3631c3376bc"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "w72j56fl4b3u"
+  },
+  "title": "Exact Recurrence and Spatial Replication of Compact Localized Eigenstates on an Infinite Ammann–Beenker Graph",
+  "trust": {
+    "challenge_bytes": 13160,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib"
+    ],
+    "challenge_lines": 289,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "fa89ab7f28c63afe8768b54205608910f68bb9c972a6293d48fead0b79a0417d",
+    "evidence_path": "evidence/PALOMAR-2026-11-27-000067-v1/5a33a1e40bfe4628f681257771926752c2652c57541722f7b6a9bbbd9fd7801c/",
+    "evidence_tree_sha256": "5a33a1e40bfe4628f681257771926752c2652c57541722f7b6a9bbbd9fd7801c",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "eb5ed87eead9e1667b86a2c76f32de8342f416f279d7f44d60f1f8c34bb80b0a",
+    "protected_config_sha256": "c3aced14058bab0bb7d3ee3b78e6ff45e7b84f919b7a2b1cf77634423fc98b81",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 46049921981,
+    "solution_sha256": "e0527fb200cc760b54aaf876b80f85ae06c19021378f9ed1e6e9ce6ffcf1bd37",
+    "tool_digests": {
+      "bwrap": "2f4b2730ee4e02bb9bbc431134d9397db2951ab30a25ddc2ae1d4819203d67d2",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-27T18:38:12Z",
+    "workflow_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/46049921981"
+  },
+  "version": 1
+}

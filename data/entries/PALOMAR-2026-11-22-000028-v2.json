@@ -1,0 +1,321 @@
+{
+  "abstract": "Unconditional Lean 4 formalization of two explicit, strictly increasing, pairwise disjoint infinite families x(m) and y(m) (m >= 0) of base-6 Lychrel numbers under repeated base-6 reverse-and-add T(n) = n + rev_6(n). Family 1 has 110 + 2m base-6 digits (smallest seed x(0) with 86 decimal digits) and Family 2 has 108 + 2m base-6 digits (smallest seed y(0) with 84 decimal digits), with middle blocks linked by base-6 digit complement d |-> 5 - d. Both satisfy the exact period-12 self-similar recurrence T^[12](x(m)) = x(m + 3) and T^[12](y(m)) = y(m + 3) while avoiding all base-6 palindromes, proving unconditionally that infinitely many base-6 Lychrel numbers exist. Coverage by this package's Palomar comparison: of the companion paper's 10 main results, 2 are compared in Lean in full (20%; Theorems 1 and 2) and 2 in part (Corollary 3: every x(m) and y(m) is a base-6 Lychrel number, without its positivity and per-iterate form; Theorem 7: the two families are disjoint, without the injectivity of all six forward trajectories); 5 more (Lemma 4, Theorem 5, Proposition 6, Theorem 8 and Corollary 9) are proved in this package's Lean library but not compared, though the compared statements include the infinitude of base-6 Lychrel numbers; Proposition 10 is by certificate only; Conjecture 11 is open and not counted.",
+  "authors": [
+    {
+      "name": "Tyler B. Hughes"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-22-000028-v2/295f65657caced32199e6c9a55919531ed1ed5ba1b669e32ffd0d80cb96bb900/",
+    "artifact_tree_sha256": "295f65657caced32199e6c9a55919531ed1ed5ba1b669e32ffd0d80cb96bb900",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-27T14:40:28Z",
+    "renderer_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.NT"
+    ],
+    "msc2020": [
+      "11A63",
+      "11B37"
+    ]
+  },
+  "first_registered_on": "2026-11-22",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "LychrelBase6.infinite_lychrel6",
+      "LychrelBase6.xValue_lychrel",
+      "LychrelBase6.xValue_step12",
+      "LychrelBase6.xValue_strictMono",
+      "LychrelBase6.xValue_zero_eq",
+      "LychrelBase6.yValue_lychrel",
+      "LychrelBase6.yValue_step12",
+      "LychrelBase6.yValue_strictMono",
+      "LychrelBase6.yValue_zero_eq",
+      "LychrelBase6.xValue_disjoint_yValue"
+    ]
+  },
+  "id": "PALOMAR-2026-11-22-000028",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-27T17:58:28Z",
+    "receipt_sha256": "d1577e1e6ac2497cc2196e38651c8adb16873e77d55511ea5d2a444b42400f9c",
+    "repositories": [
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000028-v2/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000028-v2/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000028-v2/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000028-v2/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000028-v2/56a005855ea17e0b0958f73ec801ae140b0a1679",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000028-v2/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000028-v2/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000028-v2/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000028-v2/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      },
+      {
+        "commit": "44806352a65531143d5fe7cdfc0677d30fea07ac",
+        "fork_repository": "PalomarArchive/mathdiscoveries--lychrel-base6--df9a6b794a34",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-22-000028-v2/44806352a65531143d5fe7cdfc0677d30fea07ac",
+        "source_repository": "mathdiscoveries/lychrel-base6"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Tyler B. Hughes"
+          }
+        ],
+        "identifier": "https://mathdiscoveries.org/results/lychrel-base-6-families",
+        "location": "https://mathdiscoveries.org/results/lychrel-base-6-families",
+        "relationship": "formalizes",
+        "title": "Two Infinite Families of Base-6 Lychrel Numbers: Carry Proofs and Six-Orbit Counts",
+        "type": "paper"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Y. Kusayama"
+          }
+        ],
+        "identifier": "https://github.com/dew-web/lychrel-self-similar",
+        "relationship": "background",
+        "title": "dew-web/lychrel-self-similar",
+        "type": "other"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [
+          {
+            "name": "David Seal"
+          }
+        ],
+        "identifier": "https://www.mathpages.com/home/dseal.htm",
+        "location": "Usenet rec.puzzles (January 1996), archived on MathPages",
+        "relationship": "background",
+        "title": "Sporadic solutions for reverse-sum iterations",
+        "type": "web discussion"
+      },
+      {
+        "author_endorsement": "n/a",
+        "authors": [],
+        "identifier": "https://oeis.org/A060382",
+        "relationship": "background",
+        "title": "OEIS A060382: Smallest Lychrel number in base n",
+        "type": "web discussion"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Tyler B. Hughes"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-27T17:58:07Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "165c3b7e8c12614dedb9aaa951ee7a20d187d844faf2377d3b44e07b7f3f2ca7"
+    },
+    "reviewed_at": "2026-11-27T14:52:34Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "44806352a65531143d5fe7cdfc0677d30fea07ac",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "mathdiscoveries/lychrel-base6",
+    "repository_url": "https://github.com/mathdiscoveries/lychrel-base6",
+    "tree_url": "https://github.com/mathdiscoveries/lychrel-base6/tree/44806352a65531143d5fe7cdfc0677d30fea07ac"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "gs4ixdmiqhr0"
+  },
+  "title": "Two infinite families of base-6 Lychrel numbers",
+  "trust": {
+    "challenge_bytes": 4786,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Data.Nat.Digits.Defs",
+      "Mathlib.Data.Set.Finite.Basic",
+      "Mathlib.Order.Monotone.Basic"
+    ],
+    "challenge_lines": 119,
+    "level": "high",
+    "reasons": []
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "ed908c64d08e023b5e3c68d7373155ed6010b5ff7d37a55dbe91536868cde091",
+    "evidence_path": "evidence/PALOMAR-2026-11-22-000028-v2/c349cebfe8a4dae68dbb2cdfdcae325eae7596cb7bedb77e0cc09c7d5c872bd0/",
+    "evidence_tree_sha256": "c349cebfe8a4dae68dbb2cdfdcae325eae7596cb7bedb77e0cc09c7d5c872bd0",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "7c6227470811d96468e883d1b12c571eb29b6814bc120fe0b68081898f520b75",
+    "protected_config_sha256": "478992ddc787ecd8bd8bab1d41bb501df8e8fd4e522115d2551a0e556bea3a8b",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 46009357346,
+    "solution_sha256": "d80bf1240c839c33ef8aff5bb24fb63b00d9d06423ae7f600c3c84c05676cec6",
+    "tool_digests": {
+      "bwrap": "3af01113d0b00d0e43ee0c5b8d44d1328877dab7a961e5e51cc9fcc42d746214",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-27T13:45:28Z",
+    "workflow_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/46009357346"
+  },
+  "version": 2
+}

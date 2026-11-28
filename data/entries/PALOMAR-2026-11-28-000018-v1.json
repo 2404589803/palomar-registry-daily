@@ -1,0 +1,354 @@
+{
+  "abstract": "A Lean 4 / Mathlib formalization of Itaï Ben Yaacov and Arthur Paul Pedersen, \"A proof of completeness for continuous first-order logic\", Journal of Symbolic Logic 75 (2010) 168–190 (arXiv:0903.4051). Framing: rigorous reconstruction/verification of continuous propositional and first-order syntax/semantics, Group 1 / Group 2 axioms, black-box theorems, and the completeness / approximated strong-completeness results, together with the selected decidability (Corollary 9.11) and compactness (Corollary 9.12) consequences. Project rule: no Lean `axiom` declarations. Itaï Ben Yaacov and Arthur Paul Pedersen did not participate in or endorse this formalization; they have not been contacted about it. Lean is written with AI-agent assistance under Lars Warren Ericson’s direction and review. Mathlib is the Lake dependency. Palomar registration pending; packaging follows the Challenge / Solution / comparator.json pattern. Deviation from the paper: Facts 4.2 and 4.3 (consistency iff satisfiability, Łukasiewicz and continuous propositional logic) needed the added premise that there is at least one propositional variable (`[Nonempty I]`). As literally stated they fail when there are no variables (the empty set is then satisfiable but inconsistent); this counterexample is proved in Lean (`LukPropForm.consistent_iff_satisfiable_fails_empty`, `CLPropForm.consistent_iff_satisfiable_fails_empty`).",
+  "authors": [
+    {
+      "name": "Lars Warren Ericson"
+    }
+  ],
+  "challenge_render": {
+    "artifact_path": "renders/PALOMAR-2026-11-28-000018-v1/341bb4fe62bcaf1c0adc724837994a34616836087b6f849396a7709f41ac4907/",
+    "artifact_tree_sha256": "341bb4fe62bcaf1c0adc724837994a34616836087b6f849396a7709f41ac4907",
+    "bwrap_source_tag": "v0.12.0",
+    "entrypoint": "Challenge/index.html",
+    "format": "verso-html",
+    "rendered_at": "2026-11-28T02:30:34Z",
+    "renderer_commit": "952cc3697b3f335c6cc0c21932e55ee92921dd35",
+    "verso_commit": "304b8561790c50222551c937ce02928df0d5b445"
+  },
+  "classification": {
+    "arxiv": [
+      "math.LO",
+      "cs.LO"
+    ],
+    "msc2020": [
+      "03B50",
+      "03C66",
+      "03B10",
+      "68V20"
+    ]
+  },
+  "first_registered_on": "2026-11-28",
+  "formalization": {
+    "challenge_path": "Challenge.lean",
+    "comparator_config_path": "comparator.json",
+    "definition_names": [
+      "ContinuousFOL.Formula.dyadic",
+      "ContinuousFOL.Formula.pow2Neg",
+      "ContinuousFOL.Formula.supClosure",
+      "ContinuousFOL.Formula.eval",
+      "ContinuousFOL.Formula.freeVars",
+      "ContinuousFOL.Formula.freeSubst",
+      "ContinuousFOL.Formula.minF",
+      "ContinuousFOL.Formula.one",
+      "ContinuousFOL.Formula.defaultAtom",
+      "ContinuousFOL.Term.eval",
+      "ContinuousFOL.Term.vars",
+      "ContinuousFOL.Term.subst",
+      "ContinuousFOL.DyadicCode.mulPow2Neg",
+      "ContinuousFOL.DyadicCode.val",
+      "ContinuousFOL.DyadicCode.pow2Neg",
+      "ContinuousFOL.DyadicCode.zero",
+      "ContinuousFOL.DyadicCode.add",
+      "ContinuousFOL.SignatureExtension.mapFormula",
+      "ContinuousFOL.SignatureExtension.mapTerm",
+      "ContinuousFOL.ProvableQ",
+      "ContinuousFOL.ProvableMetricQ",
+      "ContinuousFOL.ConsistentQ",
+      "ContinuousFOL.ConsistentMetricQ",
+      "ContinuousFOL.ModelsPre",
+      "ContinuousFOL.SatisfiablePre",
+      "ContinuousFOL.SatisfiableMetricPre",
+      "ContinuousFOL.EntailsPre",
+      "ContinuousFOL.EntailsMetricPre",
+      "ContinuousFOL.CompletelySatisfiable",
+      "ContinuousFOL.EntailsComplete",
+      "ContinuousFOL.HenkinComplete",
+      "ContinuousFOL.degreeOfTruthPre",
+      "ContinuousFOL.degreeOfTruthMetric",
+      "ContinuousFOL.degreeOfProvabilityPre",
+      "ContinuousFOL.degreeOfProvabilityMetric",
+      "ContinuousFOL.metricAxiomSet",
+      "ContinuousFOL.IsCompleteTheory",
+      "ContinuousFOL.IsAxiomatization",
+      "ContinuousFOL.IsDecidableTheory",
+      "ContinuousFOL.DegreeUniformlyComputable",
+      "ContinuousFOL.IsSentence",
+      "ContinuousFOL.IsTheory",
+      "ContinuousFOL.replaceArg",
+      "ContinuousFOL.tsubR",
+      "ContinuousFOL.updateAssign"
+    ],
+    "formalization_metadata_path": "formalization.yaml",
+    "lakefile_path": "lakefile.toml",
+    "lean_toolchain": "leanprover/lean4:v4.35.0",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "project_dependencies": [
+      {
+        "name": "mathlib",
+        "repository": "leanprover-community/mathlib4",
+        "revision": "e91b128082cc221d6432a6a5aadcd3243af8e76c"
+      },
+      {
+        "name": "plausible",
+        "repository": "leanprover-community/plausible",
+        "revision": "dfa4f38190d07c37e315953e08b90fe2d95b3c24"
+      },
+      {
+        "name": "LeanSearchClient",
+        "repository": "leanprover-community/LeanSearchClient",
+        "revision": "d6b4c7be5be75ec4917c873ac50c756dc1436372"
+      },
+      {
+        "name": "importGraph",
+        "repository": "leanprover-community/import-graph",
+        "revision": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93"
+      },
+      {
+        "name": "proofwidgets",
+        "repository": "leanprover-community/ProofWidgets4",
+        "revision": "df72b022e558978a1c50264cfc4d7fec86fa8e04"
+      },
+      {
+        "name": "aesop",
+        "repository": "leanprover-community/aesop",
+        "revision": "4a174c490d8707121c4a9290800489f105d85e07"
+      },
+      {
+        "name": "Qq",
+        "repository": "leanprover-community/quote4",
+        "revision": "dce0ad79c486cb1fb504af04f953c3466b0c6db8"
+      },
+      {
+        "name": "batteries",
+        "repository": "leanprover-community/batteries",
+        "revision": "66e469188fe07963e5cf666c7d4433f45b8131c5"
+      },
+      {
+        "name": "Cli",
+        "repository": "leanprover/lean4-cli",
+        "revision": "c24fe6078c630e89b489bffe59b3e20ac30d12c8"
+      }
+    ],
+    "solution_path": "Solution.lean",
+    "theorem_names": [
+      "ContinuousFOL.soundness_pre",
+      "ContinuousFOL.soundness_metric_full",
+      "ContinuousFOL.henkin_model_existence",
+      "ContinuousFOL.henkin_model_existence_metric",
+      "ContinuousFOL.completeness_pre",
+      "ContinuousFOL.completeness_metric",
+      "ContinuousFOL.approximated_strong_completeness_pre",
+      "ContinuousFOL.approximated_strong_completeness_metric",
+      "ContinuousFOL.pavelka_completeness_pre",
+      "ContinuousFOL.pavelka_completeness_metric",
+      "ContinuousFOL.complete_re_theory_decidable",
+      "ContinuousFOL.compactness_pre",
+      "ContinuousFOL.compactness_metric"
+    ]
+  },
+  "id": "PALOMAR-2026-11-28-000018",
+  "preservation": {
+    "archive_owner": "PalomarArchive",
+    "archived_at": "2026-11-28T04:08:54Z",
+    "receipt_sha256": "24ec6f1098d6c0649dbc02ecea2ac833a6c5f6b18de168c4187d3d98d7b7312e",
+    "repositories": [
+      {
+        "commit": "8ef52217b547146a66bbe31ca5e6592c4adaf1a1",
+        "fork_repository": "PalomarArchive/catskillsresearch--yaacov-pedersen-2010--aa99d1d921a1",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000018-v1/8ef52217b547146a66bbe31ca5e6592c4adaf1a1",
+        "source_repository": "catskillsresearch/yaacov-pedersen-2010"
+      },
+      {
+        "commit": "4a174c490d8707121c4a9290800489f105d85e07",
+        "fork_repository": "PalomarArchive/leanprover-community--aesop--01b46b609077",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000018-v1/4a174c490d8707121c4a9290800489f105d85e07",
+        "source_repository": "leanprover-community/aesop"
+      },
+      {
+        "commit": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "fork_repository": "PalomarArchive/leanprover-community--batteries--1b4c776305c9",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000018-v1/66e469188fe07963e5cf666c7d4433f45b8131c5",
+        "source_repository": "leanprover-community/batteries"
+      },
+      {
+        "commit": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "fork_repository": "PalomarArchive/leanprover-community--import-graph--e0a79261b05a",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000018-v1/a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+        "source_repository": "leanprover-community/import-graph"
+      },
+      {
+        "commit": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "fork_repository": "PalomarArchive/leanprover-community--LeanSearchClient--9de355ab5f53",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000018-v1/d6b4c7be5be75ec4917c873ac50c756dc1436372",
+        "source_repository": "leanprover-community/LeanSearchClient"
+      },
+      {
+        "commit": "e91b128082cc221d6432a6a5aadcd3243af8e76c",
+        "fork_repository": "PalomarArchive/leanprover-community--mathlib4--67b3d817d8a2",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000018-v1/e91b128082cc221d6432a6a5aadcd3243af8e76c",
+        "source_repository": "leanprover-community/mathlib4"
+      },
+      {
+        "commit": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "fork_repository": "PalomarArchive/leanprover-community--plausible--fb632f6f7bf4",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000018-v1/dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+        "source_repository": "leanprover-community/plausible"
+      },
+      {
+        "commit": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "fork_repository": "PalomarArchive/leanprover-community--ProofWidgets4--26014acbbaff",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000018-v1/df72b022e558978a1c50264cfc4d7fec86fa8e04",
+        "source_repository": "leanprover-community/ProofWidgets4"
+      },
+      {
+        "commit": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "fork_repository": "PalomarArchive/leanprover-community--quote4--90d31d153685",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000018-v1/dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+        "source_repository": "leanprover-community/quote4"
+      },
+      {
+        "commit": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "fork_repository": "PalomarArchive/leanprover--lean4-cli--df175a7fc790",
+        "ref": "refs/tags/palomar/PALOMAR-2026-11-28-000018-v1/c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+        "source_repository": "leanprover/lean4-cli"
+      }
+    ]
+  },
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Itaï Ben Yaacov"
+          },
+          {
+            "name": "Arthur Paul Pedersen"
+          }
+        ],
+        "identifier": "https://doi.org/10.2178/jsl/1264433914",
+        "relationship": "formalizes",
+        "title": "A proof of completeness for continuous first-order logic",
+        "type": "article"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Lars Warren Ericson"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "registered_at": "2026-11-28T04:08:35Z",
+  "review": {
+    "outcome": "neutral",
+    "policy_commit": "5bd35cddcfc940532bb5f55e399d68b49b0986a5",
+    "report": {
+      "sha256": "731c1e9aa5e6e2ce284c71ac1fb6db78a0c14174cec812a1ef545949f5a0c769"
+    },
+    "reviewed_at": "2026-11-28T02:52:34Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": []
+  },
+  "schema_version": 5,
+  "source": {
+    "commit": "8ef52217b547146a66bbe31ca5e6592c4adaf1a1",
+    "license": {
+      "declared_identifier": "Apache-2.0",
+      "detected_identifier": "Apache-2.0",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "repository": "catskillsresearch/yaacov-pedersen-2010",
+    "repository_url": "https://github.com/catskillsresearch/yaacov-pedersen-2010",
+    "tree_url": "https://github.com/catskillsresearch/yaacov-pedersen-2010/tree/8ef52217b547146a66bbe31ca5e6592c4adaf1a1"
+  },
+  "status": "registered",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "submission_id": "0wadszydja5k"
+  },
+  "title": "Ben Yaacov–Pedersen 2010 continuous FOL completeness in Lean 4",
+  "trust": {
+    "challenge_bytes": 18649,
+    "challenge_dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "challenge_imports": [
+      "Mathlib.Algebra.Order.Archimedean.Real.Basic",
+      "Mathlib.Basic.Real.Basic",
+      "Mathlib.Computability.RE",
+      "Mathlib.Data.Finset.Basic",
+      "Mathlib.Data.Finset.Sort",
+      "Mathlib.Data.Finset.Union",
+      "Mathlib.Data.Fintype.Basic",
+      "Mathlib.Data.Set.Basic",
+      "Mathlib.Data.Set.Lattice.Image",
+      "Mathlib.Data.Set.Lattice.Indexed",
+      "Mathlib.Logic.Function.Basic",
+      "Mathlib.Topology.MetricSpace.Basic",
+      "Mathlib.Topology.MetricSpace.Completion"
+    ],
+    "challenge_lines": 408,
+    "level": "high",
+    "reasons": [
+      "Challenge exceeds the preferred audit surface"
+    ]
+  },
+  "verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "8d7d1e8d1b9a7f8911ef7cb393f96afe6c7127a3b143ac91639e1ef7ddd5b544",
+    "evidence_path": "evidence/PALOMAR-2026-11-28-000018-v1/638a2f77d63f748840b6adae6f8fc75e46d0fecb8b094b35605df5110c7527e0/",
+    "evidence_tree_sha256": "638a2f77d63f748840b6adae6f8fc75e46d0fecb8b094b35605df5110c7527e0",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "131e813b4cac04cf62f10074475e43cbdffb89346092e83866ad2aae1898d6f2",
+    "protected_config_sha256": "ab2ca9868eeb21e5a487e2d5324be90da286f7d96850edac01a9cf8333a7b910",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 46097240719,
+    "solution_sha256": "1bc750353ba2bb52326cc7dbaa622599de365844014575f5cbf874349fa5ff7c",
+    "tool_digests": {
+      "bwrap": "f1b80f55b446c805601ecc1ea3154425a0437b412c3377be58a6f72eef077f69",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6",
+      "leanexport": "f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074",
+      "nanoda_bin": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5"
+    },
+    "toolchain_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+    "verified_at": "2026-11-28T02:20:23Z",
+    "workflow_commit": "952cc3697b3f335c6cc0c21932e55ee92921dd35",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/46097240719"
+  },
+  "version": 1
+}
